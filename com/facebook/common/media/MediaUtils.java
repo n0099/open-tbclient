@@ -1,7 +1,6 @@
 package com.facebook.common.media;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +32,7 @@ public class MediaUtils {
                 return;
             }
         }
-        ADDITIONAL_ALLOWED_MIME_TYPES = ImmutableMap.of("mkv", "video/x-matroska", "glb", "model/gltf-binary", BdVideoSeries.FORMAT_FLV, "flv-application/octet-stream");
+        ADDITIONAL_ALLOWED_MIME_TYPES = ImmutableMap.of("mkv", "video/x-matroska", "glb", "model/gltf-binary", "flv", "flv-application/octet-stream");
     }
 
     public MediaUtils() {

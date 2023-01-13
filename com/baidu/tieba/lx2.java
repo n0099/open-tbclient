@@ -1,14 +1,12 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.os.Bundle;
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import android.util.ArrayMap;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.tieba.i33;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,130 +14,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.AbstractBceClient;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Iterator;
+import java.util.Locale;
 /* loaded from: classes5.dex */
-public class lx2 {
+public class lx2 implements cj3<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
-    public static lx2 f;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, JSONArray> a;
-    public String[] b;
-    public String c;
-    public Map<String, String> d;
-
-    /* loaded from: classes5.dex */
-    public static abstract class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public abstract void c(String str);
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final void b(int i) {
-            Application c;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (c = ln2.c()) != null) {
-                c(c.getString(i));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends ResponseCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public AtomicInteger a;
-        public boolean b;
-        public int c;
-        public a d;
-        public final /* synthetic */ lx2 e;
-
-        public b(lx2 lx2Var, int i, a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lx2Var, Integer.valueOf(i), aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = lx2Var;
-            this.a = new AtomicInteger(0);
-            this.c = i;
-            this.d = aVar;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            a aVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, exc) == null) && !this.b && this.a.incrementAndGet() >= this.c && (aVar = this.d) != null) {
-                aVar.b(R.string.obfuscated_res_0x7f0f014e);
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(Object obj, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
-                this.b = true;
-                this.e.a = new ArrayMap();
-                a aVar = this.d;
-                if (aVar != null) {
-                    aVar.b(R.string.obfuscated_res_0x7f0f0152);
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public Object parseResponse(Response response, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
-                if (response != null && response.body() != null && response.isSuccessful()) {
-                    try {
-                        return response.body().string();
-                    } catch (IOException e) {
-                        if (lx2.e) {
-                            Log.d("TraceDataManager", "Trace Data publish fail for IOException", e);
-                        }
-                    }
-                }
-                return null;
-            }
-            return invokeLI.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -154,36 +35,7 @@ public class lx2 {
                 return;
             }
         }
-        e = ok1.a;
-    }
-
-    public static lx2 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f == null) {
-                synchronized (lx2.class) {
-                    if (f == null) {
-                        f = new lx2();
-                    }
-                }
-            }
-            return f;
-        }
-        return (lx2) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String[] strArr = this.b;
-            if (strArr != null && strArr.length > 0 && !TextUtils.isEmpty(this.c)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
+        a = tk1.a;
     }
 
     public lx2() {
@@ -196,112 +48,200 @@ public class lx2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
-        }
-        this.a = new ArrayMap();
-        this.c = "";
-        this.d = new HashMap();
-    }
-
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && this.a != null && jSONObject != null) {
-            String T = rp2.U().T();
-            JSONArray jSONArray = this.a.get(T);
-            if (jSONArray == null) {
-                jSONArray = new JSONArray();
-                this.a.put(T, jSONArray);
-            }
-            jSONArray.put(jSONObject);
         }
     }
 
-    public final String d(int i) {
-        InterceptResult invokeI;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.cj3
+    /* renamed from: b */
+    public void a(HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (f() && i < this.b.length) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
+            c(hybridUbcFlow);
+        }
+    }
+
+    @SuppressLint({"SwanDebugLog", "LogConditional"})
+    public void c(HybridUbcFlow hybridUbcFlow) {
+        long f;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        String str5;
+        boolean z;
+        boolean z2;
+        int i;
+        String str6;
+        String str7;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow) == null) {
+            j43 M = j43.M();
+            if (hybridUbcFlow != null && !hybridUbcFlow.f.isEmpty() && a && M != null) {
+                HybridUbcFlow.SubmitStrategy i2 = hybridUbcFlow.i();
+                String str8 = "fe_route_start";
+                if (!hybridUbcFlow.d.contains("fe_route_start")) {
+                    str8 = "na_first_receive_action";
+                }
+                int i3 = 2;
+                char c = 1;
+                char c2 = 0;
+                if (i2 == HybridUbcFlow.SubmitStrategy.ROUTE) {
+                    f = hybridUbcFlow.f("fe_first_render_start", str8);
+                } else if (i2 == HybridUbcFlow.SubmitStrategy.ROUTE_NA) {
+                    f = hybridUbcFlow.f("na_push_page_end", str8);
+                } else {
+                    f = hybridUbcFlow.f("web_widget_first_screen_finish", str8);
+                }
+                if (f < 1) {
+                    f = 1;
+                }
+                String Z = M.Z();
+                String str9 = "";
+                if (TextUtils.isEmpty(Z)) {
+                    Z = "";
+                }
+                if (TextUtils.isEmpty(M.b)) {
+                    str = "";
+                } else {
+                    str = M.b;
+                }
+                if (M.Y() == null) {
+                    str2 = "";
+                } else {
+                    str2 = M.Y().V();
+                }
+                Log.i("RouteReporter", "\n\n  小程序路由性能报告: " + Z + " appID: " + str + " launchId ：" + str2 + " speedLog\n");
                 StringBuilder sb = new StringBuilder();
-                sb.append("http://");
-                sb.append(this.b[i]);
-                sb.append(":");
-                sb.append(this.c);
-                sb.append("/uploadTraceData");
-                sb.append("?");
-                for (Map.Entry<String, String> entry : this.d.entrySet()) {
-                    sb.append(entry.getKey());
-                    sb.append("=");
-                    sb.append(entry.getValue());
+                for (int i4 = 0; i4 < 100; i4++) {
+                    sb.append("&");
                 }
-                return sb.toString();
-            }
-            return "";
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public void h(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, bundle) != null) || bundle == null) {
-            return;
-        }
-        String string = bundle.getString("tool_ip");
-        String string2 = bundle.getString("tool_port");
-        String string3 = bundle.getString("projectId");
-        if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3)) {
-            if (e) {
-                Log.d("TraceDataManager", "IP : " + string);
-                Log.d("TraceDataManager", "Port : " + string2);
-                Log.d("TraceDataManager", "Project ID : " + string3);
-            }
-            this.b = string.split("_");
-            this.c = string2;
-            this.d.put("projectId", string3);
-        } else if (e) {
-            Log.d("TraceDataManager", "Trace Data Params is invalid");
-        }
-    }
-
-    public void g(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            if (!f()) {
-                w33.f(d43.K().w(), R.string.obfuscated_res_0x7f0f014f).G();
-                return;
-            }
-            Map<String, JSONArray> map = this.a;
-            if (map != null && map.size() > 0) {
-                JSONArray jSONArray = new JSONArray();
-                try {
-                    for (Map.Entry<String, JSONArray> entry : this.a.entrySet()) {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.putOpt("path", entry.getKey());
-                        jSONObject.putOpt("data", entry.getValue().toString());
-                        jSONArray.put(jSONObject);
+                Log.i("RouteReporter", String.format("Delta [%s]  Cost Src  Total Action", sb.toString()));
+                long g = hybridUbcFlow.f.get(0).g();
+                Iterator<UbcFlowEvent> it = hybridUbcFlow.f.iterator();
+                long j = 0;
+                long j2 = 0;
+                while (it.hasNext()) {
+                    UbcFlowEvent next = it.next();
+                    String[] strArr = new String[i3];
+                    strArr[c2] = next.a;
+                    strArr[c] = str8;
+                    long f2 = hybridUbcFlow.f(strArr);
+                    if (f2 < j) {
+                        z = true;
+                    } else {
+                        z = false;
                     }
-                } catch (JSONException e2) {
-                    if (e) {
-                        Log.e("TraceDataManager", "Maybe the format of the Trace data is incorrect", e2);
+                    if (f2 > f) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
                     }
+                    if (z) {
+                        f2 = j;
+                    }
+                    if (z2) {
+                        f2 = f;
+                    }
+                    long j3 = f2 - j2;
+                    boolean z3 = z2;
+                    if (j3 < j) {
+                        j3 = j;
+                    }
+                    long j4 = 100;
+                    int round = Math.round((float) ((f2 * j4) / f));
+                    if (round > 100) {
+                        round = 100;
+                    }
+                    int round2 = Math.round((float) ((j3 * j4) / f));
+                    if (round2 > 100) {
+                        i = 100;
+                    } else {
+                        i = round2;
+                    }
+                    StringBuilder sb2 = new StringBuilder();
+                    Iterator<UbcFlowEvent> it2 = it;
+                    sb2.append(String.format(Locale.getDefault(), "%5d ", Long.valueOf(j3)));
+                    if (z) {
+                        str6 = "<";
+                    } else {
+                        str6 = PreferencesUtil.LEFT_MOUNT;
+                    }
+                    sb2.append(str6);
+                    for (int i5 = 0; i5 < 100; i5++) {
+                        if (i5 > round) {
+                            sb2.append(".");
+                        } else if (i5 > i) {
+                            sb2.append("=");
+                        } else {
+                            sb2.append("#");
+                        }
+                    }
+                    if (z3) {
+                        str7 = ">";
+                    } else {
+                        str7 = PreferencesUtil.RIGHT_MOUNT;
+                    }
+                    sb2.append(str7);
+                    c = 1;
+                    sb2.append(String.format(Locale.getDefault(), " %5d", Long.valueOf(f2)));
+                    sb2.append(String.format("  %s", next.f()));
+                    sb2.append(String.format(Locale.getDefault(), " %6d ", Long.valueOf(next.g() - g)));
+                    sb2.append(next.a);
+                    if (next.b()) {
+                        sb2.append("(LocalRecord)");
+                    }
+                    Log.i("RouteReporter", sb2.toString());
+                    j2 = f2;
+                    it = it2;
+                    i3 = 2;
+                    c2 = 0;
+                    j = 0;
                 }
-                cb4 postRequest = ib4.g().postRequest();
-                postRequest.requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONArray.toString()));
-                postRequest.connectionTimeout(3000);
-                int min = Math.min(this.b.length, 4);
-                b bVar = new b(this, min, aVar);
-                for (int i = 0; i < min; i++) {
-                    postRequest.url(d(i));
-                    postRequest.build().executeAsync(bVar);
+                Log.i("RouteReporter", "Total  ： " + hybridUbcFlow.f.size());
+                StringBuilder sb3 = new StringBuilder();
+                sb3.append("\n\n小程序路由总时长：========> " + f);
+                String optString = hybridUbcFlow.m().optString("type");
+                String h = hybridUbcFlow.h("sub_state");
+                String h2 = hybridUbcFlow.h("preload");
+                String h3 = hybridUbcFlow.h("web_widget_state");
+                StringBuilder sb4 = new StringBuilder();
+                sb4.append("\nsub_state :");
+                if (TextUtils.equals(h, "0")) {
+                    str3 = "无需下载分包";
+                } else {
+                    str3 = "需要下载分包";
                 }
-                return;
+                sb4.append(str3);
+                sb3.append(sb4.toString());
+                StringBuilder sb5 = new StringBuilder();
+                sb5.append("\npreload :");
+                if (TextUtils.equals(h2, "0")) {
+                    str4 = "未完成";
+                } else {
+                    str4 = "已完成";
+                }
+                sb5.append(str4);
+                sb3.append(sb5.toString());
+                StringBuilder sb6 = new StringBuilder();
+                sb6.append("\nhasWebViewWidget :");
+                if (TextUtils.equals(h3, "0")) {
+                    str5 = "无webview组件";
+                } else {
+                    str5 = "有webview组件";
+                }
+                sb6.append(str5);
+                sb3.append(sb6.toString());
+                StringBuilder sb7 = new StringBuilder();
+                sb7.append("\ntype ：");
+                if (!TextUtils.isEmpty(optString)) {
+                    str9 = optString;
+                }
+                sb7.append(str9);
+                sb3.append(sb7.toString());
+                Log.i("RouteReporter", "Report ： " + sb3.toString());
             }
-            i33.a aVar2 = new i33.a(d43.K().w());
-            aVar2.U(R.string.obfuscated_res_0x7f0f0151);
-            aVar2.v(R.string.obfuscated_res_0x7f0f0150);
-            aVar2.n(new mj3());
-            aVar2.O(R.string.obfuscated_res_0x7f0f011d, null);
-            aVar2.X();
         }
     }
 }

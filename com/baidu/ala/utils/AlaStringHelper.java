@@ -1,7 +1,6 @@
 package com.baidu.ala.utils;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,16 +47,16 @@ public class AlaStringHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
             if (j > 99990000) {
-                return String.format("9999%s", Config.DEVICE_WIDTH);
+                return String.format("9999%s", "w");
             }
             if (j >= 100000) {
-                return String.valueOf(j / 10000) + Config.DEVICE_WIDTH;
+                return String.valueOf(j / 10000) + "w";
             }
             int i = (j > 10000L ? 1 : (j == 10000L ? 0 : -1));
             if (i > 0) {
-                String format = String.format(Locale.getDefault(), "%.1f%s", Float.valueOf(((float) j) / 10000.0f), Config.DEVICE_WIDTH);
+                String format = String.format(Locale.getDefault(), "%.1f%s", Float.valueOf(((float) j) / 10000.0f), "w");
                 if (!StringUtils.isNull(format) && format.endsWith(".0w") && format.indexOf(".0w") > 0 && format.indexOf(".0w") < format.length()) {
-                    return format.substring(0, format.indexOf(".0w")) + Config.DEVICE_WIDTH;
+                    return format.substring(0, format.indexOf(".0w")) + "w";
                 }
                 return format;
             } else if (i == 0) {

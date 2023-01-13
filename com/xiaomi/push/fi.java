@@ -33,8 +33,8 @@ public class fi extends bv.a {
     @Override // com.xiaomi.push.service.bv.a
     public void a(dx.b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) && bVar.m297e()) {
-            fh.m338a().m342a(bVar.e());
+        if ((interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) && bVar.m315e()) {
+            fh.m397a().m401a(bVar.e());
         }
     }
 }

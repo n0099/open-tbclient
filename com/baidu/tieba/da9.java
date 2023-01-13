@@ -1,181 +1,454 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.graphics.SurfaceTexture;
+import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.vq9;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes4.dex */
-public abstract class da9<D> implements ia9<D> {
+public class da9 implements vq9.b {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile da9 k;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public TbPageContext<?> a;
-    @Nullable
-    public ka9 b;
-    public View c;
-    @NonNull
-    public D d;
-    @Nullable
-    public WriteData e;
-    public final List<fa9> f;
+    public TbPageContext a;
+    public vq9.b b;
+    public vq9.b c;
+    public vq9.b d;
+    public boolean e;
+    public vq9.f f;
+    public SurfaceTexture g;
+    public int h;
+    public boolean i;
+    public vq9.a j;
 
-    @Override // com.baidu.tieba.ia9
-    public boolean g() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947697965, "Lcom/baidu/tieba/da9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947697965, "Lcom/baidu/tieba/da9;");
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class a implements vq9.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ da9 a;
+
+        public a(da9 da9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {da9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = da9Var;
+        }
+
+        @Override // com.baidu.tieba.vq9.a
+        public void a(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+                if (obj instanceof String) {
+                    String str = (String) obj;
+                }
+                this.a.C();
+                this.a.d.k(this.a.g, this.a.f);
+                if (!this.a.i) {
+                    return;
+                }
+                this.a.i = false;
+                this.a.d.n();
+            }
+        }
+    }
+
+    public da9(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.e = false;
+        this.i = false;
+        this.j = new a(this);
+        if (Build.VERSION.SDK_INT >= 21) {
+            if (System.currentTimeMillis() - ba9.b.c() >= ba9.a) {
+                ba9.b.k(0);
+            }
+            if (1 != ba9.b.d().intValue()) {
+                this.c = aa9.U(tbPageContext);
+            }
+        }
+        ca9 B = ca9.B(tbPageContext);
+        this.b = B;
+        this.d = B;
+    }
+
+    @Override // com.baidu.tieba.vq9.b
+    public void d(byte[] bArr) {
+        vq9.b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, bArr) == null) && (bVar = this.d) == this.b && bVar != null) {
+            bVar.d(bArr);
+        }
+    }
+
+    @Override // com.baidu.tieba.vq9.b
+    public void h(boolean z) {
+        vq9.b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.e = z;
+            if (z && (bVar = this.c) != null) {
+                bVar.s(this.j);
+                this.d = this.c;
+                return;
+            }
+            vq9.b bVar2 = this.c;
+            if (bVar2 != null) {
+                bVar2.release();
+            }
+            this.d = this.b;
+        }
+    }
+
+    @Override // com.baidu.tieba.vq9.b
+    public void i(boolean z) {
+        vq9.b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && (bVar = this.d) != null) {
+            bVar.i(z);
+        }
+    }
+
+    @Override // com.baidu.tieba.vq9.b
+    public void j(boolean z) {
+        vq9.b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && (bVar = this.d) != null) {
+            bVar.j(z);
+        }
+    }
+
+    @Override // com.baidu.tieba.vq9.b
+    public void l(int i) {
+        vq9.b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && (bVar = this.d) != null) {
+            bVar.l(i);
+        }
+    }
+
+    @Override // com.baidu.tieba.vq9.b
+    public void m(boolean z) {
+        vq9.b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048589, this, z) == null) && (bVar = this.d) != null) {
+            bVar.m(z);
+        }
+    }
+
+    @Override // com.baidu.tieba.vq9.b
+    public void s(vq9.a aVar) {
+        vq9.b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048596, this, aVar) == null) && (bVar = this.c) != null) {
+            bVar.s(aVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.vq9.b
+    public void u(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            this.h = i;
+            vq9.b bVar = this.d;
+            if (bVar != null) {
+                bVar.u(i);
+            }
+        }
+    }
+
+    public static da9 D(TbPageContext tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext)) == null) {
+            if (k == null) {
+                synchronized (da9.class) {
+                    if (k == null) {
+                        k = new da9(tbPageContext);
+                    } else if (tbPageContext != null) {
+                        k.a = tbPageContext;
+                    }
+                }
+            }
+            return k;
+        }
+        return (da9) invokeL.objValue;
+    }
+
+    public final void C() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c != null) {
+            this.b.u(this.h);
+            this.b.i(this.c.o());
+            this.b.m(this.c.a());
+            this.b.j(this.c.p());
+            this.c.q();
+            this.c.release();
+            this.d = this.b;
+            this.e = false;
+        }
+    }
+
+    @Override // com.baidu.tieba.vq9.b
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            vq9.b bVar = this.d;
+            if (bVar != null) {
+                return bVar.a();
+            }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ia9
-    public void h(@Nullable String str, @NonNull WriteData writeData) {
+    @Override // com.baidu.tieba.vq9.b
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, writeData) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            vq9.b bVar = this.d;
+            if (bVar != null) {
+                return bVar.b();
+            }
+            return -1;
         }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ia9
-    public boolean o() {
+    @Override // com.baidu.tieba.vq9.b
+    public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            vq9.b bVar = this.d;
+            if (bVar != null) {
+                return bVar.e();
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.vq9.b
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            vq9.b bVar = this.d;
+            if (bVar != null) {
+                return bVar.f();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.vq9.b
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            this.i = true;
+            vq9.b bVar = this.d;
+            if (bVar != null) {
+                bVar.n();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.vq9.b
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            vq9.b bVar = this.d;
+            if (bVar != null) {
+                return bVar.o();
+            }
             return true;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ia9
-    public void onActivityResult(int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048582, this, i, i2, intent) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ia9
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ia9
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ia9
-    public void onSaveInstanceState(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ia9
-    public void q(@NonNull List<ia9<?>> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ia9
-    public void r(m65 m65Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, m65Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ia9
-    public boolean t() {
+    @Override // com.baidu.tieba.vq9.b
+    public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            vq9.b bVar = this.d;
+            if (bVar != null) {
+                return bVar.p();
+            }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public da9(@NonNull TbPageContext<?> tbPageContext, Class<D> cls) {
+    @Override // com.baidu.tieba.vq9.b
+    public void q() {
+        vq9.b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, cls};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f = new ArrayList();
-        this.a = tbPageContext;
-        this.d = (D) sc.f(cls);
-    }
-
-    @Override // com.baidu.tieba.ia9
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = null;
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && (bVar = this.d) != null) {
+            bVar.q();
         }
     }
 
-    public D x() {
+    @Override // com.baidu.tieba.vq9.b
+    public int r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            vq9.b bVar = this.d;
+            if (bVar != null) {
+                return bVar.r();
+            }
+            return -1;
         }
-        return (D) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ia9
-    public void j(@NonNull ka9 ka9Var) {
+    @Override // com.baidu.tieba.vq9.b
+    public void release() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ka9Var) == null) {
-            this.b = ka9Var;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            q();
+            this.d = null;
+            vq9.b bVar = this.b;
+            if (bVar != null) {
+                bVar.release();
+            }
+            vq9.b bVar2 = this.c;
+            if (bVar2 != null) {
+                bVar2.release();
+            }
+            k = null;
+            this.f = null;
+            this.g = null;
+            this.j = null;
         }
     }
 
-    public void w(fa9 fa9Var) {
+    @Override // com.baidu.tieba.vq9.b
+    public int v() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048589, this, fa9Var) == null) && fa9Var != null && !this.f.contains(fa9Var)) {
-            this.f.add(fa9Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            vq9.b bVar = this.d;
+            if (bVar != null) {
+                return bVar.v();
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.vq9.b
+    public void c(int i, int i2, int i3, int i4) {
+        vq9.b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIIII(1048579, this, i, i2, i3, i4) == null) && (bVar = this.d) != null) {
+            bVar.c(i, i2, i3, i4);
         }
     }
 
-    public void y(Object obj) {
+    @Override // com.baidu.tieba.vq9.b
+    public void t(int i, int i2, int i3, int i4) {
+        vq9.b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, obj) == null) {
-            for (fa9 fa9Var : this.f) {
-                fa9Var.onUpdate(obj);
+        if ((interceptable == null || interceptable.invokeIIII(1048597, this, i, i2, i3, i4) == null) && (bVar = this.d) != null) {
+            bVar.t(i, i2, i3, i4);
+        }
+    }
+
+    @Override // com.baidu.tieba.vq9.b
+    public void g(int i, int i2, int i3, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
+            this.b.g(i, i2, i3, z);
+            vq9.b bVar = this.c;
+            if (bVar != null) {
+                bVar.g(i, i2, i3, z);
             }
         }
     }
 
-    @Override // com.baidu.tieba.ia9
-    public void m(Bundle bundle, Intent intent, @NonNull WriteData writeData) {
+    @Override // com.baidu.tieba.vq9.b
+    public boolean k(SurfaceTexture surfaceTexture, vq9.f fVar) {
+        InterceptResult invokeLL;
+        vq9.b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, bundle, intent, writeData) == null) {
-            this.e = writeData;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, surfaceTexture, fVar)) == null) {
+            this.g = surfaceTexture;
+            this.f = fVar;
+            if (this.e && (bVar = this.c) != null) {
+                if (bVar.k(surfaceTexture, fVar)) {
+                    return true;
+                }
+                C();
+                vq9.b bVar2 = this.d;
+                if (bVar2 == null) {
+                    return false;
+                }
+                boolean k2 = bVar2.k(surfaceTexture, fVar);
+                if (this.i) {
+                    this.i = false;
+                    this.d.n();
+                }
+                return k2;
+            }
+            vq9.b bVar3 = this.b;
+            this.d = bVar3;
+            if (bVar3 == null) {
+                return false;
+            }
+            return bVar3.k(surfaceTexture, fVar);
         }
+        return invokeLL.booleanValue;
     }
 }

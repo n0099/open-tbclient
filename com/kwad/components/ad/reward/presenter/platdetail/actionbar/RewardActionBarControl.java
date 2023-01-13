@@ -310,6 +310,11 @@ public final class RewardActionBarControl {
         });
     }
 
+    public static /* synthetic */ boolean a(RewardActionBarControl rewardActionBarControl, boolean z) {
+        rewardActionBarControl.rF = true;
+        return true;
+    }
+
     public final void S(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -345,7 +350,7 @@ public final class RewardActionBarControl {
                 public final void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.rG.rF = true;
+                        RewardActionBarControl.a(this.rG, true);
                         com.kwad.sdk.core.e.b.d("ActionBarControl", "mHasOutTime");
                         if (this.rG.rz != null && this.rG.rz.g(this.rG.rD)) {
                             com.kwad.sdk.core.e.b.d("ActionBarControl", "showWebActionBar success on " + this.rG.rE);

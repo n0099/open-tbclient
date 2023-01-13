@@ -108,13 +108,13 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
             this.d = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03a7, this);
-            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090a52);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090a53);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03a8, this);
+            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090a59);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090a5a);
             this.e = textView;
             SkinManager.setViewTextColor(textView, R.color.CAM_X0108, 1);
             this.e.setVisibility(8);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f090a55);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f090a5c);
             this.b = textView2;
             SkinManager.setViewTextColor(textView2, R.color.CAM_X0302, 1);
             this.b.setVisibility(8);

@@ -4,8 +4,8 @@ import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.unitedscheme.security.ISchemeHeadIoc;
 import com.baidu.searchbox.unitedscheme.security.ISchemeIoc;
-import com.baidu.tieba.dr3;
-import com.baidu.tieba.fr3;
+import com.baidu.tieba.ir3;
+import com.baidu.tieba.kr3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +36,7 @@ public class SchemeRuntime {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return dr3.a();
+            return ir3.a();
         }
         return (ISchemeHeadIoc) invokeV.objValue;
     }
@@ -46,7 +46,7 @@ public class SchemeRuntime {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return fr3.a();
+            return kr3.a();
         }
         return (ISchemeIoc) invokeV.objValue;
     }

@@ -1,48 +1,99 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import java.util.List;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
+import com.baidu.tieba.view.cloudmusic.model.CloudMusicModel;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface ia9<D> {
-    void a(@NonNull WriteData writeData);
+public class ia9 implements ja9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final CloudMusicModel a;
+    public final ka9 b;
 
-    void c(WriteData writeData);
+    /* loaded from: classes4.dex */
+    public class a implements qa9<CloudMusicData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ia9 a;
 
-    void d();
+        public a(ia9 ia9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ia9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ia9Var;
+        }
 
-    void e(@NonNull WriteData writeData);
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.qa9
+        /* renamed from: b */
+        public void a(CloudMusicData cloudMusicData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cloudMusicData) == null) {
+                this.a.b.m0(false);
+                if (cloudMusicData != null) {
+                    this.a.b.m(false);
+                    if (cloudMusicData.tag_list.isEmpty()) {
+                        this.a.b.m(true);
+                        return;
+                    } else {
+                        this.a.b.B(cloudMusicData);
+                        return;
+                    }
+                }
+                this.a.b.m(true);
+            }
+        }
+    }
 
-    boolean g();
+    public ia9(CloudMusicModel cloudMusicModel, ka9 ka9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cloudMusicModel, ka9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = cloudMusicModel;
+        this.b = ka9Var;
+        ka9Var.A0(this);
+    }
 
-    void h(@Nullable String str, @NonNull WriteData writeData);
+    @Override // com.baidu.tieba.ja9
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.cancelLoadData();
+        }
+    }
 
-    void j(@NonNull ka9 ka9Var);
-
-    void m(Bundle bundle, Intent intent, @NonNull WriteData writeData);
-
-    boolean o();
-
-    void onActivityResult(int i, int i2, Intent intent);
-
-    void onChangeSkinType(int i);
-
-    void onPause();
-
-    void onResume();
-
-    void onSaveInstanceState(Bundle bundle);
-
-    void q(@NonNull List<ia9<?>> list);
-
-    void r(m65 m65Var);
-
-    View s(@NonNull ViewGroup viewGroup);
-
-    boolean t();
+    @Override // com.baidu.tieba.ja9
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.m0(true);
+            this.a.H(new a(this));
+        }
+    }
 }

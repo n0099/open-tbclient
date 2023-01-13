@@ -1,40 +1,44 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.mobstat.Config;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ng9 implements ig9 {
+public class ng9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ng9() {
+    public static void a(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull a75 a75Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, tbPageContext, editorTools, a75Var, str) == null) {
+            if ("e1".equals(str)) {
+                vg9.h(tbPageContext, editorTools, a75Var);
+            } else if (Config.SESSTION_TRACK_END_TIME.equals(str)) {
+                vg9.j(tbPageContext, editorTools, a75Var);
+            } else if ("e3".equals(str)) {
+                vg9.k(tbPageContext, editorTools, a75Var);
+            } else if ("e4".equals(str)) {
+                vg9.g(tbPageContext, editorTools, a75Var);
+            } else if ("e5".equals(str)) {
+                vg9.d(editorTools, a75Var);
+            } else if ("e6".equals(str)) {
+                vg9.a(tbPageContext, editorTools, a75Var);
+            } else if ("e7".equals(str)) {
+                vg9.l(tbPageContext, editorTools, a75Var);
+            } else if ("e8".equals(str)) {
+                vg9.b(tbPageContext, editorTools, a75Var);
+            } else if ("e9".equals(str)) {
+                vg9.i(tbPageContext, editorTools);
+            } else if ("e10".equals(str)) {
+                vg9.c(tbPageContext, editorTools, a75Var);
+            } else if ("e11".equals(str)) {
+                vg9.f(tbPageContext, editorTools, a75Var);
+            } else if ("e12".equals(str)) {
+                vg9.e(tbPageContext, editorTools, a75Var);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.ig9
-    public boolean isAgreePrivacy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            kf9 a = fg9.a();
-            if (a != null) {
-                return a.isAgreePrivacy();
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
     }
 }

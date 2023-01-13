@@ -80,7 +80,7 @@ public final class c implements a {
                     if (i3 == 0) {
                         if (this.atZ.atY != null) {
                             LockSupport.unpark(this.atZ.atY);
-                            this.atZ.atY = null;
+                            c.a(this.atZ, (Thread) null);
                         }
                         return false;
                     }
@@ -93,13 +93,18 @@ public final class c implements a {
                         this.atZ.atX.set(0);
                         if (this.atZ.atY != null) {
                             LockSupport.unpark(this.atZ.atY);
-                            this.atZ.atY = null;
+                            c.a(this.atZ, (Thread) null);
                         }
                     }
                 }
                 return invokeL.booleanValue;
             }
         });
+    }
+
+    public static /* synthetic */ Thread a(c cVar, Thread thread) {
+        cVar.atY = null;
+        return null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -136,7 +141,7 @@ public final class c implements a {
     }
 
     @Override // com.kwai.filedownloader.a.a
-    public final a.InterfaceC0646a Dh() {
+    public final a.InterfaceC0645a Dh() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -144,7 +149,7 @@ public final class c implements a {
             b bVar = this.atT;
             return dVar.a(bVar.atQ, bVar.atR);
         }
-        return (a.InterfaceC0646a) invokeV.objValue;
+        return (a.InterfaceC0645a) invokeV.objValue;
     }
 
     @Override // com.kwai.filedownloader.a.a

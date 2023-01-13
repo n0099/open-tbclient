@@ -16,7 +16,7 @@ import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.ShapeAppearancePathProvider;
 import com.google.android.material.transition.platform.MaterialContainerTransform;
 @RequiresApi(21)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MaskEvaluator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -31,14 +31,14 @@ import com.baidu.searchbox.abtest.AbTestManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.a9;
-import com.baidu.tieba.o10;
-import com.baidu.tieba.p10;
-import com.baidu.tieba.p20;
-import com.baidu.tieba.q10;
+import com.baidu.tieba.b9;
+import com.baidu.tieba.c20;
+import com.baidu.tieba.d20;
+import com.baidu.tieba.t10;
 import com.baidu.tieba.u10;
-import com.baidu.tieba.x10;
-import com.baidu.tieba.y10;
+import com.baidu.tieba.u20;
+import com.baidu.tieba.v10;
+import com.baidu.tieba.z10;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -124,13 +124,13 @@ public final class BaiduIdentityManager {
     public static final String VALUE_OSNAME = "baiduboxapp";
     public static BaiduIdentityManager sIdentityManager;
     public transient /* synthetic */ FieldHolder $fh;
-    public p10 customOSParam;
+    public u10 customOSParam;
     public String mAndroidId;
     public volatile String mC3Aid;
     public CT mCT;
     @SuppressLint({"StaticFieldLeak"})
     public Context mContext;
-    public q10 mDeviceInfoParam;
+    public v10 mDeviceInfoParam;
     public String mEnAndroidId;
     public String mEnUa;
     public IBaiduIdentityContext mIdentityContextImpl;
@@ -520,7 +520,7 @@ public final class BaiduIdentityManager {
             if (TextUtils.isEmpty(zid)) {
                 return str;
             }
-            return addParam(str, "zid", x10.a(zid));
+            return addParam(str, "zid", c20.a(zid));
         }
         return (String) invokeL.objValue;
     }
@@ -634,7 +634,7 @@ public final class BaiduIdentityManager {
             } else {
                 str2 = "light/1.0";
             }
-            return y10.f().c(str, str2);
+            return d20.f().c(str, str2);
         }
         return (String) invokeLL.objValue;
     }
@@ -646,7 +646,7 @@ public final class BaiduIdentityManager {
             if (TextUtils.isEmpty(str3)) {
                 return str;
             }
-            return UrlUtil.addParam(str, str2, x10.a(str3));
+            return UrlUtil.addParam(str, str2, c20.a(str3));
         }
         return (String) invokeLLL.objValue;
     }
@@ -664,7 +664,7 @@ public final class BaiduIdentityManager {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, str, str2, str3)) == null) {
-            return UrlUtil.addParam(str, str2, x10.a(str3));
+            return UrlUtil.addParam(str, str2, c20.a(str3));
         }
         return (String) invokeLLL.objValue;
     }
@@ -743,7 +743,7 @@ public final class BaiduIdentityManager {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048594, this, str, i)) == null) {
-            if (o10.b().h()) {
+            if (t10.b().h()) {
                 return urlAppendParam(str, i);
             }
             return processUrl(str);
@@ -796,20 +796,20 @@ public final class BaiduIdentityManager {
         return (String) invokeLI.objValue;
     }
 
-    private q10 getDeviceInfoParam() {
+    private v10 getDeviceInfoParam() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
             if (this.mDeviceInfoParam == null) {
                 synchronized (this) {
                     if (this.mDeviceInfoParam == null) {
-                        this.mDeviceInfoParam = new q10();
+                        this.mDeviceInfoParam = new v10();
                     }
                 }
             }
             return this.mDeviceInfoParam;
         }
-        return (q10) invokeV.objValue;
+        return (v10) invokeV.objValue;
     }
 
     public static synchronized BaiduIdentityManager getInstance() {
@@ -867,7 +867,7 @@ public final class BaiduIdentityManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            return new u10().a();
+            return new z10().a();
         }
         return (String) invokeV.objValue;
     }
@@ -959,7 +959,7 @@ public final class BaiduIdentityManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
-            return y10.f().g();
+            return d20.f().g();
         }
         return (String) invokeV.objValue;
     }
@@ -1149,7 +1149,7 @@ public final class BaiduIdentityManager {
                 try {
                     jSONObject.put("time", System.currentTimeMillis());
                     jSONObject.put("apinfo", apInfo);
-                    return addParam(deleteParam, LOCINFO_STRING, x10.a(jSONObject.toString()));
+                    return addParam(deleteParam, LOCINFO_STRING, c20.a(jSONObject.toString()));
                 } catch (JSONException e) {
                     e.printStackTrace();
                     return deleteParam;
@@ -1164,13 +1164,13 @@ public final class BaiduIdentityManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            ArrayList<a9> experimentInfoList = AbTestManager.getInstance().getExperimentInfoList();
+            ArrayList<b9> experimentInfoList = AbTestManager.getInstance().getExperimentInfoList();
             if (experimentInfoList != null && !experimentInfoList.isEmpty()) {
                 StringBuilder sb = new StringBuilder();
-                for (a9 a9Var : experimentInfoList) {
-                    sb.append(a9Var.c());
+                for (b9 b9Var : experimentInfoList) {
+                    sb.append(b9Var.c());
                     sb.append("_");
-                    sb.append(a9Var.b());
+                    sb.append(b9Var.b());
                     sb.append("-");
                 }
                 return addParam(str, "sid", sb.substring(0, sb.length() - 1));
@@ -1527,7 +1527,7 @@ public final class BaiduIdentityManager {
             this.mVersionName = getVersionName(context);
             initUAS();
             this.mCT = new CT();
-            this.customOSParam = new p10();
+            this.customOSParam = new u10();
             IBaiduIdentityContext baiduIdentityContext = BaiduIdentityRuntime.getBaiduIdentityContext();
             this.mIdentityContextImpl = baiduIdentityContext;
             if (DEBUG && baiduIdentityContext == null) {
@@ -1599,21 +1599,21 @@ public final class BaiduIdentityManager {
         String str7;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65561, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)})) == null) {
-            String a = x10.a(getEnUA());
+            String a = c20.a(getEnUA());
             String str8 = null;
             String addKey2Cen = addKey2Cen(null, "ua");
-            q10 deviceInfoParam = getDeviceInfoParam();
+            v10 deviceInfoParam = getDeviceInfoParam();
             String addServiceParam = addServiceParam(str, PARAM_SERVICE);
             if (this.mIdentityContextImpl.isAgreePrivacy()) {
-                String a2 = x10.a(getEnUid());
+                String a2 = c20.a(getEnUid());
                 addKey2Cen = addKey2Cen(addKey2Cen, "uid");
                 addServiceParam = addParam(addServiceParam, "uid", a2);
             }
             String addFromParam = addFromParam(addServiceParam);
             String appName = AppIdentityManager.getInstance().getAppName();
-            u10 u10Var = new u10();
+            z10 z10Var = new z10();
             boolean z3 = true;
-            u10Var.g(true);
+            z10Var.g(true);
             if (i == 1) {
                 boolean z4 = false;
                 if (deviceInfoParam.j()) {
@@ -1626,27 +1626,27 @@ public final class BaiduIdentityManager {
                     f = deviceInfoParam.f();
                     z4 = true;
                 }
-                if (u10Var.e()) {
+                if (z10Var.e()) {
                     str4 = null;
                     boolean z5 = z4;
-                    c = u10Var.c();
+                    c = z10Var.c();
                     z3 = z5;
                 } else {
-                    str4 = String.valueOf(u10Var.d());
+                    str4 = String.valueOf(z10Var.d());
                     c = null;
                 }
                 if (z3) {
                     if (TextUtils.isEmpty(b)) {
-                        str2 = crcSign(deviceInfoParam.a(), u10Var.b());
+                        str2 = crcSign(deviceInfoParam.a(), z10Var.b());
                     } else {
-                        str2 = crcSign(deviceInfoParam.b(), u10Var.c());
+                        str2 = crcSign(deviceInfoParam.b(), z10Var.c());
                     }
                     str7 = String.valueOf(i);
                 } else {
                     str2 = null;
                     str7 = null;
                 }
-                if (o10.b().e()) {
+                if (t10.b().e()) {
                     if (this.customOSParam.b()) {
                         str7 = String.valueOf(i);
                     } else {
@@ -1660,9 +1660,9 @@ public final class BaiduIdentityManager {
                 str8 = f;
             } else {
                 b = deviceInfoParam.b();
-                c = u10Var.c();
+                c = z10Var.c();
                 String addKey2Cen2 = addKey2Cen(addKey2Cen, "ut");
-                if (o10.b().e()) {
+                if (t10.b().e()) {
                     str4 = null;
                     str5 = addKey2Cen2;
                     str3 = this.customOSParam.a();
@@ -1684,7 +1684,7 @@ public final class BaiduIdentityManager {
             if (this.mIdentityContextImpl.isAgreePrivacy()) {
                 String passUid = this.mIdentityContextImpl.getPassUid(this.mContext);
                 if (!TextUtils.isEmpty(passUid)) {
-                    addParam2 = addParam(addParam2, "puid", x10.a(new String(Base64Encoder.B64Encode(passUid.getBytes()))));
+                    addParam2 = addParam(addParam2, "puid", c20.a(new String(Base64Encoder.B64Encode(passUid.getBytes()))));
                 }
             }
             if (z2) {
@@ -1696,7 +1696,7 @@ public final class BaiduIdentityManager {
                     this.mC3Aid = getC3Aid();
                 }
                 if (!TextUtils.isEmpty(this.mC3Aid)) {
-                    addBDVC = addParam(addBDVC, "c3_aid", x10.a(this.mC3Aid));
+                    addBDVC = addParam(addBDVC, "c3_aid", c20.a(this.mC3Aid));
                 }
                 addParamByEncode = addZid(addBDVC);
             } else {
@@ -1815,7 +1815,7 @@ public final class BaiduIdentityManager {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (o10.b().h()) {
+            if (t10.b().h()) {
                 return processUrl(str, z, z2, i);
             }
             return processUrl(str, z, z2, 0);
@@ -1864,7 +1864,7 @@ public final class BaiduIdentityManager {
             if (this.mContext != null && TextUtils.isEmpty(this.mC3Aid)) {
                 this.mC3Aid = BlcSharedPrefsWrapper.getInstance().getString("cthreekey", "");
                 if (TextUtils.isEmpty(this.mC3Aid)) {
-                    this.mC3Aid = p20.f(this.mContext.getApplicationContext()).c();
+                    this.mC3Aid = u20.f(this.mContext.getApplicationContext()).c();
                     if (!TextUtils.isEmpty(this.mC3Aid)) {
                         BlcSharedPrefsWrapper.getInstance().putString("cthreekey", this.mC3Aid);
                     }
@@ -1901,13 +1901,13 @@ public final class BaiduIdentityManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
-            ArrayList<a9> experimentInfoList = AbTestManager.getInstance().getExperimentInfoList();
+            ArrayList<b9> experimentInfoList = AbTestManager.getInstance().getExperimentInfoList();
             if (experimentInfoList != null && !experimentInfoList.isEmpty()) {
                 StringBuilder sb = new StringBuilder();
-                for (a9 a9Var : experimentInfoList) {
-                    sb.append(a9Var.c());
+                for (b9 b9Var : experimentInfoList) {
+                    sb.append(b9Var.c());
                     sb.append("_");
-                    sb.append(a9Var.b());
+                    sb.append(b9Var.b());
                     sb.append("-");
                 }
                 return sb.substring(0, sb.length() - 1);
@@ -1959,7 +1959,7 @@ public final class BaiduIdentityManager {
 
     public String processWebSearchUrl(String str, int i, boolean z) {
         InterceptResult invokeCommon;
-        u10 u10Var;
+        z10 z10Var;
         String a;
         String str2;
         String str3;
@@ -1971,23 +1971,23 @@ public final class BaiduIdentityManager {
         String str7;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048639, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            String a2 = x10.a(getEnUid());
+            String a2 = c20.a(getEnUid());
             String str8 = null;
             String addKey2Cen = addKey2Cen(null, "cuid");
-            String a3 = x10.a(getEnUA());
+            String a3 = c20.a(getEnUA());
             String addKey2Cen2 = addKey2Cen(addKey2Cen, PARAM_CUA);
             String appName = AppIdentityManager.getInstance().getAppName();
             boolean z3 = true;
             if (z) {
-                u10Var = new u10();
-                u10Var.g(true);
+                z10Var = new z10();
+                z10Var.g(true);
             } else {
-                u10Var = null;
+                z10Var = null;
             }
-            q10 deviceInfoParam = getDeviceInfoParam();
+            v10 deviceInfoParam = getDeviceInfoParam();
             if (i == 1) {
                 if (deviceInfoParam.j()) {
-                    a = x10.a(deviceInfoParam.b());
+                    a = c20.a(deviceInfoParam.b());
                     addKey2Cen2 = addKey2Cen(addKey2Cen2, PARAM_CUT);
                     f = null;
                     z2 = false;
@@ -1996,13 +1996,13 @@ public final class BaiduIdentityManager {
                     z2 = true;
                     a = null;
                 }
-                if (u10Var != null) {
-                    if (u10Var.e()) {
-                        str7 = u10Var.c();
+                if (z10Var != null) {
+                    if (z10Var.e()) {
+                        str7 = z10Var.c();
                         z3 = z2;
                         str4 = null;
                     } else {
-                        str4 = String.valueOf(u10Var.d());
+                        str4 = String.valueOf(z10Var.d());
                         str7 = null;
                     }
                 } else {
@@ -2019,10 +2019,10 @@ public final class BaiduIdentityManager {
                 str6 = str8;
                 str8 = f;
             } else {
-                a = x10.a(deviceInfoParam.b());
+                a = c20.a(deviceInfoParam.b());
                 String addKey2Cen3 = addKey2Cen(addKey2Cen2, PARAM_CUT);
-                if (u10Var != null) {
-                    str3 = u10Var.c();
+                if (z10Var != null) {
+                    str3 = z10Var.c();
                     str2 = str;
                     str4 = null;
                 } else {
@@ -2045,7 +2045,7 @@ public final class BaiduIdentityManager {
                 this.mC3Aid = getC3Aid();
             }
             if (!TextUtils.isEmpty(this.mC3Aid)) {
-                addPackageNameParam = addPuParam(addPackageNameParam, "c3_aid", x10.a(this.mC3Aid));
+                addPackageNameParam = addPuParam(addPackageNameParam, "c3_aid", c20.a(this.mC3Aid));
             }
             String processUrlExternal = this.mIdentityContextImpl.processUrlExternal(addParamByEncode(addParamByEncode(addParamByEncode(addParamByEncode(addParamByEncode(addPackageNameParam, "p_sv", str8), "mpv", str6), "p_nw", str4), "network", str3), PARAM_BRNACH_NAME, appName), z);
             if (DEBUG) {

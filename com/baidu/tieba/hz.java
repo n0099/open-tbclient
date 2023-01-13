@@ -1,216 +1,58 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.View;
+import android.view.ViewPropertyAnimator;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.util.Iterator;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class hz {
     public static /* synthetic */ Interceptable $ic;
+    public static final int a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public int d;
 
-    public hz() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448306907, "Lcom/baidu/tieba/hz;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448306907, "Lcom/baidu/tieba/hz;");
                 return;
             }
         }
-        this.c = 2;
-        this.d = 0;
+        a = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
     }
 
-    public static hz a(String str) {
-        InterceptResult invokeL;
+    public static void a(View view2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? e(f(str)) : (hz) invokeL.objValue;
-    }
-
-    public static hz b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            hz hzVar = new hz();
-            hzVar.a = str;
-            int length = TextUtils.isEmpty(str2) ? 0 : str2.length();
-            hzVar.d = length;
-            if (length < 14) {
-                if (TextUtils.isEmpty(str2)) {
-                    str2 = "0";
-                }
-                hzVar.b = str2;
-            }
-            return hzVar;
+        if (interceptable == null || interceptable.invokeL(65537, null, view2) == null) {
+            view2.setPivotX(0.0f);
+            ViewPropertyAnimator animate = view2.animate();
+            animate.scaleY(1.0f);
+            animate.scaleX(1.0f);
+            animate.translationY(0.0f);
+            animate.setDuration(0L);
+            animate.start();
         }
-        return (hz) invokeLL.objValue;
     }
 
-    public static boolean d(int i) {
-        InterceptResult invokeI;
+    public static void b(View view2, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i >= 14 : invokeI.booleanValue;
-    }
-
-    public static hz e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                Iterator<String> keys = jSONObject.keys();
-                String str2 = "0";
-                String str3 = "0";
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    if (!k("ZGV2aWNlaWQ=").equals(next) && !k("dmVy").equals(next)) {
-                        str3 = jSONObject.optString(next, "0");
-                    }
-                }
-                String string = jSONObject.getString(k("ZGV2aWNlaWQ="));
-                int i = jSONObject.getInt(k("dmVy"));
-                int length = TextUtils.isEmpty(str3) ? 0 : str3.length();
-                if (!TextUtils.isEmpty(string)) {
-                    hz hzVar = new hz();
-                    hzVar.a = string;
-                    hzVar.c = i;
-                    hzVar.d = length;
-                    if (length < 14) {
-                        if (!TextUtils.isEmpty(str3)) {
-                            str2 = str3;
-                        }
-                        hzVar.b = str2;
-                    }
-                    hzVar.c();
-                    return hzVar;
-                }
-            } catch (JSONException e) {
-                w00.c(e);
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeLI(65538, null, view2, i) == null) {
+            view2.setPivotX(0.0f);
+            ViewPropertyAnimator animate = view2.animate();
+            animate.scaleY(0.75f);
+            animate.scaleX(0.75f);
+            animate.translationY(-a);
+            animate.setDuration(i);
+            animate.start();
         }
-        return (hz) invokeL.objValue;
-    }
-
-    public static String f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                byte[] a = c00.a();
-                return new String(yz.c(a, a, q00.b(str.getBytes())));
-            } catch (Exception e) {
-                w00.c(e);
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                byte[] a = c00.a();
-                return q00.a(yz.d(a, a, str.getBytes()), IMAudioTransRequest.CHARSET);
-            } catch (UnsupportedEncodingException | Exception e) {
-                w00.c(e);
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String k(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? new String(q00.b(str.getBytes())) : (String) invokeL.objValue;
-    }
-
-    public static boolean m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) ? TextUtils.isEmpty(str) : invokeL.booleanValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (g()) {
-                str = "O";
-            } else if (!i()) {
-                return false;
-            } else {
-                str = "0";
-            }
-            this.b = str;
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d(this.d) : invokeV.booleanValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? m(this.b) : invokeV.booleanValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? h(l()) : (String) invokeV.objValue;
-    }
-
-    public final String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            try {
-                return new JSONObject().put(k("ZGV2aWNlaWQ="), this.a).put(k("aW1laQ=="), this.b).put(k("dmVy"), this.c).toString();
-            } catch (JSONException e) {
-                w00.c(e);
-                return null;
-            }
-        }
-        return (String) invokeV.objValue;
     }
 }

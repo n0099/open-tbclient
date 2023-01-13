@@ -1,26 +1,156 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.util.Log;
+import android.webkit.ValueCallback;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import androidx.media2.session.SessionCommand;
+import com.baidu.searchbox.v8engine.V8Engine;
+import com.baidu.searchbox.v8engine.V8NetFunctionTable;
+import com.baidu.searchbox.v8engine.net.NetRequest;
+import com.baidu.searchbox.v8engine.net.NetRequestSettings;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.tieba.ra3;
+import com.baidu.tieba.u43;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.facebook.common.internal.Sets;
-import java.util.List;
-import java.util.Set;
-import okhttp3.Headers;
-import okhttp3.HttpUrl;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class tt1 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static final Set<String> b;
+    public static int b;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public static class a implements ValueCallback<Long> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ V8Engine a;
+
+        /* renamed from: com.baidu.tieba.tt1$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class RunnableC0447a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public RunnableC0447a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    NetRequest netRequest = new NetRequest();
+                    NetRequestSettings netRequestSettings = new NetRequestSettings();
+                    netRequestSettings.mTimeout = 60000;
+                    boolean z = true;
+                    netRequestSettings.mShouldNeverClearReferer = true;
+                    netRequestSettings.mLoadDoNotSendCookies = true;
+                    netRequest.setRequestInterceptor(new st1());
+                    netRequest.setRedirectInterceptor(new zt1());
+                    netRequest.addObserver(new ut1());
+                    netRequest.setNetRequestSettings(netRequestSettings);
+                    int javaNetRequest = this.a.a.setJavaNetRequest(netRequest);
+                    if (javaNetRequest != 0) {
+                        z = false;
+                    }
+                    boolean unused = tt1.c = z;
+                    if (!tt1.c) {
+                        int unused2 = tt1.b = 0;
+                        tt1.g(javaNetRequest);
+                        j12.c("ChromeNetManager", "setJavaNetRequest fail, code=" + javaNetRequest);
+                    }
+                }
+            }
+        }
+
+        public a(V8Engine v8Engine) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v8Engine};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = v8Engine;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.webkit.ValueCallback
+        /* renamed from: a */
+        public void onReceiveValue(Long l) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, l) == null) {
+                this.a.runOnJSThread(new RunnableC0447a(this));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+
+        public b(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ra3.b bVar = new ra3.b(SessionCommand.COMMAND_CODE_PLAYER_GET_CURRENT_MEDIA_ITEM);
+                bVar.l(String.valueOf(this.a));
+                bVar.h(i43.K().getAppId());
+                bVar.m();
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -35,127 +165,107 @@ public class tt1 {
                 return;
             }
         }
-        a = ok1.a;
-        b = Sets.newHashSet("localhost", "127.0.0.1");
+        a = tk1.a;
+        b = -1;
+        c = false;
     }
 
-    public static String d() {
+    public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return lh3.b();
+            if (wg3.e() && h()) {
+                return true;
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return str + "_" + System.currentTimeMillis();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (qn2.g0().y() == 2) {
+                return true;
+            }
+            return false;
         }
-        return (String) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static JSONObject c(String str) {
-        InterceptResult invokeL;
+    public static boolean i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (!TextUtils.isEmpty(str)) {
-                    jSONObject.put("cancelTag", str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            if (qn2.g0().y() >= 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void f(@NonNull V8Engine v8Engine) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, v8Engine) == null) {
+            if (!d()) {
+                j12.k("ChromeNetManager", "Not Used ChromeNet");
+            } else {
+                V8NetFunctionTable.addOnCronetThreadInitializedListener(new a(v8Engine));
+            }
+        }
+    }
+
+    public static void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
+            dh3.f().execute(new b(i));
+        }
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if (b == -1) {
+                if (j() && !yh3.f("3.300.0")) {
+                    i = 1;
+                } else {
+                    i = 0;
                 }
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
+                b = i;
             }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    @Nullable
-    public static String e(@Nullable String str) {
-        InterceptResult invokeL;
-        HttpUrl parse;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && (parse = HttpUrl.parse(str)) != null) {
-                return parse.host();
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean b(@Nullable HttpUrl httpUrl) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, httpUrl)) == null) {
-            boolean i = v43.i();
-            if (!ln2.g0().D()) {
-                i = false;
-            }
-            if (httpUrl == null) {
-                return false;
-            }
-            if ((i && HttpUrl.defaultPort(httpUrl.scheme()) != httpUrl.port()) || b.contains(httpUrl.host().toLowerCase())) {
+            if (b != 1) {
                 return false;
             }
             return true;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static HttpUrl f(String str) {
-        InterceptResult invokeL;
+    public static void k(@Nullable SwanAppConfigData swanAppConfigData) {
+        u43.a aVar;
+        int i;
+        f62 W;
+        NetRequest n0;
+        NetRequestSettings netRequestSettings;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            HttpUrl parse = HttpUrl.parse(str);
-            if (d43.K().w() == null) {
-                if (!b(parse)) {
-                    return null;
-                }
-                return parse;
-            } else if (d03.o()) {
-                return parse;
-            } else {
-                if (!b(parse)) {
-                    return null;
-                }
-                return parse;
+        if ((interceptable == null || interceptable.invokeL(65547, null, swanAppConfigData) == null) && d() && swanAppConfigData != null && (aVar = swanAppConfigData.h) != null && (i = aVar.b) > 0 && (W = db2.U().W()) != null && (W.f() instanceof rb2) && (n0 = ((rb2) W.f()).n0()) != null && (netRequestSettings = n0.getNetRequestSettings()) != null) {
+            netRequestSettings.mTimeout = i;
+            if (a) {
+                Log.d("ChromeNetManager", "settings.mTimeout=" + i);
             }
         }
-        return (HttpUrl) invokeL.objValue;
-    }
-
-    public static JSONObject g(Headers headers) throws JSONException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, headers)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (headers == null) {
-                return jSONObject;
-            }
-            for (String str : headers.names()) {
-                if (!TextUtils.isEmpty(str)) {
-                    List<String> values = headers.values(str);
-                    StringBuilder sb = new StringBuilder();
-                    int size = values.size();
-                    for (int i = 0; i < size; i++) {
-                        sb.append(values.get(i));
-                        if (i == size - 1) {
-                            break;
-                        }
-                        sb.append(",");
-                    }
-                    jSONObject.put(str, sb.toString());
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
     }
 }

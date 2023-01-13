@@ -61,7 +61,7 @@ public final class d extends com.kwad.sdk.core.video.kwai.a {
         public final void onError(int i, int i2) {
             d vA = vA();
             if (vA != null) {
-                vA.adN = false;
+                d.a(vA, false);
                 vA.notifyOnError(i, i2);
             }
         }
@@ -117,6 +117,11 @@ public final class d extends com.kwad.sdk.core.video.kwai.a {
         this.adL = new a(this);
         vw();
         setLooping(false);
+    }
+
+    public static /* synthetic */ boolean a(d dVar, boolean z) {
+        dVar.adN = false;
+        return false;
     }
 
     private void setDataSource(String str, Map<String, String> map) {

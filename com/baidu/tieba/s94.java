@@ -1,14 +1,18 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.map.BitmapDescriptor;
+import com.baidu.mapapi.map.BitmapDescriptorFactory;
+import com.baidu.mapapi.map.MapViewLayoutParams;
+import com.baidu.mapapi.map.Marker;
+import com.baidu.mapapi.map.MarkerOptions;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.tieba.dr2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,60 +23,63 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class s94 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int f;
+    public static final Boolean h;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public View b;
-    public View c;
-    public boolean d;
-    public b e;
+    public dr2 a;
+    public Marker b;
+    public Marker c;
+    public View d;
+    public ViewGroup e;
+    public Marker f;
+    public ValueAnimator g;
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(boolean z);
-
-        void b(boolean z);
+        void onAnimationEnd();
     }
 
     /* loaded from: classes6.dex */
-    public class a extends AnimatorListenerAdapter {
+    public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ s94 c;
+        public boolean a;
+        public final /* synthetic */ t94 b;
+        public final /* synthetic */ b c;
+        public final /* synthetic */ s94 d;
 
-        public a(s94 s94Var, boolean z, int i) {
+        public a(s94 s94Var, t94 t94Var, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {s94Var, Boolean.valueOf(z), Integer.valueOf(i)};
+                Object[] objArr = {s94Var, t94Var, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = s94Var;
-            this.a = z;
-            this.b = i;
+            this.d = s94Var;
+            this.b = t94Var;
+            this.c = bVar;
+            this.a = false;
         }
 
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                super.onAnimationEnd(animator);
-                animator.removeAllListeners();
-                if (!this.a) {
-                    this.c.c(this.b);
-                }
-                if (this.c.e != null) {
-                    this.c.e.a(this.a);
+            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+                float animatedFraction = valueAnimator.getAnimatedFraction();
+                this.d.a(this.b, (LatLng) valueAnimator.getAnimatedValue());
+                if (!this.a && animatedFraction > 0.99d) {
+                    this.a = true;
+                    b bVar = this.c;
+                    if (bVar != null) {
+                        bVar.onAnimationEnd();
+                    }
                 }
             }
         }
@@ -91,83 +98,116 @@ public class s94 {
                 return;
             }
         }
-        f = vh3.g(58.0f);
+        h = Boolean.TRUE;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public s94(View view2, FrameLayout frameLayout, View view3) {
+    public s94() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, frameLayout, view3};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public void a(t94 t94Var, LatLng latLng) {
+        Marker marker;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, t94Var, latLng) != null) || (marker = this.b) == null) {
+            return;
+        }
+        marker.setPosition(latLng);
+        cr2 cr2Var = this.a.b;
+        cr2Var.a = latLng.latitude;
+        cr2Var.b = latLng.longitude;
+        Marker marker2 = this.f;
+        if (marker2 != null) {
+            marker2.setPosition(latLng);
+        }
+        if (!h.booleanValue()) {
+            return;
+        }
+        Marker marker3 = this.c;
+        if (marker3 != null) {
+            marker3.setPosition(latLng);
+        }
+        ViewGroup viewGroup = this.e;
+        if (viewGroup != null) {
+            t94Var.l.removeView(viewGroup);
+            MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
+            builder.layoutMode(MapViewLayoutParams.ELayoutMode.mapMode);
+            builder.position(latLng);
+            t94Var.l.addView(this.e, builder.build());
+            this.e.setAlpha(0.0f);
+        }
+    }
+
+    public void b(t94 t94Var) {
+        dr2 dr2Var;
+        dr2.b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t94Var) == null) && (dr2Var = this.a) != null && (bVar = dr2Var.i) != null && bVar.isValid()) {
+            dr2 dr2Var2 = this.a;
+            if (dr2Var2.k != null && this.d == null && !TextUtils.equals(dr2Var2.i.g, "ALWAYS")) {
+                t94Var.l.removeView(this.e);
+                this.e.removeView(this.d);
+                View a2 = h94.a(t94Var, this.a);
+                this.d = a2;
+                this.e.addView(a2, 0);
+                this.e.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
+                MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
+                builder.layoutMode(MapViewLayoutParams.ELayoutMode.mapMode);
+                builder.position(this.b.getPosition());
+                Bitmap bitmap = this.b.getIcon().getBitmap();
+                builder.yOffset((int) ((bitmap.getHeight() * (1.0d - this.a.k.b)) + 0.0d));
+                t94Var.l.addView(this.e, builder.build());
+                this.e.setAlpha(0.0f);
+                Marker marker = this.f;
+                if (marker != null) {
+                    marker.remove();
+                }
+                BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(this.e);
+                if (fromView == null) {
+                    return;
+                }
+                Bitmap bitmap2 = fromView.getBitmap();
+                if (bitmap2.getHeight() > 0 && bitmap2.getWidth() > 0) {
+                    float width = ((float) (((bitmap2.getWidth() - bitmap.getWidth()) / 2.0f) + (this.a.k.a * bitmap.getWidth()))) / bitmap2.getWidth();
+                    float height = ((float) (((float) ((bitmap2.getHeight() - 0.0d) - bitmap.getHeight())) + (this.a.k.b * bitmap.getHeight()))) / fromView.getBitmap().getHeight();
+                    MarkerOptions markerOptions = new MarkerOptions();
+                    cr2 cr2Var = this.a.b;
+                    this.f = (Marker) t94Var.l.getMap().addOverlay(markerOptions.position(new LatLng(cr2Var.a, cr2Var.b)).icon(fromView).zIndex(66).anchor(width, height));
+                }
+            }
+        }
+    }
+
+    public void c(t94 t94Var, LatLng latLng, yq2 yq2Var, b bVar) {
+        Marker marker;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, t94Var, latLng, yq2Var, bVar) == null) {
+            ValueAnimator valueAnimator = this.g;
+            if ((valueAnimator != null && valueAnimator.isRunning()) || (marker = this.b) == null) {
                 return;
             }
-        }
-        this.a = view2;
-        this.b = frameLayout;
-        this.c = view3;
-    }
-
-    public final void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-            layoutParams.height = this.a.getHeight() - (i * 2);
-            this.a.setLayoutParams(layoutParams);
-        }
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            b bVar = this.e;
-            if (bVar != null) {
-                bVar.b(z);
+            float f = 360.0f - ((float) yq2Var.B);
+            if (f >= 0.0f && f <= 360.0f) {
+                marker.setRotate(f);
             }
-            this.d = z;
-            int i = f;
-            if (z) {
+            int i = yq2Var.C;
+            if (i < 0) {
                 i = -i;
             }
-            float[] fArr = new float[2];
-            if (z) {
-                fArr[0] = 0.0f;
-                fArr[1] = i;
-            } else {
-                fArr[0] = -i;
-                fArr[1] = 0.0f;
-            }
-            float[] fArr2 = new float[2];
-            if (z) {
-                fArr2[0] = 0.0f;
-                fArr2[1] = i * 2;
-            } else {
-                fArr2[0] = (-i) * 2;
-                fArr2[1] = 0.0f;
-            }
-            AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.playTogether(ObjectAnimator.ofFloat(this.b, Key.TRANSLATION_Y, fArr), ObjectAnimator.ofFloat(this.a, Key.TRANSLATION_Y, fArr2), ObjectAnimator.ofFloat(this.c, Key.TRANSLATION_Y, fArr2));
-            animatorSet.setDuration(200L);
-            animatorSet.start();
-            animatorSet.addListener(new a(this, z, i));
-            if (z) {
-                c(i);
-            }
+            ValueAnimator ofObject = ValueAnimator.ofObject(new g94(), this.b.getPosition(), new LatLng(latLng.latitude, latLng.longitude));
+            this.g = ofObject;
+            ofObject.setDuration(i);
+            this.g.addUpdateListener(new a(this, t94Var, bVar));
+            this.g.start();
         }
     }
 }

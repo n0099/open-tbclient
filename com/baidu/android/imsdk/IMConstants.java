@@ -401,6 +401,7 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int IM_MSG_TYPE_TEMPLET = 12;
     public static final int IM_MSG_TYPE_TEXT = 0;
     public static final int IM_MSG_TYPE_TEXT_HTML = 83;
+    public static final int IM_MSG_TYPE_TEXT_IMAGE = 84;
     public static final int IM_MSG_TYPE_UNSUBSCRIBE_ME = 2013;
     public static final int IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL = 2014;
     public static final int IM_MSG_TYPE_UNSUPPORTED = 10000;
@@ -486,6 +487,7 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final String KEY_TRACK_DB_DEFAULT_SIZE = "empty_track_db_size";
     public static final int LOGIN_SYNC = 0;
     public static final int LOGIN_SYNC_NOT = 1;
+    public static final int LOGOUT_UPLOAD_ID = 501102;
     public static final String LONG_CONNECTION_STATE = "com.baidu.android.imsdk.longconnection";
     public static final int MAX_IMAGE_CACHE_DISC_SIZE = 31457280;
     public static final int MCAST_QUIZ_100_OPT = 100;

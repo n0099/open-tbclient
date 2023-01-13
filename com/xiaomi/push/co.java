@@ -49,7 +49,7 @@ public class co {
             hnVar.b(str);
             hnVar.a(true);
             hnVar.b(System.currentTimeMillis());
-            hnVar.g(bx.a(context).m225a());
+            hnVar.g(bx.a(context).m230a());
             hnVar.e("com.xiaomi.xmsf");
             hnVar.f("");
             hnVar.c("push_stat");

@@ -11,7 +11,7 @@ import com.baidu.searchbox.block.ioc.IBlockRegister;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.track.Track;
 import com.baidu.searchbox.track.ui.TrackUI;
-import com.baidu.tieba.mf1;
+import com.baidu.tieba.rf1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -64,7 +64,7 @@ public class BlockContext {
                     if (AppConfig.isDebug()) {
                         Log.d(BlockMonitor.TAG, "onAppBlock");
                     }
-                    mf1<IBlockRegister> iBlockUploadList = BlockRuntime.getInstance().getIBlockUploadList();
+                    rf1<IBlockRegister> iBlockUploadList = BlockRuntime.getInstance().getIBlockUploadList();
                     if (iBlockUploadList != null && iBlockUploadList.getList() != null && blockInfo != null) {
                         if (AppConfig.isDebug()) {
                             Log.i(BlockMonitor.TAG, "blockInfo = " + blockInfo.getStackTrace());

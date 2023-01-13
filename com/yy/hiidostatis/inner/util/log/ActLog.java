@@ -241,6 +241,10 @@ public class ActLog {
         }
     }
 
+    public static /* synthetic */ boolean access$1100() {
+        return upload();
+    }
+
     public static boolean isLogEnable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -458,7 +462,7 @@ public class ActLog {
                             }
                             boolean unused3 = ActLog.isWriteFailLog = z2;
                             L.debug("ActLog", "isWriteFailLog = %b ", Boolean.valueOf(ActLog.isWriteFailLog));
-                            if (ArdUtil.isWifiActive(ActLog.mContext) && ActLog.upload()) {
+                            if (ArdUtil.isWifiActive(ActLog.mContext) && ActLog.access$1100()) {
                                 DefaultPreference.getPreference().setPrefString(ActLog.mContext, str, formatDate);
                                 return;
                             }

@@ -12,10 +12,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.Direction;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gc7;
-import com.baidu.tieba.pz4;
-import com.baidu.tieba.rw4;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.a05;
+import com.baidu.tieba.cx4;
+import com.baidu.tieba.eg7;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -27,12 +27,12 @@ public class GamePersonalChatTitleView extends RelativeLayout {
     public View a;
     public TextView b;
     public TBSpecificationBtn c;
-    public gc7 d;
+    public eg7 d;
     public b e;
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(@NonNull gc7 gc7Var);
+        void a(@NonNull eg7 eg7Var);
     }
 
     /* loaded from: classes4.dex */
@@ -132,11 +132,11 @@ public class GamePersonalChatTitleView extends RelativeLayout {
         e();
     }
 
-    public void h(gc7 gc7Var) {
+    public void h(eg7 eg7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, gc7Var) == null) {
-            this.d = gc7Var;
-            this.b.setText(gc7Var.c());
+        if (interceptable == null || interceptable.invokeL(1048581, this, eg7Var) == null) {
+            this.d = eg7Var;
+            this.b.setText(eg7Var.c());
         }
     }
 
@@ -152,14 +152,14 @@ public class GamePersonalChatTitleView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.c = new TBSpecificationBtn(getContext());
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams.setMargins(0, 0, yi.g(getContext(), R.dimen.M_W_X007), 0);
+            layoutParams.setMargins(0, 0, zi.g(getContext(), R.dimen.M_W_X007), 0);
             layoutParams.addRule(11);
             layoutParams.addRule(15);
             this.c.setLayoutParams(layoutParams);
-            pz4 pz4Var = new pz4();
-            pz4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
-            this.c.setConfig(pz4Var);
-            this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f07d7));
+            a05 a05Var = new a05();
+            a05Var.r(R.color.CAM_X0302, R.color.CAM_X0101);
+            this.c.setConfig(a05Var);
+            this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f07df));
             addView(this.c);
             this.c.setOnClickListener(new a(this));
         }
@@ -171,9 +171,9 @@ public class GamePersonalChatTitleView extends RelativeLayout {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(9);
             this.b.setLayoutParams(layoutParams);
-            this.b.setPadding(yi.g(getContext(), R.dimen.M_W_X008), yi.g(getContext(), R.dimen.tbds44), 0, yi.g(getContext(), R.dimen.tbds44));
+            this.b.setPadding(zi.g(getContext(), R.dimen.M_W_X008), zi.g(getContext(), R.dimen.tbds44), 0, zi.g(getContext(), R.dimen.tbds44));
             addView(this.b);
-            rw4 d = rw4.d(this.b);
+            cx4 d = cx4.d(this.b);
             d.z(R.dimen.T_X13);
             d.A(R.string.F_X01);
         }
@@ -207,9 +207,9 @@ public class GamePersonalChatTitleView extends RelativeLayout {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            rw4.d(this).f(R.color.CAM_X0204);
-            rw4.d(this.a).p(new int[]{R.color.msg_navitation_bar_start, R.color.msg_navitation_bar_end}, Direction.LEFT);
-            rw4.d(this.b).v(R.color.CAM_X0105);
+            cx4.d(this).f(R.color.CAM_X0204);
+            cx4.d(this.a).p(new int[]{R.color.msg_navitation_bar_start, R.color.msg_navitation_bar_end}, Direction.LEFT);
+            cx4.d(this.b).v(R.color.CAM_X0105);
             this.c.k();
         }
     }

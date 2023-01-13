@@ -1,66 +1,159 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class r86 extends z76 {
+public class r86 extends a86<t96> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View i;
+    public HeadImageView j;
+    public TextView k;
+    public TextView l;
+    public TbImageView m;
+    public TextView n;
+    public View o;
+    public t96 p;
+    public int q;
+    public String r;
+    public String s;
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public r86(u76 context) {
-        super(context, r3, null, 4, null);
+    @Override // com.baidu.tieba.a86
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.card_promotion_item : invokeV.intValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r86(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((u76) objArr2[0], (s0) objArr2[1], (Comparator) objArr2[2], ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        s0 b = s0.i(e86.class).b();
-        Intrinsics.checkNotNullExpressionValue(b, "one(ActionComponent::class.java).get()");
+        this.q = tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070266);
+        r(h());
     }
 
-    @Override // com.baidu.tieba.z76
-    public void l(p0 entity, float f) {
-        p76 a;
-        e86 a2;
+    @Override // com.baidu.tieba.a86
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048576, this, entity, f) == null) {
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            b86 b = z86.b(entity);
-            if (b == null) {
-                a = null;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.a != i) {
+                SkinManager.setBackgroundResource(this.i, R.drawable.addresslist_item_bg);
+                SkinManager.setBackgroundResource(this.n, R.drawable.label_bg_gray);
+                SkinManager.setBackgroundResource(this.o, R.color.CAM_X0204);
+                SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
+                SkinManager.setViewTextColor(this.n, R.color.CAM_X0109, 1);
+                SkinManager.setViewTextColor(this.l, R.color.CAM_X0105, 1);
+                this.j.setPlaceHolder(1);
+                this.m.setPlaceHolder(2);
+            }
+            this.a = i;
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            if ((view2 == this.j || view2 == this.k || view2 == this.n) && !StringUtils.isNull(this.p.d)) {
+                TiebaStatic.log(new StatisticItem(this.r).param("obj_id", String.valueOf(this.p.a)));
+                UrlManager.getInstance().dealOneLink(g(), new String[]{this.p.d});
+            } else if ((view2 == this.i || view2 == this.l || view2 == this.m) && !StringUtils.isNull(this.p.g)) {
+                TiebaStatic.log(new StatisticItem(this.s).param("obj_id", String.valueOf(this.p.a)));
+                UrlManager.getInstance().dealOneLink(g(), new String[]{this.p.g});
+            }
+        }
+    }
+
+    public final void r(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            this.i = view2.findViewById(R.id.obfuscated_res_0x7f091d60);
+            this.j = (HeadImageView) view2.findViewById(R.id.promotion_head_img);
+            this.k = (TextView) view2.findViewById(R.id.promotion_name);
+            this.l = (TextView) view2.findViewById(R.id.promotion_desc);
+            this.m = (TbImageView) view2.findViewById(R.id.promotion_img);
+            this.n = (TextView) view2.findViewById(R.id.promotion_icon);
+            this.o = view2.findViewById(R.id.top_line);
+            this.j.setOnClickListener(this);
+            this.k.setOnClickListener(this);
+            this.n.setOnClickListener(this);
+            this.i.setOnClickListener(this);
+            this.j.setDefaultResource(17170445);
+            this.j.setPlaceHolder(1);
+            this.j.setRadius(this.q);
+            this.m.setDrawBorder(true);
+            this.m.setBorderWidth(1);
+            this.m.setPlaceHolder(2);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.a86
+    /* renamed from: s */
+    public void i(t96 t96Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, t96Var) == null) {
+            if (t96Var == null) {
+                this.i.setVisibility(8);
+                return;
+            }
+            if (this.i.getVisibility() != 0) {
+                this.i.setVisibility(0);
+            }
+            this.p = t96Var;
+            this.j.K(t96Var.c, 10, false);
+            this.k.setText(UtilHelper.getFixedText(t96Var.b, 7, true));
+            if (StringUtils.isNull(t96Var.i)) {
+                this.n.setVisibility(8);
             } else {
-                a = b.a();
+                this.n.setVisibility(0);
+                this.n.setText(t96Var.i);
             }
-            if (a == null || (a2 = z86.a(entity)) == null) {
+            this.l.setText(t96Var.e);
+            if (nr4.c().g()) {
+                this.m.setVisibility(0);
+                this.m.K(t96Var.f, 10, false);
                 return;
             }
-            if (y86.b(this) >= a.e().k()) {
-                a2.h(true);
-                a2.c(y86.b(this) - a.e().k());
-                return;
-            }
-            a2.h(false);
+            this.m.setVisibility(8);
+        }
+    }
+
+    public void t(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, str3) == null) {
+            this.r = str2;
+            this.s = str3;
         }
     }
 }

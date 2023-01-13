@@ -50,7 +50,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a {
         public final int gS() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.id.obfuscated_res_0x7f091106 : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.id.obfuscated_res_0x7f091111 : invokeV.intValue;
         }
 
         @Override // com.kwad.components.ad.reward.presenter.b

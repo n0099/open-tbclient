@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,6 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class FoldCommentActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String BLANK_VIEW_HEIGHT = "blank_view_height";
     public static final String KEY_FROM_VIDEO_PAGE_ID = "key_from_video_page_id";
     public static final String KEY_IS_JUMP_FROM_VIDEO_MIDDLE = "is_jump_from_video_middle";
     public static final String KEY_IS_JUMP_FROM_VIDEO_TAB = "is_jump_from_video_tab";
@@ -41,10 +43,18 @@ public class FoldCommentActivityConfig extends IntentConfig {
         intent.putExtra("is_jump_from_video_middle", z2);
     }
 
+    public void setBlankViewHeight(int i) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(BLANK_VIEW_HEIGHT, i);
+        }
+    }
+
     public void setFromVideoPageUniqueId(BdUniqueId bdUniqueId) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, bdUniqueId) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdUniqueId) == null) && (intent = getIntent()) != null) {
             intent.putExtra("key_from_video_page_id", bdUniqueId);
         }
     }

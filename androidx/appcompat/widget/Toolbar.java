@@ -799,7 +799,7 @@ public class Toolbar extends ViewGroup {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public Toolbar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040727);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040730);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1687,7 +1687,7 @@ public class Toolbar extends ViewGroup {
     private void ensureNavButtonView() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65545, this) == null) && this.mNavButtonView == null) {
-            this.mNavButtonView = new AppCompatImageButton(getContext(), null, R.attr.obfuscated_res_0x7f040726);
+            this.mNavButtonView = new AppCompatImageButton(getContext(), null, R.attr.obfuscated_res_0x7f04072f);
             LayoutParams generateDefaultLayoutParams = generateDefaultLayoutParams();
             generateDefaultLayoutParams.gravity = 8388611 | (this.mButtonGravity & 112);
             this.mNavButtonView.setLayoutParams(generateDefaultLayoutParams);
@@ -1764,7 +1764,7 @@ public class Toolbar extends ViewGroup {
     public void ensureCollapseButtonView() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.mCollapseButtonView == null) {
-            AppCompatImageButton appCompatImageButton = new AppCompatImageButton(getContext(), null, R.attr.obfuscated_res_0x7f040726);
+            AppCompatImageButton appCompatImageButton = new AppCompatImageButton(getContext(), null, R.attr.obfuscated_res_0x7f04072f);
             this.mCollapseButtonView = appCompatImageButton;
             appCompatImageButton.setImageDrawable(this.mCollapseIcon);
             this.mCollapseButtonView.setContentDescription(this.mCollapseDescription);

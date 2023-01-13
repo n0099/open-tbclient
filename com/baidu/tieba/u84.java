@@ -1,102 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.MapStatus;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class u84 extends q84<qq2> {
+public class u84 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile t84 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948164856, "Lcom/baidu/tieba/u84;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948164856, "Lcom/baidu/tieba/u84;");
-                return;
-            }
-        }
-        boolean z = ok1.a;
-    }
-
-    public u84() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static u84 d() {
+    public static synchronized t84 a() {
         InterceptResult invokeV;
+        t84 t84Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new u84();
-        }
-        return (u84) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.q84
-    public boolean b(Context context, qq2 qq2Var, nq2 nq2Var, e43 e43Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, qq2Var, nq2Var, e43Var, jSONObject)) == null) {
-            return e(context, qq2Var, nq2Var, e43Var, jSONObject);
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public final boolean e(Context context, qq2 qq2Var, nq2 nq2Var, e43 e43Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, qq2Var, nq2Var, e43Var, jSONObject)) == null) {
-            e12.i("map", "GetCenterLcationAction start");
-            mq1 A = rp2.U().A(qq2Var.c);
-            if (!(A instanceof kq1)) {
-                e12.c("map", "WebViewManager is null");
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (u84.class) {
+                if (a == null) {
+                    a = new t84();
+                }
+                t84Var = a;
             }
-            o94 d = n84.b().c((kq1) A).d(qq2Var.b);
-            if (d == null) {
-                e12.c("map", "can not find map by id " + qq2Var.b);
-                return false;
-            }
-            MapStatus mapStatus = d.l.getMap().getMapStatus();
-            xq2 xq2Var = new xq2();
-            LatLng latLng = mapStatus.target;
-            double d2 = latLng.latitude;
-            xq2Var.a = d2;
-            xq2Var.b = latLng.longitude;
-            try {
-                jSONObject.put("latitude", d2);
-                jSONObject.put("longitude", xq2Var.b);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            e12.i("map", "GetCenterLocationAction end");
-            return true;
+            return t84Var;
         }
-        return invokeLLLLL.booleanValue;
+        return (t84) invokeV.objValue;
     }
 }

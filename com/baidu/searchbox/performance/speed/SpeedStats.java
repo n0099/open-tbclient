@@ -20,7 +20,7 @@ import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.searchbox.launched.LaunchedTaskSpeedStats;
-import com.baidu.tieba.hc;
+import com.baidu.tieba.ic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -751,7 +751,7 @@ public class SpeedStats {
         }
         boolean z = true;
         this.isMainPageStatsEnd = true;
-        hc.b().d();
+        ic.b().d();
         this.mSpeedStatsManager.addStatsTimeStamp(6000);
         if (!SmartLaunchStats.hasTriedToFindFirstAvailableTime() && !hasForegroundToBackground()) {
             SmartLaunchStats.tryToFindFirstIdleTimeStamp();
@@ -851,7 +851,7 @@ public class SpeedStats {
             return;
         }
         this.isSchemePushStatsEnd = true;
-        hc.b().d();
+        ic.b().d();
         if (this.mSpeedStatsManager.getStatsFlag() == 2 || this.mSpeedStatsManager.getStatsFlag() == 1) {
             this.mStartMainActivityType = i;
             this.mUbcPage = str;

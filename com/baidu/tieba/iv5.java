@@ -1,27 +1,34 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public class iv5 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile hv5 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public Map<String, String> e;
+    public String f;
+    public String g;
+    public String h;
 
-    public static synchronized hv5 a() {
-        InterceptResult invokeV;
-        hv5 hv5Var;
+    public iv5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (iv5.class) {
-                if (a == null) {
-                    a = new hv5();
-                }
-                hv5Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return hv5Var;
         }
-        return (hv5) invokeV.objValue;
     }
 }

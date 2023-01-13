@@ -22,6 +22,7 @@ public class GetSessionResult implements Parcelable, ResponseResult {
     public boolean hasMore;
     public List<ChatSession> sessionList;
     public int totalUnread;
+    public int weakConsultUnread;
 
     @Override // android.os.Parcelable
     public int describeContents() {

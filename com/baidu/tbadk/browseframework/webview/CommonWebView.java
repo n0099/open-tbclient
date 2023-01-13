@@ -22,13 +22,13 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.browser.BrowserHelper;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.aq4;
-import com.baidu.tieba.at8;
-import com.baidu.tieba.ch;
-import com.baidu.tieba.sp4;
-import com.baidu.tieba.ys8;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.dq4;
+import com.baidu.tieba.ux8;
+import com.baidu.tieba.wx8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,9 +50,9 @@ public class CommonWebView extends WebView {
     public h j;
     public i k;
     public g l;
-    public ys8 m;
+    public ux8 m;
     public CommonTbJsBridge n;
-    public at8 o;
+    public wx8 o;
 
     /* loaded from: classes3.dex */
     public interface d {
@@ -66,7 +66,7 @@ public class CommonWebView extends WebView {
 
     /* loaded from: classes3.dex */
     public interface f {
-        void l(WebView webView, String str);
+        void d(WebView webView, String str);
     }
 
     /* loaded from: classes3.dex */
@@ -97,7 +97,7 @@ public class CommonWebView extends WebView {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements at8 {
+    public class a implements wx8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CommonWebView a;
@@ -120,15 +120,15 @@ public class CommonWebView extends WebView {
             this.a = commonWebView;
         }
 
-        @Override // com.baidu.tieba.at8
+        @Override // com.baidu.tieba.wx8
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
                 CommonWebView commonWebView = this.a;
-                ys8 ys8Var = commonWebView.m;
-                if (ys8Var != null) {
-                    return ys8Var.b(commonWebView.getWebView(), str, jsPromptResult);
+                ux8 ux8Var = commonWebView.m;
+                if (ux8Var != null) {
+                    return ux8Var.c(commonWebView.getWebView(), str, jsPromptResult);
                 }
                 return false;
             }
@@ -169,7 +169,7 @@ public class CommonWebView extends WebView {
                     return true;
                 }
                 try {
-                    sp4.l(this.a.a, str);
+                    BrowserHelper.m(this.a.a, str);
                 } catch (Exception e) {
                     BdLog.e(e.toString());
                 }
@@ -228,7 +228,7 @@ public class CommonWebView extends WebView {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, renderProcessGoneDetail)) == null) {
-                aq4.a("BaseWebView", webView);
+                dq4.a("BaseWebView", webView);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -263,7 +263,7 @@ public class CommonWebView extends WebView {
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
                 super.onPageStarted(webView, str, bitmap);
                 if (this.a.h != null) {
-                    this.a.h.l(webView, str);
+                    this.a.h.d(webView, str);
                 }
             }
         }
@@ -338,7 +338,7 @@ public class CommonWebView extends WebView {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, webView, str, str2, jsResult)) == null) {
-                if ((this.a.getContext() instanceof Activity) && ch.e((Activity) this.a.getContext())) {
+                if ((this.a.getContext() instanceof Activity) && dh.e((Activity) this.a.getContext())) {
                     return super.onJsAlert(webView, str, str2, jsResult);
                 }
                 return true;
@@ -351,7 +351,7 @@ public class CommonWebView extends WebView {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, jsResult)) == null) {
-                if ((this.a.getContext() instanceof Activity) && ch.e((Activity) this.a.getContext())) {
+                if ((this.a.getContext() instanceof Activity) && dh.e((Activity) this.a.getContext())) {
                     return super.onJsBeforeUnload(webView, str, str2, jsResult);
                 }
                 return true;
@@ -364,7 +364,7 @@ public class CommonWebView extends WebView {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2, jsResult)) == null) {
-                if ((this.a.getContext() instanceof Activity) && ch.e((Activity) this.a.getContext())) {
+                if ((this.a.getContext() instanceof Activity) && dh.e((Activity) this.a.getContext())) {
                     return super.onJsConfirm(webView, str, str2, jsResult);
                 }
                 return true;
@@ -486,10 +486,10 @@ public class CommonWebView extends WebView {
         }
     }
 
-    public void setOnJsPromptCallback(at8 at8Var) {
+    public void setOnJsPromptCallback(wx8 wx8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, at8Var) == null) {
-            this.o = at8Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, wx8Var) == null) {
+            this.o = wx8Var;
         }
     }
 
@@ -604,10 +604,10 @@ public class CommonWebView extends WebView {
             getSettings().setCacheMode(2);
             getSettings().setUseWideViewPort(true);
             getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion() + " skin/" + SkinManager.getCurrentSkinTypeString());
-            sp4.a(getSettings());
+            BrowserHelper.a(getSettings());
             this.c = new c(this);
             this.d = new k(this, null);
-            this.m = new ys8();
+            this.m = new ux8();
             setWebViewClient(this.c);
             setWebChromeClient(this.d);
             if (Build.VERSION.SDK_INT >= 11) {
@@ -615,7 +615,7 @@ public class CommonWebView extends WebView {
                 removeJavascriptInterface("accessibility");
                 removeJavascriptInterface("accessibilityTraversal");
             }
-            sp4.g(getContext());
+            BrowserHelper.h(getContext());
             if (Build.VERSION.SDK_INT >= 21) {
                 setAcceptThirdPartyCookies(true);
                 getSettings().setMixedContentMode(0);

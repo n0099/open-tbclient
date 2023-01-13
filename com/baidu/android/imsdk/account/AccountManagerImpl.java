@@ -9,6 +9,7 @@ import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.account.request.IMGetMsgSettingSwitchRequest;
 import com.baidu.android.imsdk.account.request.IMGetTokenByCuidRequest;
 import com.baidu.android.imsdk.account.request.IMGetUidByUkRequest;
+import com.baidu.android.imsdk.account.request.IMLogoutRequest;
 import com.baidu.android.imsdk.account.request.IMSetMsgSettingSwitchRequest;
 import com.baidu.android.imsdk.account.request.IMUserLoginByTokenMsg;
 import com.baidu.android.imsdk.account.request.IMUserLogoutMsg;
@@ -25,7 +26,7 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.android.pushservice.PushManager;
-import com.baidu.tieba.b80;
+import com.baidu.tieba.g80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,6 +41,7 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.CopyOnWriteArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class AccountManagerImpl {
@@ -58,7 +60,9 @@ public class AccountManagerImpl {
     public String mCuid;
     public String mFrom;
     public ILoginStateChangedListener mILoginStateChangedListener;
+    public boolean mIsLogoutUpload;
     public boolean mIsScreenStatis;
+    public long mLoginId;
     public int mLoginState;
     public int mLoginType;
     public int mOpenType;
@@ -117,6 +121,8 @@ public class AccountManagerImpl {
         this.isMediaRole = false;
         this.mTplSToken = "";
         this.mIsScreenStatis = false;
+        this.mLoginId = 0L;
+        this.mIsLogoutUpload = false;
         this.mAppid = Utility.getAppId(mContext);
         Class<?>[] clsArr = {IMUserLoginByTokenMsg.class, IMUserLogoutMsg.class};
         int[] iArr = {50, 52};
@@ -196,10 +202,19 @@ public class AccountManagerImpl {
         return (String) invokeV.objValue;
     }
 
-    public int getLoginState() {
+    public long getLoginId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mLoginId;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getLoginState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.mLoginState;
         }
         return invokeV.intValue;
@@ -208,7 +223,7 @@ public class AccountManagerImpl {
     public int getLoginType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             int i = this.mLoginType;
             if (i != -1) {
                 return i;
@@ -223,7 +238,7 @@ public class AccountManagerImpl {
     public boolean getMediaRole() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             if (!this.isMediaRole) {
                 this.isMediaRole = Utility.readAccountMedia(mContext);
             }
@@ -235,7 +250,7 @@ public class AccountManagerImpl {
     public String getToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             String str = this.mToken;
             if (TextUtils.isEmpty(str)) {
                 return Utility.getAccessToken(mContext);
@@ -248,7 +263,7 @@ public class AccountManagerImpl {
     public String getTplSToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             if (TextUtils.isEmpty(this.mTplSToken)) {
                 return Utility.getTplSToken(mContext);
             }
@@ -260,7 +275,7 @@ public class AccountManagerImpl {
     public long getUK() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             long j = this.mUK;
             if (j == 0) {
                 return Utility.getUK(mContext);
@@ -273,7 +288,7 @@ public class AccountManagerImpl {
     public String getUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             String str = this.mUid;
             if (TextUtils.isEmpty(str)) {
                 String readUid = Utility.readUid(mContext);
@@ -288,7 +303,7 @@ public class AccountManagerImpl {
     public String getVersionCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
             String str = this.mVersionCode;
             if (TextUtils.isEmpty(str)) {
                 return Utility.readStringData(mContext, Constants.KEY_VCODE, "");
@@ -301,7 +316,7 @@ public class AccountManagerImpl {
     public String getXDClientId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
             return this.mClientId;
         }
         return (String) invokeV.objValue;
@@ -310,7 +325,7 @@ public class AccountManagerImpl {
     public String getZid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
             String str = this.mZid;
             if (TextUtils.isEmpty(str)) {
                 return Utility.readStringData(mContext, Constants.KEY_ZID, "");
@@ -323,7 +338,7 @@ public class AccountManagerImpl {
     public String getcFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
             String str = this.mCFrom;
             if (TextUtils.isEmpty(str)) {
                 return Utility.getLoginCFrom(mContext);
@@ -336,8 +351,17 @@ public class AccountManagerImpl {
     public boolean isLogin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
             return !TextUtils.isEmpty(getToken());
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isLogoutUpload() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            return this.mIsLogoutUpload;
         }
         return invokeV.booleanValue;
     }
@@ -345,7 +369,7 @@ public class AccountManagerImpl {
     public boolean isScreenStatis() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
             return this.mIsScreenStatis;
         }
         return invokeV.booleanValue;
@@ -353,7 +377,7 @@ public class AccountManagerImpl {
 
     public void pushReStartWork() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
             LogUtils.d(TAG, "in pushReStartWork---");
             TaskManager.getInstance(mContext).submitForLocalOperation(new Runnable(this) { // from class: com.baidu.android.imsdk.account.AccountManagerImpl.4
                 public static /* synthetic */ Interceptable $ic;
@@ -397,7 +421,7 @@ public class AccountManagerImpl {
 
     public void syncPrivacy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048635, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048639, this) == null) {
             IMUserQueryPrivacyRequest iMUserQueryPrivacyRequest = new IMUserQueryPrivacyRequest(mContext, AccountManager.getAppid(mContext));
             HttpHelper.executor(mContext, iMUserQueryPrivacyRequest, iMUserQueryPrivacyRequest);
         }
@@ -447,7 +471,7 @@ public class AccountManagerImpl {
 
     public void getMsgSettingSwitchStatus(IGetMsgSettingSwitchListener iGetMsgSettingSwitchListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048590, this, iGetMsgSettingSwitchListener) != null) || iGetMsgSettingSwitchListener == null) {
+        if ((interceptable != null && interceptable.invokeL(1048591, this, iGetMsgSettingSwitchListener) != null) || iGetMsgSettingSwitchListener == null) {
             return;
         }
         if (isLogin()) {
@@ -461,7 +485,7 @@ public class AccountManagerImpl {
     public int getNotificationPrivacy(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, context)) == null) {
             return Utility.readPrivate(context);
         }
         return invokeL.intValue;
@@ -469,28 +493,28 @@ public class AccountManagerImpl {
 
     public void registerToDoAfterLoginListener(TodoAfterLogin todoAfterLogin) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048613, this, todoAfterLogin) == null) && todoAfterLogin != null && !this.mToDoListenersAfterLogin.contains(todoAfterLogin)) {
+        if ((interceptable == null || interceptable.invokeL(1048615, this, todoAfterLogin) == null) && todoAfterLogin != null && !this.mToDoListenersAfterLogin.contains(todoAfterLogin)) {
             this.mToDoListenersAfterLogin.add(todoAfterLogin);
         }
     }
 
     public void registerToDoBeforeLogoutListener(TodoBeforeLogout todoBeforeLogout) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048614, this, todoBeforeLogout) == null) && todoBeforeLogout != null && !this.mToDoListenersBeforeLogout.contains(todoBeforeLogout)) {
+        if ((interceptable == null || interceptable.invokeL(1048616, this, todoBeforeLogout) == null) && todoBeforeLogout != null && !this.mToDoListenersBeforeLogout.contains(todoBeforeLogout)) {
             this.mToDoListenersBeforeLogout.add(todoBeforeLogout);
         }
     }
 
     public void setAppOpenType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048617, this, i) == null) {
             this.mOpenType = i;
         }
     }
 
     public void setAppVersion(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048616, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048618, this, str) == null) {
             this.mAppVersion = str;
             Utility.writeStringData(mContext, Constants.KEY_PRODUCT_VERSION, str);
         }
@@ -499,7 +523,7 @@ public class AccountManagerImpl {
     public boolean setAppid(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048617, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048619, this, j)) == null) {
             this.mAppid = j;
             Utility.writeAppId(mContext, j);
             return true;
@@ -509,14 +533,14 @@ public class AccountManagerImpl {
 
     public void setBduid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048618, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048620, this, j) == null) {
             this.mBduid = j;
         }
     }
 
     public void setCuid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048621, this, str) == null) {
             this.mCuid = str;
             Utility.writeCuid(mContext, str);
         }
@@ -524,22 +548,36 @@ public class AccountManagerImpl {
 
     public void setLogStateChangedListener(ILoginStateChangedListener iLoginStateChangedListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048621, this, iLoginStateChangedListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048623, this, iLoginStateChangedListener) == null) {
             this.mILoginStateChangedListener = iLoginStateChangedListener;
+        }
+    }
+
+    public void setLoginId(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048624, this, j) == null) {
+            this.mLoginId = j;
         }
     }
 
     public void setLoginType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048622, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048625, this, i) == null) {
             this.mLoginType = i;
             Utility.writeLoginType(mContext, i);
         }
     }
 
+    public void setLogoutUpload(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048626, this, z) == null) {
+            this.mIsLogoutUpload = z;
+        }
+    }
+
     public void setMediaRole(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048623, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048627, this, z) == null) {
             this.isMediaRole = z;
             Utility.writeAccountMedia(mContext, z);
         }
@@ -547,14 +585,14 @@ public class AccountManagerImpl {
 
     public void setScreenStatis(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048626, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048630, this, z) == null) {
             this.mIsScreenStatis = z;
         }
     }
 
     public void setTplSToken(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048627, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048631, this, str) == null) {
             this.mTplSToken = str;
             if (!Utility.getTplSToken(mContext).equals(str)) {
                 Utility.setTplSToken(mContext, str);
@@ -564,7 +602,7 @@ public class AccountManagerImpl {
 
     public void setUK(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048628, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048632, this, j) == null) {
             this.mUK = j;
             Utility.writeUK(mContext, j);
         }
@@ -573,7 +611,7 @@ public class AccountManagerImpl {
     public boolean setUid(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048629, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048633, this, str)) == null) {
             if (str != null) {
                 this.mUid = str;
                 Utility.writeUid(mContext, str);
@@ -588,7 +626,7 @@ public class AccountManagerImpl {
 
     public void setVersionCode(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048631, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048635, this, str) == null) {
             this.mVersionCode = str;
             Utility.writeVersionCode(mContext, str);
         }
@@ -596,14 +634,14 @@ public class AccountManagerImpl {
 
     public void setXDClientId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048632, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048636, this, str) == null) {
             this.mClientId = str;
         }
     }
 
     public void setZid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048633, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048637, this, str) == null) {
             this.mZid = str;
             Utility.writeZid(mContext, str);
         }
@@ -645,7 +683,7 @@ public class AccountManagerImpl {
                 this.mToken = str2;
                 Utility.writeAccessToken(mContext, str2);
                 try {
-                    b80.e(mContext).d(mContext, creatMethodIntent);
+                    g80.e(mContext).d(mContext, creatMethodIntent);
                 } catch (Exception e) {
                     LogUtils.e(TAG, "startService", e);
                 }
@@ -677,10 +715,10 @@ public class AccountManagerImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
             try {
-                Intent intent = new Intent(mContext, b80.class);
+                Intent intent = new Intent(mContext, g80.class);
                 intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
                 intent.setPackage(mContext.getPackageName());
-                b80.e(context).d(mContext, intent);
+                g80.e(context).d(mContext, intent);
             } catch (Exception unused) {
                 LogUtils.e(TAG, "tryConnection failed......");
             }
@@ -711,7 +749,7 @@ public class AccountManagerImpl {
 
     public void setUpdateSwitch(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048630, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048634, this, i) == null) {
             if (i != 1) {
                 if (i != 2) {
                     if (i != 3) {
@@ -756,11 +794,11 @@ public class AccountManagerImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             try {
-                Intent intent = new Intent(mContext, b80.class);
+                Intent intent = new Intent(mContext, g80.class);
                 intent.putExtra(Constants.EXTRA_LISTENER_ID, str);
                 intent.putExtra(Constants.EXTRA_DISCONNECT, "1");
                 intent.setPackage(mContext.getPackageName());
-                b80.e(mContext).d(mContext, intent);
+                g80.e(mContext).d(mContext, intent);
             } catch (Exception e) {
                 LogUtils.e(TAG, "disconnect", e);
                 IMListener removeListener = ListenerManager.getInstance().removeListener(str);
@@ -790,12 +828,12 @@ public class AccountManagerImpl {
     public boolean stopService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) {
             try {
-                Intent intent = new Intent(mContext, b80.class);
+                Intent intent = new Intent(mContext, g80.class);
                 intent.setPackage(mContext.getPackageName());
                 intent.setAction(Constants.ACTION_STOP);
-                b80.e(mContext).d(mContext, intent);
+                g80.e(mContext).d(mContext, intent);
                 return true;
             } catch (Exception unused) {
                 LogUtils.e(TAG, "Stop Service SecurityException");
@@ -807,7 +845,7 @@ public class AccountManagerImpl {
 
     public void getTokenByCuid(long j, String str, IGetTokenByCuidListener iGetTokenByCuidListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Long.valueOf(j), str, iGetTokenByCuidListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Long.valueOf(j), str, iGetTokenByCuidListener}) == null) {
             if (TextUtils.isEmpty(str) || j == -1) {
                 iGetTokenByCuidListener.onGetTokenByCuidResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, null);
             }
@@ -867,7 +905,7 @@ public class AccountManagerImpl {
 
     public void onQueryPrivacyResult(int i, String str, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048612, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
             String str2 = TAG;
             LogUtils.d(str2, "onQueryPrivacyResult " + i + " " + str + " " + i2);
             if (i == 0) {
@@ -881,7 +919,7 @@ public class AccountManagerImpl {
 
     public void getUidByUk(long[] jArr, IGetUidByUkListener iGetUidByUkListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048597, this, jArr, iGetUidByUkListener) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048598, this, jArr, iGetUidByUkListener) == null) {
             if (jArr == null || jArr.length == 0) {
                 iGetUidByUkListener.onGetUidByUkResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, jArr, null);
             }
@@ -893,7 +931,7 @@ public class AccountManagerImpl {
     public boolean setEnv(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048620, this, context, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048622, this, context, i)) == null) {
             return Constants.setEnv(context, i);
         }
         return invokeLI.booleanValue;
@@ -901,7 +939,7 @@ public class AccountManagerImpl {
 
     public void setNotificationPrivacy(int i, ISetNotificationPrivacyListener iSetNotificationPrivacyListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048625, this, i, iSetNotificationPrivacyListener) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048629, this, i, iSetNotificationPrivacyListener) == null) {
             IMUserSetPrivacyRequest iMUserSetPrivacyRequest = new IMUserSetPrivacyRequest(mContext, ListenerManager.getInstance().addListener(iSetNotificationPrivacyListener), AccountManager.getAppid(mContext), i);
             HttpHelper.executor(mContext, iMUserSetPrivacyRequest, iMUserSetPrivacyRequest);
         }
@@ -909,7 +947,7 @@ public class AccountManagerImpl {
 
     public void login(int i, String str, String str2, String str3, String str4, ILoginListener iLoginListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4, iLoginListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4, iLoginListener}) == null) {
             if (str2 == null) {
                 onLoginResult("", 1005, Constants.ERROR_MSG_PARAMETER_ERROR, false);
                 return;
@@ -1024,7 +1062,7 @@ public class AccountManagerImpl {
 
     public void logout(int i, ILoginListener iLoginListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048605, this, i, iLoginListener) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048607, this, i, iLoginListener) == null) {
             noticeStateChanged(4);
             BIMManager.connectStatusNotify(1);
             Iterator<TodoBeforeLogout> it = this.mToDoListenersBeforeLogout.iterator();
@@ -1036,17 +1074,21 @@ public class AccountManagerImpl {
             }
             String addListener = ListenerManager.getInstance().addListener(iLoginListener);
             if (isLogin()) {
+                JSONArray jSONArray = new JSONArray();
+                Utility.addEventListMs(jSONArray, "CIMReqBegin");
                 Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 52);
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                 creatMethodIntent.putExtra(Constants.EXTRA_CLEAR_AFTER_LOGOUT, i);
+                creatMethodIntent.putExtra("event_list", jSONArray.toString());
                 try {
-                    b80.e(mContext).d(mContext, creatMethodIntent);
-                    return;
+                    g80.e(mContext).d(mContext, creatMethodIntent);
                 } catch (Exception e) {
                     LogUtils.e(TAG, "Exception ", e);
                     onLogoutResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, i);
-                    return;
                 }
+                IMLogoutRequest iMLogoutRequest = new IMLogoutRequest(mContext, jSONArray);
+                HttpHelper.executor(mContext, iMLogoutRequest, iMLogoutRequest);
+                return;
             }
             onLogoutResult(addListener, 1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, i);
         }
@@ -1054,7 +1096,7 @@ public class AccountManagerImpl {
 
     public void onGetTokenByCuidResult(String str, int i, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(1048606, this, str, i, str2, str3) == null) {
+        if (interceptable == null || interceptable.invokeLILL(1048608, this, str, i, str2, str3) == null) {
             String str4 = TAG;
             LogUtils.d(str4, "onGetTokenByCuidResult----errorCode: " + i + " msg: " + str2);
             IGetTokenByCuidListener iGetTokenByCuidListener = (IGetTokenByCuidListener) ListenerManager.getInstance().removeListener(str);
@@ -1068,7 +1110,7 @@ public class AccountManagerImpl {
 
     public void onGetUidByUkResult(String str, int i, String str2, long[] jArr, Map<Long, Long> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048607, this, new Object[]{str, Integer.valueOf(i), str2, jArr, map}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{str, Integer.valueOf(i), str2, jArr, map}) == null) {
             String str3 = TAG;
             LogUtils.d(str3, "onGetUidByUkResult----errorCode: " + i + " msg: " + str2);
             IGetUidByUkListener iGetUidByUkListener = (IGetUidByUkListener) ListenerManager.getInstance().removeListener(str);
@@ -1083,7 +1125,7 @@ public class AccountManagerImpl {
     public void onLoginResult(String str, int i, String str2, boolean z) {
         CopyOnWriteArrayList<TodoAfterLogin> copyOnWriteArrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
             String str3 = TAG;
             LogUtils.d(str3, "onLoginResult----errorCode: " + i + " msg: " + str2);
             LoginManager.getInstance(mContext).onLoginResultInternal(i, str2);
@@ -1109,7 +1151,7 @@ public class AccountManagerImpl {
 
     public void onLogoutResult(String str, int i, String str2, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048611, this, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2)}) == null) {
             String str3 = TAG;
             LogUtils.d(str3, "onLogoutResult----errorCode: " + i + " msg: " + str2);
             if (i == 0) {
@@ -1135,7 +1177,7 @@ public class AccountManagerImpl {
 
     public void onSetPrivacyResult(String str, int i, String str2, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048611, this, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2)}) == null) {
             String str3 = TAG;
             LogUtils.d(str3, "onSetPrivacyResult " + i + " " + str2 + " " + i2);
             ISetNotificationPrivacyListener iSetNotificationPrivacyListener = (ISetNotificationPrivacyListener) ListenerManager.getInstance().removeListener(str);
@@ -1153,7 +1195,7 @@ public class AccountManagerImpl {
 
     public void setMsgSettingSwitchStatus(int i, int i2, ISetMsgSettingSwitchListener iSetMsgSettingSwitchListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIIL(1048624, this, i, i2, iSetMsgSettingSwitchListener) != null) || iSetMsgSettingSwitchListener == null) {
+        if ((interceptable != null && interceptable.invokeIIL(1048628, this, i, i2, iSetMsgSettingSwitchListener) != null) || iSetMsgSettingSwitchListener == null) {
             return;
         }
         if (isLogin()) {

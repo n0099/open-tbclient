@@ -1,1115 +1,696 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
+import androidx.lifecycle.SavedStateHandle;
 import com.badlogic.gdx.utils.JsonValue;
+import com.badlogic.gdx.utils.JsonWriter$OutputType;
 import com.badlogic.gdx.utils.SerializationException;
-import com.baidu.android.common.others.lang.StringUtil;
+import com.badlogic.gdx.utils.reflect.ReflectionException;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.tieba.y7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.Base64;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import java.io.IOException;
-import java.io.Reader;
-import kotlin.text.Typography;
-import org.apache.commons.codec.binary4util.BaseNCodec;
+import java.security.AccessControlException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class q7 implements d7 {
+public class q7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] e;
-    public static final short[] f;
-    public static final char[] g;
-    public static final byte[] h;
-    public static final byte[] i;
-    public static final short[] j;
-    public static final byte[] k;
-    public static final byte[] l;
-    public static final byte[] m;
-    public static final byte[] n;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b7<JsonValue> a;
-    public final b7<JsonValue> b;
-    public JsonValue c;
-    public JsonValue d;
+    public String a;
+    public boolean b;
+    public boolean c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
+    public d g;
+    public final y7<Class, a8<String, a>> h;
+    public final y7<String, Class> i;
+    public final y7<Class, String> j;
+    public final y7<Class, d> k;
+    public final Object[] l;
+    public final Object[] m;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448313479, "Lcom/baidu/tieba/q7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public interface c {
+        void a(q7 q7Var, JsonValue jsonValue);
+    }
+
+    /* loaded from: classes5.dex */
+    public interface d<T> {
+        T a(q7 q7Var, JsonValue jsonValue, Class cls);
+    }
+
+    public boolean g(Class cls, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, cls, str)) == null) {
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public void q(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final x8 a;
+        public Class b;
+        public boolean c;
+
+        public a(x8 x8Var) {
+            int i;
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448313479, "Lcom/baidu/tieba/q7;");
-                return;
+            this.a = x8Var;
+            if (!v8.f(y7.class, x8Var.getType()) && !v8.f(Map.class, x8Var.getType())) {
+                i = 0;
+            } else {
+                i = 1;
+            }
+            this.b = x8Var.c(i);
+            this.c = x8Var.f(Deprecated.class);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static abstract class b<T> implements d<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        e = d();
-        f = h();
-        g = l();
-        h = j();
-        i = i();
-        j = f();
-        k = g();
-        l = m();
-        m = k();
-        n = e();
-    }
-
-    public static short[] f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return new short[]{0, 0, 11, 14, 16, 19, 28, 34, 40, 43, 54, 62, 70, 79, 81, 90, 93, 96, 105, 108, 111, 113, 116, 119, 130, 138, 146, 157, 159, 170, 173, 176, 187, 190, 193, 196, 201, 206, 207};
-        }
-        return (short[]) invokeV.objValue;
-    }
-
-    public static short[] h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return new short[]{0, 0, 11, 13, 14, 16, 25, 31, 37, 39, 50, 57, 64, 73, 74, 83, 85, 87, 96, 98, 100, 101, 103, 105, 116, 123, 130, 141, 142, 153, 155, 157, 168, 170, 172, 174, 179, 184, 184};
-        }
-        return (short[]) invokeV.objValue;
-    }
-
-    public static byte[] k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return new byte[]{13, 0, 15, 0, 0, 7, 3, Constants.GZIP_CAST_TYPE, 1, Constants.GZIP_CAST_TYPE, 17, 0, 20, 0, 0, 5, 1, 1, 1, 0, 0, 0, Constants.GZIP_CAST_TYPE, 13, 15, 0, 7, 3, 1, 1, 1, 1, 23, 0, 0, 0, 0, 0, 0, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, 0, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, 13, 0, 15, 0, 0, 7, 9, 3, 1, 1, 1, 1, 26, 0, 0, 0, 0, 0, 0, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, 0, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, 1, 0, 0};
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public static byte[] m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return new byte[]{Base64.INTERNAL_PADDING, 1, 3, 0, 4, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 1, 6, 5, 13, 17, 22, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 7, 8, 9, 7, 8, 9, 7, 10, 20, 21, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, 12, 17, 19, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, Constants.GZIP_CAST_TYPE, 12, 19, 14, 16, 15, 14, 12, 18, 17, Constants.GZIP_CAST_TYPE, 9, 5, 24, 23, 27, 31, 34, 25, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, 25, 25, 26, 31, 33, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, 25, 26, 33, 28, 30, 29, 28, 26, 32, 31, 25, 23, 2, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 2};
-        }
-        return (byte[]) invokeV.objValue;
     }
 
     public q7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new b7<>(8);
-        this.b = new b7<>(8);
+        this.a = DealIntentService.KEY_CLASS;
+        this.e = true;
+        this.h = new y7<>();
+        this.i = new y7<>();
+        this.j = new y7<>();
+        this.k = new y7<>();
+        new y7();
+        this.l = new Object[]{null};
+        this.m = new Object[]{null};
+        JsonWriter$OutputType jsonWriter$OutputType = JsonWriter$OutputType.minimal;
     }
 
-    public static byte[] e() {
-        InterceptResult invokeV;
+    public void a(String str, Class cls) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return new byte[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0};
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public static byte[] i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return new byte[]{0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0};
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public static byte[] j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return new byte[]{0, 9, 2, 1, 2, 7, 4, 4, 2, 9, 7, 7, 7, 1, 7, 2, 2, 7, 2, 2, 1, 2, 2, 9, 7, 7, 9, 1, 9, 2, 2, 9, 2, 2, 2, 3, 3, 0, 0};
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public void r() {
-        JsonValue jsonValue;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.c = this.a.pop();
-            if (this.d.j > 0) {
-                this.b.pop();
-            }
-            b7<JsonValue> b7Var = this.a;
-            if (b7Var.b > 0) {
-                jsonValue = b7Var.peek();
-            } else {
-                jsonValue = null;
-            }
-            this.d = jsonValue;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, cls) == null) {
+            this.i.i(str, cls);
+            this.j.i(cls, str);
         }
     }
 
-    public static byte[] d() {
-        InterceptResult invokeV;
+    public <T> T j(Class<T> cls, JsonValue jsonValue) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new byte[]{0, 1, 1, 1, 2, 1, 3, 1, 4, 1, 5, 1, 6, 1, 7, 1, 8, 2, 0, 7, 2, 0, 8, 2, 1, 3, 2, 1, 5};
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, cls, jsonValue)) == null) {
+            return (T) k(cls, null, jsonValue);
         }
-        return (byte[]) invokeV.objValue;
+        return (T) invokeLL.objValue;
     }
 
-    public static byte[] g() {
-        InterceptResult invokeV;
+    public <T> void o(Class<T> cls, d<T> dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return new byte[]{1, 1, 2, 3, 4, 3, 5, 3, 6, 1, 0, 7, 7, 3, 8, 3, 9, 9, 3, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, 12, 13, 14, 3, 15, Constants.GZIP_CAST_TYPE, 10, 16, 16, 17, 18, 16, 3, 19, 19, 20, 21, 19, 3, 22, 22, 3, 21, 21, 24, 3, 25, 3, 26, 3, 27, 21, 23, 28, 29, 29, 28, 30, 31, 32, 3, 33, 34, 34, 33, 13, Base64.INTERNAL_PADDING, 15, 3, 34, 34, 12, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 3, 15, 34, 10, 16, 3, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 12, 3, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, 3, 3, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 10, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 3, 40, 40, 3, 13, 13, 12, 3, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 3, 15, 13, 10, ExifInterface.START_CODE, ExifInterface.START_CODE, 3, 43, 43, 3, 28, 3, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 3, 45, 45, 3, 47, 47, 48, 49, 50, 3, 51, 52, 53, 47, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 54, 55, 55, 54, 56, 57, 58, 3, 59, 60, 60, 59, 49, BaseNCodec.PAD_DEFAULT, 52, 3, 60, 60, 48, 62, 63, 3, 51, 52, 53, 60, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 54, 3, 62, 62, 48, 3, 64, 3, 51, 3, 53, 62, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 65, 65, 3, 66, 66, 3, 49, 49, 48, 3, 67, 3, 51, 52, 53, 49, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 68, 68, 3, 69, 69, 3, 70, 70, 3, 8, 8, 71, 8, 3, 72, 72, 73, 72, 3, 3, 3, 0};
+        if (interceptable == null || interceptable.invokeLL(1048590, this, cls, dVar) == null) {
+            this.k.i(cls, dVar);
         }
-        return (byte[]) invokeV.objValue;
     }
 
-    public static char[] l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return new char[]{'\r', WebvttCueParser.CHAR_SPACE, Typography.quote, ',', WebvttCueParser.CHAR_SLASH, ':', '[', ']', '{', '\t', '\n', '*', WebvttCueParser.CHAR_SLASH, Typography.quote, '*', WebvttCueParser.CHAR_SLASH, '\r', WebvttCueParser.CHAR_SPACE, Typography.quote, ',', WebvttCueParser.CHAR_SLASH, ':', '}', '\t', '\n', '\r', WebvttCueParser.CHAR_SPACE, WebvttCueParser.CHAR_SLASH, ':', '\t', '\n', '\r', WebvttCueParser.CHAR_SPACE, WebvttCueParser.CHAR_SLASH, ':', '\t', '\n', '*', WebvttCueParser.CHAR_SLASH, '\r', WebvttCueParser.CHAR_SPACE, Typography.quote, ',', WebvttCueParser.CHAR_SLASH, ':', '[', ']', '{', '\t', '\n', '\t', '\n', '\r', WebvttCueParser.CHAR_SPACE, ',', WebvttCueParser.CHAR_SLASH, '}', '\t', '\n', '\r', WebvttCueParser.CHAR_SPACE, ',', WebvttCueParser.CHAR_SLASH, '}', '\r', WebvttCueParser.CHAR_SPACE, Typography.quote, ',', WebvttCueParser.CHAR_SLASH, ':', '}', '\t', '\n', Typography.quote, '\r', WebvttCueParser.CHAR_SPACE, Typography.quote, ',', WebvttCueParser.CHAR_SLASH, ':', '}', '\t', '\n', '*', WebvttCueParser.CHAR_SLASH, '*', WebvttCueParser.CHAR_SLASH, '\r', WebvttCueParser.CHAR_SPACE, Typography.quote, ',', WebvttCueParser.CHAR_SLASH, ':', '}', '\t', '\n', '*', WebvttCueParser.CHAR_SLASH, '*', WebvttCueParser.CHAR_SLASH, Typography.quote, '*', WebvttCueParser.CHAR_SLASH, '*', WebvttCueParser.CHAR_SLASH, '\r', WebvttCueParser.CHAR_SPACE, Typography.quote, ',', WebvttCueParser.CHAR_SLASH, ':', '[', ']', '{', '\t', '\n', '\t', '\n', '\r', WebvttCueParser.CHAR_SPACE, ',', WebvttCueParser.CHAR_SLASH, ']', '\t', '\n', '\r', WebvttCueParser.CHAR_SPACE, ',', WebvttCueParser.CHAR_SLASH, ']', '\r', WebvttCueParser.CHAR_SPACE, Typography.quote, ',', WebvttCueParser.CHAR_SLASH, ':', '[', ']', '{', '\t', '\n', Typography.quote, '\r', WebvttCueParser.CHAR_SPACE, Typography.quote, ',', WebvttCueParser.CHAR_SLASH, ':', '[', ']', '{', '\t', '\n', '*', WebvttCueParser.CHAR_SLASH, '*', WebvttCueParser.CHAR_SLASH, '\r', WebvttCueParser.CHAR_SPACE, Typography.quote, ',', WebvttCueParser.CHAR_SLASH, ':', '[', ']', '{', '\t', '\n', '*', WebvttCueParser.CHAR_SLASH, '*', WebvttCueParser.CHAR_SLASH, '*', WebvttCueParser.CHAR_SLASH, '\r', WebvttCueParser.CHAR_SPACE, WebvttCueParser.CHAR_SLASH, '\t', '\n', '\r', WebvttCueParser.CHAR_SPACE, WebvttCueParser.CHAR_SLASH, '\t', '\n', 0};
-        }
-        return (char[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.d7
-    public JsonValue a(k3 k3Var) {
+    public final String b(Enum r5) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k3Var)) == null) {
-            try {
-                try {
-                    return p(k3Var.r("UTF-8"));
-                } catch (Exception e2) {
-                    throw new SerializationException("Error parsing file: " + k3Var, e2);
-                }
-            } catch (Exception e3) {
-                throw new SerializationException("Error reading file: " + k3Var, e3);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r5)) == null) {
+            if (this.e) {
+                return r5.name();
             }
+            return r5.toString();
         }
-        return (JsonValue) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public JsonValue p(Reader reader) {
+    public Class e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, reader)) == null) {
-            char[] cArr = new char[1024];
-            int i2 = 0;
-            while (true) {
-                try {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return this.i.c(str);
+        }
+        return (Class) invokeL.objValue;
+    }
+
+    public void p(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void c(Object obj, Object obj2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, obj, obj2) == null) {
+            a8<String, a> f = f(obj2.getClass());
+            y7.a<String, a> it = f(obj.getClass()).iterator();
+            while (it.hasNext()) {
+                y7.b next = it.next();
+                a c2 = f.c(next.a);
+                x8 x8Var = ((a) next.b).a;
+                if (c2 != null) {
                     try {
-                        int read = reader.read(cArr, i2, cArr.length - i2);
-                        if (read == -1) {
-                            j8.a(reader);
-                            return q(cArr, 0, i2);
-                        } else if (read == 0) {
-                            char[] cArr2 = new char[cArr.length * 2];
-                            System.arraycopy(cArr, 0, cArr2, 0, cArr.length);
-                            cArr = cArr2;
-                        } else {
-                            i2 += read;
-                        }
-                    } catch (IOException e2) {
-                        throw new SerializationException("Error reading input.", e2);
+                        c2.a.j(obj2, x8Var.a(obj));
+                    } catch (ReflectionException e) {
+                        throw new SerializationException("Error copying field: " + x8Var.d(), e);
                     }
-                } catch (Throwable th) {
-                    j8.a(reader);
-                    throw th;
-                }
-            }
-        } else {
-            return (JsonValue) invokeL.objValue;
-        }
-    }
-
-    public final void b(String str, JsonValue jsonValue) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jsonValue) == null) {
-            jsonValue.P(str);
-            JsonValue jsonValue2 = this.d;
-            if (jsonValue2 == null) {
-                this.d = jsonValue;
-                this.c = jsonValue;
-            } else if (!jsonValue2.u() && !this.d.C()) {
-                this.c = this.d;
-            } else {
-                JsonValue jsonValue3 = this.d;
-                jsonValue.g = jsonValue3;
-                if (jsonValue3.j == 0) {
-                    jsonValue3.f = jsonValue;
                 } else {
-                    JsonValue pop = this.b.pop();
-                    pop.h = jsonValue;
-                    jsonValue.i = pop;
+                    throw new SerializationException("To object is missing field: " + ((String) next.a));
                 }
-                this.b.a(jsonValue);
-                this.d.j++;
             }
         }
     }
 
-    public void c(String str, boolean z) {
+    public <T> T d(Class<T> cls, l3 l3Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
-            b(str, new JsonValue(z));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, cls, l3Var)) == null) {
+            try {
+                return (T) k(cls, null, new r7().a(l3Var));
+            } catch (Exception e) {
+                throw new SerializationException("Error reading file: " + l3Var, e);
+            }
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    public final a8<String, a> f(Class cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cls)) == null) {
+            a8<String, a> c2 = this.h.c(cls);
+            if (c2 != null) {
+                return c2;
+            }
+            c7 c7Var = new c7();
+            for (Class cls2 = cls; cls2 != Object.class; cls2 = cls2.getSuperclass()) {
+                c7Var.a(cls2);
+            }
+            ArrayList arrayList = new ArrayList();
+            for (int i = c7Var.b - 1; i >= 0; i--) {
+                Collections.addAll(arrayList, v8.d((Class) c7Var.get(i)));
+            }
+            a8<String, a> a8Var = new a8<>(arrayList.size());
+            int size = arrayList.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                x8 x8Var = (x8) arrayList.get(i2);
+                if (!x8Var.i() && !x8Var.g() && !x8Var.h()) {
+                    if (!x8Var.e()) {
+                        try {
+                            x8Var.k(true);
+                        } catch (AccessControlException unused) {
+                        }
+                    }
+                    a8Var.i(x8Var.d(), new a(x8Var));
+                }
+            }
+            if (this.f) {
+                a8Var.o.l();
+            }
+            this.h.i(cls, a8Var);
+            return a8Var;
+        }
+        return (a8) invokeL.objValue;
+    }
+
+    public Object h(Class cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cls)) == null) {
+            try {
+                return v8.i(cls);
+            } catch (Exception e) {
+                e = e;
+                try {
+                    w8 c2 = v8.c(cls, new Class[0]);
+                    c2.c(true);
+                    return c2.b(new Object[0]);
+                } catch (ReflectionException unused) {
+                    if (v8.f(Enum.class, cls)) {
+                        if (cls.getEnumConstants() == null) {
+                            cls = cls.getSuperclass();
+                        }
+                        return cls.getEnumConstants()[0];
+                    } else if (!cls.isArray()) {
+                        if (v8.g(cls) && !v8.h(cls)) {
+                            throw new SerializationException("Class cannot be created (non-static member class): " + cls.getName(), e);
+                        }
+                        throw new SerializationException("Class cannot be created (missing no-arg constructor): " + cls.getName(), e);
+                    } else {
+                        throw new SerializationException("Encountered JSON object when expected array of type: " + cls.getName(), e);
+                    }
+                } catch (SecurityException unused2) {
+                    throw new SerializationException("Error constructing instance of class: " + cls.getName(), e);
+                } catch (Exception e2) {
+                    e = e2;
+                    throw new SerializationException("Error constructing instance of class: " + cls.getName(), e);
+                }
+            }
+        }
+        return invokeL.objValue;
+    }
+
+    public void i(Object obj, JsonValue jsonValue) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj, jsonValue) == null) {
+            Class<?> cls = obj.getClass();
+            a8<String, a> f = f(cls);
+            for (JsonValue jsonValue2 = jsonValue.f; jsonValue2 != null; jsonValue2 = jsonValue2.h) {
+                a c2 = f.c(jsonValue2.G().replace(" ", "_"));
+                if (c2 == null) {
+                    if (!jsonValue2.e.equals(this.a) && !this.b && !g(cls, jsonValue2.e)) {
+                        SerializationException serializationException = new SerializationException("Field not found: " + jsonValue2.e + " (" + cls.getName() + SmallTailInfo.EMOTION_SUFFIX);
+                        serializationException.addTrace(jsonValue2.Q());
+                        throw serializationException;
+                    }
+                } else if (!this.c || this.d || !c2.c) {
+                    x8 x8Var = c2.a;
+                    try {
+                        x8Var.j(obj, k(x8Var.getType(), c2.b, jsonValue2));
+                    } catch (SerializationException e) {
+                        e.addTrace(x8Var.d() + " (" + cls.getName() + SmallTailInfo.EMOTION_SUFFIX);
+                        throw e;
+                    } catch (ReflectionException e2) {
+                        throw new SerializationException("Error accessing field: " + x8Var.d() + " (" + cls.getName() + SmallTailInfo.EMOTION_SUFFIX, e2);
+                    } catch (RuntimeException e3) {
+                        SerializationException serializationException2 = new SerializationException(e3);
+                        serializationException2.addTrace(jsonValue2.Q());
+                        serializationException2.addTrace(x8Var.d() + " (" + cls.getName() + SmallTailInfo.EMOTION_SUFFIX);
+                        throw serializationException2;
+                    }
+                }
+            }
         }
     }
 
-    public void u(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) {
-            b(str, new JsonValue(str2));
-        }
-    }
-
-    public void n(String str, double d, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Double.valueOf(d), str2}) == null) {
-            b(str, new JsonValue(d, str2));
-        }
-    }
-
-    public void o(String str, long j2, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Long.valueOf(j2), str2}) == null) {
-            b(str, new JsonValue(j2, str2));
-        }
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:401:0x005b */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:454:0x009b */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:456:0x009b */
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x002e, code lost:
-        if (r11 != 4) goto L313;
+    /* JADX DEBUG: Type inference failed for r13v3. Raw type applied. Possible types: java.lang.Class<com.baidu.tieba.c7> */
+    /* JADX WARN: Code restructure failed: missing block: B:134:0x0208, code lost:
+        if (r13 == java.lang.Object.class) goto L89;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:171:0x023c, code lost:
-        r11 = 2;
+    /* JADX WARN: Code restructure failed: missing block: B:225:0x0354, code lost:
+        if (r13 == r0) goto L138;
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:125:0x01a0 A[LOOP:7: B:362:0x0167->B:125:0x01a0, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:328:0x046a  */
-    /* JADX WARN: Removed duplicated region for block: B:336:0x04ba  */
-    /* JADX WARN: Removed duplicated region for block: B:382:0x0357 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:384:0x034f A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:387:0x0345 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:425:0x01a5 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x00e1 A[Catch: RuntimeException -> 0x045a, TRY_LEAVE, TryCatch #6 {RuntimeException -> 0x045a, blocks: (B:262:0x0393, B:264:0x0399, B:268:0x03ab, B:275:0x03bc, B:281:0x03d1, B:286:0x03dc, B:21:0x0044, B:23:0x0052, B:25:0x005d, B:34:0x008f, B:36:0x0095, B:38:0x009d, B:39:0x00a0, B:41:0x00b6, B:42:0x00bb, B:44:0x00c5, B:45:0x00cc, B:46:0x00d3, B:48:0x00e1, B:139:0x01d0, B:161:0x0207, B:162:0x020f, B:164:0x0213, B:166:0x021b, B:168:0x0221, B:169:0x022d, B:170:0x0235, B:172:0x0240, B:174:0x0244, B:176:0x024c, B:178:0x0252, B:180:0x0260, B:185:0x0274, B:187:0x027a, B:191:0x028b, B:198:0x029c, B:204:0x02af, B:209:0x02bc, B:26:0x0062, B:28:0x0076, B:29:0x007b, B:31:0x0083, B:32:0x0088), top: B:368:0x0044 }] */
-    /* JADX WARN: Type inference failed for: r0v40, types: [int[], java.lang.Object] */
-    /* JADX WARN: Type inference failed for: r0v50, types: [int[], java.lang.Object] */
-    /* JADX WARN: Type inference failed for: r13v16, types: [int] */
-    /* JADX WARN: Type inference failed for: r13v17 */
-    /* JADX WARN: Type inference failed for: r13v50, types: [int] */
-    /* JADX WARN: Type inference failed for: r13v53 */
-    /* JADX WARN: Type inference failed for: r18v13, types: [int] */
-    /* JADX WARN: Type inference failed for: r18v16, types: [int] */
-    /* JADX WARN: Type inference failed for: r18v17, types: [int] */
-    /* JADX WARN: Type inference failed for: r4v0, types: [int[]] */
-    /* JADX WARN: Type inference failed for: r9v5, types: [int] */
+    /* JADX WARN: Removed duplicated region for block: B:235:0x0378  */
+    /* JADX WARN: Removed duplicated region for block: B:302:0x0431 A[RETURN] */
+    /* JADX WARN: Type inference failed for: r0v68, types: [com.baidu.tieba.q7$c] */
+    /* JADX WARN: Type inference failed for: r0v71, types: [com.baidu.tieba.q7$d] */
+    /* JADX WARN: Type inference failed for: r12v14, types: [com.baidu.tieba.q7$d] */
+    /* JADX WARN: Type inference failed for: r12v3, types: [T, java.lang.String] */
+    /* JADX WARN: Type inference failed for: r21v0, types: [java.lang.Object, com.baidu.tieba.q7] */
+    /* JADX WARN: Type inference failed for: r2v0, types: [com.badlogic.gdx.utils.JsonValue, T] */
+    /* JADX WARN: Type inference failed for: r2v45, types: [com.badlogic.gdx.utils.JsonValue, java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r3v24, types: [T, java.util.Map] */
+    /* JADX WARN: Type inference failed for: r3v25, types: [T, com.baidu.tieba.d7] */
+    /* JADX WARN: Type inference failed for: r3v26, types: [T, com.baidu.tieba.p7] */
+    /* JADX WARN: Type inference failed for: r3v27, types: [T, com.baidu.tieba.u7] */
+    /* JADX WARN: Type inference failed for: r3v28, types: [T, com.baidu.tieba.o7] */
+    /* JADX WARN: Type inference failed for: r3v29, types: [com.baidu.tieba.z7, T] */
+    /* JADX WARN: Type inference failed for: r3v30, types: [T, com.baidu.tieba.w7] */
+    /* JADX WARN: Type inference failed for: r3v31, types: [T, com.baidu.tieba.x7] */
+    /* JADX WARN: Type inference failed for: r3v32, types: [T, com.baidu.tieba.y7] */
+    /* JADX WARN: Type inference failed for: r3v33, types: [java.lang.StringBuilder] */
+    /* JADX WARN: Type inference failed for: r3v41, types: [com.baidu.tieba.e8] */
+    /* JADX WARN: Type inference failed for: r3v45, types: [com.baidu.tieba.c7] */
+    /* JADX WARN: Type inference failed for: r5v1, types: [java.lang.Enum, T] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public JsonValue q(char[] cArr, int i2, int i3) {
-        InterceptResult invokeLII;
-        String str;
-        int i4;
-        byte[] bArr;
-        RuntimeException runtimeException;
-        String str2;
-        String str3;
-        int i5;
-        b7 b7Var;
-        boolean z;
-        int i6;
-        short s;
-        short s2;
-        byte b;
-        String str4;
-        String str5;
-        int i7;
-        byte[] bArr2;
-        byte b2;
-        String str6;
-        int i8;
-        boolean z2;
-        int i9;
-        boolean z3;
-        int i10;
+    public <T> T k(Class<T> cls, Class cls2, JsonValue jsonValue) {
+        InterceptResult invokeLLL;
+        Class cls3;
+        JsonValue jsonValue2;
+        Class cls4;
+        JsonValue jsonValue3;
+        T t;
+        T t2;
+        T t3;
+        String r;
+        Class cls5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, cArr, i2, i3)) == null) {
-            b7 b7Var2 = new b7(8);
-            byte[] bArr3 = new int[4];
-            int i11 = 0;
-            char c = 0;
-            byte b3 = 1;
-            int i12 = 0;
-            boolean z4 = false;
-            boolean z5 = false;
-            boolean z6 = false;
-            int i13 = i2;
-            while (true) {
-                str = "false";
-                try {
-                    if (c != 0) {
-                        if (c != 1) {
-                            if (c == 2) {
-                                i4 = i11;
-                                bArr = bArr3;
-                                if (b3 == 0) {
-                                    i11 = i4;
-                                    bArr3 = bArr;
-                                    c = 5;
-                                } else {
-                                    i13++;
-                                    if (i13 != i3) {
-                                        i11 = i4;
-                                        bArr3 = bArr;
-                                        c = 1;
-                                    }
-                                }
-                            }
-                        }
-                    } else if (i13 == i3) {
-                        c = 4;
-                    } else if (b3 == 0) {
-                        c = 5;
-                    }
-                    short s3 = f[b3];
-                    short s4 = j[b3];
-                    byte b4 = h[b3];
-                    if (b4 > 0) {
-                        int i14 = s3 + b4;
-                        int i15 = i14 - 1;
-                        i6 = i12;
-                        int i16 = s3;
-                        while (i15 >= i16) {
-                            int i17 = i16 + ((i15 - i16) >> 1);
-                            int i18 = i15;
-                            int i19 = i16;
-                            if (cArr[i13] < g[i17]) {
-                                i15 = i17 - 1;
-                                i16 = i19;
-                            } else if (cArr[i13] > g[i17]) {
-                                i16 = i17 + 1;
-                                i15 = i18;
-                            } else {
-                                s2 = s4 + (i17 - s3);
-                                b = k[s2];
-                                byte b5 = l[b];
-                                if (m[b] == 0) {
-                                    byte b6 = m[b];
-                                    int i20 = b6 + 1;
-                                    byte b7 = e[b6];
-                                    int i21 = i20;
-                                    i12 = i6;
-                                    while (true) {
-                                        ?? r18 = b7 - 1;
-                                        if (b7 > 0) {
-                                            try {
-                                                int i22 = i21 + 1;
-                                                switch (e[i21]) {
-                                                    case 0:
-                                                        i7 = i11;
-                                                        bArr2 = bArr3;
-                                                        b2 = b5;
-                                                        z5 = true;
-                                                        b5 = b2;
-                                                        b7 = r18;
-                                                        i21 = i22;
-                                                        i11 = i7;
-                                                        bArr3 = bArr2;
-                                                    case 1:
-                                                        String str7 = new String(cArr, i12, i13 - i12);
-                                                        if (z4) {
-                                                            str7 = v(str7);
-                                                        }
-                                                        if (z5) {
-                                                            b7Var2.a(str7);
-                                                            i8 = i13;
-                                                            i7 = i11;
-                                                            bArr2 = bArr3;
-                                                            b2 = b5;
-                                                            z5 = false;
-                                                        } else {
-                                                            if (b7Var2.b > 0) {
-                                                                str6 = (String) b7Var2.pop();
-                                                            } else {
-                                                                str6 = null;
-                                                            }
-                                                            if (z6) {
-                                                                if (str7.equals("true")) {
-                                                                    c(str6, true);
-                                                                } else if (str7.equals("false")) {
-                                                                    c(str6, false);
-                                                                } else if (str7.equals(StringUtil.NULL_STRING)) {
-                                                                    i7 = i11;
-                                                                    u(str6, null);
-                                                                    i8 = i13;
-                                                                    bArr2 = bArr3;
-                                                                    b2 = b5;
-                                                                } else {
-                                                                    i7 = i11;
-                                                                    boolean z7 = false;
-                                                                    boolean z8 = true;
-                                                                    while (true) {
-                                                                        if (i12 < i13) {
-                                                                            i8 = i13;
-                                                                            char c2 = cArr[i12];
-                                                                            boolean z9 = z7;
-                                                                            if (c2 != '+') {
-                                                                                if (c2 != 'E' && c2 != 'e') {
-                                                                                    if (c2 != '-') {
-                                                                                        if (c2 != '.') {
-                                                                                            switch (c2) {
-                                                                                                case '0':
-                                                                                                case '1':
-                                                                                                case '2':
-                                                                                                case '3':
-                                                                                                case '4':
-                                                                                                case '5':
-                                                                                                case '6':
-                                                                                                case '7':
-                                                                                                case '8':
-                                                                                                case '9':
-                                                                                                    break;
-                                                                                                default:
-                                                                                                    z8 = false;
-                                                                                                    z2 = false;
-                                                                                                    break;
-                                                                                            }
-                                                                                        }
-                                                                                    }
-                                                                                }
-                                                                                z7 = true;
-                                                                                z8 = false;
-                                                                                i12++;
-                                                                                i13 = i8;
-                                                                            }
-                                                                            z7 = z9;
-                                                                            i12++;
-                                                                            i13 = i8;
-                                                                        } else {
-                                                                            i8 = i13;
-                                                                            z2 = z7;
-                                                                        }
-                                                                    }
-                                                                    if (z2) {
-                                                                        bArr2 = bArr3;
-                                                                        b2 = b5;
-                                                                        try {
-                                                                            n(str6, Double.parseDouble(str7), str7);
-                                                                        } catch (NumberFormatException unused) {
-                                                                        }
-                                                                    } else {
-                                                                        bArr2 = bArr3;
-                                                                        b2 = b5;
-                                                                        if (z8) {
-                                                                            o(str6, Long.parseLong(str7), str7);
-                                                                        }
-                                                                    }
-                                                                }
-                                                                i8 = i13;
-                                                                i7 = i11;
-                                                                bArr2 = bArr3;
-                                                                b2 = b5;
-                                                            } else {
-                                                                i8 = i13;
-                                                                i7 = i11;
-                                                                bArr2 = bArr3;
-                                                                b2 = b5;
-                                                            }
-                                                            u(str6, str7);
-                                                        }
-                                                        i13 = i8;
-                                                        i12 = i13;
-                                                        z6 = false;
-                                                        b5 = b2;
-                                                        b7 = r18;
-                                                        i21 = i22;
-                                                        i11 = i7;
-                                                        bArr3 = bArr2;
-                                                        break;
-                                                    case 2:
-                                                        if (b7Var2.b > 0) {
-                                                            str4 = (String) b7Var2.pop();
-                                                        } else {
-                                                            str4 = null;
-                                                        }
-                                                        t(str4);
-                                                        if (i11 == bArr3.length) {
-                                                            ?? r0 = new int[bArr3.length * 2];
-                                                            System.arraycopy(bArr3, 0, r0, 0, bArr3.length);
-                                                            bArr3 = r0;
-                                                        }
-                                                        int i23 = i11 + 1;
-                                                        bArr3[i11] = b5;
-                                                        i11 = i23;
-                                                        c = 2;
-                                                        b3 = 5;
-                                                        break;
-                                                    case 3:
-                                                        r();
-                                                        i11--;
-                                                        b3 = bArr3[i11];
-                                                        break;
-                                                    case 4:
-                                                        if (b7Var2.b > 0) {
-                                                            str5 = (String) b7Var2.pop();
-                                                        } else {
-                                                            str5 = null;
-                                                        }
-                                                        s(str5);
-                                                        if (i11 == bArr3.length) {
-                                                            ?? r02 = new int[bArr3.length * 2];
-                                                            System.arraycopy(bArr3, 0, r02, 0, bArr3.length);
-                                                            bArr3 = r02;
-                                                        }
-                                                        bArr3[i11] = b5;
-                                                        b3 = 23;
-                                                        i11++;
-                                                        break;
-                                                    case 5:
-                                                        r();
-                                                        i11--;
-                                                        b3 = bArr3[i11];
-                                                        break;
-                                                    case 6:
-                                                        int i24 = i13 + 1;
-                                                        if (cArr[i13] != '/') {
-                                                            while (true) {
-                                                                int i25 = i24;
-                                                                i24 = i25 + 1;
-                                                                try {
-                                                                    if (i24 < i3) {
-                                                                        i9 = i25;
-                                                                        if (cArr[i25] != '*') {
-                                                                        }
-                                                                    } else {
-                                                                        i9 = i25;
-                                                                    }
-                                                                    if (cArr[i24] == '/') {
-                                                                        i13 = i24;
-                                                                    }
-                                                                } catch (RuntimeException e2) {
-                                                                    runtimeException = e2;
-                                                                    i13 = i9;
-                                                                    break;
-                                                                }
-                                                            }
-                                                        } else {
-                                                            int i26 = i24;
-                                                            while (i26 != i3 && cArr[i26] != '\n') {
-                                                                i26++;
-                                                            }
-                                                            i13 = i26 - 1;
-                                                        }
-                                                        i7 = i11;
-                                                        bArr2 = bArr3;
-                                                        b2 = b5;
-                                                        b5 = b2;
-                                                        b7 = r18;
-                                                        i21 = i22;
-                                                        i11 = i7;
-                                                        bArr3 = bArr2;
-                                                        break;
-                                                    case 7:
-                                                        char c3 = '\r';
-                                                        if (z5) {
-                                                            i10 = i13;
-                                                            z4 = false;
-                                                            do {
-                                                                try {
-                                                                    char c4 = cArr[i10];
-                                                                    z3 = z4;
-                                                                    if (c4 != '\n' && c4 != '\r') {
-                                                                        if (c4 != '/') {
-                                                                            if (c4 != ':') {
-                                                                                if (c4 == '\\') {
-                                                                                    z4 = true;
-                                                                                    i10++;
-                                                                                } else {
-                                                                                    z4 = z3;
-                                                                                    i10++;
-                                                                                }
-                                                                            }
-                                                                        } else {
-                                                                            int i27 = i10 + 1;
-                                                                            if (i27 != i3) {
-                                                                                char c5 = cArr[i27];
-                                                                                if (c5 != '/') {
-                                                                                    if (c5 == '*') {
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                            z4 = z3;
-                                                                            i10++;
-                                                                        }
-                                                                        b5 = b2;
-                                                                        b7 = r18;
-                                                                        i21 = i22;
-                                                                        i11 = i7;
-                                                                        bArr3 = bArr2;
-                                                                    }
-                                                                } catch (RuntimeException e3) {
-                                                                    runtimeException = e3;
-                                                                    i13 = i10;
-                                                                    break;
-                                                                }
-                                                            } while (i10 != i3);
-                                                            do {
-                                                                i10--;
-                                                            } while (Character.isSpace(cArr[i10]));
-                                                            i7 = i11;
-                                                            bArr2 = bArr3;
-                                                            b2 = b5;
-                                                            z6 = true;
-                                                            i12 = i13;
-                                                            i13 = i10;
-                                                            b5 = b2;
-                                                            b7 = r18;
-                                                            i21 = i22;
-                                                            i11 = i7;
-                                                            bArr3 = bArr2;
-                                                        } else {
-                                                            int i28 = i13;
-                                                            boolean z10 = false;
-                                                            while (true) {
-                                                                try {
-                                                                    char c6 = cArr[i28];
-                                                                    z3 = z10;
-                                                                    if (c6 != '\n' && c6 != c3 && c6 != ',') {
-                                                                        if (c6 != '/') {
-                                                                            if (c6 != '}') {
-                                                                                if (c6 != '\\') {
-                                                                                    if (c6 != ']') {
-                                                                                    }
-                                                                                } else {
-                                                                                    z3 = true;
-                                                                                }
-                                                                                i28++;
-                                                                                if (i28 == i3) {
-                                                                                    z10 = z3;
-                                                                                    c3 = '\r';
-                                                                                }
-                                                                            }
-                                                                        } else {
-                                                                            int i29 = i28 + 1;
-                                                                            if (i29 != i3) {
-                                                                                char c7 = cArr[i29];
-                                                                                if (c7 != '/') {
-                                                                                    if (c7 == '*') {
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                            i28++;
-                                                                            if (i28 == i3) {
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                } catch (RuntimeException e4) {
-                                                                    runtimeException = e4;
-                                                                    i13 = i28;
-                                                                    break;
-                                                                }
-                                                            }
-                                                            i10 = i28;
-                                                        }
-                                                        z4 = z3;
-                                                        do {
-                                                            i10--;
-                                                        } while (Character.isSpace(cArr[i10]));
-                                                        i7 = i11;
-                                                        bArr2 = bArr3;
-                                                        b2 = b5;
-                                                        z6 = true;
-                                                        i12 = i13;
-                                                        i13 = i10;
-                                                        b5 = b2;
-                                                        b7 = r18;
-                                                        i21 = i22;
-                                                        i11 = i7;
-                                                        bArr3 = bArr2;
-                                                        break;
-                                                    case 8:
-                                                        int i30 = i13 + 1;
-                                                        int i31 = i30;
-                                                        boolean z11 = false;
-                                                        do {
-                                                            try {
-                                                                char c8 = cArr[i31];
-                                                                if (c8 != '\"') {
-                                                                    if (c8 == '\\') {
-                                                                        i31++;
-                                                                        z11 = true;
-                                                                    }
-                                                                    i31++;
-                                                                }
-                                                                i12 = i30;
-                                                                i7 = i11;
-                                                                i13 = i31 - 1;
-                                                                bArr2 = bArr3;
-                                                                b2 = b5;
-                                                                z4 = z11;
-                                                                b5 = b2;
-                                                                b7 = r18;
-                                                                i21 = i22;
-                                                                i11 = i7;
-                                                                bArr3 = bArr2;
-                                                            } catch (RuntimeException e5) {
-                                                                runtimeException = e5;
-                                                                i13 = i31;
-                                                                break;
-                                                            }
-                                                        } while (i31 != i3);
-                                                        i12 = i30;
-                                                        i7 = i11;
-                                                        i13 = i31 - 1;
-                                                        bArr2 = bArr3;
-                                                        b2 = b5;
-                                                        z4 = z11;
-                                                        b5 = b2;
-                                                        b7 = r18;
-                                                        i21 = i22;
-                                                        i11 = i7;
-                                                        bArr3 = bArr2;
-                                                    default:
-                                                        i7 = i11;
-                                                        bArr2 = bArr3;
-                                                        b2 = b5;
-                                                        b5 = b2;
-                                                        b7 = r18;
-                                                        i21 = i22;
-                                                        i11 = i7;
-                                                        bArr3 = bArr2;
-                                                }
-                                            } catch (RuntimeException e6) {
-                                                e = e6;
-                                                runtimeException = e;
-                                                JsonValue jsonValue = this.c;
-                                                this.c = null;
-                                                this.d = null;
-                                                this.b.clear();
-                                                if (i13 < i3) {
-                                                }
-                                            }
-                                        } else {
-                                            i4 = i11;
-                                            bArr = bArr3;
-                                            b3 = b5;
-                                        }
-                                    }
-                                } else {
-                                    i4 = i11;
-                                    bArr = bArr3;
-                                    b3 = b5;
-                                    i12 = i6;
-                                }
-                                if (b3 == 0) {
-                                }
-                            }
-                        }
-                        s3 = i14;
-                        s = s4 + b4;
-                    } else {
-                        i6 = i12;
-                        s = s4;
-                    }
-                    byte b8 = i[b3];
-                    s2 = s;
-                    if (b8 > 0) {
-                        int i32 = ((b8 << 1) + s3) - 2;
-                        int i33 = s3;
-                        while (true) {
-                            if (i32 < i33) {
-                                s2 = s + b8;
-                            } else {
-                                int i34 = i33 + (((i32 - i33) >> 1) & (-2));
-                                byte b9 = b8;
-                                int i35 = i32;
-                                if (cArr[i13] < g[i34]) {
-                                    i32 = i34 - 2;
-                                    b8 = b9;
-                                } else if (cArr[i13] > g[i34 + 1]) {
-                                    i33 = i34 + 2;
-                                    b8 = b9;
-                                    i32 = i35;
-                                } else {
-                                    s2 = s + ((i34 - s3) >> 1);
-                                }
-                            }
-                        }
-                    }
-                    b = k[s2];
-                    byte b52 = l[b];
-                    if (m[b] == 0) {
-                    }
-                    if (b3 == 0) {
-                    }
-                } catch (RuntimeException e7) {
-                    e = e7;
-                }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, cls, cls2, jsonValue)) == null) {
+            Class cls6 = cls2;
+            ?? r2 = (T) jsonValue;
+            if (r2 == 0) {
+                return null;
             }
-            if (i13 == i3) {
-                try {
-                    byte b10 = n[b3];
-                    int i36 = b10 + 1;
-                    byte b11 = e[b10];
-                    while (true) {
-                        ?? r9 = b11 - 1;
-                        if (b11 > 0) {
-                            int i37 = i36 + 1;
-                            if (e[i36] != 1) {
-                                i5 = i13;
-                                b7Var = b7Var2;
-                                boolean z12 = z6;
-                                str3 = str;
-                                z = z12;
-                            } else {
-                                String str8 = new String(cArr, i12, i13 - i12);
-                                if (z4) {
-                                    str8 = v(str8);
-                                }
-                                if (z5) {
-                                    b7Var2.a(str8);
-                                    str3 = str;
-                                    i5 = i13;
-                                    b7Var = b7Var2;
-                                    z5 = false;
-                                } else {
-                                    if (b7Var2.b > 0) {
-                                        str2 = (String) b7Var2.pop();
-                                    } else {
-                                        str2 = null;
-                                    }
-                                    if (z6) {
-                                        if (str8.equals("true")) {
-                                            c(str2, true);
-                                        } else if (str8.equals(str)) {
-                                            c(str2, false);
-                                        } else if (str8.equals(StringUtil.NULL_STRING)) {
-                                            u(str2, null);
-                                        } else {
-                                            str3 = str;
-                                            int i38 = i12;
-                                            boolean z13 = false;
-                                            boolean z14 = true;
-                                            while (true) {
-                                                if (i38 < i13) {
-                                                    i5 = i13;
-                                                    try {
-                                                        char c9 = cArr[i38];
-                                                        b7Var = b7Var2;
-                                                        if (c9 != '+') {
-                                                            if (c9 != 'E' && c9 != 'e') {
-                                                                if (c9 != '-') {
-                                                                    if (c9 != '.') {
-                                                                        switch (c9) {
-                                                                            case '0':
-                                                                            case '1':
-                                                                            case '2':
-                                                                            case '3':
-                                                                            case '4':
-                                                                            case '5':
-                                                                            case '6':
-                                                                            case '7':
-                                                                            case '8':
-                                                                            case '9':
-                                                                                i38++;
-                                                                                i13 = i5;
-                                                                                b7Var2 = b7Var;
-                                                                            default:
-                                                                                z13 = false;
-                                                                                z14 = false;
-                                                                                break;
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                            z13 = true;
-                                                            z14 = false;
-                                                            i38++;
-                                                            i13 = i5;
-                                                            b7Var2 = b7Var;
-                                                        }
-                                                        i38++;
-                                                        i13 = i5;
-                                                        b7Var2 = b7Var;
-                                                    } catch (RuntimeException e8) {
-                                                        runtimeException = e8;
-                                                        i13 = i5;
-                                                    }
-                                                } else {
-                                                    i5 = i13;
-                                                    b7Var = b7Var2;
-                                                }
-                                            }
-                                            if (z13) {
-                                                try {
-                                                    n(str2, Double.parseDouble(str8), str8);
-                                                } catch (NumberFormatException unused2) {
-                                                }
-                                            } else if (z14) {
-                                                o(str2, Long.parseLong(str8), str8);
-                                            }
-                                        }
-                                        str3 = str;
-                                        i5 = i13;
-                                        b7Var = b7Var2;
-                                    } else {
-                                        str3 = str;
-                                        i5 = i13;
-                                        b7Var = b7Var2;
-                                    }
-                                    u(str2, str8);
-                                }
-                                i12 = i5;
-                                z = false;
-                            }
-                            b11 = r9;
-                            i36 = i37;
-                            i13 = i5;
-                            b7Var2 = b7Var;
-                            String str9 = str3;
-                            z6 = z;
-                            str = str9;
-                        }
-                    }
-                } catch (RuntimeException e9) {
-                    e = e9;
-                    runtimeException = e;
-                    JsonValue jsonValue2 = this.c;
-                    this.c = null;
-                    this.d = null;
-                    this.b.clear();
-                    if (i13 < i3) {
-                    }
-                }
-            }
-            i13 = i13;
-            runtimeException = null;
-            JsonValue jsonValue22 = this.c;
-            this.c = null;
-            this.d = null;
-            this.b.clear();
-            if (i13 < i3) {
-                int i39 = 1;
-                for (int i40 = 0; i40 < i13; i40++) {
-                    if (cArr[i40] == '\n') {
-                        i39++;
-                    }
-                }
-                int max = Math.max(0, i13 - 32);
-                throw new SerializationException("Error parsing JSON on line " + i39 + " near: " + new String(cArr, max, i13 - max) + "*ERROR*" + new String(cArr, i13, Math.min(64, i3 - i13)), runtimeException);
-            }
-            b7<JsonValue> b7Var3 = this.a;
-            if (b7Var3.b != 0) {
-                JsonValue peek = b7Var3.peek();
-                this.a.clear();
-                if (peek != null && peek.C()) {
-                    throw new SerializationException("Error parsing JSON, unmatched brace.");
-                }
-                throw new SerializationException("Error parsing JSON, unmatched bracket.");
-            } else if (runtimeException == null) {
-                return jsonValue22;
-            } else {
-                throw new SerializationException("Error parsing JSON: " + new String(cArr), runtimeException);
-            }
-        }
-        return (JsonValue) invokeLII.objValue;
-    }
-
-    public void s(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            JsonValue jsonValue = new JsonValue(JsonValue.ValueType.array);
-            if (this.d != null) {
-                b(str, jsonValue);
-            }
-            this.a.a(jsonValue);
-            this.d = jsonValue;
-        }
-    }
-
-    public void t(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            JsonValue jsonValue = new JsonValue(JsonValue.ValueType.object);
-            if (this.d != null) {
-                b(str, jsonValue);
-            }
-            this.a.a(jsonValue);
-            this.d = jsonValue;
-        }
-    }
-
-    public final String v(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            int length = str.length();
-            k8 k8Var = new k8(length + 16);
-            int i2 = 0;
-            while (i2 < length) {
-                int i3 = i2 + 1;
-                char charAt = str.charAt(i2);
-                if (charAt != '\\') {
-                    k8Var.a(charAt);
-                } else if (i3 == length) {
-                    break;
+            if (jsonValue.C()) {
+                String str = this.a;
+                if (str == null) {
+                    r = null;
                 } else {
-                    i2 = i3 + 1;
-                    char charAt2 = str.charAt(i3);
-                    if (charAt2 == 'u') {
-                        i3 = i2 + 4;
-                        k8Var.p(Character.toChars(Integer.parseInt(str.substring(i2, i3), 16)));
-                    } else {
-                        if (charAt2 != '\"' && charAt2 != '/' && charAt2 != '\\') {
-                            if (charAt2 != 'b') {
-                                if (charAt2 != 'f') {
-                                    if (charAt2 != 'n') {
-                                        if (charAt2 != 'r') {
-                                            if (charAt2 == 't') {
-                                                charAt2 = '\t';
-                                            } else {
-                                                throw new SerializationException("Illegal escaped character: \\" + charAt2);
-                                            }
-                                        } else {
-                                            charAt2 = '\r';
-                                        }
-                                    } else {
-                                        charAt2 = '\n';
-                                    }
-                                } else {
-                                    charAt2 = '\f';
-                                }
-                            } else {
-                                charAt2 = '\b';
-                            }
+                    r = r2.r(str, null);
+                }
+                if (r != null) {
+                    Class e = e(r);
+                    if (e == null) {
+                        try {
+                            cls5 = v8.a(r);
+                        } catch (ReflectionException e2) {
+                            throw new SerializationException(e2);
                         }
-                        k8Var.a(charAt2);
+                    } else {
+                        cls5 = e;
+                    }
+                } else {
+                    cls5 = cls;
+                }
+                if (cls5 == null) {
+                    ?? r0 = this.g;
+                    if (r0 != 0) {
+                        return (T) r0.a(this, r2, cls5);
+                    }
+                    return r2;
+                } else if (this.a != null && v8.f(Collection.class, cls5)) {
+                    ?? r22 = (T) r2.l("items");
+                    jsonValue2 = r22;
+                    cls3 = cls5;
+                    if (r22 == 0) {
+                        throw new SerializationException("Unable to convert object to collection: " + r22 + " (" + cls5.getName() + SmallTailInfo.EMOTION_SUFFIX);
+                    }
+                } else {
+                    d c2 = this.k.c(cls5);
+                    if (c2 != 0) {
+                        return (T) c2.a(this, r2, cls5);
+                    }
+                    if (cls5 != String.class && cls5 != Integer.class && cls5 != Boolean.class && cls5 != Float.class && cls5 != Long.class && cls5 != Double.class && cls5 != Short.class && cls5 != Byte.class && cls5 != Character.class && !v8.f(Enum.class, cls5)) {
+                        T t4 = (T) h(cls5);
+                        if (t4 instanceof c) {
+                            ((c) t4).a(this, r2);
+                            return t4;
+                        } else if (t4 instanceof y7) {
+                            ?? r3 = (T) ((y7) t4);
+                            for (JsonValue jsonValue4 = r2.f; jsonValue4 != null; jsonValue4 = jsonValue4.h) {
+                                r3.i(jsonValue4.e, k(cls6, null, jsonValue4));
+                            }
+                            return r3;
+                        } else if (t4 instanceof x7) {
+                            ?? r32 = (T) ((x7) t4);
+                            for (JsonValue jsonValue5 = r2.f; jsonValue5 != null; jsonValue5 = jsonValue5.h) {
+                                r32.h(jsonValue5.e, ((Integer) k(Integer.class, null, jsonValue5)).intValue());
+                            }
+                            return r32;
+                        } else if (t4 instanceof w7) {
+                            ?? r33 = (T) ((w7) t4);
+                            for (JsonValue jsonValue6 = r2.f; jsonValue6 != null; jsonValue6 = jsonValue6.h) {
+                                r33.g(jsonValue6.e, ((Float) k(Float.class, null, jsonValue6)).floatValue());
+                            }
+                            return r33;
+                        } else if (t4 instanceof z7) {
+                            ?? r34 = (T) ((z7) t4);
+                            for (JsonValue m = r2.m(SavedStateHandle.VALUES); m != null; m = m.h) {
+                                r34.add(k(cls6, null, m));
+                            }
+                            return r34;
+                        } else if (t4 instanceof o7) {
+                            ?? r35 = (T) ((o7) t4);
+                            for (JsonValue jsonValue7 = r2.f; jsonValue7 != null; jsonValue7 = jsonValue7.h) {
+                                r35.e(Integer.parseInt(jsonValue7.e), k(cls6, null, jsonValue7));
+                            }
+                            return r35;
+                        } else if (t4 instanceof u7) {
+                            ?? r36 = (T) ((u7) t4);
+                            for (JsonValue jsonValue8 = r2.f; jsonValue8 != null; jsonValue8 = jsonValue8.h) {
+                                r36.f(Long.parseLong(jsonValue8.e), k(cls6, null, jsonValue8));
+                            }
+                            return r36;
+                        } else if (t4 instanceof p7) {
+                            ?? r37 = (T) ((p7) t4);
+                            for (JsonValue m2 = r2.m(SavedStateHandle.VALUES); m2 != null; m2 = m2.h) {
+                                r37.a(m2.f());
+                            }
+                            return r37;
+                        } else if (t4 instanceof d7) {
+                            ?? r38 = (T) ((d7) t4);
+                            for (JsonValue jsonValue9 = r2.f; jsonValue9 != null; jsonValue9 = jsonValue9.h) {
+                                r38.e(jsonValue9.e, k(cls6, null, jsonValue9));
+                            }
+                            return r38;
+                        } else if (t4 instanceof Map) {
+                            ?? r39 = (T) ((Map) t4);
+                            for (JsonValue jsonValue10 = r2.f; jsonValue10 != null; jsonValue10 = jsonValue10.h) {
+                                if (!jsonValue10.e.equals(this.a)) {
+                                    r39.put(jsonValue10.e, k(cls6, null, jsonValue10));
+                                }
+                            }
+                            return r39;
+                        } else {
+                            i(t4, r2);
+                            return t4;
+                        }
+                    }
+                    return (T) l("value", cls5, r2);
+                }
+            } else {
+                cls3 = cls;
+                jsonValue2 = r2;
+            }
+            if (cls3 != null) {
+                d c3 = this.k.c(cls3);
+                if (c3 != null) {
+                    return (T) c3.a(this, jsonValue2, cls3);
+                }
+                if (v8.f(c.class, cls3)) {
+                    T t5 = (T) h(cls3);
+                    ((c) t5).a(this, jsonValue2);
+                    return t5;
+                }
+            }
+            int i = 0;
+            if (jsonValue2.u()) {
+                Class cls7 = cls3 != null ? cls3 : c7.class;
+                if (v8.f(c7.class, cls7)) {
+                    if (cls7 == c7.class) {
+                        t3 = (T) new c7();
+                    } else {
+                        t3 = (T) ((c7) h(cls7));
+                    }
+                    for (JsonValue jsonValue11 = jsonValue2.f; jsonValue11 != null; jsonValue11 = jsonValue11.h) {
+                        ((c7) t3).a(k(cls6, null, jsonValue11));
+                    }
+                    return t3;
+                } else if (v8.f(e8.class, cls7)) {
+                    if (cls7 == e8.class) {
+                        t2 = (T) new e8();
+                    } else {
+                        t2 = (T) ((e8) h(cls7));
+                    }
+                    for (JsonValue jsonValue12 = jsonValue2.f; jsonValue12 != null; jsonValue12 = jsonValue12.h) {
+                        ((e8) t2).addLast(k(cls6, null, jsonValue12));
+                    }
+                    return t2;
+                } else if (v8.f(Collection.class, cls7)) {
+                    if (cls7.isInterface()) {
+                        t = (T) new ArrayList();
+                    } else {
+                        t = (T) ((Collection) h(cls7));
+                    }
+                    for (JsonValue jsonValue13 = jsonValue2.f; jsonValue13 != null; jsonValue13 = jsonValue13.h) {
+                        ((Collection) t).add(k(cls6, null, jsonValue13));
+                    }
+                    return t;
+                } else if (cls7.isArray()) {
+                    Class<?> componentType = cls7.getComponentType();
+                    Class<?> cls8 = cls6;
+                    if (cls6 == null) {
+                        cls8 = componentType;
+                    }
+                    T t6 = (T) u8.a(componentType, jsonValue2.j);
+                    JsonValue jsonValue14 = jsonValue2.f;
+                    while (jsonValue14 != null) {
+                        u8.b(t6, i, k(cls8, null, jsonValue14));
+                        jsonValue14 = jsonValue14.h;
+                        i++;
+                    }
+                    return t6;
+                } else {
+                    throw new SerializationException("Unable to convert value to required type: " + jsonValue2 + " (" + cls7.getName() + SmallTailInfo.EMOTION_SUFFIX);
+                }
+            }
+            boolean A = jsonValue2.A();
+            JsonValue jsonValue15 = jsonValue2;
+            if (A) {
+                if (cls3 != null) {
+                    if (cls3 != Float.TYPE && cls3 != Float.class) {
+                        if (cls3 != Integer.TYPE && cls3 != Integer.class) {
+                            if (cls3 != Long.TYPE && cls3 != Long.class) {
+                                if (cls3 != Double.TYPE && cls3 != Double.class) {
+                                    if (cls3 == String.class) {
+                                        return (T) jsonValue2.j();
+                                    }
+                                    if (cls3 != Short.TYPE && cls3 != Short.class) {
+                                        if (cls3 == Byte.TYPE || cls3 == Byte.class) {
+                                            return (T) Byte.valueOf(jsonValue2.b());
+                                        }
+                                        jsonValue15 = new JsonValue(jsonValue2.j());
+                                    }
+                                    return (T) Short.valueOf(jsonValue2.h());
+                                }
+                                return (T) Double.valueOf(jsonValue2.c());
+                            }
+                            return (T) Long.valueOf(jsonValue2.g());
+                        }
+                        return (T) Integer.valueOf(jsonValue2.f());
                     }
                 }
-                i2 = i3;
+                return (T) Float.valueOf(jsonValue2.d());
             }
-            return k8Var.toString();
+            if (!jsonValue15.v()) {
+                cls4 = Boolean.class;
+                jsonValue3 = jsonValue15;
+            } else {
+                if (cls3 != null) {
+                    try {
+                        if (cls3 != Boolean.TYPE) {
+                            cls4 = Boolean.class;
+                        }
+                    } catch (NumberFormatException unused) {
+                        cls4 = Boolean.class;
+                    }
+                }
+                cls4 = Boolean.class;
+                try {
+                    return (T) Boolean.valueOf(jsonValue15.a());
+                } catch (NumberFormatException unused2) {
+                    jsonValue3 = new JsonValue(jsonValue15.j());
+                    if (!jsonValue3.D()) {
+                    }
+                }
+            }
+            if (!jsonValue3.D()) {
+                ?? r12 = (T) jsonValue3.j();
+                if (cls3 != null && cls3 != String.class) {
+                    if (cls3 != Integer.TYPE && cls3 != Integer.class) {
+                        if (cls3 != Float.TYPE && cls3 != Float.class) {
+                            if (cls3 != Long.TYPE && cls3 != Long.class) {
+                                if (cls3 != Double.TYPE && cls3 != Double.class) {
+                                    if (cls3 != Short.TYPE && cls3 != Short.class) {
+                                        if (cls3 == Byte.TYPE || cls3 == Byte.class) {
+                                            return (T) Byte.valueOf((String) r12);
+                                        }
+                                        if (cls3 != Boolean.TYPE && cls3 != cls4) {
+                                            if (cls3 != Character.TYPE && cls3 != Character.class) {
+                                                if (v8.f(Enum.class, cls3)) {
+                                                    Enum[] enumArr = (Enum[]) cls3.getEnumConstants();
+                                                    int length = enumArr.length;
+                                                    while (i < length) {
+                                                        ?? r5 = (T) enumArr[i];
+                                                        if (r12.equals(b(r5))) {
+                                                            return r5;
+                                                        }
+                                                        i++;
+                                                    }
+                                                }
+                                                if (cls3 == CharSequence.class) {
+                                                    return r12;
+                                                }
+                                                throw new SerializationException("Unable to convert value to required type: " + jsonValue3 + " (" + cls3.getName() + SmallTailInfo.EMOTION_SUFFIX);
+                                            }
+                                            return (T) Character.valueOf(r12.charAt(0));
+                                        }
+                                        return (T) Boolean.valueOf((String) r12);
+                                    }
+                                    return (T) Short.valueOf((String) r12);
+                                }
+                                return (T) Double.valueOf((String) r12);
+                            }
+                            return (T) Long.valueOf((String) r12);
+                        }
+                        return (T) Float.valueOf((String) r12);
+                    }
+                    return (T) Integer.valueOf((String) r12);
+                }
+                return r12;
+            }
+            return null;
         }
-        return (String) invokeL.objValue;
+        return (T) invokeLLL.objValue;
+    }
+
+    public <T> T l(String str, Class<T> cls, JsonValue jsonValue) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, str, cls, jsonValue)) == null) {
+            return (T) k(cls, null, jsonValue.l(str));
+        }
+        return (T) invokeLLL.objValue;
+    }
+
+    public <T> T m(String str, Class<T> cls, Class cls2, JsonValue jsonValue) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048588, this, str, cls, cls2, jsonValue)) == null) {
+            return (T) k(cls, cls2, jsonValue.l(str));
+        }
+        return (T) invokeLLLL.objValue;
+    }
+
+    public <T> T n(String str, Class<T> cls, T t, JsonValue jsonValue) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048589, this, str, cls, t, jsonValue)) == null) {
+            JsonValue l = jsonValue.l(str);
+            if (l == null) {
+                return t;
+            }
+            return (T) k(cls, null, l);
+        }
+        return (T) invokeLLLL.objValue;
     }
 }

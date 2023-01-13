@@ -9,9 +9,9 @@ import com.baidu.nadcore.business.uitemplate.PortraitVideoTailView;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.uitemplate.NadRewardOperateView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cq0;
-import com.baidu.tieba.dq0;
-import com.baidu.tieba.q01;
+import com.baidu.tieba.hq0;
+import com.baidu.tieba.iq0;
+import com.baidu.tieba.v01;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -118,7 +118,7 @@ public class NadRewardPortraitVideoView extends NadRewardVideoView {
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (cq0) objArr2[3]);
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (hq0) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -127,19 +127,19 @@ public class NadRewardPortraitVideoView extends NadRewardVideoView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NadRewardPortraitVideoView(Context context, AttributeSet attributeSet, int i, cq0 cq0Var) {
-        super(context, attributeSet, i, cq0Var);
+    public NadRewardPortraitVideoView(Context context, AttributeSet attributeSet, int i, hq0 hq0Var) {
+        super(context, attributeSet, i, hq0Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i), cq0Var};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i), hq0Var};
             interceptable.invokeUnInit(65539, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (cq0) objArr2[3]);
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (hq0) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -152,9 +152,9 @@ public class NadRewardPortraitVideoView extends NadRewardVideoView {
         PortraitVideoTailView portraitVideoTailView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adBaseModel) == null) && (portraitVideoTailView = this.u) != null && adBaseModel != null) {
-            dq0 dq0Var = adBaseModel.i;
-            if (dq0Var != null && dq0Var.k) {
-                portraitVideoTailView.setAdInfo(dq0Var);
+            iq0 iq0Var = adBaseModel.i;
+            if (iq0Var != null && iq0Var.k) {
+                portraitVideoTailView.setAdInfo(iq0Var);
             }
             this.u.setOnAdClickListener(new a(this));
         }
@@ -211,12 +211,12 @@ public class NadRewardPortraitVideoView extends NadRewardVideoView {
     }
 
     @Override // com.baidu.nadcore.widget.view.NadRewardVideoView, com.baidu.nadcore.widget.view.NadRewardBaseView
-    public void m(LayoutInflater layoutInflater, cq0 cq0Var) {
+    public void m(LayoutInflater layoutInflater, hq0 hq0Var) {
         int i;
         Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, layoutInflater, cq0Var) == null) {
-            if (cq0Var != null && (num = (Integer) q01.b(cq0Var.a, AdBaseModel.STYLE.VIDEO)) != null) {
+        if (interceptable == null || interceptable.invokeLL(1048580, this, layoutInflater, hq0Var) == null) {
+            if (hq0Var != null && (num = (Integer) v01.b(hq0Var.a, AdBaseModel.STYLE.VIDEO)) != null) {
                 i = num.intValue();
             } else {
                 i = R.layout.nad_reward_video_view;

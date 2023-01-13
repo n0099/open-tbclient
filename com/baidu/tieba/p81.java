@@ -1,66 +1,26 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.model.AdOperator;
-import com.baidu.nadcore.widget.view.NadExpressNaBaseView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import android.view.ViewTreeObserver;
+import android.widget.TextView;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class p81 {
+public class p81 implements ViewTreeObserver.OnGlobalLayoutListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final NadExpressNaBaseView a;
-    public final Context b;
+    public TextView a;
+    public int b;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-562568605, "Lcom/baidu/tieba/p81$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-562568605, "Lcom/baidu/tieba/p81$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[AdOperator.TYPE.values().length];
-            a = iArr;
-            try {
-                iArr[AdOperator.TYPE.DOWNLOAD.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[AdOperator.TYPE.CHECK.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-        }
-    }
-
-    public p81(NadExpressNaBaseView nadExpressNaBaseView) {
+    public p81(TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nadExpressNaBaseView};
+            Object[] objArr = {textView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -70,97 +30,43 @@ public class p81 {
                 return;
             }
         }
-        this.a = nadExpressNaBaseView;
-        this.b = nadExpressNaBaseView.getContext();
+        int maxLines = textView.getMaxLines();
+        this.b = maxLines;
+        if (maxLines <= 0) {
+            this.b = 1;
+        }
+        this.a = textView;
+        textView.setMaxLines(this.b + 1);
+        this.a.setSingleLine(false);
     }
 
-    public final boolean a(AdBaseModel adBaseModel, int i) {
-        InterceptResult invokeLI;
-        AdOperator adOperator;
+    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+    public void onGlobalLayout() {
+        CharSequence text;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, adBaseModel, i)) == null) {
-            if (adBaseModel == null || (adOperator = adBaseModel.h) == null) {
-                return false;
-            }
-            int i2 = a.a[adOperator.a.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2 || i != 2) {
-                    return false;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            String str = "";
+            if (this.a.getLineCount() > this.b) {
+                try {
+                    text = this.a.getText().subSequence(0, this.a.getLayout().getLineEnd(this.b - 1) - 2);
+                    str = StringHelper.STRING_MORE;
+                } catch (Exception e) {
+                    bk0.d("CustomLinkByEllipsize", "", e);
+                    text = this.a.getText();
                 }
-                return true;
-            }
-            dq0 dq0Var = adBaseModel.i;
-            if (dq0Var != null && dq0Var.k) {
-                if (i != 3) {
-                    return false;
+                TextUtils.TruncateAt ellipsize = this.a.getEllipsize();
+                if (ellipsize == TextUtils.TruncateAt.START) {
+                    this.a.setText(str);
+                    this.a.append(text);
+                } else if (ellipsize == TextUtils.TruncateAt.MIDDLE) {
+                    this.a.setText(text.subSequence(0, text.length() / 2));
+                    this.a.append(str);
+                    this.a.append(text.subSequence(text.length() / 2, text.length()));
+                } else {
+                    this.a.setText(text);
+                    this.a.append(str);
                 }
-                return true;
-            } else if (i != 1) {
-                return false;
-            } else {
-                return true;
             }
         }
-        return invokeLI.booleanValue;
-    }
-
-    public final void b(View view2, float f) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, f) != null) || view2 == null) {
-            return;
-        }
-        f41.a(view2.getContext(), view2, f);
-    }
-
-    public o81 c(AdBaseModel adBaseModel) {
-        InterceptResult invokeL;
-        AdOperator adOperator;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adBaseModel)) == null) {
-            o81 operateBar = this.a.getOperateBar();
-            if (!o81.d(adBaseModel) || (adOperator = adBaseModel.h) == null) {
-                return null;
-            }
-            if (operateBar != null && a(adBaseModel, operateBar.a)) {
-                return operateBar;
-            }
-            RelativeLayout relativeLayout = (RelativeLayout) this.a.findViewById(R.id.nad_feed_ad_operate_view);
-            relativeLayout.removeAllViews();
-            AdOperator.TYPE type = adOperator.a;
-            AdOperator.TYPE type2 = AdOperator.TYPE.DOWNLOAD;
-            if (type == type2) {
-                kp0 kp0Var = adBaseModel.l;
-                if (kp0Var == null || !kp0Var.e) {
-                    return null;
-                }
-                int i = R.layout.nad_operate_app_info_view;
-                cq0 cq0Var = adBaseModel.p;
-                if (cq0Var != null && cq0Var.b(type2) != 0) {
-                    i = adBaseModel.p.b(AdOperator.TYPE.DOWNLOAD);
-                }
-                dq0 dq0Var = adBaseModel.i;
-                if (dq0Var != null && dq0Var.k) {
-                    View inflate = LayoutInflater.from(this.b).inflate(i, (ViewGroup) relativeLayout, true);
-                    b(inflate.findViewById(R.id.nad_feed_ad_operate_progress_button), 6.0f);
-                    return new q81(3, inflate);
-                }
-                View inflate2 = LayoutInflater.from(this.b).inflate(R.layout.nad_operate_download, (ViewGroup) relativeLayout, true);
-                b(inflate2.findViewById(R.id.nad_feed_ad_operate_progress_button), 6.0f);
-                return new s81(1, inflate2);
-            }
-            AdOperator.TYPE type3 = AdOperator.TYPE.CHECK;
-            if (type != type3) {
-                return null;
-            }
-            int i2 = R.layout.nad_operate_command;
-            cq0 cq0Var2 = adBaseModel.p;
-            if (cq0Var2 != null && cq0Var2.b(type3) != 0) {
-                i2 = adBaseModel.p.b(AdOperator.TYPE.CHECK);
-            }
-            View inflate3 = LayoutInflater.from(this.b).inflate(i2, (ViewGroup) relativeLayout, true);
-            b(inflate3.findViewById(R.id.nad_feed_ad_operate_command_button), 6.0f);
-            return new r81(2, inflate3);
-        }
-        return (o81) invokeL.objValue;
     }
 }

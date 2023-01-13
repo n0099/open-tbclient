@@ -4,14 +4,13 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
-import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
 import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.BdToastHelper;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.e79;
+import com.baidu.tieba.gc9;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -58,7 +57,7 @@ public class AddPostHttpResponse extends HttpResponsedMessage {
         if ((interceptable != null && interceptable.invokeL(65537, this, toast) != null) || toast == null) {
             return;
         }
-        BdToastHelper.toast(e79.a(toast));
+        BdToastHelper.toast(gc9.a(toast));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -76,9 +75,9 @@ public class AddPostHttpResponse extends HttpResponsedMessage {
             addPostHttpResponse.resultJSON = new JSONObject();
             DataRes dataRes = addPostResIdl.data;
             if (dataRes != null) {
-                BdToastData a = e79.a(dataRes.toast);
+                BdToastData a = gc9.a(dataRes.toast);
                 if (a != null && (json = a.toJson()) != null) {
-                    addPostHttpResponse.resultJSON.put(DI.TOAST_NAME, json);
+                    addPostHttpResponse.resultJSON.put("toast", json);
                 }
                 addPostHttpResponse.showToast(addPostResIdl.data.toast);
                 addPostHttpResponse.resultJSON.put("opgroup", addPostResIdl.data.opgroup);

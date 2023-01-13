@@ -12,9 +12,9 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.spswitch.emotion.view.CircleIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.da0;
-import com.baidu.tieba.qc0;
-import com.baidu.tieba.uc0;
+import com.baidu.tieba.ia0;
+import com.baidu.tieba.vc0;
+import com.baidu.tieba.zc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -74,10 +74,10 @@ public class LiveFeedPageToolItemView extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0572, (ViewGroup) this, true);
-            this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f090e96);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0571, (ViewGroup) this, true);
+            this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f090ea0);
             this.b = (TextView) findViewById(R.id.tv_name);
-            this.c = findViewById(R.id.obfuscated_res_0x7f09082d);
+            this.c = findViewById(R.id.obfuscated_res_0x7f09082e);
             c();
         }
     }
@@ -85,8 +85,8 @@ public class LiveFeedPageToolItemView extends FrameLayout {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            qc0.f(this.a, da0.c(getContext().getResources(), 19.0f), da0.c(getContext().getResources(), 19.0f));
-            qc0.h(this.b, 1, 9.0f);
+            vc0.f(this.a, ia0.c(getContext().getResources(), 19.0f), ia0.c(getContext().getResources(), 19.0f));
+            vc0.h(this.b, 1, 9.0f);
         }
     }
 
@@ -184,7 +184,7 @@ public class LiveFeedPageToolItemView extends FrameLayout {
                 this.a.setImageResource(i);
             }
             setData(str);
-            b(uc0.f().r(), z);
+            b(zc0.f().r(), z);
         }
     }
 
@@ -196,7 +196,7 @@ public class LiveFeedPageToolItemView extends FrameLayout {
                 simpleDraweeView.setImageURI(str);
             }
             setData(str2);
-            b(uc0.f().r(), z);
+            b(zc0.f().r(), z);
         }
     }
 }

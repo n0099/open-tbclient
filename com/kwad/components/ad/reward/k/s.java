@@ -64,7 +64,7 @@ public final class s extends d implements View.OnClickListener {
         this.wj = viewGroup;
         this.adTemplate = adTemplate;
         this.nf = aVar;
-        ViewGroup viewGroup2 = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d047e, viewGroup, false);
+        ViewGroup viewGroup2 = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d047d, viewGroup, false);
         this.pV = viewGroup2;
         this.mContext = viewGroup2.getContext();
         initView();
@@ -90,14 +90,14 @@ public final class s extends d implements View.OnClickListener {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.it = (KSCornerImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091261);
-            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091263);
-            this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09125f);
-            this.vg = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091262);
-            this.iv = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091260);
-            this.wk = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091253);
-            this.f1108vi = this.pV.findViewById(R.id.obfuscated_res_0x7f09125e);
-            this.vj = this.pV.findViewById(R.id.obfuscated_res_0x7f09125d);
+            this.it = (KSCornerImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f09126c);
+            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09126e);
+            this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09126a);
+            this.vg = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09126d);
+            this.iv = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09126b);
+            this.wk = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f09125e);
+            this.f1108vi = this.pV.findViewById(R.id.obfuscated_res_0x7f091269);
+            this.vj = this.pV.findViewById(R.id.obfuscated_res_0x7f091268);
             this.f1108vi.setOnClickListener(this);
             this.vj.setOnClickListener(this);
             this.it.setOnClickListener(this);

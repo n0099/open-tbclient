@@ -11,10 +11,11 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function3;
 import kotlin.jvm.internal.InlineMarker;
+/* JADX INFO: Add missing generic type declarations: [R, T] */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000 \n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0011\n\u0002\b\u0002\n\u0002\b\u0003\u0010\u0000\u001a\u00020\u0001\"\u0006\b\u0000\u0010\u0002\u0018\u0001\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u00042\f\u0010\u0005\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0006H\u008a@¢\u0006\u0004\b\u0007\u0010\b¨\u0006\t"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "R", "Lkotlinx/coroutines/flow/FlowCollector;", AdvanceSetting.NETWORK_TYPE, "", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "kotlinx/coroutines/flow/FlowKt__ZipKt$combine$5$2"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__MigrationKt$combine$$inlined$unsafeFlow$2$lambda$2", f = "Zip.kt", i = {0, 0}, l = {251}, m = "invokeSuspend", n = {"$receiver", AdvanceSetting.NETWORK_TYPE}, s = {"L$0", "L$1"})
 /* loaded from: classes9.dex */
-public final class FlowKt__MigrationKt$combine$$inlined$unsafeFlow$2$lambda$2 extends SuspendLambda implements Function3<FlowCollector<? super R>, T[], Continuation<? super Unit>, Object> {
+public final class FlowKt__MigrationKt$combine$$inlined$unsafeFlow$2$lambda$2<R, T> extends SuspendLambda implements Function3<FlowCollector<? super R>, T[], Continuation<? super Unit>, Object> {
     public Object L$0;
     public Object L$1;
     public Object L$2;
@@ -37,11 +38,15 @@ public final class FlowKt__MigrationKt$combine$$inlined$unsafeFlow$2$lambda$2 ex
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object, java.lang.Object] */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: kotlinx.coroutines.flow.FlowKt__MigrationKt$combine$$inlined$unsafeFlow$2$lambda$2<R, T> */
+    /* JADX WARN: Multi-variable type inference failed */
     @Override // kotlin.jvm.functions.Function3
     public final Object invoke(Object obj, Object obj2, Continuation<? super Unit> continuation) {
         return ((FlowKt__MigrationKt$combine$$inlined$unsafeFlow$2$lambda$2) create((FlowCollector) obj, (Object[]) obj2, continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r5v1, resolved type: kotlinx.coroutines.flow.FlowCollector */
+    /* JADX WARN: Multi-variable type inference failed */
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Object invokeSuspend(Object obj) {
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
@@ -69,6 +74,8 @@ public final class FlowKt__MigrationKt$combine$$inlined$unsafeFlow$2$lambda$2 ex
         return Unit.INSTANCE;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v1, resolved type: kotlinx.coroutines.flow.FlowCollector */
+    /* JADX WARN: Multi-variable type inference failed */
     public final Object invokeSuspend$$forInline(Object obj) {
         FlowCollector flowCollector = this.p$;
         Object invoke = this.this$0.$transform$inlined.invoke(this.p$0, this);

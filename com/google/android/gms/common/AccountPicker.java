@@ -75,6 +75,51 @@ public final class AccountPicker {
             }
         }
 
+        public static /* bridge */ /* synthetic */ boolean zzA(AccountChooserOptions accountChooserOptions) {
+            boolean z = accountChooserOptions.zzo;
+            return false;
+        }
+
+        public static /* bridge */ /* synthetic */ boolean zzB(AccountChooserOptions accountChooserOptions) {
+            boolean z = accountChooserOptions.zzb;
+            return false;
+        }
+
+        public static /* bridge */ /* synthetic */ boolean zzC(AccountChooserOptions accountChooserOptions) {
+            boolean z = accountChooserOptions.zzh;
+            return false;
+        }
+
+        public static /* bridge */ /* synthetic */ boolean zzD(AccountChooserOptions accountChooserOptions) {
+            boolean z = accountChooserOptions.zzk;
+            return false;
+        }
+
+        public static /* bridge */ /* synthetic */ int zza(AccountChooserOptions accountChooserOptions) {
+            int i = accountChooserOptions.zzi;
+            return 0;
+        }
+
+        public static /* bridge */ /* synthetic */ zza zzd(AccountChooserOptions accountChooserOptions) {
+            zza zzaVar = accountChooserOptions.zzl;
+            return null;
+        }
+
+        public static /* bridge */ /* synthetic */ String zze(AccountChooserOptions accountChooserOptions) {
+            String str = accountChooserOptions.zzj;
+            return null;
+        }
+
+        public static /* bridge */ /* synthetic */ String zzf(AccountChooserOptions accountChooserOptions) {
+            String str = accountChooserOptions.zzm;
+            return null;
+        }
+
+        public static /* bridge */ /* synthetic */ boolean zzz(AccountChooserOptions accountChooserOptions) {
+            boolean z = accountChooserOptions.zzn;
+            return false;
+        }
+
         /* loaded from: classes7.dex */
         public static class Builder {
             public static /* synthetic */ Interceptable $ic;
@@ -248,14 +293,14 @@ public final class AccountPicker {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, accountChooserOptions)) == null) {
             Intent intent = new Intent();
-            boolean unused = accountChooserOptions.zzk;
-            String unused2 = accountChooserOptions.zzj;
+            AccountChooserOptions.zzD(accountChooserOptions);
+            AccountChooserOptions.zze(accountChooserOptions);
             Preconditions.checkArgument(true, "We only support hostedDomain filter for account chip styled account picker");
-            zza unused3 = accountChooserOptions.zzl;
+            AccountChooserOptions.zzd(accountChooserOptions);
             Preconditions.checkArgument(true, "Consent is only valid for account chip styled account picker");
-            boolean unused4 = accountChooserOptions.zzb;
+            AccountChooserOptions.zzB(accountChooserOptions);
             Preconditions.checkArgument(true, "Making the selected account non-clickable is only supported for the theme THEME_DAY_NIGHT_GOOGLE_MATERIAL2");
-            boolean unused5 = accountChooserOptions.zzk;
+            AccountChooserOptions.zzD(accountChooserOptions);
             intent.setAction("com.google.android.gms.common.account.CHOOSE_ACCOUNT");
             intent.setPackage("com.google.android.gms");
             intent.putExtra("allowableAccounts", accountChooserOptions.zzc);
@@ -264,25 +309,25 @@ public final class AccountPicker {
             }
             intent.putExtra("addAccountOptions", accountChooserOptions.zzg);
             intent.putExtra("selectedAccount", accountChooserOptions.zza);
-            boolean unused6 = accountChooserOptions.zzb;
+            AccountChooserOptions.zzB(accountChooserOptions);
             intent.putExtra("selectedAccountIsNotClickable", false);
             intent.putExtra("alwaysPromptForAccount", accountChooserOptions.zze);
             intent.putExtra("descriptionTextOverride", accountChooserOptions.zzf);
-            boolean unused7 = accountChooserOptions.zzh;
+            AccountChooserOptions.zzC(accountChooserOptions);
             intent.putExtra("setGmsCoreAccount", false);
-            String unused8 = accountChooserOptions.zzm;
+            AccountChooserOptions.zzf(accountChooserOptions);
             intent.putExtra("realClientPackage", (String) null);
-            int unused9 = accountChooserOptions.zzi;
+            AccountChooserOptions.zza(accountChooserOptions);
             intent.putExtra("overrideTheme", 0);
-            boolean unused10 = accountChooserOptions.zzk;
+            AccountChooserOptions.zzD(accountChooserOptions);
             intent.putExtra("overrideCustomTheme", 0);
-            String unused11 = accountChooserOptions.zzj;
+            AccountChooserOptions.zze(accountChooserOptions);
             intent.putExtra("hostedDomainFilter", (String) null);
             Bundle bundle = new Bundle();
-            boolean unused12 = accountChooserOptions.zzk;
-            zza unused13 = accountChooserOptions.zzl;
-            boolean unused14 = accountChooserOptions.zzn;
-            boolean unused15 = accountChooserOptions.zzo;
+            AccountChooserOptions.zzD(accountChooserOptions);
+            AccountChooserOptions.zzd(accountChooserOptions);
+            AccountChooserOptions.zzz(accountChooserOptions);
+            AccountChooserOptions.zzA(accountChooserOptions);
             if (!bundle.isEmpty()) {
                 intent.putExtra("first_party_options_bundle", bundle);
             }

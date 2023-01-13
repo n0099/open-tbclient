@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes4.dex */
-public class hj2 extends yh2<pk2> {
+public class hj2 extends di2<tk2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.yh2
+    @Override // com.baidu.tieba.di2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enableCameraAutoFocus" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setUserId" : (String) invokeV.objValue;
     }
 
     public hj2() {
@@ -36,16 +36,16 @@ public class hj2 extends yh2<pk2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yh2
+    @Override // com.baidu.tieba.di2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull pk2 pk2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull tk2 tk2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, pk2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, tk2Var) == null) {
             String str = command.what;
-            d(pk2Var, str, "" + command.obj, true);
+            d(tk2Var, str, "" + command.obj, true);
             Object obj = command.obj;
-            if (obj instanceof Boolean) {
-                pk2Var.t(((Boolean) obj).booleanValue());
+            if (obj instanceof Long) {
+                tk2Var.W(((Long) obj).longValue());
             }
         }
     }

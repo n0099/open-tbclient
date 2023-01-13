@@ -1,59 +1,36 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.util.Log;
+import android.widget.Toast;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.an2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class te2 {
+public class te2 extends g63 {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements an2.c {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ Context a;
         public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
 
-        @Override // com.baidu.tieba.an2.c
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            }
-        }
-
-        public a(CallbackHandler callbackHandler, String str, String str2) {
+        public a(te2 te2Var, Context context, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {callbackHandler, str, str2};
+                Object[] objArr = {te2Var, context, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -63,266 +40,56 @@ public class te2 {
                     return;
                 }
             }
-            this.a = callbackHandler;
+            this.a = context;
             this.b = str;
-            this.c = str2;
         }
 
-        @Override // com.baidu.tieba.an2.c
-        public void onFailed() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                e12.k("DebugDependencyControl", "debug扩展库下载失败 url=" + this.c);
-                if (this.a != null && !TextUtils.isEmpty(this.b)) {
-                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.an2.c
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.a != null && !TextUtils.isEmpty(this.b)) {
-                    File j = te2.j();
-                    e12.k("DebugDependencyControl", "debug扩展库下载成功 file=" + j.getAbsolutePath());
-                    Pair d = te2.d(j);
-                    if (!((Boolean) d.first).booleanValue()) {
-                        e12.k("DebugDependencyControl", "debug扩展库解密失败 file=" + j.getAbsolutePath());
-                        this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug扩展库解密失败").toString());
-                        return;
-                    } else if (!te2.o((File) d.second)) {
-                        e12.k("DebugDependencyControl", "debug扩展库解压失败 file=" + j.getAbsolutePath());
-                        this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug扩展库解压失败").toString());
-                        return;
-                    } else {
-                        te2.n(true);
-                        this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(0).toString());
-                        return;
-                    }
-                }
-                e12.k("DebugDependencyControl", "debug扩展库下载成功 handler=" + this.a + " cb=" + this.b);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Toast.makeText(this.a, this.b, 1).show();
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948178248, "Lcom/baidu/tieba/te2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948178248, "Lcom/baidu/tieba/te2;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public te2(g53 g53Var) {
+        super(g53Var, "/swanAPI/publishThread");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {g53Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = "190d49fefe87b97c6b8adeebd11fc227".getBytes(StandardCharsets.UTF_8);
     }
 
-    public static void c() {
+    @Override // com.baidu.tieba.g63
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            for (File file : l()) {
-                ik4.j(file);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j43Var)) == null) {
+            if (g63.b) {
+                Log.d("ExtCore-PublishThread", "handle: publishThread");
             }
-        }
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return an2.r();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static File g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return new File(f(), "dependency_decrypt.zip");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return f() + File.separator + "temp_unzip";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static File j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return new File(f(), "dependency.zip");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return sc3.a().getBoolean("debugDependency", false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65550, null, z) == null) {
-            sc3.a().putBoolean("debugDependency", z);
-        }
-    }
-
-    public static Pair<Boolean, File> d(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
-            if (file != null && file.exists()) {
-                File g = g();
-                try {
-                    FileInputStream fileInputStream = new FileInputStream(file);
-                    FileOutputStream fileOutputStream = new FileOutputStream(g);
-                    byte[] bArr = new byte[16];
-                    fileInputStream.skip(10L);
-                    fileInputStream.read(bArr, 0, 10);
-                    fileInputStream.skip(5L);
-                    fileInputStream.read(bArr, 10, 6);
-                    fileInputStream.skip(3L);
-                    byte[] bArr2 = new byte[fileInputStream.available()];
-                    fileInputStream.read(bArr2);
-                    g.deleteOnExit();
-                    g.createNewFile();
-                    IvParameterSpec ivParameterSpec = new IvParameterSpec(bArr);
-                    SecretKeySpec secretKeySpec = new SecretKeySpec(a, "AES");
-                    Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                    cipher.init(2, secretKeySpec, ivParameterSpec);
-                    fileOutputStream.write(cipher.doFinal(bArr2));
-                    fileOutputStream.flush();
-                    ik4.L(file);
-                    Pair<Boolean, File> pair = new Pair<>(Boolean.TRUE, g);
-                    fileOutputStream.close();
-                    fileInputStream.close();
-                    return pair;
-                } catch (Exception e) {
-                    e12.l("DebugDependencyControl", "debug扩展库解密失败: ", e);
-                    return new Pair<>(Boolean.FALSE, null);
-                }
+            JSONObject a2 = g63.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal params");
+                return false;
             }
-            return new Pair<>(Boolean.FALSE, null);
+            di3.e0(new a(this, context, a2.optString("data", "")));
+            return true;
         }
-        return (Pair) invokeL.objValue;
-    }
-
-    public static synchronized void e(@NonNull String str, @Nullable CallbackHandler callbackHandler, @Nullable String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, str, callbackHandler, str2) == null) {
-            synchronized (te2.class) {
-                if (TextUtils.isEmpty(str)) {
-                    e12.k("DebugDependencyControl", "download url is empty");
-                } else {
-                    an2.G(str, new a(callbackHandler, str2, str));
-                }
-            }
-        }
-    }
-
-    public static String h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            return f() + File.separator + str + File.separator + "debug_dependency";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @NonNull
-    public static List<File> l() {
-        InterceptResult invokeV;
-        File[] C;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (File file : ik4.C(new File(f()))) {
-                if (file.isDirectory()) {
-                    File[] C2 = ik4.C(file);
-                    int length = C2.length;
-                    int i = 0;
-                    while (true) {
-                        if (i < length) {
-                            File file2 = C2[i];
-                            if (file2.isDirectory() && "debug_dependency".equals(file2.getName())) {
-                                arrayList.add(file2);
-                                break;
-                            }
-                            i++;
-                        }
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public static String m(@NonNull File file) {
-        InterceptResult invokeL;
-        String str;
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, file)) == null) {
-            if (file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length == 1 && listFiles[0].isDirectory()) {
-                ik4.e(listFiles[0], file);
-                ik4.L(listFiles[0]);
-            }
-            try {
-                str = new JSONObject(ik4.E(new File(file, "swan-package.json"))).getString("name");
-            } catch (JSONException e) {
-                e.printStackTrace();
-                str = "";
-            }
-            if (TextUtils.isEmpty(str)) {
-                return "unknown";
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean o(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, file)) == null) {
-            boolean z = false;
-            if (file != null && file.exists()) {
-                File file2 = new File(i());
-                ik4.l(file2);
-                if (ik4.U(file.getAbsolutePath(), file2.getAbsolutePath())) {
-                    File file3 = new File(h(m(file2)));
-                    if (file3.exists()) {
-                        ik4.L(file3);
-                    }
-                    file3.mkdirs();
-                    ik4.e(file2, file3);
-                    ik4.L(file2);
-                    ik4.L(file);
-                    z = true;
-                }
-                e12.k("DebugDependencyControl", "debug扩展库解压结果: unzipSuccess=" + z);
-                return z;
-            }
-            e12.k("DebugDependencyControl", "debug扩展库压缩包不存在");
-            return false;
-        }
-        return invokeL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 }

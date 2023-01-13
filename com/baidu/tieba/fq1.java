@@ -1,25 +1,12 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.content.Intent;
 /* loaded from: classes4.dex */
 public interface fq1 {
-    nq1 a(Context context);
+    boolean b(Context context, Intent intent, String str, String str2, String str3);
 
-    jq1 b(Context context);
+    boolean c();
 
-    nq1 c(Context context);
-
-    z52 d();
-
-    kq1 e(Context context, int i);
-
-    nq1 f(Context context);
-
-    nq1 g(Context context);
-
-    a62 h(Context context, int i);
-
-    nq1 i(Context context);
-
-    boolean j(int i);
+    boolean d();
 }

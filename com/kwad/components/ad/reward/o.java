@@ -168,7 +168,7 @@ public final class o extends com.kwad.components.core.i.e {
                     return;
                 }
             }
-            this.nL = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0457, viewGroup, false);
+            this.nL = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0456, viewGroup, false);
             initView();
         }
 
@@ -188,7 +188,7 @@ public final class o extends com.kwad.components.core.i.e {
                 }
                 this.nA.setText(aVar.gF());
                 this.nB.setText(aVar.gG());
-                KSImageLoader.loadCircleIcon(this.nC, aVar.eL(), this.nC.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c70));
+                KSImageLoader.loadCircleIcon(this.nC, aVar.eL(), this.nC.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c80));
             }
         }
 
@@ -198,13 +198,13 @@ public final class o extends com.kwad.components.core.i.e {
             if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (viewGroup = this.nL) == null) {
                 return;
             }
-            this.kP = viewGroup.findViewById(R.id.obfuscated_res_0x7f09118a);
-            this.nA = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f09118b);
-            this.nB = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f09118c);
-            this.nC = (ImageView) this.nL.findViewById(R.id.obfuscated_res_0x7f09118d);
-            this.nD = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f09118f);
-            this.eQ = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f091191);
-            this.nE = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f091190);
+            this.kP = viewGroup.findViewById(R.id.obfuscated_res_0x7f091195);
+            this.nA = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f091196);
+            this.nB = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f091197);
+            this.nC = (ImageView) this.nL.findViewById(R.id.obfuscated_res_0x7f091198);
+            this.nD = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f09119a);
+            this.eQ = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f09119c);
+            this.nE = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f09119b);
             this.kP.setOnClickListener(this);
             this.nB.setOnClickListener(this);
             this.nA.setOnClickListener(this);
@@ -308,13 +308,13 @@ public final class o extends com.kwad.components.core.i.e {
         private void initView() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-                this.nL = (ViewGroup) this.es.findViewById(R.id.obfuscated_res_0x7f09123a);
-                this.eQ = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f09123e);
-                this.nG = (KSCornerImageView) this.es.findViewById(R.id.obfuscated_res_0x7f09123c);
-                this.nH = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f09123b);
-                this.nI = (KsPriceView) this.es.findViewById(R.id.obfuscated_res_0x7f09123d);
-                this.nJ = (KsStyledTextButton) this.es.findViewById(R.id.obfuscated_res_0x7f091237);
-                this.nK = this.es.findViewById(R.id.obfuscated_res_0x7f091238);
+                this.nL = (ViewGroup) this.es.findViewById(R.id.obfuscated_res_0x7f091245);
+                this.eQ = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f091249);
+                this.nG = (KSCornerImageView) this.es.findViewById(R.id.obfuscated_res_0x7f091247);
+                this.nH = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f091246);
+                this.nI = (KsPriceView) this.es.findViewById(R.id.obfuscated_res_0x7f091248);
+                this.nJ = (KsStyledTextButton) this.es.findViewById(R.id.obfuscated_res_0x7f091242);
+                this.nK = this.es.findViewById(R.id.obfuscated_res_0x7f091243);
                 this.nJ.setOnClickListener(this);
                 this.nK.setOnClickListener(this);
                 this.nH.setOnClickListener(this);
@@ -465,7 +465,7 @@ public final class o extends com.kwad.components.core.i.e {
                 com.kwad.sdk.core.e.b.printStackTraceOnly(th);
             }
             if (r(this.mAdTemplate) != 2) {
-                fR = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0477, viewGroup, false);
+                fR = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0476, viewGroup, false);
                 d dVar = new d((ViewGroup) fR);
                 dVar.a(new b(this, this.nv));
                 this.nw = dVar;

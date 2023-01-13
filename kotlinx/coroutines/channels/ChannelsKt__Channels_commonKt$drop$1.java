@@ -9,10 +9,11 @@ import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function2;
+/* JADX INFO: Add missing generic type declarations: [E] */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0003H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", ExifInterface.LONGITUDE_EAST, "Lkotlinx/coroutines/channels/ProducerScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$drop$1", f = "Channels.common.kt", i = {0, 0, 1, 1, 2, 2, 2}, l = {700, 705, 706}, m = "invokeSuspend", n = {"$this$produce", "remaining", "$this$produce", "remaining", "$this$produce", "remaining", "e"}, s = {"L$0", "I$0", "L$0", "I$0", "L$0", "I$0", "L$1"})
 /* loaded from: classes9.dex */
-public final class ChannelsKt__Channels_commonKt$drop$1 extends SuspendLambda implements Function2<ProducerScope<? super E>, Continuation<? super Unit>, Object> {
+public final class ChannelsKt__Channels_commonKt$drop$1<E> extends SuspendLambda implements Function2<ProducerScope<? super E>, Continuation<? super Unit>, Object> {
     public final /* synthetic */ int $n;
     public final /* synthetic */ ReceiveChannel $this_drop;
     public int I$0;
@@ -60,12 +61,12 @@ public final class ChannelsKt__Channels_commonKt$drop$1 extends SuspendLambda im
         boolean z;
         int i;
         Object obj2;
-        ChannelsKt__Channels_commonKt$drop$1 channelsKt__Channels_commonKt$drop$1;
+        ChannelsKt__Channels_commonKt$drop$1<E> channelsKt__Channels_commonKt$drop$1;
         ProducerScope producerScope2;
-        ChannelsKt__Channels_commonKt$drop$1 channelsKt__Channels_commonKt$drop$12;
-        ChannelIterator it;
+        ChannelsKt__Channels_commonKt$drop$1<E> channelsKt__Channels_commonKt$drop$12;
+        ChannelIterator<E> it;
         int i2;
-        ChannelIterator it2;
+        ChannelIterator<E> it2;
         Object hasNext;
         ProducerScope producerScope3;
         Object hasNext2;
@@ -93,7 +94,7 @@ public final class ChannelsKt__Channels_commonKt$drop$1 extends SuspendLambda im
                         producerScope3 = producerScope;
                         obj = hasNext2;
                         if (!((Boolean) obj).booleanValue()) {
-                            Object next = it2.next();
+                            E next = it2.next();
                             channelsKt__Channels_commonKt$drop$1.L$0 = producerScope3;
                             channelsKt__Channels_commonKt$drop$1.I$0 = i;
                             channelsKt__Channels_commonKt$drop$1.L$1 = next;
@@ -132,7 +133,7 @@ public final class ChannelsKt__Channels_commonKt$drop$1 extends SuspendLambda im
                 ResultKt.throwOnFailure(obj);
                 ProducerScope producerScope4 = (ProducerScope) this.L$0;
                 i = i6;
-                ChannelIterator channelIterator = (ChannelIterator) this.L$1;
+                ChannelIterator<E> channelIterator = (ChannelIterator) this.L$1;
                 obj2 = coroutine_suspended;
                 channelsKt__Channels_commonKt$drop$1 = this;
                 if (((Boolean) obj).booleanValue()) {
@@ -146,7 +147,7 @@ public final class ChannelsKt__Channels_commonKt$drop$1 extends SuspendLambda im
                         i2 = i7;
                         channelsKt__Channels_commonKt$drop$12 = channelsKt__Channels_commonKt$drop$1;
                         coroutine_suspended = obj2;
-                        ChannelIterator channelIterator2 = it;
+                        ChannelIterator<E> channelIterator2 = it;
                         channelsKt__Channels_commonKt$drop$12.L$0 = producerScope2;
                         channelsKt__Channels_commonKt$drop$12.I$0 = i2;
                         channelsKt__Channels_commonKt$drop$12.L$1 = channelIterator2;
@@ -191,7 +192,7 @@ public final class ChannelsKt__Channels_commonKt$drop$1 extends SuspendLambda im
                     channelsKt__Channels_commonKt$drop$12 = this;
                     it = this.$this_drop.iterator();
                     i2 = i8;
-                    ChannelIterator channelIterator22 = it;
+                    ChannelIterator<E> channelIterator22 = it;
                     channelsKt__Channels_commonKt$drop$12.L$0 = producerScope2;
                     channelsKt__Channels_commonKt$drop$12.I$0 = i2;
                     channelsKt__Channels_commonKt$drop$12.L$1 = channelIterator22;

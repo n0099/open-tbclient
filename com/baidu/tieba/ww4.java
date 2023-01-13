@@ -1,87 +1,81 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.view.View;
-import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmField;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class ww4 implements uw4 {
+public final class ww4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ww4 a;
+    @JvmField
+    public static final cz4 b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.uw4
-    public View b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948284981, "Lcom/baidu/tieba/ww4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948284981, "Lcom/baidu/tieba/ww4;");
+                return;
+            }
         }
-        return (View) invokeV.objValue;
+        a = new ww4();
+        cz4 a2 = uw4.a();
+        Intrinsics.checkNotNullExpressionValue(a2, "getKvCache()");
+        b = a2;
     }
 
     public ww4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.uw4
-    public xw4 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            xw4 xw4Var = new xw4();
-            xw4Var.c(R.drawable.icon_banner_n);
-            xw4Var.g(R.drawable.icon_banner_s);
-            xw4Var.h(R.dimen.obfuscated_res_0x7f070279);
-            xw4Var.d(81);
-            xw4Var.e(R.dimen.obfuscated_res_0x7f070279);
-            return xw4Var;
-        }
-        return (xw4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.uw4
-    public ax4 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ax4 ax4Var = new ax4();
-            Resources resources = TbadkCoreApplication.getInst().getResources();
-            if (resources != null) {
-                ax4Var.a(resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702a2));
-            }
-            return ax4Var;
-        }
-        return (ax4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.uw4
-    public TbImageView d(Context context) {
+    public final String a(String dialogName) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            TbImageView tbImageView = new TbImageView(context);
-            tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            tbImageView.setGifIconSupport(false);
-            return tbImageView;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dialogName)) == null) {
+            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
+            return ((Object) cz4.p("KEY_FREQUENCE_DIALOG_STRATEGY_COUNTER")) + '_' + dialogName;
         }
-        return (TbImageView) invokeL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public final void b(String dialogName) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogName) == null) {
+            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
+            b.x(a(dialogName), 0);
+        }
+    }
+
+    public final void c(String dialogName) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dialogName) == null) {
+            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
+            String a2 = a(dialogName);
+            cz4 cz4Var = b;
+            cz4Var.x(a2, cz4Var.m(a2, 0) + 1);
+        }
     }
 }

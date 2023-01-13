@@ -28,12 +28,12 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.commonGroupChatCard.TbGroupChatCardLinkLayout;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p56;
-import com.baidu.tieba.rw4;
-import com.baidu.tieba.vy4;
-import com.baidu.tieba.wp4;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.cx4;
+import com.baidu.tieba.gz4;
+import com.baidu.tieba.h96;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.zi;
+import com.baidu.tieba.zp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -50,7 +50,7 @@ public class SingleLinkCardView extends RelativeLayout implements View.OnClickLi
     public TextView f;
     public ImageView g;
     public ImageView h;
-    public p56 i;
+    public h96 i;
     public View.OnClickListener j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -132,42 +132,42 @@ public class SingleLinkCardView extends RelativeLayout implements View.OnClickLi
         this.a.setDrawBorder(true);
         this.a.setBorderWidth(UtilHelper.getDimenPixelSize(R.dimen.tbds1));
         this.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-        this.a.setRadius(yi.g(context, R.dimen.tbds10));
+        this.a.setRadius(zi.g(context, R.dimen.tbds10));
         this.a.setPlaceHolder(2);
         this.b = (TextView) findViewById(R.id.tv_single_link_text);
         this.c = (TextView) findViewById(R.id.goods_price);
         this.d = findViewById(R.id.extra_info_container);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09070e);
-        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090710);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09070c);
+        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09070f);
         this.g = (ImageView) findViewById(R.id.content1_icon);
         this.h = (ImageView) findViewById(R.id.content2_icon);
         d();
     }
 
-    public void a(p56 p56Var) {
+    public void a(h96 h96Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, p56Var) == null) {
-            this.i = p56Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, h96Var) == null) {
+            this.i = h96Var;
             this.a.setPlaceHolder(2);
             this.a.setUseNightOrDarkMask(false);
-            if (p56Var instanceof PbLinkData) {
-                PbLinkData pbLinkData = (PbLinkData) p56Var;
+            if (h96Var instanceof PbLinkData) {
+                PbLinkData pbLinkData = (PbLinkData) h96Var;
                 this.a.setPlaceHolder(2);
                 this.a.K(pbLinkData.picUrl, 10, false);
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                 if (!TextUtils.isEmpty(pbLinkData.linkFrom)) {
                     spannableStringBuilder.append((CharSequence) pbLinkData.linkFrom);
-                    int g = yi.g(TbadkCoreApplication.getInst(), R.dimen.L_X01);
-                    int g2 = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
-                    int g3 = yi.g(TbadkCoreApplication.getInst(), R.dimen.T_X10);
-                    int g4 = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-                    int g5 = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds2);
-                    int g6 = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
-                    vy4 vy4Var = new vy4(g, -1, R.color.CAM_X0305, g3, R.color.CAM_X0305, g4, yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds38));
-                    vy4Var.b(g2);
-                    vy4Var.h(g5);
-                    vy4Var.i(g6);
-                    spannableStringBuilder.setSpan(vy4Var, 0, pbLinkData.linkFrom.length(), 17);
+                    int g = zi.g(TbadkCoreApplication.getInst(), R.dimen.L_X01);
+                    int g2 = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+                    int g3 = zi.g(TbadkCoreApplication.getInst(), R.dimen.T_X10);
+                    int g4 = zi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+                    int g5 = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds2);
+                    int g6 = zi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
+                    gz4 gz4Var = new gz4(g, -1, R.color.CAM_X0305, g3, R.color.CAM_X0305, g4, zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds38));
+                    gz4Var.b(g2);
+                    gz4Var.h(g5);
+                    gz4Var.i(g6);
+                    spannableStringBuilder.setSpan(gz4Var, 0, pbLinkData.linkFrom.length(), 17);
                 }
                 if (TextUtils.isEmpty(pbLinkData.title) && !TextUtils.isEmpty(pbLinkData.linkUrl)) {
                     spannableStringBuilder.append((CharSequence) pbLinkData.linkUrl);
@@ -209,29 +209,29 @@ public class SingleLinkCardView extends RelativeLayout implements View.OnClickLi
                             this.h.setVisibility(0);
                             this.f.setText(pbLinkData.content2);
                         }
-                        TbGroupChatCardLinkLayout.c(this.e, this.g, this.f, pbLinkData.content1, pbLinkData.content2);
+                        TbGroupChatCardLinkLayout.e(this.e, this.g, this.f, pbLinkData.content1, pbLinkData.content2);
                     }
                 }
                 if (TextUtils.isEmpty(pbLinkData.title) && !TextUtils.isEmpty(pbLinkData.linkUrl) && TextUtils.isEmpty(pbLinkData.extTxt)) {
                     this.b.setMaxLines(1);
                 }
-            } else if (p56Var instanceof PbGoodsData) {
-                PbGoodsData pbGoodsData = (PbGoodsData) p56Var;
+            } else if (h96Var instanceof PbGoodsData) {
+                PbGoodsData pbGoodsData = (PbGoodsData) h96Var;
                 this.a.K(pbGoodsData.picUrl, 10, false);
                 SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder();
                 if (!TextUtils.isEmpty(pbGoodsData.linkFrom)) {
                     spannableStringBuilder2.append((CharSequence) pbGoodsData.linkFrom);
-                    int g7 = yi.g(TbadkCoreApplication.getInst(), R.dimen.L_X01);
-                    int g8 = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
-                    int g9 = yi.g(TbadkCoreApplication.getInst(), R.dimen.T_X10);
-                    int g10 = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-                    int g11 = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds2);
-                    int g12 = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
-                    vy4 vy4Var2 = new vy4(g7, -1, R.color.CAM_X0305, g9, R.color.CAM_X0305, g10, yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds38));
-                    vy4Var2.b(g8);
-                    vy4Var2.h(g11);
-                    vy4Var2.i(g12);
-                    spannableStringBuilder2.setSpan(vy4Var2, 0, pbGoodsData.linkFrom.length(), 17);
+                    int g7 = zi.g(TbadkCoreApplication.getInst(), R.dimen.L_X01);
+                    int g8 = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+                    int g9 = zi.g(TbadkCoreApplication.getInst(), R.dimen.T_X10);
+                    int g10 = zi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+                    int g11 = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds2);
+                    int g12 = zi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
+                    gz4 gz4Var2 = new gz4(g7, -1, R.color.CAM_X0305, g9, R.color.CAM_X0305, g10, zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds38));
+                    gz4Var2.b(g8);
+                    gz4Var2.h(g11);
+                    gz4Var2.i(g12);
+                    spannableStringBuilder2.setSpan(gz4Var2, 0, pbGoodsData.linkFrom.length(), 17);
                 }
                 if (TextUtils.isEmpty(pbGoodsData.title) && !TextUtils.isEmpty(pbGoodsData.linkUrl)) {
                     spannableStringBuilder2.append((CharSequence) pbGoodsData.linkUrl);
@@ -250,17 +250,17 @@ public class SingleLinkCardView extends RelativeLayout implements View.OnClickLi
                     this.b.setMaxLines(1);
                 }
             }
-            c(p56Var);
+            c(h96Var);
         }
     }
 
-    public final void c(@Nullable p56 p56Var) {
+    public final void c(@Nullable h96 h96Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, p56Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, h96Var) == null) {
             View.OnClickListener onClickListener = this.j;
             if (onClickListener != null) {
                 setOnClickListener(onClickListener);
-            } else if ((p56Var instanceof PbLinkData) && ((PbLinkData) p56Var).urlType == 5) {
+            } else if ((h96Var instanceof PbLinkData) && ((PbLinkData) h96Var).urlType == 5) {
                 setOnClickListener(this);
             } else {
                 setOnClickListener(null);
@@ -290,11 +290,11 @@ public class SingleLinkCardView extends RelativeLayout implements View.OnClickLi
             SkinManager.setBackgroundResource(this, R.drawable.bg_link_card);
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0107);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0305);
-            rw4 d = rw4.d(this.e);
+            cx4 d = cx4.d(this.e);
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X09);
             d.v(R.color.CAM_X0109);
-            rw4 d2 = rw4.d(this.f);
+            cx4 d2 = cx4.d(this.f);
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0109);
@@ -316,7 +316,7 @@ public class SingleLinkCardView extends RelativeLayout implements View.OnClickLi
             if (i != 1 && i != 5) {
                 UrlManager urlManager = UrlManager.getInstance();
                 TbPageContext<?> pageContext = tbPageContextSupport.getPageContext();
-                urlManager.dealOneLink(pageContext, new String[]{wp4.a + xi.getUrlEncode(pbLinkData.linkUrl)});
+                urlManager.dealOneLink(pageContext, new String[]{zp4.a + yi.getUrlEncode(pbLinkData.linkUrl)});
                 return;
             }
             UrlManager.getInstance().dealOneLink(tbPageContextSupport.getPageContext(), new String[]{pbLinkData.linkUrl});

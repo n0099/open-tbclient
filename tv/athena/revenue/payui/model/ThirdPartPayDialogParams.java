@@ -2,8 +2,8 @@ package tv.athena.revenue.payui.model;
 
 import android.app.Activity;
 import androidx.annotation.Keep;
-import com.baidu.tieba.i9a;
-import com.baidu.tieba.k9a;
+import com.baidu.tieba.qea;
+import com.baidu.tieba.sea;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,8 +24,8 @@ public class ThirdPartPayDialogParams {
     public List<Object> payDiscountList;
     public String payWayDialogTitle;
     public double targetAmount;
-    public i9a thirdPartOrderRequest;
-    public k9a thirdPartToYYPayRequest;
+    public qea thirdPartOrderRequest;
+    public sea thirdPartToYYPayRequest;
     public AbsViewEventHandler viewEventListener;
 
     public ThirdPartPayDialogParams() {

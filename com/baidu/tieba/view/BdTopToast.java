@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ah;
+import com.baidu.tieba.bh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -210,7 +210,9 @@ public class BdTopToast extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            this.d.setText(str);
+            if (getContext() != null) {
+                this.d.setText(str);
+            }
             return this;
         }
         return (BdTopToast) invokeL.objValue;
@@ -228,34 +230,39 @@ public class BdTopToast extends LinearLayout {
 
     public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            f();
-            startAnimation(this.f);
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || getContext() == null) {
+            return;
         }
+        f();
+        startAnimation(this.f);
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ah.a().removeCallbacks(this.g);
+            bh.a().removeCallbacks(this.g);
+            if (getContext() == null) {
+                return;
+            }
             clearAnimation();
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setOrientation(1);
-            if (UtilHelper.canUseStyleImmersiveSticky()) {
-                this.a = new View(getContext());
-                addView(this.a, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
-            }
-            LayoutInflater.from(getContext()).inflate(R.layout.bd_top_toast_layout, this);
-            this.b = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
-            this.c = (ImageView) findViewById(R.id.bd_top_toast_icon);
-            this.d = (TextView) findViewById(R.id.bd_top_toast_content);
-            d();
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || getContext() == null) {
+            return;
         }
+        setOrientation(1);
+        if (UtilHelper.canUseStyleImmersiveSticky()) {
+            this.a = new View(getContext());
+            addView(this.a, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
+        }
+        LayoutInflater.from(getContext()).inflate(R.layout.bd_top_toast_layout, this);
+        this.b = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
+        this.c = (ImageView) findViewById(R.id.bd_top_toast_icon);
+        this.d = (TextView) findViewById(R.id.bd_top_toast_content);
+        d();
     }
 
     public final void d() {
@@ -271,35 +278,35 @@ public class BdTopToast extends LinearLayout {
 
     public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0207);
-            if (this.i) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.ic_icon_pure_succeed_use_n, R.color.CAM_X0302, null);
-                SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0302);
-            } else {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.ic_icon_pure_defeated_use_n, R.color.CAM_X0301, null);
-                SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0301);
-            }
-            this.b.b();
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || getContext() == null) {
+            return;
         }
+        SkinManager.setBackgroundColor(this.a, R.color.CAM_X0207);
+        if (this.i) {
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.ic_icon_pure_succeed_use_n, R.color.CAM_X0302, null);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0302);
+        } else {
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.ic_icon_pure_defeated_use_n, R.color.CAM_X0301, null);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0301);
+        }
+        this.b.b();
     }
 
     public void i(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, viewGroup) != null) || viewGroup == null) {
-            return;
-        }
-        f();
-        if (getParent() != null) {
-            ((ViewGroup) getParent()).removeView(this);
-        }
-        viewGroup.addView(this, -1, -2);
-        e();
-        startAnimation(this.e);
-        if (this.h >= 0) {
-            ah.a().postDelayed(this.g, this.h);
-        } else {
-            ah.a().postDelayed(this.g, 5000L);
+        if ((interceptable == null || interceptable.invokeL(1048583, this, viewGroup) == null) && viewGroup != null && getContext() != null) {
+            f();
+            if (getParent() != null) {
+                ((ViewGroup) getParent()).removeView(this);
+            }
+            viewGroup.addView(this, -1, -2);
+            e();
+            startAnimation(this.e);
+            if (this.h >= 0) {
+                bh.a().postDelayed(this.g, this.h);
+            } else {
+                bh.a().postDelayed(this.g, 5000L);
+            }
         }
     }
 }

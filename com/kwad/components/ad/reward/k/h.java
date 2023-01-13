@@ -309,6 +309,10 @@ public final class h extends d implements View.OnClickListener {
         return (Animator) invokeLLL.objValue;
     }
 
+    public static /* synthetic */ Animator a(h hVar, View view2, float f) {
+        return a(view2, f);
+    }
+
     private void a(AdTemplate adTemplate, a aVar) {
         TextView textView;
         String rating;
@@ -363,17 +367,17 @@ public final class h extends d implements View.OnClickListener {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            this.pV = (ViewGroup) this.uL.findViewById(R.id.obfuscated_res_0x7f091217);
-            this.it = (KSCornerImageView) this.uL.findViewById(R.id.obfuscated_res_0x7f091212);
-            this.eQ = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f091219);
-            this.iu = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f091201);
-            this.nI = (KsPriceView) this.uL.findViewById(R.id.obfuscated_res_0x7f091214);
-            this.uM = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f091216);
-            this.uN = (KsStyledTextButton) this.uL.findViewById(R.id.obfuscated_res_0x7f0911fc);
-            this.uR = (ImageView) this.uL.findViewById(R.id.obfuscated_res_0x7f091213);
-            this.uQ = this.uL.findViewById(R.id.obfuscated_res_0x7f0911ff);
-            this.uO = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f0911fe);
-            this.uP = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f091200);
+            this.pV = (ViewGroup) this.uL.findViewById(R.id.obfuscated_res_0x7f091222);
+            this.it = (KSCornerImageView) this.uL.findViewById(R.id.obfuscated_res_0x7f09121d);
+            this.eQ = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f091224);
+            this.iu = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f09120c);
+            this.nI = (KsPriceView) this.uL.findViewById(R.id.obfuscated_res_0x7f09121f);
+            this.uM = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f091221);
+            this.uN = (KsStyledTextButton) this.uL.findViewById(R.id.obfuscated_res_0x7f091207);
+            this.uR = (ImageView) this.uL.findViewById(R.id.obfuscated_res_0x7f09121e);
+            this.uQ = this.uL.findViewById(R.id.obfuscated_res_0x7f09120a);
+            this.uO = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f091209);
+            this.uP = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f09120b);
             ViewGroup viewGroup = this.pV;
             if (viewGroup != null) {
                 viewGroup.setOnClickListener(this);
@@ -470,7 +474,8 @@ public final class h extends d implements View.OnClickListener {
                         if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.uS.uN == null || this.uS.uN.getWidth() == 0) {
                             return;
                         }
-                        Animator a2 = h.a(this.uS.uR, this.uS.uN.getWidth());
+                        h hVar = this.uS;
+                        Animator a2 = h.a(hVar, hVar.uR, this.uS.uN.getWidth());
                         if (a2 != null) {
                             a2.addListener(new AnimatorListenerAdapter(this, a2) { // from class: com.kwad.components.ad.reward.k.h.2.1
                                 public static /* synthetic */ Interceptable $ic;

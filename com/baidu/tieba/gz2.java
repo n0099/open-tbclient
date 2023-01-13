@@ -1,20 +1,24 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.SwanAppBaseActivity;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class gz2 {
+public class gz2 implements cj3<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final List<String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,123 +34,76 @@ public class gz2 {
                 return;
             }
         }
-        a = ok1.a;
+        a = new ArrayList(5);
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public static boolean a(Context context, @NonNull hz2 hz2Var) {
-        InterceptResult invokeLL;
+    public gz2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, hz2Var)) == null) {
-            if (context instanceof SwanAppBaseActivity) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            hz2Var.b(2, "method should be called after setActivityRef");
-            if (!a) {
-                return false;
-            }
-            throw new IllegalStateException("this method should be called after setActivityRef");
         }
-        return invokeLL.booleanValue;
     }
 
-    public static boolean c(ArrayList<String> arrayList, @NonNull hz2 hz2Var) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.cj3
+    /* renamed from: b */
+    public void a(@NonNull HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, arrayList, hz2Var)) == null) {
-            if (arrayList != null && !arrayList.isEmpty()) {
-                return false;
-            }
-            hz2Var.a("permission has already granted");
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @NonNull
-    public static ArrayList<String> d(@NonNull Context context, @NonNull String[] strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, strArr)) == null) {
-            ArrayList<String> arrayList = new ArrayList<>();
-            for (String str : strArr) {
-                if (!al4.a(context, str)) {
-                    arrayList.add(str);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
+            dz2.g().d(false);
+            String h = hybridUbcFlow.h("launchid");
+            if (!TextUtils.isEmpty(h)) {
+                synchronized (a) {
+                    if (!a.contains(h)) {
+                        a.add(h);
+                        d(h, hybridUbcFlow);
+                    }
                 }
             }
-            return arrayList;
-        }
-        return (ArrayList) invokeLL.objValue;
-    }
-
-    public static boolean b(@NonNull Context context, @NonNull String str, @NonNull hz2 hz2Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, str, hz2Var)) == null) {
-            if (al4.a(context, str)) {
-                hz2Var.a("permission has already granted");
-                return true;
+            String str = (String) hybridUbcFlow.k("routeId");
+            if (!TextUtils.isEmpty(str)) {
+                synchronized (a) {
+                    if (!a.contains(str)) {
+                        a.add(str);
+                        c(str, hybridUbcFlow);
+                    }
+                }
             }
-            return false;
         }
-        return invokeLLL.booleanValue;
     }
 
-    public static void e(@NonNull String str, @NonNull String[] strArr, int i, @NonNull Context context, @NonNull hz2 hz2Var) {
+    public final void c(@NonNull String str, @NonNull HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65541, null, new Object[]{str, strArr, Integer.valueOf(i), context, hz2Var}) != null) || !a(context, hz2Var) || b(context, str, hz2Var)) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, hybridUbcFlow) == null) {
+            e(hybridUbcFlow);
+            UbcFlowEvent g = hybridUbcFlow.g("na_first_meaningful_paint");
+            HybridUbcFlow e = ox2.e("route", str);
+            if (e != null && g != null) {
+                e.F(g);
+                e.B();
+            }
         }
-        g(context, strArr, i, hz2Var);
     }
 
-    @Deprecated
-    public static void f(@NonNull Context context, @NonNull String[] strArr, int i, @NonNull hz2 hz2Var) {
+    public final void d(@NonNull String str, @NonNull HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLIL(65542, null, context, strArr, i, hz2Var) != null) || !a(context, hz2Var)) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, hybridUbcFlow) == null) {
+            e(hybridUbcFlow);
         }
-        ArrayList<String> d = d(context, strArr);
-        if (c(d, hz2Var)) {
-            return;
-        }
-        ((SwanAppBaseActivity) context).y(i, (String[]) d.toArray(new String[0]), new cz2(i, hz2Var));
     }
 
-    public static void g(@NonNull Context context, @NonNull String[] strArr, int i, @NonNull hz2 hz2Var) {
+    public final void e(@NonNull HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLIL(65543, null, context, strArr, i, hz2Var) != null) || !a(context, hz2Var)) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, hybridUbcFlow) != null) || hybridUbcFlow.g("na_first_meaningful_paint") == null) {
             return;
         }
-        ArrayList<String> d = d(context, strArr);
-        if (c(d, hz2Var)) {
-            return;
-        }
-        ((SwanAppBaseActivity) context).y(i, (String[]) d.toArray(new String[0]), new dz2(context, i, hz2Var));
-    }
-
-    public static void h(@NonNull String[] strArr, int i, @NonNull Context context, @NonNull hz2 hz2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLILL(65544, null, strArr, i, context, hz2Var) != null) || !a(context, hz2Var)) {
-            return;
-        }
-        ArrayList<String> d = d(context, strArr);
-        if (c(d, hz2Var)) {
-            return;
-        }
-        g(context, (String[]) d.toArray(new String[0]), i, hz2Var);
-    }
-
-    @Deprecated
-    public static void requestPermissions(@NonNull String[] strArr, int i, @NonNull Context context, @NonNull hz2 hz2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLILL(65545, null, strArr, i, context, hz2Var) != null) || !a(context, hz2Var)) {
-            return;
-        }
-        ArrayList<String> d = d(context, strArr);
-        if (c(d, hz2Var)) {
-            return;
-        }
-        f(context, (String[]) d.toArray(new String[0]), i, hz2Var);
+        db2.U().U0(new qe2((String) hybridUbcFlow.k(PrefetchEvent.EVENT_DATA_WEBVIEW_ID), (String) hybridUbcFlow.k(PrefetchEvent.EVENT_KEY_PAGE_URL)));
     }
 }

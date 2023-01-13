@@ -1,10 +1,13 @@
 package com.baidu.tbadk.core.data;
 
+import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
@@ -13,12 +16,18 @@ import tbclient.ThemeColorInfo;
 import tbclient.ThreadRecommendInfo;
 /* loaded from: classes3.dex */
 public class ThreadRecommendInfoData implements Serializable {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int BUSINESS_TYPE_CONTENT_COLLECTION = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public ThemeColorInfo backgroundColor;
+    public String businessId;
+    public int businessType;
     public String forumAvatar;
     public String forumName;
+    public String jumpIcon;
     public String jumpLink;
+    public String jumpText;
+    public ThemeColorInfo jumpTextColor;
     public String recommendIcon;
     public String recommendReason;
     public ThemeColorInfo recommendReasonColor;
@@ -44,9 +53,21 @@ public class ThreadRecommendInfoData implements Serializable {
         }
     }
 
+    public boolean isValidData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.recommendReason) && !TextUtils.isEmpty(this.recommendType)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public void parseJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
             try {
                 this.forumAvatar = jSONObject.optString("forum_avatar");
                 this.forumName = jSONObject.optString("forum_name");
@@ -55,6 +76,10 @@ public class ThreadRecommendInfoData implements Serializable {
                 this.recommendReason = jSONObject.optString("recommend_reason");
                 this.recommendTopicId = jSONObject.optLong("topic_id");
                 this.jumpLink = jSONObject.optString("jump_link");
+                this.businessType = jSONObject.optInt("business_type");
+                this.businessId = jSONObject.optString(SmartLaunchStats.UBC_BUSINESS_ID_KEY);
+                this.jumpIcon = jSONObject.optString("jump_icon");
+                this.jumpText = jSONObject.optString("jump_text");
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -63,7 +88,7 @@ public class ThreadRecommendInfoData implements Serializable {
 
     public void parseProto(ThreadRecommendInfo threadRecommendInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadRecommendInfo) != null) || threadRecommendInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadRecommendInfo) != null) || threadRecommendInfo == null) {
             return;
         }
         this.forumAvatar = threadRecommendInfo.forum_avatar;
@@ -79,6 +104,11 @@ public class ThreadRecommendInfoData implements Serializable {
         this.recommendReasonColor = threadRecommendInfo.recommend_reason_color;
         this.stripColor = threadRecommendInfo.strip_color;
         this.backgroundColor = threadRecommendInfo.background_color;
+        this.jumpTextColor = threadRecommendInfo.jump_text_color;
         this.jumpLink = threadRecommendInfo.jump_link;
+        this.businessType = threadRecommendInfo.business_type.intValue();
+        this.businessId = threadRecommendInfo.business_id;
+        this.jumpIcon = threadRecommendInfo.jump_icon;
+        this.jumpText = threadRecommendInfo.jump_text;
     }
 }

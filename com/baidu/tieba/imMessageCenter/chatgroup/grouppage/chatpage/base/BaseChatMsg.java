@@ -19,7 +19,7 @@ public abstract class BaseChatMsg<SdkMsg extends ChatMsg> extends BaseMsg {
 
     public abstract void fromSdkMsg(@NonNull SdkMsg sdkmsg);
 
-    @Override // com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.xn
+    @Override // com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.yn
     public abstract /* synthetic */ BdUniqueId getType();
 
     public BaseChatMsg() {
@@ -45,5 +45,19 @@ public abstract class BaseChatMsg<SdkMsg extends ChatMsg> extends BaseMsg {
             return (SdkMsg) super.getSdkMsg();
         }
         return (SdkMsg) invokeV.objValue;
+    }
+
+    public void setMockSenderInfo(long j, @NonNull String str, @NonNull String str2, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            CommonMsgField create = CommonMsgField.create();
+            create.setUserId(j);
+            create.setUserName(str);
+            create.setPortrait(str2);
+            create.setRole(i);
+            create.setRobotRole(i2);
+            create.setLevel(i3);
+            setCommonMsgField(create);
+        }
     }
 }

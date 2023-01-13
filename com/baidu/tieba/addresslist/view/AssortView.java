@@ -10,7 +10,7 @@ import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c45;
+import com.baidu.tieba.m45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,9 +26,9 @@ public class AssortView extends View {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void h1(String str);
+        void j1(String str);
 
-        void s1();
+        void w1();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -131,7 +131,7 @@ public class AssortView extends View {
             int height = getHeight();
             int width = getWidth();
             float f = (float) (width / 48.0d);
-            String[] strArr = c45.a;
+            String[] strArr = m45.a;
             int length = height / strArr.length;
             int length2 = strArr.length;
             for (int i = 0; i < length2; i++) {
@@ -139,7 +139,7 @@ public class AssortView extends View {
                 this.a.setTypeface(Typeface.DEFAULT_BOLD);
                 this.a.setColor(SkinManager.getColor(R.color.CAM_X0108));
                 this.a.setTextSize(26.0f * f);
-                canvas.drawText(c45.a[i], (width / 2.0f) - (this.a.measureText(c45.a[i]) / 2.0f), (length * i) + length, this.a);
+                canvas.drawText(m45.a[i], (width / 2.0f) - (this.a.measureText(m45.a[i]) / 2.0f), (length * i) + length, this.a);
                 this.a.reset();
             }
         }
@@ -152,7 +152,7 @@ public class AssortView extends View {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
             super.onTouchEvent(motionEvent);
             float y = motionEvent.getY() / getHeight();
-            String[] strArr = c45.a;
+            String[] strArr = m45.a;
             int length = (int) (y * strArr.length);
             if (length >= 0 && length < strArr.length) {
                 int action = motionEvent.getAction();
@@ -162,13 +162,13 @@ public class AssortView extends View {
                             this.b = length;
                             a aVar = this.c;
                             if (aVar != null) {
-                                aVar.h1(c45.a[length]);
+                                aVar.j1(m45.a[length]);
                             }
                         }
                     } else {
                         a aVar2 = this.c;
                         if (aVar2 != null) {
-                            aVar2.s1();
+                            aVar2.w1();
                         }
                         this.b = -1;
                     }
@@ -176,14 +176,14 @@ public class AssortView extends View {
                     this.b = length;
                     a aVar3 = this.c;
                     if (aVar3 != null) {
-                        aVar3.h1(c45.a[length]);
+                        aVar3.j1(m45.a[length]);
                     }
                 }
             } else {
                 this.b = -1;
                 a aVar4 = this.c;
                 if (aVar4 != null) {
-                    aVar4.s1();
+                    aVar4.w1();
                 }
             }
             return true;

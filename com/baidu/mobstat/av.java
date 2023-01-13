@@ -582,7 +582,7 @@ public class av {
                 e2.printStackTrace();
             }
             try {
-                jSONObject.put(Config.PRINCIPAL_PART, this.i);
+                jSONObject.put("pr", this.i);
             } catch (Exception e3) {
                 e3.printStackTrace();
             }
@@ -602,7 +602,7 @@ public class av {
                 e6.printStackTrace();
             }
             try {
-                jSONObject.put(Config.EVENT_PAGE_MAPPING, at.a().a(at.a.b));
+                jSONObject.put("pd", at.a().a(at.a.b));
             } catch (Exception e7) {
                 e7.printStackTrace();
             }
@@ -897,7 +897,7 @@ public class av {
         }
         try {
             optJSONArray = jSONObject.optJSONArray(Config.EVENT_PART);
-            optJSONArray2 = jSONObject.optJSONArray(Config.PRINCIPAL_PART);
+            optJSONArray2 = jSONObject.optJSONArray("pr");
             optJSONArray3 = jSONObject.optJSONArray(Config.FEED_LIST_PART);
             optJSONArray4 = jSONObject.optJSONArray("sv");
         } catch (Exception e2) {
@@ -928,12 +928,12 @@ public class av {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put(Config.HEADER_PART, new JSONObject(this.g.toString()));
-                    jSONObject.put(Config.PRINCIPAL_PART, new JSONArray(this.i.toString()));
+                    jSONObject.put("pr", new JSONArray(this.i.toString()));
                     jSONObject.put(Config.EVENT_PART, new JSONArray(this.h.toString()));
                     jSONObject.put(Config.FEED_LIST_PART, new JSONArray(this.j.toString()));
                     jSONObject.put("sv", new JSONArray(this.k.toString()));
                     jSONObject.put(Config.PYD, l);
-                    jSONObject.put(Config.EVENT_PAGE_MAPPING, at.a().a(at.a.b));
+                    jSONObject.put("pd", at.a().a(at.a.b));
                     jSONObject.put(Config.EVENT_PATH_MAPPING, at.a().a(at.a.a));
                     jSONObject.put("sd", at.a().a(at.a.c));
                 } catch (Exception e) {

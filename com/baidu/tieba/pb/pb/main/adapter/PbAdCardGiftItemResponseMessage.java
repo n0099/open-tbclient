@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.pb.main.adapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.e08;
+import com.baidu.tieba.u48;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class PbAdCardGiftItemResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e08 mData;
+    public u48 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbAdCardGiftItemResponseMessage() {
@@ -34,13 +34,13 @@ public class PbAdCardGiftItemResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public e08 getData() {
+    public u48 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mData;
         }
-        return (e08) invokeV.objValue;
+        return (u48) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -51,7 +51,7 @@ public class PbAdCardGiftItemResponseMessage extends JsonHttpResponsedMessage {
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
                 if (this.mData == null) {
-                    this.mData = new e08();
+                    this.mData = new u48();
                 }
                 this.mData.c(optJSONObject);
             }

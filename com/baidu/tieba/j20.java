@@ -1,298 +1,293 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.config.ABTestConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class j20 extends i20 {
+public class j20 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947831265, "Lcom/baidu/tieba/j20;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947831265, "Lcom/baidu/tieba/j20;");
-                return;
-            }
-        }
-        a = ABTestConfig.isDebug();
-    }
-
-    public j20() {
+    public static synchronized void a(List<b9> list) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65536, null, list) == null) {
+            synchronized (j20.class) {
+                if (list != null) {
+                    if (list.size() > 0) {
+                        if (AppConfig.isDebug()) {
+                            Log.d("ExperimentManager", "deleteExpInfoList >> " + list.size());
+                        }
+                        String a = m20.a();
+                        JSONObject jSONObject = new JSONObject();
+                        try {
+                            if (!TextUtils.isEmpty(a)) {
+                                jSONObject = new JSONObject(a);
+                            }
+                            for (b9 b9Var : list) {
+                                jSONObject.remove(b9Var.c() + "_" + b9Var.b());
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        m20.f(jSONObject);
+                    }
+                }
             }
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x003a */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:51:0x0077 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:71:? */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x0082 A[Catch: IOException -> 0x007e, TryCatch #10 {IOException -> 0x007e, blocks: (B:53:0x007a, B:57:0x0082, B:59:0x0087), top: B:76:0x007a }] */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x0087 A[Catch: IOException -> 0x007e, TRY_LEAVE, TryCatch #10 {IOException -> 0x007e, blocks: (B:53:0x007a, B:57:0x0082, B:59:0x0087), top: B:76:0x007a }] */
-    /* JADX WARN: Removed duplicated region for block: B:76:0x007a A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r2v0 */
-    /* JADX WARN: Type inference failed for: r2v1 */
-    /* JADX WARN: Type inference failed for: r2v10 */
-    /* JADX WARN: Type inference failed for: r2v11, types: [java.io.BufferedReader] */
-    /* JADX WARN: Type inference failed for: r2v2 */
-    /* JADX WARN: Type inference failed for: r2v3, types: [java.io.BufferedReader] */
-    /* JADX WARN: Type inference failed for: r2v4 */
-    /* JADX WARN: Type inference failed for: r2v5, types: [java.io.BufferedReader] */
-    /* JADX WARN: Type inference failed for: r2v6 */
-    /* JADX WARN: Type inference failed for: r2v7 */
-    /* JADX WARN: Type inference failed for: r2v9 */
-    @Override // com.baidu.tieba.i20
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String a(String str) {
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return m20.a();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return m20.b();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return m20.c();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return m20.d();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static JSONObject[] f(JSONObject jSONObject, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, jSONObject, i)) == null) {
+            JSONObject[] jSONObjectArr = new JSONObject[i];
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                int a = s20.a(next, i);
+                JSONObject jSONObject2 = jSONObjectArr[a];
+                if (jSONObject2 == null) {
+                    jSONObject2 = new JSONObject();
+                    jSONObjectArr[a] = jSONObject2;
+                }
+                try {
+                    Object obj = jSONObject.get(next);
+                    if (obj != null) {
+                        jSONObject2.put(next, obj);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObjectArr;
+        }
+        return (JSONObject[]) invokeLI.objValue;
+    }
+
+    public static synchronized boolean n(JSONObject jSONObject, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65549, null, jSONObject, z)) == null) {
+            synchronized (j20.class) {
+                if (jSONObject != null) {
+                    if (jSONObject.length() != 0) {
+                        int a = l9.b().a();
+                        return l(f(jSONObject, a), a, z);
+                    }
+                }
+                return false;
+            }
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    public static synchronized void g(List<b9> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, list) == null) {
+            synchronized (j20.class) {
+                if (list != null) {
+                    if (list.size() != 0) {
+                        if (AppConfig.isDebug()) {
+                            Log.d("ExperimentManager", "saveExpInfoList >> " + list.size());
+                        }
+                        String a = m20.a();
+                        JSONObject jSONObject = new JSONObject();
+                        try {
+                            if (!TextUtils.isEmpty(a)) {
+                                jSONObject = new JSONObject(a);
+                            }
+                            for (b9 b9Var : list) {
+                                String str = b9Var.c() + "_" + b9Var.b();
+                                JSONObject jSONObject2 = new JSONObject();
+                                if (b9Var.e() && b9Var.d() != -1) {
+                                    jSONObject2.put("is_upload", b9Var.e());
+                                    jSONObject2.put("expired_time", b9Var.d());
+                                }
+                                jSONObject.put(str, jSONObject2);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        m20.f(jSONObject);
+                    }
+                }
+            }
+        }
+    }
+
+    public static synchronized void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, jSONObject) == null) {
+            synchronized (j20.class) {
+                if (jSONObject != null) {
+                    if (jSONObject.length() != 0) {
+                        m20.g(jSONObject);
+                    }
+                }
+            }
+        }
+    }
+
+    public static synchronized void i(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, jSONObject) == null) {
+            synchronized (j20.class) {
+                if (AppConfig.isDebug()) {
+                    Log.d("ExperimentManager", "saveV1SwitchData >> " + jSONObject);
+                }
+                m20.h(jSONObject);
+            }
+        }
+    }
+
+    public static synchronized void j(JSONObject jSONObject, JSONObject jSONObject2, List<b9> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65545, null, jSONObject, jSONObject2, list) == null) {
+            synchronized (j20.class) {
+                if (n(jSONObject2, true)) {
+                    k(jSONObject);
+                    g(list);
+                }
+            }
+        }
+    }
+
+    public static synchronized boolean k(JSONObject jSONObject) {
         InterceptResult invokeL;
-        FileInputStream fileInputStream;
-        ?? r2;
-        InputStreamReader inputStreamReader;
-        Throwable th;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            try {
-                fileInputStream = new FileInputStream(str);
-                try {
-                    inputStreamReader = new InputStreamReader(fileInputStream);
-                } catch (IOException e) {
-                    e = e;
-                    inputStreamReader = null;
-                    r2 = 0;
-                } catch (Throwable th2) {
-                    th = th2;
-                    r2 = 0;
-                    th = th;
-                    inputStreamReader = r2;
-                    if (r2 != 0) {
-                    }
-                    if (inputStreamReader != null) {
-                    }
-                    if (fileInputStream != null) {
-                    }
-                    throw th;
-                }
-                try {
-                    r2 = new BufferedReader(inputStreamReader);
-                    try {
-                        try {
-                            StringBuilder sb = new StringBuilder();
-                            while (true) {
-                                String readLine = r2.readLine();
-                                if (readLine == null) {
-                                    break;
-                                }
-                                sb.append(readLine);
-                            }
-                            String sb2 = sb.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, jSONObject)) == null) {
+            synchronized (j20.class) {
+                if (jSONObject != null) {
+                    if (jSONObject.length() != 0) {
+                        String d = m20.d();
+                        if (!TextUtils.isEmpty(d)) {
                             try {
-                                r2.close();
-                                inputStreamReader.close();
-                                fileInputStream.close();
-                            } catch (IOException e2) {
-                                if (a) {
-                                    e2.printStackTrace();
+                                JSONObject jSONObject2 = new JSONObject(d);
+                                Iterator<String> keys = jSONObject.keys();
+                                while (keys.hasNext()) {
+                                    String next = keys.next();
+                                    jSONObject2.put(next, jSONObject.get(next));
                                 }
-                            }
-                            return sb2;
-                        } catch (IOException e3) {
-                            e = e3;
-                            if (a) {
+                                if (jSONObject2.length() > 0) {
+                                    m20.i(jSONObject2);
+                                    return true;
+                                }
+                            } catch (JSONException e) {
                                 e.printStackTrace();
                             }
-                            if (r2 != 0) {
-                                try {
-                                    r2.close();
-                                } catch (IOException e4) {
-                                    if (a) {
-                                        e4.printStackTrace();
-                                    }
-                                    return null;
-                                }
-                            }
-                            if (inputStreamReader != null) {
-                                inputStreamReader.close();
-                            }
-                            if (fileInputStream != null) {
-                                fileInputStream.close();
-                            }
-                            return null;
+                        } else {
+                            m20.i(jSONObject);
                         }
-                    } catch (Throwable th3) {
-                        th = th3;
-                        if (r2 != 0) {
-                            try {
-                                r2.close();
-                            } catch (IOException e5) {
-                                if (a) {
-                                    e5.printStackTrace();
-                                }
-                                throw th;
-                            }
-                        }
-                        if (inputStreamReader != null) {
-                            inputStreamReader.close();
-                        }
-                        if (fileInputStream != null) {
-                            fileInputStream.close();
-                        }
-                        throw th;
+                        return false;
                     }
-                } catch (IOException e6) {
-                    e = e6;
-                    r2 = 0;
-                } catch (Throwable th4) {
-                    r2 = 0;
-                    th = th4;
-                    if (r2 != 0) {
-                    }
-                    if (inputStreamReader != null) {
-                    }
-                    if (fileInputStream != null) {
-                    }
-                    throw th;
                 }
-            } catch (IOException e7) {
-                e = e7;
-                inputStreamReader = null;
-                fileInputStream = null;
-                r2 = 0;
-            } catch (Throwable th5) {
-                th = th5;
-                fileInputStream = null;
-                r2 = 0;
+                return false;
             }
-        } else {
-            return (String) invokeL.objValue;
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.i20
-    public void b(String str, String str2) {
-        FileOutputStream fileOutputStream;
-        OutputStreamWriter outputStreamWriter;
-        BufferedWriter bufferedWriter;
+    public static boolean l(JSONObject[] jSONObjectArr, int i, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            BufferedWriter bufferedWriter2 = null;
-            try {
-                fileOutputStream = new FileOutputStream(new File(str));
-                try {
-                    outputStreamWriter = new OutputStreamWriter(fileOutputStream);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{jSONObjectArr, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            for (int i2 = 0; i2 < i; i2++) {
+                JSONObject jSONObject = jSONObjectArr[i2];
+                String e = m20.e(i2);
+                if (TextUtils.isEmpty(e)) {
+                    m20.j(jSONObject, i2);
+                } else {
                     try {
-                        try {
-                            bufferedWriter = new BufferedWriter(outputStreamWriter);
-                        } catch (IOException e) {
-                            e = e;
+                        JSONObject jSONObject2 = new JSONObject(e);
+                        Iterator<String> keys = jSONObject.keys();
+                        while (keys.hasNext()) {
+                            String next = keys.next();
+                            Object obj = jSONObject.get(next);
+                            if (!jSONObject2.has(next) || z) {
+                                jSONObject2.put(next, obj);
+                            }
                         }
-                    } catch (Throwable th) {
-                        th = th;
+                        if (jSONObject2.length() > 0) {
+                            m20.j(jSONObject2, i2);
+                        }
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
                     }
-                    try {
-                        bufferedWriter.write(str2);
-                        bufferedWriter.close();
-                        try {
-                            bufferedWriter.close();
-                            outputStreamWriter.close();
-                            fileOutputStream.close();
-                        } catch (IOException e2) {
-                            e = e2;
-                            if (!a) {
-                                return;
-                            }
-                            e.printStackTrace();
-                        }
-                    } catch (IOException e3) {
-                        e = e3;
-                        bufferedWriter2 = bufferedWriter;
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                        if (bufferedWriter2 != null) {
-                            try {
-                                bufferedWriter2.close();
-                            } catch (IOException e4) {
-                                e = e4;
-                                if (!a) {
-                                    return;
-                                }
-                                e.printStackTrace();
-                            }
-                        }
-                        if (outputStreamWriter != null) {
-                            outputStreamWriter.close();
-                        }
-                        if (fileOutputStream != null) {
-                            fileOutputStream.close();
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        bufferedWriter2 = bufferedWriter;
-                        if (bufferedWriter2 != null) {
-                            try {
-                                bufferedWriter2.close();
-                            } catch (IOException e5) {
-                                if (a) {
-                                    e5.printStackTrace();
-                                }
-                                throw th;
-                            }
-                        }
-                        if (outputStreamWriter != null) {
-                            outputStreamWriter.close();
-                        }
-                        if (fileOutputStream != null) {
-                            fileOutputStream.close();
-                        }
-                        throw th;
-                    }
-                } catch (IOException e6) {
-                    e = e6;
-                    outputStreamWriter = null;
-                } catch (Throwable th3) {
-                    th = th3;
-                    outputStreamWriter = null;
                 }
-            } catch (IOException e7) {
-                e = e7;
-                fileOutputStream = null;
-                outputStreamWriter = null;
-            } catch (Throwable th4) {
-                th = th4;
-                fileOutputStream = null;
-                outputStreamWriter = null;
+            }
+            return true;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static synchronized void m(JSONObject jSONObject, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65548, null, jSONObject, i) == null) {
+            synchronized (j20.class) {
+                if (jSONObject != null) {
+                    if (jSONObject.length() != 0) {
+                        String e = m20.e(i);
+                        if (!TextUtils.isEmpty(e)) {
+                            try {
+                                JSONObject jSONObject2 = new JSONObject(e);
+                                Iterator<String> keys = jSONObject.keys();
+                                while (keys.hasNext()) {
+                                    String next = keys.next();
+                                    jSONObject2.put(next, jSONObject.get(next));
+                                }
+                                m20.j(jSONObject2, i);
+                            } catch (JSONException e2) {
+                                e2.printStackTrace();
+                            }
+                        } else {
+                            m20.j(jSONObject, i);
+                        }
+                    }
+                }
             }
         }
     }

@@ -318,12 +318,13 @@ public class av implements au, InvocationHandler {
     public static void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
-            com.xiaomi.channel.commonutils.logger.b.m99a("mdid:" + str);
+            com.xiaomi.channel.commonutils.logger.b.m103a("mdid:" + str);
         }
     }
 
     @Override // com.xiaomi.push.au
-    public String a() {
+    /* renamed from: a */
+    public String mo186a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -337,7 +338,8 @@ public class av implements au, InvocationHandler {
     }
 
     @Override // com.xiaomi.push.au
-    public boolean a() {
+    /* renamed from: a */
+    public boolean mo187a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

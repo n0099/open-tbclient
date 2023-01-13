@@ -8,16 +8,18 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.annotation.ColorInt;
 import androidx.core.view.InputDeviceCompat;
 import com.alipay.security.mobile.module.http.model.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ij;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.jj;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +32,7 @@ import java.lang.ref.SoftReference;
 /* loaded from: classes3.dex */
 public class BdToast {
     public static /* synthetic */ Interceptable $ic;
-    public static SoftReference<Toast> j;
+    public static SoftReference<Toast> k;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
     public Toast b;
@@ -41,6 +43,7 @@ public class BdToast {
     public int g;
     public boolean h;
     public int i;
+    public int j;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
@@ -146,7 +149,7 @@ public class BdToast {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, charSequence)) == null) {
             BdToast bdToast = new BdToast(context);
-            bdToast.h(charSequence);
+            bdToast.j(charSequence);
             return bdToast;
         }
         return (BdToast) invokeLL.objValue;
@@ -158,8 +161,8 @@ public class BdToast {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Toast toast = new Toast(this.a);
             this.b = toast;
-            ij.a(toast);
-            j();
+            jj.a(toast);
+            l();
             int i = this.g;
             if (i != -1) {
                 if (this.h) {
@@ -171,7 +174,11 @@ public class BdToast {
             } else {
                 this.d.setVisibility(8);
             }
-            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(yi.g(this.a, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
+            if (this.j != 0) {
+                this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(zi.g(this.a, R.dimen.tbds32), this.j));
+            } else {
+                this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(zi.g(this.a, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
+            }
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
             this.e.setText(this.f);
             this.b.setView(this.c);
@@ -180,27 +187,34 @@ public class BdToast {
         return (BdToast) invokeV.objValue;
     }
 
-    public BdToast c(int i) {
+    public void c(@ColorInt int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.j = i;
+        }
+    }
+
+    public BdToast d(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             this.i = i;
             return this;
         }
         return (BdToast) invokeI.objValue;
     }
 
-    public void d(float f) {
+    public void e(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
+        if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
             this.e.setLineSpacing(0.0f, f);
         }
     }
 
-    public BdToast e(int i) {
+    public BdToast f(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
             if (i != 0) {
                 this.h = false;
                 this.g = i;
@@ -210,10 +224,10 @@ public class BdToast {
         return (BdToast) invokeI.objValue;
     }
 
-    public BdToast f(ToastIcon toastIcon) {
+    public BdToast g(ToastIcon toastIcon) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, toastIcon)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, toastIcon)) == null) {
             if (toastIcon != null) {
                 this.h = toastIcon.isSvg;
                 this.g = toastIcon.iconId;
@@ -223,10 +237,10 @@ public class BdToast {
         return (BdToast) invokeL.objValue;
     }
 
-    public BdToast h(CharSequence charSequence) {
+    public BdToast j(CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, charSequence)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, charSequence)) == null) {
             this.f = charSequence;
             this.e.setText(charSequence);
             return this;
@@ -234,10 +248,20 @@ public class BdToast {
         return (BdToast) invokeL.objValue;
     }
 
-    public BdToast g(int i, int i2, int i3) {
+    public BdToast h(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048581, this, i, i2, i3)) == null) {
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048582, this, i, i2, i3)) == null) {
+            i(i, i2, i3, UtilHelper.getDimenPixelSize(R.dimen.obfuscated_res_0x7f0702c3));
+            return this;
+        }
+        return (BdToast) invokeIII.objValue;
+    }
+
+    public BdToast i(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048583, this, i, i2, i3, i4)) == null) {
             if (i != 0) {
                 this.h = false;
                 this.g = i;
@@ -247,9 +271,10 @@ public class BdToast {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) imageView.getLayoutParams();
                 if (layoutParams == null) {
                     layoutParams = new LinearLayout.LayoutParams(i2, i3);
-                    layoutParams.topMargin = R.dimen.obfuscated_res_0x7f0702c3;
+                    layoutParams.topMargin = i4;
                     layoutParams.gravity = 17;
                 } else {
+                    layoutParams.topMargin = i4;
                     layoutParams.width = i2;
                     layoutParams.height = i3;
                 }
@@ -257,13 +282,13 @@ public class BdToast {
             }
             return this;
         }
-        return (BdToast) invokeIII.objValue;
+        return (BdToast) invokeIIII.objValue;
     }
 
-    public BdToast i() {
+    public BdToast k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             if (this.b == null) {
                 a();
             }
@@ -277,14 +302,14 @@ public class BdToast {
         return (BdToast) invokeV.objValue;
     }
 
-    public final void j() {
+    public final void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            SoftReference<Toast> softReference = j;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            SoftReference<Toast> softReference = k;
             if (softReference != null && softReference.get() != null) {
-                j.get().cancel();
+                k.get().cancel();
             }
-            j = new SoftReference<>(this.b);
+            k = new SoftReference<>(this.b);
         }
     }
 }

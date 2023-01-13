@@ -37,12 +37,12 @@ public class h {
                 h.this.c();
             }
         };
-        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC0694a() { // from class: com.ss.android.socialbase.appdownloader.h.2
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0694a
+        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC0693a() { // from class: com.ss.android.socialbase.appdownloader.h.2
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0693a
             public void c() {
             }
 
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0694a
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0693a
             public void b() {
                 if (h.this.a.isEmpty()) {
                     return;

@@ -1,16 +1,19 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import com.baidu.tieba.lq1;
+import android.view.ViewGroup;
+import com.baidu.tieba.qq1;
 /* loaded from: classes5.dex */
-public interface oq1<T extends lq1> extends mq1<T> {
-    void H();
+public interface oq1<T extends qq1> extends rq1<T> {
+    void E();
 
-    boolean c();
+    void F(ViewGroup viewGroup);
 
-    void g(boolean z);
+    void G(View view2);
 
-    void i(View.OnClickListener onClickListener);
+    void P(boolean z);
 
-    void removeFromParent();
+    void V();
+
+    void g0(String str, String str2);
 }

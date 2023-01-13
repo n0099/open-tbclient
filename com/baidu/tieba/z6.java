@@ -1,17 +1,17 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c4;
+import com.baidu.tieba.d4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class z6 extends v6 implements w6 {
+public class z6 extends w6 implements x6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d4 h;
+    public c4 h;
 
     public z6() {
         Interceptable interceptable = $ic;
@@ -27,12 +27,12 @@ public class z6 extends v6 implements w6 {
         }
     }
 
-    public z6(d4 d4Var) {
+    public z6(c4 c4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d4Var};
+            Object[] objArr = {c4Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,61 +42,38 @@ public class z6 extends v6 implements w6 {
                 return;
             }
         }
-        o(d4Var);
+        o(c4Var);
     }
 
-    public void o(d4 d4Var) {
+    public void o(c4 c4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, d4Var) == null) {
-            this.h = d4Var;
-            if (d4Var != null) {
-                j(d4Var.c());
-                h(d4Var.b());
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, c4Var) == null) {
+            this.h = c4Var;
+            j(c4Var.n());
+            h(c4Var.k());
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z6(z6 z6Var) {
-        super(z6Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {z6Var};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((w6) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        o(z6Var.h);
-    }
-
-    public w6 p(l3 l3Var) {
+    public z6 p(m3 m3Var) {
         InterceptResult invokeL;
-        b4 b4Var;
+        c4 c4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l3Var)) == null) {
-            d4 d4Var = this.h;
-            if (d4Var instanceof c4.a) {
-                b4Var = new c4.b((c4.a) d4Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m3Var)) == null) {
+            c4 c4Var2 = this.h;
+            if (c4Var2 instanceof d4.b) {
+                c4Var = new d4.b((d4.b) c4Var2);
             } else {
-                b4Var = new b4(d4Var);
+                c4Var = new c4(c4Var2);
             }
-            b4Var.u(l3Var);
-            b4Var.z(a(), k());
-            y6 y6Var = new y6(b4Var);
-            y6Var.b(l());
-            y6Var.c(g());
-            y6Var.f(i());
-            y6Var.d(e());
-            return y6Var;
+            c4Var.u(m3Var);
+            c4Var.z(a(), k());
+            z6 z6Var = new z6(c4Var);
+            z6Var.b(l());
+            z6Var.c(g());
+            z6Var.f(i());
+            z6Var.d(e());
+            return z6Var;
         }
-        return (w6) invokeL.objValue;
+        return (z6) invokeL.objValue;
     }
 }

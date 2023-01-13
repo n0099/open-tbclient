@@ -1,105 +1,134 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.frs.TabMenuPopView;
+import com.baidu.tieba.yy6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.URLEncoder;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class az6 {
+public class az6 implements uy6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public static boolean c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            switch (i) {
-                case 202001:
-                case 205001:
-                case 309456:
-                case CmdConfigHttp.CMD_CHECK_REAL_NAME /* 1003325 */:
-                    return true;
-                default:
-                    return false;
-            }
-        }
-        return invokeI.booleanValue;
-    }
+    public Context a;
+    public yy6.e b;
+    public List<np6> c;
+    public View d;
+    public View e;
+    public TabMenuPopView f;
+    public yy6 g;
+    public TabMenuPopView.c h;
 
     /* loaded from: classes3.dex */
-    public static class a implements Runnable {
+    public class a implements TabMenuPopView.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ az6 a;
 
-        public a() {
+        public a(az6 az6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {az6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = az6Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.frs.TabMenuPopView.c
+        public void a(View view2, np6 np6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                az6.e();
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, np6Var) == null) {
+                if (this.a.g != null) {
+                    this.a.g.c();
+                }
+                this.a.b.a(np6Var.b);
             }
         }
     }
 
-    public static void d() {
+    public az6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            if (!yi.E()) {
-                TbadkCoreApplication.getInst().handler.post(new a());
-            } else {
-                e();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.h = new a(this);
+    }
+
+    @Override // com.baidu.tieba.uy6
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            this.d.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
+            return this.d.getMeasuredHeight();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.uy6
+    public View getView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.uy6
+    public void a(Context context, yy6 yy6Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, yy6Var) == null) && context != null && yy6Var != null) {
+            this.a = context;
+            this.g = yy6Var;
+            this.b = yy6Var.d();
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0875, (ViewGroup) null);
+            this.d = inflate;
+            this.e = inflate.findViewById(R.id.top_line);
+            TabMenuPopView tabMenuPopView = (TabMenuPopView) this.d.findViewById(R.id.obfuscated_res_0x7f0905bd);
+            this.f = tabMenuPopView;
+            tabMenuPopView.setOnItemClickCallBack(this.h);
         }
     }
 
-    public static boolean b(NetWork netWork) {
-        InterceptResult invokeL;
-        int netErrorCode;
+    @Override // com.baidu.tieba.uy6
+    public void setData(List<np6> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, netWork)) == null) {
-            if (netWork == null) {
-                return false;
-            }
-            if (netWork.isNetSuccess()) {
-                netErrorCode = netWork.getServerErrorCode();
-            } else {
-                netErrorCode = netWork.getNetErrorCode();
-            }
-            if (netErrorCode != 1990055) {
-                return false;
-            }
-            d();
-            return true;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, list) != null) || list == null) {
+            return;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
-            sp4.u(applicationContext, "", UrlSchemaHelper.REAL_NAME_AUTH_URL + "&u=" + URLEncoder.encode(UrlSchemaHelper.FINISH_THIS_WEBVIEW), true, true, true, true, true, false);
-        }
+        this.c = list;
+        np6 np6Var = new np6();
+        np6Var.b = 0;
+        np6Var.a = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0272);
+        np6Var.c = false;
+        SkinManager.setBackgroundColor(this.d, R.color.CAM_X0201);
+        SkinManager.setBackgroundColor(this.e, R.color.CAM_X0204);
+        this.f.setData(this.c, np6Var);
     }
 }

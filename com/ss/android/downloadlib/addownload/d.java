@@ -157,7 +157,7 @@ public class d {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.putOpt("apk_size", Long.valueOf(a));
-                        jSONObject.putOpt("available_space", Long.valueOf(d.d()));
+                        jSONObject.putOpt("available_space", Long.valueOf(d.c()));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -202,6 +202,10 @@ public class d {
             return j.l().a();
         }
         return 0L;
+    }
+
+    public static /* synthetic */ long c() {
+        return d();
     }
 
     public static long d() {

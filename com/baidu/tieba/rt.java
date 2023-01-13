@@ -1,47 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.bdtask.framework.utils.DebugTrace;
-import com.baidu.bdtask.model.info.TaskInfo;
+import android.text.TextUtils;
+import android.util.Base64;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.charset.Charset;
 /* loaded from: classes6.dex */
-public final class rt {
+public class rt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final vt a;
-    public final String b;
 
-    public rt(String str) {
+    public static String a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            if (bArr == null) {
+                return "";
             }
+            return new String(bArr, Charset.forName("UTF-8"));
         }
-        this.b = str;
-        this.a = new vt();
+        return (String) invokeL.objValue;
     }
 
-    public final TaskInfo a() {
-        InterceptResult invokeV;
+    public static byte[] b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String a = vv.c.a(this.b);
-            DebugTrace debugTrace = DebugTrace.a;
-            debugTrace.a("parse taskInfo str:" + a);
-            return (TaskInfo) this.a.a("info").a(a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new byte[0];
+            }
+            return str.getBytes(Charset.forName("UTF-8"));
         }
-        return (TaskInfo) invokeV.objValue;
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static byte[] c(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
+            if (bArr == null) {
+                return new byte[0];
+            }
+            return Base64.encode(bArr, 2);
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static byte[] d(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            if (bArr != null && bArr.length != 0) {
+                return Base64.decode(bArr, 2);
+            }
+            return new byte[0];
+        }
+        return (byte[]) invokeL.objValue;
     }
 }

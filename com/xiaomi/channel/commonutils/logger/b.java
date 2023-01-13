@@ -139,7 +139,7 @@ public abstract class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m98a(String str) {
+    public static String m102a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
@@ -195,10 +195,10 @@ public abstract class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, context) == null) {
             f34a = context;
-            if (m.m571a(context)) {
+            if (m.m635a(context)) {
                 f40a = true;
             }
-            if (m.m570a()) {
+            if (m.m634a()) {
                 f41b = true;
             }
         }
@@ -221,15 +221,15 @@ public abstract class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m99a(String str) {
+    public static void m103a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, null, str) == null) {
-            a(2, m98a(str));
+            a(2, m102a(str));
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m100a(String str, String str2) {
+    public static void m104a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65550, null, str, str2) == null) {
             a(2, b(str, str2));
@@ -239,7 +239,7 @@ public abstract class b {
     public static void a(String str, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65551, null, str, th) == null) {
-            a(4, m98a(str), th);
+            a(4, m102a(str), th);
         }
     }
 
@@ -271,21 +271,21 @@ public abstract class b {
     public static void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, null, str) == null) {
-            a(0, m98a(str));
+            a(0, m102a(str));
         }
     }
 
     public static void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65556, null, str) == null) {
-            a(1, m98a(str));
+            a(1, m102a(str));
         }
     }
 
     public static void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65557, null, str) == null) {
-            a(4, m98a(str));
+            a(4, m102a(str));
         }
     }
 
@@ -293,12 +293,12 @@ public abstract class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65558, null, str) == null) {
             if (!f40a) {
-                Log.w(f37a, m98a(str));
+                Log.w(f37a, m102a(str));
                 if (f41b) {
                     return;
                 }
             }
-            m99a(str);
+            m103a(str);
         }
     }
 }

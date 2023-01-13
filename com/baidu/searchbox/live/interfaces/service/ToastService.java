@@ -46,7 +46,7 @@ public interface ToastService {
                 }
             }
             $$INSTANCE = new Companion();
-            SERVICE_REFERENCE = DI.INSTANCE.getServiceRef(DI.TOAST_NAME);
+            SERVICE_REFERENCE = DI.INSTANCE.getServiceRef("toast");
         }
 
         public Companion() {

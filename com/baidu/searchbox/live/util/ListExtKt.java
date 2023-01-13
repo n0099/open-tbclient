@@ -138,7 +138,7 @@ public final class ListExtKt {
             } else {
                 str = stringExtra2;
             }
-            IntentData.SchemeModel parseSchemeData = IntentData.Companion.parseSchemeData(stringExtra);
+            IntentData.SchemeModel parseSchemeData = IntentData.Companion.parseSchemeData(stringExtra, str);
             IntentData intentData = new IntentData(parseSchemeData.getRoomId(), parseSchemeData.getSource(), str, parseSchemeData, null, null, 48, null);
             intentData.setTransitionStatus(intent.getBooleanExtra("translucent", false) ? 1 : 0);
             return intentData;

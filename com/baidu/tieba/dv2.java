@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,12 +11,70 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.Set;
+import java.util.TreeSet;
 /* loaded from: classes4.dex */
-public final class dv2 extends cv2<String, JSONObject> {
+public abstract class dv2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public double a;
+    public Set<Integer> b;
+
+    public abstract boolean a(Bitmap bitmap, Rect rect);
+
+    /* loaded from: classes4.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static dv2 a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+                return b(str, 0.5d);
+            }
+            return (dv2) invokeL.objValue;
+        }
+
+        public static dv2 b(String str, double d) {
+            InterceptResult invokeCommon;
+            char c;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Double.valueOf(d)})) == null) {
+                int hashCode = str.hashCode();
+                if (hashCode != -2129978548) {
+                    if (hashCode != -585839565) {
+                        if (hashCode == 544848403 && str.equals("hsv_parser")) {
+                            c = 1;
+                        }
+                        c = 65535;
+                    } else {
+                        if (str.equals("solid_parser")) {
+                            c = 2;
+                        }
+                        c = 65535;
+                    }
+                } else {
+                    if (str.equals("simple_parser")) {
+                        c = 0;
+                    }
+                    c = 65535;
+                }
+                if (c != 0) {
+                    if (c != 1) {
+                        if (c != 2) {
+                            return new fv2();
+                        }
+                        return new gv2();
+                    }
+                    return new ev2(d);
+                }
+                return new fv2();
+            }
+            return (dv2) invokeCommon.objValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -30,12 +89,10 @@ public final class dv2 extends cv2<String, JSONObject> {
                 return;
             }
         }
-        b = e43.v;
+        c = tk1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public dv2() {
-        super("swanCookie");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,41 +100,51 @@ public final class dv2 extends cv2<String, JSONObject> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = 1.0d;
     }
 
-    public final boolean b() {
-        InterceptResult invokeV;
+    public boolean b(Bitmap bitmap, Rect rect) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return ad3.l().o();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, rect)) == null) {
+            if (bitmap == null || rect == null || rect.top < 0 || rect.bottom < 0 || rect.left < 0 || rect.right < 0) {
+                return false;
+            }
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            int i = rect.top;
+            int i2 = rect.bottom;
+            if (i >= i2 || i2 > height) {
+                return false;
+            }
+            int i3 = rect.left;
+            int i4 = rect.right;
+            if (i3 >= i4 || i4 > width) {
+                return false;
+            }
+            return true;
         }
-        return invokeV.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ev2
-    /* renamed from: c */
-    public boolean a(@NonNull String str) {
-        InterceptResult invokeL;
-        boolean z;
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.equals(str, (CharSequence) this.a) && !b()) {
-                z = true;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            Set<Integer> set = this.b;
+            if (set == null) {
+                this.b = new TreeSet();
             } else {
-                z = false;
+                set.clear();
             }
-            if (b) {
-                e12.b("SwanCookieInterceptor", ">>> NAUseMap apiName=", str, " , should intercept ", Boolean.valueOf(z));
+            if (c) {
+                Log.d("ErrorPageParser", "set color " + String.format("#%06X", Integer.valueOf(16777215 & i)));
             }
-            return z;
+            this.b.add(Integer.valueOf(i));
         }
-        return invokeL.booleanValue;
     }
 }

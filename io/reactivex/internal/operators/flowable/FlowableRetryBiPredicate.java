@@ -15,13 +15,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class FlowableRetryBiPredicate<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final BiPredicate<? super Integer, ? super Throwable> predicate;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class RetryBiSubscriber<T> extends AtomicInteger implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7098360935104053232L;

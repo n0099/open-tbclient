@@ -3,21 +3,21 @@ package com.baidu.tbadk.switchs;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kf;
+import com.baidu.tieba.lf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class MemeDiyEnableSwitch extends kf {
+public class MemeDiyEnableSwitch extends lf {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY = "meme_diy_switch";
     public static final int OFF_TYPE = 0;
     public static final int ON_TYPE = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.kf
+    @Override // com.baidu.tieba.lf
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -27,7 +27,7 @@ public class MemeDiyEnableSwitch extends kf {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.kf
+    @Override // com.baidu.tieba.lf
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class MemeDiyEnableSwitch extends kf {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.kf
+    @Override // com.baidu.tieba.lf
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -47,14 +47,14 @@ public class MemeDiyEnableSwitch extends kf {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.kf
+    @Override // com.baidu.tieba.lf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? KEY : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.kf
+    @Override // com.baidu.tieba.lf
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -90,7 +90,7 @@ public class MemeDiyEnableSwitch extends kf {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.kf
+    @Override // com.baidu.tieba.lf
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {

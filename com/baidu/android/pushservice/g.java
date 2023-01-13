@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.i.m;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
@@ -160,7 +159,7 @@ public final class g {
                 }
             }
             if (e.a == 0) {
-                String property7 = properties.getProperty(Constants.API_KEY);
+                String property7 = properties.getProperty("api_key");
                 if (TextUtils.equals(properties.getProperty(EmotionResourceInfo.JSON_KEY_PKG_NAME), context.getPackageName()) && !TextUtils.isEmpty(property7)) {
                     e.b = property7;
                 }

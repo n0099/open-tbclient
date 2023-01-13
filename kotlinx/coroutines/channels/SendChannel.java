@@ -17,7 +17,8 @@ public interface SendChannel<E> {
     SelectClause2<E, SendChannel<E>> getOnSend();
 
     @ExperimentalCoroutinesApi
-    void invokeOnClose(Function1<? super Throwable, Unit> function1);
+    /* renamed from: invokeOnClose */
+    void mo2191invokeOnClose(Function1<? super Throwable, Unit> function1);
 
     boolean isClosedForSend();
 

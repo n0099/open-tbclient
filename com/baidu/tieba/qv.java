@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 
+import android.graphics.Color;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,12 +14,6 @@ public final class qv {
     public static /* synthetic */ Interceptable $ic;
     public static final qv a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public final boolean a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i == 301 : invokeI.booleanValue;
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -47,5 +43,21 @@ public final class qv {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public final int a(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return i;
+            }
+            try {
+                return Color.parseColor(str);
+            } catch (Exception unused) {
+                return i;
+            }
+        }
+        return invokeLI.intValue;
     }
 }

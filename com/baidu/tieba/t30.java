@@ -1,11 +1,41 @@
 package com.baidu.tieba;
 
-import org.json.JSONObject;
+import android.content.Context;
+import com.baidu.android.common.util.DeviceId;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface t30 {
-    t30 a(JSONObject jSONObject);
+public class t30 implements w30 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean a();
+    public t30() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void b(JSONObject jSONObject);
+    @Override // com.baidu.tieba.w30
+    public String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            if (context != null) {
+                return DeviceId.getCUID(context);
+            }
+            throw new NullPointerException("context should not be null");
+        }
+        return (String) invokeL.objValue;
+    }
 }

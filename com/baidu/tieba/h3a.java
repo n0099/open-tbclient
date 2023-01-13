@@ -1,24 +1,24 @@
 package com.baidu.tieba;
 
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes4.dex */
-public abstract class h3a<T> implements j3a {
+public final class h3a implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final n5a a;
+    public final /* synthetic */ AtomicBoolean a;
+    public final /* synthetic */ g3a b;
 
-    public abstract void b(Throwable th);
-
-    public abstract void c(T t);
-
-    public h3a() {
+    public h3a(g3a g3aVar, AtomicBoolean atomicBoolean) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {g3aVar, atomicBoolean};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,31 +28,18 @@ public abstract class h3a<T> implements j3a {
                 return;
             }
         }
-        this.a = new n5a();
+        this.b = g3aVar;
+        this.a = atomicBoolean;
     }
 
-    @Override // com.baidu.tieba.j3a
-    public final boolean isUnsubscribed() {
-        InterceptResult invokeV;
+    @Override // java.lang.Runnable
+    public final void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.isUnsubscribed();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.j3a
-    public final void unsubscribe() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.unsubscribe();
-        }
-    }
-
-    public final void a(j3a j3aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, j3aVar) == null) {
-            this.a.a(j3aVar);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.a.getAndSet(true)) {
+            Log.w("ARCore-InstallService", "requestInstall timed out, launching fullscreen.");
+            g3a g3aVar = this.b;
+            b3a b3aVar = g3aVar.c;
+            b3a.n(g3aVar.a, g3aVar.b);
         }
     }
 }

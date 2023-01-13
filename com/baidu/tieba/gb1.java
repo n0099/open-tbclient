@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes4.dex */
 public interface gb1 {
-    void a(int i, int i2, int i3);
+    void onError(String str);
+
+    void onSuccess(String str);
 }

@@ -15,17 +15,18 @@ public class TopToastEvent extends SerializableEvent {
     public transient /* synthetic */ FieldHolder $fh;
     public String content;
     public int status;
+    public int toastDelay;
 
-    public TopToastEvent(int i, String str) {
+    public TopToastEvent(int i, String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
+            Object[] objArr = {Integer.valueOf(i), str, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -33,6 +34,7 @@ public class TopToastEvent extends SerializableEvent {
         }
         this.status = i;
         this.content = str;
+        this.toastDelay = i2;
     }
 
     public String getContent() {
@@ -44,10 +46,19 @@ public class TopToastEvent extends SerializableEvent {
         return (String) invokeV.objValue;
     }
 
-    public boolean isSuccess() {
+    public int getToastDelay() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.toastDelay;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean isSuccess() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (this.status == 1) {
                 return true;
             }

@@ -1,25 +1,16 @@
 package com.baidu.tieba;
 
-import android.content.pm.PackageInfo;
-import com.baidu.nps.utils.ContextHolder;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import android.app.Activity;
 /* loaded from: classes5.dex */
-public class ma1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ma1 {
 
-    public static PackageInfo a(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
-            if (!new File(str).exists()) {
-                return null;
-            }
-            return ContextHolder.getApplicationContext().getPackageManager().getPackageArchiveInfo(str, i);
-        }
-        return (PackageInfo) invokeLI.objValue;
+    /* loaded from: classes5.dex */
+    public interface a {
     }
+
+    void a(String str);
+
+    String b(Activity activity, String str, a aVar);
+
+    void c(String str, String str2, int i);
 }

@@ -2,7 +2,6 @@ package com.baidu.platform.comapi.util;
 
 import android.os.Build;
 import com.baidu.mapsdkplatform.comapi.util.SyncSysInfo;
-import com.baidu.mobstat.Config;
 import com.baidu.platform.comjni.map.commonmemcache.NACommonMemCache;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -57,7 +56,7 @@ public class f {
             String str = Build.MODEL;
             a.a(SyncSysInfo.initPhoneInfo());
             jsonBuilder.object();
-            jsonBuilder.putStringValue(Config.EVENT_PAGE_MAPPING, "map");
+            jsonBuilder.putStringValue("pd", "map");
             jsonBuilder.putStringValue("ov", "Android" + Build.VERSION.SDK_INT);
             jsonBuilder.putStringValue("ver", "2");
             jsonBuilder.key(TbConfig.SW_APID).value(SysOSUtil.getInstance().getScreenWidth());

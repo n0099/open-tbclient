@@ -35,7 +35,7 @@ public class TableDefine {
     public static final String DB_TABLE_STUDIO_USE_PA_MESSAGE = "studio_use_pa_message";
     public static final String DB_TABLE_USERINFO = "userinfo";
     public static final String DB_TABLE_ZHIDAINFO = "zhida_info";
-    public static final int DB_VERSION = 77;
+    public static final int DB_VERSION = 78;
     public static final String SQL_COPY_TABLE_USERINFO = "INSERT INTO userinfo (uid, buid, username, sex, phone, user_detail, tiny_url, head_url, account_type, ip_exsit, ip, ip_isp, ip_country, ip_province, ip_city, ip_county, disturb, blacklist) SELECT uid, buid, username, sex, phone, user_detail, tiny_url, head_url, account_type, ip_exsit, ip, ip_isp, ip_country, ip_province, ip_city, ip_county, disturb, blacklist FROM userinfo_temp";
     public static final String SQL_CREATE_DUPLICATE_MESSAGE = "CREATE TABLE duplicate_message (_id INTEGER PRIMARY KEY AUTOINCREMENT , msgid LONG, category LONG, contacter LONG, msg_key TEXT, from_user LONG, input_time LONG, type LONG);";
     public static final String SQL_CREATE_MEDIA_MESSAGE_QUERY_MSGID_INDEX = "CREATE INDEX media_msgid_query ON media_message (category, contacter, msgid);";

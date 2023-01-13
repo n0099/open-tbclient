@@ -1,79 +1,237 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetition;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
+import com.baidu.tieba.z96;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class aa6 implements xn {
+public class aa6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public FeatureCardCompetition a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947608499, "Lcom/baidu/tieba/aa6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes3.dex */
+    public static class a implements ba6 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z96.a a;
+
+        public a(z96.a aVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947608499, "Lcom/baidu/tieba/aa6;");
-                return;
-            }
+            this.a = aVar;
         }
-        b = BdUniqueId.gen();
-    }
 
-    public aa6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        @Override // com.baidu.tieba.ba6
+        public void onFailed(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                this.a.a(2, i);
             }
         }
     }
 
-    public FeatureCardCompetition a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+    /* loaded from: classes3.dex */
+    public static class b implements ba6 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z96.a a;
+
+        public b(z96.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
         }
-        return (FeatureCardCompetition) invokeV.objValue;
+
+        @Override // com.baidu.tieba.ba6
+        public void onFailed(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                this.a.a(2, i);
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.xn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public static boolean a(Context context, Uri uri, Bundle bundle, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return b;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, uri, bundle, Boolean.valueOf(z)})) == null) {
+            return b(context, uri, null, bundle, z);
         }
-        return (BdUniqueId) invokeV.objValue;
+        return invokeCommon.booleanValue;
     }
 
-    public void b(FeatureCardCompetition featureCardCompetition) {
+    public static boolean b(Context context, Uri uri, z96 z96Var, Bundle bundle, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, featureCardCompetition) != null) || featureCardCompetition == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, uri, z96Var, bundle, Boolean.valueOf(z)})) == null) {
+            z96.a aVar = new z96.a();
+            if (uri == null) {
+                if (z96Var != null) {
+                    z96Var.b(1, "Uri is empty.", aVar);
+                }
+                return false;
+            } else if (!"deeplink".equals(uri.getHost())) {
+                if (z96Var != null) {
+                    z96Var.b(2, "Uri host is not deeplink.", aVar);
+                }
+                return false;
+            } else {
+                String queryParameter = uri.getQueryParameter(DeepLinkItem.DEEPLINK_APPURL_KEY);
+                String queryParameter2 = uri.getQueryParameter(DeepLinkItem.DEEPLINK_MARKETURL_KEY);
+                String queryParameter3 = uri.getQueryParameter(DeepLinkItem.DEEPLINK_WEBURL_KEY);
+                String queryParameter4 = uri.getQueryParameter("pkgName");
+                String queryParameter5 = uri.getQueryParameter(DeepLinkItem.DEEPLINK_MARKET_PKGNAME_KEY);
+                boolean booleanQueryParameter = uri.getBooleanQueryParameter(DeepLinkItem.DEEPLINK_IS_DESIGNATE_PKG, true);
+                if (e(context, queryParameter, queryParameter4, z96Var, booleanQueryParameter, aVar) || f(context, queryParameter2, queryParameter5, z96Var, booleanQueryParameter, aVar)) {
+                    return true;
+                }
+                return g(context, queryParameter3, bundle, z96Var, aVar, z);
+            }
         }
-        this.a = featureCardCompetition;
-        String str = featureCardCompetition.title;
-        Integer num = featureCardCompetition.floor;
-        Integer num2 = featureCardCompetition.type;
+        return invokeCommon.booleanValue;
+    }
+
+    public static boolean c(Context context, String str, String str2, boolean z, ba6 ba6Var) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, str, str2, Boolean.valueOf(z), ba6Var})) == null) {
+            try {
+                Intent b2 = ca6.b(context, str, str2, z, ba6Var);
+                if (b2 == null) {
+                    return false;
+                }
+                context.startActivity(b2);
+                return true;
+            } catch (Exception unused) {
+                if (ba6Var != null) {
+                    ba6Var.onFailed(-101);
+                }
+                return false;
+            }
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static boolean d(Context context, String str, Bundle bundle, boolean z) {
+        InterceptResult invokeCommon;
+        TbPageContext<?> tbPageContext;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, bundle, Boolean.valueOf(z)})) == null) {
+            String[] strArr = {str};
+            UrlManager urlManager = UrlManager.getInstance();
+            if (urlManager == null || (tbPageContext = (TbPageContext) y9.a(context)) == null) {
+                return false;
+            }
+            if (urlManager.UrlValidated(str)) {
+                urlManager.dealOneLink(tbPageContext, strArr, true);
+                return true;
+            }
+            return urlManager.dealOneLink(tbPageContext, strArr);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static boolean e(Context context, String str, String str2, z96 z96Var, boolean z, z96.a aVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, z96Var, Boolean.valueOf(z), aVar})) == null) {
+            if (TextUtils.isEmpty(str)) {
+                aVar.a(1, -4);
+                return false;
+            } else if (!c(context, str, str2, z, new a(aVar))) {
+                return false;
+            } else {
+                aVar.b(1);
+                if (z96Var != null) {
+                    z96Var.a(1, aVar);
+                }
+                return true;
+            }
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static boolean f(Context context, String str, String str2, z96 z96Var, boolean z, z96.a aVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, str, str2, z96Var, Boolean.valueOf(z), aVar})) == null) {
+            if (TextUtils.isEmpty(str)) {
+                aVar.a(2, -5);
+                return false;
+            } else if (!c(context, str, str2, z, new b(aVar))) {
+                return false;
+            } else {
+                aVar.b(2);
+                if (z96Var != null) {
+                    z96Var.a(2, aVar);
+                    return true;
+                }
+                return true;
+            }
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static boolean g(Context context, String str, Bundle bundle, z96 z96Var, z96.a aVar, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{context, str, bundle, z96Var, aVar, Boolean.valueOf(z)})) == null) {
+            if (TextUtils.isEmpty(str)) {
+                aVar.a(3, -6);
+                if (z96Var != null) {
+                    z96Var.b(-6, "Uri web url is empty", aVar);
+                }
+                return false;
+            } else if (d(context, str, bundle, z)) {
+                aVar.b(3);
+                if (z96Var != null) {
+                    z96Var.a(3, aVar);
+                    return true;
+                }
+                return true;
+            } else {
+                aVar.a(3, -7);
+                if (z96Var != null) {
+                    z96Var.b(-7, "Uri web url open failed", aVar);
+                }
+                return false;
+            }
+        }
+        return invokeCommon.booleanValue;
     }
 }

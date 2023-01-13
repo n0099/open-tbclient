@@ -200,7 +200,7 @@ public final class a extends com.kwad.components.ad.reward.presenter.a {
                 if (interceptable2 == null || interceptable2.invokeV(1048583, this) == null) {
                     super.onVideoPlaying();
                     this.rk.rh.ph();
-                    this.rk.ri = false;
+                    a.b(this.rk, false);
                     if (this.rk.bw) {
                         return;
                     }
@@ -210,6 +210,11 @@ public final class a extends com.kwad.components.ad.reward.presenter.a {
                 }
             }
         };
+    }
+
+    public static /* synthetic */ boolean b(a aVar, boolean z) {
+        aVar.ri = false;
+        return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

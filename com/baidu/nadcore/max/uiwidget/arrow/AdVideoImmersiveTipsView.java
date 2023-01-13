@@ -19,8 +19,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.widget.uiwidget.ExpandIconView;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e41;
-import com.baidu.tieba.m31;
+import com.baidu.tieba.j41;
+import com.baidu.tieba.r31;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,8 +40,8 @@ import kotlin.jvm.internal.StringCompanionObject;
 public final class AdVideoImmersiveTipsView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e41 a;
-    public e41 b;
+    public j41 a;
+    public j41 b;
     public ObjectAnimator c;
     public int d;
     public View.OnClickListener e;
@@ -202,7 +202,7 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
                 public void onAnimationEnd(Animator animator) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                        ImageView arrowPieImage = (ImageView) this.a.a.a.a(R.id.obfuscated_res_0x7f0902cc);
+                        ImageView arrowPieImage = (ImageView) this.a.a.a.a(R.id.obfuscated_res_0x7f0902c5);
                         Intrinsics.checkNotNullExpressionValue(arrowPieImage, "arrowPieImage");
                         arrowPieImage.setVisibility(8);
                     }
@@ -213,16 +213,16 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
             public final void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    ImageView arrowPieImage = (ImageView) this.a.a.a(R.id.obfuscated_res_0x7f0902cc);
+                    ImageView arrowPieImage = (ImageView) this.a.a.a(R.id.obfuscated_res_0x7f0902c5);
                     Intrinsics.checkNotNullExpressionValue(arrowPieImage, "arrowPieImage");
                     if (arrowPieImage.getVisibility() == 0) {
-                        ObjectAnimator duration = ObjectAnimator.ofFloat((ImageView) this.a.a.a(R.id.obfuscated_res_0x7f0902cc), Key.ALPHA, 1.0f).setDuration(500L);
+                        ObjectAnimator duration = ObjectAnimator.ofFloat((ImageView) this.a.a.a(R.id.obfuscated_res_0x7f0902c5), Key.ALPHA, 1.0f).setDuration(500L);
                         Intrinsics.checkNotNullExpressionValue(duration, "ObjectAnimator.ofFloat(a…on(DEFUALT_ANIM_DURATION)");
                         duration.setFloatValues(1.0f, 0.0f);
                         duration.addListener(new C0133a(this));
                         duration.start();
                     }
-                    ExpandIconView arrowImage = (ExpandIconView) this.a.a.a(R.id.obfuscated_res_0x7f0902cb);
+                    ExpandIconView arrowImage = (ExpandIconView) this.a.a.a(R.id.obfuscated_res_0x7f0902c4);
                     Intrinsics.checkNotNullExpressionValue(arrowImage, "arrowImage");
                     arrowImage.setVisibility(0);
                 }
@@ -286,7 +286,7 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
             View.OnClickListener outClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (outClickListener = this.a.getOutClickListener()) != null) {
-                outClickListener.onClick((ExpandIconView) this.a.a(R.id.obfuscated_res_0x7f0902cb));
+                outClickListener.onClick((ExpandIconView) this.a.a(R.id.obfuscated_res_0x7f0902c4));
             }
         }
     }
@@ -328,7 +328,7 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
     }
 
     /* loaded from: classes2.dex */
-    public static final class d extends e41.b {
+    public static final class d extends j41.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdVideoImmersiveTipsView a;
@@ -353,14 +353,14 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
             this.b = i;
         }
 
-        @Override // com.baidu.tieba.e41.b
+        @Override // com.baidu.tieba.j41.b
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
             }
             this.a.e(this.b);
-            e41 animTimer = this.a.getAnimTimer();
+            j41 animTimer = this.a.getAnimTimer();
             if (animTimer != null) {
                 animTimer.a();
             }
@@ -397,7 +397,7 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                TextView guideText = (TextView) this.a.a(R.id.obfuscated_res_0x7f090d85);
+                TextView guideText = (TextView) this.a.a(R.id.obfuscated_res_0x7f090d8f);
                 Intrinsics.checkNotNullExpressionValue(guideText, "guideText");
                 guideText.setVisibility(8);
             }
@@ -405,7 +405,7 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
     }
 
     /* loaded from: classes2.dex */
-    public static final class f extends e41.b {
+    public static final class f extends j41.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdVideoImmersiveTipsView a;
@@ -429,7 +429,7 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
             this.a = adVideoImmersiveTipsView;
         }
 
-        @Override // com.baidu.tieba.e41.b
+        @Override // com.baidu.tieba.j41.b
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -437,7 +437,7 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
             }
         }
 
-        @Override // com.baidu.tieba.e41.b
+        @Override // com.baidu.tieba.j41.b
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -445,11 +445,11 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
             }
         }
 
-        @Override // com.baidu.tieba.e41.b
+        @Override // com.baidu.tieba.j41.b
         public void f(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-                TextView guideText = (TextView) this.a.a(R.id.obfuscated_res_0x7f090d85);
+                TextView guideText = (TextView) this.a.a(R.id.obfuscated_res_0x7f090d8f);
                 Intrinsics.checkNotNullExpressionValue(guideText, "guideText");
                 StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
                 Context context = this.a.getContext();
@@ -485,8 +485,8 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
         }
         Intrinsics.checkNotNullParameter(context, "context");
         LayoutInflater.from(context).inflate(R.layout.nad_max_tip_view, this);
-        ((ExpandIconView) a(R.id.obfuscated_res_0x7f0902cb)).setOnClickListener(new a(this));
-        ((ExpandIconView) a(R.id.obfuscated_res_0x7f0902cb)).setState(1, true);
+        ((ExpandIconView) a(R.id.obfuscated_res_0x7f0902c4)).setOnClickListener(new a(this));
+        ((ExpandIconView) a(R.id.obfuscated_res_0x7f0902c4)).setState(1, true);
     }
 
     public /* synthetic */ AdVideoImmersiveTipsView(Context context, AttributeSet attributeSet, int i, int i2, DefaultConstructorMarker defaultConstructorMarker) {
@@ -498,13 +498,13 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (i != 0) {
                 if (i == 1) {
-                    ((ExpandIconView) a(R.id.obfuscated_res_0x7f0902cb)).clearAnimation();
-                    ((ImageView) a(R.id.obfuscated_res_0x7f0902cc)).clearAnimation();
+                    ((ExpandIconView) a(R.id.obfuscated_res_0x7f0902c4)).clearAnimation();
+                    ((ImageView) a(R.id.obfuscated_res_0x7f0902c5)).clearAnimation();
                     return;
                 }
                 return;
             }
-            ((ExpandIconView) a(R.id.obfuscated_res_0x7f0902cb)).clearAnimation();
+            ((ExpandIconView) a(R.id.obfuscated_res_0x7f0902c4)).clearAnimation();
         }
     }
 
@@ -514,7 +514,7 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
             return;
         }
         float abs = (Math.abs(f2) - 0.6f) / 0.39999998f;
-        int a2 = m31.c.a(getContext(), -4.0f);
+        int a2 = r31.c.a(getContext(), -4.0f);
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         if (!(layoutParams instanceof FrameLayout.LayoutParams)) {
             layoutParams = null;
@@ -531,7 +531,7 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             if (i != 0) {
                 if (i == 1) {
-                    ImageView imageView = (ImageView) a(R.id.obfuscated_res_0x7f0902cc);
+                    ImageView imageView = (ImageView) a(R.id.obfuscated_res_0x7f0902c5);
                     imageView.setOnClickListener(new b(imageView, this));
                     g();
                     return;
@@ -546,7 +546,7 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048586, this, f2) == null) {
             float max = Math.max(Math.min(f2, 1.0f), -1.0f);
-            ((ExpandIconView) a(R.id.obfuscated_res_0x7f0902cb)).setFraction(max, false);
+            ((ExpandIconView) a(R.id.obfuscated_res_0x7f0902c4)).setFraction(max, false);
             d(max);
         }
     }
@@ -556,22 +556,22 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
         if ((interceptable != null && interceptable.invokeI(1048589, this, i) != null) || this.a != null) {
             return;
         }
-        e41 e41Var = new e41(i * 1000, 1000L);
-        e41Var.d(new f(this));
-        this.a = e41Var;
-        if (e41Var != null) {
-            e41Var.e();
+        j41 j41Var = new j41(i * 1000, 1000L);
+        j41Var.d(new f(this));
+        this.a = j41Var;
+        if (j41Var != null) {
+            j41Var.e();
         }
     }
 
     public final void m(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            e41 e41Var = this.a;
-            if (e41Var != null) {
-                e41Var.a();
+            j41 j41Var = this.a;
+            if (j41Var != null) {
+                j41Var.a();
             }
-            TextView guideText = (TextView) a(R.id.obfuscated_res_0x7f090d85);
+            TextView guideText = (TextView) a(R.id.obfuscated_res_0x7f090d8f);
             Intrinsics.checkNotNullExpressionValue(guideText, "guideText");
             if (guideText.getVisibility() == 0) {
                 setTipsVisible(false, z);
@@ -579,17 +579,17 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
         }
     }
 
-    public final void setAnimTimer(e41 e41Var) {
+    public final void setAnimTimer(j41 j41Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, e41Var) == null) {
-            this.b = e41Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, j41Var) == null) {
+            this.b = j41Var;
         }
     }
 
-    public final void setCountDownTimer(e41 e41Var) {
+    public final void setCountDownTimer(j41 j41Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, e41Var) == null) {
-            this.a = e41Var;
+        if (interceptable == null || interceptable.invokeL(1048592, this, j41Var) == null) {
+            this.a = j41Var;
         }
     }
 
@@ -603,38 +603,38 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ImageView arrowPieImage = (ImageView) a(R.id.obfuscated_res_0x7f0902cc);
+            ImageView arrowPieImage = (ImageView) a(R.id.obfuscated_res_0x7f0902c5);
             Intrinsics.checkNotNullExpressionValue(arrowPieImage, "arrowPieImage");
             if (arrowPieImage.getVisibility() == 0) {
-                ImageView arrowPieImage2 = (ImageView) a(R.id.obfuscated_res_0x7f0902cc);
+                ImageView arrowPieImage2 = (ImageView) a(R.id.obfuscated_res_0x7f0902c5);
                 Intrinsics.checkNotNullExpressionValue(arrowPieImage2, "arrowPieImage");
                 arrowPieImage2.setVisibility(8);
             }
-            ExpandIconView arrowImage = (ExpandIconView) a(R.id.obfuscated_res_0x7f0902cb);
+            ExpandIconView arrowImage = (ExpandIconView) a(R.id.obfuscated_res_0x7f0902c4);
             Intrinsics.checkNotNullExpressionValue(arrowImage, "arrowImage");
             if (arrowImage.getVisibility() != 0) {
-                ExpandIconView arrowImage2 = (ExpandIconView) a(R.id.obfuscated_res_0x7f0902cb);
+                ExpandIconView arrowImage2 = (ExpandIconView) a(R.id.obfuscated_res_0x7f0902c4);
                 Intrinsics.checkNotNullExpressionValue(arrowImage2, "arrowImage");
                 arrowImage2.setVisibility(0);
             }
-            ((ExpandIconView) a(R.id.obfuscated_res_0x7f0902cb)).startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.nad_max_guide_arrow_anim));
+            ((ExpandIconView) a(R.id.obfuscated_res_0x7f0902c4)).startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.nad_max_guide_arrow_anim));
         }
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ExpandIconView arrowImage = (ExpandIconView) a(R.id.obfuscated_res_0x7f0902cb);
+            ExpandIconView arrowImage = (ExpandIconView) a(R.id.obfuscated_res_0x7f0902c4);
             Intrinsics.checkNotNullExpressionValue(arrowImage, "arrowImage");
             if (arrowImage.getVisibility() == 0) {
-                ExpandIconView arrowImage2 = (ExpandIconView) a(R.id.obfuscated_res_0x7f0902cb);
+                ExpandIconView arrowImage2 = (ExpandIconView) a(R.id.obfuscated_res_0x7f0902c4);
                 Intrinsics.checkNotNullExpressionValue(arrowImage2, "arrowImage");
                 arrowImage2.setVisibility(8);
             }
-            ImageView arrowPieImage = (ImageView) a(R.id.obfuscated_res_0x7f0902cc);
+            ImageView arrowPieImage = (ImageView) a(R.id.obfuscated_res_0x7f0902c5);
             Intrinsics.checkNotNullExpressionValue(arrowPieImage, "arrowPieImage");
             if (arrowPieImage.getVisibility() != 0) {
-                ImageView arrowPieImage2 = (ImageView) a(R.id.obfuscated_res_0x7f0902cc);
+                ImageView arrowPieImage2 = (ImageView) a(R.id.obfuscated_res_0x7f0902c5);
                 Intrinsics.checkNotNullExpressionValue(arrowPieImage2, "arrowPieImage");
                 arrowPieImage2.setVisibility(0);
             }
@@ -642,26 +642,26 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
             if (loadAnimation != null) {
                 loadAnimation.setAnimationListener(new c(this));
             }
-            ((ImageView) a(R.id.obfuscated_res_0x7f0902cc)).startAnimation(loadAnimation);
+            ((ImageView) a(R.id.obfuscated_res_0x7f0902c5)).startAnimation(loadAnimation);
         }
     }
 
-    public final e41 getAnimTimer() {
+    public final j41 getAnimTimer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.b;
         }
-        return (e41) invokeV.objValue;
+        return (j41) invokeV.objValue;
     }
 
-    public final e41 getCountDownTimer() {
+    public final j41 getCountDownTimer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.a;
         }
-        return (e41) invokeV.objValue;
+        return (j41) invokeV.objValue;
     }
 
     public final View.OnClickListener getOutClickListener() {
@@ -677,14 +677,14 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             k();
-            e41 e41Var = this.b;
-            if (e41Var != null) {
-                e41Var.a();
+            j41 j41Var = this.b;
+            if (j41Var != null) {
+                j41Var.a();
             }
             this.b = null;
-            e41 e41Var2 = this.a;
-            if (e41Var2 != null) {
-                e41Var2.a();
+            j41 j41Var2 = this.a;
+            if (j41Var2 != null) {
+                j41Var2.a();
             }
             this.a = null;
         }
@@ -712,18 +712,18 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
                 e(i2);
             } else {
                 if (i == 1 && i2 == 1) {
-                    ExpandIconView arrowImage = (ExpandIconView) a(R.id.obfuscated_res_0x7f0902cb);
+                    ExpandIconView arrowImage = (ExpandIconView) a(R.id.obfuscated_res_0x7f0902c4);
                     Intrinsics.checkNotNullExpressionValue(arrowImage, "arrowImage");
                     arrowImage.setVisibility(8);
                 }
                 if (this.b != null) {
                     return;
                 }
-                e41 e41Var = new e41(i * 1000, 1000L);
-                e41Var.d(new d(this, i2));
-                this.b = e41Var;
-                if (e41Var != null) {
-                    e41Var.e();
+                j41 j41Var = new j41(i * 1000, 1000L);
+                j41Var.d(new d(this, i2));
+                this.b = j41Var;
+                if (j41Var != null) {
+                    j41Var.e();
                 }
             }
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
@@ -750,13 +750,13 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
             } else {
                 i = 8;
             }
-            TextView guideText = (TextView) a(R.id.obfuscated_res_0x7f090d85);
+            TextView guideText = (TextView) a(R.id.obfuscated_res_0x7f090d8f);
             Intrinsics.checkNotNullExpressionValue(guideText, "guideText");
             if (guideText.getVisibility() == i) {
                 return;
             }
             if (!z2) {
-                TextView guideText2 = (TextView) a(R.id.obfuscated_res_0x7f090d85);
+                TextView guideText2 = (TextView) a(R.id.obfuscated_res_0x7f090d8f);
                 Intrinsics.checkNotNullExpressionValue(guideText2, "guideText");
                 guideText2.setVisibility(i);
                 return;
@@ -774,13 +774,13 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
                 }
                 this.c = null;
             }
-            ObjectAnimator duration = ObjectAnimator.ofFloat((TextView) a(R.id.obfuscated_res_0x7f090d85), Key.ALPHA, 1.0f).setDuration(500L);
+            ObjectAnimator duration = ObjectAnimator.ofFloat((TextView) a(R.id.obfuscated_res_0x7f090d8f), Key.ALPHA, 1.0f).setDuration(500L);
             this.c = duration;
             if (z) {
                 if (duration != null) {
                     duration.setFloatValues(0.0f, 1.0f);
                 }
-                TextView guideText3 = (TextView) a(R.id.obfuscated_res_0x7f090d85);
+                TextView guideText3 = (TextView) a(R.id.obfuscated_res_0x7f090d8f);
                 Intrinsics.checkNotNullExpressionValue(guideText3, "guideText");
                 guideText3.setVisibility(0);
             } else {

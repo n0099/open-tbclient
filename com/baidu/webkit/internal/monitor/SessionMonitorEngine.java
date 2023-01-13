@@ -454,30 +454,30 @@ public class SessionMonitorEngine implements INoProGuard {
         if (interceptable == null || interceptable.invokeIL(1048598, this, i, obj) == null) {
             a aVar = this.sFrameworkBehaviorProvider;
             if (aVar.a == null) {
-                aVar.a = new a.C0515a(aVar, (byte) 0);
+                aVar.a = new a.C0514a(aVar, (byte) 0);
             }
             if (i == 9) {
                 aVar.a.a();
                 aVar.a.f = true;
             }
-            a.C0515a c0515a = aVar.a;
-            if (c0515a.f) {
+            a.C0514a c0514a = aVar.a;
+            if (c0514a.f) {
                 switch (i) {
                     case 7:
-                        c0515a.a = ((Boolean) obj).booleanValue();
+                        c0514a.a = ((Boolean) obj).booleanValue();
                         return;
                     case 8:
-                        c0515a.b = ((Boolean) obj).booleanValue();
+                        c0514a.b = ((Boolean) obj).booleanValue();
                         return;
                     case 9:
-                        c0515a.c = ((Long) obj).longValue();
+                        c0514a.c = ((Long) obj).longValue();
                         return;
                     case 10:
-                        c0515a.d = ((Long) obj).longValue();
+                        c0514a.d = ((Long) obj).longValue();
                         aVar.a.f = true;
                         return;
                     case 11:
-                        c0515a.e = ((Boolean) obj).booleanValue();
+                        c0514a.e = ((Boolean) obj).booleanValue();
                         return;
                     default:
                         return;
@@ -488,12 +488,12 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public void recordFrameworkBehaviorValue(String str, long j) {
         a aVar;
-        a.C0515a c0515a;
+        a.C0514a c0514a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048599, this, str, j) == null) || (c0515a = (aVar = this.sFrameworkBehaviorProvider).a) == null) {
+        if (!(interceptable == null || interceptable.invokeLJ(1048599, this, str, j) == null) || (c0514a = (aVar = this.sFrameworkBehaviorProvider).a) == null) {
             return;
         }
-        aVar.a.g.put(str, Long.valueOf(j + (c0515a.g.containsKey(str) ? aVar.a.g.get(str).longValue() : 0L)));
+        aVar.a.g.put(str, Long.valueOf(j + (c0514a.g.containsKey(str) ? aVar.a.g.get(str).longValue() : 0L)));
     }
 
     public void recordImmediately(String str, String str2) {
@@ -626,17 +626,17 @@ public class SessionMonitorEngine implements INoProGuard {
         if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
             a aVar = this.sFrameworkBehaviorProvider;
             if (aVar.a == null) {
-                aVar.a = new a.C0515a(aVar, (byte) 0);
+                aVar.a = new a.C0514a(aVar, (byte) 0);
             }
-            a.C0515a c0515a = aVar.a;
-            if (c0515a.c == -1) {
-                c0515a.a();
+            a.C0514a c0514a = aVar.a;
+            if (c0514a.c == -1) {
+                c0514a.a();
             }
-            a.C0515a c0515a2 = aVar.a;
-            if (c0515a2.f) {
+            a.C0514a c0514a2 = aVar.a;
+            if (c0514a2.f) {
                 return;
             }
-            c0515a2.f = true;
+            c0514a2.f = true;
         }
     }
 

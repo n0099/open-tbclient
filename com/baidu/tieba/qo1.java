@@ -1,14 +1,8 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.content.Context;
-import android.net.Uri;
-import com.baidu.tieba.q53;
-/* loaded from: classes5.dex */
+import android.os.Bundle;
+/* loaded from: classes6.dex */
 public interface qo1 {
-    boolean a(Activity activity, String str, q53.b bVar);
-
-    boolean b(Context context, String str);
-
-    boolean c(Activity activity, Uri uri, String str);
+    void a(Activity activity, Bundle bundle, fs2 fs2Var);
 }

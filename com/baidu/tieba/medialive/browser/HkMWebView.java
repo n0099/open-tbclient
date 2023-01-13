@@ -14,8 +14,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tieba.aq4;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.dq4;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -107,7 +107,7 @@ public class HkMWebView extends BaseWebView {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) {
                 Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
                 if (this.b.getPackageManager().resolveActivity(intent, 0) == null) {
-                    yi.R("您的手机未安装任何浏览器应用，无法完成下载", 0, false);
+                    zi.R("您的手机未安装任何浏览器应用，无法完成下载", 0, false);
                 } else {
                     this.b.startActivity(intent);
                 }
@@ -155,7 +155,7 @@ public class HkMWebView extends BaseWebView {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, renderProcessGoneDetail)) == null) {
-                aq4.a("HkMWebView", webView);
+                dq4.a("HkMWebView", webView);
                 return true;
             }
             return invokeLL.booleanValue;

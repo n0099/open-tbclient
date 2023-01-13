@@ -1,30 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.barselect.data.CommitCardInfoHttpResMsg;
-import com.baidu.tieba.barselect.data.CommitCardInfoReqMsg;
-import com.baidu.tieba.barselect.data.CommitCardInfoSocketResMsg;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class j36 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public String a;
+    public int b;
+    public List<i36> c;
 
-    public j36(TbPageContext tbPageContext) {
+    public j36() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,24 +31,45 @@ public class j36 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        SocketMessageTask socketMessageTask = new SocketMessageTask(309643);
-        socketMessageTask.setResponsedClass(CommitCardInfoSocketResMsg.class);
-        MessageManager.getInstance().registerTask(socketMessageTask);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMMIT_CARD_INFO, ur8.a(TbConfig.URL_COMMIT_CARD_INFO, 309643));
-        tbHttpMessageTask.setResponsedClass(CommitCardInfoHttpResMsg.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        this.c = new ArrayList();
     }
 
-    public void a(String str, int i, String str2) {
+    public List<i36> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
-            CommitCardInfoReqMsg commitCardInfoReqMsg = new CommitCardInfoReqMsg();
-            commitCardInfoReqMsg.resource_id = str;
-            commitCardInfoReqMsg.card_type = i;
-            commitCardInfoReqMsg.image_info = str2;
-            commitCardInfoReqMsg.setTag(this.a.getUniqueId());
-            MessageManager.getInstance().sendMessage(commitCardInfoReqMsg);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.c == null) {
+                this.c = new ArrayList();
+            }
+            return this.c;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            this.a = jSONObject.optString("mark_type_name");
+            this.b = jSONObject.optInt("mark_type_wear");
+            JSONArray optJSONArray = jSONObject.optJSONArray("mark_list");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    i36 i36Var = new i36();
+                    i36Var.n(optJSONArray.optJSONObject(i));
+                    i36Var.o(this.a);
+                    i36Var.p(this.b);
+                    this.c.add(i36Var);
+                }
+            }
         }
     }
 }

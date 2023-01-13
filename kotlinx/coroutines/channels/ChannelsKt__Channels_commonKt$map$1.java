@@ -10,10 +10,11 @@ import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function2;
+/* JADX INFO: Add missing generic type declarations: [R] */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u0004H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", ExifInterface.LONGITUDE_EAST, "R", "Lkotlinx/coroutines/channels/ProducerScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$map$1", f = "Channels.common.kt", i = {0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2}, l = {2201, 1400, 1400}, m = "invokeSuspend", n = {"$this$produce", "$this$consumeEach$iv", "$this$consume$iv$iv", "cause$iv$iv", "$this$consume$iv", "$this$produce", "$this$consumeEach$iv", "$this$consume$iv$iv", "cause$iv$iv", "$this$consume$iv", "e$iv", AdvanceSetting.NETWORK_TYPE, "$this$produce", "$this$consumeEach$iv", "$this$consume$iv$iv", "cause$iv$iv", "$this$consume$iv", "e$iv", AdvanceSetting.NETWORK_TYPE}, s = {"L$0", "L$1", "L$3", "L$4", "L$5", "L$0", "L$1", "L$3", "L$4", "L$5", "L$7", "L$8", "L$0", "L$1", "L$3", "L$4", "L$5", "L$7", "L$8"})
 /* loaded from: classes9.dex */
-public final class ChannelsKt__Channels_commonKt$map$1 extends SuspendLambda implements Function2<ProducerScope<? super R>, Continuation<? super Unit>, Object> {
+public final class ChannelsKt__Channels_commonKt$map$1<R> extends SuspendLambda implements Function2<ProducerScope<? super R>, Continuation<? super Unit>, Object> {
     public final /* synthetic */ ReceiveChannel $this_map;
     public final /* synthetic */ Function2 $transform;
     public Object L$0;
@@ -63,8 +64,8 @@ public final class ChannelsKt__Channels_commonKt$map$1 extends SuspendLambda imp
         Throwable th;
         ReceiveChannel receiveChannel;
         ReceiveChannel receiveChannel2;
-        ChannelsKt__Channels_commonKt$map$1 channelsKt__Channels_commonKt$map$1;
-        ChannelsKt__Channels_commonKt$map$1 channelsKt__Channels_commonKt$map$12;
+        ChannelsKt__Channels_commonKt$map$1<R> channelsKt__Channels_commonKt$map$1;
+        ChannelsKt__Channels_commonKt$map$1<R> channelsKt__Channels_commonKt$map$12;
         ReceiveChannel receiveChannel3;
         ReceiveChannel receiveChannel4;
         ProducerScope producerScope;
@@ -78,7 +79,7 @@ public final class ChannelsKt__Channels_commonKt$map$1 extends SuspendLambda imp
         Object obj4;
         ChannelIterator channelIterator;
         ReceiveChannel receiveChannel7;
-        ChannelsKt__Channels_commonKt$map$1 channelsKt__Channels_commonKt$map$13;
+        ChannelsKt__Channels_commonKt$map$1<R> channelsKt__Channels_commonKt$map$13;
         ProducerScope producerScope3;
         Object obj5;
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
@@ -93,7 +94,7 @@ public final class ChannelsKt__Channels_commonKt$map$1 extends SuspendLambda imp
                             ReceiveChannel receiveChannel8 = (ReceiveChannel) this.L$5;
                             th2 = (Throwable) this.L$4;
                             ReceiveChannel receiveChannel9 = (ReceiveChannel) this.L$3;
-                            ChannelsKt__Channels_commonKt$map$1 channelsKt__Channels_commonKt$map$14 = (ChannelsKt__Channels_commonKt$map$1) this.L$2;
+                            ChannelsKt__Channels_commonKt$map$1<R> channelsKt__Channels_commonKt$map$14 = (ChannelsKt__Channels_commonKt$map$1) this.L$2;
                             ReceiveChannel receiveChannel10 = (ReceiveChannel) this.L$1;
                             ProducerScope producerScope4 = (ProducerScope) this.L$0;
                             ResultKt.throwOnFailure(obj);
@@ -201,7 +202,7 @@ public final class ChannelsKt__Channels_commonKt$map$1 extends SuspendLambda imp
                         ReceiveChannel receiveChannel11 = (ReceiveChannel) this.L$5;
                         Throwable th5 = (Throwable) this.L$4;
                         receiveChannel5 = (ReceiveChannel) this.L$3;
-                        ChannelsKt__Channels_commonKt$map$1 channelsKt__Channels_commonKt$map$15 = (ChannelsKt__Channels_commonKt$map$1) this.L$2;
+                        ChannelsKt__Channels_commonKt$map$1<R> channelsKt__Channels_commonKt$map$15 = (ChannelsKt__Channels_commonKt$map$1) this.L$2;
                         ReceiveChannel receiveChannel12 = (ReceiveChannel) this.L$1;
                         ProducerScope producerScope5 = (ProducerScope) this.L$0;
                         try {
@@ -238,7 +239,7 @@ public final class ChannelsKt__Channels_commonKt$map$1 extends SuspendLambda imp
                     ReceiveChannel receiveChannel13 = (ReceiveChannel) this.L$5;
                     th2 = (Throwable) this.L$4;
                     ReceiveChannel receiveChannel14 = (ReceiveChannel) this.L$3;
-                    ChannelsKt__Channels_commonKt$map$1 channelsKt__Channels_commonKt$map$16 = (ChannelsKt__Channels_commonKt$map$1) this.L$2;
+                    ChannelsKt__Channels_commonKt$map$1<R> channelsKt__Channels_commonKt$map$16 = (ChannelsKt__Channels_commonKt$map$1) this.L$2;
                     ReceiveChannel receiveChannel15 = (ReceiveChannel) this.L$1;
                     ProducerScope producerScope6 = (ProducerScope) this.L$0;
                     ResultKt.throwOnFailure(obj);

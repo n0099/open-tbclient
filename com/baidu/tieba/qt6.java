@@ -1,69 +1,70 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.util.PriorityOrganizer;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.FrsFragment;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import tbclient.GameForumGuideTab.GameForumSubTab;
+import tbclient.ThreadInfo;
 /* loaded from: classes6.dex */
 public class qt6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PriorityOrganizer a;
-    public kt6 b;
-    public lt6 c;
-    public nt6 d;
-    public ot6 e;
-    public mt6 f;
-    public rt6 g;
-    public st6 h;
-    public pt6 i;
 
-    public qt6(FrsActivity frsActivity, FrsFragment frsFragment) {
+    public static List<xt6> a(List<GameForumSubTab> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsActivity, frsFragment};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return null;
             }
+            ArrayList arrayList = new ArrayList(list.size());
+            for (GameForumSubTab gameForumSubTab : list) {
+                xt6 xt6Var = new xt6();
+                if (gameForumSubTab != null) {
+                    xt6Var.a = gameForumSubTab.id.intValue();
+                    xt6Var.b = gameForumSubTab.sub_tab_name;
+                    LabelDataList labelDataList = new LabelDataList();
+                    labelDataList.parseProtu(gameForumSubTab.sub_label_list);
+                    xt6Var.c = labelDataList;
+                    arrayList.add(xt6Var);
+                }
+            }
+            return arrayList;
         }
-        this.a = PriorityOrganizer.h();
-        this.b = new kt6(frsActivity, frsFragment);
-        this.c = new lt6(frsActivity, frsFragment);
-        this.d = new nt6(frsActivity, frsFragment);
-        this.e = new ot6(frsActivity, frsFragment);
-        this.f = new mt6(frsActivity, frsFragment);
-        this.g = new rt6(frsActivity, frsFragment);
-        this.h = new st6(frsActivity, frsFragment);
-        pt6 pt6Var = new pt6(frsActivity, frsFragment);
-        this.i = pt6Var;
-        PriorityOrganizer.m(this.b, this.c, this.d, this.e, this.f, this.g, this.h, pt6Var);
+        return (List) invokeL.objValue;
     }
 
-    public void a(boolean z) {
-        ot6 ot6Var;
+    public static List<yn> b(List<ThreadInfo> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (ot6Var = this.e) != null) {
-            ot6Var.F(z);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return null;
+            }
+            LinkedList linkedList = new LinkedList();
+            for (int i = 0; i < list.size(); i++) {
+                ot6 ot6Var = new ot6();
+                ThreadData threadData = new ThreadData();
+                ot6Var.c(threadData);
+                threadData.parserProtobuf(list.get(i));
+                threadData.parser_title();
+                if (!TextUtils.isEmpty(threadData.getLegoCard())) {
+                    vt4 vt4Var = new vt4();
+                    vt4Var.g(threadData.getLegoCard());
+                    linkedList.add(vt4Var);
+                } else {
+                    linkedList.add(ot6Var);
+                }
+            }
+            return linkedList;
         }
-    }
-
-    public void b() {
-        kt6 kt6Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (kt6Var = this.b) != null && !kt6Var.v(true)) {
-            this.b.E(true);
-            this.a.t(this.b);
-        }
+        return (List) invokeL.objValue;
     }
 }

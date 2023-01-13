@@ -1,50 +1,36 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.nadcore.net.exception.RequestError;
-import com.baidu.nadcore.net.request.Headers;
-import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import okhttp3.Request;
-import org.apache.http.protocol.HTTP;
+import org.apache.http.client.methods.HttpPut;
 /* loaded from: classes5.dex */
-public class lr0 {
+public final class lr0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Request.Builder a(@NonNull kr0 kr0Var) throws RequestError {
+    public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, kr0Var)) == null) {
-            Request.Builder builder = new Request.Builder();
-            try {
-                builder.url(kr0Var.a);
-                Object obj = kr0Var.e;
-                if (obj != null) {
-                    builder.tag(obj);
-                }
-                if (kr0Var.h) {
-                    builder.header("Content-Type", "application/x-www-form-urlencoded");
-                    builder.header(BOSTokenRequest.CHARSET, "UTF-8");
-                    builder.header(HTTP.CONN_DIRECTIVE, "close");
-                    builder.header(BOSTokenRequest.ACCEPT, "*/*");
-                }
-                Headers.a aVar = kr0Var.c;
-                if (aVar != null) {
-                    Headers c = aVar.c();
-                    for (int i = 0; i < c.g(); i++) {
-                        builder.header(c.f(i), c.h(i));
-                    }
-                }
-                String str = kr0Var.b;
-                builder.method(str, hr0.g(str, kr0Var.d));
-                return builder;
-            } catch (Throwable th) {
-                throw new RequestError("Invalid request url: " + kr0Var.a, th);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (!TextUtils.equals(str, "GET") && !TextUtils.equals(str, "HEAD")) {
+                return true;
             }
+            return false;
         }
-        return (Request.Builder) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (!TextUtils.equals(str, "POST") && !TextUtils.equals(str, "PATCH") && !TextUtils.equals(str, HttpPut.METHOD_NAME) && !TextUtils.equals(str, "PROPPATCH") && !TextUtils.equals(str, "REPORT")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

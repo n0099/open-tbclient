@@ -4,12 +4,12 @@ import android.content.Context;
 import android.view.MotionEvent;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a41;
-import com.baidu.tieba.jv0;
-import com.baidu.tieba.rr0;
-import com.baidu.tieba.v41;
-import com.baidu.tieba.yz0;
-import com.baidu.tieba.zi0;
+import com.baidu.tieba.a51;
+import com.baidu.tieba.d01;
+import com.baidu.tieba.ej0;
+import com.baidu.tieba.f41;
+import com.baidu.tieba.ov0;
+import com.baidu.tieba.wr0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +33,7 @@ public class BdVideoGesture {
     public int i;
     public int j;
     public int k;
-    public jv0 l;
+    public ov0 l;
     public int m;
     public int n;
 
@@ -138,7 +138,7 @@ public class BdVideoGesture {
                 return;
             }
         }
-        o = yz0.b(zi0.b()) / 10;
+        o = d01.b(ej0.b()) / 10;
     }
 
     public void g() {
@@ -155,12 +155,12 @@ public class BdVideoGesture {
         }
     }
 
-    public BdVideoGesture(Context context, @NonNull jv0 jv0Var) {
+    public BdVideoGesture(Context context, @NonNull ov0 ov0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, jv0Var};
+            Object[] objArr = {context, ov0Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -177,21 +177,21 @@ public class BdVideoGesture {
         this.h = 0;
         this.i = 0;
         this.j = 0;
-        this.m = rr0.a;
-        this.n = rr0.b;
+        this.m = wr0.a;
+        this.n = wr0.b;
         f(context);
-        this.l = jv0Var;
+        this.l = ov0Var;
     }
 
     public boolean b(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            jv0 jv0Var = this.l;
-            if (jv0Var == null) {
+            ov0 ov0Var = this.l;
+            if (ov0Var == null) {
                 return false;
             }
-            if (jv0Var.p()) {
+            if (ov0Var.p()) {
                 this.l.m(this.e);
                 return false;
             } else if (motionEvent.getAction() == 0) {
@@ -201,9 +201,9 @@ public class BdVideoGesture {
                 this.a = motionEvent.getX();
                 this.b = motionEvent.getY();
                 this.c = motionEvent.getPointerId(0);
-                this.i = yz0.c(zi0.b());
+                this.i = d01.c(ej0.b());
                 this.j = this.l.getCurrentPosition();
-                this.k = a41.a(this.l.o());
+                this.k = f41.a(this.l.o());
                 this.l.m(this.e);
                 return false;
             } else if (motionEvent.getAction() == 2) {
@@ -261,7 +261,7 @@ public class BdVideoGesture {
             }
             double d = abs;
             double d2 = abs2;
-            if (d > d2 * 1.0d && abs > v41.a(30.0f) && this.d) {
+            if (d > d2 * 1.0d && abs > a51.a(30.0f) && this.d) {
                 this.f = true;
                 if (f3 <= i / 2) {
                     this.e = VideoPluginGesture.BrightChange;
@@ -270,7 +270,7 @@ public class BdVideoGesture {
                     this.e = VideoPluginGesture.VolumeChange;
                     return;
                 }
-            } else if (d * 1.0d < d2 && abs2 > v41.a(30.0f)) {
+            } else if (d * 1.0d < d2 && abs2 > a51.a(30.0f)) {
                 this.e = VideoPluginGesture.PlayTimeChange;
                 this.f = true;
                 return;
@@ -289,8 +289,8 @@ public class BdVideoGesture {
         if (videoPluginGesture == VideoPluginGesture.VolumeChange) {
             float f6 = this.i + ((f2 / 100.0f) * o);
             if (f6 > 0.0f) {
-                if (f6 > yz0.b(zi0.b())) {
-                    f5 = yz0.b(zi0.b());
+                if (f6 > d01.b(ej0.b())) {
+                    f5 = d01.b(ej0.b());
                 } else {
                     f5 = f6;
                 }

@@ -1,7 +1,31 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
-public interface qq1 {
-    void a(g32 g32Var);
 
-    void b(g32 g32Var);
+import android.view.View;
+import android.webkit.ValueCallback;
+/* loaded from: classes6.dex */
+public interface qq1 extends h32 {
+    boolean canGoBack();
+
+    View covertToView();
+
+    void destroy();
+
+    @Override // com.baidu.tieba.h32
+    void evaluateJavascript(String str, ValueCallback<String> valueCallback);
+
+    int getContentHeight();
+
+    View getCurrentWebView();
+
+    float getScale();
+
+    int getWebViewScrollX();
+
+    int getWebViewScrollY();
+
+    void goBack();
+
+    void setDefaultViewSize(int i, int i2, String str);
+
+    void webViewScrollTo(int i, int i2);
 }

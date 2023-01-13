@@ -7,10 +7,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lc;
-import com.baidu.tieba.pc;
-import com.baidu.tieba.rg;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.mc;
+import com.baidu.tieba.qc;
+import com.baidu.tieba.sg;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,20 +46,20 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
         this.mIsNeedFormat = z2;
         this.mIsForceLoad = z3;
         this.mProcType = i;
-        int l = yi.l(TbadkCoreApplication.getInst());
-        int j = yi.j(TbadkCoreApplication.getInst());
+        int l = zi.l(TbadkCoreApplication.getInst());
+        int j = zi.j(TbadkCoreApplication.getInst());
         if (i == 13) {
             l = l <= 0 ? 200 : l;
             this.mSuggestWidth = l;
             if (l > 480) {
                 this.mSuggestWidth = 480;
             }
-            if (this.mSuggestWidth > yi.d(TbadkCoreApplication.getInst(), 320.0f)) {
-                this.mSuggestWidth = yi.d(TbadkCoreApplication.getInst(), 320.0f);
+            if (this.mSuggestWidth > zi.d(TbadkCoreApplication.getInst(), 320.0f)) {
+                this.mSuggestWidth = zi.d(TbadkCoreApplication.getInst(), 320.0f);
             }
             this.mSuggestHeight = this.mSuggestWidth;
         } else if (i == 17) {
-            int min = Math.min(yi.d(TbadkCoreApplication.getInst().getApp(), 427.0f), 640);
+            int min = Math.min(zi.d(TbadkCoreApplication.getInst().getApp(), 427.0f), 640);
             this.mSuggestWidth = min;
             this.mSuggestHeight = (int) (min * 1.6f);
         } else if (i == 15) {
@@ -77,8 +77,8 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
             if (l <= 0 || l > 644) {
                 this.mSuggestWidth = 644;
             }
-            if (this.mSuggestWidth > yi.d(TbadkCoreApplication.getInst().getApp(), 430.0f)) {
-                this.mSuggestWidth = yi.d(TbadkCoreApplication.getInst().getApp(), 430.0f);
+            if (this.mSuggestWidth > zi.d(TbadkCoreApplication.getInst().getApp(), 430.0f)) {
+                this.mSuggestWidth = zi.d(TbadkCoreApplication.getInst().getApp(), 430.0f);
             }
             this.mSuggestHeight = (int) (this.mSuggestWidth * 0.43f);
         } else if (i == 46) {
@@ -131,7 +131,7 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.ug
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.vg
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -166,20 +166,20 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
             boolean booleanValue2 = ((Boolean) objArr[1]).booleanValue();
             if (booleanValue && !booleanValue2) {
                 boolean booleanValue3 = ((Boolean) objArr[2]).booleanValue();
-                pc pcVar = new pc("images", TbMd5.getNameMd5FromUrl(str), DiskFileOperate.Action.WRITE);
-                pcVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
-                pcVar.setSubFolder(true);
-                pcVar.setData(bArr);
-                pcVar.setSdCard(false);
-                pcVar.setSavedCache(true);
-                pcVar.setGif(booleanValue3);
-                pcVar.f(this.mIsNeedFormat);
-                lc.f().a(pcVar);
-                rg rgVar = (rg) objArr[3];
-                if (rgVar != null) {
+                qc qcVar = new qc("images", TbMd5.getNameMd5FromUrl(str), DiskFileOperate.Action.WRITE);
+                qcVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
+                qcVar.setSubFolder(true);
+                qcVar.setData(bArr);
+                qcVar.setSdCard(false);
+                qcVar.setSavedCache(true);
+                qcVar.setGif(booleanValue3);
+                qcVar.f(this.mIsNeedFormat);
+                mc.f().a(qcVar);
+                sg sgVar = (sg) objArr[3];
+                if (sgVar != null) {
                     DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
-                    diskCancelWorker.setOperate(pcVar);
-                    rgVar.a = diskCancelWorker;
+                    diskCancelWorker.setOperate(qcVar);
+                    sgVar.a = diskCancelWorker;
                 }
             }
         }

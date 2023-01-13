@@ -1,71 +1,53 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.entelechy.view.ReadProgressViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class un6 extends ck6<nk6, ReadProgressViewHolder> {
+public class un6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public xw6 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public un6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    public un6(TbPageContext tbPageContext, xw6 xw6Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext, xw6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = xw6Var;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: E */
-    public ReadProgressViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void a(oq5 oq5Var) {
+        xw6 xw6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            return new ReadProgressViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d034e, viewGroup, false), this.c.getPageActivity());
-        }
-        return (ReadProgressViewHolder) invokeL.objValue;
-    }
-
-    public View F(int i, View view2, ViewGroup viewGroup, nk6 nk6Var, ReadProgressViewHolder readProgressViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, nk6Var, readProgressViewHolder})) == null) {
-            if (nk6Var != null && readProgressViewHolder != null) {
-                readProgressViewHolder.b(nk6Var);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, oq5Var) == null) && (xw6Var = this.a) != null && xw6Var.P0() != null && this.a.P0().o0() != null && this.a.u1() != null && oq5Var != null && this.a.u1().g0() != null && this.a.s0() != null) {
+            BdTypeRecyclerView g0 = this.a.u1().g0();
+            int i = oq5Var.a;
+            if (i != 2) {
+                if (i != 3 || oq5Var.a() == null) {
+                    return;
+                }
+                g0.removeHeaderView(oq5Var.a());
+                this.a.s0().f0(0);
+            } else if (oq5Var.a() == null) {
+            } else {
+                g0.removeHeaderView(oq5Var.a());
+                g0.t(oq5Var.a(), g0.getHeaderViewsCount() - 1);
+                this.a.s0().f0(8);
             }
-            return view2;
         }
-        return (View) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.ck6, com.baidu.tieba.kn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        F(i, view2, viewGroup, (nk6) obj, (ReadProgressViewHolder) viewHolder);
-        return view2;
     }
 }

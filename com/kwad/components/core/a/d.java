@@ -194,11 +194,11 @@ public class d implements com.kwad.components.core.a.c {
 
     /* renamed from: com.kwad.components.core.a.d$d  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0588d implements com.kwad.components.core.a.c {
+    public static class C0587d implements com.kwad.components.core.a.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0588d() {
+        public C0587d() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -470,7 +470,7 @@ public class d implements com.kwad.components.core.a.c {
                                     this.Dk.a(this.Di, this.fx, this.Dj, new c(this) { // from class: com.kwad.components.core.a.d.f.1.1.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
-                                        public final /* synthetic */ RunnableC05891 Dl;
+                                        public final /* synthetic */ RunnableC05881 Dl;
 
                                         {
                                             Interceptable interceptable3 = $ic;
@@ -494,8 +494,8 @@ public class d implements com.kwad.components.core.a.c {
                                         public final void lV() {
                                             Interceptable interceptable3 = $ic;
                                             if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                                RunnableC05891 runnableC05891 = this.Dl;
-                                                com.kwad.components.core.k.kwai.a.a(runnableC05891.aB, runnableC05891.fx, false);
+                                                RunnableC05881 runnableC05881 = this.Dl;
+                                                com.kwad.components.core.k.kwai.a.a(runnableC05881.aB, runnableC05881.fx, false);
                                             }
                                         }
                                     });
@@ -558,7 +558,7 @@ public class d implements com.kwad.components.core.a.c {
         this.CX = sparseArray;
         sparseArray.append(1, new f());
         this.CX.append(2, new e());
-        this.CX.append(0, new C0588d());
+        this.CX.append(0, new C0587d());
     }
 
     public static <T extends com.kwad.components.core.k.a> T a(com.kwad.sdk.d.b<T> bVar) {

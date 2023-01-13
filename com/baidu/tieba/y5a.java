@@ -1,64 +1,179 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.util.atomic.LinkedQueueNode;
-/* loaded from: classes6.dex */
-public abstract class y5a<E> extends w5a<E> {
+import java.nio.ByteBuffer;
+import org.java_websocket.exceptions.InvalidDataException;
+import org.java_websocket.exceptions.InvalidFrameException;
+import org.java_websocket.framing.Framedata;
+/* loaded from: classes7.dex */
+public class y5a extends a6a {
     public static /* synthetic */ Interceptable $ic;
-    public static final long a;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedQueueNode<E> producerNode;
+    public int h;
+    public String i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948282532, "Lcom/baidu/tieba/y5a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948282532, "Lcom/baidu/tieba/y5a;");
-                return;
-            }
-        }
-        a = z6a.a(y5a.class, "producerNode");
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public y5a() {
+        super(Framedata.Opcode.CLOSING);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Framedata.Opcode) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        r("");
+        q(1000);
+    }
+
+    public final void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            byte[] f = t6a.f(this.i);
+            ByteBuffer allocate = ByteBuffer.allocate(4);
+            allocate.putInt(this.h);
+            allocate.position(2);
+            ByteBuffer allocate2 = ByteBuffer.allocate(f.length + 2);
+            allocate2.put(allocate);
+            allocate2.put(f);
+            allocate2.rewind();
+            super.j(allocate2);
+        }
+    }
+
+    @Override // com.baidu.tieba.c6a, org.java_websocket.framing.Framedata
+    public ByteBuffer a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.h == 1005) {
+                return s6a.a();
+            }
+            return super.a();
+        }
+        return (ByteBuffer) invokeV.objValue;
+    }
+
+    public int o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
+    }
+
+    public String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.i;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.c6a
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return super.toString() + "code: " + this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.a6a, com.baidu.tieba.c6a
+    public void h() throws InvalidDataException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.h();
+            if (this.h == 1007 && this.i == null) {
+                throw new InvalidDataException(1007, "Received text is no valid utf8 string!");
+            }
+            if (this.h == 1005 && this.i.length() > 0) {
+                throw new InvalidDataException(1002, "A close frame must have a closecode if it has a reason");
+            }
+            int i = this.h;
+            if (i > 1015 && i < 3000) {
+                throw new InvalidDataException(1002, "Trying to send an illegal close code!");
+            }
+            int i2 = this.h;
+            if (i2 != 1006 && i2 != 1015 && i2 != 1005 && i2 <= 4999 && i2 >= 1000 && i2 != 1004) {
+                return;
+            }
+            throw new InvalidFrameException("closecode must not be sent over the wire: " + this.h);
+        }
+    }
+
+    @Override // com.baidu.tieba.c6a
+    public void j(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer) == null) {
+            this.h = 1005;
+            this.i = "";
+            byteBuffer.mark();
+            if (byteBuffer.remaining() == 0) {
+                this.h = 1000;
+            } else if (byteBuffer.remaining() == 1) {
+                this.h = 1002;
+            } else {
+                if (byteBuffer.remaining() >= 2) {
+                    ByteBuffer allocate = ByteBuffer.allocate(4);
+                    allocate.position(2);
+                    allocate.putShort(byteBuffer.getShort());
+                    allocate.position(0);
+                    this.h = allocate.getInt();
+                }
+                byteBuffer.reset();
+                try {
+                    int position = byteBuffer.position();
+                    try {
+                        byteBuffer.position(byteBuffer.position() + 2);
+                        this.i = t6a.e(byteBuffer);
+                        byteBuffer.position(position);
+                    } catch (IllegalArgumentException unused) {
+                        throw new InvalidDataException(1007);
+                    }
+                } catch (InvalidDataException unused2) {
+                    this.h = 1007;
+                    this.i = null;
+                }
             }
         }
     }
 
-    public final LinkedQueueNode<E> a() {
-        InterceptResult invokeV;
+    public void q(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (LinkedQueueNode) z6a.a.f(this, a);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.h = i;
+            if (i == 1015) {
+                this.h = 1005;
+                this.i = "";
+            }
+            s();
         }
-        return (LinkedQueueNode) invokeV.objValue;
     }
 
-    public final void b(LinkedQueueNode<E> linkedQueueNode) {
+    public void r(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedQueueNode) == null) {
-            this.producerNode = linkedQueueNode;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            if (str == null) {
+                str = "";
+            }
+            this.i = str;
+            s();
         }
     }
 }

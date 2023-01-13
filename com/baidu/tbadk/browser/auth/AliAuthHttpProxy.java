@@ -25,22 +25,23 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.dt8;
+import com.baidu.tieba.ux8;
 import com.baidu.tieba.video.VideoConvertUtil;
-import com.baidu.tieba.ys8;
+import com.baidu.tieba.zx8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public final class AliAuthHttpProxy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WebView a;
+    public final WeakReference<WebView> a;
     public final BdUniqueId b;
-    public ys8 c;
+    public ux8 c;
     public final Handler d;
 
     /* loaded from: classes3.dex */
@@ -81,7 +82,7 @@ public final class AliAuthHttpProxy {
                 if (message.what == 1118481) {
                     final AuthHttpRequestMsg authHttpRequestMsg = (AuthHttpRequestMsg) message.obj;
                     authHttpRequestMsg.pollingTimesIncrease();
-                    this.a.d.postDelayed(new Runnable() { // from class: com.baidu.tieba.bq4
+                    this.a.d.postDelayed(new Runnable() { // from class: com.baidu.tieba.eq4
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -134,29 +135,27 @@ public final class AliAuthHttpProxy {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && this.a.n(httpResponsedMessage)) {
                 AuthHttpResponseMsg authHttpResponseMsg = (AuthHttpResponseMsg) httpResponsedMessage;
                 AuthHttpRequestMsg authHttpRequestMsg = (AuthHttpRequestMsg) authHttpResponseMsg.getOrginalMessage();
-                if (TextUtils.equals("0", authHttpResponseMsg.getErrorCode()) && authHttpResponseMsg.getData() == null) {
-                    if (authHttpRequestMsg.checkAllowToPolling()) {
-                        Message obtainMessage = this.a.d.obtainMessage(1118481);
-                        obtainMessage.obj = authHttpRequestMsg;
-                        this.a.d.sendMessage(obtainMessage);
-                        return;
-                    }
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("status", "100000");
-                    hashMap.put("message", "其他异常");
-                    this.a.c.h(this.a.a, "aliAuthResult", hashMap);
-                    return;
-                }
-                HashMap hashMap2 = new HashMap();
-                hashMap2.put("status", authHttpResponseMsg.getErrorCode());
-                hashMap2.put("message", authHttpResponseMsg.getErrorMessage());
                 if (authHttpResponseMsg.getData() != null) {
-                    hashMap2.put("message", "数据请求成功");
-                    hashMap2.put("avatar", authHttpResponseMsg.getData().optString("avatar"));
-                    hashMap2.put("nick_name", authHttpResponseMsg.getData().optString("nick_name"));
-                    hashMap2.put("alipay_user_id", authHttpResponseMsg.getData().optString("user_id"));
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("status", authHttpResponseMsg.getErrorCode());
+                    hashMap.put("message", authHttpResponseMsg.getErrorMessage());
+                    if (authHttpResponseMsg.getData() != null) {
+                        hashMap.put("message", "数据请求成功");
+                        hashMap.put("avatar", authHttpResponseMsg.getData().optString("avatar"));
+                        hashMap.put("nick_name", authHttpResponseMsg.getData().optString("nick_name"));
+                        hashMap.put("alipay_user_id", authHttpResponseMsg.getData().optString("user_id"));
+                    }
+                    this.a.c.i((WebView) this.a.a.get(), "aliAuthResult", hashMap);
+                } else if (authHttpRequestMsg.checkAllowToPolling()) {
+                    Message obtainMessage = this.a.d.obtainMessage(1118481);
+                    obtainMessage.obj = authHttpRequestMsg;
+                    this.a.d.sendMessage(obtainMessage);
+                } else {
+                    HashMap hashMap2 = new HashMap();
+                    hashMap2.put("status", "100000");
+                    hashMap2.put("message", "其他异常");
+                    this.a.c.i((WebView) this.a.a.get(), "aliAuthResult", hashMap2);
                 }
-                this.a.c.h(this.a.a, "aliAuthResult", hashMap2);
             }
         }
     }
@@ -200,7 +199,7 @@ public final class AliAuthHttpProxy {
                 HashMap hashMap = new HashMap();
                 hashMap.put("status", i + "");
                 hashMap.put("message", str);
-                this.a.c.h(this.a.a, "aliAuthResult", hashMap);
+                this.a.c.i((WebView) this.a.a.get(), "aliAuthResult", hashMap);
             }
         }
     }
@@ -221,7 +220,7 @@ public final class AliAuthHttpProxy {
             }
         }
         this.d = new a(this, Looper.getMainLooper());
-        this.a = webView;
+        this.a = new WeakReference<>(webView);
         this.b = BdUniqueId.gen();
         b bVar = new b(this, CmdConfigHttp.CMD_GET_ALI_AUTH_INFO);
         bVar.setTag(this.b);
@@ -229,10 +228,10 @@ public final class AliAuthHttpProxy {
         MessageManager.getInstance().registerListener(bVar);
     }
 
-    public void m(ys8 ys8Var) {
+    public void m(ux8 ux8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ys8Var) == null) {
-            this.c = ys8Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ux8Var) == null) {
+            this.c = ux8Var;
         }
     }
 
@@ -290,7 +289,7 @@ public final class AliAuthHttpProxy {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             AuthHttpRequestMsg authHttpRequestMsg = new AuthHttpRequestMsg();
             authHttpRequestMsg.setTag(this.b);
-            CookieSyncManager.createInstance(this.a.getContext());
+            CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
             String cookie = CookieManager.getInstance().getCookie("tieba.baidu.com");
             if (!TextUtils.isEmpty(cookie)) {
                 HashMap<String, String> headers = authHttpRequestMsg.getHeaders();
@@ -317,15 +316,15 @@ public final class AliAuthHttpProxy {
         return (HttpMessage) invokeL.objValue;
     }
 
-    public dt8 l() {
+    public zx8 l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            dt8 dt8Var = new dt8();
-            dt8Var.x(0);
-            Activity activityByView = TbPageExtraHelper.getActivityByView(this.a);
+            zx8 zx8Var = new zx8();
+            zx8Var.x(0);
+            Activity activityByView = TbPageExtraHelper.getActivityByView(this.a.get());
             if (activityByView == null) {
-                return dt8Var;
+                return zx8Var;
             }
             new OpenAuthTask(activityByView).execute("__tb_account_auth__", OpenAuthTask.BizType.AccountAuth, new HashMap<String, String>(this) { // from class: com.baidu.tbadk.browser.auth.AliAuthHttpProxy.3
                 public static /* synthetic */ Interceptable $ic;
@@ -351,8 +350,8 @@ public final class AliAuthHttpProxy {
                     put("url", "https://authweb.alipay.com/auth?auth_type=PURE_OAUTH_SDK&app_id=2021003145680066&scope=auth_user&state=init");
                 }
             }, new c(this), true);
-            return dt8Var;
+            return zx8Var;
         }
-        return (dt8) invokeV.objValue;
+        return (zx8) invokeV.objValue;
     }
 }

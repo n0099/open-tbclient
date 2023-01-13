@@ -1,13 +1,9 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.drawable.GradientDrawable;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Color;
 import com.baidu.live.LiveFeedPageSdk;
-import com.baidu.live.business.refresh.LoadAnimStrategy;
-import com.baidu.live.business.view.emotion.EmotionStrategy;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,433 +11,102 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class uc0 {
+public class uc0 extends tc0 {
     public static /* synthetic */ Interceptable $ic;
-    public static uc0 d;
+    public static final HashMap<String, String[]> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public oc0 c;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final uc0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-379741238, "Lcom/baidu/tieba/uc0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-379741238, "Lcom/baidu/tieba/uc0$a;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948206055, "Lcom/baidu/tieba/uc0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            a = new uc0();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948206055, "Lcom/baidu/tieba/uc0;");
+                return;
+            }
         }
+        b = new HashMap<>();
     }
 
     public uc0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = "day";
+        b.put("color_1F1F1F", new String[]{"#1F1F1F", "", "#CCFFFFFF", ""});
+        b.put("color_white1", new String[]{"#FFFFFF", "", "#1C1C1C", ""});
+        b.put("color_white2", new String[]{"#FFFFFF", "", "#333333", ""});
+        b.put("color_white3", new String[]{"#FFFFFF", "", "#FFFFFF", ""});
+        b.put("color_F5F5F51", new String[]{"#F4F5F6", "", "#1C1C1C", ""});
+        b.put("color_F5F5F52", new String[]{"#F4F5F6", "", "#000000", ""});
+        b.put("color_F5F5F53", new String[]{"#F4F5F6", "", "#292929", ""});
+        b.put("color_FF33551", new String[]{"#FF3355", "", "#F63B68", ""});
+        b.put("color_FF33552", new String[]{"#1AFF3355", "", "#26F63B68", ""});
+        b.put("color_858585", new String[]{"#858585", "", "#80FFFFFF", ""});
+        b.put("color_525252", new String[]{"#525252", "", "#80FFFFFF", ""});
+        b.put("color_FF3333", new String[]{"#FF3333", "", "#FF3333", ""});
+        b.put("color_768CAE", new String[]{"#768CAE", "", "#768CAE", ""});
+        b.put("color_4E6EF2", new String[]{"#4E6EF2", "", "#4E6EF2", ""});
+        b.put("color_8585852", new String[]{"#858585", "", "#66FFFFFF", ""});
+        b.put("color_5252522", new String[]{"#525252", "", "#1AFFFFFF", ""});
+        b.put("color_btn_stroke", new String[]{"#EEEEEE", "", "#00FFFFFF", ""});
+        b.put("color_btn_fill", new String[]{"#00000000", "", "#1AFFFFFF", ""});
+        b.put("color_sub_tab_normal", new String[]{"#888888", "", "#CCFFFFFF", ""});
+        b.put("color_main_bg", new String[]{"#FFFFFF", "", "#1C1C1C", ""});
+        b.put("color_white4", new String[]{"#1F1F1F", "", "#CCFFFFFF", ""});
+        b.put("color_gradient_1", new String[]{"#FFFFFF", "", "#1C1C1C", ""});
+        b.put("color_gradient_2", new String[]{"#00FFFFFF", "", "#001C1C1C", ""});
+        b.put("color_E0E0E0", new String[]{"#E0E0E0", "", "", ""});
+        b.put("color_EEEEEE", new String[]{"#eeeeee", "", "", ""});
     }
 
-    public static uc0 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == null) {
-                d = a.a;
-            }
-            return d;
-        }
-        return (uc0) invokeV.objValue;
-    }
-
-    public String r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
+    @Override // com.baidu.tieba.tc0
+    @SuppressLint({"Range"})
     public int a(Context context, String str, String str2) {
         InterceptResult invokeLLL;
-        oc0 oc0Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str2) && (oc0Var = this.c) != null) {
-                return oc0Var.a(context, str, str2);
+            if (!b.containsKey(str2)) {
+                return -16777216;
             }
-            return -16777216;
+            String str3 = "";
+            try {
+                str3 = b.get(str2)[0];
+            } catch (Exception e) {
+                LiveFeedPageSdk.liveLog("getColor Exception: " + e.getMessage());
+            }
+            if ("recommend".equals(str)) {
+                return xc0.c().a(context, str, str2);
+            }
+            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
+                str3 = b.get(str2)[3];
+            } else if ("dark".equals(this.a)) {
+                str3 = b.get(str2)[2];
+            }
+            if (nc0.a(str3)) {
+                return -16777216;
+            }
+            try {
+                return Color.parseColor(str3);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return -16777216;
+            }
         }
         return invokeLLL.intValue;
-    }
-
-    public int b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if ("recommend".equals(str)) {
-                return EmotionStrategy.getInstance().recEmptyImageRes;
-            }
-            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
-                return EmotionStrategy.getInstance().emptyImageRes3;
-            }
-            if ("night".equals(this.b)) {
-                return EmotionStrategy.getInstance().emptyImageRes1;
-            }
-            if ("dark".equals(this.b)) {
-                return EmotionStrategy.getInstance().emptyImageRes2;
-            }
-            return EmotionStrategy.getInstance().emptyImageRes;
-        }
-        return invokeL.intValue;
-    }
-
-    public int c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if ("recommend".equals(str)) {
-                return EmotionStrategy.getInstance().recErrorImageRes;
-            }
-            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
-                return EmotionStrategy.getInstance().errorImageRes3;
-            }
-            if ("night".equals(this.b)) {
-                return EmotionStrategy.getInstance().errorImageRes1;
-            }
-            if ("dark".equals(this.b)) {
-                return EmotionStrategy.getInstance().errorImageRes2;
-            }
-            return EmotionStrategy.getInstance().errorImageRes;
-        }
-        return invokeL.intValue;
-    }
-
-    public int d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if ("recommend".equals(str)) {
-                return EmotionStrategy.getInstance().recNetworkImageRes;
-            }
-            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
-                return EmotionStrategy.getInstance().networkImageRes3;
-            }
-            if ("night".equals(this.b)) {
-                return EmotionStrategy.getInstance().networkImageRes1;
-            }
-            if ("dark".equals(this.b)) {
-                return EmotionStrategy.getInstance().networkImageRes2;
-            }
-            return EmotionStrategy.getInstance().networkImageRes;
-        }
-        return invokeL.intValue;
-    }
-
-    public int e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if ("recommend".equals(str)) {
-                return R.drawable.obfuscated_res_0x7f080d97;
-            }
-            if (LiveFeedPageSdk.IMMERSION.equals(str) || LiveFeedPageSdk.VIDEO_BAR.equals(str) || LiveFeedPageSdk.FOLLOW_VIDEO.equals(str)) {
-                return R.drawable.obfuscated_res_0x7f080d98;
-            }
-            if ("night".equals(this.b)) {
-                return R.drawable.obfuscated_res_0x7f080d99;
-            }
-            if (!"dark".equals(this.b)) {
-                return R.drawable.obfuscated_res_0x7f080d97;
-            }
-            return R.drawable.obfuscated_res_0x7f080d98;
-        }
-        return invokeL.intValue;
-    }
-
-    public String g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if ("recommend".equals(str)) {
-                return LoadAnimStrategy.getInstance().loadMoreLottieRecRes;
-            }
-            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
-                return LoadAnimStrategy.getInstance().loadMoreLottieRes3;
-            }
-            if ("night".equals(this.b)) {
-                return LoadAnimStrategy.getInstance().loadMoreLottieRes1;
-            }
-            if ("dark".equals(this.b)) {
-                return LoadAnimStrategy.getInstance().loadMoreLottieRes2;
-            }
-            return LoadAnimStrategy.getInstance().loadMoreLottieRes;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public int h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            if ("recommend".equals(str)) {
-                return LoadAnimStrategy.getInstance().loadMoreLottieResRecId;
-            }
-            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
-                return LoadAnimStrategy.getInstance().loadMoreLottieResId3;
-            }
-            if ("night".equals(this.b)) {
-                return LoadAnimStrategy.getInstance().loadMoreLottieResId1;
-            }
-            if ("dark".equals(this.b)) {
-                return LoadAnimStrategy.getInstance().loadMoreLottieResId2;
-            }
-            return LoadAnimStrategy.getInstance().loadMoreLottieResId;
-        }
-        return invokeL.intValue;
-    }
-
-    public int i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if ("recommend".equals(str)) {
-                return EmotionStrategy.getInstance().recEmptyImageRes;
-            }
-            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
-                return EmotionStrategy.getInstance().minorImageRes3;
-            }
-            if ("night".equals(this.b)) {
-                return EmotionStrategy.getInstance().minorImageRes1;
-            }
-            if ("dark".equals(this.b)) {
-                return EmotionStrategy.getInstance().minorImageRes2;
-            }
-            return EmotionStrategy.getInstance().minorImageRes;
-        }
-        return invokeL.intValue;
-    }
-
-    public String j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if ("recommend".equals(str)) {
-                return LoadAnimStrategy.getInstance().loadingLottieRecRes;
-            }
-            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
-                return LoadAnimStrategy.getInstance().loadingLottieRes3;
-            }
-            if ("night".equals(this.b)) {
-                return LoadAnimStrategy.getInstance().loadingLottieRes1;
-            }
-            if ("dark".equals(this.b)) {
-                return LoadAnimStrategy.getInstance().loadingLottieRes2;
-            }
-            return LoadAnimStrategy.getInstance().loadingLottieRes;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public int k(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            if ("recommend".equals(str)) {
-                return LoadAnimStrategy.getInstance().loadingLottieRecResId;
-            }
-            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
-                return LoadAnimStrategy.getInstance().loadingLottieResId3;
-            }
-            if ("night".equals(this.b)) {
-                return LoadAnimStrategy.getInstance().loadingLottieResId1;
-            }
-            if ("dark".equals(this.b)) {
-                return LoadAnimStrategy.getInstance().loadingLottieResId2;
-            }
-            return LoadAnimStrategy.getInstance().loadingLottieResId;
-        }
-        return invokeL.intValue;
-    }
-
-    public String m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            if ("recommend".equals(str)) {
-                return LoadAnimStrategy.getInstance().pullDownLottieRecRes;
-            }
-            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
-                return LoadAnimStrategy.getInstance().pullDownLottieRes3;
-            }
-            if ("night".equals(this.b)) {
-                return LoadAnimStrategy.getInstance().pullDownLottieRes1;
-            }
-            if ("dark".equals(this.b)) {
-                return LoadAnimStrategy.getInstance().pullDownLottieRes2;
-            }
-            return LoadAnimStrategy.getInstance().pullDownLottieRes;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public int n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            if ("recommend".equals(str)) {
-                return LoadAnimStrategy.getInstance().pullDownLottieRecResId;
-            }
-            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
-                return LoadAnimStrategy.getInstance().pullDownLottieResId3;
-            }
-            if ("night".equals(this.b)) {
-                return LoadAnimStrategy.getInstance().pullDownLottieResId1;
-            }
-            if ("dark".equals(this.b)) {
-                return LoadAnimStrategy.getInstance().pullDownLottieResId2;
-            }
-            return LoadAnimStrategy.getInstance().pullDownLottieResId;
-        }
-        return invokeL.intValue;
-    }
-
-    public int l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            if (!LiveFeedPageSdk.VIDEO_BAR.equals(str) && !LiveFeedPageSdk.FOLLOW_VIDEO.equals(str)) {
-                if ("recommend".equals(str)) {
-                    return EmotionStrategy.getInstance().recPlaceHolderRes;
-                }
-                if (LiveFeedPageSdk.IMMERSION.equals(str)) {
-                    return EmotionStrategy.getInstance().placeHolderRes3;
-                }
-                if ("night".equals(this.b)) {
-                    return EmotionStrategy.getInstance().placeHolderRes1;
-                }
-                if ("dark".equals(this.b)) {
-                    return EmotionStrategy.getInstance().placeHolderRes2;
-                }
-                return EmotionStrategy.getInstance().placeHolderRes;
-            }
-            return EmotionStrategy.getInstance().videoBarPlaceHolderRes;
-        }
-        return invokeL.intValue;
-    }
-
-    public GradientDrawable o(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, context, str)) == null) {
-            float b = da0.b(context, 18.0f);
-            float[] fArr = {b, b, b, b, b, b, b, b};
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setCornerRadii(fArr);
-            gradientDrawable.setColor(a(context, str, "color_btn_fill"));
-            gradientDrawable.setStroke(1, a(context, str, "color_btn_stroke"));
-            return gradientDrawable;
-        }
-        return (GradientDrawable) invokeLL.objValue;
-    }
-
-    public int p(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            if ("recommend".equals(str) || LiveFeedPageSdk.IMMERSION.equals(str)) {
-                return R.drawable.obfuscated_res_0x7f080d49;
-            }
-            if ("night".equals(this.b)) {
-                return R.drawable.obfuscated_res_0x7f080d4a;
-            }
-            if ("dark".equals(this.b)) {
-                return R.drawable.obfuscated_res_0x7f080d49;
-            }
-            return R.drawable.obfuscated_res_0x7f080d48;
-        }
-        return invokeL.intValue;
-    }
-
-    public int q(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-            if ("recommend".equals(str) || LiveFeedPageSdk.IMMERSION.equals(str)) {
-                return R.drawable.obfuscated_res_0x7f080d5a;
-            }
-            if ("night".equals(this.b)) {
-                return R.drawable.obfuscated_res_0x7f080d5b;
-            }
-            if ("dark".equals(this.b)) {
-            }
-            return R.drawable.obfuscated_res_0x7f080d59;
-        }
-        return invokeL.intValue;
-    }
-
-    public void s(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048593, this, str, str2) == null) {
-            this.a = str;
-            if (t(str2)) {
-                this.b = str2;
-            }
-            if ("baidu".equals(this.a)) {
-                this.c = new nc0();
-            } else if (LiveFeedPageSdk.HOST_HAOKAN.equals(this.a)) {
-                this.c = new pc0();
-            } else if (LiveFeedPageSdk.HOST_QUANMIN.equals(this.a)) {
-                this.c = new rc0();
-            } else if ("tieba".equals(this.a)) {
-                this.c = new tc0();
-            }
-            this.c.b(str2);
-        }
-    }
-
-    public final boolean t(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-            if (!"day".equals(str) && !"night".equals(str) && !"dark".equals(str)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void u(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048595, this, str) == null) && t(str)) {
-            this.b = str;
-            oc0 oc0Var = this.c;
-            if (oc0Var != null) {
-                oc0Var.b(str);
-            }
-        }
     }
 }

@@ -15,7 +15,7 @@ public interface KMutableProperty1<T, V> extends KProperty1<T, V>, KMutablePrope
     public interface Setter<T, V> extends KMutableProperty.Setter<V>, Function2<T, V, Unit> {
     }
 
-    @Override // kotlin.reflect.KMutableProperty, kotlin.reflect.KMutableProperty0
+    @Override // kotlin.reflect.KMutableProperty
     Setter<T, V> getSetter();
 
     void set(T t, V v);

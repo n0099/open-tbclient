@@ -176,6 +176,7 @@ public class UrlSchemaHelper {
     public static final String SCHEMA_TYPE_ZB = "zb:";
     public static final String SCHEMA_VIDEO_CREATE_CENTER = "com.baidu.tieba://unidispatch/video_create_center";
     public static final String SCHEMA_YY_LIVE_JOIN_LIVE_PREFIX = "bdtiebalive://video/yylive/joinlive?";
+    public static final String SCHEMA_YY_NATIVE_PAY_PANNEL = "com.baidu.tieba://unidispatch/paywithnative";
     public static final String SCHEME_POST_DETAIL_PAGE = "com.baidu.tieba://unidispatch/PostDetail";
     public static final String SCHEME_SWAN_GAME_CENTER = "tiebaclient://swan/T43rINkXjgPfdKNXTuhQER2KdACVdB00/pages/home/index?_baiduboxapp={\"from\":\"tieba\"}";
     public static final String SCHEME_TYPE_ACCOUNT_SAFE = "tieba://accountsafe";

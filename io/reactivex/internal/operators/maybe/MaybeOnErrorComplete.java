@@ -13,13 +13,13 @@ import io.reactivex.exceptions.CompositeException;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Predicate;
 import io.reactivex.internal.disposables.DisposableHelper;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class MaybeOnErrorComplete<T> extends AbstractMaybeWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Predicate<? super Throwable> predicate;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class OnErrorCompleteMaybeObserver<T> implements MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.map.MapStatus;
+import com.baidu.mapapi.model.LatLng;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,9 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class z84 extends q84<sq2> {
+public class z84 extends v84<vq2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,7 +31,7 @@ public class z84 extends q84<sq2> {
                 return;
             }
         }
-        boolean z = ok1.a;
+        boolean z = tk1.a;
     }
 
     public z84() {
@@ -46,7 +48,7 @@ public class z84 extends q84<sq2> {
         }
     }
 
-    public static z84 e() {
+    public static z84 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -55,48 +57,46 @@ public class z84 extends q84<sq2> {
         return (z84) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.q84
-    /* renamed from: d */
-    public boolean b(Context context, sq2 sq2Var, nq2 nq2Var, e43 e43Var, JSONObject jSONObject) {
+    @Override // com.baidu.tieba.v84
+    public boolean b(Context context, vq2 vq2Var, sq2 sq2Var, j43 j43Var, JSONObject jSONObject) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, sq2Var, nq2Var, e43Var, jSONObject)) == null) {
-            return g(context, sq2Var, nq2Var, e43Var);
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, vq2Var, sq2Var, j43Var, jSONObject)) == null) {
+            return e(context, vq2Var, sq2Var, j43Var, jSONObject);
         }
         return invokeLLLLL.booleanValue;
     }
 
-    public final Bundle f(sq2 sq2Var) {
-        InterceptResult invokeL;
+    public final boolean e(Context context, vq2 vq2Var, sq2 sq2Var, j43 j43Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sq2Var)) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("slaveId", sq2Var.c);
-            bundle.putDouble("latitude", sq2Var.j.a);
-            bundle.putDouble("longitude", sq2Var.j.b);
-            bundle.putDouble("scale", sq2Var.k);
-            bundle.putString("name", sq2Var.z);
-            bundle.putString("address", sq2Var.A);
-            bundle.putStringArrayList("ignoredApps", sq2Var.B);
-            return bundle;
-        }
-        return (Bundle) invokeL.objValue;
-    }
-
-    public final boolean g(Context context, sq2 sq2Var, nq2 nq2Var, e43 e43Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, context, sq2Var, nq2Var, e43Var)) == null) {
-            e12.i("map", "OpenLocationAction start");
-            if (!sq2Var.isValid()) {
-                e12.c("map", "model is invalid");
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, vq2Var, sq2Var, j43Var, jSONObject)) == null) {
+            j12.i("map", "GetCenterLcationAction start");
+            rq1 A = wp2.U().A(vq2Var.c);
+            if (!(A instanceof pq1)) {
+                j12.c("map", "WebViewManager is null");
                 return false;
             }
-            l94.r3(f(sq2Var)).v3();
-            e12.i("map", "OpenLocationAction end");
+            t94 d = s84.b().c((pq1) A).d(vq2Var.b);
+            if (d == null) {
+                j12.c("map", "can not find map by id " + vq2Var.b);
+                return false;
+            }
+            MapStatus mapStatus = d.l.getMap().getMapStatus();
+            cr2 cr2Var = new cr2();
+            LatLng latLng = mapStatus.target;
+            double d2 = latLng.latitude;
+            cr2Var.a = d2;
+            cr2Var.b = latLng.longitude;
+            try {
+                jSONObject.put("latitude", d2);
+                jSONObject.put("longitude", cr2Var.b);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            j12.i("map", "GetCenterLocationAction end");
             return true;
         }
-        return invokeLLLL.booleanValue;
+        return invokeLLLLL.booleanValue;
     }
 }

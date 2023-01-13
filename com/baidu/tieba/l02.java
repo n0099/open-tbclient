@@ -1,139 +1,170 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.drawable.GradientDrawable;
-import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
-import android.view.ViewParent;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
-import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class l02 extends pz1<TextView, m02> {
+public class l02 extends i53 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SwanAppComponentContainerView i;
-    public TextView j;
+
+    @Override // com.baidu.tieba.i53
+    @NonNull
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "/swanAPI/coverview" : (String) invokeV.objValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l02(@NonNull Context context, @NonNull m02 m02Var) {
-        super(context, m02Var);
+    public l02(g53 g53Var) {
+        super(g53Var, "/swanAPI/coverview");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, m02Var};
+            Object[] objArr = {g53Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (qz1) objArr2[1]);
+                super((g53) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        g(4);
-        this.i = new SwanAppComponentContainerView(context);
-        this.j = new TextView(context);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pz1, com.baidu.tieba.rz1, com.baidu.tieba.tz1
-    @NonNull
-    /* renamed from: Z */
-    public w02 k(@NonNull m02 m02Var, @NonNull m02 m02Var2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, m02Var, m02Var2)) == null) {
-            w02 k = super.k(m02Var, m02Var2);
-            if (!TextUtils.equals(m02Var.E, m02Var2.E) && (TextUtils.equals(m02Var.E, "scroll") || TextUtils.equals(m02Var2.E, "scroll"))) {
-                k.b(7);
-            }
-            if (!TextUtils.equals(m02Var.E, m02Var2.E) || (TextUtils.equals(m02Var2.E, "scroll") && m02Var.D != m02Var2.D)) {
-                k.b(8);
-            }
-            return k;
-        }
-        return (w02) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rz1
-    /* renamed from: c0 */
-    public void Q(@NonNull TextView textView, @NonNull m02 m02Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, textView, m02Var) == null) {
-            if (tz1.h) {
-                Log.d("Component-CoverView", "renderBackground");
-            }
-            if (m02Var.j == null) {
-                return;
-            }
-            SwanAppComponentContainerView m = m();
-            if (m != null) {
-                m.setModel(m02Var);
-            }
-            ViewParent parent = textView.getParent();
-            if (!(parent instanceof View)) {
-                return;
-            }
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setColor(m02Var.k);
-            gradientDrawable.setCornerRadius(m02Var.n);
-            gradientDrawable.setStroke(m02Var.l, m02Var.m);
-            ((View) parent).setBackground(gradientDrawable);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rz1
-    /* renamed from: b0 */
-    public void P(@NonNull View view2, @NonNull m02 m02Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, view2, m02Var) == null) {
-            if (tz1.h) {
-                Log.d("Component-CoverView", "renderAlpha");
-            }
-            if (m02Var.j == null) {
-                return;
-            }
-            ViewParent parent = view2.getParent();
-            if (!(parent instanceof View)) {
-                return;
-            }
-            super.P((View) parent, m02Var);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tz1
-    @NonNull
-    /* renamed from: a0 */
-    public TextView v(@NonNull Context context) {
+    @Nullable
+    public final r02 q(UnitedSchemeEntity unitedSchemeEntity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            return this.j;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, unitedSchemeEntity)) == null) {
+            if (unitedSchemeEntity == null) {
+                return null;
+            }
+            JSONObject k = k(unitedSchemeEntity);
+            if (k == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                j12.c("Component-Action-CoverView", "params is null");
+                return null;
+            }
+            r02 r02Var = new r02();
+            try {
+                r02Var.a(k);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                j12.d("Component-Action-CoverView", "model parse exception:", e);
+            }
+            return r02Var;
         }
-        return (TextView) invokeL.objValue;
+        return (r02) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.tz1
-    @NonNull
-    public SwanAppComponentContainerView u(@NonNull Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.i53
+    public boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, j43 j43Var) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) {
-            return this.i;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, j43Var)) == null) {
+            if (g63.b) {
+                Log.d("Component-Action-CoverView", "insert");
+            }
+            r02 q = q(unitedSchemeEntity);
+            if (q == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                j12.c("Component-Action-CoverView", "model is null");
+                return false;
+            }
+            a02 insert = new q02(context, q).insert();
+            boolean a = insert.a();
+            if (a) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            } else {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, insert.b);
+            }
+            return a;
         }
-        return (SwanAppComponentContainerView) invokeL.objValue;
+        return invokeLLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.i53
+    public boolean o(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, j43 j43Var) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, str, j43Var)) == null) {
+            if (g63.b) {
+                Log.d("Component-Action-CoverView", "remove");
+            }
+            r02 q = q(unitedSchemeEntity);
+            if (q == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                j12.c("Component-Action-CoverView", "model is null");
+                return false;
+            }
+            q02 q02Var = (q02) w02.a(q);
+            if (q02Var == null) {
+                String str2 = "can't find coverView component:#" + q.b;
+                j12.c("Component-Action-CoverView", str2);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
+                return false;
+            }
+            a02 B = q02Var.B();
+            boolean a = B.a();
+            if (a) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            } else {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, B.b);
+            }
+            return a;
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.i53
+    public boolean p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, j43 j43Var) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, unitedSchemeEntity, callbackHandler, str, j43Var)) == null) {
+            if (g63.b) {
+                Log.d("Component-Action-CoverView", StickerDataChangeType.UPDATE);
+            }
+            r02 q = q(unitedSchemeEntity);
+            if (q == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                j12.c("Component-Action-CoverView", "model is null");
+                return false;
+            }
+            q02 q02Var = (q02) w02.a(q);
+            if (q02Var == null) {
+                String str2 = "can't find coverView component:#" + q.b;
+                j12.c("Component-Action-CoverView", str2);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
+                return false;
+            }
+            a02 update = q02Var.update((q02) q);
+            boolean a = update.a();
+            if (a) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            } else {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, update.b);
+            }
+            return a;
+        }
+        return invokeLLLLL.booleanValue;
     }
 }

@@ -33,7 +33,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ObservableReplay<T> extends ConnectableObservable<T> implements HasUpstreamObservableSource<T>, Disposable {
     public static /* synthetic */ Interceptable $ic;
     public static final BufferSupplier DEFAULT_UNBOUNDED_FACTORY;
@@ -43,12 +43,12 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
     public final ObservableSource<T> onSubscribe;
     public final ObservableSource<T> source;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface BufferSupplier<T> {
         ReplayBuffer<T> call();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface ReplayBuffer<T> {
         void complete();
 
@@ -59,7 +59,7 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
         void replay(InnerDisposable<T> innerDisposable);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class BoundedReplayBuffer<T> extends AtomicReference<Node> implements ReplayBuffer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2346567790059478686L;
@@ -268,7 +268,7 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class DisposeConsumer<R> implements Consumer<Disposable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -302,7 +302,7 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class InnerDisposable<T> extends AtomicInteger implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2728361546769921047L;
@@ -360,7 +360,7 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class MulticastReplay<R, U> extends Observable<R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -404,7 +404,7 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Node extends AtomicReference<Node> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 245354315435971818L;
@@ -430,7 +430,7 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Replay<T> extends ConnectableObservable<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -473,7 +473,7 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class ReplayBufferSupplier<T> implements BufferSupplier<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -508,7 +508,7 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class ReplayObserver<T> extends AtomicReference<Disposable> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final InnerDisposable[] EMPTY;
@@ -698,7 +698,7 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class ReplaySource<T> implements ObservableSource<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -752,7 +752,7 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class ScheduledReplaySupplier<T> implements BufferSupplier<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -793,7 +793,7 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class SizeAndTimeBoundReplayBuffer<T> extends BoundedReplayBuffer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3457957419649567404L;
@@ -940,7 +940,7 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class SizeBoundReplayBuffer<T> extends BoundedReplayBuffer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5898283885385201806L;
@@ -974,7 +974,7 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class UnBoundedFactory implements BufferSupplier<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1004,7 +1004,7 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class UnboundedReplayBuffer<T> extends ArrayList<Object> implements ReplayBuffer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7063189396499112664L;

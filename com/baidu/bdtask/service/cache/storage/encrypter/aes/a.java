@@ -14,6 +14,7 @@ import java.security.Key;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import kotlin.Metadata;
+import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000*\n\u0002\u0018\u0002\n\u0002\u0010\u0012\n\u0002\b\u0004\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u0000 \u0013:\u0001\u0013B\u0019\b\u0002\u0012\u0006\u0010\f\u001a\u00020\u000b\u0012\u0006\u0010\u000f\u001a\u00020\u000e¢\u0006\u0004\b\u0011\u0010\u0012J\u0017\u0010\u0003\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u0003\u0010\u0004J\u0017\u0010\u0005\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u0005\u0010\u0004J\u0017\u0010\t\u001a\u00020\b2\u0006\u0010\u0007\u001a\u00020\u0006H\u0002¢\u0006\u0004\b\t\u0010\nR\u0016\u0010\f\u001a\u00020\u000b8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\f\u0010\rR\u0016\u0010\u000f\u001a\u00020\u000e8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u000f\u0010\u0010¨\u0006\u0014"}, d2 = {"Lcom/baidu/bdtask/service/cache/storage/encrypter/aes/AEStorageEncrypter;", "", "data", "decrypt", "([B)[B", "encrypt", "", "mode", "", "initCipher", "(I)V", "Ljavax/crypto/Cipher;", "cipher", "Ljavax/crypto/Cipher;", "Ljava/security/Key;", "cipherKey", "Ljava/security/Key;", "<init>", "(Ljavax/crypto/Cipher;Ljava/security/Key;)V", "Companion", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
@@ -169,7 +170,43 @@ public final class a {
                 Intrinsics.checkExpressionValueIsNotNull(doFinal, "cipher.run {\n           …Final(data)\n            }");
                 return doFinal;
             } catch (Throwable th) {
-                DebugTrace.a.c(new AEStorageEncrypter$encrypt$2(th));
+                DebugTrace.a.c(new Function0<String>(th) { // from class: com.baidu.bdtask.service.cache.storage.encrypter.aes.AEStorageEncrypter$encrypt$2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ Throwable $throwable;
+
+                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                    {
+                        super(0);
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {th};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                super(((Integer) newInitContext.callArgs[0]).intValue());
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.$throwable = th;
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // kotlin.jvm.functions.Function0
+                    public final String invoke() {
+                        InterceptResult invokeV;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                            return "AEStorageEncrypter encrypt fail by " + this.$throwable.getMessage();
+                        }
+                        return (String) invokeV.objValue;
+                    }
+                });
                 return new byte[0];
             }
         }
@@ -196,7 +233,43 @@ public final class a {
                 }
                 return bArr;
             } catch (Throwable th) {
-                DebugTrace.a.c(new AEStorageEncrypter$decrypt$2(th));
+                DebugTrace.a.c(new Function0<String>(th) { // from class: com.baidu.bdtask.service.cache.storage.encrypter.aes.AEStorageEncrypter$decrypt$2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ Throwable $throwable;
+
+                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                    {
+                        super(0);
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {th};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                super(((Integer) newInitContext.callArgs[0]).intValue());
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.$throwable = th;
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // kotlin.jvm.functions.Function0
+                    public final String invoke() {
+                        InterceptResult invokeV;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                            return "AEStorageEncrypter decrypt fail by " + this.$throwable.getMessage();
+                        }
+                        return (String) invokeV.objValue;
+                    }
+                });
                 return new byte[0];
             }
         }

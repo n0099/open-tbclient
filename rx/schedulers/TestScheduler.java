@@ -1,11 +1,11 @@
 package rx.schedulers;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.f3a;
-import com.baidu.tieba.j3a;
-import com.baidu.tieba.p3a;
-import com.baidu.tieba.v7a;
-import com.baidu.tieba.z7a;
+import com.baidu.tieba.dda;
+import com.baidu.tieba.hda;
+import com.baidu.tieba.n8a;
+import com.baidu.tieba.r8a;
+import com.baidu.tieba.x8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes9.dex */
-public class TestScheduler extends f3a {
+public class TestScheduler extends n8a {
     public static /* synthetic */ Interceptable $ic;
     public static long c;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,14 +24,14 @@ public class TestScheduler extends f3a {
     public long b;
 
     /* loaded from: classes9.dex */
-    public final class b extends f3a.a {
+    public final class b extends n8a.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final v7a a;
+        public final dda a;
         public final /* synthetic */ TestScheduler b;
 
         /* loaded from: classes9.dex */
-        public class a implements p3a {
+        public class a implements x8a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
@@ -56,7 +56,7 @@ public class TestScheduler extends f3a {
                 this.a = cVar;
             }
 
-            @Override // com.baidu.tieba.p3a
+            @Override // com.baidu.tieba.x8a
             public void call() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -67,13 +67,13 @@ public class TestScheduler extends f3a {
 
         /* renamed from: rx.schedulers.TestScheduler$b$b  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C0746b implements p3a {
+        public class C0745b implements x8a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
             public final /* synthetic */ b b;
 
-            public C0746b(b bVar, c cVar) {
+            public C0745b(b bVar, c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,7 +92,7 @@ public class TestScheduler extends f3a {
                 this.a = cVar;
             }
 
-            @Override // com.baidu.tieba.p3a
+            @Override // com.baidu.tieba.x8a
             public void call() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -117,10 +117,10 @@ public class TestScheduler extends f3a {
                 }
             }
             this.b = testScheduler;
-            this.a = new v7a();
+            this.a = new dda();
         }
 
-        @Override // com.baidu.tieba.f3a.a
+        @Override // com.baidu.tieba.n8a.a
         public long a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -130,7 +130,7 @@ public class TestScheduler extends f3a {
             return invokeV.longValue;
         }
 
-        @Override // com.baidu.tieba.j3a
+        @Override // com.baidu.tieba.r8a
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -140,7 +140,7 @@ public class TestScheduler extends f3a {
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.j3a
+        @Override // com.baidu.tieba.r8a
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -148,28 +148,28 @@ public class TestScheduler extends f3a {
             }
         }
 
-        @Override // com.baidu.tieba.f3a.a
-        public j3a b(p3a p3aVar) {
+        @Override // com.baidu.tieba.n8a.a
+        public r8a b(x8a x8aVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p3aVar)) == null) {
-                c cVar = new c(this, 0L, p3aVar);
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x8aVar)) == null) {
+                c cVar = new c(this, 0L, x8aVar);
                 this.b.a.add(cVar);
-                return z7a.a(new C0746b(this, cVar));
+                return hda.a(new C0745b(this, cVar));
             }
-            return (j3a) invokeL.objValue;
+            return (r8a) invokeL.objValue;
         }
 
-        @Override // com.baidu.tieba.f3a.a
-        public j3a c(p3a p3aVar, long j, TimeUnit timeUnit) {
+        @Override // com.baidu.tieba.n8a.a
+        public r8a c(x8a x8aVar, long j, TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{p3aVar, Long.valueOf(j), timeUnit})) == null) {
-                c cVar = new c(this, this.b.b + timeUnit.toNanos(j), p3aVar);
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{x8aVar, Long.valueOf(j), timeUnit})) == null) {
+                c cVar = new c(this, this.b.b + timeUnit.toNanos(j), x8aVar);
                 this.b.a.add(cVar);
-                return z7a.a(new a(this, cVar));
+                return hda.a(new a(this, cVar));
             }
-            return (j3a) invokeCommon.objValue;
+            return (r8a) invokeCommon.objValue;
         }
     }
 
@@ -227,16 +227,16 @@ public class TestScheduler extends f3a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long a;
-        public final p3a b;
-        public final f3a.a c;
+        public final x8a b;
+        public final n8a.a c;
         public final long d;
 
-        public c(f3a.a aVar, long j, p3a p3aVar) {
+        public c(n8a.a aVar, long j, x8a x8aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, Long.valueOf(j), p3aVar};
+                Object[] objArr = {aVar, Long.valueOf(j), x8aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -250,7 +250,7 @@ public class TestScheduler extends f3a {
             TestScheduler.c = 1 + j2;
             this.d = j2;
             this.a = j;
-            this.b = p3aVar;
+            this.b = x8aVar;
             this.c = aVar;
         }
 
@@ -280,17 +280,17 @@ public class TestScheduler extends f3a {
         this.a = new PriorityQueue(11, new a());
     }
 
-    @Override // com.baidu.tieba.f3a
-    public f3a.a createWorker() {
+    @Override // com.baidu.tieba.n8a
+    public n8a.a createWorker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return new b(this);
         }
-        return (f3a.a) invokeV.objValue;
+        return (n8a.a) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.f3a
+    @Override // com.baidu.tieba.n8a
     public long now() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

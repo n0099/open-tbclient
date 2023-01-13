@@ -15,6 +15,7 @@ import com.baidu.searchbox.live.data.constant.MixConstants;
 import com.baidu.searchbox.live.interfaces.mix.IMixActivityInterface;
 import com.baidu.searchbox.live.interfaces.mix.PluginInvokeService;
 import com.baidu.searchbox.live.interfaces.service.AbConfigService;
+import com.baidu.searchbox.live.list.controller.RecyleController;
 import com.baidu.searchbox.live.shell.list.basic.AbstractMixFakeShell;
 import com.baidu.searchbox.live.shell.list.basic.MixYYFakeShell;
 import com.baidu.searchbox.live.shell.list.template.MixAudioFakeShell;
@@ -48,6 +49,7 @@ import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.collections.CollectionsKt__IterablesKt;
+import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.PropertyReference1Impl;
@@ -534,7 +536,51 @@ public final class RecyleController implements IListManager {
         this.closeRoomIdList = new ArrayList();
         this.recyclerView$delegate = LazyKt__LazyJVMKt.lazy(new RecyleController$recyclerView$2(this));
         this.layoutManger$delegate = LazyKt__LazyJVMKt.lazy(new RecyleController$layoutManger$2(this));
-        this.adapter$delegate = LazyKt__LazyJVMKt.lazy(new RecyleController$adapter$2(this));
+        this.adapter$delegate = LazyKt__LazyJVMKt.lazy(new Function0<ListAdapter>(this) { // from class: com.baidu.searchbox.live.list.controller.RecyleController$adapter$2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ RecyleController this$0;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(0);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        super(((Integer) newInitContext2.callArgs[0]).intValue());
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // kotlin.jvm.functions.Function0
+            public final RecyleController.ListAdapter invoke() {
+                InterceptResult invokeV;
+                MiniUniqueId miniUniqueId2;
+                IMixActivityInterface iMixActivityInterface2;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                    Context context2 = this.this$0.getContext();
+                    List<LiveContainer.LiveItemModel> itemData = this.this$0.getListController().getItemData();
+                    miniUniqueId2 = this.this$0.mixUniqueId;
+                    List<WeakReference<AbstractMixFakeShell>> shellList = this.this$0.getListController().getShellList();
+                    iMixActivityInterface2 = this.this$0.mixActivity;
+                    return new RecyleController.ListAdapter(context2, itemData, miniUniqueId2, shellList, iMixActivityInterface2);
+                }
+                return (RecyleController.ListAdapter) invokeV.objValue;
+            }
+        });
     }
 
     @Override // com.baidu.searchbox.live.list.controller.IListManager
@@ -542,7 +588,11 @@ public final class RecyleController implements IListManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             getAdapter().notifyItemRangeRemoved(0, i);
-            getRecyclerView().removeAllViews();
+            try {
+                getRecyclerView().removeAllViews();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 

@@ -1,64 +1,49 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.res.ColorStateList;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.os.Process;
-import androidx.annotation.NonNull;
+import androidx.annotation.AnimRes;
+import androidx.annotation.IdRes;
+import androidx.annotation.Nullable;
+import com.baidu.swan.support.v4.app.Fragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class hi4 {
+public abstract class hi4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(@NonNull Context context, @NonNull String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            if (str != null) {
-                return context.checkPermission(str, Process.myPid(), Process.myUid());
-            }
-            throw new IllegalArgumentException("permission is null");
-        }
-        return invokeLL.intValue;
-    }
+    public abstract hi4 a(@IdRes int i, Fragment fragment);
 
-    public static final int b(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                return ji4.a(context, i);
-            }
-            return context.getResources().getColor(i);
-        }
-        return invokeLI.intValue;
-    }
+    public abstract hi4 b(@IdRes int i, Fragment fragment, @Nullable String str);
 
-    public static final ColorStateList c(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                return ji4.b(context, i);
-            }
-            return context.getResources().getColorStateList(i);
-        }
-        return (ColorStateList) invokeLI.objValue;
-    }
+    public abstract hi4 c(Fragment fragment, String str);
 
-    public static final Drawable d(Context context, int i) {
-        InterceptResult invokeLI;
+    public abstract hi4 d(@Nullable String str);
+
+    public abstract int e();
+
+    public abstract int f();
+
+    public abstract hi4 g(Fragment fragment);
+
+    public abstract hi4 h(Fragment fragment);
+
+    public abstract hi4 i(@AnimRes int i, @AnimRes int i2);
+
+    public abstract hi4 j(Fragment fragment);
+
+    public hi4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                return ii4.a(context, i);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return context.getResources().getDrawable(i);
         }
-        return (Drawable) invokeLI.objValue;
     }
 }

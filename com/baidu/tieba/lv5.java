@@ -1,23 +1,60 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.swan.apps.api.SwanApi$$ModulesProvider;
+import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
+import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.tbadk.core.atomData.QRCodeScanActivityConfig;
+import com.baidu.tieba.aiapps.apps.barcode.ScanCodeDelegateActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.nio.charset.Charset;
 @Singleton
 @Service
 /* loaded from: classes5.dex */
-public class lv5 implements up3 {
+public class lv5 implements no2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes5.dex */
+    public class a implements DelegateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mw1 a;
+
+        public a(lv5 lv5Var, mw1 mw1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lv5Var, mw1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mw1Var;
+        }
+
+        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
+        public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) && delegateResult.isOk()) {
+                this.a.a(delegateResult.mResult.getString(QRCodeScanActivityConfig.RESULT_SCAN_CODE, ""), "", Charset.defaultCharset().name());
+            }
+        }
+    }
 
     public lv5() {
         Interceptable interceptable = $ic;
@@ -33,43 +70,12 @@ public class lv5 implements up3 {
         }
     }
 
-    @Override // com.baidu.tieba.wp3
-    public void a(b53 b53Var) {
+    @Override // com.baidu.tieba.no2
+    public void a(Context context, mw1 mw1Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, b53Var) == null) && b53Var != null) {
-            b53Var.b(new nv5(b53Var));
-            b53Var.b(new gv5(b53Var));
-            b53Var.b(new ul3(b53Var));
-            b53Var.b(new wl3(b53Var));
-            b53Var.b(new yl3(b53Var));
-            b53Var.b(new s63(b53Var));
-            b53Var.b(new t63(b53Var));
-            b53Var.b(new t83(b53Var));
-            b53Var.b(new zl3(b53Var));
-            b53Var.b(new wq1(b53Var));
-            b53Var.b(new kv5(b53Var));
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, mw1Var) != null) || !(context instanceof Activity)) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.wp3
-    @Nullable
-    public Map<String, Object> b(@NonNull fs1 fs1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fs1Var)) == null) {
-            return SwanApi$$ModulesProvider.getV8ApiModules(fs1Var);
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.wp3
-    @Nullable
-    public Map<String, Object> c(@NonNull fs1 fs1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fs1Var)) == null) {
-            return SwanApi$$ModulesProvider.getWebviewApiModules(fs1Var);
-        }
-        return (Map) invokeL.objValue;
+        DelegateUtils.callOnMainWithActivity((Activity) context, ScanCodeDelegateActivity.class, kv5.class, new Bundle(), new a(this, mw1Var));
     }
 }

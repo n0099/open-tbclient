@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.LinearGradientView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -142,28 +142,28 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d04c0);
-            this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b5f);
-            this.a = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091b6a);
-            this.j = (LinearGradientView) findViewById(R.id.obfuscated_res_0x7f091b60);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091b67);
-            this.c = findViewById(R.id.obfuscated_res_0x7f091b68);
-            this.d = findViewById(R.id.obfuscated_res_0x7f09041a);
-            this.f = findViewById(R.id.obfuscated_res_0x7f091b63);
+            setContentView(R.layout.obfuscated_res_0x7f0d04bf);
+            this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b6d);
+            this.a = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091b78);
+            this.j = (LinearGradientView) findViewById(R.id.obfuscated_res_0x7f091b6e);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091b75);
+            this.c = findViewById(R.id.obfuscated_res_0x7f091b76);
+            this.d = findViewById(R.id.obfuscated_res_0x7f090415);
+            this.f = findViewById(R.id.obfuscated_res_0x7f091b71);
             this.e = this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.r);
-            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0fa5));
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091b62);
+            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0fb8));
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091b70);
             this.i = tbImageView;
             tbImageView.setDefaultBgResource(R.color.transparent);
-            this.i.setDefaultResource(R.drawable.obfuscated_res_0x7f080f9f);
-            this.h = findViewById(R.id.obfuscated_res_0x7f091b61);
-            this.g = findViewById(R.id.obfuscated_res_0x7f091b6e);
-            this.l = findViewById(R.id.obfuscated_res_0x7f091b64);
-            this.p = findViewById(R.id.obfuscated_res_0x7f091b65);
-            this.n = findViewById(R.id.obfuscated_res_0x7f091b66);
-            this.m = findViewById(R.id.obfuscated_res_0x7f091b6b);
-            this.q = findViewById(R.id.obfuscated_res_0x7f091b6c);
-            this.o = findViewById(R.id.obfuscated_res_0x7f091b6d);
+            this.i.setDefaultResource(R.drawable.obfuscated_res_0x7f080fb0);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091b6f);
+            this.g = findViewById(R.id.obfuscated_res_0x7f091b7c);
+            this.l = findViewById(R.id.obfuscated_res_0x7f091b72);
+            this.p = findViewById(R.id.obfuscated_res_0x7f091b73);
+            this.n = findViewById(R.id.obfuscated_res_0x7f091b74);
+            this.m = findViewById(R.id.obfuscated_res_0x7f091b79);
+            this.q = findViewById(R.id.obfuscated_res_0x7f091b7a);
+            this.o = findViewById(R.id.obfuscated_res_0x7f091b7b);
             this.b.setEnabled(true);
             this.b.setOnClickListener(this.r);
             this.c.setOnClickListener(this.r);
@@ -182,7 +182,7 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
                 z = false;
             }
             if (z) {
-                int g = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds690);
+                int g = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds690);
                 ViewGroup.LayoutParams layoutParams = this.k.getLayoutParams();
                 if (layoutParams instanceof LinearLayout.LayoutParams) {
                     ((LinearLayout.LayoutParams) layoutParams).height = g;

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MaterialThemeOverlay {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] ANDROID_THEME_OVERLAY_ATTRS;
@@ -37,7 +37,7 @@ public class MaterialThemeOverlay {
                 return;
             }
         }
-        ANDROID_THEME_OVERLAY_ATTRS = new int[]{16842752, R.attr.obfuscated_res_0x7f0406f8};
+        ANDROID_THEME_OVERLAY_ATTRS = new int[]{16842752, R.attr.obfuscated_res_0x7f040701};
         MATERIAL_THEME_OVERLAY_ATTR = new int[]{R.attr.obfuscated_res_0x7f0404b8};
     }
 

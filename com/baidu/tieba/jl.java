@@ -1,22 +1,27 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapShader;
 import android.graphics.Canvas;
-import android.graphics.Path;
-import android.graphics.Rect;
+import android.graphics.Matrix;
+import android.graphics.PointF;
 import android.graphics.RectF;
-import android.graphics.drawable.Drawable;
+import android.graphics.Shader;
+import android.widget.ImageView;
+import com.baidu.adp.newwidget.ImageView.DrawerArgs;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
 /* loaded from: classes5.dex */
-public class jl extends il {
+public class jl extends zk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Path v;
-    public boolean w;
-    public Rect x;
+    public Matrix s;
+    public BitmapShader t;
+    public RectF u;
 
     public jl() {
         Interceptable interceptable = $ic;
@@ -28,52 +33,134 @@ public class jl extends il {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.s = new Matrix();
+        this.u = new RectF();
+    }
+
+    @Override // com.baidu.tieba.zk
+    public void a(cl clVar, ImageView imageView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, clVar, imageView) == null) {
+            int b = clVar.b();
+            int a = clVar.a();
+            RectF rectF = this.g;
+            PointF b2 = b(rectF.left, rectF.top, this.f);
+            int i = (int) b2.x;
+            int i2 = (int) b2.y;
+            RectF rectF2 = this.g;
+            PointF b3 = b(rectF2.right, rectF2.bottom, this.f);
+            int i3 = (int) b3.x;
+            int i4 = (int) b3.y;
+            this.s.reset();
+            this.s.postScale((i3 - i) / b, (i4 - i2) / a);
+            this.s.postTranslate(i, i2);
+            if (clVar.e()) {
+                Bitmap bitmap = clVar.a.getBitmap();
+                Shader.TileMode tileMode = Shader.TileMode.CLAMP;
+                this.t = new BitmapShader(bitmap, tileMode, tileMode);
+            } else {
+                this.t = clVar.b.d();
+            }
+            BitmapShader bitmapShader = this.t;
+            if (bitmapShader == null) {
+                return;
+            }
+            bitmapShader.setLocalMatrix(this.s);
+            this.c.setShader(this.t);
+            int width = (imageView.getWidth() - imageView.getPaddingLeft()) - imageView.getPaddingRight();
+            int height = (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom();
+            this.u.set(Math.max(i, 0), Math.max(i2, 0), Math.min(i3, width), Math.min(i4, height));
+            DrawerArgs drawerArgs = this.l;
+            if (!drawerArgs.c) {
+                return;
+            }
+            float f = drawerArgs.d / 2.0f;
+            if (!drawerArgs.g) {
+                this.h.set(f, f, imageView.getWidth() - f, imageView.getHeight() - f);
+                return;
+            }
+            RectF rectF3 = this.h;
+            RectF rectF4 = this.u;
+            rectF3.set(rectF4.left + f, rectF4.top + f, rectF4.right - f, rectF4.bottom - f);
         }
     }
 
-    @Override // com.baidu.tieba.yk
-    public void e(Canvas canvas, Drawable drawable) {
+    @Override // com.baidu.tieba.zk
+    public void f(Canvas canvas, ImageView imageView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, canvas, drawable) == null) {
-            canvas.save();
-            t(drawable.getBounds());
-            try {
-                canvas.clipPath(this.v);
-            } catch (Exception unused) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, imageView) == null) {
+            DrawerArgs drawerArgs = this.l;
+            if (!drawerArgs.c) {
+                return;
             }
-            drawable.draw(canvas);
-            canvas.restore();
+            if (!drawerArgs.b) {
+                canvas.drawPath(l(this.h, drawerArgs.a), this.d);
+                return;
+            }
+            RectF rectF = this.u;
+            float f = (rectF.right + rectF.left) / 2.0f;
+            float f2 = (rectF.top + rectF.bottom) / 2.0f;
+            float min = Math.min(rectF.width(), this.u.height()) / 2.0f;
+            if (min <= 0.0f) {
+                f = (imageView.getRight() + imageView.getLeft()) / 2.0f;
+                f2 = (imageView.getTop() + imageView.getBottom()) / 2.0f;
+                min = Math.min(imageView.getWidth(), imageView.getHeight()) / 2.0f;
+            }
+            canvas.drawCircle(f, f2, min - (this.l.d / 2.0f), this.d);
         }
     }
 
-    public final void t(Rect rect) {
-        boolean z;
+    @Override // com.baidu.tieba.zk
+    public void i(Canvas canvas, ImageView imageView) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rect) != null) || rect == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, canvas, imageView) != null) || this.l.m == 0) {
             return;
         }
-        boolean z2 = true;
-        if (this.v != null && this.w == this.l.b) {
-            z = false;
+        int scrollX = imageView.getScrollX();
+        int scrollY = imageView.getScrollY();
+        canvas.translate(scrollX, scrollY);
+        this.e.setColor(this.l.m);
+        if (!this.l.b) {
+            this.o.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
+            canvas.drawPath(l(this.o, this.l.a), this.e);
         } else {
-            z = true;
+            float width = imageView.getWidth() / 2.0f;
+            float height = imageView.getHeight() / 2.0f;
+            canvas.drawCircle(width, height, Math.min(width, height) - (this.l.d / 2.0f), this.e);
         }
-        Rect rect2 = this.x;
-        if (rect2 != null && rect2.contains(rect)) {
-            z2 = z;
-        }
-        this.w = this.l.b;
-        if (z2) {
-            this.x = rect;
-            Path path = new Path();
-            this.v = path;
-            if (this.w) {
-                this.v.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
-            } else {
-                path.addRoundRect(new RectF(rect), this.l.a, Path.Direction.CW);
+        canvas.translate(-scrollX, -scrollY);
+    }
+
+    @Override // com.baidu.tieba.zk
+    public void h(Canvas canvas, cl clVar, ImageView imageView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, canvas, clVar, imageView) == null) {
+            boolean d = clVar.d();
+            if (d && clVar.d()) {
+                clVar.b.b(true);
             }
-            this.v.close();
+            DrawerArgs drawerArgs = this.l;
+            if (!drawerArgs.b) {
+                float[] fArr = drawerArgs.a;
+                float[] copyOf = Arrays.copyOf(fArr, fArr.length);
+                if (this.l.c) {
+                    for (int i = 0; i < copyOf.length; i++) {
+                        if (copyOf[i] != 0.0f) {
+                            copyOf[i] = copyOf[i] + 1.0f;
+                        }
+                    }
+                }
+                canvas.drawPath(l(this.u, copyOf), this.c);
+            } else {
+                RectF rectF = this.u;
+                canvas.drawCircle((rectF.right + rectF.left) / 2.0f, (rectF.top + rectF.bottom) / 2.0f, Math.min(rectF.width(), this.u.height()) / 2.0f, this.c);
+            }
+            if (d && clVar.d()) {
+                clVar.b.b(false);
+            }
         }
     }
 }

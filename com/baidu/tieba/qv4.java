@@ -1,119 +1,56 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import tbclient.VideoInfo;
 /* loaded from: classes6.dex */
-public class qv4 extends pv4 {
+public class qv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView l;
-    public TextView m;
-    public View.OnClickListener n;
-    public int o;
-    public int p;
 
-    @Override // com.baidu.tieba.pv4
-    public void f() {
+    public static VideoInfo a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qv4(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            if (jSONObject != null) {
+                VideoInfo.Builder builder = new VideoInfo.Builder();
+                builder.video_md5 = jSONObject.optString(VideoFinishResult.KEY_VIDEO_MD5);
+                builder.video_url = jSONObject.optString("video_url");
+                builder.video_duration = Integer.valueOf(jSONObject.optInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION));
+                builder.video_width = Integer.valueOf(jSONObject.optInt("video_width"));
+                builder.video_height = Integer.valueOf(jSONObject.optInt("video_height"));
+                builder.thumbnail_url = jSONObject.optString("thumbnail_url");
+                builder.thumbnail_width = Integer.valueOf(jSONObject.optInt("thumbnail_width"));
+                builder.thumbnail_height = Integer.valueOf(jSONObject.optInt("thumbnail_height"));
+                builder.video_length = Integer.valueOf(jSONObject.optInt("video_length"));
+                builder.play_count = Integer.valueOf(jSONObject.optInt("play_count"));
+                builder.media_subtitle = jSONObject.optString("media_subtitle");
+                builder.video_desc = new ArrayList();
+                JSONArray optJSONArray = jSONObject.optJSONArray("video_desc");
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        builder.video_desc.add(pv4.a(optJSONArray.optJSONObject(i)));
+                    }
+                }
+                builder.video_select_flag = Integer.valueOf(jSONObject.optInt("video_select_flag"));
+                builder.video_type = Integer.valueOf(jSONObject.optInt("video_type"));
+                builder.is_vertical = Integer.valueOf(jSONObject.optInt(TiebaStatic.Params.IS_VERTICAL));
+                builder.video_h265 = pv4.a(jSONObject.optJSONObject("video_h265"));
+                builder.mcn_lead_page = jSONObject.optString("mcn_lead_page");
+                builder.mcn_ad_card = bu4.a(jSONObject.optJSONObject("mcn_ad_card"));
+                builder.wth_mid_loc = Double.valueOf(jSONObject.optDouble("wth_mid_loc"));
+                builder.hth_mid_loc = Double.valueOf(jSONObject.optDouble("hth_mid_loc"));
+                return builder.build(true);
             }
+            return null;
         }
-        this.o = R.color.CAM_X0304;
-        this.p = R.color.CAM_X0107;
-        this.l = (TextView) e().findViewById(R.id.title_ok);
-        this.m = (TextView) e().findViewById(R.id.title_cancel);
-        i(true);
-    }
-
-    @Override // com.baidu.tieba.pv4
-    public void b(r9<?> r9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, r9Var) == null) {
-            super.b(r9Var);
-            o();
-        }
-    }
-
-    @Override // com.baidu.tieba.pv4
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            j(i);
-        }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            rw4.d(this.l).x(this.o);
-            rw4.d(this.m).x(this.p);
-        }
-    }
-
-    public qv4 p(int i, View.OnClickListener onClickListener) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, onClickListener)) == null) {
-            this.m.setText(i);
-            this.m.setOnClickListener(onClickListener);
-            this.m.setVisibility(0);
-            return this;
-        }
-        return (qv4) invokeIL.objValue;
-    }
-
-    public qv4 q(int i, View.OnClickListener onClickListener) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, onClickListener)) == null) {
-            this.l.setText(i);
-            this.l.setOnClickListener(onClickListener);
-            this.l.setVisibility(0);
-            this.n = onClickListener;
-            return this;
-        }
-        return (qv4) invokeIL.objValue;
-    }
-
-    public void r(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            if (z) {
-                this.o = R.color.CAM_X0304;
-                this.l.setEnabled(true);
-                this.l.setOnClickListener(this.n);
-            } else {
-                this.o = R.color.CAM_X0110;
-                this.l.setEnabled(false);
-                this.l.setOnClickListener(null);
-            }
-            o();
-        }
+        return (VideoInfo) invokeL.objValue;
     }
 }

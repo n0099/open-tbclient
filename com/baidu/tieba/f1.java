@@ -1,19 +1,7 @@
 package com.baidu.tieba;
-
-import com.badlogic.gdx.Application;
-import com.badlogic.gdx.Files;
-import com.badlogic.gdx.Graphics;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public class f1 {
-    public static /* synthetic */ Interceptable $ic;
-    public static Application a;
-    public static Graphics b;
-    public static e1 c;
-    public static Files d;
-    public static n3 e;
-    public static n3 f;
-    public static o3 g;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface f1 {
+    h2 a(l3 l3Var);
+
+    g2 f(l3 l3Var);
 }

@@ -1,12 +1,15 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.nadcore.requester.NadRequester;
-import com.baidu.nadcore.requester.RequestParameters;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface n01 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "adRequester");
+public class n01 implements pv0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(@NonNull RequestParameters requestParameters, @NonNull NadRequester.b bVar);
+    public abstract m01 a();
+
+    public abstract o01 b();
+
+    public abstract p01 c();
 }

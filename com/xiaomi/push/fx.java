@@ -75,7 +75,7 @@ public class fx implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             String str = c;
-            return str != null ? str : ae.m173a() ? "sandbox.xmpush.xiaomi.com" : ae.b() ? b : "app.chat.xiaomi.net";
+            return str != null ? str : ae.m177a() ? "sandbox.xmpush.xiaomi.com" : ae.b() ? b : "app.chat.xiaomi.net";
         }
         return (String) invokeV.objValue;
     }
@@ -83,7 +83,7 @@ public class fx implements Cloneable {
     public static final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            if (m.m571a(v.m697a()) && ae.b()) {
+            if (m.m635a(v.m761a()) && ae.b()) {
                 return;
             }
             c = str;
@@ -100,7 +100,7 @@ public class fx implements Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public int mo371a() {
+    public int m432a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f442a : invokeV.intValue;
@@ -114,14 +114,14 @@ public class fx implements Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m372a() {
+    public boolean m433a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f444a : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m373a() {
+    public byte[] mo434a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

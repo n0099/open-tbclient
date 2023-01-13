@@ -32,7 +32,7 @@ import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
 import com.baidu.android.imsdk.ubc.ScreenUbc;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.b80;
+import com.baidu.tieba.g80;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -392,7 +392,7 @@ public class MediaSessionManager extends BaseManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.mMediaTotalUnread + ChatMessageDBManager.getInstance(this.mContext).getNewMsgCount(SessionParam.MEDIA_UNREAD_NUM_CHAT_TYPES);
+            return this.mMediaTotalUnread + ChatMessageDBManager.getInstance(this.mContext).getNewMsgCount(SessionParam.MEDIA_UNREAD_NUM_CHAT_TYPES, 0L);
         }
         return invokeV.intValue;
     }
@@ -601,7 +601,7 @@ public class MediaSessionManager extends BaseManager {
             getSessionResult.totalUnread = getInstance(this.mContext).getMediaTotalUnread();
             getSessionResult.dotUnread = getInstance(this.mContext).getStrangerUnread();
             int advisoryUnread = getInstance(this.mContext).getAdvisoryUnread();
-            int totalUnReadMsgCountByAdvisory = ChatMsgManager.getTotalUnReadMsgCountByAdvisory(this.mContext);
+            int totalUnReadMsgCountByAdvisory = ChatMsgManager.getTotalUnReadMsgCountByAdvisory(this.mContext, 0L);
             if (advisoryUnread > 0) {
                 getSessionResult.consultUnread = advisoryUnread;
             } else {
@@ -832,7 +832,7 @@ public class MediaSessionManager extends BaseManager {
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             }
             try {
-                b80.e(this.mContext).d(this.mContext, creatMethodIntent);
+                g80.e(this.mContext).d(this.mContext, creatMethodIntent);
             } catch (Exception e) {
                 LogUtils.e("MediaSessionManager", "setServerBCMsgRead Exception ", e);
                 if (bIMValueCallBack != null) {
@@ -865,7 +865,7 @@ public class MediaSessionManager extends BaseManager {
             creatMethodIntent.putExtra(Constants.EXTRA_TRIGGER_REASON, sessionParam.reason);
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             creatMethodIntent.putExtra(Constants.EXTRA_SCREEN_KEY, sessionParam.screenKey);
-            b80.e(this.mContext).d(this.mContext, creatMethodIntent);
+            g80.e(this.mContext).d(this.mContext, creatMethodIntent);
         }
     }
 
@@ -1069,7 +1069,7 @@ public class MediaSessionManager extends BaseManager {
                 creatMethodIntent.putExtra("session_type", i);
             }
             try {
-                b80.e(this.mContext).d(this.mContext, creatMethodIntent);
+                g80.e(this.mContext).d(this.mContext, creatMethodIntent);
             } catch (Exception e) {
                 LogUtils.e("MediaSessionManager", "setServerBCMsgRead Exception ", e);
                 if (bIMValueCallBack != null) {

@@ -61,11 +61,9 @@ public final class TiebaIMActivityStaticAutoGenerateUrlCollectorImpl implements 
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             HashMap hashMap = new HashMap();
             ArrayList arrayList = new ArrayList();
-            arrayList.add("GroupChatActivityConfig");
             arrayList.add("OfficialMsgImageActivityConfig");
             arrayList.add("OfficialBarHistoryActivityConfig");
             arrayList.add("OfficialHistoryImageActivityConfig");
-            arrayList.add("PersonGroupActivityConfig");
             arrayList.add("ForumDetailActivityConfig");
             arrayList.add("RecommendDetailActivityConfig");
             arrayList.add("OfficialBarFeedActivityConfig");

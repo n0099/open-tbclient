@@ -1,33 +1,47 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.request.GetBannerConfigReqParams;
-import com.yy.mobile.framework.revenuesdk.payapi.request.GetSplitOrderConfigReqParams;
-import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tv.athena.revenue.api.MiddleRevenueConfig;
-import tv.athena.revenue.api.pay.params.PayFlowType;
+import java.util.concurrent.TimeUnit;
+import rx.exceptions.OnErrorFailedException;
+import rx.functions.Actions;
+import rx.internal.operators.EmptyObservableHolder;
+import rx.internal.operators.OnSubscribeFromIterable;
+import rx.internal.operators.OperatorMerge;
+import rx.internal.operators.OperatorReplay;
+import rx.internal.util.InternalObservableUtils;
+import rx.internal.util.ScalarSynchronousObservable;
+import rx.internal.util.UtilityFunctions;
+import rx.schedulers.Schedulers;
 /* loaded from: classes5.dex */
-public class k8a implements a8a {
+public class k8a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MiddleRevenueConfig a;
+    public final a<T> a;
 
-    public k8a(MiddleRevenueConfig middleRevenueConfig) {
+    /* loaded from: classes5.dex */
+    public interface a<T> extends y8a<q8a<? super T>> {
+        @Override // com.baidu.tieba.y8a
+        /* synthetic */ void call(T t);
+    }
+
+    /* loaded from: classes5.dex */
+    public interface b<R, T> extends c9a<q8a<? super R>, q8a<? super T>> {
+        @Override // com.baidu.tieba.c9a
+        /* synthetic */ R call(T t);
+    }
+
+    public k8a(a<T> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {middleRevenueConfig};
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,162 +51,327 @@ public class k8a implements a8a {
                 return;
             }
         }
-        this.a = middleRevenueConfig;
+        this.a = aVar;
     }
 
-    @Override // com.baidu.tieba.a8a
-    public GetBannerConfigReqParams a() {
+    public static <T> k8a<T> a(a<T> aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, aVar)) == null) {
+            return new k8a<>(rca.h(aVar));
+        }
+        return (k8a) invokeL.objValue;
+    }
+
+    public static <T> k8a<T> e(Iterable<? extends T> iterable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iterable)) == null) {
+            return a(new OnSubscribeFromIterable(iterable));
+        }
+        return (k8a) invokeL.objValue;
+    }
+
+    public static <T> k8a<T> f(T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, t)) == null) {
+            return ScalarSynchronousObservable.C(t);
+        }
+        return (k8a) invokeL.objValue;
+    }
+
+    public static <T> k8a<T> i(Iterable<? extends k8a<? extends T>> iterable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, iterable)) == null) {
+            return j(e(iterable));
+        }
+        return (k8a) invokeL.objValue;
+    }
+
+    public static <T> k8a<T> j(k8a<? extends k8a<? extends T>> k8aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, k8aVar)) == null) {
+            if (k8aVar.getClass() == ScalarSynchronousObservable.class) {
+                return ((ScalarSynchronousObservable) k8aVar).F(UtilityFunctions.b());
+            }
+            return (k8a<T>) k8aVar.g(OperatorMerge.a(false));
+        }
+        return (k8a) invokeL.objValue;
+    }
+
+    public final k8a<T> b(y8a<? super T> y8aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, y8aVar)) == null) {
+            return a(new j9a(this, new oaa(y8aVar, Actions.a(), Actions.a())));
+        }
+        return (k8a) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.baidu.tieba.c9a<? super T, ? extends com.baidu.tieba.k8a<? extends R>> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public final <R> k8a<R> d(c9a<? super T, ? extends k8a<? extends R>> c9aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, c9aVar)) == null) {
+            if (getClass() == ScalarSynchronousObservable.class) {
+                return ((ScalarSynchronousObservable) this).F(c9aVar);
+            }
+            return j(h(c9aVar));
+        }
+        return (k8a) invokeL.objValue;
+    }
+
+    public final <R> k8a<R> g(b<? extends R, ? super T> bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bVar)) == null) {
+            return a(new k9a(this.a, bVar));
+        }
+        return (k8a) invokeL.objValue;
+    }
+
+    public final <R> k8a<R> h(c9a<? super T, ? extends R> c9aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, c9aVar)) == null) {
+            return a(new l9a(this, c9aVar));
+        }
+        return (k8a) invokeL.objValue;
+    }
+
+    public final k8a<T> k(n8a n8aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, n8aVar)) == null) {
+            return l(n8aVar, taa.c);
+        }
+        return (k8a) invokeL.objValue;
+    }
+
+    public final ica<T> p(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
+            return OperatorReplay.E(this, i);
+        }
+        return (ica) invokeI.objValue;
+    }
+
+    public final r8a u(q8a<? super T> q8aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, q8aVar)) == null) {
+            return v(q8aVar, this);
+        }
+        return (r8a) invokeL.objValue;
+    }
+
+    public final r8a w(y8a<? super T> y8aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, y8aVar)) == null) {
+            if (y8aVar != null) {
+                return u(new paa(y8aVar, InternalObservableUtils.ERROR_NOT_IMPLEMENTED, Actions.a()));
+            }
+            throw new IllegalArgumentException("onNext can not be null");
+        }
+        return (r8a) invokeL.objValue;
+    }
+
+    public final k8a<T> y(n8a n8aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, n8aVar)) == null) {
+            if (this instanceof ScalarSynchronousObservable) {
+                return ((ScalarSynchronousObservable) this).G(n8aVar);
+            }
+            return a(new u9a(this, n8aVar));
+        }
+        return (k8a) invokeL.objValue;
+    }
+
+    public static <T> k8a<T> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            GetBannerConfigReqParams getBannerConfigReqParams = new GetBannerConfigReqParams();
-            getBannerConfigReqParams.setAppId(this.a.getAppId());
-            getBannerConfigReqParams.setUsedChannel(this.a.getUseChannel());
-            getBannerConfigReqParams.setUid(this.a.getUid());
-            getBannerConfigReqParams.setToken(this.a.getToken());
-            getBannerConfigReqParams.setTokenCallback(this.a.getTokenCallback());
-            return getBannerConfigReqParams;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return EmptyObservableHolder.instance();
         }
-        return (GetBannerConfigReqParams) invokeV.objValue;
+        return (k8a) invokeV.objValue;
     }
 
-    public String toString() {
+    public final k8a<T> n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "QueryParamsProviderImpl" + hashCode() + " revenueConfig:" + this.a.hashCode();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return (k8a<T>) g(r9a.a());
         }
-        return (String) invokeV.objValue;
+        return (k8a) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.a8a
-    public QueryCurrencyReqParams b() {
+    public final ica<T> o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            QueryCurrencyReqParams queryCurrencyReqParams = new QueryCurrencyReqParams();
-            queryCurrencyReqParams.setCurrencyType(this.a.getCurrencyType());
-            queryCurrencyReqParams.setAppId(this.a.getAppId());
-            queryCurrencyReqParams.setUsedChannel(this.a.getUseChannel());
-            queryCurrencyReqParams.setUid(this.a.getUid());
-            queryCurrencyReqParams.setToken(this.a.getToken());
-            queryCurrencyReqParams.setTokenCallback(this.a.getTokenCallback());
-            queryCurrencyReqParams.setReturnYb(true);
-            return queryCurrencyReqParams;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return OperatorReplay.D(this);
         }
-        return (QueryCurrencyReqParams) invokeV.objValue;
+        return (ica) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.a8a
-    public d8a c(PayFlowType payFlowType, Map<String, String> map) {
+    public final k8a<T> s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return m9a.a(this);
+        }
+        return (k8a) invokeV.objValue;
+    }
+
+    public final r8a t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return u(new paa(Actions.a(), InternalObservableUtils.ERROR_NOT_IMPLEMENTED, Actions.a()));
+        }
+        return (r8a) invokeV.objValue;
+    }
+
+    public static <T> r8a v(q8a<? super T> q8aVar, k8a<T> k8aVar) {
         InterceptResult invokeLL;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, payFlowType, map)) == null) {
-            d8a d8aVar = new d8a();
-            d8aVar.D(this.a.getUid());
-            d8aVar.A(this.a.getToken());
-            d8aVar.E(this.a.getUseChannel());
-            d8aVar.t(this.a.getCurrencyType());
-            d8aVar.B(this.a.getTokenCallback());
-            String deviceId = this.a.getDeviceId();
-            RLog.info("QueryParamsProviderImpl", "getMiddlePayWithProductInfoParams deviceId:" + deviceId);
-            HashMap hashMap = new HashMap();
-            if (deviceId != null) {
-                hashMap.put("deviceId", deviceId);
-            } else {
-                RLog.error("QueryParamsProviderImpl", "getMiddlePayWithProductInfoParams deviceId null", new Object[0]);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, q8aVar, k8aVar)) == null) {
+            if (q8aVar != null) {
+                if (k8aVar.a != null) {
+                    q8aVar.d();
+                    if (!(q8aVar instanceof lca)) {
+                        q8aVar = new lca(q8aVar);
+                    }
+                    try {
+                        rca.p(k8aVar, k8aVar.a).call(q8aVar);
+                        return rca.o(q8aVar);
+                    } catch (Throwable th) {
+                        w8a.e(th);
+                        if (q8aVar.isUnsubscribed()) {
+                            rca.j(rca.m(th));
+                        } else {
+                            try {
+                                q8aVar.onError(rca.m(th));
+                            } catch (Throwable th2) {
+                                w8a.e(th2);
+                                OnErrorFailedException onErrorFailedException = new OnErrorFailedException("Error occurred attempting to subscribe [" + th.getMessage() + "] and then again while trying to pass to onError.", th2);
+                                rca.m(onErrorFailedException);
+                                throw onErrorFailedException;
+                            }
+                        }
+                        return hda.c();
+                    }
+                }
+                throw new IllegalStateException("onSubscribe function can not be null.");
             }
-            if (payFlowType == PayFlowType.WALLET_PAY_FLOW) {
-                str = "1";
-            } else {
-                str = "0";
-            }
-            hashMap.put("chargeScene", str);
-            JSONObject f = f(map);
-            if (f != null) {
-                hashMap.put("clientInfo", f);
-            }
-            d8aVar.u(hashMap);
-            return d8aVar;
+            throw new IllegalArgumentException("subscriber can not be null");
         }
-        return (d8a) invokeLL.objValue;
+        return (r8a) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.a8a
-    public GetSplitOrderConfigReqParams d(int i, String str, long j) {
+    public final k8a<T> A(long j, TimeUnit timeUnit, k8a<? extends T> k8aVar, n8a n8aVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j)})) == null) {
-            GetSplitOrderConfigReqParams getSplitOrderConfigReqParams = new GetSplitOrderConfigReqParams();
-            getSplitOrderConfigReqParams.setAppId(this.a.getAppId());
-            getSplitOrderConfigReqParams.setUsedChannel(this.a.getUseChannel());
-            getSplitOrderConfigReqParams.setUid(this.a.getUid());
-            getSplitOrderConfigReqParams.setToken(this.a.getToken());
-            getSplitOrderConfigReqParams.setTokenCallback(this.a.getTokenCallback());
-            getSplitOrderConfigReqParams.setCurrencyType(this.a.getCurrencyType());
-            getSplitOrderConfigReqParams.setOrderId(str);
-            getSplitOrderConfigReqParams.setType(i);
-            getSplitOrderConfigReqParams.setAmount(j);
-            return getSplitOrderConfigReqParams;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), timeUnit, k8aVar, n8aVar})) == null) {
+            return (k8a<T>) g(new v9a(j, timeUnit, k8aVar, n8aVar));
         }
-        return (GetSplitOrderConfigReqParams) invokeCommon.objValue;
+        return (k8a) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.a8a
-    public QueryCurrencyReqParams e(Map<String, String> map) {
-        InterceptResult invokeL;
+    public final ica<T> q(int i, long j, TimeUnit timeUnit, n8a n8aVar) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, map)) == null) {
-            QueryCurrencyReqParams queryCurrencyReqParams = new QueryCurrencyReqParams();
-            queryCurrencyReqParams.setCurrencyType(this.a.getCurrencyType());
-            queryCurrencyReqParams.setAppId(this.a.getAppId());
-            queryCurrencyReqParams.setUsedChannel(this.a.getUseChannel());
-            queryCurrencyReqParams.setUid(this.a.getUid());
-            queryCurrencyReqParams.setToken(this.a.getToken());
-            queryCurrencyReqParams.setTokenCallback(this.a.getTokenCallback());
-            HashMap hashMap = new HashMap();
-            JSONObject f = f(map);
-            if (f != null) {
-                hashMap.put("clientInfo", f);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), timeUnit, n8aVar})) == null) {
+            if (i >= 0) {
+                return OperatorReplay.G(this, j, timeUnit, n8aVar, i);
             }
-            queryCurrencyReqParams.setExpandMap(hashMap);
-            return queryCurrencyReqParams;
+            throw new IllegalArgumentException("bufferSize < 0");
         }
-        return (QueryCurrencyReqParams) invokeL.objValue;
+        return (ica) invokeCommon.objValue;
     }
 
-    public final JSONObject f(Map<String, String> map) {
+    public final r8a B(q8a<? super T> q8aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, map)) == null) {
-            JSONObject jSONObject = null;
-            if (map == null) {
-                return null;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q8aVar)) == null) {
             try {
-                if (map.size() <= 0) {
-                    return null;
-                }
-                JSONObject jSONObject2 = new JSONObject();
+                q8aVar.d();
+                rca.p(this, this.a).call(q8aVar);
+                return rca.o(q8aVar);
+            } catch (Throwable th) {
+                w8a.e(th);
                 try {
-                    for (Map.Entry<String, String> entry : map.entrySet()) {
-                        if (entry.getKey() != null && entry.getValue() != null) {
-                            jSONObject2.put(entry.getKey(), entry.getValue());
-                        }
-                    }
-                    return jSONObject2;
-                } catch (JSONException e) {
-                    e = e;
-                    jSONObject = jSONObject2;
-                    RLog.error("QueryParamsProviderImpl", "getClientInfoJsonObject JSONException" + e.getLocalizedMessage(), new Object[0]);
-                    return jSONObject;
+                    q8aVar.onError(rca.m(th));
+                    return hda.c();
+                } catch (Throwable th2) {
+                    w8a.e(th2);
+                    OnErrorFailedException onErrorFailedException = new OnErrorFailedException("Error occurred attempting to subscribe [" + th.getMessage() + "] and then again while trying to pass to onError.", th2);
+                    rca.m(onErrorFailedException);
+                    throw onErrorFailedException;
                 }
-            } catch (JSONException e2) {
-                e = e2;
             }
-        } else {
-            return (JSONObject) invokeL.objValue;
         }
+        return (r8a) invokeL.objValue;
+    }
+
+    public final k8a<T> l(n8a n8aVar, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, n8aVar, i)) == null) {
+            return m(n8aVar, false, i);
+        }
+        return (k8a) invokeLI.objValue;
+    }
+
+    public final k8a<T> z(long j, TimeUnit timeUnit) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048596, this, j, timeUnit)) == null) {
+            return A(j, timeUnit, null, Schedulers.computation());
+        }
+        return (k8a) invokeJL.objValue;
+    }
+
+    public final k8a<T> m(n8a n8aVar, boolean z, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{n8aVar, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            if (this instanceof ScalarSynchronousObservable) {
+                return ((ScalarSynchronousObservable) this).G(n8aVar);
+            }
+            return (k8a<T>) g(new q9a(n8aVar, z, i));
+        }
+        return (k8a) invokeCommon.objValue;
+    }
+
+    public final ica<T> r(long j, TimeUnit timeUnit, n8a n8aVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Long.valueOf(j), timeUnit, n8aVar})) == null) {
+            return OperatorReplay.F(this, j, timeUnit, n8aVar);
+        }
+        return (ica) invokeCommon.objValue;
+    }
+
+    public final r8a x(y8a<? super T> y8aVar, y8a<Throwable> y8aVar2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, y8aVar, y8aVar2)) == null) {
+            if (y8aVar != null) {
+                if (y8aVar2 != null) {
+                    return u(new paa(y8aVar, y8aVar2, Actions.a()));
+                }
+                throw new IllegalArgumentException("onError can not be null");
+            }
+            throw new IllegalArgumentException("onNext can not be null");
+        }
+        return (r8a) invokeLL.objValue;
     }
 }

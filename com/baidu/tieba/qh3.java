@@ -1,34 +1,64 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 /* loaded from: classes5.dex */
 public class qh3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@NonNull Context context, @NonNull File file) {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, context, file) != null) || !file.exists()) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            j43 M = j43.M();
+            if (M != null) {
+                return String.format(str, M.O(), M.V());
+            }
+            return "";
         }
-        Intent intent = new Intent();
-        intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-        intent.setAction("android.intent.action.SEND");
-        intent.setTypeAndNormalize(yh3.s(file));
-        if (Build.VERSION.SDK_INT >= 24) {
-            intent.putExtra("android.intent.extra.STREAM", bi3.a(context, file));
-            intent.addFlags(1);
-        } else {
-            intent.putExtra("android.intent.extra.STREAM", Uri.fromFile(file));
+        return (String) invokeL.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            String a = a("https://smartapps.cn/%s/%s/page-frame.html");
+            if (tk1.a) {
+                Log.d("SwanAppRefererUtils", "getFixedReferer: " + a);
+            }
+            return a;
         }
-        context.startActivity(intent);
+        return (String) invokeV.objValue;
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            String b = b();
+            if (!TextUtils.isEmpty(b)) {
+                if (tk1.a) {
+                    Log.d("SwanAppRefererUtils", "call setRefererPattern for Slave Webview; referer is " + b);
+                }
+                WebSettingsGlobalBlink.setRefererPattern(b, fn2.i());
+            }
+        }
+    }
+
+    public static boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && str.startsWith("https://")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

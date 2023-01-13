@@ -1,241 +1,279 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.net.URI;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class pj3 extends d53 {
+public class pj3 implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean i;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public boolean d;
+    public int[] e;
+    public c f;
+    public long g;
+    public b h;
 
-    @Override // com.baidu.tieba.d53
-    @NonNull
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "/swanAPI/animView" : (String) invokeV.objValue;
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pj3(b53 b53Var) {
-        super(b53Var, "/swanAPI/animView");
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public MotionEvent a;
+        public pe2 b;
+        public final /* synthetic */ pj3 c;
+
+        public b(pj3 pj3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pj3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = pj3Var;
+        }
+
+        public final void b(MotionEvent motionEvent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) {
+                this.a = motionEvent;
+                this.b = this.c.d(motionEvent, "longtap");
+            }
+        }
+
+        public /* synthetic */ b(pj3 pj3Var, a aVar) {
+            this(pj3Var);
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
+                return;
+            }
+            this.c.g(this.b);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public double a;
+        public double b;
+
+        public c(pj3 pj3Var, double d, double d2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pj3Var, Double.valueOf(d), Double.valueOf(d2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = d;
+            this.b = d2;
+        }
+
+        public double a(c cVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
+                if (cVar == null) {
+                    return Double.MAX_VALUE;
+                }
+                double pow = Math.pow(cVar.a - this.a, 2.0d) + Math.pow(cVar.b - this.b, 2.0d);
+                if (pow <= 0.0d) {
+                    return 0.0d;
+                }
+                return Math.sqrt(pow);
+            }
+            return invokeL.doubleValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948063920, "Lcom/baidu/tieba/pj3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948063920, "Lcom/baidu/tieba/pj3;");
+                return;
+            }
+        }
+        i = tk1.a;
+    }
+
+    public final void h() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (yh3.f("1.12.0") && TextUtils.equals("canvas", this.c)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.d = z;
+        }
+    }
+
+    public final void i() {
+        View m;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || (m = di3.m(this.a)) == null) {
+            return;
+        }
+        m.getLocationOnScreen(this.e);
+    }
+
+    public pj3(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {b53Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((b53) objArr2[0], (String) objArr2[1]);
+            Object[] objArr = {str, str2, str3};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.d = false;
+        this.e = new int[2];
+        this.h = new b(this, null);
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
+        h();
+        i();
     }
 
-    @Nullable
-    public final zz1 q(UnitedSchemeEntity unitedSchemeEntity) {
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, view2, motionEvent)) == null) {
+            e(view2, motionEvent);
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r0v4, types: [org.json.JSONObject, T] */
+    public final pe2 c(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, unitedSchemeEntity)) == null) {
-            if (unitedSchemeEntity == null) {
-                return null;
-            }
-            JSONObject k = k(unitedSchemeEntity);
-            if (k == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                e12.c("SwanAppAction", "params is null");
-                return null;
-            }
-            zz1 zz1Var = new zz1();
-            try {
-                zz1Var.a(k);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                e12.d("SwanAppAction", "model parse exception:", e);
-            }
-            return zz1Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            oj3 oj3Var = new oj3(motionEvent);
+            oj3Var.i(this.e);
+            pe2 pe2Var = new pe2();
+            pe2Var.c = qj3.b(this.a, this.b, this.c, oj3Var.e(), oj3Var.c());
+            return pe2Var;
         }
-        return (zz1) invokeL.objValue;
+        return (pe2) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.d53
-    public boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, e43 e43Var) {
-        InterceptResult invokeLLLLL;
+    public final void g(pe2 pe2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, e43Var)) == null) {
-            zz1 q = q(unitedSchemeEntity);
-            if (q == null) {
-                kb3.b("animView", 1001, "model is null", 201, "model is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                e12.c("AbsSwanAppWidget", "model is null");
-                return false;
-            } else if (!q.j()) {
-                kb3.b("animView", 1001, "parse insert params, but invalid", 201, "parse insert params, but invalid");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                e12.c("AbsSwanAppWidget", "parse insert params, but invalid");
-                return false;
+        if (interceptable == null || interceptable.invokeL(1048580, this, pe2Var) == null) {
+            if (i) {
+                Log.d("SwanAppTouchListener", "sendEventToWebView = " + pe2Var.c);
+            }
+            if (!this.d) {
+                wp2.U().m(this.a, pe2Var);
             } else {
-                String r = r(q.t, e43Var);
-                if (TextUtils.isEmpty(r)) {
-                    kb3.b("animView", 1001, "AnimConfData is invalid", 201, "parse insert params, anim data is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "parse insert params, anim data is null");
-                    return false;
-                }
-                if (rp2.U().N()) {
-                    try {
-                        new JSONObject(r);
-                    } catch (Throwable th) {
-                        kb3.b("animView", 1001, "parse insert params, anim data is not json", 201, "parse insert params, anim data is not json");
-                        if (b63.b) {
-                            th.printStackTrace();
-                        }
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "parse insert params, anim data is not json");
-                        return false;
-                    }
-                }
-                vz1 insert = new yz1(context, q, r).insert();
-                boolean a = insert.a();
-                e12.i("AbsSwanAppWidget", "insert anim view success = " + a);
-                if (a) {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                } else {
-                    kb3.b("animView", 2009, "insert anim view, but failure: " + insert.b, 1001, "insert anim view, but failure: " + insert.b);
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, insert.b);
-                    e12.c("AbsSwanAppWidget", "insert anim view, but failure: " + insert.b);
-                }
-                return a;
+                wp2.U().u(pe2Var);
             }
         }
-        return invokeLLLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.d53
-    public boolean p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, e43 e43Var) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, unitedSchemeEntity, callbackHandler, str, e43Var)) == null) {
-            zz1 q = q(unitedSchemeEntity);
-            if (q == null) {
-                kb3.b("animView", 1001, "update, model is null", 201, "model is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                e12.c("AbsSwanAppWidget", "model is null");
-                return false;
-            } else if (!q.isValid()) {
-                kb3.b("animView", 1001, "parse update params, but invalid", 201, "parse update params, but invalid");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                e12.c("AbsSwanAppWidget", "parse update params, but invalid");
-                return false;
-            } else {
-                yz1 yz1Var = (yz1) r02.a(q);
-                if (yz1Var == null) {
-                    kb3.b("animView", 2001, "get component is null", 1001, "get component is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    e12.c("AbsSwanAppWidget", "get component is null");
-                    return false;
-                }
-                vz1 update = yz1Var.update((yz1) q);
-                boolean a = update.a();
-                e12.b("AbsSwanAppWidget", "update anim view success = " + a);
-                if (a) {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                } else {
-                    kb3.b("animView", 2001, "update anim view, but failure: " + update.b, 1001, "update anim view, but failure: " + update.b);
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, update.b);
-                    e12.c("AbsSwanAppWidget", "update anim view, but failure: " + update.b);
-                }
-                return a;
-            }
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.d53
-    public boolean o(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, e43 e43Var) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, str, e43Var)) == null) {
-            zz1 q = q(unitedSchemeEntity);
-            if (q == null) {
-                kb3.b("animView", 1001, "model is null", 201, "model is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                e12.c("AbsSwanAppWidget", "model is null");
-                return false;
-            } else if (!q.isValid()) {
-                kb3.b("animView", 1001, "parse remove params, but invalid", 201, "parse remove params, but invalid");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                e12.c("AbsSwanAppWidget", "parse remove params, but invalid");
-                return false;
-            } else {
-                yz1 yz1Var = (yz1) r02.a(q);
-                if (yz1Var == null) {
-                    kb3.b("animView", 2001, "get component is null", 1001, "get component is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    e12.c("AbsSwanAppWidget", "get component is null");
-                    return false;
-                }
-                vz1 B = yz1Var.B();
-                boolean a = B.a();
-                e12.i("AbsSwanAppWidget", "remove anim view success = " + a);
-                if (a) {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                } else {
-                    kb3.b("animView", 2001, "remove anim view, but failure: " + B.b, 1001, "remove anim view, but failure: " + B.b);
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, B.b);
-                    e12.c("AbsSwanAppWidget", "remove anim view, but failure: " + B.b);
-                }
-                return a;
-            }
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public final String r(String str, e43 e43Var) {
+    /* JADX WARN: Type inference failed for: r6v2, types: [org.json.JSONObject, T] */
+    public final pe2 d(MotionEvent motionEvent, String str) {
         InterceptResult invokeLL;
-        String L;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, e43Var)) == null) {
-            if (!TextUtils.isEmpty(str) && e43Var != null) {
-                try {
-                    if ("bdfile".equalsIgnoreCase(URI.create(str).getScheme())) {
-                        L = mb3.M(str, e43Var.b);
-                    } else {
-                        L = mb3.L(str, e43Var, e43Var.k0());
-                    }
-                    if (TextUtils.isEmpty(L)) {
-                        return null;
-                    }
-                    File file = new File(L);
-                    if (!ik4.y(file)) {
-                        return null;
-                    }
-                    return ik4.E(file);
-                } catch (Exception e) {
-                    if (b63.b) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent, str)) == null) {
+            oj3 oj3Var = new oj3(motionEvent, str);
+            oj3Var.i(this.e);
+            pe2 pe2Var = new pe2();
+            pe2Var.c = qj3.b(this.a, this.b, this.c, oj3Var.e(), oj3Var.c());
+            return pe2Var;
         }
-        return (String) invokeLL.objValue;
+        return (pe2) invokeLL.objValue;
+    }
+
+    public final void e(View view2, MotionEvent motionEvent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, motionEvent) == null) {
+            if (view2 != null && motionEvent != null && !TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b)) {
+                int actionMasked = motionEvent.getActionMasked();
+                if (actionMasked == 0 && motionEvent.getPointerCount() == 1) {
+                    this.f = new c(this, motionEvent.getX(), motionEvent.getY());
+                    this.g = motionEvent.getEventTime();
+                    this.h.b(motionEvent);
+                    view2.postDelayed(this.h, 350L);
+                    i();
+                } else if (actionMasked == 1 || actionMasked == 3 || !f(new c(this, motionEvent.getX(), motionEvent.getY()))) {
+                    view2.removeCallbacks(this.h);
+                }
+                g(c(motionEvent));
+                if (actionMasked == 1 && f(new c(this, motionEvent.getX(), motionEvent.getY())) && motionEvent.getEventTime() - this.g < 350) {
+                    g(d(motionEvent, "tap"));
+                    return;
+                }
+                return;
+            }
+            j12.c("SwanAppTouchListener", "params is null, slaveId = " + this.a + " ; viewId = " + this.b);
+        }
+    }
+
+    public final boolean f(c cVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cVar)) == null) {
+            c cVar2 = this.f;
+            if (cVar2 != null && cVar2.a(cVar) <= ai3.g(10.0f)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

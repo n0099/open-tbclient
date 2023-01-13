@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,31 +13,39 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ls1 extends js1 {
+public abstract class ls1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.hs1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CheckSessionApi" : (String) invokeV.objValue;
-    }
+    public String a;
+    public ms1 b;
 
     /* loaded from: classes5.dex */
-    public class a implements xi3<h93<JSONObject>> {
+    public interface b {
+        void a(jw1 jw1Var);
+    }
+
+    @NonNull
+    public abstract jw1 d(@NonNull JSONObject jSONObject, @NonNull b bVar);
+
+    @NonNull
+    public abstract jw1 e(@NonNull JSONObject jSONObject);
+
+    public abstract boolean i();
+
+    /* loaded from: classes5.dex */
+    public class a implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pl1 a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ ls1 b;
 
-        public a(ls1 ls1Var, pl1 pl1Var, CallbackHandler callbackHandler, String str) {
+        public a(ls1 ls1Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ls1Var, pl1Var, callbackHandler, str};
+                Object[] objArr = {ls1Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,114 +55,113 @@ public class ls1 extends js1 {
                     return;
                 }
             }
-            this.a = pl1Var;
-            this.b = callbackHandler;
-            this.c = str;
+            this.b = ls1Var;
+            this.a = str;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xi3
-        /* renamed from: b */
-        public void a(h93<JSONObject> h93Var) {
-            JSONObject wrapCallbackParams;
+        @Override // com.baidu.tieba.ls1.b
+        public void a(jw1 jw1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h93Var) == null) {
-                if (h93Var.c() && ls1.y(h93Var.a)) {
-                    JSONObject optJSONObject = h93Var.a.optJSONObject("data");
-                    if (optJSONObject != null && optJSONObject.optBoolean("result")) {
-                        wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(optJSONObject, 0);
-                        xa3.T("checkSession", "success");
-                    } else {
-                        wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "session key expired");
-                        xa3.U("checkSession", com.baidu.pass.biometrics.face.liveness.b.a.g0, "session key expired");
-                    }
-                } else {
-                    wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(h93Var.b());
-                    this.a.g(this.b, wrapCallbackParams.toString());
-                    xa3.U("checkSession", com.baidu.pass.biometrics.face.liveness.b.a.g0, "result failed");
+            if (interceptable == null || interceptable.invokeL(1048576, this, jw1Var) == null) {
+                if (ls1.c) {
+                    Log.d("SwanAutoSyncApiHandler", this.b.a + " async callback: " + jw1Var.toString());
                 }
-                this.b.handleSchemeDispatchCallback(this.c, wrapCallbackParams.toString());
+                this.b.b.d(this.a, jw1Var);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ls1(@NonNull fs1 fs1Var) {
-        super(fs1Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947953343, "Lcom/baidu/tieba/ls1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947953343, "Lcom/baidu/tieba/ls1;");
+                return;
+            }
+        }
+        c = tk1.a;
+    }
+
+    public ls1(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fs1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((fs1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = str;
     }
 
-    public static boolean y(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public jw1 f(@NonNull JSONObject jSONObject, @NonNull String str, @NonNull ms1 ms1Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject != null && TextUtils.equals(jSONObject.optString("errno"), "0")) {
-                return true;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str, ms1Var)) == null) {
+            this.b = ms1Var;
+            if (c) {
+                Log.d("SwanAutoSyncApiHandler", this.a + " is called, can use sync mode: " + i() + ", params" + jSONObject.toString() + ", callback: " + str);
             }
-            return false;
+            if (i()) {
+                return h(jSONObject);
+            }
+            return g(jSONObject, str);
         }
-        return invokeL.booleanValue;
+        return (jw1) invokeLLL.objValue;
     }
 
-    public ew1 x(String str) {
+    public final jw1 g(@NonNull JSONObject jSONObject, @Nullable String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, jSONObject, str)) == null) {
+            if (c) {
+                Log.d("SwanAutoSyncApiHandler", this.a + " start handle async");
+            }
+            jw1 d = d(jSONObject, new a(this, str));
+            if (!d.h("isSync", Boolean.FALSE)) {
+                if (c) {
+                    Log.e("SwanAutoSyncApiHandler", this.a + " handleAsync encounter error, json exception");
+                }
+                return new jw1(1001, "make result json error");
+            }
+            if (c) {
+                Log.d("SwanAutoSyncApiHandler", this.a + " end handle async, processing in other thread, sync result: " + d.toString());
+            }
+            return d;
+        }
+        return (jw1) invokeLL.objValue;
+    }
+
+    public final jw1 h(@NonNull JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#checkSession", false);
-            xa3.T("checkSession", "create");
-            pl1 j = mn2.j();
-            CallbackHandler g = a().g();
-            e43 b0 = e43.b0();
-            if (b0 == null) {
-                j.g(g, UnitedSchemeUtility.wrapCallbackParams(1001, "swan app is null").toString());
-                xa3.U("checkSession", com.baidu.pass.biometrics.face.liveness.b.a.g0, "empty swanApp");
-                return new ew1(1001, "swan app is null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
+            if (c) {
+                Log.d("SwanAutoSyncApiHandler", this.a + " start handle sync");
             }
-            String O = b0.O();
-            if (TextUtils.isEmpty(O)) {
-                j.g(g, UnitedSchemeUtility.wrapCallbackParams(1001, "empty app key").toString());
-                xa3.U("checkSession", com.baidu.pass.biometrics.face.liveness.b.a.g0, "empty app key");
-                return new ew1(1001, "empty app key");
+            jw1 e = e(jSONObject);
+            if (!e.h("isSync", Boolean.TRUE)) {
+                if (c) {
+                    Log.e("SwanAutoSyncApiHandler", this.a + " handleSync encounter error, json exception");
+                }
+                return new jw1(1001, "make result json error");
             }
-            JSONObject r = hs1.r(str);
-            if (r == null) {
-                j.g(g, UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams").toString());
-                xa3.U("checkSession", com.baidu.pass.biometrics.face.liveness.b.a.g0, "empty joParams");
-                return new ew1(201, "empty joParams");
+            if (c) {
+                Log.d("SwanAutoSyncApiHandler", this.a + " end handle sync, result: " + e.toString());
             }
-            String optString = r.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                j.g(g, UnitedSchemeUtility.wrapCallbackParams(201, "cb is empty").toString());
-                xa3.U("checkSession", com.baidu.pass.biometrics.face.liveness.b.a.g0, "empty cb");
-                return new ew1(201, "cb is empty");
-            }
-            Context context = getContext();
-            if (!b0.N().e(context)) {
-                j.g(g, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
-                xa3.U("checkSession", com.baidu.pass.biometrics.face.liveness.b.a.g0, "account not login");
-                return new ew1(10004, "user not logged in");
-            }
-            xa3.T("checkSession", "checkSession");
-            k93 g2 = d43.K().x().a().b().g(context, O);
-            g2.q("checkSession");
-            g2.o(new a(this, j, g, optString));
-            g2.call();
-            return new ew1(0);
+            return e;
         }
-        return (ew1) invokeL.objValue;
+        return (jw1) invokeL.objValue;
     }
 }

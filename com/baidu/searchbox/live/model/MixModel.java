@@ -446,10 +446,13 @@ public final class MixModel {
             liveItemModel.setAvcUrl(slideInfo.avcUrl);
             liveItemModel.setHevcUrl(slideInfo.hevcUrl);
             liveItemModel.setRtcUrl(slideInfo.rtcUrl);
+            liveItemModel.setRtcHevcUrl(slideInfo.rtcHevcUrl);
             liveItemModel.setQuic(slideInfo.quic);
             liveItemModel.setBlurBg(slideInfo.isBlurBg);
             liveItemModel.setHighlightUrl(slideInfo.highlightUrl);
             liveItemModel.setKabrSpts(slideInfo.kabrSpts);
+            liveItemModel.setMultiRate(slideInfo.multiRate);
+            liveItemModel.setVrParams(slideInfo.vrParams);
             return liveItemModel;
         }
         return (LiveContainer.LiveItemModel) invokeL.objValue;

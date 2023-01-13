@@ -149,9 +149,10 @@ public class gm extends gn {
     }
 
     @Override // com.xiaomi.push.gn
-    public String a() {
+    /* renamed from: a */
+    public String mo442a() {
         InterceptResult invokeV;
-        gr m379a;
+        gr m443a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StringBuilder sb = new StringBuilder();
@@ -244,8 +245,8 @@ public class gm extends gn {
                 sb.append(this.c);
                 sb.append("</thread>");
             }
-            if ("error".equalsIgnoreCase(this.b) && (m379a = m379a()) != null) {
-                sb.append(m379a.m383a());
+            if ("error".equalsIgnoreCase(this.b) && (m443a = m443a()) != null) {
+                sb.append(m443a.m446a());
             }
             sb.append(o());
             sb.append("</message>");
@@ -254,7 +255,8 @@ public class gm extends gn {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.xiaomi.push.gn
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.gn.a(Ljava/lang/String;)Lcom/xiaomi/push/gk; */
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.gn.a(Ljava/lang/String;)Ljava/lang/Object; */
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -262,7 +264,7 @@ public class gm extends gn {
         }
     }
 
-    @Override // com.xiaomi.push.gn
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.gn.a(Ljava/lang/String;Ljava/lang/String;)Lcom/xiaomi/push/gk; */
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
@@ -278,7 +280,7 @@ public class gm extends gn {
         }
     }
 
-    @Override // com.xiaomi.push.gn
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.gn.b()Ljava/util/Collection; */
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

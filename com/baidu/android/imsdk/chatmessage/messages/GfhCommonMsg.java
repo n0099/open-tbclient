@@ -4,7 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.chatmessage.messages.gfh.GfhImage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -255,7 +254,7 @@ public class GfhCommonMsg extends GfhBaseMsg {
                 this.image = gfhImage;
                 gfhImage.url = optJSONObject.optString("url");
                 this.image.thumbnail = optJSONObject.optString("thumbnail");
-                this.image.width = optJSONObject.optInt(Config.DEVICE_WIDTH);
+                this.image.width = optJSONObject.optInt("w");
                 this.image.height = optJSONObject.optInt("h");
                 this.image.title = optJSONObject.optString("title");
                 this.image.subTitle = optJSONObject.optString("sub_title");

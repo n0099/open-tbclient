@@ -13,10 +13,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
+import com.baidu.tieba.cx4;
 import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter;
 import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.itemdata.RecallSysMsg;
-import com.baidu.tieba.rw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,10 +57,10 @@ public class RecallAdapter extends BaseSysAdapter<RecallSysMsg, Holder> {
                     return;
                 }
             }
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c22);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ed7);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c30);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ee3);
             this.c = (TextView) view2.findViewById(R.id.user_name);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092578);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925a8);
         }
     }
 
@@ -93,7 +93,7 @@ public class RecallAdapter extends BaseSysAdapter<RecallSysMsg, Holder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
-            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01d8, viewGroup, false));
+            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01d5, viewGroup, false));
         }
         return (Holder) invokeL.objValue;
     }
@@ -120,40 +120,44 @@ public class RecallAdapter extends BaseSysAdapter<RecallSysMsg, Holder> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), viewGroup, recallSysMsg, holder, list, Integer.valueOf(i2)})) == null) {
-            rw4 d = rw4.d(holder.a);
+            cx4 d = cx4.d(holder.a);
             d.n(R.string.J_X04);
             d.f(R.color.CAM_X0603);
-            rw4 d2 = rw4.d(holder.b);
+            cx4 d2 = cx4.d(holder.b);
             d2.v(R.color.CAM_X0101);
             d2.z(R.dimen.T_X09);
             d2.A(R.string.F_X01);
-            rw4 d3 = rw4.d(holder.c);
+            cx4 d3 = cx4.d(holder.c);
             d3.v(R.color.CAM_X0101);
             d3.z(R.dimen.T_X09);
             d3.A(R.string.F_X01);
-            rw4 d4 = rw4.d(holder.d);
+            cx4 d4 = cx4.d(holder.d);
             d4.v(R.color.CAM_X0101);
             d4.z(R.dimen.T_X09);
             d4.A(R.string.F_X01);
             if (recallSysMsg != null && recallSysMsg.getUserTo() != null && recallSysMsg.getUserFrom() != null) {
                 if (String.valueOf(recallSysMsg.getUserTo().getUserId()).equals(TbadkCoreApplication.getCurrentAccount())) {
                     int role = recallSysMsg.getUserFrom().getRole();
-                    if (role == 2) {
-                        holder.b.setText(R.string.obfuscated_res_0x7f0f0832);
-                    } else if (role == 1) {
-                        holder.b.setText(R.string.obfuscated_res_0x7f0f0846);
+                    if (role != 2 && role != 3) {
+                        if (role == 1) {
+                            holder.b.setText(R.string.obfuscated_res_0x7f0f085a);
+                        }
+                    } else {
+                        holder.b.setText(R.string.obfuscated_res_0x7f0f083e);
                     }
                     holder.c.setText("");
-                    holder.d.setText(R.string.obfuscated_res_0x7f0f0845);
+                    holder.d.setText(R.string.obfuscated_res_0x7f0f0859);
                 } else {
                     int role2 = recallSysMsg.getUserFrom().getRole();
-                    if (role2 == 2) {
-                        holder.b.setText(R.string.obfuscated_res_0x7f0f0832);
-                    } else if (role2 == 1) {
-                        holder.b.setText(R.string.obfuscated_res_0x7f0f0846);
+                    if (role2 != 2 && role2 != 3) {
+                        if (role2 == 1) {
+                            holder.b.setText(R.string.obfuscated_res_0x7f0f085a);
+                        }
+                    } else {
+                        holder.b.setText(R.string.obfuscated_res_0x7f0f083e);
                     }
                     holder.c.setText(recallSysMsg.getUserTo().getUsername());
-                    holder.d.setText(R.string.obfuscated_res_0x7f0f0844);
+                    holder.d.setText(R.string.obfuscated_res_0x7f0f0858);
                 }
             }
             TiebaStatic.log(new StatisticItem("c15095").param("obj_type", 3).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.f).param("room_id", this.g));

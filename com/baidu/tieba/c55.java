@@ -1,583 +1,534 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.net.Uri;
+import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdhttpdns.BDHttpDns;
-import com.baidu.bdhttpdns.BDHttpDnsResult;
-import com.baidu.tbadk.TiebaIMConfig;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.switchs.UseHttpdnsSdkSwitch;
-import com.baidu.tieba.w45;
-import com.baidu.tieba.z45;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.core.data.MediaData;
+import com.baidu.tbadk.core.data.OriginalForumInfo;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.URLEncoder;
+import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-/* loaded from: classes3.dex */
+import tbclient.Item;
+import tbclient.ItemInfo;
+import tbclient.ItemPoint;
+import tbclient.ItemTable;
+/* loaded from: classes4.dex */
 public class c55 {
     public static /* synthetic */ Interceptable $ic;
-    public static c55 l;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public boolean c;
-    public boolean d;
-    public List<String> e;
-    public boolean f;
-    public final Object g;
-    public List<String> h;
-    public boolean i;
-    public BDHttpDnsResult j;
-    public final xj k;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947625766, "Lcom/baidu/tieba/c55;")) == null) {
-            return;
+    public static int e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            if (i == 1) {
+                return 5;
+            }
+            if (i == 3) {
+                return 3;
+            }
+            if (i == 4) {
+                return 4;
+            }
+            if (i == 6) {
+                return 8;
+            }
+            if (i == 10) {
+                return 16;
+            }
+            if (i == 11) {
+                return 24;
+            }
+            if (i == 12) {
+                return 20;
+            }
+            if (i == 13) {
+                return 30;
+            }
+            return i == 15 ? 33 : 0;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947625766, "Lcom/baidu/tieba/c55;");
+        return invokeI.intValue;
+    }
+
+    public static void a(ShareDialogConfig shareDialogConfig, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65536, null, shareDialogConfig, i) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 4) {
+                        if (i != 16) {
+                            if (i != 7) {
+                                if (i != 8) {
+                                    if (i != 9) {
+                                        if (i != 12) {
+                                            if (i != 13) {
+                                                shareDialogConfig.setFrom(ShareDialogConfig.From.Default);
+                                                return;
+                                            } else {
+                                                shareDialogConfig.setFrom(ShareDialogConfig.From.PersonPolymeric);
+                                                return;
+                                            }
+                                        }
+                                        shareDialogConfig.setFrom(ShareDialogConfig.From.HomeGameTab);
+                                        return;
+                                    }
+                                    shareDialogConfig.setFrom(ShareDialogConfig.From.Concern);
+                                    return;
+                                }
+                                shareDialogConfig.setFrom(ShareDialogConfig.From.PersonPolymeric);
+                                return;
+                            }
+                            shareDialogConfig.setFrom(ShareDialogConfig.From.Recommend);
+                            return;
+                        }
+                        shareDialogConfig.setFrom(ShareDialogConfig.From.HomeVideoTab);
+                        return;
+                    }
+                    shareDialogConfig.setFrom(ShareDialogConfig.From.PB);
+                    return;
+                }
+                shareDialogConfig.setFrom(ShareDialogConfig.From.FRS);
+                return;
+            }
+            shareDialogConfig.setFrom(ShareDialogConfig.From.Recommend);
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class d implements z45.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c55 a;
-
-        /* loaded from: classes3.dex */
-        public class a implements w45.b {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d a;
-
-            public a(d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
+    public static void b(Context context, ThreadData threadData) {
+        ItemInfo k0;
+        List<ItemPoint> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, context, threadData) == null) && (context instanceof to6)) {
+            to6 to6Var = (to6) context;
+            if (!to6Var.w() || threadData == null || threadData.getItem() != null || (k0 = to6Var.k0()) == null) {
+                return;
+            }
+            Item.Builder builder = new Item.Builder();
+            builder.item_id = Long.valueOf(k0.id.longValue());
+            builder.item_name = k0.name;
+            builder.icon_size = k0.icon_size;
+            builder.icon_url = k0.icon_url;
+            builder.tags = k0.tags;
+            ItemTable itemTable = k0.score;
+            if (itemTable != null && (list = itemTable.item_point) != null) {
+                Iterator<ItemPoint> it = list.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    ItemPoint next = it.next();
+                    if (next.time_intval.equals("all")) {
+                        Double d = next.point;
+                        builder.score = d;
+                        builder.star = Integer.valueOf((int) (d.doubleValue() / 2.0d));
+                        break;
                     }
                 }
-                this.a = dVar;
             }
+            Item build = builder.build(false);
+            ItemData itemData = new ItemData();
+            itemData.parseProto(build);
+            threadData.setItemData(itemData);
+        }
+    }
 
-            @Override // com.baidu.tieba.w45.b
-            public void a() {
-                Interceptable interceptable = $ic;
-                if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                    return;
+    public static String c(ThreadData threadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) {
+            String str = null;
+            if (threadData == null) {
+                return null;
+            }
+            if (threadData.getThreadAlaInfo() != null && !TextUtils.isEmpty(threadData.getThreadAlaInfo().cover)) {
+                return threadData.getThreadAlaInfo().cover;
+            }
+            if (threadData.getVoiceRoomData() != null && threadData.getVoiceRoomData().room_id.longValue() > 0) {
+                if (threadData.getForumData() == null) {
+                    return null;
                 }
-                this.a.a.b = 0;
-                this.a.a.e = w45.f().g();
-                if (this.a.a.e != null) {
-                    this.a.a.A("change ip to reconnect with DNS' failed.");
-                } else {
-                    this.a.a.f = false;
+                return threadData.getForumData().c;
+            } else if (threadData.getMedias() == null) {
+                return null;
+            } else {
+                ArrayList<MediaData> medias = threadData.getMedias();
+                int size = medias.size();
+                int i = 0;
+                while (true) {
+                    if (i >= size) {
+                        break;
+                    }
+                    MediaData mediaData = medias.get(i);
+                    if (mediaData != null && (mediaData.getType() == 3 || mediaData.getType() == 5)) {
+                        if (!StringUtils.isNull(mediaData.getThumbnails_url())) {
+                            str = mediaData.getThumbnails_url();
+                            break;
+                        } else if (!StringUtils.isNull(mediaData.getPicUrl())) {
+                            str = mediaData.getPicUrl();
+                            break;
+                        }
+                    }
+                    i++;
                 }
+                if (str == null && threadData.getThreadVideoInfo() != null && !TextUtils.isEmpty(threadData.getThreadVideoInfo().thumbnail_url)) {
+                    return threadData.getThreadVideoInfo().thumbnail_url;
+                }
+                return str;
             }
         }
+        return (String) invokeL.objValue;
+    }
 
-        public d(c55 c55Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c55Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static int d(ThreadData threadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, threadData)) == null) {
+            if (threadData == null) {
+                return 0;
             }
-            this.a = c55Var;
-        }
-
-        @Override // com.baidu.tieba.z45.c
-        public void a(boolean z) {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                x45 e = x45.e();
-                if (z) {
-                    i = 2;
-                } else {
-                    i = 1;
+            if (threadData.isVideoWorksInfo()) {
+                return 11;
+            }
+            if (threadData.isBJHArticleThreadType()) {
+                return 10;
+            }
+            if (threadData.isBJHVideoThreadType()) {
+                return 9;
+            }
+            if (threadData.isBJHVideoDynamicThreadType()) {
+                return 8;
+            }
+            if (threadData.isBJHNormalThreadType()) {
+                return 7;
+            }
+            if (threadData.isShareThread) {
+                return 6;
+            }
+            int i = threadData.threadType;
+            if (i == 0) {
+                return 1;
+            }
+            if (i == 40) {
+                return 2;
+            }
+            if (i != 49 && i != 69) {
+                if (i == 54) {
+                    return 4;
                 }
-                e.a(i);
-                if (z) {
-                    this.a.e = w45.f().g();
-                    if (this.a.e == null) {
-                        w45.f().m(new a(this));
-                        return;
+                return 5;
+            }
+            return 3;
+        }
+        return invokeL.intValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:107:0x037a  */
+    /* JADX WARN: Removed duplicated region for block: B:110:0x0385  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x016b  */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x016d  */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x01dd  */
+    /* JADX WARN: Removed duplicated region for block: B:62:0x0228  */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x0254  */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x025c  */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x02a4  */
+    /* JADX WARN: Removed duplicated region for block: B:80:0x02ac  */
+    /* JADX WARN: Removed duplicated region for block: B:81:0x02ae  */
+    /* JADX WARN: Removed duplicated region for block: B:84:0x02b3  */
+    /* JADX WARN: Removed duplicated region for block: B:87:0x02cb  */
+    /* JADX WARN: Removed duplicated region for block: B:95:0x02f3  */
+    /* JADX WARN: Removed duplicated region for block: B:98:0x0306  */
+    /* JADX WARN: Removed duplicated region for block: B:99:0x030e  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void f(Context context, ThreadData threadData, int i, int i2) {
+        String tid;
+        String str;
+        String str2;
+        boolean z;
+        boolean z2;
+        String c;
+        Uri parse;
+        boolean z3;
+        String format;
+        ShareItem shareItem;
+        boolean z4;
+        boolean z5;
+        OriginalThreadInfo.ShareInfo generateShareInfo;
+        ThreadData threadData2;
+        boolean z6;
+        boolean z7;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLII(65541, null, context, threadData, i, i2) == null) && threadData != null && context != null) {
+            String valueOf = String.valueOf(threadData.getFid());
+            String forum_name = threadData.getForum_name();
+            OriginalForumInfo originalForumInfo = threadData.mOriginalForumInfo;
+            if (originalForumInfo != null) {
+                valueOf = originalForumInfo.id;
+                forum_name = originalForumInfo.ori_fname;
+            }
+            String str3 = forum_name;
+            String str4 = valueOf;
+            String title = threadData.getTitle();
+            if (TextUtils.isEmpty(title)) {
+                title = threadData.getAbstract();
+            }
+            String str5 = title;
+            if (threadData.isUgcThreadType()) {
+                tid = threadData.getBaijiahaoData().oriUgcTid;
+                str = "?share=9105&fr=dshare&dtype=" + threadData.getBaijiahaoData().oriUgcType + "&dvid=" + threadData.getBaijiahaoData().oriUgcVid + "&nid=" + threadData.getBaijiahaoData().oriUgcNid;
+            } else {
+                tid = threadData.getTid();
+                str = "?share=9105&fr=sharewise";
+            }
+            String str6 = str;
+            String str7 = tid;
+            String str8 = str6 + "&share_from=post";
+            if (threadData.getVoiceRoomData() != null && threadData.getVoiceRoomData().room_id.longValue() > 0) {
+                str2 = String.format(TbConfig.TIEBA_ADDRESS + "mo/q/wise-main-share/shareVoiceRoom?room_id=%s", String.valueOf(threadData.getVoiceRoomData().room_id));
+                z = true;
+            } else {
+                str2 = TbConfig.HTTPS_PB_PREFIX + str7 + str8;
+                z = false;
+            }
+            if (threadData.getThreadAlaInfo() != null && threadData.getThreadAlaInfo().user_info != null) {
+                try {
+                    str2 = "https://tieba.baidu.com/ala/share?uname=" + URLEncoder.encode(threadData.getThreadAlaInfo().user_info.user_name, IMAudioTransRequest.CHARSET);
+                    z2 = false;
+                } catch (Exception e) {
+                    BdLog.e(e);
+                }
+                if (threadData.getThreadAlaInfo() != null && threadData.getThreadAlaInfo().isLegalYYLiveData()) {
+                    str2 = TbConfig.HTTPS_YY_LIVE_SHARE_PREFIX + threadData.getThreadAlaInfo().mYyExtData.mSid + "&livessid=" + threadData.getThreadAlaInfo().mYyExtData.mSsid + "&uid=" + threadData.getThreadAlaInfo().mYyExtData.mYyUid;
+                    z2 = false;
+                }
+                c = c(threadData);
+                if (c != null) {
+                    parse = null;
+                } else {
+                    parse = Uri.parse(c);
+                }
+                String str9 = threadData.getAbstract();
+                String string = TbadkCoreApplication.getInst().getResources().getString(R.string.share_content_tpl);
+                String string2 = TbadkCoreApplication.getInst().getResources().getString(R.string.default_share_content_tpl);
+                if (!threadData.isUgcThreadType() && threadData.getAuthor() != null) {
+                    if (!TextUtils.isEmpty(threadData.getTitle()) && !TextUtils.isEmpty(str9)) {
+                        format = str9;
                     } else {
-                        this.a.A("change ip to reconnect with DNS' failed.");
-                        return;
+                        format = MessageFormat.format(string2, threadData.getAuthor().getName_show(), TbadkCoreApplication.getInst().getResources().getString(R.string.default_share_content_tpl_suffix));
+                    }
+                    z3 = z;
+                } else if (!z) {
+                    StringBuilder sb = new StringBuilder(TbadkCoreApplication.getInst().getString(R.string.voice_room_all_together));
+                    if (threadData.getForumData() != null && !StringUtils.isNull(threadData.getForumData().b)) {
+                        z3 = z;
+                        sb.insert(0, String.format(TbadkCoreApplication.getInst().getString(R.string.voice_room_forum), threadData.getForumData().b));
+                    } else {
+                        z3 = z;
+                    }
+                    format = sb.toString();
+                } else {
+                    z3 = z;
+                    format = MessageFormat.format(string, str5, str9);
+                }
+                int j = t45.j(threadData);
+                String cutString = yi.cutString(str5, 100);
+                String cutString2 = yi.cutString(format, 100);
+                shareItem = new ShareItem();
+                shareItem.v = cutString;
+                shareItem.w = cutString2;
+                if (!threadData.isUgcThreadType()) {
+                    z4 = z2;
+                    shareItem.W = -1L;
+                    shareItem.H = cutString2;
+                } else {
+                    z4 = z2;
+                    if (j == 2 && threadData.getThreadVideoInfo() != null) {
+                        shareItem.W = threadData.getThreadVideoInfo().play_count.intValue();
+                    } else if (j == 1) {
+                        shareItem.W = threadData.getView_num();
+                    }
+                    shareItem.H = str9;
+                }
+                shareItem.x = str2;
+                shareItem.u = str7;
+                shareItem.N = str4;
+                shareItem.t = str3;
+                shareItem.O = str7;
+                shareItem.f = true;
+                shareItem.s = i;
+                shareItem.I = e(i);
+                shareItem.R = j;
+                shareItem.J = 3;
+                shareItem.K = d(threadData);
+                if (parse != null) {
+                    shareItem.z = parse;
+                }
+                if (!threadData.isUgcThreadType()) {
+                    z5 = false;
+                } else {
+                    z5 = z4;
+                }
+                shareItem.v0 = z5;
+                if (z5) {
+                    shareItem.t0 = threadData.getShareImageUrl();
+                }
+                b(context, threadData);
+                generateShareInfo = OriginalThreadInfo.ShareInfo.generateShareInfo(threadData);
+                shareItem.a0 = generateShareInfo;
+                if (StringUtils.isNull(generateShareInfo.showText, true)) {
+                    if (StringUtils.isNull(threadData.getTitle(), true)) {
+                        OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
+                        if (originalThreadInfo != null) {
+                            shareItem.a0.showText = originalThreadInfo.g;
+                        }
+                    } else {
+                        shareItem.a0.showText = threadData.getTitle();
                     }
                 }
-                this.a.f = false;
-                this.a.D();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class a implements xj {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c55 a;
-
-        @Override // com.baidu.tieba.xj
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.xj
-        public void c(tj tjVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tjVar) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.xj
-        public void d(byte[] bArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.xj
-        public void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.xj
-        public void f(bk bkVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, bkVar) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.xj
-        public void g(int i, tj tjVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048582, this, i, tjVar) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.xj
-        public void h(tj tjVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, tjVar) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.xj
-        public void i(tj tjVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tjVar) == null) {
-            }
-        }
-
-        public a(c55 c55Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c55Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                if (StringUtils.isNull(shareItem.a0.showText, true)) {
+                    shareItem.a0.showText = TbadkCoreApplication.getInst().getString(R.string.original_thread_default_txt);
                 }
-            }
-            this.a = c55Var;
-        }
-
-        @Override // com.baidu.tieba.xj
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                if ((i == 2 || i == 9) && BdNetTypeUtil.isNetWorkAvailable()) {
-                    c55.d(this.a);
-                    if (UseHttpdnsSdkSwitch.isOn()) {
-                        if (this.a.h == null || this.a.h.isEmpty()) {
-                            this.a.w();
-                        } else {
-                            this.a.a();
-                        }
-                        StringBuffer stringBuffer = new StringBuffer();
-                        stringBuffer.append("retryiplist_");
-                        stringBuffer.append(ua.d());
-                        if (this.a.j != null) {
-                            stringBuffer.append("-dnsResolveIp_");
-                            stringBuffer.append(this.a.j.a());
-                            stringBuffer.append("-dnsResolveType_");
-                            stringBuffer.append(this.a.j.d());
-                            stringBuffer.append("-dnsResolveStatus_");
-                            stringBuffer.append(this.a.j.c());
-                        }
-                        va.a("RetryIpListManager", 0, 0, "retry_iplist", 0, stringBuffer.toString());
-                        if (this.a.a >= 5) {
-                            BdSocketLinkService.setAvailable(false);
-                            this.a.B();
-                        }
-                    } else if (this.a.a >= 5) {
-                        va.a("RetryIpListManager", 0, 0, "retry_iplist", 0, "retryiplist_" + ua.d());
-                        this.a.C();
-                    }
+                if (i2 != 13) {
+                    shareItem.d0 = ShareItem.ForwardInfo.generateForwardInfo(threadData, 2);
+                } else {
+                    shareItem.d0 = ShareItem.ForwardInfo.generateForwardInfo(threadData);
                 }
-            }
-        }
-
-        @Override // com.baidu.tieba.xj
-        public void onOpen(Map<String, String> map) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, map) == null) {
-                if (UseHttpdnsSdkSwitch.isOn()) {
-                    if (this.a.a > 0) {
-                        this.a.i = false;
-                        StringBuffer stringBuffer = new StringBuffer();
-                        stringBuffer.append("URL_");
-                        stringBuffer.append(ua.d());
-                        if (this.a.j != null) {
-                            stringBuffer.append("-dnsResolveIp_");
-                            stringBuffer.append(this.a.j.a());
-                            stringBuffer.append("-dnsResolveType_");
-                            stringBuffer.append(this.a.j.d());
-                            stringBuffer.append("-dnsResolveStatus_");
-                            stringBuffer.append(this.a.j.c());
-                        }
-                        va.a("RetryIpListManager", 0, 0, "retry_iplist_succ", 0, stringBuffer.toString());
-                    }
-                } else if (this.a.a >= 5) {
-                    va.a("RetryIpListManager", 0, 0, "retry_iplist_succ", 0, "URL-" + ua.d());
-                    w45.f().l(ua.d());
-                    w45.f().k();
+                threadData2 = shareItem.a0.threadData;
+                if (threadData2 != null && threadData2.getForumData() == null) {
+                    fv4 fv4Var = new fv4();
+                    fv4Var.i(threadData.getForum_name());
+                    fv4Var.a = String.valueOf(threadData.getFid());
+                    fv4Var.c = threadData.getForumAvatar();
+                    shareItem.a0.threadData.setForumData(fv4Var);
                 }
-                this.a.a = 0;
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements BDHttpDns.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c55 a;
-
-        public b(c55 c55Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c55Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                TbadkCoreApplication.getInst().setShareItem(shareItem);
+                Bundle bundle = new Bundle();
+                bundle.putInt("obj_param1", shareItem.J);
+                bundle.putInt("obj_type", shareItem.R);
+                bundle.putString("fid", shareItem.N);
+                bundle.putString("tid", shareItem.O);
+                bundle.putInt("obj_source", shareItem.s);
+                if (shareItem.s == 11) {
+                    bundle.putInt("source", 14);
                 }
-            }
-            this.a = c55Var;
-        }
-
-        @Override // com.baidu.bdhttpdns.BDHttpDns.e
-        public void a(BDHttpDnsResult bDHttpDnsResult) {
-            ArrayList<String> a;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, bDHttpDnsResult) != null) {
-                return;
-            }
-            this.a.i = false;
-            this.a.j = bDHttpDnsResult;
-            if (bDHttpDnsResult != null && (a = bDHttpDnsResult.a()) != null && !a.isEmpty()) {
-                synchronized (this.a.g) {
-                    this.a.h = a;
+                if (shareItem.s == 12) {
+                    bundle.putInt("source", 15);
                 }
-                this.a.a();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c implements w45.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ c55 b;
-
-        public c(c55 c55Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c55Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                shareItem.l(bundle);
+                shareItem.J0 = t45.i(threadData, j);
+                shareItem.K0 = t45.h(threadData, j, str3, shareItem.W, "", "");
+                ShareDialogConfig shareDialogConfig = new ShareDialogConfig(context, shareItem, true, true);
+                if (threadData.getThreadType() == 49 && threadData.getThreadType() != 60 && threadData.getThreadType() != 69) {
+                    z6 = z3;
+                    z7 = false;
+                } else {
+                    z6 = z3;
+                    z7 = true;
                 }
+                shareDialogConfig.mIsVoiceRoom = z6;
+                shareDialogConfig.setIsAlaLive(z7);
+                a(shareDialogConfig, i2);
+                qa6.c().l(shareDialogConfig);
             }
-            this.b = c55Var;
-            this.a = str;
-        }
-
-        @Override // com.baidu.tieba.w45.b
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
+            z2 = true;
+            if (threadData.getThreadAlaInfo() != null) {
+                str2 = TbConfig.HTTPS_YY_LIVE_SHARE_PREFIX + threadData.getThreadAlaInfo().mYyExtData.mSid + "&livessid=" + threadData.getThreadAlaInfo().mYyExtData.mSsid + "&uid=" + threadData.getThreadAlaInfo().mYyExtData.mYyUid;
+                z2 = false;
             }
-            this.b.b = 0;
-            this.b.e = w45.f().g();
-            if (this.b.e != null) {
-                this.b.A(this.a);
-            } else {
-                this.b.f = false;
+            c = c(threadData);
+            if (c != null) {
             }
-        }
-    }
-
-    public c55() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            String str92 = threadData.getAbstract();
+            String string3 = TbadkCoreApplication.getInst().getResources().getString(R.string.share_content_tpl);
+            String string22 = TbadkCoreApplication.getInst().getResources().getString(R.string.default_share_content_tpl);
+            if (!threadData.isUgcThreadType()) {
             }
-        }
-        this.b = 0;
-        this.c = false;
-        this.d = false;
-        this.e = null;
-        this.f = false;
-        this.g = new Object();
-        this.h = new ArrayList();
-        this.i = false;
-        this.j = null;
-        this.k = new a(this);
-    }
-
-    public final void C() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.f) {
-            return;
-        }
-        this.f = true;
-        if (this.c) {
-            this.c = false;
-            x45.e().d(TiebaIMConfig.url);
-        }
-        x45.e().b();
-        if (!this.d) {
-            new z45("www.baidu.com", new d(this));
-            this.d = true;
-            return;
-        }
-        A("change ip to reconnect with DNS' failed.");
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this.g) {
-                if (this.h != null && !this.h.isEmpty()) {
-                    String remove = this.h.remove(0);
-                    if (!TextUtils.isEmpty(remove)) {
-                        ua.h("ws://" + remove + ":" + v(TiebaIMConfig.url));
-                        BdSocketLinkService.init();
-                    }
-                }
+            if (!z) {
             }
-        }
-    }
-
-    public static /* synthetic */ int d(c55 c55Var) {
-        int i = c55Var.a;
-        c55Var.a = i + 1;
-        return i;
-    }
-
-    public static String u(String str) {
-        InterceptResult invokeL;
-        int lastIndexOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, str)) == null) {
-            if (str == null || (lastIndexOf = str.lastIndexOf(":")) < 5) {
-                return null;
+            int j2 = t45.j(threadData);
+            String cutString3 = yi.cutString(str5, 100);
+            String cutString22 = yi.cutString(format, 100);
+            shareItem = new ShareItem();
+            shareItem.v = cutString3;
+            shareItem.w = cutString22;
+            if (!threadData.isUgcThreadType()) {
             }
-            try {
-                return str.substring(5, lastIndexOf);
-            } catch (Exception unused) {
-                return null;
+            shareItem.x = str2;
+            shareItem.u = str7;
+            shareItem.N = str4;
+            shareItem.t = str3;
+            shareItem.O = str7;
+            shareItem.f = true;
+            shareItem.s = i;
+            shareItem.I = e(i);
+            shareItem.R = j2;
+            shareItem.J = 3;
+            shareItem.K = d(threadData);
+            if (parse != null) {
             }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String v(String str) {
-        InterceptResult invokeL;
-        int lastIndexOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, str)) == null) {
-            if (str == null || (lastIndexOf = str.lastIndexOf(":")) < 5) {
-                return null;
+            if (!threadData.isUgcThreadType()) {
             }
-            try {
-                return str.substring(lastIndexOf + 1);
-            } catch (Exception unused) {
-                return null;
+            shareItem.v0 = z5;
+            if (z5) {
             }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static synchronized c55 y() {
-        InterceptResult invokeV;
-        c55 c55Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
-            synchronized (c55.class) {
-                if (l == null) {
-                    synchronized (c55.class) {
-                        if (l == null) {
-                            l = new c55();
-                        }
-                    }
-                }
-                c55Var = l;
+            b(context, threadData);
+            generateShareInfo = OriginalThreadInfo.ShareInfo.generateShareInfo(threadData);
+            shareItem.a0 = generateShareInfo;
+            if (StringUtils.isNull(generateShareInfo.showText, true)) {
             }
-            return c55Var;
-        }
-        return (c55) invokeV.objValue;
-    }
-
-    public final void w() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.i) {
-            return;
-        }
-        try {
-            String u = u(TiebaIMConfig.url);
-            if (xi.isEmpty(u)) {
-                B();
-                return;
+            if (StringUtils.isNull(shareItem.a0.showText, true)) {
             }
-            this.i = true;
-            BDHttpDns.h(BdBaseApplication.getInst().getApplicationContext()).b(u, new b(this));
-        } catch (Exception e) {
-            BdLog.e(e);
-        }
-    }
-
-    public final String x() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            List<String> list = this.e;
-            if (list != null && (i = this.b) > -1 && i < list.size()) {
-                return w45.f().g().get(this.b);
+            if (i2 != 13) {
             }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void A(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            String x = x();
-            if (x == null) {
-                if (!w45.f().i()) {
-                    w45.f().m(new c(this, str));
-                }
-                ua.h(TiebaIMConfig.url);
-                BdSocketLinkService.setAvailable(false);
-                D();
-            } else if (u(x) == null) {
-                D();
-            } else {
-                this.f = false;
-                BdSocketLinkService.stopReConnStrategy("change ip and stop to restart to reconnet.");
-                ua.h(x);
-                BdSocketLinkService.init();
-                BdSocketLinkService.startService(true, str);
-                this.c = true;
-                this.b++;
+            threadData2 = shareItem.a0.threadData;
+            if (threadData2 != null) {
+                fv4 fv4Var2 = new fv4();
+                fv4Var2.i(threadData.getForum_name());
+                fv4Var2.a = String.valueOf(threadData.getFid());
+                fv4Var2.c = threadData.getForumAvatar();
+                shareItem.a0.threadData.setForumData(fv4Var2);
             }
-        }
-    }
-
-    public final void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            NoNetworkView.f();
-            this.b = 0;
-            this.i = false;
-        }
-    }
-
-    public final void D() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            NoNetworkView.f();
-            this.d = false;
-            this.b = 0;
-            this.f = false;
-            this.c = false;
-        }
-    }
-
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            yj.j().c(this.k);
+            TbadkCoreApplication.getInst().setShareItem(shareItem);
+            Bundle bundle2 = new Bundle();
+            bundle2.putInt("obj_param1", shareItem.J);
+            bundle2.putInt("obj_type", shareItem.R);
+            bundle2.putString("fid", shareItem.N);
+            bundle2.putString("tid", shareItem.O);
+            bundle2.putInt("obj_source", shareItem.s);
+            if (shareItem.s == 11) {
+            }
+            if (shareItem.s == 12) {
+            }
+            shareItem.l(bundle2);
+            shareItem.J0 = t45.i(threadData, j2);
+            shareItem.K0 = t45.h(threadData, j2, str3, shareItem.W, "", "");
+            ShareDialogConfig shareDialogConfig2 = new ShareDialogConfig(context, shareItem, true, true);
+            if (threadData.getThreadType() == 49) {
+            }
+            z6 = z3;
+            z7 = true;
+            shareDialogConfig2.mIsVoiceRoom = z6;
+            shareDialogConfig2.setIsAlaLive(z7);
+            a(shareDialogConfig2, i2);
+            qa6.c().l(shareDialogConfig2);
         }
     }
 }

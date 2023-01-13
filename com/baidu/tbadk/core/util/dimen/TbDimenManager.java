@@ -164,13 +164,6 @@ public class TbDimenManager {
         }
     }
 
-    private void setDensity(DisplayMetrics displayMetrics, float f, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{displayMetrics, Float.valueOf(f), Integer.valueOf(i)}) == null) {
-            TbDimenUtil.setDensity(displayMetrics, f, i);
-        }
-    }
-
     public void adaptDimen(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
@@ -196,6 +189,13 @@ public class TbDimenManager {
             DisplayMetrics metricsOnMiui2 = getMetricsOnMiui(this.mApplication);
             setDensity(metricsOnMiui, f, i);
             setDensity(metricsOnMiui2, f, i);
+        }
+    }
+
+    public void setDensity(DisplayMetrics displayMetrics, float f, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{displayMetrics, Float.valueOf(f), Integer.valueOf(i)}) == null) {
+            TbDimenUtil.setDensity(displayMetrics, f, i);
         }
     }
 }

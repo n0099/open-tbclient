@@ -108,10 +108,15 @@ public final class h extends a implements com.kwad.components.ad.reward.presente
                             }
                         }, 500L);
                     }
-                    this.pO.pL = true;
+                    h.a(this.pO, true);
                 }
             }
         };
+    }
+
+    public static /* synthetic */ boolean a(h hVar, boolean z) {
+        hVar.pL = true;
+        return true;
     }
 
     @Override // com.kwad.components.ad.reward.presenter.platdetail.actionbar.a
@@ -139,7 +144,7 @@ public final class h extends a implements com.kwad.components.ad.reward.presente
                 if (this.pK == null) {
                     this.pK = new com.kwad.components.ad.reward.k.g(this.nM);
                 }
-                this.pK.e((AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091268));
+                this.pK.e((AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091273));
                 this.pK.b(u.D(adTemplate));
             }
             AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
@@ -160,7 +165,7 @@ public final class h extends a implements com.kwad.components.ad.reward.presente
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910e8);
+            this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910f3);
         }
     }
 

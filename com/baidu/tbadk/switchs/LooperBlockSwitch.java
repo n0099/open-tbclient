@@ -1,8 +1,8 @@
 package com.baidu.tbadk.switchs;
 
+import com.baidu.tieba.cz4;
 import com.baidu.tieba.debugtool.annotation.Modify;
 import com.baidu.tieba.debugtool.annotation.ModifyClass;
-import com.baidu.tieba.ry4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class LooperBlockSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String LOOPER_BLOCK_ENABLE = "looper_block_switch_1233";
+    public static final String LOOPER_BLOCK_ENABLE = "looper_block_switch_1235";
     public static final int TYPE_FORCE_ON = 2;
     public static final int TYPE_OFF = 0;
     public static final int TYPE_ON = 1;
@@ -23,7 +23,7 @@ public class LooperBlockSwitch extends BaseNormalSwitch {
     public static int type;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.kf
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.lf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public class LooperBlockSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (type > 2) {
-                int m = ry4.l().m("key_looper_block_opt_switch", 0);
+                int m = cz4.l().m("key_looper_block_opt_switch", 0);
                 type = m;
                 if (m == 2) {
                     switchOn = true;

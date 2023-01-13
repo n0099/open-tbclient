@@ -1,10 +1,10 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.consts.AdDownloadCode;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
+import com.baidu.tieba.vk0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,12 +12,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class bl0 implements cl0 {
+public class bl0 extends al0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<wk0> a;
+    @NonNull
+    public final qk0 e;
+    public HashMap<String, b> f;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
@@ -45,11 +49,11 @@ public class bl0 implements cl0 {
             } catch (NoSuchFieldError unused) {
             }
             try {
-                a[AdDownloadStatus.PAUSE.ordinal()] = 2;
+                a[AdDownloadStatus.DOWNLOADING.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                a[AdDownloadStatus.DOWNLOADING.ordinal()] = 3;
+                a[AdDownloadStatus.PAUSE.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
@@ -57,92 +61,148 @@ public class bl0 implements cl0 {
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                a[AdDownloadStatus.INSTALLED.ordinal()] = 5;
+                a[AdDownloadStatus.FAILED.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                a[AdDownloadStatus.FAILED.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
             }
         }
     }
 
-    public bl0(@NonNull wk0 wk0Var) {
+    /* loaded from: classes3.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bl0(@NonNull qk0 qk0Var) {
+        super(qk0Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wk0Var};
+            Object[] objArr = {qk0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((qk0) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new WeakReference<>(wk0Var);
+        this.f = new HashMap<>();
+        this.e = qk0Var;
+        this.c = new gl0(this);
     }
 
-    @Override // com.baidu.tieba.cl0
-    public void a(AdDownloadStatus adDownloadStatus) {
-        wk0 wk0Var;
+    @NonNull
+    public qk0 t() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, adDownloadStatus) != null) || (wk0Var = this.a.get()) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
-        lk0 t = wk0Var.t();
-        String str = "";
-        switch (a.a[adDownloadStatus.ordinal()]) {
-            case 1:
-                wk0Var.w("0", String.valueOf(t.i), "", t.e());
-                return;
-            case 2:
-                String valueOf = String.valueOf(t.i);
-                Uri uri = t.k;
-                if (uri != null) {
-                    str = uri.toString();
-                }
-                wk0Var.w("2", valueOf, str, t.e());
-                return;
-            case 3:
-                String valueOf2 = String.valueOf(t.i);
-                Uri uri2 = t.k;
-                if (uri2 != null) {
-                    str = uri2.toString();
-                }
-                wk0Var.w("1", valueOf2, str, t.e());
-                return;
-            case 4:
-                Uri uri3 = t.k;
-                if (uri3 != null) {
-                    str = uri3.toString();
-                }
-                wk0Var.w("3", "1", str, t.e());
-                return;
-            case 5:
-                Uri uri4 = t.k;
-                if (uri4 != null) {
-                    str = uri4.toString();
-                }
-                wk0Var.w("6", "1", str, t.e());
-                return;
-            case 6:
-                wk0Var.w("4", "0", "", t.e());
-                return;
-            default:
-                return;
+        return (qk0) invokeV.objValue;
+    }
+
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            n(this.c);
         }
     }
 
-    @Override // com.baidu.tieba.cl0
-    public void b(AdDownloadCode adDownloadCode) {
-        wk0 wk0Var;
+    public String u() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adDownloadCode) != null) || (wk0Var = this.a.get()) == null || adDownloadCode == AdDownloadCode.ERROR_FAST_CLICK) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int i = a.a[this.e.c.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i != 5) {
+                                return "0";
+                            }
+                            return "4";
+                        }
+                        qk0 qk0Var = this.e;
+                        qk0Var.i = 1.0f;
+                        qk0Var.j = 1.0f;
+                        return "3";
+                    }
+                    return "2";
+                }
+                return "1";
+            }
+            qk0 qk0Var2 = this.e;
+            qk0Var2.i = 0.0f;
+            qk0Var2.j = 0.0f;
+            return "0";
         }
-        wk0Var.w("4", "0", "", wk0Var.t().e());
+        return (String) invokeV.objValue;
+    }
+
+    public void w(String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, str3, str4) == null) {
+            vk0 vk0Var = new vk0();
+            ArrayList arrayList = new ArrayList();
+            JSONObject jSONObject = new JSONObject();
+            String a2 = vl0.a(str, str2, str3, str4);
+            u01.f(jSONObject, "status", "0");
+            u01.f(jSONObject, "message", "");
+            u01.f(jSONObject, "data", a2);
+            for (String str5 : this.f.keySet()) {
+                b bVar = (b) v01.b(this.f, str5);
+                if (bVar != null && !TextUtils.isEmpty(bVar.a)) {
+                    vk0.a aVar = new vk0.a();
+                    aVar.b = bVar.b;
+                    aVar.a = bVar.a;
+                    aVar.c = jSONObject.toString();
+                    t01.b(arrayList, aVar);
+                }
+            }
+            if (!arrayList.isEmpty()) {
+                vk0Var.a = arrayList;
+                gm0.a().a(vk0Var);
+            }
+        }
+    }
+
+    public void x(String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(1048580, this, str, str2, str3, str4) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            String str5 = str + "_" + str4 + "_" + str3 + "_" + str2;
+            this.f.remove(str5);
+            b bVar = new b();
+            bVar.b = str;
+            bVar.a = str2;
+            this.f.put(str5, bVar);
+        }
+    }
+
+    public void y(String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(1048581, this, str, str2, str3, str4) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4)) {
+            this.f.remove(str + "_" + str4 + "_" + str3 + "_" + str2);
+        }
     }
 }

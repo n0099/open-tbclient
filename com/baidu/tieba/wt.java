@@ -1,92 +1,105 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.ui.TaskUIData;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.bdtask.ctrl.model.TaskEnvTag;
+import com.baidu.bdtask.ctrl.model.TaskProcess;
+import com.baidu.bdtask.ctrl.model.TaskStatus;
+import com.baidu.bdtask.ctrl.model.TaskStatusRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
 import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class wt {
+public final class wt extends vt<TaskStatus> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final TaskUIData b;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof wt) {
-                    wt wtVar = (wt) obj;
-                    if (!(this.a == wtVar.a) || !Intrinsics.areEqual(this.b, wtVar.b)) {
-                    }
-                }
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int i = this.a * 31;
-            TaskUIData taskUIData = this.b;
-            return i + (taskUIData != null ? taskUIData.hashCode() : 0);
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TaskStatus.key : (String) invokeV.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "CurUIData(uiType=" + this.a + ", UIData=" + this.b + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public wt(int i, TaskUIData taskUIData) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wt(xt xtVar) {
+        super(xtVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), taskUIData};
+            Object[] objArr = {xtVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((xt) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = taskUIData;
     }
 
-    public final TaskUIData a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vt
+    /* renamed from: c */
+    public TaskStatus a(String str) {
+        InterceptResult invokeL;
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                int i = jSONObject.getInt(TaskStatus.keyCurStatus);
+                int i2 = jSONObject.getInt(TaskStatus.keyCurStatusCode);
+                String curStatusCodeMsg = jSONObject.getString(TaskStatus.keyCurStatusCodeMsg);
+                int i3 = jSONObject.getInt(TaskStatus.keyInterruptErrorNo);
+                long j2 = jSONObject.getLong(TaskStatus.keyCurActiveTime);
+                JSONObject jSONObject2 = jSONObject.getJSONObject("process");
+                int i4 = jSONObject2.getInt(TaskProcess.keyClickNumber);
+                long j3 = jSONObject2.getLong(TaskProcess.keyStayDurTimeMs);
+                long j4 = jSONObject2.getLong(TaskProcess.keyMaxStayTime);
+                int i5 = jSONObject2.getInt(TaskProcess.keyMaxRepeatTimes);
+                int i6 = jSONObject2.getInt(TaskProcess.keyMaxNoClickTimes);
+                int i7 = jSONObject2.getInt(TaskProcess.keyCurNoClickTimes);
+                JSONArray optJSONArray = jSONObject2.optJSONArray(TaskProcess.keyDuplicateIds);
+                HashSet hashSet = new HashSet();
+                if (optJSONArray != null) {
+                    int length = optJSONArray.length();
+                    j = j2;
+                    for (int i8 = 0; i8 < length; i8++) {
+                        hashSet.add(optJSONArray.optString(i8));
+                    }
+                } else {
+                    j = j2;
+                }
+                JSONArray optJSONArray2 = jSONObject2.optJSONArray("tags");
+                HashSet hashSet2 = new HashSet();
+                if (optJSONArray2 != null) {
+                    int length2 = optJSONArray2.length();
+                    int i9 = 0;
+                    while (i9 < length2) {
+                        int i10 = length2;
+                        TaskEnvTag b = TaskEnvTag.Companion.b(optJSONArray2.optString(i9));
+                        if (b != null) {
+                            hashSet2.add(b);
+                        }
+                        i9++;
+                        length2 = i10;
+                    }
+                }
+                Intrinsics.checkExpressionValueIsNotNull(curStatusCodeMsg, "curStatusCodeMsg");
+                return new TaskStatus(i, i2, curStatusCodeMsg, i3, j, TaskStatusRuntime.Companion.a(), new TaskProcess(i4, j3, i7, j4, i5, i6, hashSet2, hashSet));
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
         }
-        return (TaskUIData) invokeV.objValue;
-    }
-
-    public final int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
+        return (TaskStatus) invokeL.objValue;
     }
 }

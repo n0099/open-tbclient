@@ -40,19 +40,19 @@ public final class R {
     /* loaded from: classes2.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int chart = 0x7f090617;
-        public static final int drop_expect = 0x7f090892;
-        public static final int fps_view = 0x7f090b02;
-        public static final int level_frozen = 0x7f09137a;
-        public static final int level_frozens = 0x7f09137b;
-        public static final int level_high = 0x7f09137c;
-        public static final int level_highs = 0x7f09137d;
-        public static final int level_middle = 0x7f09137e;
-        public static final int level_middles = 0x7f09137f;
-        public static final int level_normal = 0x7f091383;
-        public static final int level_normals = 0x7f091384;
-        public static final int scene_view = 0x7f091e79;
-        public static final int top_page = 0x7f09236c;
+        public static final int chart = 0x7f09060d;
+        public static final int drop_expect = 0x7f090895;
+        public static final int fps_view = 0x7f090b09;
+        public static final int level_frozen = 0x7f091385;
+        public static final int level_frozens = 0x7f091386;
+        public static final int level_high = 0x7f091387;
+        public static final int level_highs = 0x7f091388;
+        public static final int level_middle = 0x7f091389;
+        public static final int level_middles = 0x7f09138a;
+        public static final int level_normal = 0x7f09138e;
+        public static final int level_normals = 0x7f09138f;
+        public static final int scene_view = 0x7f091e98;
+        public static final int top_page = 0x7f092398;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -73,7 +73,7 @@ public final class R {
     /* loaded from: classes2.dex */
     public static final class layout {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int fps_float_view = 0x7f0d02d8;
+        public static final int fps_float_view = 0x7f0d02d4;
         public transient /* synthetic */ FieldHolder $fh;
 
         public layout() {

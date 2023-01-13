@@ -30,11 +30,12 @@ public class ExperimentalCoroutineDispatcher extends ExecutorCoroutineDispatcher
     }
 
     @Override // kotlinx.coroutines.CoroutineDispatcher
-    public void dispatch(CoroutineContext coroutineContext, Runnable runnable) {
+    /* renamed from: dispatch */
+    public void mo2188dispatch(CoroutineContext coroutineContext, Runnable runnable) {
         try {
             CoroutineScheduler.dispatch$default(this.coroutineScheduler, runnable, null, false, 6, null);
         } catch (RejectedExecutionException unused) {
-            DefaultExecutor.INSTANCE.dispatch(coroutineContext, runnable);
+            DefaultExecutor.INSTANCE.mo2188dispatch(coroutineContext, runnable);
         }
     }
 

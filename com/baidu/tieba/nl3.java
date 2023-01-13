@@ -1,89 +1,41 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo;
-import com.baidu.tieba.j93;
+import com.baidu.pass.ecommerce.bean.AddressField;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class nl3 extends hs1 {
+public class nl3 extends ActivityDelegation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.hs1
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "PrivateBusiness" : (String) invokeV.objValue;
-    }
+    /* loaded from: classes5.dex */
+    public interface d {
+        void a(String str);
 
-    @Override // com.baidu.tieba.hs1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "QuickLoginApi" : (String) invokeV.objValue;
+        void b();
     }
 
     /* loaded from: classes5.dex */
-    public class b implements km3 {
+    public class a implements vk1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ nl3 b;
+        public final /* synthetic */ nl3 a;
 
-        /* loaded from: classes5.dex */
-        public class a implements mm3 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // com.baidu.tieba.mm3
-            public void onResult(int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                    if (i == 0) {
-                        b bVar = this.a;
-                        bVar.b.d(bVar.a, new ew1(0));
-                        return;
-                    }
-                    b bVar2 = this.a;
-                    bVar2.b.d(bVar2.a, new ew1(10004, "user not logged in"));
-                }
-            }
-        }
-
-        public b(nl3 nl3Var, String str) {
+        public a(nl3 nl3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nl3Var, str};
+                Object[] objArr = {nl3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -93,42 +45,35 @@ public class nl3 extends hs1 {
                     return;
                 }
             }
-            this.b = nl3Var;
-            this.a = str;
+            this.a = nl3Var;
         }
 
-        @Override // com.baidu.tieba.km3
-        public void a(QuickLoginInfo quickLoginInfo) {
+        @Override // com.baidu.tieba.vk1
+        public void onResult(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, quickLoginInfo) == null) {
-                if (quickLoginInfo == null) {
-                    this.b.d(this.a, new ew1(1001));
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i != 0) {
+                    this.a.mResult.putString("errorMsg", "login failed");
+                    this.a.finish();
                     return;
                 }
-                boolean z = quickLoginInfo.supportQuickLogin;
-                int i = quickLoginInfo.loginMode;
-                if (z) {
-                    nm3.e(d43.K().w(), i, new a(this));
-                } else {
-                    this.b.d(this.a, new ew1(10004, "user not logged in"));
-                }
+                this.a.l();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class a implements xi3<h93<j93.e>> {
+    public class b implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ nl3 b;
+        public final /* synthetic */ nl3 a;
 
-        public a(nl3 nl3Var, String str) {
+        public b(nl3 nl3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nl3Var, str};
+                Object[] objArr = {nl3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -138,217 +83,144 @@ public class nl3 extends hs1 {
                     return;
                 }
             }
-            this.b = nl3Var;
-            this.a = str;
+            this.a = nl3Var;
+        }
+
+        @Override // com.baidu.tieba.nl3.d
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                if (TextUtils.isEmpty(str)) {
+                    this.a.mResult.putString("errorMsg", "addressId == null");
+                    this.a.finish();
+                }
+                this.a.m(str);
+            }
+        }
+
+        @Override // com.baidu.tieba.nl3.d
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.mResult.putString("errorMsg", "choose addressId failed");
+                this.a.finish();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c extends ResponseCallback<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nl3 a;
+
+        public c(nl3 nl3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nl3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nl3Var;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                this.a.mResult.putString("errorMsg", exc.getMessage());
+                this.a.finish();
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xi3
-        /* renamed from: b */
-        public void a(h93<j93.e> h93Var) {
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(JSONObject jSONObject, int i) {
+            JSONObject optJSONObject;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h93Var) == null) {
-                if (c93.h(h93Var)) {
-                    this.b.C(this.a);
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) {
+                if (jSONObject != null && jSONObject.optInt("errno", -1) == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
+                    this.a.mResult.putString("address_info", optJSONObject.toString());
+                    this.a.finish();
                     return;
                 }
-                int b = h93Var.b();
-                c93.f(b);
-                this.b.d(this.a, new ew1(b, c93.f(b)));
+                this.a.mResult.putString("errorMsg", "GetAddressInfoResponse == null");
+                this.a.finish();
             }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements xi3<h93<j93.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ nl3 b;
-
-        public c(nl3 nl3Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nl3Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = nl3Var;
-            this.a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xi3
-        /* renamed from: b */
-        public void a(h93<j93.e> h93Var) {
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public JSONObject parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h93Var) == null) {
-                if (c93.h(h93Var)) {
-                    this.b.B(this.a);
-                    return;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
+                if (response != null && response.body() != null) {
+                    return jh3.d(response.body().string());
                 }
-                int b = h93Var.b();
-                c93.f(b);
-                this.b.d(this.a, new ew1(b, c93.f(b)));
+                return null;
             }
+            return (JSONObject) invokeLI.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class d implements km3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ nl3 b;
-
-        public d(nl3 nl3Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nl3Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = nl3Var;
-            this.a = str;
-        }
-
-        @Override // com.baidu.tieba.km3
-        public void a(QuickLoginInfo quickLoginInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, quickLoginInfo) == null) {
-                if (quickLoginInfo != null) {
-                    this.b.E(this.a, quickLoginInfo);
-                } else {
-                    this.b.D(this.a);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nl3(@NonNull fs1 fs1Var) {
-        super(fs1Var);
+    public nl3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fs1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((fs1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public final void B(String str) {
+    public static String k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            nm3.b(new d(this, str));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return String.format("%s/ma/address/detail", "https://mbd.baidu.com");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            kk3.d(getAgent(), new b(this));
         }
     }
 
-    public final void C(String str) {
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public boolean onExec() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!kk3.E(getAgent())) {
+                kk3.L(getAgent(), null, new a(this));
+                return false;
+            }
+            l();
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void m(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            nm3.b(new b(this, str));
+            nb4.g().getRequest().url(f12.v(k())).addUrlParam(AddressField.KEY_ADDR_ID, str).cookieManager(qn2.q().a()).build().executeAsync(new c(this));
         }
-    }
-
-    public final void D(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            d(str, new ew1(10001, "internal error"));
-        }
-    }
-
-    public final void E(String str, QuickLoginInfo quickLoginInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, quickLoginInfo) == null) {
-            if (quickLoginInfo == null) {
-                d(str, new ew1(1001));
-                return;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("supportQuickLogin", quickLoginInfo.supportQuickLogin);
-                jSONObject.put("encryptPhoneNum", quickLoginInfo.encryptPhoneNum);
-                jSONObject.put("serviceAgreement", quickLoginInfo.serviceAgreement);
-                jSONObject.put("hasHistory", quickLoginInfo.hasHistory);
-                d(str, new ew1(0, jSONObject));
-            } catch (JSONException unused) {
-                d(str, new ew1(1001));
-            }
-        }
-    }
-
-    public ew1 F(String str) {
-        InterceptResult invokeL;
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            Pair<ew1, JSONObject> s = s(str);
-            ew1 ew1Var = (ew1) s.first;
-            if (ew1Var.isSuccess() && (obj = s.second) != null) {
-                String optString = ((JSONObject) obj).optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    return new ew1(1001, "cb is empty");
-                }
-                e43 b0 = e43.b0();
-                if (b0 == null) {
-                    return new ew1(1001);
-                }
-                b0.e0().g(getContext(), "scope_quick_login", new c(this, optString));
-                return new ew1(0);
-            }
-            e12.c("QuickLoginApi", "parse fail");
-            return ew1Var;
-        }
-        return (ew1) invokeL.objValue;
-    }
-
-    public ew1 G(String str) {
-        InterceptResult invokeL;
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            q("#quickLogin", false);
-            Pair<ew1, JSONObject> s = s(str);
-            ew1 ew1Var = (ew1) s.first;
-            if (ew1Var.isSuccess() && (obj = s.second) != null) {
-                String optString = ((JSONObject) obj).optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    return new ew1(1001, "cb is empty");
-                }
-                e43 b0 = e43.b0();
-                if (b0 == null) {
-                    return new ew1(1001);
-                }
-                b0.e0().g(getContext(), "scope_quick_login", new a(this, optString));
-                return ew1.f();
-            }
-            return ew1Var;
-        }
-        return (ew1) invokeL.objValue;
     }
 }

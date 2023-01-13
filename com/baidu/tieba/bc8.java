@@ -1,73 +1,92 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.holder.CardViewHolder;
-import com.baidu.tieba.tbadkCore.LikeModel;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tieba.pb.video.GodReplyMoreViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class bc8 extends kn<md8, CardViewHolder<qe8>> {
+public class bc8 extends p78<cc8, GodReplyMoreViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public LikeModel b;
+    public View.OnClickListener g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bc8(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), md8.l);
+    public bc8(PbFragment pbFragment, BdUniqueId bdUniqueId) {
+        super(pbFragment, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {pbFragment, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((kc8) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = new LikeModel(tbPageContext);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: s */
-    public CardViewHolder<qe8> onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.ln
+    /* renamed from: u */
+    public GodReplyMoreViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            qe8 qe8Var = new qe8(this.a);
-            qe8Var.x(this.b);
-            return new CardViewHolder<>(qe8Var);
+            return new GodReplyMoreViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06eb, viewGroup, false));
         }
-        return (CardViewHolder) invokeL.objValue;
+        return (GodReplyMoreViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, md8 md8Var, CardViewHolder<qe8> cardViewHolder) {
-        InterceptResult invokeCommon;
+    public void w(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, md8Var, cardViewHolder})) == null) {
-            cardViewHolder.a().i(md8Var);
-            cardViewHolder.a().j(this.a, TbadkCoreApplication.getInst().getSkinType());
-            return cardViewHolder.getView();
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            this.g = onClickListener;
+        }
+    }
+
+    @Override // com.baidu.tieba.p78, com.baidu.tieba.ln
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        v(i, view2, viewGroup, (cc8) obj, (GodReplyMoreViewHolder) viewHolder);
+        return view2;
+    }
+
+    public View v(int i, View view2, ViewGroup viewGroup, cc8 cc8Var, GodReplyMoreViewHolder godReplyMoreViewHolder) {
+        InterceptResult invokeCommon;
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, cc8Var, godReplyMoreViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) cc8Var, (cc8) godReplyMoreViewHolder);
+            if (godReplyMoreViewHolder != null && (textView = godReplyMoreViewHolder.a) != null) {
+                View.OnClickListener onClickListener = this.g;
+                if (onClickListener != null) {
+                    textView.setOnClickListener(onClickListener);
+                }
+                if (godReplyMoreViewHolder.c != TbadkCoreApplication.getInst().getSkinType()) {
+                    godReplyMoreViewHolder.c = TbadkCoreApplication.getInst().getSkinType();
+                    SkinManager.setViewTextColor(godReplyMoreViewHolder.a, (int) R.color.CAM_X0106);
+                    SkinManager.setBackgroundResource(godReplyMoreViewHolder.a, R.drawable.more_all);
+                    SkinManager.setBackgroundResource(godReplyMoreViewHolder.b, R.color.CAM_X0204);
+                }
+            }
+            return view2;
         }
         return (View) invokeCommon.objValue;
     }

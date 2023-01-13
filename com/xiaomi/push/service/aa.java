@@ -43,19 +43,21 @@ public final class aa extends XMPushService.j {
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
-    public String a() {
+    /* renamed from: a */
+    public String mo673a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "send ack message for message." : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
-    public void a() {
+    /* renamed from: a */
+    public void mo394a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Map<String, String> map = null;
             try {
-                if (com.xiaomi.push.m.m571a((Context) this.f901a)) {
+                if (com.xiaomi.push.m.m635a((Context) this.f901a)) {
                     try {
                         map = ag.a((Context) this.f901a, this.a);
                     } catch (Throwable unused) {

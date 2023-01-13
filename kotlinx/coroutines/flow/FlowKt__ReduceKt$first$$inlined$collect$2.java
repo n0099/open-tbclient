@@ -13,9 +13,10 @@ import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Ref;
 import kotlinx.coroutines.flow.internal.AbortFlowException;
 import kotlinx.coroutines.flow.internal.NopCollector;
+/* JADX INFO: Add missing generic type declarations: [T] */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0013\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003*\u0001\u0000\b\n\u0018\u00002\u00020\u0001J\u001b\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00028\u0000H\u0096@ø\u0001\u0000¢\u0006\u0004\b\u0004\u0010\u0005\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0006¸\u0006\u0000"}, d2 = {"kotlinx/coroutines/flow/FlowKt__CollectKt$collect$3", "Lkotlinx/coroutines/flow/FlowCollector;", "value", "", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes9.dex */
-public final class FlowKt__ReduceKt$first$$inlined$collect$2 implements FlowCollector<T> {
+public final class FlowKt__ReduceKt$first$$inlined$collect$2<T> implements FlowCollector<T> {
     public final /* synthetic */ Function2 $predicate$inlined;
     public final /* synthetic */ Ref.ObjectRef $result$inlined;
 
@@ -48,10 +49,6 @@ public final class FlowKt__ReduceKt$first$$inlined$collect$2 implements FlowColl
         this.$result$inlined = objectRef;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v1, resolved type: T */
-    /* JADX DEBUG: Multi-variable search result rejected for r5v6, resolved type: T */
-    /* JADX DEBUG: Multi-variable search result rejected for r5v7, resolved type: T */
-    /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:10:0x0023  */
     /* JADX WARN: Removed duplicated region for block: B:14:0x003d  */
     /* JADX WARN: Removed duplicated region for block: B:20:0x005c  */
@@ -64,8 +61,7 @@ public final class FlowKt__ReduceKt$first$$inlined$collect$2 implements FlowColl
         AnonymousClass1 anonymousClass1;
         Object obj2;
         int i;
-        FlowKt__ReduceKt$first$$inlined$collect$2 flowKt__ReduceKt$first$$inlined$collect$2;
-        T t;
+        FlowKt__ReduceKt$first$$inlined$collect$2<T> flowKt__ReduceKt$first$$inlined$collect$2;
         if (continuation instanceof AnonymousClass1) {
             anonymousClass1 = (AnonymousClass1) continuation;
             int i2 = anonymousClass1.label;
@@ -76,12 +72,11 @@ public final class FlowKt__ReduceKt$first$$inlined$collect$2 implements FlowColl
                 i = anonymousClass1.label;
                 if (i == 0) {
                     if (i == 1) {
-                        Object obj3 = anonymousClass1.L$3;
+                        obj = (T) anonymousClass1.L$3;
                         Continuation continuation2 = (Continuation) anonymousClass1.L$2;
-                        Object obj4 = anonymousClass1.L$1;
+                        Object obj3 = anonymousClass1.L$1;
                         flowKt__ReduceKt$first$$inlined$collect$2 = (FlowKt__ReduceKt$first$$inlined$collect$2) anonymousClass1.L$0;
                         ResultKt.throwOnFailure(obj2);
-                        t = obj3;
                     } else {
                         throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                     }
@@ -98,12 +93,11 @@ public final class FlowKt__ReduceKt$first$$inlined$collect$2 implements FlowColl
                         return coroutine_suspended;
                     }
                     flowKt__ReduceKt$first$$inlined$collect$2 = this;
-                    t = obj;
                 }
                 if (((Boolean) obj2).booleanValue()) {
                     return Unit.INSTANCE;
                 }
-                flowKt__ReduceKt$first$$inlined$collect$2.$result$inlined.element = t;
+                flowKt__ReduceKt$first$$inlined$collect$2.$result$inlined.element = (T) obj;
                 throw new AbortFlowException(NopCollector.INSTANCE);
             }
         }

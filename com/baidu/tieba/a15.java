@@ -1,73 +1,79 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.data.CardLinkInfoData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.UrlParser.DataRes;
+import tbclient.UrlParser.UrlParserResIdl;
 /* loaded from: classes3.dex */
 public class a15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public boolean h;
+    public String i;
+    public CardLinkInfoData j;
 
-    public static synchronized void a() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947562340, "Lcom/baidu/tieba/a15;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947562340, "Lcom/baidu/tieba/a15;");
+        }
+    }
+
+    public a15() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            synchronized (a15.class) {
-                File file = new File(FileHelper.getCacheDir() + "voice");
-                if (file.exists() && file.isDirectory()) {
-                    File[] listFiles = file.listFiles();
-                    if (listFiles == null) {
-                        return;
-                    }
-                    for (File file2 : listFiles) {
-                        file2.delete();
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static boolean b(String str, String str2) {
-        InterceptResult invokeLL;
+    public void a(UrlParserResIdl urlParserResIdl) {
+        DataRes dataRes;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            return FileHelper.renameTo(str, FileHelper.getFilePath(str2, 1, true));
+        if ((interceptable == null || interceptable.invokeL(1048576, this, urlParserResIdl) == null) && urlParserResIdl != null && (dataRes = urlParserResIdl.data) != null) {
+            this.a = dataRes.status.intValue();
+            this.b = urlParserResIdl.data.url_type.intValue();
+            DataRes dataRes2 = urlParserResIdl.data;
+            this.d = dataRes2.image;
+            this.e = dataRes2.title;
+            this.f = dataRes2.link_from;
+            this.g = dataRes2.price_txt;
+            boolean z = true;
+            if (dataRes2.is_recognize.intValue() != 1) {
+                z = false;
+            }
+            this.h = z;
+            this.i = urlParserResIdl.data.description;
+            CardLinkInfoData cardLinkInfoData = new CardLinkInfoData();
+            cardLinkInfoData.parse(urlParserResIdl.data.card_link_info);
+            this.j = cardLinkInfoData;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static z05 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            z05 z05Var = new z05();
-            if (str == null) {
-                z05Var.f(6);
-                z05Var.g(z05.a(z05Var.b()));
-                return z05Var;
-            }
-            if (!FileHelper.CheckTempDir(FileHelper.getCacheDir() + "voice")) {
-                z05Var.f(7);
-                z05Var.g(z05.a(z05Var.b()));
-                return z05Var;
-            }
-            String b = fj.b(FileHelper.GetStreamFromTmpFile(str));
-            if (b == null) {
-                z05Var.f(5);
-                z05Var.g(z05.a(z05Var.b()));
-            } else {
-                String filePath = FileHelper.getFilePath(b, 1, true);
-                if (FileHelper.renameTo(str, filePath)) {
-                    z05Var.i(filePath);
-                    z05Var.h(b);
-                } else {
-                    z05Var.f(1);
-                    z05Var.g(z05.a(z05Var.b()));
-                }
-            }
-            return z05Var;
-        }
-        return (z05) invokeL.objValue;
     }
 }

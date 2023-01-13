@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,134 +11,106 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentLinkedQueue;
 /* loaded from: classes4.dex */
-public class gm0 extends Handler implements em0 {
+public class gm0 {
     public static /* synthetic */ Interceptable $ic;
+    public static im0 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConcurrentLinkedQueue<b<?>> a;
-    public boolean b;
 
-    /* loaded from: classes4.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final gm0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-771314142, "Lcom/baidu/tieba/gm0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-771314142, "Lcom/baidu/tieba/gm0$a;");
-                    return;
-                }
-            }
-            a = new gm0();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947798591, "Lcom/baidu/tieba/gm0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947798591, "Lcom/baidu/tieba/gm0;");
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class b<T extends cm0> {
+    public static class a implements im0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final fm0<T> a;
-        public final T b;
 
-        public b(hm0 hm0Var, fm0<T> fm0Var, T t) {
+        @Override // com.baidu.tieba.im0
+        public <T extends hm0> void a(@Nullable T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.im0
+        public <T extends hm0> void b(@NonNull Object obj, @NonNull km0<T> km0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, km0Var) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.im0
+        public void unregister(@NonNull Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+            }
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hm0Var, fm0Var, t};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = fm0Var;
-            this.b = t;
+        }
+
+        @Override // com.baidu.tieba.im0
+        public <T extends hm0> void c(@NonNull Object obj, int i, @NonNull km0<T> km0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, obj, i, km0Var) == null) {
+                b(obj, km0Var);
+            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public gm0() {
-        super(Looper.getMainLooper());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = new ConcurrentLinkedQueue<>();
-        this.b = false;
     }
 
-    public static em0 b() {
+    public static im0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
-        }
-        return (em0) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.em0
-    public <T extends cm0> void a(hm0 hm0Var, fm0<T> fm0Var, T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, hm0Var, fm0Var, t) == null) {
-            if (nj0.a()) {
-                fm0Var.onEvent(t);
-                return;
-            }
-            synchronized (this) {
-                this.a.offer(new b<>(hm0Var, fm0Var, t));
-                if (!this.b) {
-                    sendMessage(Message.obtain());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (gm0.class) {
+                    if (a == null) {
+                        a = (im0) ServiceManager.getService(im0.a);
+                    }
+                    if (a == null) {
+                        a = new a();
+                    }
                 }
             }
+            return a;
         }
-    }
-
-    @Override // android.os.Handler
-    public void handleMessage(@NonNull Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
-            try {
-                long currentTimeMillis = System.currentTimeMillis();
-                do {
-                    b<?> poll = this.a.poll();
-                    if (poll == null) {
-                        synchronized (this) {
-                            poll = this.a.poll();
-                            if (poll == null) {
-                                this.b = false;
-                                return;
-                            }
-                        }
-                    }
-                    poll.a.onEvent(poll.b);
-                } while (System.currentTimeMillis() - currentTimeMillis < 5);
-                sendMessage(Message.obtain());
-                this.b = true;
-            } finally {
-                this.b = false;
-            }
-        }
+        return (im0) invokeV.objValue;
     }
 }

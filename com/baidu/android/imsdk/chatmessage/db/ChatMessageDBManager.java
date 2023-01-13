@@ -25,6 +25,7 @@ import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
 import com.baidu.android.imsdk.chatuser.ChatUser;
 import com.baidu.android.imsdk.chatuser.db.IMUserManager;
 import com.baidu.android.imsdk.db.CursorParse;
+import com.baidu.android.imsdk.db.CursorWrapper;
 import com.baidu.android.imsdk.db.DBBase;
 import com.baidu.android.imsdk.db.DBResponseCode;
 import com.baidu.android.imsdk.db.TableDefine;
@@ -40,6 +41,7 @@ import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.MsgUtility;
 import com.baidu.android.imsdk.utils.MultiplePair;
+import com.baidu.android.imsdk.utils.TimeUtil;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.cyberplayer.sdk.dlna.DlnaManager;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
@@ -639,6 +641,36 @@ public class ChatMessageDBManager extends DBBase {
         return invokeL.intValue;
     }
 
+    private ChatMsg generateStudioUsePaMsg(Cursor cursor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, this, cursor)) == null) {
+            long j = CursorWrapper.getLong(cursor, "msgid");
+            int i = CursorWrapper.getInt(cursor, "type");
+            long j2 = CursorWrapper.getLong(cursor, "from_user");
+            long j3 = CursorWrapper.getLong(cursor, "input_time");
+            int i2 = CursorWrapper.getInt(cursor, "category");
+            long j4 = CursorWrapper.getLong(cursor, "contacter");
+            String string = CursorWrapper.getString(cursor, "msg_key");
+            String string2 = CursorWrapper.getString(cursor, "content");
+            int i3 = CursorWrapper.getInt(cursor, "is_read");
+            ChatMsg newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.mContext, i2, i, -1);
+            if (newChatMsg == null) {
+                return null;
+            }
+            newChatMsg.setCategory(i2);
+            newChatMsg.setContacter(j4);
+            newChatMsg.setFromUser(j2);
+            newChatMsg.setMsgContent(string2);
+            newChatMsg.setMsgId(j);
+            newChatMsg.setMsgKey(string);
+            newChatMsg.setMsgTime(j3);
+            newChatMsg.setMsgReaded(i3);
+            return newChatMsg;
+        }
+        return (ChatMsg) invokeL.objValue;
+    }
+
     /* JADX WARN: Code restructure failed: missing block: B:20:0x003e, code lost:
         if (r3 != null) goto L24;
      */
@@ -1001,6 +1033,44 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
+    public int getUnReadMsgCount(ChatObject chatObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048639, this, chatObject)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                SQLiteDatabase openDatabase = openDatabase();
+                Cursor cursor = null;
+                if (openDatabase == null) {
+                    return -1;
+                }
+                try {
+                    String str = "category=? AND contacter=? AND is_read=?";
+                    String[] strArr = {String.valueOf(chatObject.getCategory()), String.valueOf(chatObject.getContacter()), String.valueOf(0)};
+                    if (1 == chatObject.getCategory()) {
+                        str = "category=? AND contacter=? AND is_read=? AND type != 101";
+                    }
+                    if (chatObject.getTimeInterval() > 0) {
+                        str = str + " AND time >= " + TimeUtil.getTimeSecondByInterval(chatObject.getTimeInterval());
+                    }
+                    cursor = openDatabase.query("message", new String[]{"_id"}, str, strArr, null, null, null);
+                    LogUtils.d(TAG, "getUnReadMsgCount> COLUMN_CATEGORY=" + chatObject.getCategory() + ", COLUMN_CONTACTER=" + chatObject.getContacter() + ", count = " + cursor.getCount());
+                    int count = cursor.getCount();
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    return count;
+                } catch (Exception e) {
+                    LogUtils.e(TAG, " getUnReadMsgCount:", e);
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    return -1;
+                }
+            }
+        }
+        return invokeL.intValue;
+    }
+
     public long studioMsgAddHandler(ChatMsg chatMsg) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -1041,8 +1111,8 @@ public class ChatMessageDBManager extends DBBase {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:78:0x02e0 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:80:0x02e2  */
+    /* JADX WARN: Removed duplicated region for block: B:78:0x0274 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:80:0x0276  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1062,42 +1132,42 @@ public class ChatMessageDBManager extends DBBase {
         ChatMsg newChatMsg;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, cursor)) == null) {
-            int i2 = cursor.getInt(cursor.getColumnIndex("_id"));
-            int i3 = cursor.getInt(cursor.getColumnIndex("type"));
-            long j = cursor.getLong(cursor.getColumnIndex("from_user"));
-            long j2 = cursor.getLong(cursor.getColumnIndex("msgid"));
-            long j3 = cursor.getLong(cursor.getColumnIndex("time"));
-            int i4 = cursor.getInt(cursor.getColumnIndex("is_read"));
-            int i5 = cursor.getInt(cursor.getColumnIndex("status"));
-            String string = cursor.getString(cursor.getColumnIndex("content"));
-            int i6 = cursor.getInt(cursor.getColumnIndex("category"));
-            long j4 = cursor.getLong(cursor.getColumnIndex("contacter"));
-            int i7 = cursor.getInt(cursor.getColumnIndex("cmd"));
-            String string2 = cursor.getString(cursor.getColumnIndex("local_url"));
-            if (cursor.getInt(cursor.getColumnIndex(TableDefine.MessageColumns.COLUMN_ISZHIDA)) == 1) {
+            int i2 = CursorWrapper.getInt(cursor, "_id");
+            int i3 = CursorWrapper.getInt(cursor, "type");
+            long j = CursorWrapper.getLong(cursor, "from_user");
+            long j2 = CursorWrapper.getLong(cursor, "msgid");
+            long j3 = CursorWrapper.getLong(cursor, "time");
+            int i4 = CursorWrapper.getInt(cursor, "is_read");
+            int i5 = CursorWrapper.getInt(cursor, "status");
+            String string = CursorWrapper.getString(cursor, "content");
+            int i6 = CursorWrapper.getInt(cursor, "category");
+            long j4 = CursorWrapper.getLong(cursor, "contacter");
+            int i7 = CursorWrapper.getInt(cursor, "cmd");
+            String string2 = CursorWrapper.getString(cursor, "local_url");
+            if (CursorWrapper.getInt(cursor, TableDefine.MessageColumns.COLUMN_ISZHIDA) == 1) {
                 z = true;
             } else {
                 z = false;
             }
-            if (cursor.getInt(cursor.getColumnIndex("isclicked")) == 1) {
+            if (CursorWrapper.getInt(cursor, "isclicked") == 1) {
                 z2 = true;
             } else {
                 z2 = false;
             }
             boolean z4 = z2;
-            long j5 = cursor.getLong(cursor.getColumnIndex("paid"));
-            int i8 = cursor.getInt(cursor.getColumnIndex("device_flag"));
-            String string3 = cursor.getString(cursor.getColumnIndex("sendid"));
-            String string4 = cursor.getString(cursor.getColumnIndex("buid"));
-            String string5 = cursor.getString(cursor.getColumnIndex("msg_key"));
-            long j6 = cursor.getLong(cursor.getColumnIndex("expires_time"));
-            String string6 = cursor.getString(cursor.getColumnIndex(TableDefine.MessageColumns.COLUME_SERVICE_TYPE));
-            int i9 = cursor.getInt(cursor.getColumnIndex("tips_code"));
-            String string7 = cursor.getString(cursor.getColumnIndex("tips"));
-            int i10 = cursor.getInt(cursor.getColumnIndex("template_type"));
-            int i11 = cursor.getInt(cursor.getColumnIndex("send_type"));
-            int i12 = cursor.getInt(cursor.getColumnIndex("send_scene"));
-            String string8 = cursor.getString(cursor.getColumnIndex("origin_pa"));
+            long j5 = CursorWrapper.getLong(cursor, "paid");
+            int i8 = CursorWrapper.getInt(cursor, "device_flag");
+            String string3 = CursorWrapper.getString(cursor, "sendid");
+            String string4 = CursorWrapper.getString(cursor, "buid");
+            String string5 = CursorWrapper.getString(cursor, "msg_key");
+            long j6 = CursorWrapper.getLong(cursor, "expires_time");
+            String string6 = CursorWrapper.getString(cursor, TableDefine.MessageColumns.COLUME_SERVICE_TYPE);
+            int i9 = CursorWrapper.getInt(cursor, "tips_code");
+            String string7 = CursorWrapper.getString(cursor, "tips");
+            int i10 = CursorWrapper.getInt(cursor, "template_type");
+            int i11 = CursorWrapper.getInt(cursor, "send_type");
+            int i12 = CursorWrapper.getInt(cursor, "send_scene");
+            String string8 = CursorWrapper.getString(cursor, "origin_pa");
             if (i3 == 80) {
                 try {
                     int i13 = i3;
@@ -1315,46 +1385,46 @@ public class ChatMessageDBManager extends DBBase {
             if (cursor == null) {
                 return null;
             }
-            int i3 = cursor.getInt(cursor.getColumnIndex("category"));
-            long j11 = cursor.getLong(cursor.getColumnIndex("contacter"));
-            String string = cursor.getString(cursor.getColumnIndex("name"));
-            String string2 = cursor.getString(cursor.getColumnIndex("last_msg"));
-            long j12 = cursor.getLong(cursor.getColumnIndex("last_msg_time"));
-            long j13 = cursor.getLong(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_LAST_OPEN_TIME));
-            long j14 = cursor.getInt(cursor.getColumnIndex("new_msg_sum"));
-            int i4 = cursor.getInt(cursor.getColumnIndex("show"));
-            int i5 = cursor.getInt(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_COLLECTION_TYPE));
-            int i6 = cursor.getInt(cursor.getColumnIndex("chat_type"));
-            String string3 = cursor.getString(cursor.getColumnIndex("icon_url"));
-            int i7 = cursor.getInt(cursor.getColumnIndex("msg_state"));
-            int i8 = cursor.getInt(cursor.getColumnIndex("isclicked"));
-            long j15 = cursor.getLong(cursor.getColumnIndex("paid"));
-            int i9 = cursor.getInt(cursor.getColumnIndex("classtype"));
-            int i10 = cursor.getInt(cursor.getColumnIndex("classshow"));
-            String string4 = cursor.getString(cursor.getColumnIndex("classtitle"));
-            String string5 = cursor.getString(cursor.getColumnIndex("classavatar"));
-            int i11 = cursor.getInt(cursor.getColumnIndex("marktop"));
-            long j16 = cursor.getLong(cursor.getColumnIndex("marktoptime"));
-            String string6 = cursor.getString(cursor.getColumnIndex("nickname"));
-            String string7 = cursor.getString(cursor.getColumnIndex("extra"));
-            String string8 = cursor.getString(cursor.getColumnIndex("v_portrait"));
-            String string9 = cursor.getString(cursor.getColumnIndex("certification"));
-            String string10 = cursor.getString(cursor.getColumnIndex("vip_id"));
-            int i12 = cursor.getInt(cursor.getColumnIndex("shield"));
-            long j17 = cursor.getLong(cursor.getColumnIndex("shield_time"));
-            long j18 = cursor.getLong(cursor.getColumnIndex("last_msg_bduid"));
-            String string11 = cursor.getString(cursor.getColumnIndex("last_msg_name"));
-            int i13 = cursor.getInt(cursor.getColumnIndex("disturb"));
-            int i14 = cursor.getInt(cursor.getColumnIndex("is_stranger"));
-            int i15 = cursor.getInt(cursor.getColumnIndex("map_type"));
-            int i16 = cursor.getInt(cursor.getColumnIndex("remind_type"));
-            long j19 = cursor.getLong(cursor.getColumnIndex("remind_msgid"));
-            long j20 = cursor.getLong(cursor.getColumnIndex("remind_uid"));
-            String string12 = cursor.getString(cursor.getColumnIndex("remind_role_display_name"));
-            String string13 = cursor.getString(cursor.getColumnIndex("highlight_desc"));
-            int i17 = cursor.getInt(cursor.getColumnIndex("highlight_priority"));
-            int i18 = cursor.getInt(cursor.getColumnIndex("highlight_data_id"));
-            long j21 = cursor.getLong(cursor.getColumnIndex("last_msgid_from_me"));
+            int i3 = CursorWrapper.getInt(cursor, "category");
+            long j11 = CursorWrapper.getLong(cursor, "contacter");
+            String string = CursorWrapper.getString(cursor, "name");
+            String string2 = CursorWrapper.getString(cursor, "last_msg");
+            long j12 = CursorWrapper.getLong(cursor, "last_msg_time");
+            long j13 = CursorWrapper.getLong(cursor, TableDefine.SessionColumns.COLUMN_LAST_OPEN_TIME);
+            long j14 = CursorWrapper.getInt(cursor, "new_msg_sum");
+            int i4 = CursorWrapper.getInt(cursor, "show");
+            int i5 = CursorWrapper.getInt(cursor, TableDefine.SessionColumns.COLUMN_COLLECTION_TYPE);
+            int i6 = CursorWrapper.getInt(cursor, "chat_type");
+            String string3 = CursorWrapper.getString(cursor, "icon_url");
+            int i7 = CursorWrapper.getInt(cursor, "msg_state");
+            int i8 = CursorWrapper.getInt(cursor, "isclicked");
+            long j15 = CursorWrapper.getLong(cursor, "paid");
+            int i9 = CursorWrapper.getInt(cursor, "classtype");
+            int i10 = CursorWrapper.getInt(cursor, "classshow");
+            String string4 = CursorWrapper.getString(cursor, "classtitle");
+            String string5 = CursorWrapper.getString(cursor, "classavatar");
+            int i11 = CursorWrapper.getInt(cursor, "marktop");
+            long j16 = CursorWrapper.getLong(cursor, "marktoptime");
+            String string6 = CursorWrapper.getString(cursor, "nickname");
+            String string7 = CursorWrapper.getString(cursor, "extra");
+            String string8 = CursorWrapper.getString(cursor, "v_portrait");
+            String string9 = CursorWrapper.getString(cursor, "certification");
+            String string10 = CursorWrapper.getString(cursor, "vip_id");
+            int i12 = CursorWrapper.getInt(cursor, "shield");
+            long j17 = CursorWrapper.getLong(cursor, "shield_time");
+            long j18 = CursorWrapper.getLong(cursor, "last_msg_bduid");
+            String string11 = CursorWrapper.getString(cursor, "last_msg_name");
+            int i13 = CursorWrapper.getInt(cursor, "disturb");
+            int i14 = CursorWrapper.getInt(cursor, "is_stranger");
+            int i15 = CursorWrapper.getInt(cursor, "map_type");
+            int i16 = CursorWrapper.getInt(cursor, "remind_type");
+            long j19 = CursorWrapper.getLong(cursor, "remind_msgid");
+            long j20 = CursorWrapper.getLong(cursor, "remind_uid");
+            String string12 = CursorWrapper.getString(cursor, "remind_role_display_name");
+            String string13 = CursorWrapper.getString(cursor, "highlight_desc");
+            int i17 = CursorWrapper.getInt(cursor, "highlight_priority");
+            int i18 = CursorWrapper.getInt(cursor, "highlight_data_id");
+            long j21 = CursorWrapper.getLong(cursor, "last_msgid_from_me");
             if (i3 == 0 && i6 == 0) {
                 long buidByUK = IMUserManager.getInstance(this.mContext).getBuidByUK(j11);
                 if (buidByUK < 0 && !TextUtils.isEmpty(string2)) {
@@ -1558,36 +1628,6 @@ public class ChatMessageDBManager extends DBBase {
             }
         }
         return invokeL.intValue;
-    }
-
-    private ChatMsg generateStudioUsePaMsg(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65555, this, cursor)) == null) {
-            long j = cursor.getLong(cursor.getColumnIndex("msgid"));
-            int i = cursor.getInt(cursor.getColumnIndex("type"));
-            long j2 = cursor.getLong(cursor.getColumnIndex("from_user"));
-            long j3 = cursor.getLong(cursor.getColumnIndex("input_time"));
-            int i2 = cursor.getInt(cursor.getColumnIndex("category"));
-            long j4 = cursor.getLong(cursor.getColumnIndex("contacter"));
-            String string = cursor.getString(cursor.getColumnIndex("msg_key"));
-            String string2 = cursor.getString(cursor.getColumnIndex("content"));
-            int i3 = cursor.getInt(cursor.getColumnIndex("is_read"));
-            ChatMsg newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.mContext, i2, i, -1);
-            if (newChatMsg == null) {
-                return null;
-            }
-            newChatMsg.setCategory(i2);
-            newChatMsg.setContacter(j4);
-            newChatMsg.setFromUser(j2);
-            newChatMsg.setMsgContent(string2);
-            newChatMsg.setMsgId(j);
-            newChatMsg.setMsgKey(string);
-            newChatMsg.setMsgTime(j3);
-            newChatMsg.setMsgReaded(i3);
-            return newChatMsg;
-        }
-        return (ChatMsg) invokeL.objValue;
     }
 
     private boolean isMsgExist(ChatMsg chatMsg) {
@@ -1803,41 +1843,6 @@ public class ChatMessageDBManager extends DBBase {
             }
         }
         return invokeL.longValue;
-    }
-
-    public int getUnReadMsgCount(ChatObject chatObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048639, this, chatObject)) == null) {
-            synchronized (DBBase.mSyncLock) {
-                SQLiteDatabase openDatabase = openDatabase();
-                Cursor cursor = null;
-                if (openDatabase == null) {
-                    return -1;
-                }
-                try {
-                    String str = "category=? AND contacter=? AND is_read=?";
-                    String[] strArr = {String.valueOf(chatObject.getCategory()), String.valueOf(chatObject.getContacter()), String.valueOf(0)};
-                    if (1 == chatObject.getCategory()) {
-                        str = "category=? AND contacter=? AND is_read=? AND type != 101";
-                    }
-                    cursor = openDatabase.query("message", new String[]{"_id"}, str, strArr, null, null, null);
-                    LogUtils.d(TAG, "getUnReadMsgCount> COLUMN_CATEGORY=" + chatObject.getCategory() + ", COLUMN_CONTACTER=" + chatObject.getContacter() + ", count = " + cursor.getCount());
-                    int count = cursor.getCount();
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    return count;
-                } catch (Exception e) {
-                    LogUtils.e(TAG, " getUnReadMsgCount:", e);
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    return -1;
-                }
-            }
-        }
-        return invokeL.intValue;
     }
 
     public void updateSessionClass(ChatUser chatUser) {
@@ -2381,6 +2386,19 @@ public class ChatMessageDBManager extends DBBase {
         return (ChatSession) invokeI.objValue;
     }
 
+    public ChatSession getChatRecord(ChatObject chatObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, chatObject)) == null) {
+            String str = "category = ? AND contacter=?";
+            if (chatObject.getTimeInterval() > 0) {
+                str = "category = ? AND contacter=? AND last_msg_time >= " + TimeUtil.getTimeSecondByInterval(chatObject.getTimeInterval());
+            }
+            return getChatRecordInternal(str, new String[]{String.valueOf(chatObject.getCategory()), String.valueOf(chatObject.getContacter())});
+        }
+        return (ChatSession) invokeL.objValue;
+    }
+
     public long getMaxMsgid(ChatObject chatObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -2429,7 +2447,7 @@ public class ChatMessageDBManager extends DBBase {
                 LogUtils.d(str, "existStudioMsg query sql = " + sb.toString());
                 Cursor query = sQLiteDatabase.query(TableDefine.DB_TABLE_STUDIO_USE_PA_MESSAGE, null, sb.toString(), strArr, null, null, null, String.valueOf(1));
                 if (query != null && query.moveToNext()) {
-                    long j = query.getLong(query.getColumnIndex("_id"));
+                    long j = CursorWrapper.getLong(query, "_id");
                     if (query != null) {
                         query.close();
                     }
@@ -2471,7 +2489,7 @@ public class ChatMessageDBManager extends DBBase {
                 LogUtils.d(str, "isDuplicateMsg query sql = " + sb.toString());
                 Cursor query = sQLiteDatabase.query(TableDefine.DB_TABLE_NO_DUPLICATE_MESSAGE, null, sb.toString(), strArr, null, null, null, String.valueOf(1));
                 if (query != null && query.moveToNext()) {
-                    long j = query.getLong(query.getColumnIndex("_id"));
+                    long j = CursorWrapper.getLong(query, "_id");
                     if (query != null) {
                         query.close();
                     }
@@ -3370,27 +3388,6 @@ public class ChatMessageDBManager extends DBBase {
         return invokeL.intValue;
     }
 
-    public ChatSession getChatRecord(ChatObject chatObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, chatObject)) == null) {
-            return getChatRecordInternal("category = ? AND contacter=?", new String[]{String.valueOf(chatObject.getCategory()), String.valueOf(chatObject.getContacter())});
-        }
-        return (ChatSession) invokeL.objValue;
-    }
-
-    public int getNewMsgCount(List<Integer> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048628, this, list)) == null) {
-            if (list != null && list.size() > 0) {
-                return getNewMsgCount("chat_type" + buildINStatement(list));
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
     public long getNewMsgNum(ChatObject chatObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -3405,6 +3402,19 @@ public class ChatMessageDBManager extends DBBase {
             return chatRecord.getNewMsgSum();
         }
         return invokeL.longValue;
+    }
+
+    public int getStrangerUnReadCount(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048637, this, j)) == null) {
+            String str = "is_stranger = 1";
+            if (j > 0) {
+                str = "is_stranger = 1 AND last_msg_time >= " + TimeUtil.getTimeSecondByInterval(j);
+            }
+            return getNewMsgCount(str);
+        }
+        return invokeJ.intValue;
     }
 
     public int setStudioMsgRead(long j) {
@@ -3578,16 +3588,20 @@ public class ChatMessageDBManager extends DBBase {
         return (ChatMsg) invokeCommon.objValue;
     }
 
-    public int getNewMsgCountWithStranger(List<Integer> list, int i) {
-        InterceptResult invokeLI;
+    public int getNewMsgCount(List<Integer> list, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048630, this, list, i)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048628, this, list, j)) == null) {
             if (list != null && list.size() > 0) {
-                return getNewMsgCount("chat_type" + buildINStatement(list) + " AND is_stranger = " + i + " AND map_type != 1");
+                String str = "chat_type" + buildINStatement(list);
+                if (j > 0) {
+                    str = str + " AND last_msg_time >= " + TimeUtil.getTimeSecondByInterval(j);
+                }
+                return getNewMsgCount(str);
             }
             return 0;
         }
-        return invokeLI.intValue;
+        return invokeLJ.intValue;
     }
 
     public ArrayList<ChatMsg> addMsgs(Context context, ArrayList<ChatMsg> arrayList, boolean z, long j) {
@@ -3747,15 +3761,6 @@ public class ChatMessageDBManager extends DBBase {
             return chatMsgInternal.getMsgId();
         }
         return invokeV.longValue;
-    }
-
-    public int getStrangerUnReadCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) {
-            return getNewMsgCount("is_stranger = 1");
-        }
-        return invokeV.intValue;
     }
 
     public void contructChatRecordValues(ChatSession chatSession, ContentValues contentValues) {
@@ -4221,6 +4226,22 @@ public class ChatMessageDBManager extends DBBase {
         return (ArrayList) invokeCommon.objValue;
     }
 
+    public int getNewMsgCountWithStranger(List<Integer> list, int i, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048630, this, new Object[]{list, Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            if (list != null && list.size() > 0) {
+                String str = "chat_type" + buildINStatement(list) + " AND is_stranger = " + i + " AND map_type != 1";
+                if (j > 0) {
+                    str = str + " AND last_msg_time >= " + TimeUtil.getTimeSecondByInterval(j);
+                }
+                return getNewMsgCount(str);
+            }
+            return 0;
+        }
+        return invokeCommon.intValue;
+    }
+
     public void updateConsultSession(int i, ChatSession chatSession, ChatSession chatSession2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048663, this, i, chatSession, chatSession2) == null) {
@@ -4451,7 +4472,7 @@ public class ChatMessageDBManager extends DBBase {
                                 long lastMsgTime2 = chatSession3.getLastMsgTime();
                                 if (z || (lastMsgTime2 >= j && lastMsgTime2 <= j2)) {
                                     chatSession3.setSessionFrom(2);
-                                    chatSession3.setNewMsgSum(getStrangerUnReadCount());
+                                    chatSession3.setNewMsgSum(getStrangerUnReadCount(0L));
                                     arrayList.add(chatSession3);
                                 }
                             }
@@ -4581,16 +4602,16 @@ public class ChatMessageDBManager extends DBBase {
                 SQLiteDatabase openDatabase = openDatabase();
                 ArrayList arrayList = new ArrayList();
                 Cursor cursor = null;
-                if (openDatabase == null) {
-                    return null;
-                }
                 try {
+                    if (openDatabase == null) {
+                        return null;
+                    }
                     try {
                         Cursor query = openDatabase.query(true, TableDefine.DB_TABLE_CHAT_SESSION, new String[]{"chat_type"}, "classtype > 1 AND new_msg_sum > 0", null, null, null, null, null);
                         if (query != null) {
                             while (query.moveToNext()) {
                                 try {
-                                    arrayList.add(Integer.valueOf(query.getInt(query.getColumnIndex("chat_type"))));
+                                    arrayList.add(Integer.valueOf(CursorWrapper.getInt(query, "chat_type")));
                                 } catch (Exception e) {
                                     e = e;
                                     cursor = query;

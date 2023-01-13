@@ -5,8 +5,8 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kk0;
-import com.baidu.tieba.kl0;
+import com.baidu.tieba.pk0;
+import com.baidu.tieba.pl0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ public class RetainDialogActivity extends NadDialogActivity {
     public int C;
 
     @Override // com.baidu.nadcore.download.retain.NadDialogActivity
-    public boolean F1() {
+    public boolean H1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -29,7 +29,7 @@ public class RetainDialogActivity extends NadDialogActivity {
     }
 
     @Override // com.baidu.nadcore.download.retain.NadDialogActivity
-    public boolean G1() {
+    public boolean I1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -53,35 +53,35 @@ public class RetainDialogActivity extends NadDialogActivity {
     }
 
     @Override // com.baidu.nadcore.download.retain.NadDialogActivity
-    public void A1() {
+    public void C1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            kl0.c().f();
+            pl0.c().f();
             finish();
         }
     }
 
     @Override // com.baidu.nadcore.download.retain.NadDialogActivity
-    public void B1() {
+    public void D1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            kl0.c().g();
+            pl0.c().g();
             finish();
         }
     }
 
     @Override // com.baidu.nadcore.download.retain.NadDialogActivity
-    public int C1() {
+    public int E1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return kk0.a().b();
+            return pk0.a().b();
         }
         return invokeV.intValue;
     }
 
     @Override // com.baidu.nadcore.download.retain.NadDialogActivity
-    public String H1() {
+    public String J1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -91,7 +91,7 @@ public class RetainDialogActivity extends NadDialogActivity {
     }
 
     @Override // com.baidu.nadcore.download.retain.NadDialogActivity
-    public String I1() {
+    public String K1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -101,26 +101,26 @@ public class RetainDialogActivity extends NadDialogActivity {
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void a1() {
+    public void d1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            super.a1();
+            super.d1();
         }
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void e1() {
+    public void g1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            super.e1();
-            if (kl0.c().a()) {
+            super.g1();
+            if (pl0.c().a()) {
                 finish();
             }
         }
     }
 
     @Override // com.baidu.nadcore.download.retain.NadDialogActivity
-    public void E1() {
+    public void G1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             Intent intent = this.B;

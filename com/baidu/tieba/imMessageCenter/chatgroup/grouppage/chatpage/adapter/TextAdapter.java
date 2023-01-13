@@ -1,22 +1,25 @@
 package com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.adapter;
 
 import android.content.Context;
+import android.text.SpannableStringBuilder;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.widget.richText.TbRichText;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.cx4;
+import com.baidu.tieba.em7;
 import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter;
 import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.itemdata.TextMsg;
-import com.baidu.tieba.xa7;
+import com.baidu.tieba.ui6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,11 +31,21 @@ public class TextAdapter extends BaseChatAdapter<TextMsg, Holder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
+    public boolean N() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* loaded from: classes4.dex */
     public static class Holder extends BaseViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final TbRichTextView a;
+        public final TextView a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public Holder(View view2) {
@@ -52,15 +65,52 @@ public class TextAdapter extends BaseChatAdapter<TextMsg, Holder> {
                     return;
                 }
             }
-            this.a = (TbRichTextView) view2;
+            this.a = (TextView) view2;
         }
 
         @Override // com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseViewHolder
         public void b(@Nullable View.OnLongClickListener onLongClickListener) {
-            TbRichTextView tbRichTextView;
+            TextView textView;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, onLongClickListener) == null) && (tbRichTextView = this.a) != null) {
-                tbRichTextView.setOnLongClickListener(onLongClickListener);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, onLongClickListener) == null) && (textView = this.a) != null) {
+                textView.setOnLongClickListener(onLongClickListener);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class a implements ui6.i {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TextMsg a;
+        public final /* synthetic */ TextView b;
+
+        public a(TextAdapter textAdapter, TextMsg textMsg, TextView textView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {textAdapter, textMsg, textView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = textMsg;
+            this.b = textView;
+        }
+
+        @Override // com.baidu.tieba.ui6.i
+        public void a(SpannableStringBuilder spannableStringBuilder) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
+                em7.a(spannableStringBuilder);
+                this.a.setCharSequence(spannableStringBuilder);
+                this.b.setText(spannableStringBuilder);
             }
         }
     }
@@ -86,67 +136,107 @@ public class TextAdapter extends BaseChatAdapter<TextMsg, Holder> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
-    @NonNull
-    /* renamed from: L */
-    public Holder A(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void P(@NonNull ViewGroup viewGroup, TextView textView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            return new Holder(K(viewGroup.getContext()));
+        if (interceptable == null || interceptable.invokeLL(1048581, this, viewGroup, textView) == null) {
+            View findViewById = viewGroup.findViewById(R.id.obfuscated_res_0x7f090d71);
+            if (findViewById != null) {
+                if (findViewById.getVisibility() == 0) {
+                    textView.getLayoutParams().width = -1;
+                } else {
+                    textView.getLayoutParams().width = -2;
+                }
+            } else {
+                textView.getLayoutParams().width = -2;
+            }
+            textView.requestLayout();
         }
-        return (Holder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
     @NonNull
-    /* renamed from: M */
+    /* renamed from: R */
     public Holder B(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
-            return new Holder(K(viewGroup.getContext()));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
+            return new Holder(O(viewGroup.getContext()));
         }
         return (Holder) invokeL.objValue;
     }
 
-    public final TbRichTextView K(@NonNull Context context) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
+    @NonNull
+    /* renamed from: S */
+    public Holder D(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            TbRichTextView tbRichTextView = new TbRichTextView(context);
-            tbRichTextView.setId(R.id.obfuscated_res_0x7f090d6e);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
+            return new Holder(O(viewGroup.getContext()));
+        }
+        return (Holder) invokeL.objValue;
+    }
+
+    public final TextView O(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            TextView textView = new TextView(context);
+            textView.setId(R.id.obfuscated_res_0x7f090d78);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.leftMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
             layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
             layoutParams.gravity = 17;
-            tbRichTextView.setLayoutParams(layoutParams);
-            tbRichTextView.setPadding(0, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003), 0, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
-            tbRichTextView.getLayoutStrategy().o(1.2f);
-            tbRichTextView.getLayoutStrategy().i(UtilHelper.getDimenPixelSize(R.dimen.tbds8), 0);
-            tbRichTextView.setTextCenter(true);
-            tbRichTextView.setTextSize(UtilHelper.getDimenPixelSize(R.dimen.T_X05));
-            tbRichTextView.setFaceSize(UtilHelper.getDimenPixelSize(R.dimen.T_X03));
-            return tbRichTextView;
+            textView.setLayoutParams(layoutParams);
+            textView.setPadding(0, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003), 0, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
+            textView.setLineSpacing(1.0f, 1.2f);
+            cx4.d(textView).z(R.dimen.T_X05);
+            return textView;
         }
-        return (TbRichTextView) invokeL.objValue;
+        return (TextView) invokeL.objValue;
+    }
+
+    public final void Q(@NonNull TextView textView, @NonNull TextMsg textMsg) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, textView, textMsg) == null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
+            if (textMsg.getReMsgInfo() != null) {
+                layoutParams.gravity = 16;
+            } else {
+                layoutParams.gravity = 17;
+            }
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
-    /* renamed from: N */
-    public void F(int i, @NonNull ViewGroup viewGroup, @NonNull TextMsg textMsg, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
+    /* renamed from: T */
+    public void J(int i, @NonNull ViewGroup viewGroup, @NonNull TextMsg textMsg, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), viewGroup, textMsg, holder, list, Integer.valueOf(i2)}) == null) {
-            TbRichTextView tbRichTextView = (TbRichTextView) holder.getView();
-            tbRichTextView.setText(new TbRichText(xa7.c(textMsg.getText(), 0)));
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), viewGroup, textMsg, holder, list, Integer.valueOf(i2)}) == null) {
             if (textMsg.isLeft()) {
-                tbRichTextView.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+                i3 = R.drawable.selector_msg_text_bubble_other;
             } else {
-                tbRichTextView.setTextColor(SkinManager.getColor(R.color.CAM_X0610));
+                i3 = R.drawable.selector_msg_text_bubble_me;
             }
+            SkinManager.setBackgroundResource(viewGroup, i3);
+            TextView textView = (TextView) holder.getView();
+            em7.b(textMsg.getAtUserInfoList());
+            if (textMsg.getCharSequence() != null) {
+                textView.setText(textMsg.getCharSequence());
+            } else {
+                ui6.d(getContext(), textMsg.getText(), UtilHelper.getDimenPixelSize(R.dimen.T_X03), new a(this, textMsg, textView));
+            }
+            if (textMsg.isLeft()) {
+                textView.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            } else {
+                textView.setTextColor(SkinManager.getColor(R.color.CAM_X0610));
+            }
+            Q(textView, textMsg);
+            P(viewGroup, textView);
         }
     }
 }

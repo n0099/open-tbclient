@@ -1,30 +1,45 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Request;
+import javax.annotation.Nullable;
+import org.webrtc.CalledByNative;
+import org.webrtc.VideoCodecInfo;
+import org.webrtc.VideoDecoder;
+import org.webrtc.VideoDecoderFactory;
+/* compiled from: VideoDecoderFactory.java */
 /* loaded from: classes4.dex */
-public abstract class f8a<T> {
+public final /* synthetic */ class f8a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void a(Request request, boolean z, Exception exc);
-
-    public abstract void b(T t);
-
-    public f8a() {
+    @CalledByNative
+    public static VideoCodecInfo[] $default$getSupportedCodecs(VideoDecoderFactory videoDecoderFactory) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, videoDecoderFactory)) == null) ? new VideoCodecInfo[0] : (VideoCodecInfo[]) invokeL.objValue;
+    }
+
+    @Nullable
+    @Deprecated
+    public static VideoDecoder $default$createDecoder(VideoDecoderFactory videoDecoderFactory, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, videoDecoderFactory, str)) == null) {
+            throw new UnsupportedOperationException("Deprecated and not implemented.");
         }
+        return (VideoDecoder) invokeLL.objValue;
+    }
+
+    @Nullable
+    @CalledByNative
+    public static VideoDecoder $default$createDecoder(VideoDecoderFactory videoDecoderFactory, VideoCodecInfo videoCodecInfo) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, videoDecoderFactory, videoCodecInfo)) == null) {
+            return videoDecoderFactory.createDecoder(videoCodecInfo.getName());
+        }
+        return (VideoDecoder) invokeLL.objValue;
     }
 }

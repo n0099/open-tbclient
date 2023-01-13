@@ -23,6 +23,7 @@ public class a extends c {
         this.l = z;
     }
 
+    /* JADX DEBUG: Possible override for method com.meizu.cloud.pushsdk.platform.b.c.a(I)Z */
     public void a(int i) {
         this.b = i;
     }

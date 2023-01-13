@@ -1,116 +1,111 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.ala.livecard.holder.FrsPageAlaInsertRecLiveHolder;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class f16 {
+public class f16 extends pn6<qv8, FrsPageAlaInsertRecLiveHolder> implements x86 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public BdTypeListView b;
-    public List<kn> c;
-    public List<xn> d;
-    public h26 e;
-    public l16 f;
+    public String l;
+    public q16 m;
 
-    public f16(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, h26 h26Var) {
+    @Override // com.baidu.tieba.x86
+    public void p(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f16(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext, bdUniqueId, bdUniqueId2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView, h26Var};
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = bdTypeListView;
-        this.c = new ArrayList();
-        this.d = new ArrayList();
-        this.e = h26Var;
-        a();
+        this.l = "";
     }
 
-    public final void a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ln
+    /* renamed from: E */
+    public FrsPageAlaInsertRecLiveHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            e16 e16Var = new e16(this.a);
-            i16 i16Var = new i16(this.a);
-            j16 j16Var = new j16(this.a);
-            c16 c16Var = new c16(this.a);
-            h16 h16Var = new h16(this.a);
-            k16 k16Var = new k16(this.a);
-            g16 g16Var = new g16(this.a);
-            d16 d16Var = new d16(this.a);
-            this.f = new l16(this.a);
-            n16 n16Var = new n16(this.a, this.e);
-            m16 m16Var = new m16(this.a);
-            this.c.add(e16Var);
-            this.c.add(this.f);
-            this.c.add(i16Var);
-            this.c.add(j16Var);
-            this.c.add(c16Var);
-            this.c.add(h16Var);
-            this.c.add(k16Var);
-            this.c.add(g16Var);
-            this.c.add(d16Var);
-            this.c.add(n16Var);
-            this.c.add(m16Var);
-            this.b.a(this.c);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            TbPageContext<?> tbPageContext = this.c;
+            if (tbPageContext == null) {
+                return null;
+            }
+            q16 q16Var = new q16(tbPageContext);
+            this.m = q16Var;
+            q16Var.a(this.l);
+            return new FrsPageAlaInsertRecLiveHolder(this.m);
+        }
+        return (FrsPageAlaInsertRecLiveHolder) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.x86
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.l = str;
         }
     }
 
-    public void b(List<xn> list) {
+    public View F(int i, View view2, ViewGroup viewGroup, qv8 qv8Var, FrsPageAlaInsertRecLiveHolder frsPageAlaInsertRecLiveHolder) {
+        InterceptResult invokeCommon;
+        int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && this.b != null && !ListUtils.isEmpty(list)) {
-            this.d.clear();
-            this.d.addAll(list);
-            this.b.setData(this.d);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qv8Var, frsPageAlaInsertRecLiveHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) qv8Var, (qv8) frsPageAlaInsertRecLiveHolder);
+            if (qv8Var != null) {
+                FrsViewData frsViewData = this.b;
+                if (frsViewData != null) {
+                    i2 = frsViewData.getTopThreadSize();
+                } else {
+                    i2 = 0;
+                }
+                List<ThreadData> list = qv8Var.a;
+                if (list != null && list.get(0) != null) {
+                    qv8Var.a.get(0).statFloor = (i + 1) - i2;
+                }
+                frsPageAlaInsertRecLiveHolder.a.a(this.l);
+                frsPageAlaInsertRecLiveHolder.a.i(qv8Var);
+            }
+            return view2;
         }
+        return (View) invokeCommon.objValue;
     }
 
-    public void c(String str) {
-        l16 l16Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (l16Var = this.f) != null) {
-            l16Var.D(str);
-        }
-    }
-
-    public void d(String str) {
-        l16 l16Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (l16Var = this.f) != null) {
-            l16Var.a(str);
-        }
-    }
-
-    public void e(String str) {
-        l16 l16Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (l16Var = this.f) != null) {
-            l16Var.E(str);
-        }
-    }
-
-    public void f(boolean z) {
-        l16 l16Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (l16Var = this.f) != null) {
-            l16Var.F(z);
-        }
+    @Override // com.baidu.tieba.pn6, com.baidu.tieba.ln
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        F(i, view2, viewGroup, (qv8) obj, (FrsPageAlaInsertRecLiveHolder) viewHolder);
+        return view2;
     }
 }

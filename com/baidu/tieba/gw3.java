@@ -1,62 +1,39 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
+import android.text.TextUtils;
+import androidx.core.app.NotificationCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.KVStorageFactory;
+import com.baidu.down.manage.Download;
+import com.baidu.down.manage.DownloadManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.gamecenter.appmanager.notification.InstallNotifyReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.io.File;
+import java.util.Calendar;
+import java.util.Collection;
 /* loaded from: classes4.dex */
-public class gw3 extends kw3 {
+public class gw3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile gw3 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public SharedPreferences a;
+    public String b;
 
-    /* loaded from: classes4.dex */
-    public class a implements xi3<e93> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ih2 a;
-
-        public a(gw3 gw3Var, ih2 ih2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gw3Var, ih2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ih2Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xi3
-        /* renamed from: b */
-        public void a(e93 e93Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e93Var) == null) {
-                boolean z = true;
-                if ((e93Var == null || e93Var.d || e93Var.j != 1) ? false : false) {
-                    this.a.a(null);
-                } else {
-                    this.a.onFail(10001, "authorize fail.");
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public gw3() {
-        super("authorize");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,32 +41,229 @@ public class gw3 extends kw3 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = "com.baidu.gamenow";
+        this.a = KVStorageFactory.getSharedPreferences("gamecenter_install_notification", 0);
     }
 
-    @Override // com.baidu.tieba.kw3
-    public ew1 a(@NonNull JSONObject jSONObject, @NonNull ih2 ih2Var) {
-        InterceptResult invokeLL;
+    public static gw3 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ih2Var)) == null) {
-            if (kw3.b && jSONObject.optBoolean("debug", false)) {
-                Log.i("authorize", "debug mode: true.");
-                ih2Var.a(null);
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (gw3.class) {
+                    if (c == null) {
+                        c = new gw3();
+                    }
+                }
             }
-            e43 b0 = e43.b0();
-            if (b0 == null) {
-                ih2Var.onFail(10001, "authorize fail.");
-                return null;
-            }
-            b0.e0().e("mapp_gamecenter_private_api", new a(this, ih2Var));
-            return null;
+            return c;
         }
-        return (ew1) invokeLL.objValue;
+        return (gw3) invokeV.objValue;
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return xg3.f(Long.valueOf(g()), Long.valueOf(System.currentTimeMillis()));
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (b()) {
+                return null;
+            }
+            if (d()) {
+                return "todayfirst";
+            }
+            if (!e()) {
+                return null;
+            }
+            return "pushregularly";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if ((System.currentTimeMillis() / 86400000) - (g() / 86400000) > 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (i() <= System.currentTimeMillis()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final long g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a.getLong("key_notification_time", 0L);
+        }
+        return invokeV.longValue;
+    }
+
+    public final long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            long i = i();
+            if (i < System.currentTimeMillis()) {
+                return i + 86400000;
+            }
+            return i;
+        }
+        return invokeV.longValue;
+    }
+
+    public final long i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(11, 19);
+            calendar.set(12, 30);
+            return calendar.getTimeInMillis();
+        }
+        return invokeV.longValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && !TextUtils.isEmpty(c())) {
+            n(c());
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            SharedPreferences.Editor edit = this.a.edit();
+            edit.putLong("key_notification_time", System.currentTimeMillis());
+            edit.apply();
+        }
+    }
+
+    public void a(Download download) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, download) == null) {
+            hw3.a(AppRuntime.getAppContext(), Long.valueOf(download.getId().longValue()).intValue());
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            ((AlarmManager) AppRuntime.getAppContext().getSystemService(NotificationCompat.CATEGORY_ALARM)).set(0, h(), PendingIntent.getBroadcast(AppRuntime.getAppContext(), 2147483646, InstallNotifyReceiver.createIntent(InstallNotifyReceiver.NOTIFICATION_INSTALL_ACTION_ALARM), 0));
+        }
+    }
+
+    public void m(Download download, boolean z, String str) {
+        String format;
+        String string;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{download, Boolean.valueOf(z), str}) == null) {
+            try {
+                String str3 = download.getRealDownloadDir() + File.separator + download.getFileName();
+                PackageManager packageManager = AppRuntime.getAppContext().getPackageManager();
+                PackageInfo packageArchiveInfo = packageManager.getPackageArchiveInfo(str3, 1);
+                if (packageArchiveInfo == null) {
+                    return;
+                }
+                Context appContext = AppRuntime.getAppContext();
+                ApplicationInfo applicationInfo = packageArchiveInfo.applicationInfo;
+                applicationInfo.sourceDir = str3;
+                applicationInfo.publicSourceDir = str3;
+                Drawable applicationIcon = packageManager.getApplicationIcon(applicationInfo);
+                String charSequence = packageManager.getApplicationLabel(applicationInfo).toString();
+                PendingIntent broadcast = PendingIntent.getBroadcast(appContext, Long.valueOf(download.getId().longValue()).intValue(), InstallNotifyReceiver.createIntent(InstallNotifyReceiver.NOTIFICATION_INSTALL_ACTION_ONE, download.getKeyByUser(), str), 134217728);
+                if (z) {
+                    l();
+                    format = String.format(appContext.getString(R.string.obfuscated_res_0x7f0f01e7), charSequence);
+                    string = appContext.getString(R.string.obfuscated_res_0x7f0f011f);
+                } else {
+                    format = String.format(appContext.getString(R.string.obfuscated_res_0x7f0f01e7), charSequence);
+                    string = appContext.getString(R.string.obfuscated_res_0x7f0f011f);
+                }
+                String str4 = format;
+                try {
+                    if (TextUtils.equals(download.getKeyByUser(), this.b)) {
+                        str2 = appContext.getString(R.string.obfuscated_res_0x7f0f018f);
+                    } else {
+                        str2 = string;
+                    }
+                    hw3.c(appContext, Long.valueOf(download.getId().longValue()).intValue(), str4, str2, hw3.b(applicationIcon), System.currentTimeMillis(), broadcast, str, download.getKeyByUser());
+                } catch (Exception e) {
+                    e = e;
+                    if (tk1.a) {
+                        e.printStackTrace();
+                    }
+                }
+            } catch (Exception e2) {
+                e = e2;
+            }
+        }
+    }
+
+    public void n(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048588, this, str) != null) || b()) {
+            return;
+        }
+        try {
+            Collection<Download> t = new uv3(DownloadManager.getInstance(AppRuntime.getAppContext())).t();
+            if (t != null && t.size() != 0) {
+                k();
+                Download download = null;
+                for (Download download2 : t) {
+                    if (download2 != null) {
+                        download = download2;
+                    }
+                }
+                if (1 == t.size()) {
+                    m(download, false, str);
+                    return;
+                }
+                String str2 = download.getRealDownloadDir() + File.separator + download.getFileName();
+                PackageManager packageManager = AppRuntime.getAppContext().getPackageManager();
+                PackageInfo packageArchiveInfo = packageManager.getPackageArchiveInfo(str2, 1);
+                if (packageArchiveInfo == null) {
+                    return;
+                }
+                Context appContext = AppRuntime.getAppContext();
+                ApplicationInfo applicationInfo = packageArchiveInfo.applicationInfo;
+                applicationInfo.sourceDir = str2;
+                applicationInfo.publicSourceDir = str2;
+                hw3.c(appContext, 0, String.format(appContext.getString(R.string.obfuscated_res_0x7f0f01e8), Integer.valueOf(t.size())), appContext.getString(R.string.obfuscated_res_0x7f0f011f), hw3.b(packageManager.getApplicationIcon(applicationInfo)), System.currentTimeMillis(), PendingIntent.getBroadcast(appContext, Integer.MAX_VALUE, InstallNotifyReceiver.createToDownloadPageIntent(InstallNotifyReceiver.NOTIFICATION_INSTALL_ACTION_MULTIPLE).putExtra(InstallNotifyReceiver.OPPORTUNITY, str), 134217728), str, download.getKeyByUser());
+            }
+        } catch (Exception e) {
+            if (tk1.a) {
+                e.printStackTrace();
+            }
+        }
     }
 }

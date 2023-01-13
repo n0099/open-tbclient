@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.tieba.imMessageCenter.chatgroup.data.ChatGroupInfo;
-import com.baidu.tieba.xg;
+import com.baidu.tieba.yg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,7 +53,7 @@ public class ResponseHttpSubscribeGroupChatListMessage extends JsonHttpResponsed
             return;
         }
         int statusCode = getStatusCode();
-        int e = xg.e(jSONObject.optString("error_code"), -1);
+        int e = yg.e(jSONObject.optString("error_code"), -1);
         String optString = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
         setError(e);
         setErrorString(optString);

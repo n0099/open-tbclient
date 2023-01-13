@@ -22,7 +22,6 @@ public final class Constants {
     public static final String ACTION_SERVICE = "com.baidu.android.imsdk.action.IM_SERVICE";
     public static final String ACTION_START = "com.baidu.android.imsdk.action.SERVICE_START";
     public static final String ACTION_STOP = "com.baidu.android.imsdk.action.SERVICE_STOP";
-    public static final String API_KEY = "api_key";
     public static final long APPID_BAIDU = 405384;
     public static final long APPID_HAOKAN = 10660069;
     public static final long APPID_HAOKAN_JISU = 18406321;
@@ -60,6 +59,7 @@ public final class Constants {
     public static final String ERROR_MSG_SERVER_INTERNAL_ERROR = "Server error!";
     public static final String ERROR_MSG_SERVICE_ERROR = "service exception";
     public static final String ERROR_MSG_SUCCESS = "Sucess!";
+    public static final String EVENT_LIST = "event_list";
     public static final Long EXPIRED_TIME;
     public static final String EXTRA_ALARM_ALERT = "AlarmAlert";
     public static final String EXTRA_BAIDU_UID = "buid";
@@ -196,7 +196,7 @@ public final class Constants {
     public static final String KEY_USER_SETTING_NOT_CONCERNED = "user_setting_not_concerned";
     public static final String KEY_VCODE = "imsdk_product_vcode";
     public static final String KEY_ZID = "imsdk_product_zid";
-    public static final String LITTLE_VERSION = "0";
+    public static final String LITTLE_VERSION = "5";
     public static final int LOGIN_STATE_LOGIN = 3;
     public static final int LOGIN_STATE_LOGINING = 1;
     public static final int LOGIN_STATE_LOGIN_FAILED = 2;

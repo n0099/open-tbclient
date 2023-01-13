@@ -1,32 +1,29 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.view.NavigationBarCoverTip;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.FrsTabInfo;
 /* loaded from: classes3.dex */
-public class bx6 {
+public class bx6 extends PriorityOrganizer.Task {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsFragment a;
-    public NavigationBarCoverTip b;
-    public TextView c;
-    public int d;
+    public FrsFragment m;
+    public FrsActivity n;
 
-    public bx6(FrsFragment frsFragment, NavigationBarCoverTip navigationBarCoverTip) {
+    public bx6(FrsActivity frsActivity, FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment, navigationBarCoverTip};
+            Object[] objArr = {frsActivity, frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,56 +33,55 @@ public class bx6 {
                 return;
             }
         }
-        this.a = frsFragment;
-        this.b = navigationBarCoverTip;
-        b();
+        this.n = frsActivity;
+        this.m = frsFragment;
     }
 
-    public void a(String str) {
-        int i;
-        String str2;
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean u() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !xi.isEmpty(str) && this.b != null && this.a.isPrimary() && (i = this.d) <= 0) {
-            this.d = i + 1;
-            if (str.length() < 20) {
-                str2 = this.a.getResources().getString(R.string.forum_ueg_tip) + "\n" + str;
-            } else if (str.length() < 34) {
-                str2 = this.a.getResources().getString(R.string.forum_ueg_tip) + str;
-            } else {
-                str2 = this.a.getResources().getString(R.string.forum_ueg_tip) + str.substring(0, 34);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            FrsFragment frsFragment = this.m;
+            if (frsFragment != null && !frsFragment.B3() && TbSingleton.getInstance().getFrsResponseData() != null) {
+                return true;
             }
-            this.c.setText(str2);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0101);
-            SkinManager.setBackgroundColor(this.b, R.color.cp_link_tip_a_alpha95);
-            this.b.n(this.a.getActivity(), this.c, 5000);
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            t();
         }
     }
 
-    public final void b() {
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean w() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.d = 0;
-            this.c = new TextView(this.a.getActivity());
-            this.c.setLayoutParams(new LinearLayout.LayoutParams(-1, this.a.getResources().getDimensionPixelSize(R.dimen.tbds112)));
-            if (UtilHelper.canUseStyleImmersiveSticky()) {
-                this.c.setPadding(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0);
-                this.c.setGravity(3);
-            } else {
-                this.c.setPadding(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0);
-                this.c.setGravity(19);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (tw4.l()) {
+                return false;
             }
-            this.c.setTextSize(0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9));
-            this.c.setLineSpacing(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4), 1.0f);
-            this.c.setMaxLines(2);
-            this.c.setEllipsize(TextUtils.TruncateAt.END);
+            xv8 frsResponseData = TbSingleton.getInstance().getFrsResponseData();
+            if (frsResponseData != null && frsResponseData.getEntelechyTabInfo() != null && frsResponseData.getEntelechyTabInfo().a != null) {
+                for (FrsTabInfo frsTabInfo : frsResponseData.getEntelechyTabInfo().a) {
+                    if (frsTabInfo.tab_id.intValue() == 502 && cz4.l().i("first_into_tab_profession", true)) {
+                        return false;
+                    }
+                }
+            }
+            dq6 dq6Var = new dq6(this.n.getPageContext());
+            this.m.D4(dq6Var);
+            boolean j = dq6Var.j(frsResponseData);
+            this.m.B4(j);
+            this.m.G4(j);
+            return j;
         }
-    }
-
-    public void c() {
-        NavigationBarCoverTip navigationBarCoverTip;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (navigationBarCoverTip = this.b) != null) {
-            navigationBarCoverTip.i();
-        }
+        return invokeV.booleanValue;
     }
 }

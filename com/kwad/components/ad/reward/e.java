@@ -66,11 +66,11 @@ public final class e {
     public static void a(int i, int i2, @NonNull SceneImpl sceneImpl, int i3, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), sceneImpl, Integer.valueOf(i3), aVar}) == null) {
-            SceneImpl m85clone = sceneImpl.m85clone();
+            SceneImpl m89clone = sceneImpl.m89clone();
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            m85clone.setAdStyle(i);
-            m85clone.setAdNum(i2);
-            a(new com.kwad.components.core.k.kwai.b(m85clone), null, false, true, new com.kwad.components.core.k.f(aVar, i3, elapsedRealtime) { // from class: com.kwad.components.ad.reward.e.1
+            m89clone.setAdStyle(i);
+            m89clone.setAdNum(i2);
+            a(new com.kwad.components.core.k.kwai.b(m89clone), null, false, true, new com.kwad.components.core.k.f(aVar, i3, elapsedRealtime) { // from class: com.kwad.components.ad.reward.e.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ long fu;

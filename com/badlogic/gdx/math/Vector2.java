@@ -4,7 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.u7;
+import com.baidu.tieba.v7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -126,7 +126,7 @@ public class Vector2 implements Serializable, e<Vector2> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: cpy */
-    public Vector2 m7cpy() {
+    public Vector2 m8cpy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
@@ -139,7 +139,7 @@ public class Vector2 implements Serializable, e<Vector2> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            return ((u7.a(this.x) + 31) * 31) + u7.a(this.y);
+            return ((v7.a(this.x) + 31) * 31) + v7.a(this.y);
         }
         return invokeV.intValue;
     }
@@ -189,7 +189,7 @@ public class Vector2 implements Serializable, e<Vector2> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: nor */
-    public Vector2 m10nor() {
+    public Vector2 m11nor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048647, this)) == null) {
@@ -205,7 +205,7 @@ public class Vector2 implements Serializable, e<Vector2> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: setToRandomDirection */
-    public Vector2 m14setToRandomDirection() {
+    public Vector2 m15setToRandomDirection() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048671, this)) == null) {
@@ -217,7 +217,7 @@ public class Vector2 implements Serializable, e<Vector2> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: setZero */
-    public Vector2 m15setZero() {
+    public Vector2 m16setZero() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048673, this)) == null) {
@@ -494,24 +494,24 @@ public class Vector2 implements Serializable, e<Vector2> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: limit */
-    public Vector2 m8limit(float f) {
+    public Vector2 m9limit(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048638, this, f)) == null) {
-            return m9limit2(f * f);
+            return m10limit2(f * f);
         }
         return (Vector2) invokeF.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: limit2 */
-    public Vector2 m9limit2(float f) {
+    public Vector2 m10limit2(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048640, this, f)) == null) {
             float len2 = len2();
             if (len2 > f) {
-                return m11scl((float) Math.sqrt(f / len2));
+                return m12scl((float) Math.sqrt(f / len2));
             }
             return this;
         }
@@ -572,7 +572,7 @@ public class Vector2 implements Serializable, e<Vector2> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: scl */
-    public Vector2 m11scl(float f) {
+    public Vector2 m12scl(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048656, this, f)) == null) {
@@ -627,24 +627,24 @@ public class Vector2 implements Serializable, e<Vector2> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: setLength */
-    public Vector2 m12setLength(float f) {
+    public Vector2 m13setLength(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048667, this, f)) == null) {
-            return m13setLength2(f * f);
+            return m14setLength2(f * f);
         }
         return (Vector2) invokeF.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: setLength2 */
-    public Vector2 m13setLength2(float f) {
+    public Vector2 m14setLength2(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048669, this, f)) == null) {
             float len2 = len2();
             if (len2 != 0.0f && len2 != f) {
-                return m11scl((float) Math.sqrt(f / len2));
+                return m12scl((float) Math.sqrt(f / len2));
             }
             return this;
         }
@@ -867,7 +867,7 @@ public class Vector2 implements Serializable, e<Vector2> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clamp */
-    public Vector2 m6clamp(float f, float f2) {
+    public Vector2 m7clamp(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
@@ -877,11 +877,11 @@ public class Vector2 implements Serializable, e<Vector2> {
             }
             float f3 = f2 * f2;
             if (len2 > f3) {
-                return m11scl((float) Math.sqrt(f3 / len2));
+                return m12scl((float) Math.sqrt(f3 / len2));
             }
             float f4 = f * f;
             if (len2 < f4) {
-                return m11scl((float) Math.sqrt(f4 / len2));
+                return m12scl((float) Math.sqrt(f4 / len2));
             }
             return this;
         }
@@ -923,7 +923,7 @@ public class Vector2 implements Serializable, e<Vector2> {
                 return false;
             }
             Vector2 vector2 = (Vector2) obj;
-            if (u7.a(this.x) == u7.a(vector2.x) && u7.a(this.y) == u7.a(vector2.y)) {
+            if (v7.a(this.x) == v7.a(vector2.x) && v7.a(this.y) == v7.a(vector2.y)) {
                 return true;
             }
             return false;

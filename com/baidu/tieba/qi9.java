@@ -1,169 +1,128 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.data.VideoCategoryClassData;
+import com.baidu.tieba.write.write.work.classdialog.model.GetSelectClassReqMessage;
+import com.baidu.tieba.write.write.work.selecttag.model.GetSelectTagReqMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes6.dex */
 public class qi9 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile qi9 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public ti9 a;
-    public Context b;
-    public String c;
-    public ri9 d;
-    public si9 e;
+    public List<String> a;
+    public List<List<String>> b;
+    public VideoCategoryClassData c;
+    public BdUniqueId d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948092936, "Lcom/baidu/tieba/qi9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948092936, "Lcom/baidu/tieba/qi9;");
-        }
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public qi9() {
+    public qi9(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList();
+        this.b = new ArrayList();
+        this.c = new VideoCategoryClassData();
+        this.d = bdUniqueId;
     }
 
-    public static qi9 c() {
-        InterceptResult invokeV;
+    public VideoCategoryClassData a(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f == null) {
-                synchronized (qi9.class) {
-                    if (f == null) {
-                        f = new qi9();
-                    }
-                }
-            }
-            return f;
-        }
-        return (qi9) invokeV.objValue;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
+            this.c.setFirstClass(this.a.get(i));
+            this.c.setSecondClass(this.b.get(i).get(i2));
+            this.c.getTags().clear();
             return this.c;
         }
-        return (String) invokeV.objValue;
+        return (VideoCategoryClassData) invokeII.objValue;
     }
 
-    public String b() {
+    public List<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ri9 ri9Var = this.d;
-            if (ri9Var != null) {
-                return ri9Var.e();
-            }
-            return "";
+            return this.a;
         }
-        return (String) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public ri9 d() {
+    public List<List<String>> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+            return this.b;
         }
-        return (ri9) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public si9 e() {
+    public ArrayList<String> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
+            return this.c.getTags();
         }
-        return (si9) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    public String f() {
-        InterceptResult invokeV;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ri9 ri9Var = this.d;
-            if (ri9Var != null) {
-                return ri9Var.b();
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public ti9 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return (ti9) invokeV.objValue;
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.b;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public void h(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, context) == null) && context != null) {
-            this.b = context.getApplicationContext();
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            GetSelectClassReqMessage getSelectClassReqMessage = new GetSelectClassReqMessage();
+            getSelectClassReqMessage.setTag(this.d);
+            MessageManager.getInstance().sendMessage(getSelectClassReqMessage);
         }
     }
 
-    public void j(String str) {
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.c = str;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            GetSelectTagReqMessage getSelectTagReqMessage = new GetSelectTagReqMessage();
+            getSelectTagReqMessage.setTag(this.d);
+            getSelectTagReqMessage.setFirstClass(this.c.getFirstClass());
+            getSelectTagReqMessage.setSecondClass(this.c.getSecondClass());
+            MessageManager.getInstance().sendMessage(getSelectTagReqMessage);
         }
     }
 
-    public void k(ri9 ri9Var) {
+    public void g(List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, ri9Var) == null) {
-            this.d = ri9Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+            this.a.clear();
+            this.a.addAll(list);
+        }
+    }
+
+    public void h(List<List<String>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
+            this.b.clear();
+            this.b.addAll(list);
+        }
+    }
+
+    public void i(VideoCategoryClassData videoCategoryClassData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, videoCategoryClassData) == null) {
+            this.c = videoCategoryClassData;
         }
     }
 }

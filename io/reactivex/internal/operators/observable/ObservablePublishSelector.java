@@ -17,13 +17,13 @@ import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.subjects.PublishSubject;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ObservablePublishSelector<T, R> extends AbstractObservableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Function<? super Observable<T>, ? extends ObservableSource<R>> selector;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class SourceObserver<T, R> implements Observer<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +82,7 @@ public final class ObservablePublishSelector<T, R> extends AbstractObservableWit
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class TargetObserver<T, R> extends AtomicReference<Disposable> implements Observer<R>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 854110278590336484L;

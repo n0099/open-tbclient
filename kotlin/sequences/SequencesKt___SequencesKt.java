@@ -1,6 +1,7 @@
 package kotlin.sequences;
 
 import androidx.exifinterface.media.ExifInterface;
+import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
@@ -32,6 +33,7 @@ import kotlin.OverloadResolutionByLambdaReturnType;
 import kotlin.Pair;
 import kotlin.ReplaceWith;
 import kotlin.SinceKotlin;
+import kotlin.TuplesKt;
 import kotlin.UInt;
 import kotlin.ULong;
 import kotlin.Unit;
@@ -160,9 +162,24 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return new DropWhileSequence(dropWhile, predicate);
     }
 
-    public static final <T> T elementAt(Sequence<? extends T> elementAt, int i) {
+    public static final <T> T elementAt(Sequence<? extends T> elementAt, final int i) {
         Intrinsics.checkNotNullParameter(elementAt, "$this$elementAt");
-        return (T) elementAtOrElse(elementAt, i, new SequencesKt___SequencesKt$elementAt$1(i));
+        return (T) elementAtOrElse(elementAt, i, new Function1<Integer, T>() { // from class: kotlin.sequences.SequencesKt___SequencesKt$elementAt$1
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(1);
+            }
+
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+            @Override // kotlin.jvm.functions.Function1
+            public /* bridge */ /* synthetic */ Object invoke(Integer num) {
+                return invoke(num.intValue());
+            }
+
+            public final T invoke(int i2) {
+                throw new IndexOutOfBoundsException("Sequence doesn't contain element at index " + i + IStringUtil.EXTENSION_SEPARATOR);
+            }
+        });
     }
 
     public static final <T> T elementAtOrNull(Sequence<? extends T> elementAtOrNull, int i) {
@@ -187,10 +204,35 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return new FilteringSequence(filter, true, predicate);
     }
 
-    public static final <T> Sequence<T> filterIndexed(Sequence<? extends T> filterIndexed, Function2<? super Integer, ? super T, Boolean> predicate) {
+    public static final <T> Sequence<T> filterIndexed(Sequence<? extends T> filterIndexed, final Function2<? super Integer, ? super T, Boolean> predicate) {
         Intrinsics.checkNotNullParameter(filterIndexed, "$this$filterIndexed");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
-        return new TransformingSequence(new FilteringSequence(new IndexingSequence(filterIndexed), true, new SequencesKt___SequencesKt$filterIndexed$1(predicate)), SequencesKt___SequencesKt$filterIndexed$2.INSTANCE);
+        return new TransformingSequence(new FilteringSequence(new IndexingSequence(filterIndexed), true, new Function1<IndexedValue<? extends T>, Boolean>() { // from class: kotlin.sequences.SequencesKt___SequencesKt$filterIndexed$1
+            {
+                super(1);
+            }
+
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function1
+            public /* bridge */ /* synthetic */ Boolean invoke(Object obj) {
+                return Boolean.valueOf(invoke((IndexedValue) ((IndexedValue) obj)));
+            }
+
+            public final boolean invoke(IndexedValue<? extends T> it) {
+                Intrinsics.checkNotNullParameter(it, "it");
+                return ((Boolean) Function2.this.invoke(Integer.valueOf(it.getIndex()), it.getValue())).booleanValue();
+            }
+        }), new Function1<IndexedValue<? extends T>, T>() { // from class: kotlin.sequences.SequencesKt___SequencesKt$filterIndexed$2
+            @Override // kotlin.jvm.functions.Function1
+            public /* bridge */ /* synthetic */ Object invoke(Object obj) {
+                return invoke((IndexedValue) ((IndexedValue) obj));
+            }
+
+            public final T invoke(IndexedValue<? extends T> it) {
+                Intrinsics.checkNotNullParameter(it, "it");
+                return it.getValue();
+            }
+        });
     }
 
     public static final /* synthetic */ <R, C extends Collection<? super R>> C filterIsInstanceTo(Sequence<?> filterIsInstanceTo, C destination) {
@@ -355,10 +397,9 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         Intrinsics.checkNotNullParameter(groupingBy, "$this$groupingBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         return new Grouping<T, K>() { // from class: kotlin.sequences.SequencesKt___SequencesKt$groupingBy$1
-            /* JADX WARN: Type inference failed for: r2v1, types: [java.lang.Object, K] */
             @Override // kotlin.collections.Grouping
             public K keyOf(T t) {
-                return keySelector.invoke(t);
+                return (K) keySelector.invoke(t);
             }
 
             @Override // kotlin.collections.Grouping
@@ -541,11 +582,30 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return new Sequence<T>() { // from class: kotlin.sequences.SequencesKt___SequencesKt$minus$3
             @Override // kotlin.sequences.Sequence
             public Iterator<T> iterator() {
-                Collection convertToSetForSetOperation = CollectionsKt__IterablesKt.convertToSetForSetOperation(elements);
+                final Collection convertToSetForSetOperation = CollectionsKt__IterablesKt.convertToSetForSetOperation(elements);
                 if (convertToSetForSetOperation.isEmpty()) {
                     return minus.iterator();
                 }
-                return SequencesKt___SequencesKt.filterNot(minus, new SequencesKt___SequencesKt$minus$3$iterator$1(convertToSetForSetOperation)).iterator();
+                return SequencesKt___SequencesKt.filterNot(minus, new Function1<T, Boolean>() { // from class: kotlin.sequences.SequencesKt___SequencesKt$minus$3$iterator$1
+                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                    {
+                        super(1);
+                    }
+
+                    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
+                    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                    /* JADX WARN: Multi-variable type inference failed */
+                    @Override // kotlin.jvm.functions.Function1
+                    public /* bridge */ /* synthetic */ Boolean invoke(Object obj) {
+                        return Boolean.valueOf(invoke2((SequencesKt___SequencesKt$minus$3$iterator$1<T>) obj));
+                    }
+
+                    /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function1.invoke(Ljava/lang/Object;)Ljava/lang/Object; */
+                    /* renamed from: invoke  reason: avoid collision after fix types in other method */
+                    public final boolean invoke2(T t) {
+                        return convertToSetForSetOperation.contains(t);
+                    }
+                }).iterator();
             }
         };
     }
@@ -569,17 +629,44 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     }
 
     @SinceKotlin(version = "1.1")
-    public static final <T> Sequence<T> onEach(Sequence<? extends T> onEach, Function1<? super T, Unit> action) {
+    public static final <T> Sequence<T> onEach(Sequence<? extends T> onEach, final Function1<? super T, Unit> action) {
         Intrinsics.checkNotNullParameter(onEach, "$this$onEach");
         Intrinsics.checkNotNullParameter(action, "action");
-        return map(onEach, new SequencesKt___SequencesKt$onEach$1(action));
+        return map(onEach, new Function1<T, T>() { // from class: kotlin.sequences.SequencesKt___SequencesKt$onEach$1
+            {
+                super(1);
+            }
+
+            @Override // kotlin.jvm.functions.Function1
+            public final T invoke(T t) {
+                Function1.this.invoke(t);
+                return t;
+            }
+        });
     }
 
     @SinceKotlin(version = "1.4")
-    public static final <T> Sequence<T> onEachIndexed(Sequence<? extends T> onEachIndexed, Function2<? super Integer, ? super T, Unit> action) {
+    public static final <T> Sequence<T> onEachIndexed(Sequence<? extends T> onEachIndexed, final Function2<? super Integer, ? super T, Unit> action) {
         Intrinsics.checkNotNullParameter(onEachIndexed, "$this$onEachIndexed");
         Intrinsics.checkNotNullParameter(action, "action");
-        return mapIndexed(onEachIndexed, new SequencesKt___SequencesKt$onEachIndexed$1(action));
+        return mapIndexed(onEachIndexed, new Function2<Integer, T, T>() { // from class: kotlin.sequences.SequencesKt___SequencesKt$onEachIndexed$1
+            {
+                super(2);
+            }
+
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
+            /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.lang.Object */
+            /* JADX WARN: Multi-variable type inference failed */
+            @Override // kotlin.jvm.functions.Function2
+            public /* bridge */ /* synthetic */ Object invoke(Integer num, Object obj) {
+                return invoke(num.intValue(), (int) obj);
+            }
+
+            public final T invoke(int i, T t) {
+                Function2.this.invoke(Integer.valueOf(i), t);
+                return t;
+            }
+        });
     }
 
     public static final <T> Sequence<T> plus(Sequence<? extends T> plus, Iterable<? extends T> elements) {
@@ -764,12 +851,12 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final <T> int sumOfUInt(Sequence<? extends T> sequence, Function1<? super T, UInt> function1) {
-        int m802constructorimpl = UInt.m802constructorimpl(0);
+        int m866constructorimpl = UInt.m866constructorimpl(0);
         Iterator<? extends T> it = sequence.iterator();
         while (it.hasNext()) {
-            m802constructorimpl = UInt.m802constructorimpl(m802constructorimpl + function1.invoke((T) it.next()).m853unboximpl());
+            m866constructorimpl = UInt.m866constructorimpl(m866constructorimpl + function1.invoke((T) it.next()).m917unboximpl());
         }
-        return m802constructorimpl;
+        return m866constructorimpl;
     }
 
     /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
@@ -779,12 +866,12 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final <T> long sumOfULong(Sequence<? extends T> sequence, Function1<? super T, ULong> function1) {
-        long m880constructorimpl = ULong.m880constructorimpl(0);
+        long m944constructorimpl = ULong.m944constructorimpl(0);
         Iterator<? extends T> it = sequence.iterator();
         while (it.hasNext()) {
-            m880constructorimpl = ULong.m880constructorimpl(m880constructorimpl + function1.invoke((T) it.next()).m931unboximpl());
+            m944constructorimpl = ULong.m944constructorimpl(m944constructorimpl + function1.invoke((T) it.next()).m995unboximpl());
         }
-        return m880constructorimpl;
+        return m944constructorimpl;
     }
 
     public static final <T> Sequence<T> takeWhile(Sequence<? extends T> takeWhile, Function1<? super T, Boolean> predicate) {
@@ -805,7 +892,20 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     public static final <T, R> Sequence<Pair<T, R>> zip(Sequence<? extends T> zip, Sequence<? extends R> other) {
         Intrinsics.checkNotNullParameter(zip, "$this$zip");
         Intrinsics.checkNotNullParameter(other, "other");
-        return new MergingSequence(zip, other, SequencesKt___SequencesKt$zip$1.INSTANCE);
+        return new MergingSequence(zip, other, new Function2<T, R, Pair<? extends T, ? extends R>>() { // from class: kotlin.sequences.SequencesKt___SequencesKt$zip$1
+            /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
+            /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.lang.Object */
+            /* JADX WARN: Multi-variable type inference failed */
+            @Override // kotlin.jvm.functions.Function2
+            public /* bridge */ /* synthetic */ Object invoke(Object obj, Object obj2) {
+                return invoke((SequencesKt___SequencesKt$zip$1<R, T>) obj, obj2);
+            }
+
+            @Override // kotlin.jvm.functions.Function2
+            public final Pair<T, R> invoke(T t, R r) {
+                return TuplesKt.to(t, r);
+            }
+        });
     }
 
     @SinceKotlin(version = "1.2")
@@ -949,13 +1049,31 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
 
     public static final <T> Sequence<T> distinct(Sequence<? extends T> distinct) {
         Intrinsics.checkNotNullParameter(distinct, "$this$distinct");
-        return distinctBy(distinct, SequencesKt___SequencesKt$distinct$1.INSTANCE);
+        return distinctBy(distinct, new Function1<T, T>() { // from class: kotlin.sequences.SequencesKt___SequencesKt$distinct$1
+            @Override // kotlin.jvm.functions.Function1
+            public final T invoke(T t) {
+                return t;
+            }
+        });
     }
 
     public static final /* synthetic */ <R> Sequence<R> filterIsInstance(Sequence<?> filterIsInstance) {
         Intrinsics.checkNotNullParameter(filterIsInstance, "$this$filterIsInstance");
         Intrinsics.needClassReification();
-        Sequence<R> filter = filter(filterIsInstance, SequencesKt___SequencesKt$filterIsInstance$1.INSTANCE);
+        Sequence<R> filter = filter(filterIsInstance, new Function1<Object, Boolean>() { // from class: kotlin.sequences.SequencesKt___SequencesKt$filterIsInstance$1
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function1
+            public /* bridge */ /* synthetic */ Boolean invoke(Object obj) {
+                return Boolean.valueOf(invoke2(obj));
+            }
+
+            /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function1.invoke(Ljava/lang/Object;)Ljava/lang/Object; */
+            /* renamed from: invoke  reason: avoid collision after fix types in other method */
+            public final boolean invoke2(Object obj) {
+                Intrinsics.reifiedOperationMarker(3, "R");
+                return obj instanceof Object;
+            }
+        });
         if (filter != null) {
             return filter;
         }
@@ -964,7 +1082,21 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
 
     public static final <T> Sequence<T> filterNotNull(Sequence<? extends T> filterNotNull) {
         Intrinsics.checkNotNullParameter(filterNotNull, "$this$filterNotNull");
-        Sequence<T> filterNot = filterNot(filterNotNull, SequencesKt___SequencesKt$filterNotNull$1.INSTANCE);
+        Sequence<T> filterNot = filterNot(filterNotNull, new Function1<T, Boolean>() { // from class: kotlin.sequences.SequencesKt___SequencesKt$filterNotNull$1
+            /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            /* JADX WARN: Multi-variable type inference failed */
+            @Override // kotlin.jvm.functions.Function1
+            public /* bridge */ /* synthetic */ Boolean invoke(Object obj) {
+                return Boolean.valueOf(invoke2((SequencesKt___SequencesKt$filterNotNull$1<T>) obj));
+            }
+
+            /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function1.invoke(Ljava/lang/Object;)Ljava/lang/Object; */
+            /* renamed from: invoke  reason: avoid collision after fix types in other method */
+            public final boolean invoke2(T t) {
+                return t == null;
+            }
+        });
         if (filterNot != null) {
             return filterNot;
         }
@@ -1068,9 +1200,21 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return !none.iterator().hasNext();
     }
 
-    public static final <T> Sequence<T> requireNoNulls(Sequence<? extends T> requireNoNulls) {
+    public static final <T> Sequence<T> requireNoNulls(final Sequence<? extends T> requireNoNulls) {
         Intrinsics.checkNotNullParameter(requireNoNulls, "$this$requireNoNulls");
-        return map(requireNoNulls, new SequencesKt___SequencesKt$requireNoNulls$1(requireNoNulls));
+        return map(requireNoNulls, new Function1<T, T>() { // from class: kotlin.sequences.SequencesKt___SequencesKt$requireNoNulls$1
+            {
+                super(1);
+            }
+
+            @Override // kotlin.jvm.functions.Function1
+            public final T invoke(T t) {
+                if (t != null) {
+                    return t;
+                }
+                throw new IllegalArgumentException("null element found in " + Sequence.this + IStringUtil.EXTENSION_SEPARATOR);
+            }
+        });
     }
 
     public static final <T> T single(Sequence<? extends T> single) {
@@ -1213,7 +1357,13 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @SinceKotlin(version = "1.2")
     public static final <T> Sequence<Pair<T, T>> zipWithNext(Sequence<? extends T> zipWithNext) {
         Intrinsics.checkNotNullParameter(zipWithNext, "$this$zipWithNext");
-        return zipWithNext(zipWithNext, SequencesKt___SequencesKt$zipWithNext$1.INSTANCE);
+        return zipWithNext(zipWithNext, new Function2<T, T, Pair<? extends T, ? extends T>>() { // from class: kotlin.sequences.SequencesKt___SequencesKt$zipWithNext$1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // kotlin.jvm.functions.Function2
+            public final Pair<T, T> invoke(T t, T t2) {
+                return TuplesKt.to(t, t2);
+            }
+        });
     }
 
     /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
@@ -1755,7 +1905,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final <T> Double m1959maxOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Double> function1) {
+    public static final <T> Double m2023maxOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Double> function1) {
         Iterator<? extends T> it = sequence.iterator();
         if (!it.hasNext()) {
             return null;
@@ -1857,7 +2007,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final <T> Double m1967minOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Double> function1) {
+    public static final <T> Double m2031minOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Double> function1) {
         Iterator<? extends T> it = sequence.iterator();
         if (!it.hasNext()) {
             return null;
@@ -2259,36 +2409,36 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     /* renamed from: max  reason: collision with other method in class */
-    public static final Double m1955max(Sequence<Double> max) {
+    public static final Double m2019max(Sequence<Double> max) {
         Intrinsics.checkNotNullParameter(max, "$this$max");
-        return m1961maxOrNull(max);
+        return m2025maxOrNull(max);
     }
 
     @Deprecated(message = "Use minOrNull instead.", replaceWith = @ReplaceWith(expression = "this.minOrNull()", imports = {}))
     @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     /* renamed from: min  reason: collision with other method in class */
-    public static final Double m1963min(Sequence<Double> min) {
+    public static final Double m2027min(Sequence<Double> min) {
         Intrinsics.checkNotNullParameter(min, "$this$min");
-        return m1969minOrNull(min);
+        return m2033minOrNull(min);
     }
 
     @Deprecated(message = "Use maxOrNull instead.", replaceWith = @ReplaceWith(expression = "this.maxOrNull()", imports = {}))
     @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     /* renamed from: max  reason: collision with other method in class */
-    public static final Float m1956max(Sequence<Float> max) {
+    public static final Float m2020max(Sequence<Float> max) {
         Intrinsics.checkNotNullParameter(max, "$this$max");
-        return m1962maxOrNull(max);
+        return m2026maxOrNull(max);
     }
 
     @Deprecated(message = "Use minOrNull instead.", replaceWith = @ReplaceWith(expression = "this.minOrNull()", imports = {}))
     @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     /* renamed from: min  reason: collision with other method in class */
-    public static final Float m1964min(Sequence<Float> min) {
+    public static final Float m2028min(Sequence<Float> min) {
         Intrinsics.checkNotNullParameter(min, "$this$min");
-        return m1970minOrNull(min);
+        return m2034minOrNull(min);
     }
 
     /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: T, ? super T */
@@ -2297,7 +2447,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final <T> float m1957maxOf(Sequence<? extends T> sequence, Function1<? super T, Float> function1) {
+    public static final <T> float m2021maxOf(Sequence<? extends T> sequence, Function1<? super T, Float> function1) {
         Iterator<? extends T> it = sequence.iterator();
         if (it.hasNext()) {
             float floatValue = function1.invoke((T) it.next()).floatValue();
@@ -2315,7 +2465,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final <T> Float m1960maxOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Float> function1) {
+    public static final <T> Float m2024maxOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Float> function1) {
         Iterator<? extends T> it = sequence.iterator();
         if (!it.hasNext()) {
             return null;
@@ -2333,7 +2483,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final <T> float m1965minOf(Sequence<? extends T> sequence, Function1<? super T, Float> function1) {
+    public static final <T> float m2029minOf(Sequence<? extends T> sequence, Function1<? super T, Float> function1) {
         Iterator<? extends T> it = sequence.iterator();
         if (it.hasNext()) {
             float floatValue = function1.invoke((T) it.next()).floatValue();
@@ -2351,7 +2501,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final <T> Float m1968minOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Float> function1) {
+    public static final <T> Float m2032minOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Float> function1) {
         Iterator<? extends T> it = sequence.iterator();
         if (!it.hasNext()) {
             return null;
@@ -2369,7 +2519,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final <T, R extends Comparable<? super R>> R m1958maxOf(Sequence<? extends T> sequence, Function1<? super T, ? extends R> function1) {
+    public static final <T, R extends Comparable<? super R>> R m2022maxOf(Sequence<? extends T> sequence, Function1<? super T, ? extends R> function1) {
         Iterator<? extends T> it = sequence.iterator();
         if (it.hasNext()) {
             R invoke = function1.invoke((T) it.next());
@@ -2390,7 +2540,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final <T, R extends Comparable<? super R>> R m1966minOf(Sequence<? extends T> sequence, Function1<? super T, ? extends R> function1) {
+    public static final <T, R extends Comparable<? super R>> R m2030minOf(Sequence<? extends T> sequence, Function1<? super T, ? extends R> function1) {
         Iterator<? extends T> it = sequence.iterator();
         if (it.hasNext()) {
             R invoke = function1.invoke((T) it.next());
@@ -2407,7 +2557,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
 
     @SinceKotlin(version = "1.4")
     /* renamed from: maxOrNull  reason: collision with other method in class */
-    public static final Double m1961maxOrNull(Sequence<Double> maxOrNull) {
+    public static final Double m2025maxOrNull(Sequence<Double> maxOrNull) {
         Intrinsics.checkNotNullParameter(maxOrNull, "$this$maxOrNull");
         Iterator<Double> it = maxOrNull.iterator();
         if (!it.hasNext()) {
@@ -2422,7 +2572,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
 
     @SinceKotlin(version = "1.4")
     /* renamed from: minOrNull  reason: collision with other method in class */
-    public static final Double m1969minOrNull(Sequence<Double> minOrNull) {
+    public static final Double m2033minOrNull(Sequence<Double> minOrNull) {
         Intrinsics.checkNotNullParameter(minOrNull, "$this$minOrNull");
         Iterator<Double> it = minOrNull.iterator();
         if (!it.hasNext()) {
@@ -2437,7 +2587,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
 
     @SinceKotlin(version = "1.4")
     /* renamed from: maxOrNull  reason: collision with other method in class */
-    public static final Float m1962maxOrNull(Sequence<Float> maxOrNull) {
+    public static final Float m2026maxOrNull(Sequence<Float> maxOrNull) {
         Intrinsics.checkNotNullParameter(maxOrNull, "$this$maxOrNull");
         Iterator<Float> it = maxOrNull.iterator();
         if (!it.hasNext()) {
@@ -2452,7 +2602,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
 
     @SinceKotlin(version = "1.4")
     /* renamed from: minOrNull  reason: collision with other method in class */
-    public static final Float m1970minOrNull(Sequence<Float> minOrNull) {
+    public static final Float m2034minOrNull(Sequence<Float> minOrNull) {
         Intrinsics.checkNotNullParameter(minOrNull, "$this$minOrNull");
         Iterator<Float> it = minOrNull.iterator();
         if (!it.hasNext()) {
@@ -2481,11 +2631,30 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return new Sequence<T>() { // from class: kotlin.sequences.SequencesKt___SequencesKt$minus$4
             @Override // kotlin.sequences.Sequence
             public Iterator<T> iterator() {
-                HashSet hashSet = SequencesKt___SequencesKt.toHashSet(elements);
+                final HashSet hashSet = SequencesKt___SequencesKt.toHashSet(elements);
                 if (hashSet.isEmpty()) {
                     return minus.iterator();
                 }
-                return SequencesKt___SequencesKt.filterNot(minus, new SequencesKt___SequencesKt$minus$4$iterator$1(hashSet)).iterator();
+                return SequencesKt___SequencesKt.filterNot(minus, new Function1<T, Boolean>() { // from class: kotlin.sequences.SequencesKt___SequencesKt$minus$4$iterator$1
+                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                    {
+                        super(1);
+                    }
+
+                    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
+                    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                    /* JADX WARN: Multi-variable type inference failed */
+                    @Override // kotlin.jvm.functions.Function1
+                    public /* bridge */ /* synthetic */ Boolean invoke(Object obj) {
+                        return Boolean.valueOf(invoke2((SequencesKt___SequencesKt$minus$4$iterator$1<T>) obj));
+                    }
+
+                    /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function1.invoke(Ljava/lang/Object;)Ljava/lang/Object; */
+                    /* renamed from: invoke  reason: avoid collision after fix types in other method */
+                    public final boolean invoke2(T t) {
+                        return hashSet.contains(t);
+                    }
+                }).iterator();
             }
         };
     }
@@ -2513,7 +2682,27 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return new Sequence<T>() { // from class: kotlin.sequences.SequencesKt___SequencesKt$minus$2
             @Override // kotlin.sequences.Sequence
             public Iterator<T> iterator() {
-                return SequencesKt___SequencesKt.filterNot(minus, new SequencesKt___SequencesKt$minus$2$iterator$1(ArraysKt___ArraysKt.toHashSet(elements))).iterator();
+                final HashSet hashSet = ArraysKt___ArraysKt.toHashSet(elements);
+                return SequencesKt___SequencesKt.filterNot(minus, new Function1<T, Boolean>() { // from class: kotlin.sequences.SequencesKt___SequencesKt$minus$2$iterator$1
+                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                    {
+                        super(1);
+                    }
+
+                    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
+                    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                    /* JADX WARN: Multi-variable type inference failed */
+                    @Override // kotlin.jvm.functions.Function1
+                    public /* bridge */ /* synthetic */ Boolean invoke(Object obj) {
+                        return Boolean.valueOf(invoke2((SequencesKt___SequencesKt$minus$2$iterator$1<T>) obj));
+                    }
+
+                    /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function1.invoke(Ljava/lang/Object;)Ljava/lang/Object; */
+                    /* renamed from: invoke  reason: avoid collision after fix types in other method */
+                    public final boolean invoke2(T t) {
+                        return hashSet.contains(t);
+                    }
+                }).iterator();
             }
         };
     }

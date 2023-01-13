@@ -321,7 +321,7 @@ public final class StreamAllocation {
                                             this.this$1.this$0.attemptList.remove(this.val$currentConnection);
                                             if (!this.this$1.this$0.failedList.contains(this.val$finalNewMultiConnection) && !this.this$1.this$0.connectingList.contains(this.val$finalNewMultiConnection) && this.this$1.this$0.failedList.size() < this.this$1.this$0.maxMultiConnectNum && (realConnection3 = this.val$finalNewMultiConnection) != null) {
                                                 MultipleConnectTask multipleConnectTask2 = this.this$1;
-                                                StreamAllocation.scheduledExecutorService().schedule(new Runnable(this, new MultipleConnectTask(multipleConnectTask2.this$0, realConnection3, multipleConnectTask2.connectTimeout, this.this$1.readTimeout, this.this$1.writeTimeout, this.this$1.pingIntervalMillis, false, this.this$1.fallbackConnectTask)) { // from class: okhttp3.internal.connection.StreamAllocation.MultipleConnectTask.1.1
+                                                StreamAllocation.access$2900().schedule(new Runnable(this, new MultipleConnectTask(multipleConnectTask2.this$0, realConnection3, multipleConnectTask2.connectTimeout, this.this$1.readTimeout, this.this$1.writeTimeout, this.this$1.pingIntervalMillis, false, this.this$1.fallbackConnectTask)) { // from class: okhttp3.internal.connection.StreamAllocation.MultipleConnectTask.1.1
                                                     public static /* synthetic */ Interceptable $ic;
                                                     public transient /* synthetic */ FieldHolder $fh;
                                                     public final /* synthetic */ AnonymousClass1 this$2;
@@ -609,6 +609,10 @@ public final class StreamAllocation {
             }
             throw new IllegalStateException();
         }
+    }
+
+    public static /* synthetic */ ScheduledExecutorService access$2900() {
+        return scheduledExecutorService();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

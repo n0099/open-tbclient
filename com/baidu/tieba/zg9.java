@@ -1,134 +1,113 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.zxing.client.result.ResultParser;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class zg9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public TbPageContext<?> a;
+    @NonNull
+    public NavigationBar b;
+    @NonNull
+    public LinearLayout c;
+    @NonNull
+    public LinearLayout d;
+    @NonNull
+    public pf9 e;
+    public EditorTools f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948359133, "Lcom/baidu/tieba/zg9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948359133, "Lcom/baidu/tieba/zg9;");
+    public zg9(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull LinearLayout linearLayout2, @NonNull pf9 pf9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, navigationBar, linearLayout, linearLayout2, pf9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = uf9.m();
+        this.a = tbPageContext;
+        this.b = navigationBar;
+        this.c = linearLayout;
+        this.d = linearLayout2;
+        this.e = pf9Var;
     }
 
-    public static byte[] a(InputStream inputStream) {
-        InterceptResult invokeL;
-        int i;
+    @Nullable
+    public sf9 a(int i, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
-            if (inputStream == null) {
-                return null;
-            }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            byte[] bArr = new byte[1024];
-            while (true) {
-                try {
-                    i = inputStream.read(bArr, 0, 1024);
-                } catch (IOException e) {
-                    if (a) {
-                        Log.e("StringUtil", e.toString());
-                    }
-                    i = 0;
-                }
-                if (i == -1) {
-                    break;
-                }
-                byteArrayOutputStream.write(bArr, 0, i);
-            }
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            try {
-                byteArrayOutputStream.close();
-            } catch (IOException e2) {
-                if (a) {
-                    Log.e("StringUtil", e2.toString());
-                }
-            }
-            return byteArray;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            return c(i, z);
         }
-        return (byte[]) invokeL.objValue;
+        return (sf9) invokeCommon.objValue;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, INVOKE, IF, SGET, MOVE_EXCEPTION, INVOKE, INVOKE, INVOKE, IF, SGET, MOVE_EXCEPTION] complete} */
-    public static String b(InputStream inputStream) {
+    @Nullable
+    public sf9 b(Bundle bundle) {
         InterceptResult invokeL;
+        Intent intent;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
-            try {
-                try {
-                    byte[] a2 = a(inputStream);
-                    if (a2 != null) {
-                        String str = new String(a2);
-                        if (str.startsWith(ResultParser.BYTE_ORDER_MARK)) {
-                            str = str.substring(1);
-                        }
-                        return str;
-                    } else if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                            return null;
-                        } catch (Exception e) {
-                            e = e;
-                            if (!a) {
-                                return null;
-                            }
-                            Log.e("StringUtil", e.toString());
-                            return null;
-                        }
-                    } else {
-                        return null;
-                    }
-                } finally {
-                    if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                        } catch (Exception e2) {
-                            if (a) {
-                                Log.e("StringUtil", e2.toString());
-                            }
-                        }
-                    }
-                }
-            } catch (Exception e3) {
-                if (a) {
-                    Log.e("StringUtil", " getStringFromInput exception: ", e3);
-                }
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                        return null;
-                    } catch (Exception e4) {
-                        e = e4;
-                        if (!a) {
-                            return null;
-                        }
-                        Log.e("StringUtil", e.toString());
-                        return null;
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
+            int i = 9;
+            if (bundle != null) {
+                i = bundle.getInt("type", 9);
+            } else if (this.a.getPageActivity() != null && (intent = this.a.getPageActivity().getIntent()) != null) {
+                i = intent.getIntExtra("type", 9);
+            }
+            return c(i, true);
+        }
+        return (sf9) invokeL.objValue;
+    }
+
+    public final sf9 c(int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (this.a.getPageActivity() == null) {
                 return null;
             }
+            this.b.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_LEFT);
+            this.b.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_RIGHT);
+            this.c.removeAllViews();
+            this.d.removeAllViews();
+            EditorTools editorTools = new EditorTools(this.a.getPageActivity());
+            this.f = editorTools;
+            this.d.addView(editorTools);
+            switch (i) {
+                case 11:
+                    return new kh9(this.a, this.b, this.c, this.f, this.e, z);
+                case 12:
+                    return new gh9(this.a, this.b, this.c, this.f, this.e, z);
+                case 13:
+                    return new hh9(this.a, this.b, this.c, this.f, this.e, z);
+                case 14:
+                    return new jh9(this.a, this.b, this.c, this.f, this.e, z);
+                case 15:
+                    return new fh9(this.a, this.b, this.c, this.f, this.e, z);
+                default:
+                    return new ih9(this.a, this.b, this.c, this.f, this.e, z);
+            }
         }
-        return (String) invokeL.objValue;
+        return (sf9) invokeCommon.objValue;
     }
 }

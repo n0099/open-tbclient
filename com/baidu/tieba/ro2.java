@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,21 +13,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public class ro2 extends po2 {
+public class ro2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] b;
+    public static final boolean DEBUG;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.to2
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "StorageApiDescInterceptor" : (String) invokeV.objValue;
-    }
+    public WeakReference<Activity> mActivityRef;
+    public CallbackHandler mCallbackHandler;
+    public Context mContext;
+    public h32 mJsContainer;
+    public UnitedSchemeMainDispatcher mMainDispatcher;
 
     static {
         InterceptResult invokeClinit;
@@ -40,68 +38,66 @@ public class ro2 extends po2 {
                 return;
             }
         }
-        b = new String[]{"setStorage", "getStorage", "removeStorage", "getSystemInfo", "getStorageInfo"};
+        DEBUG = tk1.a;
     }
 
-    public ro2() {
+    public Context getDispatchContext() {
+        InterceptResult invokeV;
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            WeakReference<Activity> weakReference = this.mActivityRef;
+            if (weakReference != null) {
+                activity = weakReference.get();
+            } else {
+                activity = null;
+            }
+            if (activity == null) {
+                return this.mContext;
+            }
+            return activity;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public ro2(Context context, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, CallbackHandler callbackHandler, h32 h32Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, unitedSchemeMainDispatcher, callbackHandler, h32Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mContext = context;
+        this.mMainDispatcher = unitedSchemeMainDispatcher;
+        this.mCallbackHandler = callbackHandler;
+        this.mJsContainer = h32Var;
+        if (DEBUG) {
+            if (context == null || unitedSchemeMainDispatcher == null) {
+                throw new IllegalArgumentException("any of context, dispatcher objects can't be null.");
             }
         }
     }
 
-    @Override // com.baidu.tieba.to2
-    public boolean enable() {
-        InterceptResult invokeV;
+    public void setActivityRef(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return e("swan_storage_async");
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && activity != null) {
+            this.mActivityRef = new WeakReference<>(activity);
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.to2
-    public boolean a(String str, String str2) {
-        InterceptResult invokeLL;
+    public void setCallbackHandler(CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            for (String str3 : b) {
-                if (TextUtils.equals(str3, str2)) {
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callbackHandler) == null) {
+            this.mCallbackHandler = callbackHandler;
         }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.to2
-    @NonNull
-    public JSONObject c(@NonNull String str, @NonNull JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject)) == null) {
-            JSONArray optJSONArray = jSONObject.optJSONArray("args");
-            if (optJSONArray != null) {
-                optJSONArray.put(d("cb", EMABTest.TYPE_STRING));
-            }
-            if ("getSystemInfo".equals(str) || "getStorageInfo".equals(str)) {
-                try {
-                    String optString = jSONObject.optString("method");
-                    jSONObject.put("method", optString + "Async");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeLL.objValue;
     }
 }

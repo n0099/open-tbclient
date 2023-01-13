@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -132,7 +132,7 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0323, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0321, this);
         a();
     }
 
@@ -141,9 +141,9 @@ public class FrsHeaderPraiseView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = findViewById(R.id.divider_top);
             this.b = findViewById(R.id.divider_bottom);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090c0a);
-            this.d = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090c09);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090c07);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090c17);
+            this.d = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090c16);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090c14);
             this.e = imageView;
             SkinManager.setImageResource(imageView, R.drawable.icon_arrow_more_gray_n);
         }
@@ -176,7 +176,7 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                     headImageView.setDefaultBgResource(R.color.CAM_X0205);
                     headImageView.setIsRound(true);
                     headImageView.setBorderColor(SkinManager.getColor(R.color.CAM_X0201));
-                    headImageView.setBorderWidth(yi.g(getContext(), R.dimen.obfuscated_res_0x7f0701d4));
+                    headImageView.setBorderWidth(zi.g(getContext(), R.dimen.obfuscated_res_0x7f0701d4));
                     headImageView.K(((SimpleUser) arrayList.get(size)).portrait, 12, false);
                     if (size != arrayList.size() - 1) {
                         layoutParams.rightMargin = (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070225)) - (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070302));

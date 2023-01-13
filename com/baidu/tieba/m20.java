@@ -1,127 +1,94 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.config.ABTestConfig;
+import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class m20 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Object obj, boolean z) {
-        InterceptResult invokeLZ;
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65536, null, obj, z)) == null) {
-            if (obj instanceof Boolean) {
-                return ((Boolean) obj).booleanValue();
-            }
-            return z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return l20.a().a("expInfo.txt");
         }
-        return invokeLZ.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public static String f(Object obj, String str) {
-        InterceptResult invokeLL;
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, obj, str)) == null) {
-            if (obj != null) {
-                return String.valueOf(obj);
-            }
-            return str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return l20.a().a("sapFile.txt");
         }
-        return (String) invokeLL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static double b(Object obj, double d) {
-        InterceptResult invokeCommon;
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{obj, Double.valueOf(d)})) == null) {
-            if (obj != null) {
-                try {
-                    if (obj instanceof Double) {
-                        return ((Double) obj).doubleValue();
-                    }
-                    if (obj instanceof Number) {
-                        return ((Number) obj).doubleValue();
-                    }
-                    if (obj instanceof String) {
-                        return Double.valueOf((String) obj).doubleValue();
-                    }
-                } catch (NumberFormatException e) {
-                    if (ABTestConfig.isDebug()) {
-                        throw new ClassCastException("getDoubleSwitch exception " + e);
-                    }
-                }
-            }
-            return d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return l20.a().a("v1_.txt");
         }
-        return invokeCommon.doubleValue;
+        return (String) invokeV.objValue;
     }
 
-    public static int c(Object obj, int i) {
-        InterceptResult invokeLI;
+    public static String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, obj, i)) == null) {
-            if (obj != null) {
-                try {
-                    if (obj instanceof Integer) {
-                        return ((Integer) obj).intValue();
-                    }
-                    if (obj instanceof Number) {
-                        return ((Number) obj).intValue();
-                    }
-                    if (obj instanceof String) {
-                        return Integer.parseInt((String) obj);
-                    }
-                } catch (NumberFormatException e) {
-                    if (ABTestConfig.isDebug()) {
-                        throw new ClassCastException("getIntSwitch exception " + e);
-                    }
-                }
-            }
-            return i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return l20.a().a("v2_.txt");
         }
-        return invokeLI.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public static long e(Object obj, long j) {
-        InterceptResult invokeLJ;
+    public static String e(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, j)) == null) {
-            if (obj != null) {
-                try {
-                    if (obj instanceof Long) {
-                        return ((Long) obj).longValue();
-                    }
-                    if (obj instanceof Number) {
-                        return ((Number) obj).longValue();
-                    }
-                    if (obj instanceof String) {
-                        return (long) Double.parseDouble((String) obj);
-                    }
-                } catch (NumberFormatException e) {
-                    if (ABTestConfig.isDebug()) {
-                        throw new ClassCastException("getLongSwitch exception " + e);
-                    }
-                }
-            }
-            return j;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            return l20.a().a("v3_" + i + "_" + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION);
         }
-        return invokeLJ.longValue;
+        return (String) invokeI.objValue;
     }
 
-    public static int d(String str) {
-        InterceptResult invokeL;
+    public static void f(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            try {
-                return Integer.parseInt(str);
-            } catch (Exception unused) {
-                return 0;
-            }
+        if ((interceptable == null || interceptable.invokeL(65541, null, jSONObject) == null) && jSONObject != null) {
+            l20.a().b("expInfo.txt", jSONObject.toString());
         }
-        return invokeL.intValue;
+    }
+
+    public static void g(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, null, jSONObject) == null) && jSONObject != null) {
+            l20.a().b("sapFile.txt", jSONObject.toString());
+        }
+    }
+
+    public static void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65543, null, jSONObject) == null) && jSONObject != null) {
+            l20.a().b("v1_.txt", jSONObject.toString());
+        }
+    }
+
+    public static void i(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65544, null, jSONObject) == null) && jSONObject != null) {
+            l20.a().b("v2_.txt", jSONObject.toString());
+        }
+    }
+
+    public static void j(JSONObject jSONObject, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65545, null, jSONObject, i) == null) && jSONObject != null) {
+            p20 a = l20.a();
+            a.b("v3_" + i + "_" + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION, jSONObject.toString());
+        }
     }
 }

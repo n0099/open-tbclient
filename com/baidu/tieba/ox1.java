@@ -1,59 +1,72 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class ox1 extends kx1 {
+public class ox1 extends gx1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public float c;
-    public float d;
-    public float e;
-    public float f;
-    public boolean g;
 
-    public ox1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ox1(g53 g53Var) {
+        super(g53Var, "/swanAPI/canvas/update");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {g53Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((g53) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = false;
     }
 
-    @Override // com.baidu.tieba.kx1
-    public void a(lx1 lx1Var, Canvas canvas) {
+    @Override // com.baidu.tieba.g63
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j43 j43Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, lx1Var, canvas) == null) && this.g) {
-            lx1Var.f.cubicTo(this.a, this.b, this.c, this.d, this.e, this.f);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j43Var)) == null) {
+            gz1 k = k(unitedSchemeEntity);
+            if (k == null) {
+                unitedSchemeEntity.result = l(201);
+                j12.c("SwanAppCanvas", "update action parse model is null");
+                return false;
+            }
+            String str = k.b;
+            pu2 pu2Var = k.h;
+            if (!TextUtils.isEmpty(str) && pu2Var != null && pu2Var.h()) {
+                j02 j02Var = (j02) w02.a(k);
+                if (j02Var == null) {
+                    j12.c("SwanAppCanvas", "update canvas fail: fina a null component");
+                    unitedSchemeEntity.result = l(1001);
+                    return false;
+                }
+                a02 update = j02Var.update((j02) k);
+                boolean a = update.a();
+                if (!a) {
+                    j12.c("SwanAppCanvas", "update canvas fail: " + update.b);
+                }
+                j(unitedSchemeEntity, callbackHandler, a);
+                return a;
+            }
+            j12.c("SwanAppCanvas", "some params invalid");
+            unitedSchemeEntity.result = l(202);
+            return false;
         }
-    }
-
-    @Override // com.baidu.tieba.kx1
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 5) {
-            this.a = vh3.g((float) jSONArray.optDouble(0));
-            this.b = vh3.g((float) jSONArray.optDouble(1));
-            this.c = vh3.g((float) jSONArray.optDouble(2));
-            this.d = vh3.g((float) jSONArray.optDouble(3));
-            this.e = vh3.g((float) jSONArray.optDouble(4));
-            this.f = vh3.g((float) jSONArray.optDouble(5));
-            this.g = true;
-        }
+        return invokeLLLL.booleanValue;
     }
 }

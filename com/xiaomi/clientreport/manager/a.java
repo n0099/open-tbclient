@@ -71,7 +71,7 @@ public class a {
                 return;
             }
         }
-        a = m.m570a() ? 30 : 10;
+        a = m.m634a() ? 30 : 10;
     }
 
     public a(Context context) {
@@ -169,13 +169,13 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(65548, this, eventClientReport) == null) || (iEventProcessor = this.f45a) == null) {
             return;
         }
-        iEventProcessor.mo107a(eventClientReport);
+        iEventProcessor.mo111a(eventClientReport);
         if (a() < 10) {
             a(new d(this), a);
             return;
         }
         d();
-        al.a(this.f43a).m177a("100888");
+        al.a(this.f43a).m181a("100888");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -185,13 +185,13 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(65549, this, perfClientReport) == null) || (iPerfProcessor = this.f46a) == null) {
             return;
         }
-        iPerfProcessor.mo107a(perfClientReport);
+        iPerfProcessor.mo111a(perfClientReport);
         if (b() < 10) {
             a(new f(this), a);
             return;
         }
         e();
-        al.a(this.f43a).m177a("100889");
+        al.a(this.f43a).m181a("100889");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -220,9 +220,9 @@ public class a {
 
     private void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65553, this) == null) && a(this.f43a).m104a().isEventUploadSwitchOpen()) {
+        if ((interceptable == null || interceptable.invokeV(65553, this) == null) && a(this.f43a).m108a().isEventUploadSwitchOpen()) {
             bq bqVar = new bq(this.f43a);
-            int eventUploadFrequency = (int) a(this.f43a).m104a().getEventUploadFrequency();
+            int eventUploadFrequency = (int) a(this.f43a).m108a().getEventUploadFrequency();
             if (eventUploadFrequency < 1800) {
                 eventUploadFrequency = 1800;
             }
@@ -231,7 +231,7 @@ public class a {
             }
             synchronized (a.class) {
                 if (!al.a(this.f43a).a((al.a) bqVar, eventUploadFrequency)) {
-                    al.a(this.f43a).m177a("100886");
+                    al.a(this.f43a).m181a("100886");
                     al.a(this.f43a).a((al.a) bqVar, eventUploadFrequency);
                 }
             }
@@ -240,9 +240,9 @@ public class a {
 
     private void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65554, this) == null) && a(this.f43a).m104a().isPerfUploadSwitchOpen()) {
+        if ((interceptable == null || interceptable.invokeV(65554, this) == null) && a(this.f43a).m108a().isPerfUploadSwitchOpen()) {
             br brVar = new br(this.f43a);
-            int perfUploadFrequency = (int) a(this.f43a).m104a().getPerfUploadFrequency();
+            int perfUploadFrequency = (int) a(this.f43a).m108a().getPerfUploadFrequency();
             if (perfUploadFrequency < 1800) {
                 perfUploadFrequency = 1800;
             }
@@ -251,7 +251,7 @@ public class a {
             }
             synchronized (a.class) {
                 if (!al.a(this.f43a).a((al.a) brVar, perfUploadFrequency)) {
-                    al.a(this.f43a).m177a("100887");
+                    al.a(this.f43a).m181a("100887");
                     al.a(this.f43a).a((al.a) brVar, perfUploadFrequency);
                 }
             }
@@ -259,7 +259,7 @@ public class a {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized Config m104a() {
+    public synchronized Config m108a() {
         InterceptResult invokeV;
         Config config;
         Interceptable interceptable = $ic;
@@ -295,7 +295,7 @@ public class a {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m105a() {
+    public void m109a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             a(this.f43a).f();
@@ -316,14 +316,14 @@ public class a {
 
     public void a(EventClientReport eventClientReport) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, eventClientReport) == null) && m104a().isEventUploadSwitchOpen()) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, eventClientReport) == null) && m108a().isEventUploadSwitchOpen()) {
             this.f49a.execute(new b(this, eventClientReport));
         }
     }
 
     public void a(PerfClientReport perfClientReport) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, perfClientReport) == null) && m104a().isPerfUploadSwitchOpen()) {
+        if ((interceptable == null || interceptable.invokeL(1048581, this, perfClientReport) == null) && m108a().isPerfUploadSwitchOpen()) {
             this.f49a.execute(new c(this, perfClientReport));
         }
     }
@@ -349,13 +349,13 @@ public class a {
         Config build = Config.getBuilder().setAESKey(bt.a(this.f43a)).setEventEncrypted(this.f44a.isEventEncrypted()).setEventUploadSwitchOpen(z).setEventUploadFrequency(j).setPerfUploadSwitchOpen(z2).setPerfUploadFrequency(j2).build(this.f43a);
         this.f44a = build;
         if (!build.isEventUploadSwitchOpen()) {
-            al.a(this.f43a).m177a("100886");
+            al.a(this.f43a).m181a("100886");
         } else if (eventUploadFrequency != build.getEventUploadFrequency()) {
             com.xiaomi.channel.commonutils.logger.b.c(this.f43a.getPackageName() + "reset event job " + build.getEventUploadFrequency());
             f();
         }
         if (!this.f44a.isPerfUploadSwitchOpen()) {
-            al.a(this.f43a).m177a("100887");
+            al.a(this.f43a).m181a("100887");
         } else if (perfUploadFrequency != build.getPerfUploadFrequency()) {
             com.xiaomi.channel.commonutils.logger.b.c(this.f43a.getPackageName() + " reset perf job " + build.getPerfUploadFrequency());
             g();
@@ -363,9 +363,9 @@ public class a {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m106b() {
+    public void m110b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && m104a().isEventUploadSwitchOpen()) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && m108a().isEventUploadSwitchOpen()) {
             bs bsVar = new bs();
             bsVar.a(this.f43a);
             bsVar.a(this.f45a);
@@ -375,7 +375,7 @@ public class a {
 
     public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && m104a().isPerfUploadSwitchOpen()) {
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && m108a().isPerfUploadSwitchOpen()) {
             bs bsVar = new bs();
             bsVar.a(this.f46a);
             bsVar.a(this.f43a);

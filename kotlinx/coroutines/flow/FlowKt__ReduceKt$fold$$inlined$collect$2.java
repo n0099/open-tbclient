@@ -12,9 +12,10 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.jvm.functions.Function3;
 import kotlin.jvm.internal.InlineMarker;
 import kotlin.jvm.internal.Ref;
+/* JADX INFO: Add missing generic type declarations: [T] */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0013\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003*\u0001\u0000\b\n\u0018\u00002\u00020\u0001J\u001b\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00028\u0000H\u0096@ø\u0001\u0000¢\u0006\u0004\b\u0004\u0010\u0005\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0006¸\u0006\u0000"}, d2 = {"kotlinx/coroutines/flow/FlowKt__CollectKt$collect$3", "Lkotlinx/coroutines/flow/FlowCollector;", "value", "", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes9.dex */
-public final class FlowKt__ReduceKt$fold$$inlined$collect$2 implements FlowCollector<T> {
+public final class FlowKt__ReduceKt$fold$$inlined$collect$2<T> implements FlowCollector<T> {
     public final /* synthetic */ Ref.ObjectRef $accumulator$inlined;
     public final /* synthetic */ Function3 $operation$inlined;
 
@@ -48,20 +49,15 @@ public final class FlowKt__ReduceKt$fold$$inlined$collect$2 implements FlowColle
         this.$operation$inlined = function3;
     }
 
-    /* JADX WARN: Type inference failed for: r4v1, types: [T, java.lang.Object] */
     public Object emit$$forInline(Object obj, Continuation continuation) {
         InlineMarker.mark(4);
         new AnonymousClass1(continuation);
         InlineMarker.mark(5);
         Ref.ObjectRef objectRef = this.$accumulator$inlined;
-        objectRef.element = this.$operation$inlined.invoke(objectRef.element, obj, continuation);
+        objectRef.element = (T) this.$operation$inlined.invoke(objectRef.element, obj, continuation);
         return Unit.INSTANCE;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r8v3, resolved type: T */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v4, resolved type: T */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v5, resolved type: T */
-    /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:10:0x0023  */
     /* JADX WARN: Removed duplicated region for block: B:14:0x0041  */
     @Override // kotlinx.coroutines.flow.FlowCollector
@@ -71,30 +67,28 @@ public final class FlowKt__ReduceKt$fold$$inlined$collect$2 implements FlowColle
     public Object emit(Object obj, Continuation continuation) {
         AnonymousClass1 anonymousClass1;
         int i;
-        T t;
         Ref.ObjectRef objectRef;
         if (continuation instanceof AnonymousClass1) {
             anonymousClass1 = (AnonymousClass1) continuation;
             int i2 = anonymousClass1.label;
             if ((i2 & Integer.MIN_VALUE) != 0) {
                 anonymousClass1.label = i2 - Integer.MIN_VALUE;
-                Object obj2 = anonymousClass1.result;
+                T t = (T) anonymousClass1.result;
                 Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
                 i = anonymousClass1.label;
                 if (i == 0) {
                     if (i == 1) {
                         objectRef = (Ref.ObjectRef) anonymousClass1.L$4;
-                        Object obj3 = anonymousClass1.L$3;
+                        Object obj2 = anonymousClass1.L$3;
                         Continuation continuation2 = (Continuation) anonymousClass1.L$2;
-                        Object obj4 = anonymousClass1.L$1;
+                        Object obj3 = anonymousClass1.L$1;
                         FlowKt__ReduceKt$fold$$inlined$collect$2 flowKt__ReduceKt$fold$$inlined$collect$2 = (FlowKt__ReduceKt$fold$$inlined$collect$2) anonymousClass1.L$0;
-                        ResultKt.throwOnFailure(obj2);
-                        t = obj2;
+                        ResultKt.throwOnFailure(t);
                     } else {
                         throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                     }
                 } else {
-                    ResultKt.throwOnFailure(obj2);
+                    ResultKt.throwOnFailure(t);
                     Ref.ObjectRef objectRef2 = this.$accumulator$inlined;
                     Function3 function3 = this.$operation$inlined;
                     T t2 = objectRef2.element;
@@ -116,12 +110,12 @@ public final class FlowKt__ReduceKt$fold$$inlined$collect$2 implements FlowColle
             }
         }
         anonymousClass1 = new AnonymousClass1(continuation);
-        Object obj22 = anonymousClass1.result;
+        T t3 = (T) anonymousClass1.result;
         Object coroutine_suspended2 = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
         i = anonymousClass1.label;
         if (i == 0) {
         }
-        objectRef.element = t;
+        objectRef.element = t3;
         return Unit.INSTANCE;
     }
 }

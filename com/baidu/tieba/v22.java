@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,15 +10,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import com.baidu.webkit.sdk.CookieManager;
+import com.baidu.webkit.sdk.CookieSyncManager;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class v22 {
+public class v22 extends l93 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static volatile v22 d;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public HashMap<String, Long> b;
+
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public boolean shouldAcceptCookie(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public boolean shouldSendCookie(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +52,14 @@ public final class v22 {
                 return;
             }
         }
-        c = ok1.a;
+        a = tk1.a;
+        try {
+            CookieSyncManager.createInstance(AppRuntime.getAppContext());
+        } catch (Exception e) {
+            if (a) {
+                Log.w("RealCookieManager", "static createInstance err=" + e + " trace=" + Log.getStackTraceString(e));
+            }
+        }
     }
 
     public v22() {
@@ -46,64 +72,88 @@ public final class v22 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (qg3.f()) {
+                if (a) {
+                    Log.i("RealCookieManager", "syncCookie: hasLollipop flush");
+                }
+                CookieManager.getInstance().flush();
+                android.webkit.CookieManager.getInstance().flush();
                 return;
             }
-        }
-        this.a = false;
-        this.b = new HashMap<>();
-    }
-
-    public static v22 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (v22.class) {
-                    if (d == null) {
-                        d = new v22();
-                    }
-                }
+            if (a) {
+                Log.i("RealCookieManager", "syncCookie: noLollipop sync");
             }
-            return d;
+            CookieSyncManager.getInstance().sync();
         }
-        return (v22) invokeV.objValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean c(String str) {
+    @Override // com.baidu.tieba.l93, com.baidu.searchbox.http.cookie.CookieManager
+    public String getCookie(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+            if (a) {
+                Log.i("RealCookieManager", "getCookie: httpUrl=" + str);
             }
-            long currentTimeMillis = System.currentTimeMillis();
-            HashMap<String, Long> hashMap = this.b;
-            if (hashMap != null && hashMap.containsKey(str) && currentTimeMillis - this.b.get(str).longValue() <= 18000000) {
-                if (c) {
-                    Log.d("SilentUpdateManager", "id = " + str + " 的小程序已在5小时内被标记为无需更新，不走MaxAge逻辑");
-                    return true;
+            String str2 = "";
+            try {
+                str2 = CookieManager.getInstance().getCookie(str);
+                if (a) {
+                    Log.d("RealCookieManager", "RealCookieManager:" + str2);
                 }
-                return true;
-            }
-            if (c) {
-                HashMap<String, Long> hashMap2 = this.b;
-                if (hashMap2 != null && hashMap2.containsKey(str)) {
-                    Log.d("SilentUpdateManager", "上次检查更新距现在超过5小时，状态失效。 当前时间戳：" + currentTimeMillis + "， 上次检查时间戳： " + this.b.get(str) + " ，id = " + str);
-                } else {
-                    Log.d("SilentUpdateManager", "小程序未被标记未无更新， id = " + str);
+            } catch (Exception e) {
+                if (a) {
+                    Log.e("RealCookieManager", "getCookie: err=" + e + " trace=" + Log.getStackTraceString(e));
                 }
             }
-            return false;
+            if (a) {
+                Log.i("RealCookieManager", "getCookie: ret cookie=" + str2 + " for httpUrl=" + str);
+            }
+            return str2;
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public void storeCookie(String str, List<String> list) {
+        int size;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
+            if (a) {
+                Log.d("RealCookieManager", "storeCookie: httpUrl= " + str);
+                StringBuilder sb = new StringBuilder();
+                sb.append("storeCookie: cookies=");
+                if (list == null) {
+                    size = -1;
+                } else {
+                    size = list.size();
+                }
+                sb.append(size);
+                Log.i("RealCookieManager", sb.toString());
+            }
+            if (list != null && list.size() > 0) {
+                try {
+                    for (String str2 : list) {
+                        if (a) {
+                            Log.i("RealCookieManager", "storeCookie: cookies item=" + str2);
+                        }
+                        CookieManager.getInstance().setCookie(str, str2);
+                        android.webkit.CookieManager.getInstance().setCookie(str, str2);
+                    }
+                    a();
+                } catch (Exception e) {
+                    if (a) {
+                        Log.e("RealCookieManager", "storeCookie: err=" + e + " trace=" + Log.getStackTraceString(e));
+                    }
+                }
+            }
+        }
     }
 }

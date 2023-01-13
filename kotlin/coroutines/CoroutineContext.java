@@ -4,6 +4,7 @@ import androidx.exifinterface.media.ExifInterface;
 import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
 import kotlin.Metadata;
 import kotlin.SinceKotlin;
+import kotlin.coroutines.CoroutineContext;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
 @SinceKotlin(version = "1.3")
@@ -80,7 +81,27 @@ public interface CoroutineContext {
         public static CoroutineContext plus(CoroutineContext coroutineContext, CoroutineContext context) {
             Intrinsics.checkNotNullParameter(context, "context");
             if (context != EmptyCoroutineContext.INSTANCE) {
-                return (CoroutineContext) context.fold(coroutineContext, CoroutineContext$plus$1.INSTANCE);
+                return (CoroutineContext) context.fold(coroutineContext, new Function2<CoroutineContext, Element, CoroutineContext>() { // from class: kotlin.coroutines.CoroutineContext$plus$1
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // kotlin.jvm.functions.Function2
+                    public final CoroutineContext invoke(CoroutineContext acc, CoroutineContext.Element element) {
+                        Intrinsics.checkNotNullParameter(acc, "acc");
+                        Intrinsics.checkNotNullParameter(element, "element");
+                        CoroutineContext minusKey = acc.minusKey(element.getKey());
+                        if (minusKey != EmptyCoroutineContext.INSTANCE) {
+                            ContinuationInterceptor continuationInterceptor = (ContinuationInterceptor) minusKey.get(ContinuationInterceptor.Key);
+                            if (continuationInterceptor == null) {
+                                return new CombinedContext(minusKey, element);
+                            }
+                            CoroutineContext minusKey2 = minusKey.minusKey(ContinuationInterceptor.Key);
+                            if (minusKey2 == EmptyCoroutineContext.INSTANCE) {
+                                return new CombinedContext(element, continuationInterceptor);
+                            }
+                            return new CombinedContext(new CombinedContext(minusKey2, element), continuationInterceptor);
+                        }
+                        return element;
+                    }
+                });
             }
             return coroutineContext;
         }

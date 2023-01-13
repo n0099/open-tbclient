@@ -1,65 +1,59 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
-import android.os.Build;
-import android.os.Environment;
-import android.os.StatFs;
-import android.telephony.TelephonyManager;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import android.view.WindowManager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.inner.BaseStatisContent;
-import java.io.UnsupportedEncodingException;
-import java.net.NetworkInterface;
-import java.util.Collections;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fun.ad.sdk.ChannelNativeAds;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.FunNativeAd2;
+import com.fun.ad.sdk.channel.model.gdt.GDTNativeUnifiedVideoView;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.NumberUtils;
+import com.qq.e.ads.cfg.VideoOption;
+import com.qq.e.ads.nativ.MediaView;
+import com.qq.e.ads.nativ.NativeADEventListener;
+import com.qq.e.ads.nativ.NativeADMediaListener;
+import com.qq.e.ads.nativ.NativeADUnifiedListener;
+import com.qq.e.ads.nativ.NativeUnifiedAD;
+import com.qq.e.ads.nativ.NativeUnifiedADData;
+import com.qq.e.ads.nativ.widget.NativeAdContainer;
+import com.qq.e.comm.util.AdError;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class gz9 {
+public class gz9 extends ReporterPidLoader<NativeUnifiedADData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final FunNativeAdListenerHelper<NativeUnifiedADData, NativeADEventListener> e;
 
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
+    public class a implements NativeADUnifiedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ gz9 a;
 
-    public static void w(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65558, null, context) == null) {
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Intent a;
-
-        public b(Context context) {
+        public a(gz9 gz9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context};
+                Object[] objArr = {gz9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -69,519 +63,473 @@ public class gz9 {
                     return;
                 }
             }
-            this.a = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+            this.a = gz9Var;
         }
 
-        public /* synthetic */ b(Context context, a aVar) {
-            this(context);
-        }
-
-        public final int e() {
-            InterceptResult invokeV;
+        @Override // com.qq.e.ads.nativ.NativeADUnifiedListener
+        public void onADLoaded(List<NativeUnifiedADData> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a.getIntExtra("level", 0);
+            if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+                LogPrinter.d();
+                if (list != null && !list.isEmpty()) {
+                    this.a.onAdLoaded((List) list);
+                    return;
+                }
+                LogPrinter.e("onADLoaded error: adList is null or empty", new Object[0]);
+                this.a.onError(0, "NoFill");
             }
-            return invokeV.intValue;
         }
 
-        public final int f() {
-            InterceptResult invokeV;
+        @Override // com.qq.e.ads.NativeAbstractAD.BasicADListener
+        public void onNoAD(AdError adError) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a.getIntExtra("scale", 0);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adError) == null) {
+                LogPrinter.e("onError code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg(), new Object[0]);
+                this.a.onError(adError.getErrorCode(), adError.getErrorMsg());
             }
-            return invokeV.intValue;
-        }
-
-        public final int g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.a.getIntExtra("temperature", 0);
-            }
-            return invokeV.intValue;
-        }
-
-        public final int h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.a.getIntExtra("voltage", 0);
-            }
-            return invokeV.intValue;
         }
     }
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                String p = p();
-                if (!TextUtils.isEmpty(p)) {
-                    jSONObject.put("os", p);
+    /* loaded from: classes4.dex */
+    public static class b implements NativeADMediaListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                String i = i(context);
-                if (!TextUtils.isEmpty(i)) {
-                    jSONObject.put("imei", i);
-                }
-                String m = m(context);
-                if (!TextUtils.isEmpty(m)) {
-                    jSONObject.put("meid", m);
-                }
-                String j = j(context);
-                if (!TextUtils.isEmpty(j)) {
-                    jSONObject.put(BaseStatisContent.IMSI, j);
-                }
-                String k = k(context);
-                if (!TextUtils.isEmpty(k)) {
-                    jSONObject.put("mac", k);
-                }
-                String h = h(context);
-                if (!TextUtils.isEmpty(h)) {
-                    jSONObject.put("iccid", h);
-                }
-                String s = s();
-                if (!TextUtils.isEmpty(s)) {
-                    jSONObject.put("serial", s);
-                }
-                String c = c(context);
-                if (!TextUtils.isEmpty(c)) {
-                    jSONObject.put("androidid", c);
-                }
-                String f = f();
-                if (!TextUtils.isEmpty(f)) {
-                    jSONObject.put("cpu", f);
-                }
-                String o = o();
-                if (!TextUtils.isEmpty(o)) {
-                    jSONObject.put("model", o);
-                }
-                String r = r();
-                if (!TextUtils.isEmpty(r)) {
-                    jSONObject.put("sdcard", r);
-                }
-                String q = q(context);
-                if (!TextUtils.isEmpty(q)) {
-                    jSONObject.put("resolution", q);
-                }
-                String u = u(context);
-                if (!TextUtils.isEmpty(u)) {
-                    jSONObject.put(YyLiveRoomConfig.KEY_SSID, u);
-                }
-                String v = v(context);
-                if (!TextUtils.isEmpty(v)) {
-                    jSONObject.put("bssid", v);
-                }
-                String g = g();
-                if (!TextUtils.isEmpty(g)) {
-                    jSONObject.put("deviceName", g);
-                }
-                String e = e(context);
-                if (!TextUtils.isEmpty(e)) {
-                    jSONObject.put("connecttype", e);
-                }
-                try {
-                    str = b(context);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    str = "";
-                }
-                if (!TextUtils.isEmpty(str)) {
-                    jSONObject.put("ua", str);
-                }
-                double d = d(context);
-                jSONObject.put("batterymaxcapacity", String.valueOf(d));
-                jSONObject.put("batterycurrentcapacity", String.valueOf(d));
-                b bVar = new b(context, null);
-                jSONObject.put("batterycurrentvoltage", bVar.h());
-                jSONObject.put("batterycurrenttemperature", bVar.g());
-                jSONObject.put("batterycurrentcapacity", (d * bVar.e()) / bVar.f());
-                return jSONObject.toString();
-            } catch (JSONException unused) {
-                return "";
             }
         }
-        return (String) invokeL.objValue;
-    }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            StringBuilder sb = new StringBuilder();
-            String packageName = context.getPackageName();
-            if (!TextUtils.isEmpty(packageName) && packageName.contains("com.sina.weibo")) {
-                str = "weibo";
-            } else {
-                str = "ssosdk";
+        @Override // com.qq.e.ads.nativ.NativeADMediaListener
+        public void onVideoClicked() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
-            sb.append(Build.MANUFACTURER);
-            sb.append("-");
-            sb.append(Build.MODEL);
-            sb.append("__");
-            sb.append(str);
-            sb.append("__");
-            try {
-                sb.append("1.0".replaceAll("\\s+", "_"));
-            } catch (Exception unused) {
-                sb.append("unknown");
-            }
-            sb.append("__");
-            sb.append("android");
-            sb.append("__android");
-            sb.append(Build.VERSION.RELEASE);
-            return sb.toString();
         }
-        return (String) invokeL.objValue;
+
+        @Override // com.qq.e.ads.nativ.NativeADMediaListener
+        public void onVideoCompleted() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        @Override // com.qq.e.ads.nativ.NativeADMediaListener
+        public void onVideoError(AdError adError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adError) == null) {
+            }
+        }
+
+        @Override // com.qq.e.ads.nativ.NativeADMediaListener
+        public void onVideoInit() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            }
+        }
+
+        @Override // com.qq.e.ads.nativ.NativeADMediaListener
+        public void onVideoLoaded(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            }
+        }
+
+        @Override // com.qq.e.ads.nativ.NativeADMediaListener
+        public void onVideoLoading() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            }
+        }
+
+        @Override // com.qq.e.ads.nativ.NativeADMediaListener
+        public void onVideoPause() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            }
+        }
+
+        @Override // com.qq.e.ads.nativ.NativeADMediaListener
+        public void onVideoReady() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            }
+        }
+
+        @Override // com.qq.e.ads.nativ.NativeADMediaListener
+        public void onVideoResume() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            }
+        }
+
+        @Override // com.qq.e.ads.nativ.NativeADMediaListener
+        public void onVideoStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            }
+        }
+
+        @Override // com.qq.e.ads.nativ.NativeADMediaListener
+        public void onVideoStop() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            }
+        }
     }
 
-    public static String e(Context context) {
-        InterceptResult invokeL;
-        NetworkInfo activeNetworkInfo;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            String str2 = "none";
-            try {
-                activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            } catch (Exception unused) {
+    /* loaded from: classes4.dex */
+    public class d implements NativeADEventListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final NativeUnifiedADData a;
+        public boolean b;
+        public boolean c;
+        public e d;
+        public final /* synthetic */ gz9 e;
+
+        public d(gz9 gz9Var, NativeUnifiedADData nativeUnifiedADData, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gz9Var, nativeUnifiedADData, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (activeNetworkInfo != null) {
-                if (activeNetworkInfo.getType() == 0) {
-                    switch (activeNetworkInfo.getSubtype()) {
-                        case 1:
-                        case 2:
-                        case 4:
-                        case 7:
-                        case 11:
-                            str = "2G";
-                            str2 = str;
-                            break;
-                        case 3:
-                        case 5:
-                        case 6:
-                        case 8:
-                        case 9:
-                        case 10:
-                        case 12:
-                        case 14:
-                        case 15:
-                            str = "3G";
-                            str2 = str;
-                            break;
-                        case 13:
-                            str = "4G";
-                            str2 = str;
-                            break;
+            this.e = gz9Var;
+            this.a = nativeUnifiedADData;
+        }
+
+        @Override // com.qq.e.ads.nativ.NativeADEventListener
+        public void onADClicked() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                LogPrinter.d();
+                this.e.onAdClicked(this.a, this.c, new String[0]);
+                this.c = true;
+            }
+        }
+
+        @Override // com.qq.e.ads.nativ.NativeADEventListener
+        public void onADError(AdError adError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adError) == null) {
+                LogPrinter.d();
+                this.e.onAdError(this.a, adError.getErrorCode(), adError.getErrorMsg());
+            }
+        }
+
+        @Override // com.qq.e.ads.nativ.NativeADEventListener
+        public void onADExposed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
+                this.e.onAdShow(this.a, this.b, new String[0]);
+                this.b = true;
+            }
+        }
+
+        @Override // com.qq.e.ads.nativ.NativeADEventListener
+        public void onADStatusChanged() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                LogPrinter.d();
+                e eVar = this.d;
+                if (eVar != null) {
+                    eVar.onADStatusChanged();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public interface e {
+        void onADStatusChanged();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gz9(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.NATIVE), pid, true, true);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e = new FunNativeAdListenerHelper<>(this);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public /* synthetic */ void n(NativeUnifiedADData nativeUnifiedADData, View view2) {
+        onAdClicked(nativeUnifiedADData, new String[0]);
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public AdRipper createAdRipper(Ssp.Pid pid) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new tz9(pid) : (AdRipper) invokeL.objValue;
+    }
+
+    public final com.fun.module.gdt.u f(Context context, NativeUnifiedADData nativeUnifiedADData) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, nativeUnifiedADData)) == null) {
+            int adPatternType = nativeUnifiedADData.getAdPatternType();
+            return (com.fun.module.gdt.u) LayoutInflater.from(context).inflate(adPatternType != 1 ? adPatternType != 2 ? (adPatternType == 3 && nativeUnifiedADData.getImgList().size() == 3) ? R.layout.fun_gdt_ad_native_unified_img3_view : R.layout.fun_gdt_ad_native_unified_img_view : R.layout.fun_gdt_ad_native_unified_video_view : R.layout.fun_gdt_ad_native_unified_img2_view, (ViewGroup) null, false);
+        }
+        return (com.fun.module.gdt.u) invokeLL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, context, funAdSlot) == null) {
+            a aVar = new a(this);
+            onLoadStart(funAdSlot);
+            NativeUnifiedAD nativeUnifiedAD = new NativeUnifiedAD(context.getApplicationContext(), this.mPid.pid, aVar);
+            nativeUnifiedAD.setMinVideoDuration(0);
+            nativeUnifiedAD.setMaxVideoDuration(0);
+            nativeUnifiedAD.loadData(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 10));
+        }
+    }
+
+    public final void m(com.fun.module.gdt.u uVar, final NativeUnifiedADData nativeUnifiedADData, NativeADEventListener nativeADEventListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, uVar, nativeUnifiedADData, nativeADEventListener) == null) {
+            if (uVar instanceof GDTNativeUnifiedVideoView) {
+                ((GDTNativeUnifiedVideoView) uVar).setVideoOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ry9
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // android.view.View.OnClickListener
+                    public final void onClick(View view2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                            gz9.this.n(nativeUnifiedADData, view2);
+                        }
                     }
-                } else if (activeNetworkInfo.getType() == 1) {
-                    str = "wifi";
-                    str2 = str;
+                });
+            }
+            nativeUnifiedADData.setNativeAdEventListener(nativeADEventListener);
+            uVar.a(nativeUnifiedADData);
+        }
+    }
+
+    public void o(NativeUnifiedADData nativeUnifiedADData, String str, NativeAdContainer nativeAdContainer, MediaView mediaView, List<View> list, FunAdInteractionListener funAdInteractionListener, final ChannelNativeAds.GdtADStatusChangeListener gdtADStatusChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{nativeUnifiedADData, str, nativeAdContainer, mediaView, list, funAdInteractionListener, gdtADStatusChangeListener}) == null) {
+            c cVar = new c(this, nativeUnifiedADData, str);
+            if (gdtADStatusChangeListener != null) {
+                cVar.d = new e() { // from class: com.baidu.tieba.py9
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // com.baidu.tieba.gz9.e
+                    public final void onADStatusChanged() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            ChannelNativeAds.GdtADStatusChangeListener.this.onADStatusChanged();
+                        }
+                    }
+                };
+            }
+            p(nativeUnifiedADData, str, nativeAdContainer, mediaView, list, cVar, funAdInteractionListener);
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public /* bridge */ /* synthetic */ boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        q(activity, viewGroup, str, (NativeUnifiedADData) obj);
+        return true;
+    }
+
+    /* loaded from: classes4.dex */
+    public class c extends d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gz9 f;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(gz9 gz9Var, NativeUnifiedADData nativeUnifiedADData, String str) {
+            super(gz9Var, nativeUnifiedADData, str);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gz9Var, nativeUnifiedADData, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((gz9) objArr2[0], (NativeUnifiedADData) objArr2[1], (String) objArr2[2]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return str2;
             }
-            return str2;
+            this.f = gz9Var;
         }
-        return (String) invokeL.objValue;
-    }
 
-    public static String c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                return ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
-            } catch (Exception unused) {
-                return "";
+        @Override // com.baidu.tieba.gz9.d, com.qq.e.ads.nativ.NativeADEventListener
+        public void onADError(AdError adError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adError) == null) {
+                this.f.onAdError(this.a, adError.getErrorCode(), adError.getErrorMsg());
             }
         }
-        return (String) invokeL.objValue;
-    }
 
-    public static String h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            try {
-                return ApiReplaceUtil.getSimSerialNumber((TelephonyManager) context.getSystemService("phone"));
-            } catch (Exception unused) {
-                return "";
+        @Override // com.baidu.tieba.gz9.d, com.qq.e.ads.nativ.NativeADEventListener
+        public void onADClicked() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f.e.onAdClick(this.a);
             }
         }
-        return (String) invokeL.objValue;
-    }
 
-    public static String i(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            try {
-                return ApiReplaceUtil.getDeviceId((TelephonyManager) context.getSystemService("phone"));
-            } catch (Exception unused) {
-                return "";
+        @Override // com.baidu.tieba.gz9.d, com.qq.e.ads.nativ.NativeADEventListener
+        public void onADExposed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.f.e.onAdShow(this.a);
             }
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String j(Context context) {
-        InterceptResult invokeL;
+    public static void l(com.fun.module.gdt.u uVar, NativeUnifiedADData nativeUnifiedADData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            try {
-                return ApiReplaceUtil.getSubscriberId((TelephonyManager) context.getSystemService("phone"));
-            } catch (Exception unused) {
-                return "";
-            }
+        if (interceptable == null || interceptable.invokeLL(65543, null, uVar, nativeUnifiedADData) == null) {
+            uVar.b(nativeUnifiedADData);
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String m(Context context) {
-        InterceptResult invokeL;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        NativeUnifiedADData nativeUnifiedADData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
-            try {
-                return ApiReplaceUtil.getDeviceId((TelephonyManager) context.getSystemService("phone"));
-            } catch (Exception unused) {
-                return "";
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && (nativeUnifiedADData = (NativeUnifiedADData) obj) != null) {
+            nativeUnifiedADData.destroy();
+            this.e.destroy(nativeUnifiedADData);
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String n(Context context) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public double getAdBiddingPrices(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
-            try {
-                return new String(a(context).getBytes(), "UTF-8");
-            } catch (UnsupportedEncodingException unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String u(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, context)) == null) {
-            try {
-                WifiInfo connectionInfo = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getConnectionInfo();
-                if (connectionInfo != null) {
-                    return connectionInfo.getSSID();
-                }
-                return "";
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String v(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, context)) == null) {
-            try {
-                WifiInfo connectionInfo = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getConnectionInfo();
-                if (connectionInfo != null) {
-                    return connectionInfo.getBSSID();
-                }
-                return "";
-            } catch (SecurityException unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static double d(Context context) {
-        InterceptResult invokeL;
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            try {
-                obj = Class.forName("com.android.internal.os.PowerProfile").getConstructor(Context.class).newInstance(context);
-            } catch (Exception unused) {
-                obj = null;
-            }
-            try {
-                return ((Double) Class.forName("com.android.internal.os.PowerProfile").getMethod("getAveragePower", String.class).invoke(obj, "battery.capacity")).doubleValue();
-            } catch (Exception unused2) {
-                return 0.0d;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            return ((NativeUnifiedADData) obj).getECPM() / 100.0d;
         }
         return invokeL.doubleValue;
     }
 
-    public static String q(Context context) {
-        InterceptResult invokeL;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
+        InterceptResult invokeLLL;
+        MediaView mediaView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) {
-            try {
-                DisplayMetrics displayMetrics = new DisplayMetrics();
-                ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
-                return String.valueOf(displayMetrics.widthPixels) + "*" + String.valueOf(displayMetrics.heightPixels);
-            } catch (Exception unused) {
-                return "";
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, context, str, obj)) == null) {
+            NativeUnifiedADData nativeUnifiedADData = (NativeUnifiedADData) obj;
+            if (nativeUnifiedADData.getAdPatternType() == 2) {
+                mediaView = new MediaView(context);
+            } else {
+                mediaView = null;
             }
+            pz9 pz9Var = new pz9(nativeUnifiedADData, mediaView, str, this.mPid, this);
+            return new BaseNativeAd2(FunNativeAd2.NativeType.BOTH, nativeUnifiedADData, pz9Var, new iz9(this, this, nativeUnifiedADData, str, pz9Var));
         }
-        return (String) invokeL.objValue;
+        return (FunNativeAd2) invokeLLL.objValue;
     }
 
-    public static String f() {
-        InterceptResult invokeV;
+    public void p(NativeUnifiedADData nativeUnifiedADData, String str, NativeAdContainer nativeAdContainer, MediaView mediaView, List<View> list, NativeADEventListener nativeADEventListener, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            try {
-                return Build.CPU_ABI;
-            } catch (Exception unused) {
-                return "";
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{nativeUnifiedADData, str, nativeAdContainer, mediaView, list, nativeADEventListener, funAdInteractionListener}) == null) {
+            this.e.startShow(nativeUnifiedADData, str, this.mPid, nativeADEventListener, funAdInteractionListener);
+            if (nativeAdContainer == null) {
+                onAdError(nativeUnifiedADData, 0, "NativeAdContainer is null");
+                funAdInteractionListener.onAdError(str);
+                return;
+            }
+            nativeUnifiedADData.setNativeAdEventListener(nativeADEventListener);
+            nativeUnifiedADData.bindAdToView(nativeAdContainer.getContext(), nativeAdContainer, null, list);
+            if (mediaView != null) {
+                nativeUnifiedADData.bindMediaView(mediaView, new VideoOption.Builder().setAutoPlayPolicy(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart ? 1 : 0).setAutoPlayMuted(!FunAdSdk.getFunAdConfig().isVideoSoundEnable).setDetailPageMuted(false).setNeedCoverImage(true).setNeedProgressBar(true).setEnableDetailPage(false).setEnableUserControl(false).build(), new b());
             }
         }
-        return (String) invokeV.objValue;
     }
 
-    public static String g() {
-        InterceptResult invokeV;
+    public boolean q(Activity activity, ViewGroup viewGroup, String str, final NativeUnifiedADData nativeUnifiedADData) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            try {
-                return Build.BRAND;
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, activity, viewGroup, str, nativeUnifiedADData)) == null) {
+            onShowStart(nativeUnifiedADData);
+            final com.fun.module.gdt.u f = f(activity, nativeUnifiedADData);
+            e eVar = new e() { // from class: com.baidu.tieba.sy9
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-    public static String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            try {
-                return Build.MODEL;
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            try {
-                return "Android " + Build.VERSION.RELEASE;
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @TargetApi(26)
-    public static String t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
-            try {
-                return Build.getSerial();
-            } catch (Exception e) {
-                e.printStackTrace();
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String k(Context context) {
-        InterceptResult invokeL;
-        WifiInfo connectionInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                return l();
-            }
-            try {
-                WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
-                if (wifiManager == null || (connectionInfo = wifiManager.getConnectionInfo()) == null) {
-                    return "";
-                }
-                return ApiReplaceUtil.getMacAddress(connectionInfo);
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            try {
-                for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
-                    if (networkInterface.getName().equalsIgnoreCase("wlan0")) {
-                        byte[] hardwareAddress = ApiReplaceUtil.getHardwareAddress(networkInterface);
-                        if (hardwareAddress == null) {
-                            return "";
-                        }
-                        StringBuilder sb = new StringBuilder();
-                        int length = hardwareAddress.length;
-                        for (int i = 0; i < length; i++) {
-                            sb.append(String.format("%02X:", Byte.valueOf(hardwareAddress[i])));
-                        }
-                        if (sb.length() > 0) {
-                            sb.deleteCharAt(sb.length() - 1);
-                        }
-                        return sb.toString();
+                @Override // com.baidu.tieba.gz9.e
+                public final void onADStatusChanged() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        gz9.l(com.fun.module.gdt.u.this, nativeUnifiedADData);
                     }
                 }
-                return "";
-            } catch (Exception unused) {
-                return "";
-            }
+            };
+            d dVar = new d(this, nativeUnifiedADData, str);
+            dVar.d = eVar;
+            m(f, nativeUnifiedADData, dVar);
+            viewGroup.removeAllViews();
+            viewGroup.addView(f);
+            return true;
         }
-        return (String) invokeV.objValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public static String r() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void setAdBiddingResult(Object obj, double d2, double d3, boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
-            try {
-                StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
-                return Long.toString(statFs.getBlockCount() * statFs.getBlockSize());
-            } catch (Exception unused) {
-                return "";
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{obj, Double.valueOf(d2), Double.valueOf(d3), Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            NativeUnifiedADData nativeUnifiedADData = (NativeUnifiedADData) obj;
+            double d4 = d2 * 100.0d;
+            if (z) {
+                nativeUnifiedADData.sendWinNotification((int) d4);
+                return;
             }
+            int i2 = 1;
+            if (i == 3) {
+                i2 = 2;
+            } else if (i == 5) {
+                i2 = 3;
+            }
+            nativeUnifiedADData.sendLossNotification((int) d4, i2, "");
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static String s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                return t();
-            }
-            try {
-                Class<?> cls = Class.forName("android.os.SystemProperties");
-                return (String) cls.getMethod("get", String.class, String.class).invoke(cls, "ro.serialno", "unknown");
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
     }
 }

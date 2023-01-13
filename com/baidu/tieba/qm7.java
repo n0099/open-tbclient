@@ -1,5 +1,10 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
+
+import android.widget.ListView;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+/* loaded from: classes6.dex */
 public interface qm7 {
-    void a(String str);
+    boolean a(ChatMessage... chatMessageArr);
+
+    void b(ListView listView, ChatMessage... chatMessageArr);
 }

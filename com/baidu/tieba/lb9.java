@@ -1,253 +1,130 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tieba.xr8;
+import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class lb9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a implements xr8.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ EditorTools a;
-
-        public a(EditorTools editorTools) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {editorTools};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = editorTools;
-        }
-
-        @Override // com.baidu.tieba.xr8.f
-        public void onRefresh() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.B(new m65(2, 12, null));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements xr8.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ EditorTools a;
-
-        public b(EditorTools editorTools) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {editorTools};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = editorTools;
-        }
-
-        @Override // com.baidu.tieba.xr8.f
-        public void onRefresh() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.B(new m65(2, 12, null));
-            }
-        }
-    }
-
-    public static k99 a(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbPageContext)) == null) {
-            return new k99(tbPageContext);
-        }
-        return (k99) invokeL.objValue;
-    }
-
-    public static m99 b(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tbPageContext)) == null) {
-            return new m99(tbPageContext);
-        }
-        return (m99) invokeL.objValue;
-    }
-
-    public static o99 d(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, tbPageContext)) == null) {
-            return new o99(tbPageContext);
-        }
-        return (o99) invokeL.objValue;
-    }
-
-    public static p99 e(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext)) == null) {
-            return new p99(tbPageContext);
-        }
-        return (p99) invokeL.objValue;
-    }
-
-    public static q99 f(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, tbPageContext)) == null) {
-            return new q99(tbPageContext);
-        }
-        return (q99) invokeL.objValue;
-    }
-
-    public static r99 g(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, tbPageContext)) == null) {
-            return new r99(tbPageContext);
-        }
-        return (r99) invokeL.objValue;
-    }
-
-    public static t99 i(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, tbPageContext)) == null) {
-            return new t99(tbPageContext);
-        }
-        return (t99) invokeL.objValue;
-    }
-
-    public static u99 j(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, tbPageContext)) == null) {
-            return new u99(tbPageContext);
-        }
-        return (u99) invokeL.objValue;
-    }
-
-    public static v99 k(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, tbPageContext)) == null) {
-            return new v99(tbPageContext);
-        }
-        return (v99) invokeL.objValue;
-    }
-
-    public static w99 l(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, tbPageContext)) == null) {
-            return new w99(tbPageContext);
-        }
-        return (w99) invokeL.objValue;
-    }
-
-    public static z99 o(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, tbPageContext)) == null) {
-            return new z99(tbPageContext);
-        }
-        return (z99) invokeL.objValue;
-    }
-
-    public static aa9 p(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, tbPageContext)) == null) {
-            return new aa9(tbPageContext);
-        }
-        return (aa9) invokeL.objValue;
-    }
-
-    public static ba9 q(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, tbPageContext)) == null) {
-            return new ba9(tbPageContext);
-        }
-        return (ba9) invokeL.objValue;
-    }
-
-    public static ca9 r(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, tbPageContext)) == null) {
-            return new ca9(tbPageContext);
-        }
-        return (ca9) invokeL.objValue;
-    }
-
-    public static n99 c(@NonNull TbPageContext<?> tbPageContext, @NonNull ea9 ea9Var, @NonNull EditorTools editorTools, @NonNull x89 x89Var, @NonNull pb9 pb9Var) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, null, tbPageContext, ea9Var, editorTools, x89Var, pb9Var)) == null) {
-            n99 n99Var = new n99(tbPageContext, x89Var, pb9Var);
-            n99Var.T(ea9Var);
-            n99Var.Z(new a(editorTools));
-            return n99Var;
-        }
-        return (n99) invokeLLLLL.objValue;
-    }
-
-    public static s99 h(@NonNull TbPageContext<?> tbPageContext, @NonNull tb9 tb9Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, tbPageContext, tb9Var)) == null) {
-            return new s99(tbPageContext, tb9Var);
-        }
-        return (s99) invokeLL.objValue;
-    }
-
-    public static x99 m(@NonNull TbPageContext<?> tbPageContext, @NonNull ea9 ea9Var, @NonNull EditorTools editorTools, @NonNull tb9 tb9Var, @NonNull x89 x89Var, @NonNull pb9 pb9Var) {
+    public static long[] a(int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{tbPageContext, ea9Var, editorTools, tb9Var, x89Var, pb9Var})) == null) {
-            x99 x99Var = new x99(tbPageContext, tb9Var, x89Var, pb9Var);
-            x99Var.W(ea9Var);
-            x99Var.Y(new b(editorTools));
-            return x99Var;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            if (i < 0) {
+                i = 0;
+            }
+            float[] fArr = new float[i];
+            if (i > 1) {
+                float f = 1.0f / i;
+                int i2 = 0;
+                while (i2 < i) {
+                    int i3 = i2 + 1;
+                    if (i3 == i) {
+                        int i4 = i2 - 1;
+                        fArr[i2] = fArr[i4] + ((1.0f - fArr[i4]) / 2.0f);
+                    } else {
+                        fArr[i2] = i3 * f;
+                    }
+                    i2 = i3;
+                }
+            } else if (i == 1) {
+                fArr[0] = 0.5f;
+            }
+            long[] jArr = new long[i];
+            for (int i5 = 0; i5 < i; i5++) {
+                jArr[i5] = fArr[i5] * ((float) j) * 1000.0f;
+            }
+            return jArr;
         }
-        return (x99) invokeCommon.objValue;
+        return (long[]) invokeCommon.objValue;
     }
 
-    public static y99 n(@NonNull TbPageContext<?> tbPageContext, @NonNull ea9 ea9Var, @NonNull x89 x89Var, @NonNull pb9 pb9Var) {
-        InterceptResult invokeLLLL;
+    public static ob9 b(qb9 qb9Var, gb9 gb9Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65549, null, tbPageContext, ea9Var, x89Var, pb9Var)) == null) {
-            y99 y99Var = new y99(tbPageContext, x89Var, pb9Var);
-            y99Var.M(ea9Var);
-            return y99Var;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, qb9Var, gb9Var)) == null) {
+            if (qb9Var == null || gb9Var == null || qb9Var.e == null) {
+                return null;
+            }
+            long[] a = a(qb9Var.b, qb9Var.a);
+            MultiMediaData multiMediaData = qb9Var.e;
+            ob9 ob9Var = new ob9();
+            ob9Var.e = new ArrayList();
+            ob9Var.a = multiMediaData.path;
+            ob9Var.c = qb9Var.c;
+            ob9Var.d = qb9Var.d;
+            ob9Var.b = multiMediaData.rotation;
+            for (int i = 0; i < qb9Var.b; i++) {
+                long j = multiMediaData.start + a[i];
+                ib9 ib9Var = new ib9();
+                ib9Var.a = bb9.b(multiMediaData.path, j, multiMediaData.type);
+                ib9Var.b = multiMediaData.path;
+                ib9Var.f = i;
+                ib9Var.g = multiMediaData.type;
+                ib9Var.h = qb9Var.c;
+                ib9Var.i = qb9Var.d;
+                ib9Var.j = gb9Var;
+                ib9Var.d = j;
+                ib9Var.c = multiMediaData.rotation;
+                ob9Var.e.add(ib9Var);
+            }
+            return ob9Var;
         }
-        return (y99) invokeLLLL.objValue;
+        return (ob9) invokeLL.objValue;
+    }
+
+    public static List<ob9> c(pb9 pb9Var, gb9 gb9Var) {
+        InterceptResult invokeLL;
+        List<ib9> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, pb9Var, gb9Var)) == null) {
+            MultiMediaData multiMediaData = null;
+            if (pb9Var == null || gb9Var == null || pb9Var.b <= 0 || as9.e(pb9Var.e) || as9.e(pb9Var.f)) {
+                return null;
+            }
+            long[] a = a(pb9Var.b, pb9Var.a);
+            ArrayList arrayList = new ArrayList();
+            ob9 ob9Var = null;
+            for (int i = 0; i < pb9Var.b; i++) {
+                long j = ((float) a[i]) / 1000.0f;
+                int findInputIndexInSegments = MultiDataSourceUtil.findInputIndexInSegments(pb9Var.e, j);
+                MultiMediaData multiMediaData2 = (MultiMediaData) as9.c(pb9Var.f, findInputIndexInSegments);
+                if (multiMediaData2 != null) {
+                    if (multiMediaData2 != multiMediaData) {
+                        ob9Var = new ob9();
+                        ob9Var.e = new ArrayList();
+                        ob9Var.a = multiMediaData2.path;
+                        ob9Var.c = pb9Var.c;
+                        ob9Var.d = pb9Var.d;
+                        ob9Var.b = multiMediaData2.rotation;
+                        arrayList.add(ob9Var);
+                    }
+                    long multiMediaDataSeekTime = MultiDataSourceUtil.getMultiMediaDataSeekTime(multiMediaData2, (MediaSegment) as9.c(pb9Var.e, findInputIndexInSegments), j) * 1000;
+                    ib9 ib9Var = new ib9();
+                    ib9Var.a = bb9.b(multiMediaData2.path, multiMediaDataSeekTime, multiMediaData2.type);
+                    ib9Var.b = multiMediaData2.path;
+                    ib9Var.f = i;
+                    ib9Var.g = multiMediaData2.type;
+                    ib9Var.h = pb9Var.c;
+                    ib9Var.i = pb9Var.d;
+                    ib9Var.d = multiMediaDataSeekTime;
+                    ib9Var.j = gb9Var;
+                    ib9Var.c = multiMediaData2.rotation;
+                    if (ob9Var != null && (list = ob9Var.e) != null) {
+                        list.add(ib9Var);
+                    }
+                    multiMediaData = multiMediaData2;
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeLL.objValue;
     }
 }

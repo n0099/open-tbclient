@@ -1,133 +1,124 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.DisplayMetrics;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.net.request.Headers;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.channels.Channels;
+import java.nio.channels.FileChannel;
+import java.nio.channels.ReadableByteChannel;
 /* loaded from: classes6.dex */
-public class rr0 {
+public final class rr0 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static int b;
-    public static Context c;
-    public static boolean d;
-    public static ux0 e;
-    public static tw0 f;
-    public static String g;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948131097, "Lcom/baidu/tieba/rr0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948131097, "Lcom/baidu/tieba/rr0;");
-        }
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(String str, int i);
+
+        void b();
     }
 
-    @NonNull
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return g;
-        }
-        return (String) invokeV.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public static class a implements gr0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ File a;
+        public final /* synthetic */ b b;
 
-    public static Context b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    @NonNull
-    public static tw0 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f == null) {
-                f = new sw0();
+        public a(File file, b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {file, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return f;
+            this.a = file;
+            this.b = bVar;
         }
-        return (tw0) invokeV.objValue;
-    }
 
-    @NonNull
-    public static ux0 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (e == null) {
-                e = new vx0();
+        @Override // com.baidu.tieba.gr0
+        public void a(Exception exc, int i) {
+            b bVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) && (bVar = this.b) != null) {
+                bVar.a(exc.getMessage(), i);
             }
-            return e;
         }
-        return (ux0) invokeV.objValue;
-    }
 
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
-            h(z);
-            Context context = c;
-            if (context != null) {
-                DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-                b = Math.min(displayMetrics.widthPixels, displayMetrics.heightPixels);
-                a = Math.max(displayMetrics.widthPixels, displayMetrics.heightPixels);
+        @Override // com.baidu.tieba.gr0
+        public void c(Headers headers, InputStream inputStream, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, headers, inputStream, i) == null) {
+                if (i == 200) {
+                    try {
+                        rr0.b(inputStream, this.a);
+                        if (this.b != null) {
+                            this.b.b();
+                            return;
+                        }
+                        return;
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        b bVar = this.b;
+                        if (bVar != null) {
+                            bVar.a(e.getMessage(), -1);
+                            return;
+                        }
+                        return;
+                    }
+                }
+                b bVar2 = this.b;
+                if (bVar2 != null) {
+                    bVar2.a("", i);
+                }
             }
         }
     }
 
-    public static void g(@NonNull Context context) {
+    public static void a(@NonNull File file, @NonNull String str, @Nullable b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, context) == null) {
-            c = context;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, file, str, bVar) == null) {
+            ar0 a2 = wq0.b().a();
+            pr0 pr0Var = new pr0();
+            pr0Var.l(str);
+            pr0Var.c();
+            a2.b(pr0Var, new a(file, bVar));
         }
     }
 
-    public static void h(boolean z) {
+    public static void b(@NonNull InputStream inputStream, @NonNull File file) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
-            d = z;
-        }
-    }
-
-    public static void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
-            g = str;
-        }
-    }
-
-    public static void j(@NonNull tw0 tw0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, tw0Var) == null) {
-            f = tw0Var;
+        if (interceptable == null || interceptable.invokeLL(65537, null, inputStream, file) == null) {
+            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            ReadableByteChannel newChannel = Channels.newChannel(inputStream);
+            FileChannel channel = fileOutputStream.getChannel();
+            long j = 4096;
+            long j2 = 0;
+            while (j > 0) {
+                try {
+                    j = channel.transferFrom(newChannel, j2, 4096L);
+                    j2 += j;
+                } finally {
+                    hj0.a(fileOutputStream);
+                }
+            }
         }
     }
 }

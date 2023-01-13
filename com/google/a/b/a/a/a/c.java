@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.Parcel;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gx9;
+import com.baidu.tieba.o2a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -42,8 +42,8 @@ public final class c extends com.google.a.a.a implements a {
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, bundle, dVar) == null) {
             Parcel a = a();
             a.writeString(str);
-            gx9.c(a, bundle);
-            gx9.b(a, dVar);
+            o2a.c(a, bundle);
+            o2a.b(a, dVar);
             b(2, a);
         }
     }
@@ -55,8 +55,8 @@ public final class c extends com.google.a.a.a implements a {
             Parcel a = a();
             a.writeString(str);
             a.writeTypedList(list);
-            gx9.c(a, bundle);
-            gx9.b(a, dVar);
+            o2a.c(a, bundle);
+            o2a.b(a, dVar);
             b(1, a);
         }
     }

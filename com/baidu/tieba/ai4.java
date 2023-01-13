@@ -1,34 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.support.v4.app.Fragment;
+import android.content.Context;
+import android.os.Build;
+import android.util.AttributeSet;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.FileDescriptor;
-import java.io.PrintWriter;
-import java.util.List;
 /* loaded from: classes3.dex */
-public abstract class ai4 {
+public abstract class ai4 extends zh4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes3.dex */
-    public interface a {
-        void onBackStackChanged();
-    }
-
-    public abstract ci4 a();
-
-    public abstract void b(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr);
-
-    public abstract boolean c();
-
-    public abstract List<Fragment> d();
-
-    public abstract void e(int i, int i2);
-
-    public abstract boolean f();
 
     public ai4() {
         Interceptable interceptable = $ic;
@@ -42,5 +26,19 @@ public abstract class ai4 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // android.app.Activity, android.view.LayoutInflater.Factory2
+    public View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, view2, str, context, attributeSet)) == null) {
+            View h = h(view2, str, context, attributeSet);
+            if (h == null && Build.VERSION.SDK_INT >= 11) {
+                return super.onCreateView(view2, str, context, attributeSet);
+            }
+            return h;
+        }
+        return (View) invokeLLLL.objValue;
     }
 }

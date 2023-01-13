@@ -44,7 +44,7 @@ public class AlaAttentionData implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public AlaAttentionData m26clone() {
+    public AlaAttentionData m27clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

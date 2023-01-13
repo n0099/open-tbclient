@@ -11,11 +11,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes5.dex */
-public final class oq extends sq {
+public final class oq extends uq {
     public static /* synthetic */ Interceptable $ic;
-    public static final a e;
+    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
     public final String d;
+    public final String e;
 
     static {
         InterceptResult invokeClinit;
@@ -30,14 +31,14 @@ public final class oq extends sq {
                 return;
             }
         }
-        e = new a(null);
+        f = new a(null);
     }
 
-    @Override // com.baidu.tieba.gr
+    @Override // com.baidu.tieba.ir
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CleanTaskNoClickTimesAction" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TaskDuplicatedCacheAction" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes5.dex */
@@ -63,24 +64,24 @@ public final class oq extends sq {
             this();
         }
 
-        public final oq a(TaskInfo taskInfo, int i) {
-            InterceptResult invokeLI;
+        public final oq a(TaskInfo taskInfo, String str) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, taskInfo, i)) == null) {
-                return new oq(taskInfo, null, i, null, null, 26, null);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, taskInfo, str)) == null) {
+                return new oq(taskInfo, str, null, 0, null, null, 60, null);
             }
-            return (oq) invokeLI.objValue;
+            return (oq) invokeLL.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public oq(TaskInfo taskInfo, String str, int i, Integer num, String str2) {
-        super(str, num, str2);
+    public oq(TaskInfo taskInfo, String str, String str2, int i, Integer num, String str3) {
+        super(str2, num, str3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {taskInfo, str, Integer.valueOf(i), num, str2};
+            Object[] objArr = {taskInfo, str, str2, Integer.valueOf(i), num, str3};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -93,40 +94,50 @@ public final class oq extends sq {
             }
         }
         this.d = str;
+        this.e = str2;
     }
 
     /* JADX WARN: Illegal instructions before constructor call */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public /* synthetic */ oq(TaskInfo taskInfo, String str, int i, Integer num, String str2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(taskInfo, r2, r3, r4, r5);
+    public /* synthetic */ oq(TaskInfo taskInfo, String str, String str2, int i, Integer num, String str3, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(taskInfo, str, r3, r4, r5, r6);
         int i3;
         Integer num2;
-        String str3;
-        String singleKey = (i2 & 2) != 0 ? taskInfo.getSingleKey() : str;
-        if ((i2 & 4) != 0) {
+        String str4;
+        String singleKey = (i2 & 4) != 0 ? taskInfo.getSingleKey() : str2;
+        if ((i2 & 8) != 0) {
             i3 = 8;
         } else {
             i3 = i;
         }
-        if ((i2 & 8) != 0) {
+        if ((i2 & 16) != 0) {
             num2 = null;
         } else {
             num2 = num;
         }
-        if ((i2 & 16) != 0) {
-            str3 = null;
+        if ((i2 & 32) != 0) {
+            str4 = null;
         } else {
-            str3 = str2;
+            str4 = str3;
         }
     }
 
-    @Override // com.baidu.tieba.sq
+    @Override // com.baidu.tieba.uq
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.d;
         }
         return (String) invokeV.objValue;

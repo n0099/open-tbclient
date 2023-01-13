@@ -1,11 +1,13 @@
 package com.baidu.tieba;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-@Target({ElementType.TYPE})
-@Retention(RetentionPolicy.RUNTIME)
+import com.baidu.adp.widget.refresh.IRefreshable$State;
 /* loaded from: classes6.dex */
-public @interface ro {
+public interface ro {
+    void a(IRefreshable$State iRefreshable$State);
+
+    void b();
+
+    void c();
+
+    void d();
 }

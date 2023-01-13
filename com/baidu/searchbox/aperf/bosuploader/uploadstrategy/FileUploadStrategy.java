@@ -10,7 +10,7 @@ import com.baidu.android.util.devices.NetWorkUtils;
 import com.baidu.searchbox.aperf.bosuploader.ZipUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.nf1;
+import com.baidu.tieba.sf1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -259,6 +259,18 @@ public class FileUploadStrategy implements IUpload {
             }
         }
 
+        public static /* synthetic */ File access$000() {
+            return getAttachFlag();
+        }
+
+        public static /* synthetic */ File access$100() {
+            return getInvalidZipDir();
+        }
+
+        public static /* synthetic */ File access$1000() {
+            return getAttachDir();
+        }
+
         public static File getAttachDir() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -305,7 +317,7 @@ public class FileUploadStrategy implements IUpload {
                 if (applicationContext != null) {
                     appContext = applicationContext;
                 }
-                return new File(new File(appContext.getFilesDir(), BASE_ATTACHMENT_UPLOAD_FILE_PATH), nf1.b().replace(":", "_"));
+                return new File(new File(appContext.getFilesDir(), BASE_ATTACHMENT_UPLOAD_FILE_PATH), sf1.b().replace(":", "_"));
             }
             return (File) invokeV.objValue;
         }
@@ -358,7 +370,7 @@ public class FileUploadStrategy implements IUpload {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return StoreUtil.getAttachFlag().exists();
+            return StoreUtil.access$000().exists();
         }
         return invokeV.booleanValue;
     }
@@ -379,9 +391,9 @@ public class FileUploadStrategy implements IUpload {
             reUpload(5);
             if (!this.mInvalidDirDeleted) {
                 this.mInvalidDirDeleted = true;
-                File invalidZipDir = StoreUtil.getInvalidZipDir();
-                if (invalidZipDir.exists()) {
-                    invalidZipDir.delete();
+                File access$100 = StoreUtil.access$100();
+                if (access$100.exists()) {
+                    access$100.delete();
                 }
             }
         }
@@ -408,25 +420,25 @@ public class FileUploadStrategy implements IUpload {
     public void updateFileFlag() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            File attachFlag = StoreUtil.getAttachFlag();
-            File attachDir = StoreUtil.getAttachDir();
-            if (attachFlag != null && attachDir != null) {
-                String[] list = attachDir.list();
+            File access$000 = StoreUtil.access$000();
+            File access$1000 = StoreUtil.access$1000();
+            if (access$000 != null && access$1000 != null) {
+                String[] list = access$1000.list();
                 boolean z = false;
                 if (list != null && list.length > 0) {
                     z = true;
                 }
-                boolean exists = attachFlag.exists();
+                boolean exists = access$000.exists();
                 if (z) {
                     if (!exists) {
                         try {
-                            attachFlag.createNewFile();
+                            access$000.createNewFile();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                     }
                 } else if (exists) {
-                    attachFlag.delete();
+                    access$000.delete();
                 }
             }
         }
@@ -480,7 +492,7 @@ public class FileUploadStrategy implements IUpload {
     public void upload(@NonNull List<File> list, @NonNull String str, @NonNull String str2) {
         File createAttachZipFile;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, list, str, str2) == null) && (createAttachZipFile = createAttachZipFile(list, FileName.createFileID(str, System.currentTimeMillis()), nf1.b(), str2)) != null) {
+        if ((interceptable == null || interceptable.invokeLLL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, list, str, str2) == null) && (createAttachZipFile = createAttachZipFile(list, FileName.createFileID(str, System.currentTimeMillis()), sf1.b(), str2)) != null) {
             this.mUploadExecutor.execute(new Runnable(this, createAttachZipFile, str) { // from class: com.baidu.searchbox.aperf.bosuploader.uploadstrategy.FileUploadStrategy.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -541,7 +553,7 @@ public class FileUploadStrategy implements IUpload {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
-            File[] listFiles = StoreUtil.getAttachDir().listFiles();
+            File[] listFiles = StoreUtil.access$1000().listFiles();
             if (listFiles == null || listFiles.length == 0) {
                 return null;
             }
@@ -569,45 +581,45 @@ public class FileUploadStrategy implements IUpload {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65547, this, list, str, str2, str3)) == null) {
             FileName fileName = FileName.getFileName(str, str2, str3);
-            if (fileName != null) {
-                File attachDir = StoreUtil.getAttachDir();
-                if (!attachDir.exists()) {
-                    attachDir.mkdirs();
-                }
-                File obtainFilePath = StoreUtil.obtainFilePath(attachDir, fileName);
-                try {
-                    if (obtainFilePath.exists()) {
-                        obtainFilePath.delete();
-                    }
-                    obtainFilePath.createNewFile();
-                } catch (IOException e) {
-                    if (DEBUG) {
-                        Log.d(TAG, e.getMessage());
-                    }
-                }
-                if (obtainFilePath.exists()) {
-                    LinkedList linkedList = new LinkedList();
-                    if (list != null && list.size() > 0) {
-                        linkedList.addAll(list);
-                    }
-                    try {
-                        LinkedList linkedList2 = new LinkedList();
-                        Iterator it = linkedList.iterator();
-                        while (it.hasNext()) {
-                            File file = (File) it.next();
-                            if (file != null) {
-                                linkedList2.add(new ZipUtils.ZipSrc(file));
-                            }
-                        }
-                        ZipUtils.zip(obtainFilePath, linkedList2);
-                        return obtainFilePath;
-                    } catch (IOException e2) {
-                        if (DEBUG) {
-                            Log.d(TAG, e2.getMessage());
-                        }
-                    }
-                }
+            if (fileName == null) {
                 return null;
+            }
+            File access$1000 = StoreUtil.access$1000();
+            if (!access$1000.exists()) {
+                access$1000.mkdirs();
+            }
+            File obtainFilePath = StoreUtil.obtainFilePath(access$1000, fileName);
+            try {
+                if (obtainFilePath.exists()) {
+                    obtainFilePath.delete();
+                }
+                obtainFilePath.createNewFile();
+            } catch (IOException e) {
+                if (DEBUG) {
+                    Log.d(TAG, e.getMessage());
+                }
+            }
+            if (obtainFilePath.exists()) {
+                LinkedList linkedList = new LinkedList();
+                if (list != null && list.size() > 0) {
+                    linkedList.addAll(list);
+                }
+                try {
+                    LinkedList linkedList2 = new LinkedList();
+                    Iterator it = linkedList.iterator();
+                    while (it.hasNext()) {
+                        File file = (File) it.next();
+                        if (file != null) {
+                            linkedList2.add(new ZipUtils.ZipSrc(file));
+                        }
+                    }
+                    ZipUtils.zip(obtainFilePath, linkedList2);
+                    return obtainFilePath;
+                } catch (IOException e2) {
+                    if (DEBUG) {
+                        Log.d(TAG, e2.getMessage());
+                    }
+                }
             }
             return null;
         }

@@ -5,40 +5,49 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
 /* loaded from: classes5.dex */
-public final class l40 extends j40 {
+public class l40 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public o40[] a;
 
-    public l40(int i, int i2) {
+    public l40() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 32;
-        this.b = i;
-        this.c = i2;
+        this.a = new o40[]{new p40(8, 0), new q40(0, 1), new q40(1, 1), new p40(7, 1)};
     }
 
-    @Override // com.baidu.tieba.j40
-    public com.baidu.helios.common.cc.a b(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
+    public byte[] a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
-            m40 m40Var = new m40();
-            m40Var.b(bArr, i, i2);
-            return com.baidu.helios.common.cc.a.a(new long[]{m40Var.c()});
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, bArr)) != null) {
+            return (byte[]) invokeL.objValue;
         }
-        return (com.baidu.helios.common.cc.a) invokeLII.objValue;
+        n40 n40Var = new n40();
+        byte[] b = m40.b(bArr, bArr.length + ((this.a.length + 1) * n40.b));
+        m40.a(b, n40Var.b(), bArr.length);
+        int i = 0;
+        while (true) {
+            o40[] o40VarArr = this.a;
+            if (i >= o40VarArr.length) {
+                return Arrays.copyOf(n40Var.b(), n40.b);
+            }
+            o40 o40Var = o40VarArr[i];
+            i++;
+            int length = bArr.length + (n40.b * i);
+            n40Var.a(o40Var.b(b, 0, length), o40Var.a(), o40Var.c(), o40Var.d());
+            m40.a(b, n40Var.b(), length);
+        }
     }
 }

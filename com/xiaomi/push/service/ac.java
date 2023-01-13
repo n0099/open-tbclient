@@ -42,19 +42,21 @@ public final class ac extends XMPushService.j {
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
-    public String a() {
+    /* renamed from: a */
+    public String mo673a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "send ack message for unrecognized new miui message." : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
-    public void a() {
+    /* renamed from: a */
+    public void mo394a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
                 Cif a = y.a((Context) this.f903a, this.a);
-                a.m475a().a("miui_message_unrecognized", "1");
+                a.m538a().a("miui_message_unrecognized", "1");
                 ah.a(this.f903a, a);
             } catch (gh e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);

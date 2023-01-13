@@ -50,7 +50,6 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TiebaStaticHelper;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.YYLiveUtil;
@@ -67,54 +66,55 @@ import com.baidu.tbadk.mutiprocess.fps.ImageFpsEvent;
 import com.baidu.tbadk.mutiprocess.prePageKey.PrePageKeyEvent;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ak7;
-import com.baidu.tieba.bk7;
-import com.baidu.tieba.ck7;
+import com.baidu.tieba.ac5;
+import com.baidu.tieba.ad5;
+import com.baidu.tieba.ba5;
+import com.baidu.tieba.bk5;
+import com.baidu.tieba.ck5;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.cs8;
-import com.baidu.tieba.di0;
-import com.baidu.tieba.ei0;
-import com.baidu.tieba.ey4;
-import com.baidu.tieba.fk7;
-import com.baidu.tieba.fm7;
-import com.baidu.tieba.fy4;
-import com.baidu.tieba.gi8;
-import com.baidu.tieba.hj5;
-import com.baidu.tieba.hk7;
-import com.baidu.tieba.i65;
-import com.baidu.tieba.jk7;
-import com.baidu.tieba.jm4;
-import com.baidu.tieba.kc5;
-import com.baidu.tieba.kj5;
-import com.baidu.tieba.kk7;
-import com.baidu.tieba.lb5;
-import com.baidu.tieba.lj5;
-import com.baidu.tieba.m95;
-import com.baidu.tieba.mb5;
-import com.baidu.tieba.mc5;
-import com.baidu.tieba.os8;
+import com.baidu.tieba.cx4;
+import com.baidu.tieba.dn4;
+import com.baidu.tieba.e11;
+import com.baidu.tieba.ho7;
+import com.baidu.tieba.ii0;
+import com.baidu.tieba.io7;
+import com.baidu.tieba.ji0;
+import com.baidu.tieba.k65;
+import com.baidu.tieba.kx8;
+import com.baidu.tieba.lf5;
+import com.baidu.tieba.ll5;
+import com.baidu.tieba.mo7;
+import com.baidu.tieba.nf5;
+import com.baidu.tieba.nj5;
+import com.baidu.tieba.nx6;
+import com.baidu.tieba.of5;
+import com.baidu.tieba.om4;
+import com.baidu.tieba.oo7;
+import com.baidu.tieba.pa6;
 import com.baidu.tieba.person.ProfileVirtualImageInfo;
-import com.baidu.tieba.rw4;
+import com.baidu.tieba.po7;
+import com.baidu.tieba.py4;
+import com.baidu.tieba.qo7;
+import com.baidu.tieba.qy4;
+import com.baidu.tieba.t17;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
-import com.baidu.tieba.uj7;
-import com.baidu.tieba.uk5;
+import com.baidu.tieba.to7;
+import com.baidu.tieba.u49;
+import com.baidu.tieba.uq7;
+import com.baidu.tieba.v17;
+import com.baidu.tieba.v65;
 import com.baidu.tieba.view.SortSwitchButton;
-import com.baidu.tieba.vj7;
-import com.baidu.tieba.vt6;
-import com.baidu.tieba.vx6;
-import com.baidu.tieba.we5;
-import com.baidu.tieba.x55;
-import com.baidu.tieba.x66;
-import com.baidu.tieba.xg;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.xx6;
-import com.baidu.tieba.ye5;
+import com.baidu.tieba.vo7;
+import com.baidu.tieba.xm8;
+import com.baidu.tieba.xo7;
+import com.baidu.tieba.yc5;
+import com.baidu.tieba.yg;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.yi5;
-import com.baidu.tieba.yz8;
-import com.baidu.tieba.z01;
-import com.baidu.tieba.ze5;
-import com.baidu.tieba.zm4;
+import com.baidu.tieba.yj5;
+import com.baidu.tieba.yo7;
+import com.baidu.tieba.yw8;
+import com.baidu.tieba.zb5;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -126,16 +126,16 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes4.dex */
-public class ImageViewerActivity extends BaseFragmentActivity implements VoiceManager.j, di0 {
+/* loaded from: classes5.dex */
+public class ImageViewerActivity extends BaseFragmentActivity implements VoiceManager.j, ii0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String A;
     public boolean A0;
     public String B;
-    public final mb5 B0;
+    public final ac5 B0;
     public String C;
-    public final ei0 C0;
+    public final ji0 C0;
     public String D;
     public CustomMessageListener D0;
     public String E;
@@ -143,8 +143,8 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
     public String F;
     public DragImageView.h F0;
     public String G;
-    public vt6 G0;
-    public hk7 H;
+    public nx6 G0;
+    public vo7 H;
     public View.OnClickListener H0;
     public final boolean I;
     public UrlDragImageView.p I0;
@@ -185,7 +185,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
     public boolean d0;
     public AlaLiveTipView e;
     public boolean e0;
-    public x66 f;
+    public pa6 f;
     public LiveRemindData f0;
     public boolean g;
     public int g0;
@@ -197,7 +197,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
     public String j0;
     public ImageView k;
     public LinearLayout l;
-    public fk7 m;
+    public to7 m;
     public VoiceManager n;
     public View o;
     public int p;
@@ -209,51 +209,51 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
     public String s0;
     public Map<String, ImageUrlData> t;
     public String t0;
-    public vj7 u;
+    public io7 u;
     public String u0;
-    public ak7 v;
+    public oo7 v;
     public String v0;
-    public ck7 w;
-    public kk7 w0;
-    public x66 x;
+    public qo7 w;
+    public yo7 w0;
+    public pa6 x;
     public View x0;
     public String y;
-    public jk7 y0;
+    public xo7 y0;
     public String z;
     public boolean z0;
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager.i b1(VoiceData.VoiceModel voiceModel) {
+    public VoiceManager.i c1(VoiceData.VoiceModel voiceModel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, voiceModel)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, voiceModel)) == null) {
             return null;
         }
         return (VoiceManager.i) invokeL.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.ve5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.kf5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? "a008" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? "a008" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void setCurrentActivityTid() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048639, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048637, this) == null) {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class l implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
         public final /* synthetic */ ImageViewerActivity b;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -283,7 +283,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                 if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
                     return;
                 }
-                this.a.b.n2();
+                this.a.b.p2();
             }
         }
 
@@ -312,49 +312,49 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (this.b.f == null) {
                     ImageViewerActivity imageViewerActivity = this.b;
-                    imageViewerActivity.f = new x66(imageViewerActivity.getPageContext(), this.b.e);
+                    imageViewerActivity.f = new pa6(imageViewerActivity.getPageContext(), this.b.e);
                     this.b.f.L(R.drawable.bg_tip_blue_up);
                     this.b.f.o(32);
-                    this.b.f.M(true);
+                    this.b.f.N(true);
                     this.b.f.B(1);
-                    this.b.f.P(0);
+                    this.b.f.Q(0);
                     this.b.f.n(3000);
                     this.b.f.m(new a(this));
                     if (this.b.e != null && this.b.e.getVisibility() != 0) {
                         this.b.h = this.a;
                         return;
                     }
-                    this.b.f.R(this.a);
+                    this.b.f.S(this.a);
                 } else if (this.b.h == null || this.b.f == null || this.b.e == null || this.b.e.getVisibility() != 0) {
-                    this.b.n2();
+                    this.b.p2();
                 } else {
-                    this.b.f.R(this.a);
+                    this.b.f.S(this.a);
                     this.b.h = null;
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class r implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ImageViewerActivity a;
 
-        /* loaded from: classes4.dex */
-        public class a implements vt6.d {
+        /* loaded from: classes5.dex */
+        public class a implements nx6.d {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ r a;
 
-            @Override // com.baidu.tieba.vt6.d
+            @Override // com.baidu.tieba.nx6.d
             public void a(boolean z, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.vt6.d
+            @Override // com.baidu.tieba.nx6.d
             public void c(boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
@@ -379,7 +379,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                 this.a = rVar;
             }
 
-            @Override // com.baidu.tieba.vt6.d
+            @Override // com.baidu.tieba.nx6.d
             public void b(boolean z) {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && z && this.a.a.m != null && this.a.a.i.getCurrentUrlDragImageView() != null) {
@@ -406,20 +406,20 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             this.a = imageViewerActivity;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r5v28, resolved type: boolean */
+        /* JADX DEBUG: Multi-variable search result rejected for r5v25, resolved type: boolean */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                TiebaStatic.log(new StatisticItem("c13857").param("obj_type", "3").param("post_id", this.a.z).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.a.y));
-                if (!kc5.a(this.a)) {
+                po7.f(3, this.a.z, this.a.y);
+                if (!yc5.a(this.a)) {
                     return;
                 }
                 if (this.a.G0 == null) {
                     ImageViewerActivity imageViewerActivity = this.a;
-                    imageViewerActivity.G0 = new vt6(imageViewerActivity.getPageContext());
+                    imageViewerActivity.G0 = new nx6(imageViewerActivity.getPageContext());
                     this.a.G0.i(new a(this));
                 }
                 if (this.a.i != null && this.a.i.getCurrentUrlDragImageView() != null && this.a.i.getCurrentUrlDragImageView().getmAssistUrlData() != null) {
@@ -428,13 +428,13 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                     i = 1;
                 }
                 this.a.G0.j(i ^ 1);
-                this.a.G0.g(this.a.y, xg.g(this.a.z, 0L));
+                this.a.G0.g(this.a.y, yg.g(this.a.z, 0L));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class a implements uk5.c {
+    /* loaded from: classes5.dex */
+    public class a implements ll5.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ImageViewerActivity a;
@@ -457,17 +457,17 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             this.a = imageViewerActivity;
         }
 
-        @Override // com.baidu.tieba.uk5.c
+        @Override // com.baidu.tieba.ll5.c
         public void a(@NonNull MotionEvent motionEvent) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048576, this, motionEvent) != null) {
                 return;
             }
-            this.a.T2();
+            this.a.U2();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -496,13 +496,13 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 String str = (String) ListUtils.getItem(this.a.s, this.a.p);
-                if (!this.a.I || !this.a.l2() || !xx6.d(str) || !this.a.e0) {
-                    this.a.q2();
+                if (!this.a.I || !this.a.n2() || !v17.d(str) || !this.a.e0) {
+                    this.a.s2();
                     return;
                 }
                 int currentItem = this.a.i.getCurrentItem();
                 if (currentItem >= this.a.s.size() - 1) {
-                    this.a.q2();
+                    this.a.s2();
                 } else {
                     this.a.s.remove(str);
                     this.a.i.setUrlData(this.a.s);
@@ -513,7 +513,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements SortSwitchButton.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -544,30 +544,29 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
                 if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0cb8);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0cd1);
                     return false;
                 }
                 this.a.O = true;
                 if (this.a.d != null) {
                     this.a.d.setEnabled(false);
                 }
-                String a = uj7.a((String) ListUtils.getItem(this.a.s, this.a.p));
+                String a = ho7.a((String) ListUtils.getItem(this.a.s, this.a.p));
                 ImageViewerActivity imageViewerActivity = this.a;
-                imageViewerActivity.C2(a, !imageViewerActivity.T, true);
-                StatisticItem statisticItem = new StatisticItem("c13857");
+                imageViewerActivity.E2(a, !imageViewerActivity.T, true);
                 if (this.a.T) {
                     i2 = 7;
                 } else {
                     i2 = 8;
                 }
-                TiebaStatic.log(statisticItem.param("obj_type", i2).param("post_id", this.a.z).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.a.y));
+                po7.f(i2, this.a.z, this.a.y);
                 return true;
             }
             return invokeI.booleanValue;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -597,11 +596,11 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
                 return;
             }
-            this.a.o2();
+            this.a.q2();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -631,12 +630,12 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 TiebaStatic.log(new StatisticItem("c13341").param("obj_param1", this.a.i.getItemNum()).param(TiebaStatic.Params.OBJ_PARAM2, this.a.i.getCurrentMaxIndex()));
                 TiebaStatic.log(new StatisticItem("c13377").param("obj_type", "1"));
-                this.a.q2();
+                this.a.s2();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class f implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -687,7 +686,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class g implements View.OnLongClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -735,7 +734,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class h implements BaseViewPager.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -765,7 +764,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
                 if (i == 0) {
                     this.a.u.Z();
-                } else if (this.a.s2() == 1) {
+                } else if (this.a.u2() == 1) {
                 } else {
                     this.a.u.a0();
                 }
@@ -773,7 +772,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class i implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -804,11 +803,11 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
                 if (this.a.s != null && this.a.p < this.a.s.size()) {
-                    this.a.v.e(i, (String) this.a.s.get(this.a.p));
+                    this.a.v.g(i, (String) this.a.s.get(this.a.p));
                 }
                 boolean z3 = true;
                 if (i == 1 && this.a.H != null) {
-                    if ((this.a.p == 0 || this.a.H.w(this.a.p)) && !vx6.m().v(vx6.r()) && this.a.H.A(this.a.p)) {
+                    if ((this.a.p == 0 || this.a.H.w(this.a.p)) && !t17.m().v(t17.r()) && this.a.H.A(this.a.p)) {
                         this.a.i.setUrlData(this.a.s);
                         if (this.a.A0) {
                             if (this.a.w0 != null && this.a.w0.j()) {
@@ -824,7 +823,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                             }
                             imageViewerActivity.A0 = z2;
                             ImageViewerActivity imageViewerActivity2 = this.a;
-                            imageViewerActivity2.I2((z || imageViewerActivity2.A0) ? false : false);
+                            imageViewerActivity2.K2((z || imageViewerActivity2.A0) ? false : false);
                         }
                     }
                 }
@@ -851,12 +850,12 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                     } else {
                         z = false;
                     }
-                    if (this.a.s2() == 1 && z) {
+                    if (this.a.u2() == 1 && z) {
                         this.a.setSwipeBackEnabled(true);
                     } else {
                         this.a.setSwipeBackEnabled(false);
                     }
-                    this.a.n2();
+                    this.a.p2();
                 }
             }
         }
@@ -870,20 +869,20 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                 }
                 this.a.v.c(this.a.s, this.a.p, i);
                 this.a.p = i;
-                this.a.Y2();
-                this.a.c3();
-                this.a.X2(i);
+                this.a.Z2();
+                this.a.d3();
+                this.a.Y2(i);
                 if (this.a.v.a() < this.a.p) {
-                    this.a.v.h(this.a.p);
+                    this.a.v.j(this.a.p);
                 }
                 if (this.a.v.b() > this.a.p) {
-                    this.a.v.i(this.a.p);
+                    this.a.v.k(this.a.p);
                 }
                 if (this.a.H != null) {
                     boolean z = true;
                     this.a.H.D((this.a.u == null || this.a.u.c0() != 1) ? false : false);
                     this.a.H.z(i);
-                    if (this.a.l2() && this.a.I && this.a.H.x(i)) {
+                    if (this.a.n2() && this.a.I && this.a.H.x(i)) {
                         this.a.H.B(null);
                     }
                 }
@@ -897,13 +896,13 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                     this.a.m.q(this.a.i.getCurrentUrlDragImageView().getmAssistUrlData(), this.a.u);
                 }
                 if (!this.a.z0) {
-                    this.a.x2();
+                    this.a.z2();
                 }
-                if (this.a.m2()) {
+                if (this.a.o2()) {
                     StatisticItem statisticItem = new StatisticItem("c15006");
-                    bk7.b(statisticItem, this.a.y, this.a.B, TbadkCoreApplication.getCurrentAccount(), this.a.z);
+                    po7.b(statisticItem, this.a.y, this.a.B, TbadkCoreApplication.getCurrentAccount(), this.a.z);
                     TiebaStatic.log(statisticItem);
-                    this.a.a3();
+                    this.a.b3();
                     return;
                 }
                 if (this.a.b != null) {
@@ -914,7 +913,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class j implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -941,37 +940,25 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             AlaInfoData alaInfo;
-            String str;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !(view2 instanceof HeadImageView) || (alaInfo = ((HeadImageView) view2).getAlaInfo()) == null || FullBrowseHelper.checkAndShowFullBrowseModeDialog(this.a.getPageContext())) {
                 return;
             }
-            String str2 = "";
             if (alaInfo.isLegalYYLiveData()) {
                 YyExtData yyExtData = alaInfo.mYyExtData;
-                this.a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(BdUniDispatchSchemeController.SCHEME + "://" + BdUniDispatchSchemeController.HOST + BdUniDispatchSchemeController.PATH_TIEBA_YY_ROOM + "?" + BdUniDispatchSchemeController.PARAM_YY_URL + "=" + Base64.encodeToString(YYLiveUtil.makeJumpToYYLiveRoomUrl(yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "" + alaInfo.roomId, alaInfo.mYyExtData.streamInfo, YYLiveUtil.SOURCE_PB_BIG_IMAGE_HEAD).getBytes(), 2))));
+                String str = yyExtData.mSid;
+                String str2 = yyExtData.mSsid;
+                String str3 = yyExtData.mTemplateId;
+                String encodeToString = Base64.encodeToString(YYLiveUtil.makeJumpToYYLiveRoomUrl(str, str2, str3, "" + alaInfo.roomId, alaInfo.mYyExtData.streamInfo, YYLiveUtil.SOURCE_PB_BIG_IMAGE_HEAD).getBytes(), 2);
+                this.a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(BdUniDispatchSchemeController.SCHEME + "://" + BdUniDispatchSchemeController.HOST + BdUniDispatchSchemeController.PATH_TIEBA_YY_ROOM + "?" + BdUniDispatchSchemeController.PARAM_YY_URL + "=" + encodeToString)));
             } else if (alaInfo.isChushou) {
                 this.a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(BdUniDispatchSchemeController.SCHEME + "://" + BdUniDispatchSchemeController.HOST + BdUniDispatchSchemeController.PATH_CHUSHOU_ALA_ROOM + "?" + BdUniDispatchSchemeController.PARAM_CHUSHOU_THIRD_LIVE_TYPE + "=" + alaInfo.thirdLiveType + "&" + BdUniDispatchSchemeController.PARAM_CHUSHOU_ROOM_ID + "=" + alaInfo.thirdRoomId)));
             }
-            StatisticItem param = new StatisticItem("c13711").param("fid", this.a.y).param("fname", this.a.B).param("uid", TbadkCoreApplication.getCurrentAccount()).param("tid", this.a.z);
-            if (alaInfo.user_info == null) {
-                str = "";
-            } else {
-                str = "" + alaInfo.user_info.user_id;
-            }
-            StatisticItem param2 = param.param("obj_param1", str);
-            int calculateLiveType = YYLiveUtil.calculateLiveType(alaInfo);
-            if (alaInfo.isLegalYYLiveData()) {
-                TiebaStaticHelper.addYYParam(param2, alaInfo.mYyExtData);
-                str2 = TiebaStatic.YYValues.YY_LIVE;
-            }
-            param2.param(TiebaStatic.Params.OBJ_PARAM2, calculateLiveType);
-            param2.param(TiebaStatic.Params.OBJ_PARAM3, str2);
-            TiebaStatic.log(param2);
+            po7.d(this.a.y, this.a.B, this.a.z, alaInfo);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class k extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1012,24 +999,24 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                     i = 8;
                 }
                 navigationBar.setVisibility(i);
-                this.a.n2();
+                this.a.p2();
                 if (booleanValue) {
-                    this.a.V2();
+                    this.a.W2();
                     return;
                 }
                 this.a.B0.e();
-                this.a.U2();
+                this.a.V2();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class m extends we5 {
+    /* loaded from: classes5.dex */
+    public class m extends lf5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ImageViewerActivity b;
 
-        @Override // com.baidu.tieba.we5
+        @Override // com.baidu.tieba.lf5
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1057,18 +1044,18 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             this.b = imageViewerActivity;
         }
 
-        @Override // com.baidu.tieba.we5
+        @Override // com.baidu.tieba.lf5
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return ze5.b().c();
+                return of5.b().c();
             }
             return invokeV.intValue;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class n extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1101,7 +1088,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             AgreeData agreeData;
             AgreeData agreeData2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof cs8) && this.a.t != null && (agreeData = ((cs8) customResponsedMessage.getData()).b) != null && !TextUtils.isEmpty(agreeData.threadId) && !TextUtils.isEmpty(agreeData.postId)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof yw8) && this.a.t != null && (agreeData = ((yw8) customResponsedMessage.getData()).b) != null && !TextUtils.isEmpty(agreeData.threadId) && !TextUtils.isEmpty(agreeData.postId)) {
                 for (ImageUrlData imageUrlData : this.a.t.values()) {
                     if (imageUrlData != null) {
                         String valueOf = String.valueOf(imageUrlData.threadId);
@@ -1119,7 +1106,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class o extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1152,7 +1139,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             AgreeData agreeData;
             AgreeData agreeData2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof cs8) && this.a.t != null && (agreeData = ((cs8) customResponsedMessage.getData()).b) != null && !TextUtils.isEmpty(agreeData.threadId) && !TextUtils.isEmpty(agreeData.postId)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof yw8) && this.a.t != null && (agreeData = ((yw8) customResponsedMessage.getData()).b) != null && !TextUtils.isEmpty(agreeData.threadId) && !TextUtils.isEmpty(agreeData.postId)) {
                 for (ImageUrlData imageUrlData : this.a.t.values()) {
                     if (imageUrlData != null) {
                         String valueOf = String.valueOf(imageUrlData.threadId);
@@ -1170,7 +1157,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class p extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1200,20 +1187,20 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            x55 x55Var;
+            k65 k65Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof x55) && (x55Var = (x55) customResponsedMessage.getData()) != null && !StringUtils.isNull(x55Var.a)) {
-                lj5.h(x55Var);
-                if (StringUtils.isNull(x55Var.c)) {
-                    UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{x55Var.a});
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof k65) && (k65Var = (k65) customResponsedMessage.getData()) != null && !StringUtils.isNull(k65Var.a)) {
+                ck5.h(k65Var);
+                if (StringUtils.isNull(k65Var.c)) {
+                    UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{k65Var.a});
                 } else {
-                    UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{x55Var.a, x55Var.c});
+                    UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{k65Var.a, k65Var.c});
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class q implements DragImageView.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1242,19 +1229,19 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 ImageViewerActivity imageViewerActivity = this.a;
-                imageViewerActivity.P2(imageViewerActivity.c, 8);
+                imageViewerActivity.R2(imageViewerActivity.c, 8);
                 ImageViewerActivity imageViewerActivity2 = this.a;
-                imageViewerActivity2.P2(imageViewerActivity2.d, 8);
+                imageViewerActivity2.R2(imageViewerActivity2.d, 8);
                 ImageViewerActivity imageViewerActivity3 = this.a;
-                imageViewerActivity3.P2(imageViewerActivity3.o, 8);
+                imageViewerActivity3.R2(imageViewerActivity3.o, 8);
                 ImageViewerActivity imageViewerActivity4 = this.a;
-                imageViewerActivity4.P2(imageViewerActivity4.e, 8);
-                this.a.U2();
+                imageViewerActivity4.R2(imageViewerActivity4.e, 8);
+                this.a.V2();
                 if (this.a.i != null) {
                     this.a.i.B(false);
                 }
-                this.a.o2();
-                this.a.n2();
+                this.a.q2();
+                this.a.p2();
             }
         }
 
@@ -1263,7 +1250,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 TiebaStatic.log(new StatisticItem("c13341").param("obj_param1", this.a.i.getItemNum()).param(TiebaStatic.Params.OBJ_PARAM2, this.a.i.getCurrentMaxIndex()));
-                this.a.q2();
+                this.a.s2();
             }
         }
 
@@ -1272,20 +1259,20 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 ImageViewerActivity imageViewerActivity = this.a;
-                imageViewerActivity.P2(imageViewerActivity.c, 0);
+                imageViewerActivity.R2(imageViewerActivity.c, 0);
                 this.a.o.setVisibility(0);
-                if (this.a.i == null || this.a.l2()) {
+                if (this.a.i == null || this.a.n2()) {
                     return;
                 }
                 boolean u = this.a.i.u();
                 if (!"portrait".equals(this.a.C) && !u) {
                     ImageViewerActivity imageViewerActivity2 = this.a;
-                    imageViewerActivity2.P2(imageViewerActivity2.d, 0);
+                    imageViewerActivity2.R2(imageViewerActivity2.d, 0);
                     ImageViewerActivity imageViewerActivity3 = this.a;
-                    imageViewerActivity3.P2(imageViewerActivity3.e, 0);
-                    this.a.V2();
+                    imageViewerActivity3.R2(imageViewerActivity3.e, 0);
+                    this.a.W2();
                     ImageViewerActivity imageViewerActivity4 = this.a;
-                    imageViewerActivity4.Q2(imageViewerActivity4.h);
+                    imageViewerActivity4.S2(imageViewerActivity4.h);
                     if (this.a.a0) {
                         this.a.i.B(true);
                     } else {
@@ -1296,7 +1283,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class s implements UrlDragImageView.p {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1329,7 +1316,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class t implements View.OnSystemUiVisibilityChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1359,12 +1346,12 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || (i & 4) == 0) {
                 return;
             }
-            this.a.p2();
+            this.a.r2();
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class u implements vj7.b {
+    /* loaded from: classes5.dex */
+    public class u implements io7.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ImageViewerActivity a;
@@ -1387,7 +1374,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             this.a = imageViewerActivity;
         }
 
-        @Override // com.baidu.tieba.vj7.b
+        @Override // com.baidu.tieba.io7.b
         public void a(ArrayList<String> arrayList, int i, int i2, boolean z, String str, boolean z2, AdvertAppInfo advertAppInfo, boolean z3) {
             boolean z4;
             boolean z5;
@@ -1401,7 +1388,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                 if (!z3) {
                     this.a.i.removeAllViews();
                     this.a.p = 0;
-                    this.a.H2();
+                    this.a.J2();
                     ImageViewerActivity imageViewerActivity = this.a;
                     imageViewerActivity.T = !imageViewerActivity.T;
                 } else if (!this.a.T) {
@@ -1437,24 +1424,24 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                 this.a.i.setUrlData(arrayList);
                 this.a.i.setCurrentItem(this.a.i.getCurrentItem() - 200, false);
             }
-            if (this.a.s2() != 1) {
+            if (this.a.u2() != 1) {
                 this.a.setSwipeBackEnabled(false);
             }
             if (this.a.I && this.a.H != null) {
-                hk7 hk7Var = this.a.H;
+                vo7 vo7Var = this.a.H;
                 if (this.a.u.c0() == 1) {
                     z6 = true;
                 } else {
                     z6 = false;
                 }
-                hk7Var.D(z6);
-                if (this.a.z0 || this.a.H.v(this.a.t2())) {
-                    this.a.H.C(this.a.s2(), this.a.q);
+                vo7Var.D(z6);
+                if (this.a.z0 || this.a.H.v(this.a.v2())) {
+                    this.a.H.C(this.a.u2(), this.a.q);
                     this.a.H.s(this.a.T);
                     this.a.i.setUrlData(this.a.s);
                 }
             } else if (this.a.w0 != null) {
-                this.a.w0.o(this.a.s2(), this.a.q);
+                this.a.w0.o(this.a.u2(), this.a.q);
                 this.a.w0.l();
                 c(arrayList, advertAppInfo);
             }
@@ -1471,9 +1458,9 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             }
             imageViewerActivity2.A0 = z5;
             ImageViewerActivity imageViewerActivity3 = this.a;
-            imageViewerActivity3.I2((z4 || imageViewerActivity3.A0) ? false : false);
+            imageViewerActivity3.K2((z4 || imageViewerActivity3.A0) ? false : false);
             this.a.i.setUrlData(arrayList);
-            this.a.Y2();
+            this.a.Z2();
             if (this.a.m != null && this.a.i.getCurrentUrlDragImageView() != null) {
                 this.a.m.q(this.a.i.getCurrentUrlDragImageView().getmAssistUrlData(), this.a.u);
             }
@@ -1481,10 +1468,10 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                 return;
             }
             this.a.z0 = false;
-            this.a.x2();
+            this.a.z2();
         }
 
-        @Override // com.baidu.tieba.vj7.b
+        @Override // com.baidu.tieba.io7.b
         public void b(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -1503,11 +1490,11 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                         ImageViewerActivity imageViewerActivity = this.a;
                         imageViewerActivity.q = imageViewerActivity.s.size();
                     }
-                    this.a.Y2();
+                    this.a.Z2();
                 }
                 if (this.a.z0) {
                     this.a.z0 = false;
-                    this.a.x2();
+                    this.a.z2();
                 }
             }
         }
@@ -1518,20 +1505,20 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                 if (this.a.w0 != null && advertAppInfo != null && arrayList != null) {
                     int m = advertAppInfo.m();
                     if (m != 0) {
-                        this.a.L2(advertAppInfo, m);
+                        this.a.N2(advertAppInfo, m);
                         return;
                     } else {
                         this.a.w0.g(advertAppInfo);
                         return;
                     }
                 }
-                this.a.M2(0);
+                this.a.O2(0);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class v implements gi8 {
+    /* loaded from: classes5.dex */
+    public class v implements xm8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ImageViewerActivity a;
@@ -1554,7 +1541,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             this.a = imageViewerActivity;
         }
 
-        @Override // com.baidu.tieba.gi8
+        @Override // com.baidu.tieba.xm8
         public <T> void a(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
@@ -1563,8 +1550,8 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class w implements mb5.a {
+    /* loaded from: classes5.dex */
+    public class w implements ac5.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ImageViewerActivity a;
@@ -1587,26 +1574,26 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             this.a = imageViewerActivity;
         }
 
-        @Override // com.baidu.tieba.mb5.a
+        @Override // com.baidu.tieba.ac5.a
         public void b(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
                 if (z) {
-                    this.a.N2();
+                    this.a.P2();
                 } else {
-                    this.a.O2();
+                    this.a.Q2();
                 }
             }
         }
 
-        @Override // com.baidu.tieba.mb5.a
+        @Override // com.baidu.tieba.ac5.a
         public void a(boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
                 if (!z) {
-                    this.a.O2();
+                    this.a.Q2();
                 } else if (z2) {
-                    this.a.N2();
+                    this.a.P2();
                 }
             }
         }
@@ -1656,8 +1643,8 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
         this.e0 = true;
         this.z0 = true;
         this.A0 = false;
-        this.B0 = lb5.a();
-        this.C0 = new ei0();
+        this.B0 = zb5.a();
+        this.C0 = new ji0();
         this.D0 = new k(this, 2016496);
         this.E0 = new p(this, 2016493);
         this.F0 = new q(this);
@@ -1674,10 +1661,10 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
         this.S0 = new o(this, 2016530);
     }
 
-    public final void B2() {
+    public final void D2() {
         int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.V && !this.U && !this.c0) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !this.V && !this.U && !this.c0) {
             View addCustomView = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.cell_image_view_right_layout, (View.OnClickListener) null);
             this.x0 = addCustomView;
             if (this.d0) {
@@ -1691,83 +1678,83 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                 this.e = alaLiveTipView;
                 alaLiveTipView.setViewLocate(2);
                 this.e.setForumInfo(this.y, this.B, this.z);
-                this.e.setNormalBottomMarginParams(yi.g(getPageContext().getPageActivity(), R.dimen.tbds5));
+                this.e.setNormalBottomMarginParams(zi.g(getPageContext().getPageActivity(), R.dimen.tbds5));
             }
             if (this.S) {
                 ArrayList arrayList = new ArrayList(2);
-                os8 os8Var = new os8();
-                os8Var.c(0);
-                os8Var.d(getString(R.string.obfuscated_res_0x7f0f0273));
-                arrayList.add(os8Var);
-                os8 os8Var2 = new os8();
-                os8Var2.c(1);
-                os8Var2.d(getString(R.string.host_name));
-                arrayList.add(os8Var2);
+                kx8 kx8Var = new kx8();
+                kx8Var.c(0);
+                kx8Var.d(getString(R.string.obfuscated_res_0x7f0f0272));
+                arrayList.add(kx8Var);
+                kx8 kx8Var2 = new kx8();
+                kx8Var2.c(1);
+                kx8Var2.d(getString(R.string.host_name));
+                arrayList.add(kx8Var2);
                 SortSwitchButton sortSwitchButton = (SortSwitchButton) this.x0.findViewById(R.id.host_all_switch_btn);
                 this.d = sortSwitchButton;
                 sortSwitchButton.setNeedDayNight(false);
                 this.d.setData(arrayList, this.T ? 1 : 0);
                 this.d.setVisibility(0);
                 this.d.setOnSwitchChangeListener(this.J0);
-                P2(this.e, 0);
+                R2(this.e, 0);
                 return;
             }
-            P2(this.d, 8);
-            P2(this.e, 8);
+            R2(this.d, 8);
+            R2(this.e, 8);
         }
     }
 
-    public final void Y2() {
+    public final void Z2() {
         String str;
         int i2;
         ImageUrlData imageUrlData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048601, this) == null) && this.s != null) {
-            long s2 = s2();
-            String str2 = ("" + s2) + "/";
+        if ((interceptable == null || interceptable.invokeV(1048602, this) == null) && this.s != null) {
+            long u2 = u2();
+            String str2 = ("" + u2) + "/";
             if (this.q > 0) {
                 str = str2 + this.q;
             } else {
                 str = str2 + StringHelper.STRING_MORE;
             }
-            if (this.C != null && !this.P && s2() == this.q && (this.C.equals("frs") || this.C.equals("index"))) {
+            if (this.C != null && !this.P && u2() == this.q && (this.C.equals("frs") || this.C.equals("index"))) {
                 TiebaStatic.log(new StatisticItem("c13316").param("obj_source", this.C));
                 this.P = true;
             }
-            if (l2()) {
+            if (n2()) {
                 long j2 = -1;
                 String str3 = (String) ListUtils.getItem(this.s, this.p - 1);
                 if (!StringUtils.isNull(str3) && (imageUrlData = this.t.get(str3)) != null) {
                     j2 = imageUrlData.overAllIndex;
                 }
-                Z2(j2, this.q);
-            } else if (m2()) {
-                a3();
+                a3(j2, this.q);
+            } else if (o2()) {
+                b3();
             } else {
-                b3(str);
+                c3(str);
             }
-            long j3 = s2 - 1;
+            long j3 = u2 - 1;
             if (j3 > 0) {
                 i2 = (int) j3;
             } else {
                 i2 = 0;
             }
-            W2(i2);
+            X2(i2);
         }
     }
 
-    public void M2(int i2) {
+    public void O2(int i2) {
         MultiImageView multiImageView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048589, this, i2) == null) && (multiImageView = this.i) != null) {
+        if ((interceptable == null || interceptable.invokeI(1048591, this, i2) == null) && (multiImageView = this.i) != null) {
             multiImageView.setAddSize(i2);
         }
     }
 
-    public final void Q2(@NonNull String str) {
+    public final void S2(@NonNull String str) {
         AlaLiveTipView alaLiveTipView;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048593, this, str) != null) || (alaLiveTipView = this.e) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048595, this, str) != null) || (alaLiveTipView = this.e) == null) {
             return;
         }
         if (!this.S) {
@@ -1776,15 +1763,15 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
         this.e.post(new l(this, str));
     }
 
-    public final void b3(String str) {
+    public final void c3(String str) {
         SortSwitchButton sortSwitchButton;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
             this.c.setText(str);
             if (this.S && !this.U && (sortSwitchButton = this.d) != null) {
                 sortSwitchButton.w(this.T ? 1 : 0);
             }
-            rw4.d(this.c).y(R.array.S_O_X001);
+            cx4.d(this.c).y(R.array.S_O_X001);
         }
     }
 
@@ -1802,18 +1789,18 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048622, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
             this.i.setBackgroundColor(-16777216);
             this.i.z(i2);
             this.M = i2;
             UtilHelper.changeStatusBarIconAndTextColor(true, this);
-            ck7 ck7Var = this.w;
-            if (ck7Var != null) {
-                ck7Var.z();
+            qo7 qo7Var = this.w;
+            if (qo7Var != null) {
+                qo7Var.z();
             }
-            fk7 fk7Var = this.m;
-            if (fk7Var != null) {
-                fk7Var.m(this.q0);
+            to7 to7Var = this.m;
+            if (to7Var != null) {
+                to7Var.m(this.q0);
             }
         }
     }
@@ -1821,7 +1808,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048623, this, configuration) == null) {
+        if (interceptable == null || interceptable.invokeL(1048622, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
             this.i.setCurrentItem(this.p, false);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
@@ -1831,29 +1818,29 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048632, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048631, this, z) == null) {
             super.onWindowFocusChanged(z);
             if (z) {
-                p2();
+                r2();
             }
         }
     }
 
-    public final void v2(AlaInfoData alaInfoData) {
+    public final void x2(AlaInfoData alaInfoData) {
         AlaLiveTipView alaLiveTipView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048642, this, alaInfoData) == null) && alaInfoData != null && alaInfoData.user_info != null && (alaLiveTipView = this.e) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048643, this, alaInfoData) == null) && alaInfoData != null && alaInfoData.user_info != null && (alaLiveTipView = this.e) != null) {
             alaLiveTipView.setOnClickListener(this.Q0);
             if (!TextUtils.isEmpty(alaInfoData.tag)) {
-                Q2(alaInfoData.tag);
+                S2(alaInfoData.tag);
             }
         }
     }
 
-    public final void w2(boolean z) {
+    public final void y2(boolean z) {
         int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048643, this, z) == null) && this.g != z) {
+        if ((interceptable == null || interceptable.invokeZ(1048644, this, z) == null) && this.g != z) {
             AlaLiveTipView alaLiveTipView = this.e;
             if (alaLiveTipView != null) {
                 if (z) {
@@ -1867,9 +1854,9 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
         }
     }
 
-    public final void P2(View view2, int i2) {
+    public final void R2(View view2, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048592, this, view2, i2) == null) && view2 != null) {
+        if ((interceptable == null || interceptable.invokeLI(1048594, this, view2, i2) == null) && view2 != null) {
             view2.clearAnimation();
             view2.setVisibility(i2);
         }
@@ -1879,12 +1866,12 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
     public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048626, this, i2, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048625, this, i2, keyEvent)) == null) {
             if (i2 == 4) {
                 Intent intent = new Intent();
                 intent.putExtra("index", this.p);
                 setResult(-1, intent);
-                q2();
+                s2();
                 return true;
             }
             return super.onKeyDown(i2, keyEvent);
@@ -1895,7 +1882,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i2, int i3, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048621, this, i2, i3, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048620, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
             this.m.l(i2, i3, intent);
         }
@@ -1904,313 +1891,6 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
     public final void A2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.l = (LinearLayout) findViewById(R.id.image_viewer_reply_root);
-            fk7 fk7Var = new fk7(getPageContext(), this.l);
-            this.m = fk7Var;
-            fk7Var.r(this.j0);
-            this.m.s(this.q0);
-            this.m.m(this.q0);
-        }
-    }
-
-    public final void F2() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && DeviceInfoUtil.isfullScreen()) {
-            View findViewById = findViewById(R.id.statusbar_view);
-            this.j = findViewById;
-            ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
-            layoutParams.height = UtilHelper.getStatusBarHeight();
-            this.j.setLayoutParams(layoutParams);
-            this.j.setVisibility(0);
-        }
-    }
-
-    public final void K2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            if (this.I && l2()) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.icon_pure_topbar_close44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            } else {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            }
-        }
-    }
-
-    public final int S2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            if (StringUtils.isNULL(this.C)) {
-                return 7;
-            }
-            if (this.C.equals("pb")) {
-                return 5;
-            }
-            if (this.C.equals("frs")) {
-                return 3;
-            }
-            if (!this.C.equals("index")) {
-                return 7;
-            }
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void c3() {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
-            boolean z = false;
-            if (l2()) {
-                if (this.a.getVisibility() == 0) {
-                    z = true;
-                }
-                this.K = z;
-                this.J = true;
-            } else if (this.J) {
-                NavigationBar navigationBar = this.a;
-                if (this.K) {
-                    i2 = 0;
-                } else {
-                    i2 = 8;
-                }
-                navigationBar.setVisibility(i2);
-                this.J = false;
-            }
-            K2();
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public ye5 getPageStayDurationItem() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
-            ye5 pageStayDurationItem = super.getPageStayDurationItem();
-            if (pageStayDurationItem != null) {
-                pageStayDurationItem.t(xg.g(this.y, 0L));
-                pageStayDurationItem.C(xg.g(this.z, 0L));
-                if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
-                    pageStayDurationItem.q(TbadkCoreApplication.getInst().getAdAdSense().k);
-                }
-            }
-            return pageStayDurationItem;
-        }
-        return (ye5) invokeV.objValue;
-    }
-
-    public final boolean l2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
-            if (!this.Q) {
-                return false;
-            }
-            kk7 kk7Var = this.w0;
-            if (kk7Var != null && kk7Var.h(this.p)) {
-                return true;
-            }
-            hk7 hk7Var = this.H;
-            if (hk7Var == null || !hk7Var.t(this.p)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048627, this) == null) {
-            super.onPause();
-            this.i.x();
-            BdUniqueId uniqueId = getUniqueId();
-            long g2 = xg.g(this.z, 0L);
-            if (uniqueId != null && g2 > 0) {
-                zm4.f(uniqueId.getId(), g2);
-            }
-            VoiceManager voiceManager = this.n;
-            if (voiceManager != null) {
-                voiceManager.onPause();
-            }
-            this.m.o();
-        }
-    }
-
-    public final long s2() {
-        InterceptResult invokeV;
-        ImageUrlData imageUrlData;
-        long j2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) {
-            String str = (String) ListUtils.getItem(this.s, this.p);
-            Map<String, ImageUrlData> map = this.t;
-            if (map != null && str != null) {
-                imageUrlData = map.get(str);
-            } else {
-                imageUrlData = null;
-            }
-            if (imageUrlData != null) {
-                j2 = imageUrlData.overAllIndex;
-            } else {
-                j2 = 0;
-            }
-            if (j2 == 0) {
-                return this.p + 1;
-            }
-            return j2;
-        }
-        return invokeV.longValue;
-    }
-
-    public final void C2(String str, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            vj7 vj7Var = new vj7(this.s, this.t, this.y, this.B, this.z, this.A, str, this.D, this.C, this.h0, z2, this.r0, this.s0, this.t0, this.u0, this.v0);
-            this.u = vj7Var;
-            vj7Var.m0(this.i0);
-            this.u.k0(this.Y);
-            this.u.l0(z);
-            this.u.e0(this.N);
-            this.u.h0(this.X);
-            this.u.j0(this.E);
-            this.u.d0(this.F);
-            this.u.g0(this.b0);
-            this.u.i0(new u(this));
-            this.u.f0(true);
-            if (this.e0) {
-                this.w0.n(new v(this));
-            }
-            this.u.Z();
-        }
-    }
-
-    public final void D2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
-            this.a = navigationBar;
-            navigationBar.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
-            this.a.setClickable(false);
-            y2();
-            B2();
-            TextView textView = new TextView(this);
-            this.c = textView;
-            textView.setPadding(yi.g(this, R.dimen.tbds15), 0, 0, 0);
-            this.c.setGravity(17);
-            this.c.setTextColor(ContextCompat.getColor(this, R.color.CAM_X0101));
-            this.c.setTextSize(0, yi.g(this, R.dimen.tbds44));
-            rw4.d(this.c).y(R.array.S_O_X001);
-            this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.c, (View.OnClickListener) null);
-            if (uj7.b((String) ListUtils.getItem(this.s, this.p))) {
-                this.a.setVisibility(0);
-            }
-        }
-    }
-
-    public final void R2() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && !this.U && this.d != null) {
-            if (this.x == null) {
-                x66 x66Var = new x66(getPageContext(), this.d);
-                this.x = x66Var;
-                x66Var.L(R.drawable.pic_sign_tip);
-                this.x.o(48);
-                this.x.M(true);
-                this.x.n(5000);
-                this.x.P(-yi.g(getPageContext().getPageActivity(), R.dimen.tbds26));
-                this.x.m(new d(this));
-            }
-            this.x.S(getPageContext().getString(R.string.click_look_all_picture), "key_large_image_tip_count");
-        }
-    }
-
-    public final void x2() {
-        ImageUrlData imageUrlData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048644, this) == null) {
-            String str = (String) ListUtils.getItem(this.s, this.p);
-            Map<String, ImageUrlData> map = this.t;
-            if (map != null && str != null && (imageUrlData = map.get(str)) != null) {
-                TiebaStatic.log(new StatisticItem("c13340").param("uid", TbadkCoreApplication.getCurrentAccount()).param("post_id", this.z).param("obj_source", this.C).param("obj_param1", this.p).param(TiebaStatic.Params.OBJ_PARAM2, this.q - this.p).param(TiebaStatic.Params.OBJ_PARAM3, imageUrlData.mHeigth).param(TiebaStatic.Params.OBJ_PARAM4, imageUrlData.mWidth).param("obj_type", this.G));
-            }
-        }
-    }
-
-    public final void E2() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && UbsABTestHelper.isBigPicPageRecommendLiveSecondFloorShow() && this.S) {
-            kj5.a(getSupportFragmentManager(), R.id.second_floor_container, this.B0.f("big_pic"));
-            this.B0.d(new w(this));
-            uk5 g2 = uk5.g(this);
-            g2.k(R.id.second_floor_container, R.id.navigation_bar);
-            g2.i(new a(this));
-            g2.f();
-        }
-    }
-
-    public final void G2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.r = findViewById(R.id.pic_top_obscuration_view);
-            O2();
-            D2();
-            E2();
-            this.w = new ck7(this);
-            H2();
-            this.w.x(this.i);
-            Y2();
-            R2();
-            F2();
-            A2();
-            ak7 ak7Var = this.v;
-            ArrayList<String> arrayList = this.s;
-            int i2 = this.p;
-            ak7Var.c(arrayList, i2, i2);
-        }
-    }
-
-    public final void a3() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            this.c.setVisibility(8);
-            if (this.b == null) {
-                TextView centerTextTitle = this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f06a5));
-                this.b = centerTextTitle;
-                centerTextTitle.setTextColor(ContextCompat.getColor(this, R.color.CAM_X0101));
-            }
-            this.b.setVisibility(0);
-            this.a.setVisibility(0);
-            P2(this.d, 8);
-            P2(this.e, 8);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048628, this) == null) {
-            super.onResume();
-            this.i.y();
-            this.mIsLogin = kc5.k();
-            BdUniqueId uniqueId = getUniqueId();
-            long g2 = xg.g(this.z, 0L);
-            if (uniqueId != null && g2 > 0) {
-                zm4.j(jm4.d0, uniqueId.getId(), g2);
-            }
-            VoiceManager voiceManager = this.n;
-            if (voiceManager != null) {
-                voiceManager.onResume(getPageContext());
-            }
-            this.m.p();
-        }
-    }
-
-    public final void y2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048645, this) == null) {
             View addSystemImageButton = this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.o = addSystemImageButton;
             addSystemImageButton.setOnClickListener(new b(this));
@@ -2220,557 +1900,76 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
         }
     }
 
-    public final void H2() {
+    public final void G2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            MultiImageView multiImageView = this.i;
-            if (multiImageView == null) {
-                this.i = (MultiImageView) findViewById(R.id.obfuscated_res_0x7f09269c);
-            } else {
-                multiImageView.q();
-            }
-            this.G = this.z + "_" + System.currentTimeMillis();
-            this.i.setIsFromCDN(this.Z);
-            this.i.setIsCanDrag(this.R);
-            this.i.setPageMargin(yi.d(getPageContext().getPageActivity(), 8.0f));
-            this.i.setOffscreenPageLimit(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
-            this.i.setOnPageChangeListener(this.P0);
-            this.i.setUrlData(this.s);
-            this.i.setAssistUrls(this.t);
-            this.i.setOuterOnTouchListener(this.M0);
-            this.i.setItemOnclickListener(this.K0);
-            this.i.setItemOnLongClickListener(this.N0);
-            this.i.setCurrentItem(k2(), false);
-            this.i.setOnScrollOutListener(this.O0);
-            if (this.y0 == null) {
-                jk7 jk7Var = new jk7(this.s, getPageContext(), this.y, this.B, this.z);
-                this.y0 = jk7Var;
-                jk7Var.i(this.a.getFixedNavHeight());
-            }
-            this.i.k(this.y0);
-            if (this.I && this.e0) {
-                if (this.H == null) {
-                    this.H = new hk7(this.s, this.y, this.z, this.Q, this.p, getPageContext());
-                }
-                this.H.B(null);
-                this.i.k(this.H);
-            }
-            if (this.w0 == null) {
-                this.w0 = new kk7(this.s, this.y, this.B, this.Z, this.Q, getPageContext(), this.F0, this.t);
-            }
-            this.i.k(this.w0);
-            this.i.setOriImgSelectedCallback(this.I0);
-            this.i.setDragToExitListener(this.F0);
-            this.i.setUserId(this.D);
-            this.i.setShowBottomContainer(this.a0);
-            this.i.setOnShareImageListener(this.w);
-            this.i.setOnDownloadImageListener(this.w);
-            this.i.setOnReplyClickListener(this.H0);
-            this.i.setYoungterCoverSomeView(this.d0);
-            TiebaStatic.log(new StatisticItem("c13340").param("uid", this.D).param("post_id", this.z).param("obj_source", S2()));
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && UbsABTestHelper.isBigPicPageRecommendLiveSecondFloorShow() && this.S) {
+            bk5.a(getSupportFragmentManager(), R.id.second_floor_container, this.B0.f("big_pic"));
+            this.B0.d(new w(this));
+            ll5 g2 = ll5.g(this);
+            g2.k(R.id.second_floor_container, R.id.navigation_bar);
+            g2.i(new a(this));
+            g2.f();
         }
     }
 
-    public final void I2(boolean z) {
+    public final void I2() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) != null) || this.y0 == null) {
-            return;
-        }
-        if (!ListUtils.isEmpty(this.u.Y()) && z) {
-            this.y0.k(this.u.Y());
-            this.y0.j(true);
-            ArrayList<String> arrayList = this.s;
-            if (arrayList != null && !arrayList.contains("####mLiveRoomPageProvider")) {
-                ArrayList<String> arrayList2 = this.s;
-                fm7.b(arrayList2, "####mLiveRoomPageProvider", arrayList2.size());
-                return;
-            }
-            return;
-        }
-        this.y0.k(null);
-        this.y0.j(false);
-    }
-
-    public final void X2(int i2) {
-        MultiImageView multiImageView;
-        int i3;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048600, this, i2) != null) || (multiImageView = this.i) == null) {
-            return;
-        }
-        multiImageView.l(i2);
-        if (!this.i.u() && !l2() && !m2()) {
-            i3 = 0;
-        } else {
-            i3 = 8;
-        }
-        P2(this.d, i3);
-        if (this.S) {
-            P2(this.e, i3);
-        }
-        if (i3 == 0) {
-            V2();
-        } else {
-            U2();
-        }
-    }
-
-    @Override // com.baidu.tieba.di0
-    @NonNull
-    public ei0 J() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.C0;
-        }
-        return (ei0) invokeV.objValue;
-    }
-
-    public boolean J2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.V;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void N2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.r.setBackgroundColor(-16777216);
-        }
-    }
-
-    public final void O2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            rw4.d(this.r).p(new int[]{R.color.CAM_X0608, R.color.CAM_X0601}, Direction.TOP);
-        }
-    }
-
-    public final void T2() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && this.i.t()) {
-            this.B0.c();
-        }
-    }
-
-    public final void U2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.B0.hide();
-        }
-    }
-
-    public final void V2() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && this.i.t()) {
-            this.B0.show();
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void closeAnimation() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
-            ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 2);
-            if (hj5.a()) {
-                return;
-            }
-            TiebaStatic.log(new StatisticItem("c13377").param("obj_type", "4"));
-        }
-    }
-
-    public final void d3() {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048608, this) == null) && (intent = getIntent()) != null) {
-            yi5.d(intent.getStringExtra(TiebaStatic.Params.WISE_SAMPLE_ID));
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void enterExitAnimation() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
-            ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 2);
-        }
-    }
-
-    public String getFrom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
-            return this.C;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public long getMissionTid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
-            if (xi.isEmpty(this.z)) {
-                return 0L;
-            }
-            return xg.g(this.z, 0L);
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.ve5
-    public we5 getPageStayFilter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
-            return new m(this);
-        }
-        return (we5) invokeV.objValue;
-    }
-
-    public int k2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
-            int count = ListUtils.getCount(this.s);
-            if (count > 0) {
-                int i2 = this.p;
-                if (i2 >= count) {
-                    this.p = count - 1;
-                } else if (i2 < 0) {
-                    this.p = 0;
-                }
-            } else {
-                this.p = 0;
-            }
-            return this.p;
-        }
-        return invokeV.intValue;
-    }
-
-    public final boolean m2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
-            if (this.y0 == null) {
-                return false;
-            }
-            String str = (String) ListUtils.getItem(this.s, this.p);
-            if (StringUtils.isNull(str)) {
-                return false;
-            }
-            return str.startsWith("####mLiveRoomPageProvider");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void n2() {
-        x66 x66Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048619, this) == null) && (x66Var = this.f) != null) {
-            x66Var.h();
-        }
-    }
-
-    public final void o2() {
-        x66 x66Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048620, this) == null) && (x66Var = this.x) != null) {
-            x66Var.h();
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048630, this) == null) {
-            super.onStart();
-            VoiceManager voiceManager = this.n;
-            if (voiceManager != null) {
-                voiceManager.onStart(getPageContext());
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onStop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048631, this) == null) {
-            super.onStop();
-            VoiceManager voiceManager = this.n;
-            if (voiceManager != null) {
-                voiceManager.onStop(getPageContext());
-            }
-        }
-    }
-
-    public final void p2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048633, this) == null) {
-            getWindow().getDecorView().setSystemUiVisibility(1284);
-        }
-    }
-
-    public final void q2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048634, this) == null) {
-            getWindow().addFlags(1024);
-            finish();
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager r0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) {
-            if (this.n == null) {
-                this.n = VoiceManager.instance();
-            }
-            return this.n;
-        }
-        return (VoiceManager) invokeV.objValue;
-    }
-
-    public Map<String, ImageUrlData> r2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) {
-            return this.t;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseFragmentActivity
-    public void releaseResouce() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048637, this) == null) {
-            this.i.w();
-        }
-    }
-
-    public final int t2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
-            return (int) s2();
-        }
-        return invokeV.intValue;
-    }
-
-    public String u2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) {
-            return this.D;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void L2(AdvertAppInfo advertAppInfo, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048588, this, advertAppInfo, i2) == null) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.DISCARD).v(advertAppInfo.j).q(String.valueOf(advertAppInfo.position + 1)).k(String.valueOf(i2)).p(advertAppInfo.g);
-            z01.b(clogBuilder);
-        }
-    }
-
-    public final void W2(int i2) {
-        vj7 vj7Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048599, this, i2) == null) && (vj7Var = this.u) != null) {
-            ArrayList<AlaInfoData> W = vj7Var.W();
-            if (W != null && W.size() > 0) {
-                w2(true);
-                v2(W.get(i2 % W.size()));
-                return;
-            }
-            w2(false);
-        }
-    }
-
-    public final void Z2(long j2, int i2) {
-        hk7 hk7Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-            kk7 kk7Var = this.w0;
-            if ((kk7Var != null && kk7Var.j()) || ((hk7Var = this.H) != null && hk7Var.u())) {
-                this.c.setText("");
-            } else if (j2 > 0) {
-                this.c.setText(String.format(Locale.CHINA, "%d/%d", Long.valueOf(j2), Integer.valueOf(i2)));
-            } else {
-                this.c.setText("");
-            }
-            P2(this.d, 8);
-            P2(this.e, 8);
-            U2();
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, bundle) == null) {
-            if (Build.VERSION.SDK_INT >= 28 && TbSingleton.getInstance().isNotchScreen(this)) {
-                setUseStyleImmersiveSticky(false);
-            }
-            super.onCreate(bundle);
-            p2();
-            getWindow().getDecorView().setOnSystemUiVisibilityChangeListener(new t(this));
-            mc5.f().g(TbadkCoreApplication.getInst());
-            mc5.i(new ImageFpsEvent());
-            this.M = TbadkCoreApplication.getInst().getSkinType();
-            setSwipeBackEnabled(false);
-            TbadkCoreApplication.getInst().addRemoteActivity(this);
-            z2(bundle);
-            setContentView(R.layout.image_activity_big_img);
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.r = findViewById(R.id.pic_top_obscuration_view);
+            Q2();
+            F2();
             G2();
-            C2(this.N, this.T, false);
-            registerListener(this.E0);
-            registerListener(this.D0);
-            registerListener(this.R0);
-            registerListener(this.S0);
-            addGlobalLayoutListener();
-            VoiceManager r0 = r0();
-            this.n = r0;
-            r0.onCreate(getPageContext());
-            if (Build.VERSION.SDK_INT >= 28 && (TbSingleton.getInstance().isCutoutScreen(this) || TbSingleton.getInstance().isNotchScreen(this))) {
-                yz8.b(1, getWindow().getAttributes(), getWindow());
-            }
-            if (!TbSingleton.getInstance().hasDownloadEmotion() && BdNetTypeUtil.isWifiNet() && TbadkCoreApplication.isLogin()) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2004611));
-                TbSingleton.getInstance().setHasDownloadEmotion(true);
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onDestroy() {
-        String str;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048625, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.E0);
-            TbadkCoreApplication.getInst().delRemoteActivity(this);
-            m95.k().r();
-            ak7 ak7Var = this.v;
+            this.w = new qo7(this);
+            J2();
+            this.w.x(this.i);
+            Z2();
+            T2();
+            H2();
+            C2();
+            oo7 oo7Var = this.v;
             ArrayList<String> arrayList = this.s;
             int i2 = this.p;
-            ak7Var.c(arrayList, i2, i2);
-            this.v.g();
-            vj7 vj7Var = this.u;
-            if (vj7Var != null) {
-                String X = vj7Var.X();
-                str2 = this.u.b0();
-                str = X;
-            } else {
-                str = null;
-                str2 = null;
+            oo7Var.c(arrayList, i2, i2);
+        }
+    }
+
+    public final void b3() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+            this.c.setVisibility(8);
+            if (this.b == null) {
+                TextView centerTextTitle = this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f06ad));
+                this.b = centerTextTitle;
+                centerTextTitle.setTextColor(ContextCompat.getColor(this, R.color.CAM_X0101));
             }
-            this.v.j(this.i.getPageCount(), "", this.y, this.z, str, str2);
-            ck7 ck7Var = this.w;
-            if (ck7Var != null) {
-                ck7Var.C();
+            this.b.setVisibility(0);
+            this.a.setVisibility(0);
+            R2(this.d, 8);
+            R2(this.e, 8);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048627, this) == null) {
+            super.onResume();
+            this.i.y();
+            this.mIsLogin = yc5.k();
+            BdUniqueId uniqueId = getUniqueId();
+            long g2 = yg.g(this.z, 0L);
+            if (uniqueId != null && g2 > 0) {
+                dn4.j(om4.d0, uniqueId.getId(), g2);
             }
-            this.i.w();
-            this.m.n();
             VoiceManager voiceManager = this.n;
             if (voiceManager != null) {
-                voiceManager.onDestory(getPageContext());
+                voiceManager.onResume(getPageContext());
             }
-            i65.k().i(13);
-            TbadkCoreApplication.getInst().setSkinTypeValue(this.M);
-            o2();
-            n2();
-            kk7 kk7Var = this.w0;
-            if (kk7Var != null) {
-                kk7Var.k();
-            }
-            hk7 hk7Var = this.H;
-            if (hk7Var != null) {
-                hk7Var.y();
-            }
-            mc5.i(new PrePageKeyEvent(getCurrentPageKey()));
-            super.onDestroy();
-            MessageManager.getInstance().unRegisterTask(2001277);
+            this.m.p();
         }
     }
 
-    @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onSaveInstanceState(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048629, this, bundle) == null) {
-            super.onSaveInstanceState(bundle);
-            bundle.putBoolean(ImageViewerConfig.IS_BJH, this.V);
-            bundle.putStringArrayList("url", this.s);
-            bundle.putInt("index", this.p);
-            bundle.putString("fid", this.y);
-            bundle.putString("tid", this.z);
-            bundle.putString("fname", this.B);
-            bundle.putString("post_id", this.E);
-            bundle.putString(IntentConfig.BJH_POST_ID, this.F);
-            bundle.putBoolean(ImageViewerConfig.PARAM_IS_CDN, false);
-            bundle.putBoolean(ImageViewerConfig.REVERSE_MODE, this.Y);
-            bundle.putBoolean(ImageViewerConfig.IS_CAN_DRAG, this.R);
-            bundle.putBoolean(ImageViewerConfig.IS_SHOW_HOST, this.S);
-            bundle.putBoolean(ImageViewerConfig.IS_SHOW_AD, this.Q);
-            bundle.putString("user_id", this.D);
-            bundle.putBoolean(ImageViewerConfig.IS_SHOW_BOTTOM_CONTAINER, this.a0);
-            bundle.putBoolean(ImageViewerConfig.IS_DYNAMIC_CARD, this.b0);
-            Map<String, ImageUrlData> map = this.t;
-            if (map instanceof HashMap) {
-                HashMap hashMap = new HashMap();
-                for (Map.Entry<String, ImageUrlData> entry : this.t.entrySet()) {
-                    if (entry != null && (entry.getValue() instanceof ImageUrlData) && (entry.getKey() instanceof String)) {
-                        try {
-                            hashMap.put(entry.getKey(), OrmObject.jsonStrWithObject(entry.getValue()));
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
-                        }
-                    }
-                }
-                bundle.putSerializable(ImageViewerConfig.ASSIST_URLS, hashMap);
-            } else if (map instanceof ConcurrentHashMap) {
-                ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
-                for (Map.Entry<String, ImageUrlData> entry2 : this.t.entrySet()) {
-                    if (entry2 != null && (entry2.getValue() instanceof ImageUrlData) && (entry2.getKey() instanceof String)) {
-                        try {
-                            concurrentHashMap.put(entry2.getKey(), OrmObject.jsonStrWithObject(entry2.getValue()));
-                        } catch (Exception e3) {
-                            e3.printStackTrace();
-                        }
-                    }
-                }
-                bundle.putSerializable(ImageViewerConfig.ASSIST_URLS, concurrentHashMap);
-            }
-            bundle.putString("from", this.C);
-            bundle.putInt("thread_type", this.h0);
-            bundle.putBoolean(ImageViewerConfig.SEE_HOST, this.T);
-            bundle.putString(IntentConfig.SOURCE_RECT_IN_SCREEN, this.i0);
-            bundle.putBoolean(ImageViewerConfig.IS_IDENTIFY_IMAGE, this.W);
-            bundle.putBoolean(ImageViewerConfig.IS_FROM_AI_APP, this.U);
-            bundle.putBoolean(ImageViewerConfig.IS_GODREPLY_IMAGE, this.X);
-            bundle.putBoolean("is_login", kc5.k());
-            bundle.putString(ImageViewerConfig.ACCOUNT_BDUSS, kc5.b());
-            bundle.putString(ImageViewerConfig.ACCOUNT_STOKEN, kc5.e());
-            bundle.putString(ImageViewerConfig.ACCOUNT_TBS, kc5.f());
-            bundle.putString("from_forum_id", this.j0);
-            bundle.putInt("skin_type", this.q0);
-            bundle.putBoolean(ImageViewerConfig.IS_VIDEO_WORKS_INFO, this.c0);
-            bundle.putBoolean(ImageViewerConfig.IS_YOUNGSTER_MODE, this.d0);
-            bundle.putBoolean(ImageViewerConfig.NEED_REQUEST_AD, this.e0);
-            bundle.putSerializable(ImageViewerConfig.REMIND_LIVE_DATA, this.f0);
-            bundle.putInt(ImageViewerConfig.REMIND_LIVE_FREQUENCY, this.g0);
-            this.v.f(bundle);
-        }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r8v7, resolved type: java.util.Map<java.lang.String, com.baidu.tbadk.coreExtra.view.ImageUrlData> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public final void z2(Bundle bundle) {
+    public final void B2(Bundle bundle) {
         boolean z;
         String str;
         String str2;
@@ -2779,16 +1978,19 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
         Map<String, ImageUrlData> map;
         ImageUrlData imageUrlData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048646, this, bundle) == null) {
-            this.v = new ak7();
-            boolean k2 = kc5.k();
-            String b2 = kc5.b();
-            String f2 = kc5.f();
-            String e2 = kc5.e();
-            d3();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            this.v = new oo7();
+            boolean k2 = yc5.k();
+            String b2 = yc5.b();
+            String f2 = yc5.f();
+            String e2 = yc5.e();
+            e3();
             if (bundle != null) {
                 this.V = bundle.getBoolean(ImageViewerConfig.IS_BJH);
-                this.s = bundle.getStringArrayList("url");
+                ArrayList<String> c2 = mo7.d().c();
+                if (!ListUtils.isEmpty(c2)) {
+                    this.s = new ArrayList<>(c2);
+                }
                 this.p = bundle.getInt("index", -1);
                 this.y = bundle.getString("fid");
                 this.z = bundle.getString("tid");
@@ -2805,7 +2007,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                 this.S = bundle.getBoolean(ImageViewerConfig.IS_SHOW_HOST, true);
                 this.h0 = bundle.getInt("thread_type");
                 this.T = bundle.getBoolean(ImageViewerConfig.SEE_HOST, false);
-                Serializable serializable = bundle.getSerializable(ImageViewerConfig.ASSIST_URLS);
+                Map<String, String> b3 = mo7.d().b();
                 this.i0 = bundle.getString(IntentConfig.SOURCE_RECT_IN_SCREEN);
                 this.X = bundle.getBoolean(ImageViewerConfig.IS_GODREPLY_IMAGE);
                 boolean z2 = bundle.getBoolean("is_login");
@@ -2814,12 +2016,12 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                 String string3 = bundle.getString(ImageViewerConfig.ACCOUNT_STOKEN);
                 this.a0 = bundle.getBoolean(ImageViewerConfig.IS_SHOW_BOTTOM_CONTAINER, true);
                 this.b0 = bundle.getBoolean(ImageViewerConfig.IS_DYNAMIC_CARD, false);
-                if (serializable instanceof Map) {
+                if (b3 instanceof Map) {
                     this.t = new ConcurrentHashMap();
-                    for (Map.Entry entry : ((Map) serializable).entrySet()) {
+                    for (Map.Entry<String, String> entry : b3.entrySet()) {
                         if (entry != null && entry.getKey() != null && entry.getValue() != null) {
                             try {
-                                this.t.put(entry.getKey(), (ImageUrlData) OrmObject.objectWithJsonStr((String) entry.getValue(), ImageUrlData.class));
+                                this.t.put(entry.getKey(), (ImageUrlData) OrmObject.objectWithJsonStr(entry.getValue(), ImageUrlData.class));
                             } catch (Exception e3) {
                                 e3.printStackTrace();
                             }
@@ -2836,16 +2038,17 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                 this.j0 = bundle.getString("from_forum_id");
                 this.q0 = bundle.getInt("skin_type");
                 this.c0 = bundle.getBoolean(ImageViewerConfig.IS_VIDEO_WORKS_INFO, false);
-                Serializable serializable2 = bundle.getSerializable(ImageViewerConfig.REMIND_LIVE_DATA);
-                if (serializable2 instanceof LiveRemindData) {
-                    this.f0 = (LiveRemindData) serializable2;
+                Serializable serializable = bundle.getSerializable(ImageViewerConfig.REMIND_LIVE_DATA);
+                if (serializable instanceof LiveRemindData) {
+                    this.f0 = (LiveRemindData) serializable;
                 }
                 this.g0 = bundle.getInt(ImageViewerConfig.REMIND_LIVE_FREQUENCY);
                 this.e0 = bundle.getBoolean(ImageViewerConfig.NEED_REQUEST_AD, true);
-                Serializable serializable3 = bundle.getSerializable(ImageViewerConfig.KEY_PROFILE_VIRTUAL_IMAGE_INFO);
-                if (serializable3 instanceof ProfileVirtualImageInfo) {
-                    ProfileVirtualImageInfo.getInstance().parseRemoteInfo((ProfileVirtualImageInfo) serializable3);
+                Serializable serializable2 = bundle.getSerializable(ImageViewerConfig.KEY_PROFILE_VIRTUAL_IMAGE_INFO);
+                if (serializable2 instanceof ProfileVirtualImageInfo) {
+                    ProfileVirtualImageInfo.getInstance().parseRemoteInfo((ProfileVirtualImageInfo) serializable2);
                 }
+                mo7.d().a();
                 z = z2;
                 str = string;
                 str2 = string2;
@@ -2876,9 +2079,9 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                     this.W = intent.getBooleanExtra(ImageViewerConfig.IS_IDENTIFY_IMAGE, true);
                     this.U = intent.getBooleanExtra(ImageViewerConfig.IS_FROM_AI_APP, false);
                     z = intent.getBooleanExtra("is_login", false);
-                    str = intent.getStringExtra(ImageViewerConfig.ACCOUNT_BDUSS);
+                    String stringExtra = intent.getStringExtra(ImageViewerConfig.ACCOUNT_BDUSS);
                     str3 = intent.getStringExtra(ImageViewerConfig.ACCOUNT_STOKEN);
-                    str2 = intent.getStringExtra(ImageViewerConfig.ACCOUNT_TBS);
+                    String stringExtra2 = intent.getStringExtra(ImageViewerConfig.ACCOUNT_TBS);
                     this.i0 = intent.getStringExtra(IntentConfig.SOURCE_RECT_IN_SCREEN);
                     this.X = intent.getBooleanExtra(ImageViewerConfig.IS_GODREPLY_IMAGE, false);
                     Serializable serializableExtra = intent.getSerializableExtra(ImageViewerConfig.ASSIST_URLS);
@@ -2903,6 +2106,8 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                     if (serializableExtra3 instanceof ProfileVirtualImageInfo) {
                         ProfileVirtualImageInfo.getInstance().parseRemoteInfo((ProfileVirtualImageInfo) serializableExtra3);
                     }
+                    str = stringExtra;
+                    str2 = stringExtra2;
                 } else {
                     z = k2;
                     str = b2;
@@ -2910,11 +2115,11 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                     str3 = e2;
                 }
             }
-            kc5.o(z);
-            kc5.n(str);
-            kc5.p(str3);
-            kc5.q(str2);
-            this.v.d(bundle, getIntent());
+            yc5.o(z);
+            yc5.n(str);
+            yc5.p(str3);
+            yc5.q(str2);
+            this.v.f(bundle, getIntent());
             this.q = ListUtils.getCount(this.s);
             if (this.i0 != null) {
                 String str4 = (String) ListUtils.getItem(this.s, this.p);
@@ -2925,7 +2130,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             if (this.V) {
                 a2 = null;
             } else {
-                a2 = uj7.a((String) ListUtils.getItem(this.s, this.p));
+                a2 = ho7.a((String) ListUtils.getItem(this.s, this.p));
             }
             this.N = a2;
             if (this.T) {
@@ -2933,8 +2138,780 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             } else {
                 TiebaStatic.log(new StatisticItem("c13337").param("obj_type", "1"));
             }
-            ey4.a().d(this.f0);
-            fy4.b().n(this.g0);
+            py4.a().d(this.f0);
+            qy4.b().n(this.g0);
+        }
+    }
+
+    public final void C2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.l = (LinearLayout) findViewById(R.id.image_viewer_reply_root);
+            to7 to7Var = new to7(getPageContext(), this.l);
+            this.m = to7Var;
+            to7Var.r(this.j0);
+            this.m.s(this.q0);
+            this.m.m(this.q0);
+        }
+    }
+
+    public final void H2() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && DeviceInfoUtil.isfullScreen()) {
+            View findViewById = findViewById(R.id.statusbar_view);
+            this.j = findViewById;
+            ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
+            layoutParams.height = UtilHelper.getStatusBarHeight();
+            this.j.setLayoutParams(layoutParams);
+            this.j.setVisibility(0);
+        }
+    }
+
+    public final void M2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            if (this.I && n2()) {
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.icon_pure_topbar_close44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            } else {
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            }
+        }
+    }
+
+    public final void d3() {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
+            boolean z = false;
+            if (n2()) {
+                if (this.a.getVisibility() == 0) {
+                    z = true;
+                }
+                this.K = z;
+                this.J = true;
+            } else if (this.J) {
+                NavigationBar navigationBar = this.a;
+                if (this.K) {
+                    i2 = 0;
+                } else {
+                    i2 = 8;
+                }
+                navigationBar.setVisibility(i2);
+                this.J = false;
+            }
+            M2();
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
+    public nf5 getPageStayDurationItem() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+            nf5 pageStayDurationItem = super.getPageStayDurationItem();
+            if (pageStayDurationItem != null) {
+                pageStayDurationItem.t(yg.g(this.y, 0L));
+                pageStayDurationItem.C(yg.g(this.z, 0L));
+                if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
+                    pageStayDurationItem.q(TbadkCoreApplication.getInst().getAdAdSense().k);
+                }
+            }
+            return pageStayDurationItem;
+        }
+        return (nf5) invokeV.objValue;
+    }
+
+    public final boolean n2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
+            if (!this.Q) {
+                return false;
+            }
+            yo7 yo7Var = this.w0;
+            if (yo7Var != null && yo7Var.h(this.p)) {
+                return true;
+            }
+            vo7 vo7Var = this.H;
+            if (vo7Var == null || !vo7Var.t(this.p)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
+            super.onPause();
+            this.i.x();
+            BdUniqueId uniqueId = getUniqueId();
+            long g2 = yg.g(this.z, 0L);
+            if (uniqueId != null && g2 > 0) {
+                dn4.f(uniqueId.getId(), g2);
+            }
+            VoiceManager voiceManager = this.n;
+            if (voiceManager != null) {
+                voiceManager.onPause();
+            }
+            this.m.o();
+        }
+    }
+
+    public final long u2() {
+        InterceptResult invokeV;
+        ImageUrlData imageUrlData;
+        long j2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
+            String str = (String) ListUtils.getItem(this.s, this.p);
+            Map<String, ImageUrlData> map = this.t;
+            if (map != null && str != null) {
+                imageUrlData = map.get(str);
+            } else {
+                imageUrlData = null;
+            }
+            if (imageUrlData != null) {
+                j2 = imageUrlData.overAllIndex;
+            } else {
+                j2 = 0;
+            }
+            if (j2 == 0) {
+                return this.p + 1;
+            }
+            return j2;
+        }
+        return invokeV.longValue;
+    }
+
+    public final void z2() {
+        ImageUrlData imageUrlData;
+        oo7 oo7Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048645, this) == null) {
+            String str = (String) ListUtils.getItem(this.s, this.p);
+            Map<String, ImageUrlData> map = this.t;
+            if (map != null && str != null && (imageUrlData = map.get(str)) != null && (oo7Var = this.v) != null) {
+                String str2 = this.z;
+                String str3 = this.C;
+                int i2 = this.p;
+                oo7Var.e(str2, str3, i2, this.q - i2, imageUrlData.mHeigth, imageUrlData.mWidth, this.G);
+            }
+        }
+    }
+
+    public final void E2(String str, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            io7 io7Var = new io7(this.s, this.t, this.y, this.B, this.z, this.A, str, this.D, this.C, this.h0, z2, this.r0, this.s0, this.t0, this.u0, this.v0);
+            this.u = io7Var;
+            io7Var.m0(this.i0);
+            this.u.k0(this.Y);
+            this.u.l0(z);
+            this.u.e0(this.N);
+            this.u.h0(this.X);
+            this.u.j0(this.E);
+            this.u.d0(this.F);
+            this.u.g0(this.b0);
+            this.u.i0(new u(this));
+            this.u.f0(true);
+            if (this.e0) {
+                this.w0.n(new v(this));
+            }
+            this.u.Z();
+        }
+    }
+
+    public final void F2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
+            this.a = navigationBar;
+            navigationBar.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
+            this.a.setClickable(false);
+            A2();
+            D2();
+            TextView textView = new TextView(this);
+            this.c = textView;
+            textView.setPadding(zi.g(this, R.dimen.tbds15), 0, 0, 0);
+            this.c.setGravity(17);
+            this.c.setTextColor(ContextCompat.getColor(this, R.color.CAM_X0101));
+            this.c.setTextSize(0, zi.g(this, R.dimen.tbds44));
+            cx4.d(this.c).y(R.array.S_O_X001);
+            this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.c, (View.OnClickListener) null);
+            if (ho7.b((String) ListUtils.getItem(this.s, this.p))) {
+                this.a.setVisibility(0);
+            }
+        }
+    }
+
+    public final void T2() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && !this.U && this.d != null) {
+            if (this.x == null) {
+                pa6 pa6Var = new pa6(getPageContext(), this.d);
+                this.x = pa6Var;
+                pa6Var.L(R.drawable.pic_sign_tip);
+                this.x.o(48);
+                this.x.N(true);
+                this.x.n(5000);
+                this.x.Q(-zi.g(getPageContext().getPageActivity(), R.dimen.tbds26));
+                this.x.m(new d(this));
+            }
+            this.x.T(getPageContext().getString(R.string.click_look_all_picture), "key_large_image_tip_count");
+        }
+    }
+
+    @Override // com.baidu.tieba.ii0
+    @NonNull
+    public ji0 J() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.C0;
+        }
+        return (ji0) invokeV.objValue;
+    }
+
+    public boolean L2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.V;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void P2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            this.r.setBackgroundColor(-16777216);
+        }
+    }
+
+    public final void Q2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            cx4.d(this.r).p(new int[]{R.color.CAM_X0608, R.color.CAM_X0601}, Direction.TOP);
+        }
+    }
+
+    public final void U2() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && this.i.t()) {
+            this.B0.c();
+        }
+    }
+
+    public final void V2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            this.B0.hide();
+        }
+    }
+
+    public final void W2() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && this.i.t()) {
+            this.B0.show();
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
+    public void closeAnimation() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
+            ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 2);
+            if (yj5.a()) {
+                return;
+            }
+            TiebaStatic.log(new StatisticItem("c13377").param("obj_type", "4"));
+        }
+    }
+
+    public final void e3() {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048610, this) == null) && (intent = getIntent()) != null) {
+            nj5.d(intent.getStringExtra(TiebaStatic.Params.WISE_SAMPLE_ID));
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
+    public void enterExitAnimation() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
+            ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 2);
+        }
+    }
+
+    public String getFrom() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+            return this.C;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
+    public long getMissionTid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+            if (yi.isEmpty(this.z)) {
+                return 0L;
+            }
+            return yg.g(this.z, 0L);
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.kf5
+    public lf5 getPageStayFilter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+            return new m(this);
+        }
+        return (lf5) invokeV.objValue;
+    }
+
+    public int m2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+            int count = ListUtils.getCount(this.s);
+            if (count > 0) {
+                int i2 = this.p;
+                if (i2 >= count) {
+                    this.p = count - 1;
+                } else if (i2 < 0) {
+                    this.p = 0;
+                }
+            } else {
+                this.p = 0;
+            }
+            return this.p;
+        }
+        return invokeV.intValue;
+    }
+
+    public final boolean o2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
+            if (this.y0 == null) {
+                return false;
+            }
+            String str = (String) ListUtils.getItem(this.s, this.p);
+            if (StringUtils.isNull(str)) {
+                return false;
+            }
+            return str.startsWith("####mLiveRoomPageProvider");
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048629, this) == null) {
+            super.onStart();
+            VoiceManager voiceManager = this.n;
+            if (voiceManager != null) {
+                voiceManager.onStart(getPageContext());
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onStop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048630, this) == null) {
+            super.onStop();
+            VoiceManager voiceManager = this.n;
+            if (voiceManager != null) {
+                voiceManager.onStop(getPageContext());
+            }
+        }
+    }
+
+    public final void p2() {
+        pa6 pa6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048632, this) == null) && (pa6Var = this.f) != null) {
+            pa6Var.h();
+        }
+    }
+
+    public final void q2() {
+        pa6 pa6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048633, this) == null) && (pa6Var = this.x) != null) {
+            pa6Var.h();
+        }
+    }
+
+    public final void r2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048634, this) == null) {
+            getWindow().getDecorView().setSystemUiVisibility(1284);
+        }
+    }
+
+    @Override // com.baidu.adp.base.BdBaseFragmentActivity
+    public void releaseResouce() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048635, this) == null) {
+            this.i.w();
+        }
+    }
+
+    public final void s2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048636, this) == null) {
+            getWindow().addFlags(1024);
+            finish();
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.j
+    public VoiceManager t0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) {
+            if (this.n == null) {
+                this.n = VoiceManager.instance();
+            }
+            return this.n;
+        }
+        return (VoiceManager) invokeV.objValue;
+    }
+
+    public Map<String, ImageUrlData> t2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) {
+            return this.t;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public final int v2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) {
+            return (int) u2();
+        }
+        return invokeV.intValue;
+    }
+
+    public String w2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048642, this)) == null) {
+            return this.D;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void J2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            MultiImageView multiImageView = this.i;
+            if (multiImageView == null) {
+                this.i = (MultiImageView) findViewById(R.id.obfuscated_res_0x7f0926cc);
+            } else {
+                multiImageView.q();
+            }
+            this.G = this.z + "_" + System.currentTimeMillis();
+            this.i.setIsFromCDN(this.Z);
+            this.i.setIsCanDrag(this.R);
+            this.i.setPageMargin(zi.d(getPageContext().getPageActivity(), 8.0f));
+            this.i.setOffscreenPageLimit(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
+            this.i.setOnPageChangeListener(this.P0);
+            this.i.setUrlData(this.s);
+            this.i.setAssistUrls(this.t);
+            this.i.setOuterOnTouchListener(this.M0);
+            this.i.setItemOnclickListener(this.K0);
+            this.i.setItemOnLongClickListener(this.N0);
+            this.i.setCurrentItem(m2(), false);
+            this.i.setOnScrollOutListener(this.O0);
+            if (this.y0 == null) {
+                xo7 xo7Var = new xo7(this.s, getPageContext(), this.y, this.B, this.z);
+                this.y0 = xo7Var;
+                xo7Var.i(this.a.getFixedNavHeight());
+            }
+            this.i.k(this.y0);
+            if (this.I && this.e0) {
+                if (this.H == null) {
+                    this.H = new vo7(this.s, this.y, this.z, this.Q, this.p, getPageContext());
+                }
+                this.H.B(null);
+                this.i.k(this.H);
+            }
+            if (this.w0 == null) {
+                this.w0 = new yo7(this.s, this.y, this.B, this.Z, this.Q, getPageContext(), this.F0, this.t);
+            }
+            this.i.k(this.w0);
+            this.i.setOriImgSelectedCallback(this.I0);
+            this.i.setDragToExitListener(this.F0);
+            this.i.setUserId(this.D);
+            this.i.setShowBottomContainer(this.a0);
+            this.i.setOnShareImageListener(this.w);
+            this.i.setOnDownloadImageListener(this.w);
+            this.i.setOnReplyClickListener(this.H0);
+            this.i.setYoungterCoverSomeView(this.d0);
+            oo7 oo7Var = this.v;
+            if (oo7Var != null) {
+                oo7Var.d(this.D, this.z, this.C);
+            }
+        }
+    }
+
+    public final void K2(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048587, this, z) != null) || this.y0 == null) {
+            return;
+        }
+        if (!ListUtils.isEmpty(this.u.Y()) && z) {
+            this.y0.k(this.u.Y());
+            this.y0.j(true);
+            ArrayList<String> arrayList = this.s;
+            if (arrayList != null && !arrayList.contains("####mLiveRoomPageProvider")) {
+                ArrayList<String> arrayList2 = this.s;
+                uq7.b(arrayList2, "####mLiveRoomPageProvider", arrayList2.size());
+                return;
+            }
+            return;
+        }
+        this.y0.k(null);
+        this.y0.j(false);
+    }
+
+    public final void Y2(int i2) {
+        MultiImageView multiImageView;
+        int i3;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048601, this, i2) != null) || (multiImageView = this.i) == null) {
+            return;
+        }
+        multiImageView.l(i2);
+        if (!this.i.u() && !n2() && !o2()) {
+            i3 = 0;
+        } else {
+            i3 = 8;
+        }
+        R2(this.d, i3);
+        if (this.S) {
+            R2(this.e, i3);
+        }
+        if (i3 == 0) {
+            W2();
+        } else {
+            V2();
+        }
+    }
+
+    public final void N2(AdvertAppInfo advertAppInfo, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048590, this, advertAppInfo, i2) == null) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(ClogBuilder.LogType.DISCARD).v(advertAppInfo.j).q(String.valueOf(advertAppInfo.position + 1)).k(String.valueOf(i2)).p(advertAppInfo.g);
+            e11.b(clogBuilder);
+        }
+    }
+
+    public final void X2(int i2) {
+        io7 io7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048600, this, i2) == null) && (io7Var = this.u) != null) {
+            ArrayList<AlaInfoData> W = io7Var.W();
+            if (W != null && W.size() > 0) {
+                y2(true);
+                x2(W.get(i2 % W.size()));
+                return;
+            }
+            y2(false);
+        }
+    }
+
+    public final void a3(long j2, int i2) {
+        vo7 vo7Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
+            yo7 yo7Var = this.w0;
+            if ((yo7Var != null && yo7Var.j()) || ((vo7Var = this.H) != null && vo7Var.u())) {
+                this.c.setText("");
+            } else if (j2 > 0) {
+                this.c.setText(String.format(Locale.CHINA, "%d/%d", Long.valueOf(j2), Integer.valueOf(i2)));
+            } else {
+                this.c.setText("");
+            }
+            R2(this.d, 8);
+            R2(this.e, 8);
+            V2();
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048623, this, bundle) == null) {
+            if (Build.VERSION.SDK_INT >= 28 && TbSingleton.getInstance().isNotchScreen(this)) {
+                setUseStyleImmersiveSticky(false);
+            }
+            super.onCreate(bundle);
+            r2();
+            getWindow().getDecorView().setOnSystemUiVisibilityChangeListener(new t(this));
+            ad5.f().g(TbadkCoreApplication.getInst());
+            ad5.i(new ImageFpsEvent());
+            this.M = TbadkCoreApplication.getInst().getSkinType();
+            setSwipeBackEnabled(false);
+            TbadkCoreApplication.getInst().addRemoteActivity(this);
+            B2(bundle);
+            setContentView(R.layout.image_activity_big_img);
+            I2();
+            E2(this.N, this.T, false);
+            registerListener(this.E0);
+            registerListener(this.D0);
+            registerListener(this.R0);
+            registerListener(this.S0);
+            addGlobalLayoutListener();
+            VoiceManager t0 = t0();
+            this.n = t0;
+            t0.onCreate(getPageContext());
+            if (Build.VERSION.SDK_INT >= 28 && (TbSingleton.getInstance().isCutoutScreen(this) || TbSingleton.getInstance().isNotchScreen(this))) {
+                u49.b(1, getWindow().getAttributes(), getWindow());
+            }
+            if (!TbSingleton.getInstance().hasDownloadEmotion() && BdNetTypeUtil.isWifiNet() && TbadkCoreApplication.isLogin()) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2004611));
+                TbSingleton.getInstance().setHasDownloadEmotion(true);
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onDestroy() {
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048624, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.E0);
+            TbadkCoreApplication.getInst().delRemoteActivity(this);
+            ba5.k().r();
+            oo7 oo7Var = this.v;
+            ArrayList<String> arrayList = this.s;
+            int i2 = this.p;
+            oo7Var.c(arrayList, i2, i2);
+            this.v.i();
+            io7 io7Var = this.u;
+            if (io7Var != null) {
+                String X = io7Var.X();
+                str2 = this.u.b0();
+                str = X;
+            } else {
+                str = null;
+                str2 = null;
+            }
+            this.v.l(this.i.getPageCount(), "", this.y, this.z, str, str2);
+            qo7 qo7Var = this.w;
+            if (qo7Var != null) {
+                qo7Var.C();
+            }
+            this.i.w();
+            this.m.n();
+            VoiceManager voiceManager = this.n;
+            if (voiceManager != null) {
+                voiceManager.onDestory(getPageContext());
+            }
+            v65.k().i(13);
+            TbadkCoreApplication.getInst().setSkinTypeValue(this.M);
+            q2();
+            p2();
+            yo7 yo7Var = this.w0;
+            if (yo7Var != null) {
+                yo7Var.k();
+            }
+            vo7 vo7Var = this.H;
+            if (vo7Var != null) {
+                vo7Var.y();
+            }
+            ad5.i(new PrePageKeyEvent(getCurrentPageKey()));
+            super.onDestroy();
+            MessageManager.getInstance().unRegisterTask(2001277);
+        }
+    }
+
+    @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    public void onSaveInstanceState(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048628, this, bundle) == null) {
+            super.onSaveInstanceState(bundle);
+            bundle.putBoolean(ImageViewerConfig.IS_BJH, this.V);
+            mo7.d().f(this.s);
+            bundle.putInt("index", this.p);
+            bundle.putString("fid", this.y);
+            bundle.putString("tid", this.z);
+            bundle.putString("fname", this.B);
+            bundle.putString("post_id", this.E);
+            bundle.putString(IntentConfig.BJH_POST_ID, this.F);
+            bundle.putBoolean(ImageViewerConfig.PARAM_IS_CDN, false);
+            bundle.putBoolean(ImageViewerConfig.REVERSE_MODE, this.Y);
+            bundle.putBoolean(ImageViewerConfig.IS_CAN_DRAG, this.R);
+            bundle.putBoolean(ImageViewerConfig.IS_SHOW_HOST, this.S);
+            bundle.putBoolean(ImageViewerConfig.IS_SHOW_AD, this.Q);
+            bundle.putString("user_id", this.D);
+            bundle.putBoolean(ImageViewerConfig.IS_SHOW_BOTTOM_CONTAINER, this.a0);
+            bundle.putBoolean(ImageViewerConfig.IS_DYNAMIC_CARD, this.b0);
+            Map<String, ImageUrlData> map = this.t;
+            if (map instanceof HashMap) {
+                HashMap hashMap = new HashMap();
+                for (Map.Entry<String, ImageUrlData> entry : this.t.entrySet()) {
+                    if (entry != null && (entry.getValue() instanceof ImageUrlData) && (entry.getKey() instanceof String)) {
+                        try {
+                            hashMap.put(entry.getKey(), OrmObject.jsonStrWithObject(entry.getValue()));
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+                mo7.d().e(hashMap);
+            } else if (map instanceof ConcurrentHashMap) {
+                ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
+                for (Map.Entry<String, ImageUrlData> entry2 : this.t.entrySet()) {
+                    if (entry2 != null && (entry2.getValue() instanceof ImageUrlData) && (entry2.getKey() instanceof String)) {
+                        try {
+                            concurrentHashMap.put(entry2.getKey(), OrmObject.jsonStrWithObject(entry2.getValue()));
+                        } catch (Exception e3) {
+                            e3.printStackTrace();
+                        }
+                    }
+                }
+                mo7.d().e(concurrentHashMap);
+            }
+            bundle.putString("from", this.C);
+            bundle.putInt("thread_type", this.h0);
+            bundle.putBoolean(ImageViewerConfig.SEE_HOST, this.T);
+            bundle.putString(IntentConfig.SOURCE_RECT_IN_SCREEN, this.i0);
+            bundle.putBoolean(ImageViewerConfig.IS_IDENTIFY_IMAGE, this.W);
+            bundle.putBoolean(ImageViewerConfig.IS_FROM_AI_APP, this.U);
+            bundle.putBoolean(ImageViewerConfig.IS_GODREPLY_IMAGE, this.X);
+            bundle.putBoolean("is_login", yc5.k());
+            bundle.putString(ImageViewerConfig.ACCOUNT_BDUSS, yc5.b());
+            bundle.putString(ImageViewerConfig.ACCOUNT_STOKEN, yc5.e());
+            bundle.putString(ImageViewerConfig.ACCOUNT_TBS, yc5.f());
+            bundle.putString("from_forum_id", this.j0);
+            bundle.putInt("skin_type", this.q0);
+            bundle.putBoolean(ImageViewerConfig.IS_VIDEO_WORKS_INFO, this.c0);
+            bundle.putBoolean(ImageViewerConfig.IS_YOUNGSTER_MODE, this.d0);
+            bundle.putBoolean(ImageViewerConfig.NEED_REQUEST_AD, this.e0);
+            bundle.putSerializable(ImageViewerConfig.REMIND_LIVE_DATA, this.f0);
+            bundle.putInt(ImageViewerConfig.REMIND_LIVE_FREQUENCY, this.g0);
+            this.v.h(bundle);
         }
     }
 }

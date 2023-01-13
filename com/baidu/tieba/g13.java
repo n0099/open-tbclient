@@ -1,9 +1,7 @@
 package com.baidu.tieba;
-
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public interface g13 {
-    void a(JSONObject jSONObject);
+    void a(String str, i13 i13Var);
 
-    void onCancel();
+    void timeout();
 }

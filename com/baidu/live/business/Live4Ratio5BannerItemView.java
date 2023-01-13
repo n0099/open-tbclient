@@ -12,8 +12,8 @@ import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.live.business.view.banner.BannerEntity;
 import com.baidu.live.business.view.banner.BannerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.da0;
-import com.baidu.tieba.fc0;
+import com.baidu.tieba.ia0;
+import com.baidu.tieba.kc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -159,7 +159,7 @@ public class Live4Ratio5BannerItemView extends LiveBaseItemView {
             setNeedRatio(true);
             setAspectRatio(1.25f);
             this.k = context;
-            this.h = (FrameLayout) RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0551, this).findViewById(R.id.obfuscated_res_0x7f09144a);
+            this.h = (FrameLayout) RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0550, this).findViewById(R.id.obfuscated_res_0x7f091455);
             j();
         }
     }
@@ -214,10 +214,10 @@ public class Live4Ratio5BannerItemView extends LiveBaseItemView {
             this.i = bannerView;
             bannerView.setShowRoundPicture(true, 10);
             this.i.setIndicatorGravity(81);
-            this.i.setIndicatorMargin(0, 0, 0, (int) da0.c(this.k.getResources(), 7.0f));
-            this.i.setLargeIndicatorItemSize((int) da0.c(this.k.getResources(), 4.0f));
-            this.i.setSmallIndicatorItemSize((int) da0.c(this.k.getResources(), 4.0f));
-            this.i.setIndicatorInterval((int) da0.c(this.k.getResources(), 6.0f));
+            this.i.setIndicatorMargin(0, 0, 0, (int) ia0.c(this.k.getResources(), 7.0f));
+            this.i.setLargeIndicatorItemSize((int) ia0.c(this.k.getResources(), 4.0f));
+            this.i.setSmallIndicatorItemSize((int) ia0.c(this.k.getResources(), 4.0f));
+            this.i.setIndicatorInterval((int) ia0.c(this.k.getResources(), 6.0f));
             this.i.setAspectRatio(1.25f);
             this.i.setScene(this.c);
             this.i.setOnBannerClickListener(new a(this));
@@ -230,7 +230,7 @@ public class Live4Ratio5BannerItemView extends LiveBaseItemView {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048583, this, list) == null) && this.i != null && this.h != null) {
             int i = 8;
-            if (!fc0.c(list)) {
+            if (!kc0.c(list)) {
                 if (this.i.r(list)) {
                     BannerEntity bannerEntity = new BannerEntity();
                     bannerEntity.mBannerList = list;

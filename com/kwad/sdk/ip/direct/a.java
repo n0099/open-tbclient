@@ -43,10 +43,10 @@ public final class a {
         public final void a(NetworkMonitor.NetworkState networkState) {
             com.kwad.sdk.core.e.b.d("IpDirect_Helper", "*********onNetworkChange");
             if (!a.aiV) {
-                boolean unused = a.aiV = true;
+                a.access$002(true);
                 return;
             }
-            boolean unused2 = a.aiU = true;
+            a.access$102(true);
             com.kwad.sdk.core.e.b.d("IpDirect_Helper", "*********onNetworkChange sHasNetChanged true");
         }
     };
@@ -82,6 +82,16 @@ public final class a {
             init();
             xr();
         }
+    }
+
+    public static /* synthetic */ boolean access$002(boolean z) {
+        aiV = true;
+        return true;
+    }
+
+    public static /* synthetic */ boolean access$102(boolean z) {
+        aiU = true;
+        return true;
     }
 
     public static void clear() {

@@ -1,194 +1,174 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.f3a;
-import com.baidu.tieba.o4a;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
+import com.squareup.wire2.ProtoAdapter;
+import com.squareup.wire2.internal.ImmutableList;
+import com.squareup.wire2.internal.MutableOnWriteList;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public final class n4a<T> extends o4a<T> {
+public final class n4a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a implements o4a.a<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ TimeUnit b;
-
-        /* renamed from: com.baidu.tieba.n4a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0369a implements p3a {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ o4a.c a;
-            public final /* synthetic */ Long b;
-
-            public C0369a(a aVar, o4a.c cVar, Long l) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, cVar, l};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = cVar;
-                this.b = l;
-            }
-
-            @Override // com.baidu.tieba.p3a
-            public void call() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.g(this.b.longValue());
-                }
-            }
-        }
-
-        public a(long j, TimeUnit timeUnit) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), timeUnit};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j;
-            this.b = timeUnit;
-        }
-
-        public j3a call(o4a.c<T> cVar, Long l, f3a.a aVar) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, cVar, l, aVar)) == null) {
-                return aVar.c(new C0369a(this, cVar, l), this.a, this.b);
-            }
-            return (j3a) invokeLLL.objValue;
-        }
-
-        @Override // com.baidu.tieba.o4a.a
-        public /* bridge */ /* synthetic */ Object call(Object obj, Object obj2, Object obj3) {
-            return call((o4a.c) ((o4a.c) obj), (Long) obj2, (f3a.a) obj3);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements o4a.b<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ TimeUnit b;
-
-        /* loaded from: classes5.dex */
-        public class a implements p3a {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ o4a.c a;
-            public final /* synthetic */ Long b;
-
-            public a(b bVar, o4a.c cVar, Long l) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, cVar, l};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = cVar;
-                this.b = l;
-            }
-
-            @Override // com.baidu.tieba.p3a
-            public void call() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.g(this.b.longValue());
-                }
-            }
-        }
-
-        public b(long j, TimeUnit timeUnit) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), timeUnit};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j;
-            this.b = timeUnit;
-        }
-
-        public j3a call(o4a.c<T> cVar, Long l, T t, f3a.a aVar) {
-            InterceptResult invokeLLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, cVar, l, t, aVar)) == null) {
-                return aVar.c(new a(this, cVar, l), this.a, this.b);
-            }
-            return (j3a) invokeLLLL.objValue;
-        }
-
-        @Override // com.baidu.tieba.o4a.b
-        public /* bridge */ /* synthetic */ Object call(Object obj, Object obj2, Object obj3, Object obj4) {
-            return call((o4a.c<Long>) obj, (Long) obj2, (Long) obj3, (f3a.a) obj4);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n4a(long j, TimeUnit timeUnit, c3a<? extends T> c3aVar, f3a f3aVar) {
-        super(new a(j, timeUnit), new b(j, timeUnit), c3aVar, f3aVar);
+    public static int e(Object obj, Object obj2, Object obj3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), timeUnit, c3aVar, f3aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((o4a.a) objArr2[0], (o4a.b) objArr2[1], (c3a) objArr2[2], (f3a) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, obj2, obj3)) == null) {
+            return (obj != null ? 1 : 0) + (obj2 != null ? 1 : 0) + (obj3 == null ? 0 : 1);
+        }
+        return invokeLLL.intValue;
+    }
+
+    public static void a(List<?> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, list) == null) {
+            if (list != null) {
+                int size = list.size();
+                for (int i = 0; i < size; i++) {
+                    if (list.get(i) == null) {
+                        throw new NullPointerException("Element at index " + i + " is null");
+                    }
+                }
                 return;
             }
+            throw new NullPointerException("list == null");
         }
     }
 
-    @Override // com.baidu.tieba.o4a
-    public /* bridge */ /* synthetic */ i3a call(i3a i3aVar) {
-        return super.call(i3aVar);
+    public static void b(Map<?, ?> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, map) == null) {
+            if (map != null) {
+                for (Map.Entry<?, ?> entry : map.entrySet()) {
+                    if (entry.getKey() != null) {
+                        if (entry.getValue() == null) {
+                            throw new NullPointerException("Value for key " + entry.getKey() + " is null");
+                        }
+                    } else {
+                        throw new NullPointerException("map.containsKey(null)");
+                    }
+                }
+                return;
+            }
+            throw new NullPointerException("map == null");
+        }
+    }
+
+    public static <T> List<T> c(String str, List<T> list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, list)) == null) {
+            if (list != null) {
+                if (list != Collections.emptyList() && !(list instanceof ImmutableList)) {
+                    return new ArrayList(list);
+                }
+                return new MutableOnWriteList(list);
+            }
+            throw new NullPointerException(str + " == null");
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    public static <K, V> Map<K, V> d(String str, Map<K, V> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, map)) == null) {
+            if (map != null) {
+                return new LinkedHashMap(map);
+            }
+            throw new NullPointerException(str + " == null");
+        }
+        return (Map) invokeLL.objValue;
+    }
+
+    public static boolean f(Object obj, Object obj2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, obj, obj2)) == null) {
+            if (obj != obj2 && (obj == null || !obj.equals(obj2))) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static <T> void k(List<T> list, ProtoAdapter<T> protoAdapter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, list, protoAdapter) == null) {
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                list.set(i, protoAdapter.redact(list.get(i)));
+            }
+        }
+    }
+
+    public static <T> List<T> g(String str, List<T> list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, list)) == null) {
+            if (list != null) {
+                if (list instanceof MutableOnWriteList) {
+                    list = ((MutableOnWriteList) list).mutableList;
+                }
+                if (list != Collections.emptyList() && !(list instanceof ImmutableList)) {
+                    ImmutableList immutableList = new ImmutableList(list);
+                    if (!immutableList.contains(null)) {
+                        return immutableList;
+                    }
+                    throw new IllegalArgumentException(str + ".contains(null)");
+                }
+                return list;
+            }
+            throw new NullPointerException(str + " == null");
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    public static <K, V> Map<K, V> h(String str, Map<K, V> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, map)) == null) {
+            if (map != null) {
+                if (map.isEmpty()) {
+                    return Collections.emptyMap();
+                }
+                LinkedHashMap linkedHashMap = new LinkedHashMap(map);
+                if (!linkedHashMap.containsKey(null)) {
+                    if (!linkedHashMap.containsValue(null)) {
+                        return Collections.unmodifiableMap(linkedHashMap);
+                    }
+                    throw new IllegalArgumentException(str + ".containsValue(null)");
+                }
+                throw new IllegalArgumentException(str + ".containsKey(null)");
+            }
+            throw new NullPointerException(str + " == null");
+        }
+        return (Map) invokeLL.objValue;
+    }
+
+    public static <T> List<T> i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return new MutableOnWriteList(Collections.emptyList());
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public static <K, V> Map<K, V> j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return new LinkedHashMap();
+        }
+        return (Map) invokeV.objValue;
     }
 }

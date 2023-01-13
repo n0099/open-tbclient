@@ -5,27 +5,26 @@ import android.content.Intent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.max.ImmersiveVideoDetailActivity;
+import com.baidu.nadcore.lp.reward.NadRewardVideoActivity;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSdk;
 import java.util.HashMap;
 import java.util.Map;
 @Service
 /* loaded from: classes5.dex */
-public class jo0 extends ji0 {
+public class jo0 extends oi0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ji0
+    @Override // com.baidu.tieba.oi0
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? FunAdSdk.PLATFORM_MAX : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "rewardImpl" : (String) invokeV.objValue;
     }
 
     public jo0() {
@@ -42,16 +41,26 @@ public class jo0 extends ji0 {
         }
     }
 
-    @Override // com.baidu.tieba.ji0
-    public boolean b(@NonNull Context context, @NonNull ni0 ni0Var, @Nullable Map<String, Object> map, @Nullable ri0 ri0Var) {
+    @Override // com.baidu.tieba.oi0
+    public boolean b(@NonNull Context context, @NonNull si0 si0Var, @Nullable Map<String, Object> map, @Nullable wi0 wi0Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ni0Var, map, ri0Var)) == null) {
-            super.b(context, ni0Var, map, ri0Var);
-            HashMap<String, String> d = ni0Var.d();
-            Intent intent = new Intent(context, ImmersiveVideoDetailActivity.class);
-            intent.putExtra("map", d);
-            return g31.d(context, intent);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, si0Var, map, wi0Var)) == null) {
+            super.b(context, si0Var, map, wi0Var);
+            HashMap<String, String> d = si0Var.d();
+            int i = 0;
+            if (d.isEmpty()) {
+                c(wi0Var, si0Var, 202, false);
+                return true;
+            }
+            Intent intent = new Intent(context, NadRewardVideoActivity.class);
+            intent.putExtra("params", d);
+            boolean d2 = l31.d(context, intent);
+            if (!d2) {
+                i = 1001;
+            }
+            c(wi0Var, si0Var, i, d2);
+            return true;
         }
         return invokeLLLL.booleanValue;
     }

@@ -1,19 +1,5 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.BIMManager;
-import com.baidu.android.imsdk.chatmessage.IGenBosObjectUrlListener;
-import com.baidu.android.imsdk.chatmessage.ISendMessageListener;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.android.imsdk.group.BIMValueCallBack;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.AsyncChatTask;
-import com.baidu.android.imsdk.upload.AsyncUploadTask;
-import com.baidu.android.imsdk.upload.IUploadTransferListener;
-import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,19 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.inner.util.cipher.Base64Util;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public class xh7 implements IGenBosObjectUrlListener, IUploadTransferListener, BIMValueCallBack<String>, ISendMessageListener {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String e = "xh7";
+public class xh7 {
+    public static /* synthetic */ Interceptable $ic;
+    public static xh7 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public String b;
-    public BaseMsg c;
-    public wh7 d;
+    public dc a;
 
     static {
         InterceptResult invokeClinit;
@@ -50,26 +29,10 @@ public class xh7 implements IGenBosObjectUrlListener, IUploadTransferListener, B
         }
     }
 
-    @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
-    public void onProgress(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.ISendMessageListener
-    public void onSendMessageResult(int i, ChatMsg chatMsg) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i, chatMsg) == null) {
-        }
-    }
-
-    public xh7(Context context, BaseMsg baseMsg, String str, String str2) {
+    public xh7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, baseMsg, str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -79,126 +42,32 @@ public class xh7 implements IGenBosObjectUrlListener, IUploadTransferListener, B
                 return;
             }
         }
-        this.a = context;
-        this.c = baseMsg;
-        this.b = str;
+        this.a = null;
+        this.a = new dc(1000, 1000, 1000);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x0079 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-    /* renamed from: a */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void onResult(int i, String str, String str2) {
-        FileOutputStream fileOutputStream;
-        Throwable th;
-        Exception e2;
+    public static xh7 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, str2) == null) {
-            if (i == 0 && !TextUtils.isEmpty(str2)) {
-                FileOutputStream fileOutputStream2 = null;
-                try {
-                    try {
-                        byte[] decode = Base64Util.decode(str2);
-                        File file = new File(this.b);
-                        if (file.exists()) {
-                            fileOutputStream = new FileOutputStream(file);
-                            try {
-                                try {
-                                    fileOutputStream.write(decode);
-                                    fileOutputStream.flush();
-                                    fileOutputStream2 = fileOutputStream;
-                                } catch (Exception e3) {
-                                    e2 = e3;
-                                    if (this.d != null) {
-                                        this.d.isFailed();
-                                    }
-                                    LogUtils.e(e, e2.getMessage());
-                                    if (fileOutputStream != null) {
-                                        fileOutputStream.close();
-                                    }
-                                    BIMManager.genBosObjectUrl(this.a, this.b, "mp3", "mp3", 12, 0, 0, this);
-                                    return;
-                                }
-                            } catch (Throwable th2) {
-                                th = th2;
-                                if (fileOutputStream != null) {
-                                    try {
-                                        fileOutputStream.close();
-                                    } catch (Exception e4) {
-                                        LogUtils.e(e, e4.getMessage());
-                                    }
-                                }
-                                throw th;
-                            }
-                        } else if (this.d != null) {
-                            this.d.isFailed();
-                        }
-                    } catch (Exception e5) {
-                        LogUtils.e(e, e5.getMessage());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (xh7.class) {
+                    if (b == null) {
+                        b = new xh7();
                     }
-                } catch (Exception e6) {
-                    fileOutputStream = null;
-                    e2 = e6;
-                } catch (Throwable th3) {
-                    fileOutputStream = null;
-                    th = th3;
-                    if (fileOutputStream != null) {
-                    }
-                    throw th;
                 }
-                if (fileOutputStream2 != null) {
-                    fileOutputStream2.close();
-                }
-                BIMManager.genBosObjectUrl(this.a, this.b, "mp3", "mp3", 12, 0, 0, this);
-                return;
             }
-            wh7 wh7Var = this.d;
-            if (wh7Var != null) {
-                wh7Var.isFailed();
-            }
+            return b;
         }
+        return (xh7) invokeV.objValue;
     }
 
-    public void b(@NonNull wh7 wh7Var) {
+    public dc b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wh7Var) == null) {
-            this.d = wh7Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-    }
-
-    @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
-    public void onFailed(int i, int i2, String str) {
-        wh7 wh7Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, str) == null) && (wh7Var = this.d) != null) {
-            wh7Var.isFailed();
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
-    public void onFinished(int i, String str) {
-        wh7 wh7Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) && (wh7Var = this.d) != null) {
-            wh7Var.a(this.c, str);
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.IGenBosObjectUrlListener
-    public void onGenBosObjectUrlListener(int i, String str, String str2, String str3, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, str2, str3, map}) == null) {
-            if (i == 0) {
-                new AsyncUploadTask(this.a, 2, map.get(AsyncChatTask.PUT_URL), map.get(AsyncChatTask.GET_URL), this.b, "mp3", str2, str3, this).execute(new Void[0]);
-                return;
-            }
-            wh7 wh7Var = this.d;
-            if (wh7Var != null) {
-                wh7Var.isFailed();
-            }
-        }
+        return (dc) invokeV.objValue;
     }
 }

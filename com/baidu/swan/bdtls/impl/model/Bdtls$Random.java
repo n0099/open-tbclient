@@ -2,7 +2,7 @@ package com.baidu.swan.bdtls.impl.model;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.in3;
+import com.baidu.tieba.nn3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -102,6 +102,10 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
             maybeForceBuilderInitialization();
         }
 
+        public static /* synthetic */ b l() {
+            return q();
+        }
+
         public static b q() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -162,9 +166,9 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+        @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
         /* renamed from: p */
-        public b clone() {
+        public b mo29clone() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
@@ -269,7 +273,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                Bdtls$Random bdtls$Random = new Bdtls$Random(this, (in3) null);
+                Bdtls$Random bdtls$Random = new Bdtls$Random(this, (nn3) null);
                 int i = this.a;
                 int i2 = 1;
                 if ((i & 1) != 1) {
@@ -384,7 +388,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return b.q();
+            return b.l();
         }
         return (b) invokeV.objValue;
     }
@@ -560,7 +564,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         }
     }
 
-    public /* synthetic */ Bdtls$Random(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, in3 in3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$Random(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, nn3 nn3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -586,7 +590,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         this.memoizedSerializedSize = -1;
     }
 
-    public /* synthetic */ Bdtls$Random(GeneratedMessageLite.Builder builder, in3 in3Var) {
+    public /* synthetic */ Bdtls$Random(GeneratedMessageLite.Builder builder, nn3 nn3Var) {
         this(builder);
     }
 

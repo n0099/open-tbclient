@@ -20,12 +20,12 @@ public final class a implements com.kwad.sdk.core.webview.kwai.a {
     @KsJson
     /* renamed from: com.kwad.components.core.webview.jshandler.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0611a extends com.kwad.sdk.core.response.kwai.a {
+    public static class C0610a extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String Ld;
 
-        public C0611a() {
+        public C0610a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,9 +104,9 @@ public final class a implements com.kwad.sdk.core.webview.kwai.a {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
             this.Lb = cVar;
             try {
-                C0611a c0611a = new C0611a();
-                c0611a.parseJson(new JSONObject(str));
-                String target = c0611a.getTarget();
+                C0610a c0610a = new C0610a();
+                c0610a.parseJson(new JSONObject(str));
+                String target = c0610a.getTarget();
                 if (this.Lc != null) {
                     this.Lc.a(this, target);
                 }

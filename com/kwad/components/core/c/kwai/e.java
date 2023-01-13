@@ -34,7 +34,7 @@ public final class e extends c implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public b DG;
-    public b.C0596b DH;
+    public b.C0595b DH;
     public Runnable DP;
     public boolean DQ;
     public KsAdWebView bF;
@@ -90,7 +90,7 @@ public final class e extends c implements View.OnClickListener {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar) == null) {
                     com.kwad.sdk.core.e.b.d("DownloadTipsDialogWebCardPresenter", "onAdClicked convertBridgeClicked: " + this.DR.DQ);
-                    this.DR.DQ = true;
+                    e.a(this.DR, true);
                 }
             }
         };
@@ -216,6 +216,11 @@ public final class e extends c implements View.OnClickListener {
             aVar.a(new q(this.bL));
             aVar.a(new s(this.mJsBridgeContext));
         }
+    }
+
+    public static /* synthetic */ boolean a(e eVar, boolean z) {
+        eVar.DQ = true;
+        return true;
     }
 
     @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface", "JavascriptInterface"})
@@ -392,7 +397,7 @@ public final class e extends c implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09113b);
+            this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091146);
         }
     }
 

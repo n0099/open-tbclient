@@ -1,65 +1,35 @@
 package com.baidu.tieba;
 
+import android.media.MediaCodec;
+import android.media.MediaCrypto;
+import android.media.MediaFormat;
+import android.view.Surface;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes4.dex */
-public final class ie0 {
+public class ie0 extends de0 {
     public static /* synthetic */ Interceptable $ic;
-    public static ie0 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ExecutorService a;
+    public Surface l;
 
-    /* loaded from: classes4.dex */
-    public static class a implements ThreadFactory {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final AtomicInteger a;
-        public final String b;
-        public int c;
-
-        public a(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new AtomicInteger(1);
-            this.c = 5;
-            this.b = str + "-";
-            this.c = i;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947850485, "Lcom/baidu/tieba/ie0;")) == null) {
+            return;
         }
-
-        @Override // java.util.concurrent.ThreadFactory
-        public Thread newThread(Runnable runnable) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                Thread thread = new Thread(runnable, this.b + this.a.getAndIncrement());
-                if (thread.isDaemon()) {
-                    thread.setDaemon(true);
-                }
-                thread.setPriority(this.c);
-                return thread;
-            }
-            return (Thread) invokeL.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947850485, "Lcom/baidu/tieba/ie0;");
         }
     }
 
@@ -67,39 +37,78 @@ public final class ie0 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public Surface k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.l;
+        }
+        return (Surface) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.de0
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.h == 0) {
+                this.h = this.e.presentationTimeUs;
+                de0.j = 0L;
+            }
+            MediaCodec.BufferInfo bufferInfo = this.e;
+            long j = bufferInfo.presentationTimeUs - this.h;
+            bufferInfo.presentationTimeUs = j;
+            de0.j = j;
+            yd0.x().V(de0.j / 1000);
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:15:0x0060  */
+    /* JADX WARN: Removed duplicated region for block: B:22:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void l(fe0 fe0Var, ge0 ge0Var) {
+        ee0 ee0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, fe0Var, ge0Var) == null) {
+            boolean z = true;
+            if (fe0Var != null && ge0Var != null) {
+                this.c = ge0Var;
+                MediaFormat createVideoFormat = MediaFormat.createVideoFormat(fe0Var.j(), fe0Var.n(), fe0Var.l());
+                createVideoFormat.setInteger("color-format", 2130708361);
+                createVideoFormat.setInteger("bitrate", fe0Var.i());
+                createVideoFormat.setInteger("frame-rate", fe0Var.k());
+                createVideoFormat.setInteger("i-frame-interval", fe0Var.m());
+                try {
+                    MediaCodec createEncoderByType = MediaCodec.createEncoderByType(fe0Var.j());
+                    this.d = createEncoderByType;
+                    createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
+                    this.l = this.d.createInputSurface();
+                    this.g = true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                ee0Var = this.f;
+                if (ee0Var == null) {
+                    ee0Var.b(z);
+                    return;
+                }
                 return;
             }
-        }
-        new ThreadPoolExecutor(0, 5, 180L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread", 5));
-        this.a = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread-Single", 5));
-    }
-
-    public static synchronized ie0 b() {
-        InterceptResult invokeV;
-        ie0 ie0Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (ie0.class) {
-                if (b == null) {
-                    b = new ie0();
-                }
-                ie0Var = b;
+            z = false;
+            ee0Var = this.f;
+            if (ee0Var == null) {
             }
-            return ie0Var;
-        }
-        return (ie0) invokeV.objValue;
-    }
-
-    public void a(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            this.a.execute(runnable);
         }
     }
 }

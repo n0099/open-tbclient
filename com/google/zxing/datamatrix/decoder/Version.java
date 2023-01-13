@@ -12,7 +12,7 @@ import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.google.android.material.behavior.HideBottomViewOnScrollBehavior;
 import com.google.zxing.FormatException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class Version {
     public static /* synthetic */ Interceptable $ic;
     public static final Version[] VERSIONS;
@@ -26,13 +26,13 @@ public final class Version {
     public final int versionNumber;
 
     /* renamed from: com.google.zxing.datamatrix.decoder.Version$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class ECB {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +81,7 @@ public final class Version {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class ECBlocks {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

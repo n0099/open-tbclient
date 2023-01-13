@@ -17,11 +17,11 @@ import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.view.SwanAppRoundCornerListView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ln2;
-import com.baidu.tieba.o33;
-import com.baidu.tieba.p33;
-import com.baidu.tieba.r33;
-import com.baidu.tieba.rj3;
+import com.baidu.tieba.qn2;
+import com.baidu.tieba.t33;
+import com.baidu.tieba.u33;
+import com.baidu.tieba.w33;
+import com.baidu.tieba.wj3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,14 +30,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.view.SimpleDraweeView;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class SwanImageMenuView extends FrameLayout implements o33.g {
+public class SwanImageMenuView extends FrameLayout implements t33.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public c b;
     public Context c;
     public SwanAppRoundCornerListView d;
-    public rj3 e;
+    public wj3 e;
     public View f;
     public int g;
 
@@ -111,7 +111,7 @@ public class SwanImageMenuView extends FrameLayout implements o33.g {
     public static class c extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<p33> a;
+        public List<u33> a;
         public Context b;
 
         @Override // android.widget.Adapter
@@ -121,7 +121,7 @@ public class SwanImageMenuView extends FrameLayout implements o33.g {
             return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i : invokeI.longValue;
         }
 
-        public c(Context context, List<p33> list) {
+        public c(Context context, List<u33> list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -144,9 +144,9 @@ public class SwanImageMenuView extends FrameLayout implements o33.g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view2, i) == null) {
                 if (i == 0) {
-                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811d3));
+                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811e9));
                 } else {
-                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811d2));
+                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811e8));
                 }
             }
         }
@@ -154,25 +154,25 @@ public class SwanImageMenuView extends FrameLayout implements o33.g {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
         /* renamed from: a */
-        public p33 getItem(int i) {
+        public u33 getItem(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
                 return this.a.get(i);
             }
-            return (p33) invokeI.objValue;
+            return (u33) invokeI.objValue;
         }
 
         public void b(int i) {
-            p33 p33Var;
-            p33.a d;
+            u33 u33Var;
+            u33.a d;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (d = (p33Var = this.a.get(i)).d()) != null) {
-                d.a(p33Var);
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (d = (u33Var = this.a.get(i)).d()) != null) {
+                d.a(u33Var);
             }
         }
 
-        public void d(List<p33> list) {
+        public void d(List<u33> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
                 this.a = list;
@@ -196,17 +196,17 @@ public class SwanImageMenuView extends FrameLayout implements o33.g {
             View inflate;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-                p33 item = getItem(i);
-                if (item instanceof r33) {
-                    inflate = View.inflate(this.b, R.layout.obfuscated_res_0x7f0d083f, null);
-                    String i2 = ((r33) item).i();
+                u33 item = getItem(i);
+                if (item instanceof w33) {
+                    inflate = View.inflate(this.b, R.layout.obfuscated_res_0x7f0d083d, null);
+                    String i2 = ((w33) item).i();
                     if (!TextUtils.isEmpty(i2)) {
-                        ((SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f090e96)).setImageURI(i2);
+                        ((SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f090ea0)).setImageURI(i2);
                     }
-                    ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0916bb)).setText(item.e());
+                    ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0916cb)).setText(item.e());
                 } else {
-                    inflate = View.inflate(this.b, R.layout.obfuscated_res_0x7f0d00cf, null);
-                    TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921ce);
+                    inflate = View.inflate(this.b, R.layout.obfuscated_res_0x7f0d00ce, null);
+                    TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092200);
                     textView.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f060396));
                     textView.setText(item.e());
                 }
@@ -291,7 +291,7 @@ public class SwanImageMenuView extends FrameLayout implements o33.g {
         c();
     }
 
-    public void d(List<p33> list) {
+    public void d(List<u33> list) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || this.a) {
             return;
@@ -307,27 +307,27 @@ public class SwanImageMenuView extends FrameLayout implements o33.g {
         this.a = true;
     }
 
-    public void setMenu(rj3 rj3Var) {
+    public void setMenu(wj3 wj3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, rj3Var) == null) {
-            this.e = rj3Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, wj3Var) == null) {
+            this.e = wj3Var;
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d083e, (ViewGroup) null);
-            SwanAppRoundCornerListView swanAppRoundCornerListView = (SwanAppRoundCornerListView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0913ba);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d083c, (ViewGroup) null);
+            SwanAppRoundCornerListView swanAppRoundCornerListView = (SwanAppRoundCornerListView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0913c6);
             this.d = swanAppRoundCornerListView;
             swanAppRoundCornerListView.setOnItemClickListener(new a(this));
             this.d.setSelector(new ColorDrawable(0));
             ((TextView) linearLayout.findViewById(R.id.negative_button)).setOnClickListener(new b(this));
             addView(linearLayout);
-            if (ln2.M().a()) {
+            if (qn2.M().a()) {
                 View view2 = new View(this.c);
                 this.f = view2;
-                view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811d4);
+                view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811ea);
                 this.f.setVisibility(8);
                 addView(this.f);
             }

@@ -141,7 +141,7 @@ public interface HttpDataSource extends DataSource {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.android.exoplayer2.upstream.HttpDataSource.Factory, com.google.android.exoplayer2.upstream.DataSource.Factory
+        @Override // com.google.android.exoplayer2.upstream.DataSource.Factory
         public final HttpDataSource createDataSource() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;

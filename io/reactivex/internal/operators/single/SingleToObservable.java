@@ -14,13 +14,13 @@ import io.reactivex.annotations.Experimental;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.observers.DeferredScalarDisposable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class SingleToObservable<T> extends Observable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final SingleSource<? extends T> source;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class SingleToObservableObserver<T> extends DeferredScalarDisposable<T> implements SingleObserver<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3786543492451018833L;

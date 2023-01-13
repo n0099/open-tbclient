@@ -1,57 +1,65 @@
 package com.baidu.tieba;
 
-import androidx.annotation.CallSuper;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
-public abstract class x76 extends r0 {
+public class x76 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final u76 d;
 
-    public abstract void j();
-
-    public x76(u76 danmakuContext) {
+    public static void a(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {danmakuContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(65536, null, view2) == null) {
+            try {
+                ViewParent parent = view2.getRootView().getParent();
+                Method declaredMethod = parent.getClass().getDeclaredMethod("handleDispatchDoneAnimating", new Class[0]);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(parent, new Object[0]);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
-        Intrinsics.checkNotNullParameter(danmakuContext, "danmakuContext");
-        this.d = danmakuContext;
     }
 
-    @Override // com.baidu.tieba.r0
-    @CallSuper
-    public void g(o0 engine) {
+    public static void b(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, engine) == null) {
-            Intrinsics.checkNotNullParameter(engine, "engine");
-            super.g(engine);
-            j();
+        if (interceptable == null || interceptable.invokeL(65537, null, view2) == null) {
+            ViewParent parent = view2.getParent();
+            if (parent instanceof ViewGroup) {
+                ((ViewGroup) parent).removeView(view2);
+            }
         }
     }
 
-    public final u76 i() {
-        InterceptResult invokeV;
+    public static void c(View view2) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+        if ((interceptable == null || interceptable.invokeL(65538, null, view2) == null) && (i = Build.VERSION.SDK_INT) <= 23 && i >= 17) {
+            if (i < 17) {
+                a(view2);
+                return;
+            }
+            try {
+                ViewParent parent = view2.getRootView().getParent();
+                Method declaredMethod = parent.getClass().getDeclaredMethod("setDrawDuringWindowsAnimating", Boolean.TYPE);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(parent, Boolean.TRUE);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        return (u76) invokeV.objValue;
+    }
+
+    public static void d(@NonNull View view2, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65539, null, view2, i) == null) && view2.getVisibility() != i) {
+            view2.setVisibility(i);
+        }
     }
 }

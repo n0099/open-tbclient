@@ -37,7 +37,8 @@ public final class PausingDispatcher extends CoroutineDispatcher {
 
     @Override // kotlinx.coroutines.CoroutineDispatcher
     @ExperimentalCoroutinesApi
-    public void dispatch(CoroutineContext coroutineContext, Runnable runnable) {
+    /* renamed from: dispatch */
+    public void mo2188dispatch(CoroutineContext coroutineContext, Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, coroutineContext, runnable) == null) {
             this.dispatchQueue.runOrEnqueue(runnable);

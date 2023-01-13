@@ -3,18 +3,25 @@ package com.baidu.tieba.ala.alasquare.live;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.view.BottomCommonTipLayout;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.live.feedpage.interfaces.ILiveFeedPageView;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaTabFeedActivityConfig;
+import com.baidu.tbadk.core.util.MemberBroadcastHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.data.MemberBroadcastData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dy5;
-import com.baidu.tieba.fb0;
+import com.baidu.tieba.kb0;
+import com.baidu.tieba.xy5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,6 +33,50 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
     public NavigationBar a;
     public ILiveFeedPageView b;
     public String c;
+    public BottomCommonTipLayout d;
+    public final CustomMessageListener e;
+
+    /* loaded from: classes3.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AlaLiveTabFeedActivity a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(AlaLiveTabFeedActivity alaLiveTabFeedActivity, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {alaLiveTabFeedActivity, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = alaLiveTabFeedActivity;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof MemberBroadcastData)) {
+                MemberBroadcastData memberBroadcastData = (MemberBroadcastData) customResponsedMessage.getData();
+                MemberBroadcastHelper memberBroadcastHelper = new MemberBroadcastHelper(memberBroadcastData);
+                if (!this.a.isResumed || !memberBroadcastHelper.isMeetFrequency()) {
+                    return;
+                }
+                this.a.Q0(memberBroadcastData);
+            }
+        }
+    }
 
     public AlaLiveTabFeedActivity() {
         Interceptable interceptable = $ic;
@@ -41,12 +92,13 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
             }
         }
         this.c = "index";
+        this.e = new a(this, 2921774);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
             ILiveFeedPageView iLiveFeedPageView = this.b;
             if (iLiveFeedPageView != null) {
@@ -58,7 +110,7 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onPause();
             ILiveFeedPageView iLiveFeedPageView = this.b;
             if (iLiveFeedPageView != null) {
@@ -71,7 +123,7 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onResume();
             ILiveFeedPageView iLiveFeedPageView = this.b;
             if (iLiveFeedPageView != null) {
@@ -84,7 +136,7 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onStart();
             ILiveFeedPageView iLiveFeedPageView = this.b;
             if (iLiveFeedPageView != null) {
@@ -96,7 +148,7 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onStop();
             ILiveFeedPageView iLiveFeedPageView = this.b;
             if (iLiveFeedPageView != null) {
@@ -105,11 +157,32 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
         }
     }
 
+    public final void Q0(MemberBroadcastData memberBroadcastData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, memberBroadcastData) != null) || memberBroadcastData == null) {
+            return;
+        }
+        if (this.d == null) {
+            this.d = new BottomCommonTipLayout(this);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
+            layoutParams.bottomMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X004);
+            layoutParams.leftMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X007);
+            layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X007);
+            layoutParams.gravity = 80;
+            this.d.setLayoutParams(layoutParams);
+            ViewGroup viewGroup = (ViewGroup) findViewById(16908290);
+            if (viewGroup != null) {
+                viewGroup.addView(this.d);
+            }
+        }
+        this.d.o(memberBroadcastData, "live_tab_vip_brd", 3, "");
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             this.a.onChangeSkinType(getPageContext(), i);
             if (i == 1) {
                 str = "night";
@@ -123,15 +196,19 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
             if (iLiveFeedPageView != null) {
                 iLiveFeedPageView.onDarkModeChange(str);
             }
+            BottomCommonTipLayout bottomCommonTipLayout = this.d;
+            if (bottomCommonTipLayout != null) {
+                bottomCommonTipLayout.g();
+            }
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d00fe);
+            setContentView(R.layout.obfuscated_res_0x7f0d00fd);
             if (getIntent() != null && !StringUtils.isNull(getIntent().getStringExtra(AlaTabFeedActivityConfig.KEY_PAGE_SOURCE))) {
                 this.c = getIntent().getStringExtra(AlaTabFeedActivityConfig.KEY_PAGE_SOURCE);
             }
@@ -140,10 +217,10 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
             this.a = navigationBar;
             navigationBar.setCenterTextTitle(getString(R.string.ala_live));
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            dy5.a().c(TbadkCoreApplication.getInst());
-            fb0 fb0Var = new fb0();
-            this.b = fb0Var;
-            View onCreateView = fb0Var.onCreateView(this, null, LiveFeedPageSdk.HOST_LIVE_TAB, this.c, null, null, false);
+            xy5.a().c(TbadkCoreApplication.getInst());
+            kb0 kb0Var = new kb0();
+            this.b = kb0Var;
+            View onCreateView = kb0Var.onCreateView(this, null, LiveFeedPageSdk.HOST_LIVE_TAB, this.c, null, null, false);
             if (onCreateView.getParent() instanceof ViewGroup) {
                 ((ViewGroup) onCreateView.getParent()).removeView(onCreateView);
             }
@@ -152,6 +229,7 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
             if (iLiveFeedPageView != null) {
                 iLiveFeedPageView.lazyLoad();
             }
+            registerListener(this.e);
         }
     }
 }

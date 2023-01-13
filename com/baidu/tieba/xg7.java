@@ -1,268 +1,245 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
+import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.LinkedList;
 /* loaded from: classes6.dex */
 public class xg7 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static long a = 300;
-    public static long b = 100;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948299489, "Lcom/baidu/tieba/xg7;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948299489, "Lcom/baidu/tieba/xg7;");
+    public static void a(LinkedList<ImMessageCenterPojo> linkedList, ImMessageCenterPojo imMessageCenterPojo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, linkedList, imMessageCenterPojo) == null) && linkedList != null && imMessageCenterPojo != null) {
+            int i = 0;
+            int size = linkedList.size();
+            while (i < size) {
+                ImMessageCenterPojo imMessageCenterPojo2 = linkedList.get(i);
+                if (imMessageCenterPojo2 != null && imMessageCenterPojo.getLast_content_time() > imMessageCenterPojo2.getLast_content_time()) {
+                    break;
+                }
+                i++;
+            }
+            linkedList.add(i, imMessageCenterPojo);
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class a extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-
-        public a(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static void b() {
+        LinkedList<ImMessageCenterPojo> e;
+        ImMessageCenterPojo imMessageCenterPojo;
+        ImMessageCenterPojo fromCommonMsg;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && (e = wg7.f().e()) != null && e.size() != 0) {
+            BdLog.i("upgradeData");
+            LinkedList linkedList = new LinkedList();
+            LinkedList linkedList2 = new LinkedList();
+            long j = 0;
+            int i = 0;
+            for (String str : zg7.w().i()) {
+                if (!TextUtils.isEmpty(str)) {
+                    long j2 = zg7.w().j(str);
+                    if (j < j2) {
+                        j = j2;
+                    }
+                    CommonMsgPojo k = zg7.w().k(str);
+                    if (k != null && (fromCommonMsg = ImMessageCenterPojo.fromCommonMsg(k)) != null) {
+                        if (fromCommonMsg.getIsFriend() == 0 && fromCommonMsg.getUnread_count() > 0) {
+                            i = 1;
+                        }
+                        fromCommonMsg.setUnread_count(zg7.w().m(str));
+                        a(linkedList, fromCommonMsg);
+                    }
                 }
             }
-            this.a = view2;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.setVisibility(8);
-                this.a.setAlpha(0.0f);
-            }
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.a.setVisibility(8);
-                this.a.setAlpha(0.0f);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final View a;
-
-        public b(@NonNull View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            int i2 = 0;
+            for (String str2 : yg7.w().i()) {
+                if (!TextUtils.isEmpty(str2)) {
+                    long j3 = yg7.w().j(str2);
+                    if (j < j3) {
+                        j = j3;
+                    }
+                    CommonMsgPojo k2 = yg7.w().k(str2);
+                    if (k2 != null) {
+                        k2.checkRidAndSelf();
+                        ImMessageCenterPojo fromCommonMsg2 = ImMessageCenterPojo.fromCommonMsg(k2);
+                        if (fromCommonMsg2 != null) {
+                            int m = yg7.w().m(str2);
+                            fromCommonMsg2.setUnread_count(m);
+                            if (m > 0) {
+                                i2 = 1;
+                            }
+                            a(linkedList2, fromCommonMsg2);
+                        }
+                    }
                 }
             }
-            this.a = view2;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-                layoutParams.height = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                this.a.setLayoutParams(layoutParams);
-            }
-        }
-
-        public /* synthetic */ b(View view2, a aVar) {
-            this(view2);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final View a;
-        public final int b;
-        public final int c;
-
-        public c(@NonNull View view2, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            Iterator<ImMessageCenterPojo> it = e.iterator();
+            ImMessageCenterPojo imMessageCenterPojo2 = null;
+            ImMessageCenterPojo imMessageCenterPojo3 = null;
+            ImMessageCenterPojo imMessageCenterPojo4 = null;
+            ImMessageCenterPojo imMessageCenterPojo5 = null;
+            ImMessageCenterPojo imMessageCenterPojo6 = null;
+            ImMessageCenterPojo imMessageCenterPojo7 = null;
+            while (it.hasNext()) {
+                ImMessageCenterPojo next = it.next();
+                if (next != null && next.getGid() != null) {
+                    if (next.getGid().equals(TbEnum.CustomGroupId.OFFICIAL_MERGE)) {
+                        imMessageCenterPojo2 = next;
+                    } else if (next.getGid().equals(TbEnum.CustomGroupId.STRANGE_MERGE)) {
+                        imMessageCenterPojo3 = next;
+                    } else if (next.getCustomGroupType() == 0 && next.getGroup_name() != null && next.getGroup_name().equals("系统消息群")) {
+                        imMessageCenterPojo4 = next;
+                    } else if (next.getGid().equals("9") && next.getCustomGroupType() == 5) {
+                        imMessageCenterPojo5 = next;
+                    } else if (next.getGid().equals("10") && next.getCustomGroupType() == 6) {
+                        imMessageCenterPojo6 = next;
+                    } else if (next.getGroup_name() != null && next.getGroup_name().equals("我的私聊") && next.getCustomGroupType() == 2) {
+                        imMessageCenterPojo7 = next;
+                    }
                 }
             }
-            this.a = view2;
-            this.b = i;
-            this.c = i2;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-                layoutParams.width = this.b;
-                layoutParams.height = this.c;
-                this.a.setLayoutParams(layoutParams);
+            if (imMessageCenterPojo2 == null) {
+                imMessageCenterPojo2 = new ImMessageCenterPojo();
+                imMessageCenterPojo2.setGid(TbEnum.CustomGroupId.OFFICIAL_MERGE);
+                imMessageCenterPojo2.setCustomGroupType(-8);
+                imMessageCenterPojo2.setIs_hidden(1);
+                imMessageCenterPojo2.setUnread_count(0);
+            } else {
+                imMessageCenterPojo2.setGid(TbEnum.CustomGroupId.OFFICIAL_MERGE);
+                imMessageCenterPojo2.setCustomGroupType(-8);
+                imMessageCenterPojo2.setUnread_count(i2);
+                e.remove(imMessageCenterPojo2);
             }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class d extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final RecyclerView.ViewHolder a;
-
-        public d(@NonNull RecyclerView.ViewHolder viewHolder) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {viewHolder};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (linkedList2.size() > 0) {
+                imMessageCenterPojo2.setLast_content(((ImMessageCenterPojo) linkedList2.get(0)).getLast_content());
+                imMessageCenterPojo2.setLast_content_time(((ImMessageCenterPojo) linkedList2.get(0)).getLast_content_time());
+                imMessageCenterPojo2.setLast_rid(((ImMessageCenterPojo) linkedList2.get(0)).getLast_rid());
+                imMessageCenterPojo2.setLast_user_name(((ImMessageCenterPojo) linkedList2.get(0)).getLast_user_name());
+            }
+            wg7.f().n(imMessageCenterPojo2, 2);
+            if (linkedList2.size() > 0) {
+                Iterator it2 = linkedList2.iterator();
+                while (it2.hasNext()) {
+                    ImMessageCenterPojo imMessageCenterPojo8 = (ImMessageCenterPojo) it2.next();
+                    imMessageCenterPojo8.setCustomGroupType(4);
+                    Iterator<ImMessageCenterPojo> it3 = e.iterator();
+                    while (true) {
+                        if (it3.hasNext()) {
+                            ImMessageCenterPojo next2 = it3.next();
+                            if (next2.getGid() != null && next2.getGid().equals(imMessageCenterPojo8.getGid())) {
+                                imMessageCenterPojo8.setIs_hidden(next2.getIs_hidden());
+                                break;
+                            }
+                        }
+                    }
+                    wg7.f().n(imMessageCenterPojo8, 2);
                 }
             }
-            this.a = viewHolder;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.setIsRecyclable(true);
+            if (linkedList.size() > 0) {
+                Iterator it4 = linkedList.iterator();
+                while (it4.hasNext()) {
+                    ImMessageCenterPojo imMessageCenterPojo9 = (ImMessageCenterPojo) it4.next();
+                    imMessageCenterPojo9.setCustomGroupType(2);
+                    Iterator<ImMessageCenterPojo> it5 = e.iterator();
+                    while (true) {
+                        if (it5.hasNext()) {
+                            ImMessageCenterPojo next3 = it5.next();
+                            if (next3.getGid() != null && next3.getGid().equals(imMessageCenterPojo9.getGid())) {
+                                imMessageCenterPojo9.setIs_hidden(next3.getIs_hidden());
+                                break;
+                            }
+                        }
+                    }
+                    wg7.f().n(imMessageCenterPojo9, 2);
+                }
             }
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.a.setIsRecyclable(true);
+            if (imMessageCenterPojo3 == null) {
+                imMessageCenterPojo3 = new ImMessageCenterPojo();
+                imMessageCenterPojo3.setGid(TbEnum.CustomGroupId.STRANGE_MERGE);
+                imMessageCenterPojo3.setCustomGroupType(-7);
+                imMessageCenterPojo3.setIs_hidden(1);
+                imMessageCenterPojo3.setUnread_count(0);
+            } else {
+                imMessageCenterPojo3.setGid(TbEnum.CustomGroupId.STRANGE_MERGE);
+                imMessageCenterPojo3.setCustomGroupType(-7);
+                imMessageCenterPojo3.setUnread_count(i);
+                e.remove(imMessageCenterPojo3);
             }
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-                this.a.setIsRecyclable(false);
+            if (linkedList.size() > 0) {
+                Iterator it6 = linkedList.iterator();
+                while (true) {
+                    if (it6.hasNext()) {
+                        imMessageCenterPojo = (ImMessageCenterPojo) it6.next();
+                        if (imMessageCenterPojo.getIsFriend() == 0) {
+                            break;
+                        }
+                    } else {
+                        imMessageCenterPojo = null;
+                        break;
+                    }
+                }
+                if (imMessageCenterPojo != null) {
+                    imMessageCenterPojo3.setLast_content(imMessageCenterPojo.getLast_content());
+                    imMessageCenterPojo3.setLast_content_time(imMessageCenterPojo.getLast_content_time());
+                    imMessageCenterPojo3.setLast_rid(imMessageCenterPojo.getLast_rid());
+                    imMessageCenterPojo3.setLast_user_name(imMessageCenterPojo.getLast_user_name());
+                }
             }
-        }
-    }
-
-    public static void a(RecyclerView.ViewHolder viewHolder, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, viewHolder, view2) == null) {
-            view2.setVisibility(8);
-            Animator c2 = c(viewHolder);
-            view2.setVisibility(0);
-            c2.addListener(new a(view2));
-            c2.start();
-        }
-    }
-
-    public static Animator b(@NonNull View view2, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, view2, i, i2)) == null) {
-            ValueAnimator ofInt = ValueAnimator.ofInt(i, i2);
-            ofInt.setDuration(a);
-            ofInt.addUpdateListener(new b(view2, null));
-            return ofInt;
-        }
-        return (Animator) invokeLII.objValue;
-    }
-
-    public static Animator c(@NonNull RecyclerView.ViewHolder viewHolder) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, viewHolder)) == null) {
-            View view2 = (View) viewHolder.itemView.getParent();
-            if (view2 != null) {
-                int measuredHeight = viewHolder.itemView.getMeasuredHeight();
-                viewHolder.itemView.measure(View.MeasureSpec.makeMeasureSpec(view2.getMeasuredWidth(), Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(0, 0));
-                Animator b2 = b(viewHolder.itemView, measuredHeight, viewHolder.itemView.getMeasuredHeight());
-                b2.addListener(new d(viewHolder));
-                b2.addListener(new c(viewHolder.itemView, -1, -2));
-                return b2;
+            wg7.f().n(imMessageCenterPojo3, 2);
+            if (imMessageCenterPojo4 == null) {
+                imMessageCenterPojo4 = new ImMessageCenterPojo();
+            } else {
+                wg7.f().c(imMessageCenterPojo4.getGid(), 0);
             }
-            throw new IllegalStateException("Cannot animate the layout of a view that has no parent");
-        }
-        return (Animator) invokeL.objValue;
-    }
-
-    public static void d(@NonNull RecyclerView.ViewHolder viewHolder, @NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, viewHolder, view2) == null) {
-            view2.setVisibility(0);
-            Animator c2 = c(viewHolder);
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, View.ALPHA, 1.0f);
-            ofFloat.setDuration(a + b);
-            ofFloat.addListener(new d(viewHolder));
-            AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.playTogether(c2, ofFloat);
-            animatorSet.start();
+            imMessageCenterPojo4.setCustomGroupType(-2);
+            imMessageCenterPojo4.setIs_hidden(1);
+            imMessageCenterPojo4.setPulled_msgId(0L);
+            wg7.f().n(imMessageCenterPojo4, 2);
+            if (imMessageCenterPojo5 == null) {
+                imMessageCenterPojo5 = new ImMessageCenterPojo();
+            }
+            ImMessageCenterPojo imMessageCenterPojo10 = imMessageCenterPojo5;
+            imMessageCenterPojo10.setCustomGroupType(5);
+            imMessageCenterPojo10.setIs_hidden(1);
+            imMessageCenterPojo10.setPulled_msgId(0L);
+            wg7.f().n(imMessageCenterPojo10, 2);
+            if (imMessageCenterPojo6 == null) {
+                imMessageCenterPojo6 = new ImMessageCenterPojo();
+            }
+            ImMessageCenterPojo imMessageCenterPojo11 = imMessageCenterPojo6;
+            imMessageCenterPojo11.setCustomGroupType(6);
+            imMessageCenterPojo11.setIs_hidden(1);
+            imMessageCenterPojo11.setPulled_msgId(0L);
+            wg7.f().n(imMessageCenterPojo11, 2);
+            if (imMessageCenterPojo7 == null) {
+                imMessageCenterPojo7 = new ImMessageCenterPojo();
+            } else {
+                wg7.f().c(imMessageCenterPojo7.getGid(), 2);
+            }
+            ImMessageCenterPojo imMessageCenterPojo12 = imMessageCenterPojo7;
+            imMessageCenterPojo12.setCustomGroupType(-1);
+            imMessageCenterPojo12.setIs_hidden(1);
+            imMessageCenterPojo12.setPulled_msgId(j);
+            wg7.f().n(imMessageCenterPojo12, 2);
+            ImMessageCenterPojo imMessageCenterPojo13 = new ImMessageCenterPojo();
+            imMessageCenterPojo13.setGid(TbEnum.CustomGroupId.GROUP_VALIDATION);
+            imMessageCenterPojo13.setCustomGroupType(-4);
+            imMessageCenterPojo13.setIs_hidden(!cz4.l().i("is_show_validate", true));
+            imMessageCenterPojo13.setUnread_count(qg7.c().d("apply_join_group", 1));
+            LinkedList<GroupNewsPojo> b = qg7.c().b(0L, 1, 0, "apply_join_group");
+            if (b != null && b.size() > 0) {
+                imMessageCenterPojo13.setLast_content(b.get(0).getContent());
+                imMessageCenterPojo13.setLast_content_time(b.get(0).getTime());
+            }
+            wg7.f().n(imMessageCenterPojo13, 2);
+            ug7.d().c("delete from tb_message_center where custom_group_type is null or custom_group_type=0 or gid in (0,2,3,6,11,12)");
         }
     }
 }

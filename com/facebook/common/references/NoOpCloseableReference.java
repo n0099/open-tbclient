@@ -15,7 +15,8 @@ public class NoOpCloseableReference<T> extends CloseableReference<T> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.references.CloseableReference
-    public CloseableReference<T> clone() {
+    /* renamed from: clone */
+    public CloseableReference<T> mo81clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (CloseableReference) invokeV.objValue;

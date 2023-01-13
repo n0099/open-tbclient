@@ -2,8 +2,8 @@ package com.baidu.tieba.pb.pb.main;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.i08;
 import com.baidu.tieba.pb.PbPageRequestMessage;
+import com.baidu.tieba.y48;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean markCache;
-    public i08 pbData;
+    public y48 pbData;
     public String postId;
     public int updateType;
 
@@ -37,13 +37,13 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         }
     }
 
-    public i08 getPbData() {
+    public y48 getPbData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.pbData;
         }
-        return (i08) invokeV.objValue;
+        return (y48) invokeV.objValue;
     }
 
     public int getUpdateType() {
@@ -73,9 +73,9 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         setError(pbPageResIdl.error.errorno.intValue());
         setErrorString(pbPageResIdl.error.usermsg);
         if (getError() == 0 && pbPageResIdl.data != null) {
-            i08 i08Var = new i08();
-            this.pbData = i08Var;
-            i08Var.F0(1);
+            y48 y48Var = new y48();
+            this.pbData = y48Var;
+            y48Var.F0(1);
             try {
                 this.pbData.E0(pbPageResIdl.data);
                 if (!this.pbData.x0()) {
@@ -95,10 +95,10 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         }
     }
 
-    public void setPbData(i08 i08Var) {
+    public void setPbData(y48 y48Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, i08Var) == null) {
-            this.pbData = i08Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, y48Var) == null) {
+            this.pbData = y48Var;
         }
     }
 

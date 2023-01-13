@@ -1,154 +1,138 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewStub;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
+import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.Post;
-import tbclient.User;
+import java.util.Date;
 /* loaded from: classes7.dex */
-public class zz7 {
+public class zz7 extends te5<yz7, oe5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public View b;
-    public TextView c;
-    public yz7 d;
-    public yz7 e;
-    public yz7 f;
-    public View g;
+    public View f;
+    public TextView g;
+    public TextView h;
+    public TextView i;
+    public TextView j;
+    public View k;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(String str);
-    }
-
-    public zz7(Context context, a aVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zz7(TbPageContext<?> tbPageContext, View view2, ViewEventCenter viewEventCenter) {
+        super(tbPageContext, view2, viewEventCenter);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, aVar};
+            Object[] objArr = {tbPageContext, view2, viewEventCenter};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (View) objArr2[1], (ViewEventCenter) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01da, (ViewGroup) null);
-        this.b = inflate;
-        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090653);
-        this.g = this.b.findViewById(R.id.obfuscated_res_0x7f090650);
-        this.a = this.b.findViewById(R.id.obfuscated_res_0x7f0906b1);
-        this.d = new yz7((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f090654), aVar);
-        this.e = new yz7((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f090655), aVar);
-        this.f = new yz7((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f090656), aVar);
+        this.f = view2;
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922ff);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09070b);
+        this.h = textView;
+        textView.setSingleLine();
+        this.h.setEllipsize(TextUtils.TruncateAt.END);
+        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922ca);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091451);
+        this.k = view2.findViewById(R.id.obfuscated_res_0x7f0913a9);
     }
 
-    public final User a(Post post, List<User> list) {
-        InterceptResult invokeLL;
-        Long l;
-        Long l2;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.we5
+    /* renamed from: j */
+    public void f(yz7 yz7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, post, list)) == null) {
-            if (post == null || list == null || list.isEmpty() || (l = post.author_id) == null) {
-                return null;
-            }
-            long longValue = l.longValue();
-            for (User user : list) {
-                if (user != null && (l2 = user.id) != null && l2.longValue() == longValue) {
-                    return user;
-                }
-            }
-            return null;
-        }
-        return (User) invokeLL.objValue;
-    }
-
-    public View b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setBackgroundResource(this.b, R.color.common_color_10187);
-            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.c, R.color.CAM_X0106, 1);
-            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
-            this.d.c();
-            this.e.c();
-            this.f.c();
-        }
-    }
-
-    public void d(List<Post> list, List<User> list2) {
-        boolean z;
-        boolean update;
-        boolean update2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, list, list2) == null) {
-            if (list != null && !list.isEmpty()) {
-                this.g.setVisibility(0);
-                int size = list.size();
-                if (size == 1) {
-                    z = this.d.update(list.get(0), a(list.get(0), list2));
-                    this.e.d(false);
-                    this.f.d(false);
-                } else {
-                    if (size == 2) {
-                        boolean update3 = this.d.update(list.get(0), a(list.get(0), list2));
-                        boolean update4 = this.e.update(list.get(1), a(list.get(1), list2));
-                        this.f.d(false);
-                        update = update4;
-                        z = update3;
-                        update2 = false;
-                    } else if (size >= 3) {
-                        boolean update5 = this.d.update(list.get(0), a(list.get(0), list2));
-                        update = this.e.update(list.get(1), a(list.get(1), list2));
-                        update2 = this.f.update(list.get(2), a(list.get(2), list2));
-                        z = update5;
-                    } else {
-                        z = false;
-                    }
-                    if (z && !update && !update2) {
-                        this.c.setVisibility(8);
-                        return;
-                    } else {
-                        this.c.setVisibility(0);
-                        return;
-                    }
-                }
-                update2 = false;
-                update = false;
-                if (z) {
-                }
-                this.c.setVisibility(0);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yz7Var) == null) {
+            super.f(yz7Var);
+            if (yz7Var == null) {
                 return;
             }
-            this.c.setVisibility(8);
-            this.d.d(false);
-            this.e.d(false);
-            this.f.d(false);
-            this.g.setVisibility(8);
+            int i = 0;
+            if (this.g != null) {
+                if (yz7Var.j() == 49) {
+                    if (StringUtils.isNull(yz7Var.c())) {
+                        if (StringUtils.isNull(yz7Var.m())) {
+                            this.g.setText(e(R.string.obfuscated_res_0x7f0f0e6d));
+                        } else {
+                            this.g.setText(yz7Var.m());
+                        }
+                    } else {
+                        this.g.setText(yz7Var.c());
+                    }
+                } else if (yz7Var.i() != null) {
+                    if (yz7Var.q()) {
+                        this.g.setText(String.format("%s%s", e(R.string.obfuscated_res_0x7f0f0e6f), yz7Var.i()));
+                    } else {
+                        this.g.setText(yz7Var.i());
+                    }
+                }
+            }
+            if (this.h != null) {
+                if (yz7Var.j() == 49 && !TextUtils.isEmpty(yz7Var.m())) {
+                    this.h.setText(String.format(e(R.string.obfuscated_res_0x7f0f0e70), yz7Var.m()));
+                } else if (yz7Var.j() == 49) {
+                    this.h.setText(String.format(e(R.string.obfuscated_res_0x7f0f0e70), e(R.string.obfuscated_res_0x7f0f0e6d)));
+                } else if (yz7Var.d() != null) {
+                    this.h.setText(yz7Var.d());
+                }
+            }
+            if (yz7Var.j() == 49) {
+                TextView textView = this.j;
+                if (!yz7Var.o()) {
+                    i = 8;
+                }
+                textView.setVisibility(i);
+            } else {
+                this.j.setVisibility(8);
+            }
+            if (this.i != null) {
+                String postTimeString = StringHelper.getPostTimeString(new Date(yz7Var.k()));
+                if (postTimeString == null) {
+                    postTimeString = "";
+                }
+                this.i.setText(postTimeString);
+            }
         }
+    }
+
+    @Override // com.baidu.tieba.fw8
+    @SuppressLint({"ResourceAsColor"})
+    public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i)) == null) {
+            SkinManager.setBackgroundResource(this.f, R.drawable.list_item_selector);
+            SkinManager.setBackgroundResource(this.k, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(this.h, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(this.i, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0101);
+            TBSelector.makeDrawableSelector().cornerRadius(UtilHelper.getDimenPixelSize(R.dimen.tbds6)).gradientLinear(DrawableSelector.LEFT_RIGHT, R.color.CAM_X0308, R.color.CAM_X0301).into(this.j);
+            return true;
+        }
+        return invokeLI.booleanValue;
     }
 }

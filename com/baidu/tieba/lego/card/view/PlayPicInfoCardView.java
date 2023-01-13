@@ -18,23 +18,23 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a56;
-import com.baidu.tieba.cm7;
-import com.baidu.tieba.dm7;
-import com.baidu.tieba.el7;
-import com.baidu.tieba.gn7;
-import com.baidu.tieba.ig5;
-import com.baidu.tieba.il7;
+import com.baidu.tieba.cq7;
+import com.baidu.tieba.f15;
+import com.baidu.tieba.h15;
+import com.baidu.tieba.hw8;
 import com.baidu.tieba.lego.card.model.PlayPicInfoCard;
 import com.baidu.tieba.lego.view.BannerFlowView;
 import com.baidu.tieba.lego.view.CommonImageButton;
-import com.baidu.tieba.lr8;
-import com.baidu.tieba.nl7;
-import com.baidu.tieba.u05;
-import com.baidu.tieba.w05;
-import com.baidu.tieba.wl7;
-import com.baidu.tieba.xn;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.lq7;
+import com.baidu.tieba.rq7;
+import com.baidu.tieba.s86;
+import com.baidu.tieba.sq7;
+import com.baidu.tieba.tp7;
+import com.baidu.tieba.vr7;
+import com.baidu.tieba.xg5;
+import com.baidu.tieba.xp7;
+import com.baidu.tieba.yn;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -62,7 +62,7 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
     public CommonImageButton y;
 
     /* loaded from: classes5.dex */
-    public class a implements u05.a<w05, gn7.a> {
+    public class a implements f15.a<h15, vr7.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PlayPicInfoCard a;
@@ -88,22 +88,22 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.u05.a
+        @Override // com.baidu.tieba.f15.a
         /* renamed from: b */
-        public void a(gn7.a aVar, w05 w05Var) {
+        public void a(vr7.a aVar, h15 h15Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, w05Var) == null) && (w05Var.b() instanceof PlayPicInfoCard.b)) {
-                PlayPicInfoCard.b bVar = (PlayPicInfoCard.b) w05Var.b();
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, h15Var) == null) && (h15Var.b() instanceof PlayPicInfoCard.b)) {
+                PlayPicInfoCard.b bVar = (PlayPicInfoCard.b) h15Var.b();
                 if (TextUtils.isEmpty(bVar.c)) {
                     return;
                 }
-                a56.b().d(true);
-                el7 f = il7.f(bVar.i, bVar.g, this.a.getCardType(), this.a.getItemId());
+                s86.b().d(true);
+                tp7 f = xp7.f(bVar.i, bVar.g, this.a.getCardType(), this.a.getItemId());
                 f.d("obj_id", bVar.a);
                 f.d(TiebaStatic.Params.OBJ_URL, bVar.c);
                 f.b("obj_locate", this.b.getStatPosition());
                 f.a(this.a);
-                lr8.c(this.b.i, bVar.c);
+                hw8.c(this.b.i, bVar.c);
             }
         }
     }
@@ -134,7 +134,7 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
             this.a = playPicInfoCard;
         }
 
-        @Override // com.baidu.tieba.pm7
+        @Override // com.baidu.tieba.er7
         public void a(int i) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || this.a.getDescOnPic() == 1) {
@@ -143,7 +143,7 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
             this.b.s.setCount(i);
         }
 
-        @Override // com.baidu.tieba.pm7
+        @Override // com.baidu.tieba.er7
         public void b(float f) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) != null) || this.a.getDescOnPic() == 1) {
@@ -212,8 +212,8 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.getImageResList().get(0) != null) {
-                lr8.c(this.b.i, this.a.getImageResList().get(0).c);
-                a56.b().d(true);
+                hw8.c(this.b.i, this.a.getImageResList().get(0).c);
+                s86.b().d(true);
             }
         }
     }
@@ -250,7 +250,7 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || TextUtils.isEmpty(this.a.b)) {
                 return;
             }
-            lr8.c(this.b.i, this.a.b);
+            hw8.c(this.b.i, this.a.b);
         }
     }
 
@@ -259,15 +259,15 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PlayPicInfoCard.a a;
-        public final /* synthetic */ cm7 b;
+        public final /* synthetic */ rq7 b;
         public final /* synthetic */ PlayPicInfoCardView c;
 
-        public e(PlayPicInfoCardView playPicInfoCardView, PlayPicInfoCard.a aVar, cm7 cm7Var) {
+        public e(PlayPicInfoCardView playPicInfoCardView, PlayPicInfoCard.a aVar, rq7 rq7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {playPicInfoCardView, aVar, cm7Var};
+                Object[] objArr = {playPicInfoCardView, aVar, rq7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -279,7 +279,7 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
             }
             this.c = playPicInfoCardView;
             this.a = aVar;
-            this.b = cm7Var;
+            this.b = rq7Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -288,15 +288,15 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !ViewHelper.checkUpIsLogin(this.c.i.getPageActivity())) {
                 return;
             }
-            nl7 a = nl7.a();
-            cm7 cm7Var = this.a.d;
-            a.d(cm7Var, cm7Var.b());
+            cq7 a = cq7.a();
+            rq7 rq7Var = this.a.d;
+            a.d(rq7Var, rq7Var.b());
             ((CommonImageButton) view2).b(this.b);
         }
     }
 
     /* loaded from: classes5.dex */
-    public class f extends w05 {
+    public class f extends h15 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String b;
@@ -329,7 +329,7 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
             }
         }
 
-        @Override // com.baidu.tieba.w05
+        @Override // com.baidu.tieba.h15
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -339,7 +339,7 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
             return (String) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.w05
+        @Override // com.baidu.tieba.h15
         public Object b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -407,7 +407,7 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
         }
     }
 
-    public final List<xn> H(PlayPicInfoCard playPicInfoCard) {
+    public final List<yn> H(PlayPicInfoCard playPicInfoCard) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, playPicInfoCard)) == null) {
@@ -440,19 +440,19 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
             } else {
                 str = waterMark.a;
             }
-            ((RelativeLayout.LayoutParams) this.t.getLayoutParams()).setMargins(yi.d(this.i.getPageActivity(), waterMark.c), yi.d(this.i.getPageActivity(), waterMark.d), 0, 0);
+            ((RelativeLayout.LayoutParams) this.t.getLayoutParams()).setMargins(zi.d(this.i.getPageActivity(), waterMark.c), zi.d(this.i.getPageActivity(), waterMark.d), 0, 0);
             this.t.K(str, 10, false);
         }
     }
 
-    public final void I(TextView textView, TbImageView tbImageView, dm7 dm7Var) {
+    public final void I(TextView textView, TbImageView tbImageView, sq7 sq7Var) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, textView, tbImageView, dm7Var) == null) {
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, textView, tbImageView, sq7Var) == null) {
             if (r()) {
-                str = dm7Var.b;
+                str = sq7Var.b;
             } else {
-                str = dm7Var.a;
+                str = sq7Var.a;
             }
             if (!TextUtils.isEmpty(str)) {
                 textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
@@ -460,9 +460,9 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
                 tbImageView.K(str, 10, false);
             } else {
                 tbImageView.setVisibility(8);
-                textView.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(wl7.a(dm7Var.c)), (Drawable) null, (Drawable) null, (Drawable) null);
+                textView.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(lq7.a(sq7Var.c)), (Drawable) null, (Drawable) null, (Drawable) null);
             }
-            textView.setText(dm7Var.d);
+            textView.setText(sq7Var.d);
         }
     }
 
@@ -472,7 +472,7 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
     public void t(PlayPicInfoCard playPicInfoCard, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, playPicInfoCard, i) == null) {
-            ig5.a(this.i, getRootView());
+            xg5.a(this.i, getRootView());
             SkinManager.setBackgroundResource(this.n, R.drawable.addresslist_item_bg);
             SkinManager.setViewTextColor(this.o, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.q, (int) R.color.CAM_X0105);
@@ -496,13 +496,13 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
             this.o.setMaxLines(playPicInfoCard.getMaxLineForToptitle());
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.m.getLayoutParams();
             if (playPicInfoCard.getRatio() > 0.0d) {
-                int ratio = (int) (playPicInfoCard.getRatio() * yi.l(getContext()));
+                int ratio = (int) (playPicInfoCard.getRatio() * zi.l(getContext()));
                 if (Math.abs(ratio - layoutParams.height) > 10) {
                     layoutParams.height = ratio;
                     this.m.setLayoutParams(layoutParams);
                 }
             } else {
-                layoutParams.height = (int) ((yi.l(getContext()) * 0.5f) + 0.5f);
+                layoutParams.height = (int) ((zi.l(getContext()) * 0.5f) + 0.5f);
                 this.m.setLayoutParams(layoutParams);
             }
             if (playPicInfoCard.getImageResList() != null && playPicInfoCard.getImageResList().size() > 0) {
@@ -531,7 +531,7 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
             if (playPicInfoCard.getDescOnPic() != 1) {
                 this.r.setVisibility(8);
                 if (playPicInfoCard.getImageResList() != null && playPicInfoCard.getImageResList().size() > 1) {
-                    this.q.setMaxWidth(((yi.l(getContext()) - yi.g(getContext(), R.dimen.obfuscated_res_0x7f0701e8)) - yi.g(getContext(), R.dimen.obfuscated_res_0x7f0701d5)) - (yi.g(getContext(), R.dimen.obfuscated_res_0x7f0701e8) * playPicInfoCard.getImageResList().size()));
+                    this.q.setMaxWidth(((zi.l(getContext()) - zi.g(getContext(), R.dimen.obfuscated_res_0x7f0701e8)) - zi.g(getContext(), R.dimen.obfuscated_res_0x7f0701d5)) - (zi.g(getContext(), R.dimen.obfuscated_res_0x7f0701e8) * playPicInfoCard.getImageResList().size()));
                     this.q.setText(playPicInfoCard.getImageResList().get(0).d);
                     this.s.setVisibility(0);
                     this.s.setCount(playPicInfoCard.getImageResList().size());
@@ -545,7 +545,7 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
                         this.p.setVisibility(8);
                     } else {
                         this.p.setVisibility(0);
-                        this.q.setMaxWidth(yi.l(getContext()) - yi.g(getContext(), R.dimen.obfuscated_res_0x7f0701e8));
+                        this.q.setMaxWidth(zi.l(getContext()) - zi.g(getContext(), R.dimen.obfuscated_res_0x7f0701e8));
                         this.q.setText(playPicInfoCard.getImageResList().get(0).d);
                         this.o.setVisibility(8);
                         this.s.setVisibility(8);
@@ -555,9 +555,9 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
                 if (playPicInfoCard.getImageResList() != null && playPicInfoCard.getImageResList().size() > 0) {
                     this.r.setVisibility(0);
                     if (playPicInfoCard.getImageResList().size() > 1) {
-                        this.r.setMaxWidth(((yi.l(getContext()) - yi.g(getContext(), R.dimen.obfuscated_res_0x7f0701e8)) - yi.g(getContext(), R.dimen.obfuscated_res_0x7f0701d5)) - (yi.g(getContext(), R.dimen.obfuscated_res_0x7f0701e8) * playPicInfoCard.getImageResList().size()));
+                        this.r.setMaxWidth(((zi.l(getContext()) - zi.g(getContext(), R.dimen.obfuscated_res_0x7f0701e8)) - zi.g(getContext(), R.dimen.obfuscated_res_0x7f0701d5)) - (zi.g(getContext(), R.dimen.obfuscated_res_0x7f0701e8) * playPicInfoCard.getImageResList().size()));
                     } else {
-                        this.r.setMaxWidth(yi.l(getContext()) - yi.g(getContext(), R.dimen.obfuscated_res_0x7f0701e8));
+                        this.r.setMaxWidth(zi.l(getContext()) - zi.g(getContext(), R.dimen.obfuscated_res_0x7f0701e8));
                     }
                     this.r.setText(playPicInfoCard.getImageResList().get(0).d);
                     G(playPicInfoCard.getImageResList().get(0));
@@ -593,16 +593,16 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
                     this.v.setText(bottomInfo.a);
                     this.v.setOnClickListener(new d(this, bottomInfo));
                 }
-                dm7 dm7Var = bottomInfo.c;
-                if (dm7Var != null) {
-                    I(this.x, this.w, dm7Var);
+                sq7 sq7Var = bottomInfo.c;
+                if (sq7Var != null) {
+                    I(this.x, this.w, sq7Var);
                 }
                 if (bottomInfo.d != null) {
                     this.y.setVisibility(0);
-                    yi.b(this.i.getPageActivity(), this.y, 20, 20, 20, 20);
-                    cm7 cm7Var = bottomInfo.d;
-                    this.y.b(cm7Var);
-                    this.y.setOnClickListener(new e(this, bottomInfo, cm7Var));
+                    zi.b(this.i.getPageActivity(), this.y, 20, 20, 20, 20);
+                    rq7 rq7Var = bottomInfo.d;
+                    this.y.b(rq7Var);
+                    this.y.setOnClickListener(new e(this, bottomInfo, rq7Var));
                     return;
                 }
                 this.y.setVisibility(8);
@@ -617,29 +617,29 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            View inflate = LayoutInflater.from(this.i.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01b1, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.i.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01af, (ViewGroup) null);
             this.n = inflate;
-            this.m = (BannerFlowView) l(inflate, R.id.obfuscated_res_0x7f09032b);
+            this.m = (BannerFlowView) l(inflate, R.id.obfuscated_res_0x7f090325);
             if (this.i.getOrignalPage() instanceof SwipeBackLayout.c) {
                 this.m.setSwipeControlInterface((SwipeBackLayout.c) this.i.getOrignalPage());
             }
             this.m.setDisableParentEvent(false);
             this.m.setMaxScrollCountLimit(100);
-            this.t = (TbImageView) l(this.n, R.id.obfuscated_res_0x7f090a28);
+            this.t = (TbImageView) l(this.n, R.id.obfuscated_res_0x7f090a2f);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.m.getLayoutParams();
-            layoutParams.height = (int) ((yi.l(getContext()) * 0.5f) + 0.5f);
+            layoutParams.height = (int) ((zi.l(getContext()) * 0.5f) + 0.5f);
             this.m.setLayoutParams(layoutParams);
-            this.q = (TextView) l(this.n, R.id.obfuscated_res_0x7f0922de);
-            this.p = (LinearLayout) l(this.n, R.id.obfuscated_res_0x7f09147a);
-            this.r = (TextView) l(this.n, R.id.obfuscated_res_0x7f0922f5);
-            this.s = (IndicatorView) l(this.n, R.id.obfuscated_res_0x7f090faf);
-            this.o = (TextView) l(this.n, R.id.obfuscated_res_0x7f092303);
-            RelativeLayout relativeLayout = (RelativeLayout) l(this.n, R.id.obfuscated_res_0x7f09040f);
+            this.q = (TextView) l(this.n, R.id.obfuscated_res_0x7f092309);
+            this.p = (LinearLayout) l(this.n, R.id.obfuscated_res_0x7f091485);
+            this.r = (TextView) l(this.n, R.id.obfuscated_res_0x7f092320);
+            this.s = (IndicatorView) l(this.n, R.id.obfuscated_res_0x7f090fbc);
+            this.o = (TextView) l(this.n, R.id.obfuscated_res_0x7f09232e);
+            RelativeLayout relativeLayout = (RelativeLayout) l(this.n, R.id.obfuscated_res_0x7f09040a);
             this.u = relativeLayout;
             this.v = (TextView) l(relativeLayout, R.id.forum_name);
-            this.w = (TbImageView) l(this.u, R.id.obfuscated_res_0x7f090e96);
-            this.x = (TextView) l(this.u, R.id.obfuscated_res_0x7f0921ce);
-            this.y = (CommonImageButton) l(this.u, R.id.obfuscated_res_0x7f0917a1);
+            this.w = (TbImageView) l(this.u, R.id.obfuscated_res_0x7f090ea0);
+            this.x = (TextView) l(this.u, R.id.obfuscated_res_0x7f092200);
+            this.y = (CommonImageButton) l(this.u, R.id.obfuscated_res_0x7f0917b1);
             return this.n;
         }
         return (View) invokeV.objValue;

@@ -1,38 +1,30 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.ContextWrapper;
+import android.os.SystemClock;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.tieba.i33;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class mj3 implements i33.c {
+public class mj3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrameLayout a;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public static class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ViewGroup a;
-        public final /* synthetic */ mj3 b;
+        public int a;
+        public long[] b;
+        public final /* synthetic */ Runnable c;
 
-        public a(mj3 mj3Var, ViewGroup viewGroup) {
+        public a(Runnable runnable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mj3Var, viewGroup};
+                Object[] objArr = {runnable};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,86 +34,31 @@ public class mj3 implements i33.c {
                     return;
                 }
             }
-            this.b = mj3Var;
-            this.a = viewGroup;
+            this.c = runnable;
+            this.a = 5;
+            this.b = new long[5];
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.b.a == null) {
-                    this.b.a = new FrameLayout(this.a.getContext());
-                    this.b.a.setBackgroundResource(R.color.obfuscated_res_0x7f0603df);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                long[] jArr = this.b;
+                System.arraycopy(jArr, 1, jArr, 0, jArr.length - 1);
+                long[] jArr2 = this.b;
+                jArr2[jArr2.length - 1] = SystemClock.uptimeMillis();
+                if (this.b[0] >= SystemClock.uptimeMillis() - 1000) {
+                    this.b = new long[this.a];
+                    this.c.run();
                 }
-                this.a.removeView(this.b.a);
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-                layoutParams.gravity = 17;
-                this.a.addView(this.b.a, layoutParams);
             }
         }
     }
 
-    public mj3() {
+    public static void a(View view2, Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-    }
-
-    public final void e(ViewGroup viewGroup) {
-        FrameLayout frameLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) && viewGroup != null && (frameLayout = this.a) != null) {
-            viewGroup.removeView(frameLayout);
-            this.a = null;
-        }
-    }
-
-    public final void f(i33 i33Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, i33Var) == null) {
-            Context context = i33Var.getContext();
-            if (i33Var.getContext() instanceof ContextWrapper) {
-                context = ((ContextWrapper) i33Var.getContext()).getBaseContext();
-            }
-            if (context instanceof Activity) {
-                ng3.b((Activity) context, i33Var);
-            }
-        }
-    }
-
-    public final void d(ViewGroup viewGroup, View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, view2) != null) || viewGroup == null || view2 == null || !(viewGroup instanceof FrameLayout)) {
-            return;
-        }
-        view2.post(new a(this, viewGroup));
-    }
-
-    @Override // com.baidu.tieba.i33.c
-    public void a(i33 i33Var, i33.b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, i33Var, bVar) != null) || i33Var == null || bVar == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
-            return;
-        }
-        f(i33Var);
-        ViewGroup viewGroup = (ViewGroup) i33Var.findViewById(16908290);
-        if (viewGroup != null) {
-            if (ln2.M().a()) {
-                d(viewGroup, bVar.r);
-            } else {
-                e(viewGroup);
-            }
+        if (interceptable == null || interceptable.invokeLL(65536, null, view2, runnable) == null) {
+            view2.setOnClickListener(new a(runnable));
         }
     }
 }

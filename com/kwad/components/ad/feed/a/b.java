@@ -59,11 +59,11 @@ public abstract class b extends a implements View.OnClickListener {
     private void bh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            findViewById(R.id.obfuscated_res_0x7f0910e1).setVisibility(0);
-            findViewById(R.id.obfuscated_res_0x7f0910e0).setVisibility(8);
-            this.di = (TextView) findViewById(R.id.obfuscated_res_0x7f09114e);
-            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f091150);
-            this.dj = findViewById(R.id.obfuscated_res_0x7f091151);
+            findViewById(R.id.obfuscated_res_0x7f0910ec).setVisibility(0);
+            findViewById(R.id.obfuscated_res_0x7f0910eb).setVisibility(8);
+            this.di = (TextView) findViewById(R.id.obfuscated_res_0x7f091159);
+            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f09115b);
+            this.dj = findViewById(R.id.obfuscated_res_0x7f09115c);
             this.di.setText(com.kwad.components.ad.feed.f.d(this.mAdTemplate));
             this.cE.setText(com.kwad.sdk.core.response.a.a.al(this.mAdInfo));
             this.dj.setOnClickListener(this);
@@ -75,15 +75,15 @@ public abstract class b extends a implements View.OnClickListener {
     private void bi() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            findViewById(R.id.obfuscated_res_0x7f0910e0).setVisibility(0);
-            findViewById(R.id.obfuscated_res_0x7f0910e1).setVisibility(8);
-            this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910f7);
-            this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f0910fb);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0910f3);
+            findViewById(R.id.obfuscated_res_0x7f0910eb).setVisibility(0);
+            findViewById(R.id.obfuscated_res_0x7f0910ec).setVisibility(8);
+            this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f091102);
+            this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f091106);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0910fe);
             this.dh = textView;
             com.kwad.sdk.b.kwai.a.a(this, this.cw, this.cx, textView);
             this.cx.setText(com.kwad.sdk.core.response.a.a.ae(this.mAdInfo));
-            this.cw.setImageResource(R.drawable.obfuscated_res_0x7f080c5f);
+            this.cw.setImageResource(R.drawable.obfuscated_res_0x7f080c6f);
             KSImageLoader.loadAppIcon(this.cw, com.kwad.sdk.core.response.a.a.bn(this.mAdInfo), this.mAdTemplate, 8);
             this.dh.setText(com.kwad.components.ad.feed.f.d(this.mAdTemplate));
             bf();
@@ -102,12 +102,12 @@ public abstract class b extends a implements View.OnClickListener {
     public final void bg() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f0910dc);
-            ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091153)).setRatio(0.56f);
-            this.df = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910e2);
-            this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910de);
-            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910df);
-            this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f0910f5);
+            this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f0910e7);
+            ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f09115e)).setRatio(0.56f);
+            this.df = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910ed);
+            this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910e9);
+            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910ea);
+            this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091100);
         }
     }
 
@@ -177,7 +177,7 @@ public abstract class b extends a implements View.OnClickListener {
                 i = 101;
             }
             g(false);
-            com.kwad.components.core.c.a.a.a(new a.C0594a(com.kwad.sdk.b.kwai.a.x(this)).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.dk ? 1 : 2).aj(view2 == this.dk).a(new a.b(this, i) { // from class: com.kwad.components.ad.feed.a.b.1
+            com.kwad.components.core.c.a.a.a(new a.C0593a(com.kwad.sdk.b.kwai.a.x(this)).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.dk ? 1 : 2).aj(view2 == this.dk).a(new a.b(this, i) { // from class: com.kwad.components.ad.feed.a.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ int dl;

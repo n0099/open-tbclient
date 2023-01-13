@@ -17,6 +17,7 @@ public final class LogicField {
     public static final LogicField BANNER_AND_BOTTOM_VIEW;
     public static final LogicField BRAND_LABEL;
     public static final LogicField FOLD_TITLE;
+    public static final LogicField GROUP_BTN;
     public static final LogicField INFO_AREA;
     public static final LogicField LEVEL_AND_LEVEL_NAME;
     public static final LogicField LIKE_BTN;
@@ -66,9 +67,10 @@ public final class LogicField {
         TOP_AREA = new LogicField("TOP_AREA", 16);
         ROUND_CORNER_STYLE = new LogicField("ROUND_CORNER_STYLE", 17);
         TOP_DIVIDER = new LogicField("TOP_DIVIDER", 18);
-        LogicField logicField = new LogicField("BANNER_AND_BOTTOM_VIEW", 19);
-        BANNER_AND_BOTTOM_VIEW = logicField;
-        $VALUES = new LogicField[]{BACK_BTN, BACK_IV, SEARCH_BTN, MESSAGE_ICON_CONTROLLER, MESSAGE_BTN, MESSAGE_RED_DOT, SHARE_BTN, FOLD_TITLE, BRAND_LABEL, INFO_AREA, LEVEL_AND_LEVEL_NAME, SPEED_ICON, LIKE_BTN, SIGN_BTN, MORE_BTN, SERVICE_AREA, TOP_AREA, ROUND_CORNER_STYLE, TOP_DIVIDER, logicField};
+        BANNER_AND_BOTTOM_VIEW = new LogicField("BANNER_AND_BOTTOM_VIEW", 19);
+        LogicField logicField = new LogicField("GROUP_BTN", 20);
+        GROUP_BTN = logicField;
+        $VALUES = new LogicField[]{BACK_BTN, BACK_IV, SEARCH_BTN, MESSAGE_ICON_CONTROLLER, MESSAGE_BTN, MESSAGE_RED_DOT, SHARE_BTN, FOLD_TITLE, BRAND_LABEL, INFO_AREA, LEVEL_AND_LEVEL_NAME, SPEED_ICON, LIKE_BTN, SIGN_BTN, MORE_BTN, SERVICE_AREA, TOP_AREA, ROUND_CORNER_STYLE, TOP_DIVIDER, BANNER_AND_BOTTOM_VIEW, logicField};
     }
 
     public LogicField(String str, int i) {

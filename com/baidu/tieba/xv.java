@@ -2,6 +2,7 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.manage.DownloadConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,16 +10,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
-import kotlin.TypeCastException;
-import kotlin.jvm.JvmStatic;
+import com.bytedance.sdk.openadsdk.TTAdConstant;
+import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
+import java.util.ArrayList;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
+import kotlin.text.CharsKt__CharJVMKt;
 /* loaded from: classes6.dex */
 public final class xv {
     public static /* synthetic */ Interceptable $ic;
-    public static final xv a;
+    public static final int[] a;
+    public static byte[] b;
+    public static final xv c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +40,8 @@ public final class xv {
                 return;
             }
         }
-        a = new xv();
+        c = new xv();
+        a = new int[]{219, 74, DownloadConstants.STATUS_WAITING_FOR_NETWORK, 53, TTAdConstant.IMAGE_MODE_LIVE, 242, 116, 193, MatroskaExtractor.ID_TRACK_ENTRY, 134, 57, MatroskaExtractor.ID_PIXEL_WIDTH, 41, 16, 150, 94, 233, 21, 62, 77, 117, 76, 201, 232, 66, 209, 249, 34, 66, 113, 52, 203};
     }
 
     public xv() {
@@ -51,121 +58,55 @@ public final class xv {
         }
     }
 
-    @JvmStatic
-    public static final int a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            List<String> split$default = StringsKt__StringsKt.split$default((CharSequence) StringsKt__StringsKt.trim((CharSequence) str).toString(), new String[]{"."}, false, 0, 6, (Object) null);
-            List<String> split$default2 = StringsKt__StringsKt.split$default((CharSequence) StringsKt__StringsKt.trim((CharSequence) str2).toString(), new String[]{"."}, false, 0, 6, (Object) null);
-            LinkedList linkedList = new LinkedList();
-            LinkedList linkedList2 = new LinkedList();
-            for (String str3 : split$default) {
-                if (str3 != null) {
-                    String obj = StringsKt__StringsKt.trim((CharSequence) str3).toString();
-                    if (!Intrinsics.areEqual(obj, "")) {
-                        linkedList.add(obj);
-                    }
-                } else {
-                    throw new TypeCastException("null cannot be cast to non-null type kotlin.CharSequence");
-                }
-            }
-            for (String str4 : split$default2) {
-                if (str4 != null) {
-                    String obj2 = StringsKt__StringsKt.trim((CharSequence) str4).toString();
-                    if (!Intrinsics.areEqual(obj2, "")) {
-                        linkedList2.add(obj2);
-                    }
-                } else {
-                    throw new TypeCastException("null cannot be cast to non-null type kotlin.CharSequence");
-                }
-            }
-            while (!linkedList.isEmpty() && !linkedList2.isEmpty()) {
-                xv xvVar = a;
-                Object pollFirst = linkedList.pollFirst();
-                if (pollFirst == null) {
-                    Intrinsics.throwNpe();
-                }
-                int e = xvVar.e((String) pollFirst);
-                xv xvVar2 = a;
-                Object pollFirst2 = linkedList2.pollFirst();
-                if (pollFirst2 == null) {
-                    Intrinsics.throwNpe();
-                }
-                int e2 = xvVar2.e((String) pollFirst2);
-                if (e > e2) {
-                    return 1;
-                }
-                if (e < e2) {
-                    return -1;
-                }
-            }
-            if (linkedList.isEmpty() && linkedList2.isEmpty()) {
-                return 0;
-            }
-            while (!linkedList.isEmpty()) {
-                if (!TextUtils.equals((CharSequence) linkedList.pollFirst(), "0")) {
-                    return 1;
-                }
-            }
-            while (!linkedList2.isEmpty()) {
-                if (!TextUtils.equals((CharSequence) linkedList2.pollFirst(), "0")) {
-                    return -1;
-                }
-            }
-            return 0;
-        }
-        return invokeLL.intValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (Intrinsics.areEqual(kr.c.h().getAppVersion(), "")) {
-                String b = it.b();
-                Intrinsics.checkExpressionValueIsNotNull(b, "AppUtils.getVersionName()");
-                return b;
-            }
-            return kr.c.h().getAppVersion();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final boolean c(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            if (wv.a.a() <= j) {
-                return true;
-            }
-            return false;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    public final boolean d(String str) {
+    public final String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (a(b(), str) >= 0) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (!TextUtils.isEmpty(str) && str.length() % 2 == 0) {
+                try {
+                    ArrayList arrayList = new ArrayList();
+                    for (int i = 1; i < str.length(); i += 2) {
+                        arrayList.add(Byte.valueOf((byte) Integer.parseInt("" + str.charAt(i - 1) + "" + str.charAt(i), CharsKt__CharJVMKt.checkRadix(16))));
+                    }
+                    if (arrayList.size() <= 16) {
+                        return "";
+                    }
+                    if (b == null) {
+                        b = new byte[a.length];
+                        int length = a.length;
+                        for (int i2 = 0; i2 < length; i2++) {
+                            byte[] bArr = b;
+                            if (bArr == null) {
+                                Intrinsics.throwNpe();
+                            }
+                            bArr[i2] = (byte) a[i2];
+                        }
+                    }
+                    byte[] byteArray = CollectionsKt___CollectionsKt.toByteArray(arrayList.subList(0, 16));
+                    byte[] bArr2 = b;
+                    if (bArr2 == null) {
+                        Intrinsics.throwNpe();
+                    }
+                    String a2 = rt.a(b(byteArray, bArr2, CollectionsKt___CollectionsKt.toByteArray(arrayList.subList(16, arrayList.size()))));
+                    Intrinsics.checkExpressionValueIsNotNull(a2, "StringUtils.bytes2Str(decodeBytes)");
+                    return a2;
+                } catch (Exception unused) {
+                }
             }
-            return false;
+            return "";
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public final int e(String str) {
-        InterceptResult invokeL;
+    public final byte[] b(byte[] bArr, byte[] bArr2, byte[] bArr3) throws Exception {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            try {
-                return Integer.parseInt(str);
-            } catch (Exception unused) {
-                return 0;
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, bArr2, bArr3)) == null) {
+            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr2, "AES");
+            Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
+            cipher.init(2, secretKeySpec, new IvParameterSpec(bArr));
+            return cipher.doFinal(bArr3);
         }
-        return invokeL.intValue;
+        return (byte[]) invokeLLL.objValue;
     }
 }

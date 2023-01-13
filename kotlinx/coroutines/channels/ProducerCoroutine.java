@@ -20,7 +20,7 @@ public class ProducerCoroutine<E> extends ChannelCoroutine<E> implements Produce
         }
     }
 
-    @Override // kotlinx.coroutines.channels.ChannelCoroutine, kotlinx.coroutines.channels.ProducerScope
+    @Override // kotlinx.coroutines.channels.ProducerScope
     public /* bridge */ /* synthetic */ SendChannel getChannel() {
         return getChannel();
     }

@@ -1,10 +1,14 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.fn2;
+import com.baidu.tieba.gp2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,86 +16,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes4.dex */
-public class i03 {
+public final class i03 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static volatile i03 e;
+    public static final boolean a;
+    public static qc3 b;
+    public static final Set<String> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<String, j03<h03>> a;
-    public ConcurrentHashMap<String, Runnable> b;
-    public a c;
-
-    /* loaded from: classes4.dex */
-    public static class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference<i03> a;
-        public String b;
-
-        public b(i03 i03Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i03Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new WeakReference<>(i03Var);
-            this.b = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            i03 i03Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (i03Var = this.a.get()) == null) {
-                return;
-            }
-            if (i03.d) {
-                Log.d("MDelegate-Observe", "run: observer timeout " + this.b);
-            }
-            h03 h03Var = new h03(this.b);
-            h03Var.setResult(null);
-            i03Var.c(h03Var);
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -106,23 +39,30 @@ public class i03 {
                 return;
             }
         }
-        d = ok1.a;
+        a = tk1.a;
+        HashSet hashSet = new HashSet();
+        c = hashSet;
+        hashSet.add("aiapps_websafe_debug_key");
+        c.add("aiapps_server_domains_debug_key");
+        c.add("aiapps_use_extension_debug_key");
+        c.add("aiapps_emit_live_debug_key");
+        c.add("aiapps_emit_https_debug_key");
+        c.add("aiapps_emit_wss_debug_key");
+        c.add("aiapps_load_cts_debug_key");
+        c.add("aiapps_env_data");
+        c.add("aiapps_js_native_switch_key");
+        c.add("aiapps_emit_game_core_debug_key");
+        c.add("aiapps_emit_game_launch_mode_key");
     }
 
-    public static i03 b() {
+    @SuppressLint({"BDOfflineUrl"})
+    public static gp2.a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (e == null) {
-                synchronized (i03.class) {
-                    if (e == null) {
-                        e = new i03();
-                    }
-                }
-            }
-            return e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) {
+            return ((gp2.a) ((gp2.a) ((gp2.a) new gp2.a().S0(new PMSAppInfo())).B1("小程序测试").v0("10985873").O0(Color.parseColor("#FF308EF0"))).I0("1230000000000000")).y1("小程序简介").E1("测试服务类目").F1("测试主体信息").A1("CdKRXT4IrCwTD6LIBS7DIlL8rmbKx58N").H1("1.0").C1("https://b.bdstatic.com/searchbox/mappconsole/image/20180502/1525250801121271.png");
         }
-        return (i03) invokeV.objValue;
+        return (gp2.a) invokeV.objValue;
     }
 
     public i03() {
@@ -135,123 +75,525 @@ public class i03 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new ConcurrentHashMap<>();
-        this.b = new ConcurrentHashMap<>();
-        this.c = new a(Looper.getMainLooper());
-    }
-
-    public void c(@NonNull h03 h03Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, h03Var) == null) {
-            j03<h03> j03Var = this.a.get(h03Var.b());
-            if (j03Var == null) {
-                if (d) {
-                    Log.e("MDelegate-Observe", "notify a null observer");
-                    return;
-                }
-                return;
-            }
-            String b2 = j03Var.b();
-            if (d) {
-                Log.d("MDelegate-Observe", "notify observer: " + b2);
-            }
-            j03Var.onEvent(h03Var);
-            if (this.b.containsKey(b2)) {
-                if (d) {
-                    Log.d("MDelegate-Observe", "remove observer: " + b2 + " timeout runnable");
-                }
-                this.c.removeCallbacks(this.b.get(b2));
-                this.b.remove(b2);
-            }
-            if (j03Var.c()) {
-                if (d) {
-                    Log.d("MDelegate-Observe", "auto unregister disposable observer: " + b2);
-                }
-                f(j03Var);
             }
         }
     }
 
-    public void e(j03<h03> j03Var) {
+    public static boolean A() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, j03Var) == null) {
-            if (j03Var == null) {
-                if (d) {
-                    Log.e("MDelegate-Observe", "register a null observer");
-                    return;
-                }
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return d("aiapps_websafe_debug_key", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            j43 b0 = j43.b0();
+            if (b0 != null) {
+                return b0.W().p0();
             }
-            String b2 = j03Var.b();
-            if (this.a.containsKey(b2)) {
-                if (d) {
-                    Log.e("MDelegate-Observe", "multiple register observer：" + b2);
-                    return;
-                }
-                return;
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static Boolean G() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return Boolean.valueOf(d("KEY_SWAN_APP_DEBUG_INSPECT", false));
+        }
+        return (Boolean) invokeV.objValue;
+    }
+
+    public static boolean H() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            if (!m12.e() && !m12.f()) {
+                return false;
             }
-            if (d) {
-                Log.d("MDelegate-Observe", "register observer: " + b2);
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean X() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
+            return u().getBoolean("swan_debug_forbid_sample", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean Y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) {
+            return u().getBoolean("swan_debug_force_ab", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void Z() {
+        s32 V;
+        p32 m;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65563, null) != null) || (V = wp2.U().V()) == null || (m = V.m()) == null) {
+            return;
+        }
+        m.S2();
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
+            return d("aiapps_close_view_disable_debug_key", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65569, null)) == null) {
+            return d("aiapps_dashboard_enable_debug_key", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) {
+            return u().getString("aiapps_env_data", "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) {
+            return d("aiapps_emit_game_core_debug_key", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) {
+            return u().getString("swan_debug_so_url_key", "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) {
+            return u().getInt("swan_debug_open_so_key", -1);
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) {
+            return od3.j();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65576, null)) == null) {
+            return d("aiapps_force_authorized_key", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65577, null)) == null) {
+            return d("swan_game_fps_debug_key", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65578, null)) == null) {
+            return d("aiapps_emit_https_debug_key", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65579, null)) == null) {
+            return d("aiapps_js_native_switch_key", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65580, null)) == null) {
+            return d("aiapps_emit_wss_debug_key", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65581, null)) == null) {
+            return d("aiapps_emit_live_debug_key", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65582, null)) == null) {
+            return d("aiapps_load_cts_debug_key", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static int t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65583, null)) == null) {
+            return u().getInt("aiapps_pms_host_env", 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65585, null)) == null) {
+            return d("aiapps_sconsole_scan_mode_debug_key", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65586, null)) == null) {
+            return d("aiapps_server_domains_debug_key", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65587, null)) == null) {
+            return d("aiapps_emit_game_launch_mode_key", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65588, null)) == null) {
+            return d("aiapps_use_extension_debug_key", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65589, null)) == null) {
+            return d("aiapps_use_game_extension_debug_key", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean B(gp2 gp2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, gp2Var)) == null) {
+            if ((!a || !gp2Var.n0()) && !F(gp2Var.g0()) && !m12.e() && !m12.f() && !gp2Var.p0() && (!x() || !gp2Var.R())) {
+                return false;
             }
-            this.a.put(b2, j03Var);
-            long a2 = j03Var.a();
-            if (a2 > 0 && j03Var.c()) {
-                if (d) {
-                    Log.d("MDelegate-Observe", "post observer: " + b2 + " " + a2 + "ms timeout runnable");
-                }
-                b bVar = new b(this, b2);
-                this.b.put(b2, bVar);
-                this.c.postDelayed(bVar, a2);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean C(hp2 hp2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, hp2Var)) == null) {
+            if ((!a || !hp2Var.n0()) && !F(hp2Var.g0()) && !m12.e() && !m12.f() && !hp2Var.p0() && (!x() || !hp2Var.R())) {
+                return false;
             }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean E() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (!s() && !r() && !o() && !y() && A() && !k() && !h() && !q() && !x() && !xe2.b(t())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean F(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str) && !a22.d()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void K(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65548, null, str) == null) {
+            u().putString("aiapps_env_data", str);
         }
     }
 
-    public void d() {
+    public static void L(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (d) {
-                Log.d("MDelegate-Observe", "release observable");
-            }
-            if (e == null) {
-                return;
-            }
-            this.a.clear();
-            for (Map.Entry<String, Runnable> entry : this.b.entrySet()) {
-                if (d) {
-                    Log.d("MDelegate-Observe", "remove observer: " + entry.getKey() + " timeout runnable");
-                }
-                this.c.removeCallbacks(entry.getValue());
-            }
-            this.b.clear();
-            e = null;
+        if (interceptable == null || interceptable.invokeZ(65549, null, z) == null) {
+            J("aiapps_emit_game_core_debug_key", z);
         }
     }
 
-    public void f(j03<h03> j03Var) {
+    public static void M(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, j03Var) == null) {
-            if (j03Var == null) {
-                if (d) {
-                    Log.e("MDelegate-Observe", "unregister a null observer");
-                    return;
-                }
-                return;
-            }
-            String b2 = j03Var.b();
-            if (!this.a.containsKey(b2)) {
-                if (d) {
-                    Log.e("MDelegate-Observe", "unregister a nonexistent observer");
-                    return;
-                }
-                return;
-            }
-            if (d) {
-                Log.d("MDelegate-Observe", "unregister observer: " + b2);
-            }
-            this.a.remove(b2);
+        if (interceptable == null || interceptable.invokeZ(65550, null, z) == null) {
+            od3.q(z);
         }
+    }
+
+    public static void N(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65551, null, z) == null) {
+            J("aiapps_emit_https_debug_key", z);
+        }
+    }
+
+    public static void O(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65552, null, z) == null) {
+            J("aiapps_js_native_switch_key", z);
+        }
+    }
+
+    public static void P(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65553, null, z) == null) {
+            J("aiapps_emit_wss_debug_key", z);
+        }
+    }
+
+    public static void Q(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65554, null, z) == null) {
+            J("aiapps_emit_live_debug_key", z);
+        }
+    }
+
+    public static void R(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65555, null, z) == null) {
+            J("aiapps_load_cts_debug_key", z);
+        }
+    }
+
+    public static void S(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65556, null, i) == null) {
+            u().putInt("aiapps_pms_host_env", i);
+        }
+    }
+
+    public static void T(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65557, null, z) == null) {
+            J("aiapps_server_domains_debug_key", z);
+        }
+    }
+
+    public static void U(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65558, null, z) == null) {
+            J("aiapps_emit_game_launch_mode_key", z);
+        }
+    }
+
+    public static void V(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65559, null, z) == null) {
+            J("aiapps_use_extension_debug_key", z);
+        }
+    }
+
+    public static void W(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65560, null, z) == null) {
+            J("aiapps_websafe_debug_key", z);
+        }
+    }
+
+    public static ExtensionCore a(ExtensionCore extensionCore) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, extensionCore)) == null) {
+            if (extensionCore == null) {
+                return null;
+            }
+            extensionCore.extensionCoreVersionCode = 4294967297L;
+            extensionCore.extensionCoreVersionName = "1.0.1";
+            return extensionCore;
+        }
+        return (ExtensionCore) invokeL.objValue;
+    }
+
+    public static Bundle I(hp2 hp2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, hp2Var)) == null) {
+            if (C(hp2Var)) {
+                gp2.a b2 = b();
+                b2.v0(hp2Var.H());
+                b2.I0(hp2Var.T());
+                b2.R0(hp2Var.e0());
+                b2.A0(hp2Var.n0());
+                b2.L0(hp2Var.p0());
+                b2.y0(hp2Var.L());
+                b2.D0(hp2Var.s0());
+                b2.K0(hp2Var.W());
+                b2.P0(hp2Var.c0());
+                b2.Z0(hp2Var.j0());
+                b2.C0(hp2Var.O());
+                b2.a1(hp2Var.k0());
+                b2.T0(hp2Var.g0());
+                b2.H1("0");
+                b2.u0(hp2Var.G());
+                b2.Q0(hp2Var.d0());
+                if (F(hp2Var.g0()) || H() || hp2Var.p0()) {
+                    b2.A1(hp2Var.H());
+                }
+                return b2.D();
+            }
+            return null;
+        }
+        return (Bundle) invokeL.objValue;
+    }
+
+    public static void J(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65547, null, str, z) == null) {
+            u().putBoolean(str, z);
+        }
+    }
+
+    public static boolean d(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65567, null, str, z)) == null) {
+            return u().getBoolean(str, z);
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    public static fn2.g c(gp2 gp2Var, pi3 pi3Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65566, null, gp2Var, pi3Var)) == null) {
+            if (a && gp2Var.n0()) {
+                return fn2.b.a(gp2Var, pi3Var);
+            }
+            if (F(gp2Var.g0())) {
+                return fn2.f.a(gp2Var);
+            }
+            if (m12.e()) {
+                return n12.a(gp2Var);
+            }
+            if (m12.f()) {
+                return c22.a(gp2Var);
+            }
+            if (gp2Var.p0()) {
+                return q12.a(gp2Var);
+            }
+            return null;
+        }
+        return (fn2.g) invokeLL.objValue;
+    }
+
+    public static String l(gp2 gp2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, gp2Var)) == null) {
+            if (a && gp2Var.n0()) {
+                return fn2.b.g().getPath();
+            }
+            if (F(gp2Var.g0())) {
+                return fn2.f.e().getPath();
+            }
+            if (m12.e()) {
+                return n12.b().getPath();
+            }
+            if (m12.f()) {
+                return c22.e().getPath();
+            }
+            if (gp2Var.p0()) {
+                return q12.d().getPath();
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static qc3 u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65584, null)) == null) {
+            if (b == null) {
+                synchronized (i03.class) {
+                    if (b == null) {
+                        qc3 qc3Var = new qc3("swan_app_debug");
+                        b = qc3Var;
+                        qc3Var.f.addAll(c);
+                    }
+                }
+            }
+            return b;
+        }
+        return (qc3) invokeV.objValue;
     }
 }

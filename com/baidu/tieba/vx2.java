@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface vx2 {
-    public static final Object b = new Object();
+    void end(long j);
 
-    void b(int i);
-
-    void c();
+    void start(long j);
 }

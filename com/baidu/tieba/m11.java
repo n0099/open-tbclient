@@ -1,74 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Typeface;
+import android.widget.TextView;
+import com.baidu.nadcore.styles.Font;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class m11 {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<Class<? extends s11>, s11> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947919708, "Lcom/baidu/tieba/m11;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static boolean a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i >= 100 && i <= 900 && i % 100 == 0) {
+                return true;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947919708, "Lcom/baidu/tieba/m11;");
-                return;
-            }
+            return false;
         }
-        a = new HashMap<>();
+        return invokeI.booleanValue;
     }
 
-    public m11() {
+    public static void b(TextView textView, Font font) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if ((interceptable == null || interceptable.invokeLL(65537, null, textView, font) == null) && textView != null && font != null) {
+            c(textView, font.getFontWeight());
         }
     }
 
-    public static <T extends s11> T a(Class<T> cls) {
-        InterceptResult invokeL;
+    public static void c(TextView textView, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
-            T t = (T) a.get(cls);
-            if (t == null) {
-                synchronized (m11.class) {
-                    t = (T) a.get(cls);
-                    if (t == null) {
-                        t = (T) n11.a(cls);
-                        a.put(cls, t);
-                    }
-                }
+        if ((interceptable == null || interceptable.invokeLI(65538, null, textView, i) == null) && textView != null && a(i)) {
+            if (i >= 600) {
+                textView.setTypeface(Typeface.defaultFromStyle(1));
+            } else {
+                textView.setTypeface(Typeface.defaultFromStyle(0));
             }
-            return t;
         }
-        return (T) invokeL.objValue;
-    }
-
-    public static <T extends s11> r11 b(Class<T> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
-            return a(cls).b();
-        }
-        return (r11) invokeL.objValue;
     }
 }

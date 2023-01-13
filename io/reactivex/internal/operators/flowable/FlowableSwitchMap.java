@@ -27,7 +27,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class FlowableSwitchMap<T, R> extends AbstractFlowableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public final class FlowableSwitchMap<T, R> extends AbstractFlowableWithUpstream<
     public final boolean delayErrors;
     public final Function<? super T, ? extends Publisher<? extends R>> mapper;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class SwitchMapInnerSubscriber<T, R> extends AtomicReference<Subscription> implements FlowableSubscriber<R> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3837284832786408377L;
@@ -144,7 +144,7 @@ public final class FlowableSwitchMap<T, R> extends AbstractFlowableWithUpstream<
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class SwitchMapSubscriber<T, R> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final SwitchMapInnerSubscriber<Object, Object> CANCELLED;

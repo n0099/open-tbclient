@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.NoProGuard;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -448,7 +447,7 @@ public class AdvisoryMultiPicMsg extends NormalMsg {
                             advisoryImageItem.setIndex(jSONObject2.optInt("index"));
                             advisoryImageItem.setUrl(jSONObject2.optString("url"));
                             advisoryImageItem.setThumbnail(jSONObject2.optString("thumbnail"));
-                            advisoryImageItem.setWidth(jSONObject2.optInt(Config.DEVICE_WIDTH));
+                            advisoryImageItem.setWidth(jSONObject2.optInt("w"));
                             advisoryImageItem.setHeight(jSONObject2.optInt("h"));
                             this.mImageList.add(advisoryImageItem);
                         }

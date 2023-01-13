@@ -3,19 +3,19 @@ package rx.internal.operators;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.a7a;
-import com.baidu.tieba.c3a;
-import com.baidu.tieba.e3a;
-import com.baidu.tieba.f3a;
-import com.baidu.tieba.i3a;
-import com.baidu.tieba.j3a;
-import com.baidu.tieba.j5a;
-import com.baidu.tieba.o3a;
-import com.baidu.tieba.p3a;
-import com.baidu.tieba.q3a;
-import com.baidu.tieba.q7a;
-import com.baidu.tieba.t3a;
-import com.baidu.tieba.z7a;
+import com.baidu.tieba.b9a;
+import com.baidu.tieba.hda;
+import com.baidu.tieba.ica;
+import com.baidu.tieba.k8a;
+import com.baidu.tieba.m8a;
+import com.baidu.tieba.n8a;
+import com.baidu.tieba.q8a;
+import com.baidu.tieba.r8a;
+import com.baidu.tieba.raa;
+import com.baidu.tieba.w8a;
+import com.baidu.tieba.x8a;
+import com.baidu.tieba.y8a;
+import com.baidu.tieba.yca;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,13 +32,13 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.OnErrorThrowable;
 /* loaded from: classes9.dex */
-public final class OperatorReplay<T> extends a7a<T> {
+public final class OperatorReplay<T> extends ica<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final t3a e;
+    public static final b9a e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final c3a<? extends T> b;
+    public final k8a<? extends T> b;
     public final AtomicReference<f<T>> c;
-    public final t3a<? extends e<T>> d;
+    public final b9a<? extends e<T>> d;
 
     /* loaded from: classes9.dex */
     public interface e<T> {
@@ -52,14 +52,14 @@ public final class OperatorReplay<T> extends a7a<T> {
     }
 
     /* loaded from: classes9.dex */
-    public static final class f<T> extends i3a<T> implements j3a {
+    public static final class f<T> extends q8a<T> implements r8a {
         public static /* synthetic */ Interceptable $ic;
         public static final InnerProducer[] t;
         public transient /* synthetic */ FieldHolder $fh;
         public final e<T> e;
         public boolean f;
         public volatile boolean g;
-        public final j5a<InnerProducer<T>> h;
+        public final raa<InnerProducer<T>> h;
         public InnerProducer<T>[] i;
         public volatile long j;
         public long k;
@@ -68,12 +68,12 @@ public final class OperatorReplay<T> extends a7a<T> {
         public boolean n;
         public long o;
         public long p;
-        public volatile e3a q;
+        public volatile m8a q;
         public List<InnerProducer<T>> r;
         public boolean s;
 
         /* loaded from: classes9.dex */
-        public class a implements p3a {
+        public class a implements x8a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ f a;
@@ -96,7 +96,7 @@ public final class OperatorReplay<T> extends a7a<T> {
                 this.a = fVar;
             }
 
-            @Override // com.baidu.tieba.p3a
+            @Override // com.baidu.tieba.x8a
             public void call() {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.a.g) {
@@ -146,11 +146,11 @@ public final class OperatorReplay<T> extends a7a<T> {
         public void i() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                b(z7a.a(new a(this)));
+                b(hda.a(new a(this)));
             }
         }
 
-        @Override // com.baidu.tieba.d3a
+        @Override // com.baidu.tieba.l8a
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && !this.f) {
@@ -180,18 +180,18 @@ public final class OperatorReplay<T> extends a7a<T> {
                 }
             }
             this.e = eVar;
-            this.h = new j5a<>();
+            this.h = new raa<>();
             this.i = t;
             this.l = new AtomicBoolean();
             e(0L);
         }
 
-        @Override // com.baidu.tieba.i3a
-        public void f(e3a e3aVar) {
+        @Override // com.baidu.tieba.q8a
+        public void f(m8a m8aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, e3aVar) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, m8aVar) == null) {
                 if (this.q == null) {
-                    this.q = e3aVar;
+                    this.q = m8aVar;
                     k(null);
                     m();
                     return;
@@ -200,7 +200,7 @@ public final class OperatorReplay<T> extends a7a<T> {
             }
         }
 
-        @Override // com.baidu.tieba.d3a
+        @Override // com.baidu.tieba.l8a
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048585, this, th) == null) && !this.f) {
@@ -214,7 +214,7 @@ public final class OperatorReplay<T> extends a7a<T> {
             }
         }
 
-        @Override // com.baidu.tieba.d3a
+        @Override // com.baidu.tieba.l8a
         public void onNext(T t2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048586, this, t2) == null) && !this.f) {
@@ -266,17 +266,17 @@ public final class OperatorReplay<T> extends a7a<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
                 long j3 = this.p;
-                e3a e3aVar = this.q;
+                m8a m8aVar = this.q;
                 long j4 = j - j2;
                 if (j4 != 0) {
                     this.o = j;
-                    if (e3aVar != null) {
+                    if (m8aVar != null) {
                         if (j3 != 0) {
                             this.p = 0L;
-                            e3aVar.request(j3 + j4);
+                            m8aVar.request(j3 + j4);
                             return;
                         }
-                        e3aVar.request(j4);
+                        m8aVar.request(j4);
                         return;
                     }
                     long j5 = j3 + j4;
@@ -284,9 +284,9 @@ public final class OperatorReplay<T> extends a7a<T> {
                         j5 = Long.MAX_VALUE;
                     }
                     this.p = j5;
-                } else if (j3 != 0 && e3aVar != null) {
+                } else if (j3 != 0 && m8aVar != null) {
                     this.p = 0L;
-                    e3aVar.request(j3);
+                    m8aVar.request(j3);
                 }
             }
         }
@@ -577,7 +577,7 @@ public final class OperatorReplay<T> extends a7a<T> {
 
         @Override // rx.internal.operators.OperatorReplay.e
         public final void replay(InnerProducer<T> innerProducer) {
-            i3a<? super T> i3aVar;
+            q8a<? super T> q8aVar;
             Node node;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048588, this, innerProducer) == null) {
@@ -594,7 +594,7 @@ public final class OperatorReplay<T> extends a7a<T> {
                             innerProducer.index = node2;
                             innerProducer.addTotalRequested(node2.index);
                         }
-                        if (innerProducer.isUnsubscribed() || (i3aVar = innerProducer.child) == null) {
+                        if (innerProducer.isUnsubscribed() || (q8aVar = innerProducer.child) == null) {
                             return;
                         }
                         long j = innerProducer.get();
@@ -602,7 +602,7 @@ public final class OperatorReplay<T> extends a7a<T> {
                         while (j2 != j && (node = node2.get()) != null) {
                             Object leaveTransform = leaveTransform(node.value);
                             try {
-                                if (NotificationLite.a(i3aVar, leaveTransform)) {
+                                if (NotificationLite.a(q8aVar, leaveTransform)) {
                                     innerProducer.index = null;
                                     return;
                                 }
@@ -613,10 +613,10 @@ public final class OperatorReplay<T> extends a7a<T> {
                                 node2 = node;
                             } catch (Throwable th) {
                                 innerProducer.index = null;
-                                o3a.e(th);
+                                w8a.e(th);
                                 innerProducer.unsubscribe();
                                 if (!NotificationLite.g(leaveTransform) && !NotificationLite.f(leaveTransform)) {
-                                    i3aVar.onError(OnErrorThrowable.addValueAsLastCause(th, NotificationLite.e(leaveTransform)));
+                                    q8aVar.onError(OnErrorThrowable.addValueAsLastCause(th, NotificationLite.e(leaveTransform)));
                                     return;
                                 }
                                 return;
@@ -642,24 +642,24 @@ public final class OperatorReplay<T> extends a7a<T> {
     }
 
     /* loaded from: classes9.dex */
-    public static final class InnerProducer<T> extends AtomicLong implements e3a, j3a {
+    public static final class InnerProducer<T> extends AtomicLong implements m8a, r8a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long UNSUBSCRIBED = Long.MIN_VALUE;
         public static final long serialVersionUID = -4453897557930727610L;
         public transient /* synthetic */ FieldHolder $fh;
-        public i3a<? super T> child;
+        public q8a<? super T> child;
         public boolean emitting;
         public Object index;
         public boolean missed;
         public final f<T> parent;
         public final AtomicLong totalRequested;
 
-        public InnerProducer(f<T> fVar, i3a<? super T> i3aVar) {
+        public InnerProducer(f<T> fVar, q8a<? super T> q8aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fVar, i3aVar};
+                Object[] objArr = {fVar, q8aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -670,7 +670,7 @@ public final class OperatorReplay<T> extends a7a<T> {
                 }
             }
             this.parent = fVar;
-            this.child = i3aVar;
+            this.child = q8aVar;
             this.totalRequested = new AtomicLong();
         }
 
@@ -698,7 +698,7 @@ public final class OperatorReplay<T> extends a7a<T> {
             return (U) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.j3a
+        @Override // com.baidu.tieba.r8a
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -711,7 +711,7 @@ public final class OperatorReplay<T> extends a7a<T> {
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.j3a
+        @Override // com.baidu.tieba.r8a
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && get() != Long.MIN_VALUE && getAndSet(Long.MIN_VALUE) != Long.MIN_VALUE) {
@@ -745,7 +745,7 @@ public final class OperatorReplay<T> extends a7a<T> {
             return invokeJ.longValue;
         }
 
-        @Override // com.baidu.tieba.e3a
+        @Override // com.baidu.tieba.m8a
         public void request(long j) {
             int i;
             long j2;
@@ -808,14 +808,14 @@ public final class OperatorReplay<T> extends a7a<T> {
         public transient /* synthetic */ FieldHolder $fh;
         public final int limit;
         public final long maxAgeInMillis;
-        public final f3a scheduler;
+        public final n8a scheduler;
 
-        public SizeAndTimeBoundReplayBuffer(int i, long j, f3a f3aVar) {
+        public SizeAndTimeBoundReplayBuffer(int i, long j, n8a n8aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), f3aVar};
+                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), n8aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -825,7 +825,7 @@ public final class OperatorReplay<T> extends a7a<T> {
                     return;
                 }
             }
-            this.scheduler = f3aVar;
+            this.scheduler = n8aVar;
             this.limit = i;
             this.maxAgeInMillis = j;
         }
@@ -835,7 +835,7 @@ public final class OperatorReplay<T> extends a7a<T> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                return new q7a(this.scheduler.now(), obj);
+                return new yca(this.scheduler.now(), obj);
             }
             return invokeL.objValue;
         }
@@ -845,7 +845,7 @@ public final class OperatorReplay<T> extends a7a<T> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-                return ((q7a) obj).b();
+                return ((yca) obj).b();
             }
             return invokeL.objValue;
         }
@@ -863,7 +863,7 @@ public final class OperatorReplay<T> extends a7a<T> {
                     Node node4 = node3;
                     node = node2;
                     node2 = node4;
-                    if (node2 == null || ((q7a) node2.value).a() > now) {
+                    if (node2 == null || ((yca) node2.value).a() > now) {
                         break;
                     }
                     node3 = node2.get();
@@ -892,7 +892,7 @@ public final class OperatorReplay<T> extends a7a<T> {
                             i++;
                             this.size = i2 - 1;
                             node3 = node2.get();
-                        } else if (((q7a) node2.value).a() > now) {
+                        } else if (((yca) node2.value).a() > now) {
                             break;
                         } else {
                             i++;
@@ -930,7 +930,7 @@ public final class OperatorReplay<T> extends a7a<T> {
                     Node node3 = node2;
                     Node node4 = node;
                     node = node3;
-                    if (node == null || this.size <= 1 || ((q7a) node.value).a() > now) {
+                    if (node == null || this.size <= 1 || ((yca) node.value).a() > now) {
                         break;
                     }
                     i++;
@@ -1048,8 +1048,8 @@ public final class OperatorReplay<T> extends a7a<T> {
                         } else {
                             i = 0;
                         }
-                        i3a<? super T> i3aVar = innerProducer.child;
-                        if (i3aVar == null) {
+                        q8a<? super T> q8aVar = innerProducer.child;
+                        if (q8aVar == null) {
                             return;
                         }
                         long j = innerProducer.get();
@@ -1057,16 +1057,16 @@ public final class OperatorReplay<T> extends a7a<T> {
                         while (j2 != j && i < i2) {
                             Object obj = get(i);
                             try {
-                                if (NotificationLite.a(i3aVar, obj) || innerProducer.isUnsubscribed()) {
+                                if (NotificationLite.a(q8aVar, obj) || innerProducer.isUnsubscribed()) {
                                     return;
                                 }
                                 i++;
                                 j2++;
                             } catch (Throwable th) {
-                                o3a.e(th);
+                                w8a.e(th);
                                 innerProducer.unsubscribe();
                                 if (!NotificationLite.g(obj) && !NotificationLite.f(obj)) {
-                                    i3aVar.onError(OnErrorThrowable.addValueAsLastCause(th, NotificationLite.e(obj)));
+                                    q8aVar.onError(OnErrorThrowable.addValueAsLastCause(th, NotificationLite.e(obj)));
                                     return;
                                 }
                                 return;
@@ -1092,7 +1092,7 @@ public final class OperatorReplay<T> extends a7a<T> {
     }
 
     /* loaded from: classes9.dex */
-    public static class a implements t3a {
+    public static class a implements b9a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -1110,7 +1110,7 @@ public final class OperatorReplay<T> extends a7a<T> {
             }
         }
 
-        @Override // com.baidu.tieba.t3a
+        @Override // com.baidu.tieba.b9a
         public Object call() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1122,7 +1122,7 @@ public final class OperatorReplay<T> extends a7a<T> {
     }
 
     /* loaded from: classes9.dex */
-    public static class b implements t3a<e<T>> {
+    public static class b implements b9a<e<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -1146,7 +1146,7 @@ public final class OperatorReplay<T> extends a7a<T> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.t3a
+        @Override // com.baidu.tieba.b9a
         public e<T> call() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1158,19 +1158,19 @@ public final class OperatorReplay<T> extends a7a<T> {
     }
 
     /* loaded from: classes9.dex */
-    public static class c implements t3a<e<T>> {
+    public static class c implements b9a<e<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
         public final /* synthetic */ long b;
-        public final /* synthetic */ f3a c;
+        public final /* synthetic */ n8a c;
 
-        public c(int i, long j, f3a f3aVar) {
+        public c(int i, long j, n8a n8aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), f3aVar};
+                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), n8aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -1182,11 +1182,11 @@ public final class OperatorReplay<T> extends a7a<T> {
             }
             this.a = i;
             this.b = j;
-            this.c = f3aVar;
+            this.c = n8aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.t3a
+        @Override // com.baidu.tieba.b9a
         public e<T> call() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1198,18 +1198,18 @@ public final class OperatorReplay<T> extends a7a<T> {
     }
 
     /* loaded from: classes9.dex */
-    public static class d implements c3a.a<T> {
+    public static class d implements k8a.a<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AtomicReference a;
-        public final /* synthetic */ t3a b;
+        public final /* synthetic */ b9a b;
 
-        public d(AtomicReference atomicReference, t3a t3aVar) {
+        public d(AtomicReference atomicReference, b9a b9aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {atomicReference, t3aVar};
+                Object[] objArr = {atomicReference, b9aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -1220,13 +1220,13 @@ public final class OperatorReplay<T> extends a7a<T> {
                 }
             }
             this.a = atomicReference;
-            this.b = t3aVar;
+            this.b = b9aVar;
         }
 
-        public void call(i3a<? super T> i3aVar) {
+        public void call(q8a<? super T> q8aVar) {
             f fVar;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, i3aVar) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, q8aVar) == null) {
                 while (true) {
                     fVar = (f) this.a.get();
                     if (fVar != null) {
@@ -1239,17 +1239,17 @@ public final class OperatorReplay<T> extends a7a<T> {
                         break;
                     }
                 }
-                InnerProducer<T> innerProducer = new InnerProducer<>(fVar, i3aVar);
+                InnerProducer<T> innerProducer = new InnerProducer<>(fVar, q8aVar);
                 fVar.g(innerProducer);
-                i3aVar.b(innerProducer);
+                q8aVar.b(innerProducer);
                 fVar.e.replay(innerProducer);
-                i3aVar.f(innerProducer);
+                q8aVar.f(innerProducer);
             }
         }
 
-        @Override // com.baidu.tieba.c3a.a, com.baidu.tieba.q3a
+        @Override // com.baidu.tieba.k8a.a, com.baidu.tieba.y8a
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((i3a) ((i3a) obj));
+            call((q8a) ((q8a) obj));
         }
     }
 
@@ -1270,82 +1270,82 @@ public final class OperatorReplay<T> extends a7a<T> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OperatorReplay(c3a.a<T> aVar, c3a<? extends T> c3aVar, AtomicReference<f<T>> atomicReference, t3a<? extends e<T>> t3aVar) {
+    public OperatorReplay(k8a.a<T> aVar, k8a<? extends T> k8aVar, AtomicReference<f<T>> atomicReference, b9a<? extends e<T>> b9aVar) {
         super(aVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, c3aVar, atomicReference, t3aVar};
+            Object[] objArr = {aVar, k8aVar, atomicReference, b9aVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((c3a.a) newInitContext.callArgs[0]);
+                super((k8a.a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = c3aVar;
+        this.b = k8aVar;
         this.c = atomicReference;
-        this.d = t3aVar;
+        this.d = b9aVar;
     }
 
-    public static <T> a7a<T> D(c3a<? extends T> c3aVar) {
+    public static <T> ica<T> D(k8a<? extends T> k8aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, c3aVar)) == null) {
-            return H(c3aVar, e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, k8aVar)) == null) {
+            return H(k8aVar, e);
         }
-        return (a7a) invokeL.objValue;
+        return (ica) invokeL.objValue;
     }
 
-    public static <T> a7a<T> E(c3a<? extends T> c3aVar, int i) {
+    public static <T> ica<T> E(k8a<? extends T> k8aVar, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, c3aVar, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, k8aVar, i)) == null) {
             if (i == Integer.MAX_VALUE) {
-                return D(c3aVar);
+                return D(k8aVar);
             }
-            return H(c3aVar, new b(i));
+            return H(k8aVar, new b(i));
         }
-        return (a7a) invokeLI.objValue;
+        return (ica) invokeLI.objValue;
     }
 
-    public static <T> a7a<T> H(c3a<? extends T> c3aVar, t3a<? extends e<T>> t3aVar) {
+    public static <T> ica<T> H(k8a<? extends T> k8aVar, b9a<? extends e<T>> b9aVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, c3aVar, t3aVar)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, k8aVar, b9aVar)) == null) {
             AtomicReference atomicReference = new AtomicReference();
-            return new OperatorReplay(new d(atomicReference, t3aVar), c3aVar, atomicReference, t3aVar);
+            return new OperatorReplay(new d(atomicReference, b9aVar), k8aVar, atomicReference, b9aVar);
         }
-        return (a7a) invokeLL.objValue;
+        return (ica) invokeLL.objValue;
     }
 
-    public static <T> a7a<T> F(c3a<? extends T> c3aVar, long j, TimeUnit timeUnit, f3a f3aVar) {
+    public static <T> ica<T> F(k8a<? extends T> k8aVar, long j, TimeUnit timeUnit, n8a n8aVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{c3aVar, Long.valueOf(j), timeUnit, f3aVar})) == null) {
-            return G(c3aVar, j, timeUnit, f3aVar, Integer.MAX_VALUE);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{k8aVar, Long.valueOf(j), timeUnit, n8aVar})) == null) {
+            return G(k8aVar, j, timeUnit, n8aVar, Integer.MAX_VALUE);
         }
-        return (a7a) invokeCommon.objValue;
+        return (ica) invokeCommon.objValue;
     }
 
-    public static <T> a7a<T> G(c3a<? extends T> c3aVar, long j, TimeUnit timeUnit, f3a f3aVar, int i) {
+    public static <T> ica<T> G(k8a<? extends T> k8aVar, long j, TimeUnit timeUnit, n8a n8aVar, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{c3aVar, Long.valueOf(j), timeUnit, f3aVar, Integer.valueOf(i)})) == null) {
-            return H(c3aVar, new c(i, timeUnit.toMillis(j), f3aVar));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{k8aVar, Long.valueOf(j), timeUnit, n8aVar, Integer.valueOf(i)})) == null) {
+            return H(k8aVar, new c(i, timeUnit.toMillis(j), n8aVar));
         }
-        return (a7a) invokeCommon.objValue;
+        return (ica) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.a7a
-    public void C(q3a<? super j3a> q3aVar) {
+    @Override // com.baidu.tieba.ica
+    public void C(y8a<? super r8a> y8aVar) {
         f<T> fVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, q3aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, y8aVar) == null) {
             while (true) {
                 fVar = this.c.get();
                 if (fVar != null && !fVar.isUnsubscribed()) {
@@ -1360,7 +1360,7 @@ public final class OperatorReplay<T> extends a7a<T> {
             }
             boolean z = true;
             z = (fVar.l.get() || !fVar.l.compareAndSet(false, true)) ? false : false;
-            q3aVar.call(fVar);
+            y8aVar.call(fVar);
             if (z) {
                 this.b.B(fVar);
             }

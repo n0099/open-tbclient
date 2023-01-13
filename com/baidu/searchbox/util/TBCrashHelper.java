@@ -1,7 +1,7 @@
 package com.baidu.searchbox.util;
 
 import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tieba.ry4;
+import com.baidu.tieba.cz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,21 +38,21 @@ public class TBCrashHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             try {
-                m = ry4.l().m(SP_KEY_CRASH_UPLOAD_COUNT, 0);
-                n = ry4.l().n(SP_KEY_LAST_CRASH_UPLOAD_TIMESTAMP, 0L);
+                m = cz4.l().m(SP_KEY_CRASH_UPLOAD_COUNT, 0);
+                n = cz4.l().n(SP_KEY_LAST_CRASH_UPLOAD_TIMESTAMP, 0L);
                 currentTimeMillis = System.currentTimeMillis();
-                ry4.l().K(SP_KEY_LAST_CRASH_UPLOAD_TIMESTAMP, currentTimeMillis);
+                cz4.l().K(SP_KEY_LAST_CRASH_UPLOAD_TIMESTAMP, currentTimeMillis);
             } catch (Exception unused) {
             }
             if (TimeHelper.isSameDay(new Date(n), new Date(currentTimeMillis))) {
                 int i = m + 1;
-                ry4.l().J(SP_KEY_CRASH_UPLOAD_COUNT, i);
+                cz4.l().J(SP_KEY_CRASH_UPLOAD_COUNT, i);
                 if (i <= 100) {
                     return false;
                 }
                 return true;
             }
-            ry4.l().J(SP_KEY_CRASH_UPLOAD_COUNT, 1);
+            cz4.l().J(SP_KEY_CRASH_UPLOAD_COUNT, 1);
             return false;
         }
         return invokeV.booleanValue;

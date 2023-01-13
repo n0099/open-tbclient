@@ -11,11 +11,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.LogoActivityConfig;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic;
-import com.baidu.tieba.dh3;
-import com.baidu.tieba.hq3;
-import com.baidu.tieba.lu5;
-import com.baidu.tieba.m9;
+import com.baidu.tieba.fv5;
+import com.baidu.tieba.ih3;
+import com.baidu.tieba.mq3;
 import com.baidu.tieba.n9;
+import com.baidu.tieba.o9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -103,14 +103,14 @@ public class SwanEntryActivity extends Activity {
         }
         if (!PermissionUtil.isAgreePrivacyPolicy()) {
             SwanAppAbTestStatic.a = uri;
-        } else if (!n9.g().i("MainTabActivity")) {
+        } else if (!o9.f().h("MainTabActivity")) {
             LogoActivityConfig logoActivityConfig = new LogoActivityConfig(this, intent);
             intent.setData(Uri.parse(uri));
             logoActivityConfig.getIntent().putExtra(LogoActivityConfig.IS_DEAL_INTENT, true);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, logoActivityConfig));
         } else {
-            lu5.a();
-            hq3.a(uri);
+            fv5.a();
+            mq3.a(uri);
         }
     }
 
@@ -118,9 +118,9 @@ public class SwanEntryActivity extends Activity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            m9.b(this);
+            n9.b(this);
             super.onCreate(bundle);
-            if (dh3.a(this)) {
+            if (ih3.a(this)) {
                 return;
             }
             a();
@@ -140,7 +140,7 @@ public class SwanEntryActivity extends Activity {
     public void setRequestedOrientation(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            if (m9.d(this) && m9.a(i)) {
+            if (n9.d(this) && n9.a(i)) {
                 return;
             }
             super.setRequestedOrientation(i);

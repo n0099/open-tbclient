@@ -41,7 +41,8 @@ public class ge extends XMPushService.j {
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
-    public String a() {
+    /* renamed from: a */
+    public String mo673a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -51,14 +52,15 @@ public class ge extends XMPushService.j {
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
-    public void a() {
+    /* renamed from: a */
+    public void mo394a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Thread.yield();
-            if (!this.f449a.m370c() || this.f449a.a(this.a)) {
+            if (!this.f449a.m431c() || this.f449a.a(this.a)) {
                 return;
             }
-            com.xiaomi.push.service.o.a(this.f449a.b).m676b();
+            com.xiaomi.push.service.o.a(this.f449a.b).m740b();
             this.f449a.b.a(22, (Exception) null);
         }
     }

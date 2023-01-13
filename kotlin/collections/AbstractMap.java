@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Set;
 import kotlin.Metadata;
 import kotlin.SinceKotlin;
+import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.markers.KMappedMarker;
@@ -178,7 +179,24 @@ public abstract class AbstractMap<K, V> implements Map<K, V>, KMappedMarker {
     }
 
     public String toString() {
-        return CollectionsKt___CollectionsKt.joinToString$default(entrySet(), StringUtil.ARRAY_ELEMENT_SEPARATOR, "{", "}", 0, null, new AbstractMap$toString$1(this), 24, null);
+        return CollectionsKt___CollectionsKt.joinToString$default(entrySet(), StringUtil.ARRAY_ELEMENT_SEPARATOR, "{", "}", 0, null, new Function1<Map.Entry<? extends K, ? extends V>, CharSequence>() { // from class: kotlin.collections.AbstractMap$toString$1
+            {
+                super(1);
+            }
+
+            public final CharSequence invoke(Map.Entry<? extends K, ? extends V> it) {
+                String abstractMap;
+                Intrinsics.checkNotNullParameter(it, "it");
+                abstractMap = AbstractMap.this.toString((Map.Entry) it);
+                return abstractMap;
+            }
+
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function1
+            public /* bridge */ /* synthetic */ CharSequence invoke(Object obj) {
+                return invoke((Map.Entry) ((Map.Entry) obj));
+            }
+        }, 24, null);
     }
 
     @Override // java.util.Map

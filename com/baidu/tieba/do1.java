@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public interface do1 {
-    boolean a(Context context, String str);
-
-    boolean b(Context context, String str);
-
-    boolean c(Context context, String str);
+    String a(@NonNull String str, @Nullable JSONObject jSONObject);
 }

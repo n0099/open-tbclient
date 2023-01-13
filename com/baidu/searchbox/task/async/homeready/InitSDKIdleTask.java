@@ -4,7 +4,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.l30;
+import com.baidu.tieba.q30;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,7 +51,7 @@ public class InitSDKIdleTask extends LaunchTask {
         if ((interceptable != null && interceptable.invokeV(65537, this) != null) || !PermissionUtil.isAgreePrivacyPolicy()) {
             return;
         }
-        l30.b.c(TbadkCoreApplication.getInst()).b().t();
+        q30.b.c(TbadkCoreApplication.getInst()).b().t();
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask

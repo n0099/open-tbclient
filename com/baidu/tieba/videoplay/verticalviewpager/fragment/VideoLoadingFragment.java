@@ -19,9 +19,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h49;
-import com.baidu.tieba.k49;
-import com.baidu.tieba.la5;
+import com.baidu.tieba.ab5;
+import com.baidu.tieba.h99;
 import com.baidu.tieba.video.VideoItemModel;
 import com.baidu.tieba.videoplay.verticalviewpager.fragment.VideoLoadingFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +32,7 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000R\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u00002\u00020\u00012\u00020\u0002B\u0005¢\u0006\u0002\u0010\u0003J\n\u0010\u0010\u001a\u0004\u0018\u00010\u000fH\u0016J\b\u0010\u0011\u001a\u00020\u0007H\u0016J\b\u0010\u0012\u001a\u00020\u0013H\u0002J\u0012\u0010\u0014\u001a\u00020\u00132\b\u0010\u0015\u001a\u0004\u0018\u00010\u0016H\u0016J&\u0010\u0017\u001a\u0004\u0018\u00010\r2\u0006\u0010\u0018\u001a\u00020\u00192\b\u0010\u001a\u001a\u0004\u0018\u00010\u001b2\b\u0010\u0015\u001a\u0004\u0018\u00010\u0016H\u0016J\b\u0010\u001c\u001a\u00020\u0013H\u0016J\b\u0010\u001d\u001a\u00020\u0013H\u0016J\u0010\u0010\u001e\u001a\u00020\u00132\u0006\u0010\u001f\u001a\u00020\u0007H\u0016J\b\u0010 \u001a\u00020\u0013H\u0002R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\u0007X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\t\u001a\u0004\u0018\u00010\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u0004\u0018\u00010\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000e\u001a\u0004\u0018\u00010\u000fX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006!"}, d2 = {"Lcom/baidu/tieba/videoplay/verticalviewpager/fragment/VideoLoadingFragment;", "Lcom/baidu/tbadk/core/BaseFragment;", "Lcom/baidu/tieba/videoplay/verticalviewpager/transforms/IVideoFragment;", "()V", "mBackHomeAnimListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "mCurrentType", "", "mFragmentIndex", "mFromPage", "", "mNetworkChangedMessageListener", "mRootView", "Landroid/view/View;", "mVideoLoadingData", "Lcom/baidu/tieba/video/VideoItemModel;", "getCurrentData", "getFragmentIndex", "hideErrorView", "", "onActivityCreated", "savedInstanceState", "Landroid/os/Bundle;", "onCreateView", "inflater", "Landroid/view/LayoutInflater;", "container", "Landroid/view/ViewGroup;", "onDestroyView", "onPrimary", "setFragmentIndex", "index", "showErrorView", "VideoPlay_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes6.dex */
-public final class VideoLoadingFragment extends BaseFragment implements k49 {
+public final class VideoLoadingFragment extends BaseFragment implements h99 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public VideoItemModel a;
@@ -43,10 +42,10 @@ public final class VideoLoadingFragment extends BaseFragment implements k49 {
     public final CustomMessageListener e;
     public final CustomMessageListener f;
 
-    public static final boolean C1(View view2) {
+    public static final boolean H1(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, view2)) == null) {
             return true;
         }
         return invokeL.booleanValue;
@@ -138,7 +137,7 @@ public final class VideoLoadingFragment extends BaseFragment implements k49 {
                 }
                 VideoLoadingFragment videoLoadingFragment = this.a;
                 videoLoadingFragment.hideLoadingView(videoLoadingFragment.c);
-                this.a.D1();
+                this.a.I1();
             }
         }
     }
@@ -174,15 +173,15 @@ public final class VideoLoadingFragment extends BaseFragment implements k49 {
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{e1, e2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
                 Intrinsics.checkNotNullParameter(e1, "e1");
                 Intrinsics.checkNotNullParameter(e2, "e2");
-                if (e2.getX() - e1.getX() <= 50.0f) {
-                    return false;
-                }
-                View view2 = this.a.c;
-                if (view2 != null) {
-                    view2.cancelLongPress();
+                if (e2.getX() - e1.getX() > 50.0f) {
+                    View view2 = this.a.c;
+                    if (view2 != null) {
+                        view2.cancelLongPress();
+                        return true;
+                    }
                     return true;
                 }
-                return true;
+                return false;
             }
             return invokeCommon.booleanValue;
         }
@@ -206,20 +205,37 @@ public final class VideoLoadingFragment extends BaseFragment implements k49 {
         this.f = new a(this);
     }
 
-    public static final boolean B1(GestureDetectorCompat detectorCompat, View view2, MotionEvent motionEvent) {
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onActivityCreated(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            super.onActivityCreated(bundle);
+            registerListener(this.f);
+        }
+    }
+
+    @Override // com.baidu.tieba.h99
+    public void r0(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public static final boolean G1(GestureDetectorCompat detectorCompat, View view2, MotionEvent motionEvent) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, detectorCompat, view2, motionEvent)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, detectorCompat, view2, motionEvent)) == null) {
             Intrinsics.checkNotNullParameter(detectorCompat, "$detectorCompat");
             return detectorCompat.onTouchEvent(motionEvent);
         }
         return invokeLLL.booleanValue;
     }
 
-    public static final void E1(VideoLoadingFragment this$0, View view2) {
+    public static final void J1(VideoLoadingFragment this$0, View view2) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, this$0, view2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             if (this$0.d == 5) {
                 i = 0;
@@ -231,35 +247,18 @@ public final class VideoLoadingFragment extends BaseFragment implements k49 {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onActivityCreated(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
-            super.onActivityCreated(bundle);
-            registerListener(this.f);
-        }
-    }
-
-    @Override // com.baidu.tieba.k49
-    public void p0(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public final void A1() {
+    public final void F1() {
         View b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View view2 = this.c;
             if (view2 != null) {
                 FrameLayout frameLayout = (FrameLayout) view2;
-                la5 la5Var = this.mRefreshView;
-                if (la5Var == null) {
+                ab5 ab5Var = this.mRefreshView;
+                if (ab5Var == null) {
                     b2 = null;
                 } else {
-                    b2 = la5Var.b();
+                    b2 = ab5Var.b();
                 }
                 frameLayout.removeView(b2);
                 return;
@@ -268,11 +267,11 @@ public final class VideoLoadingFragment extends BaseFragment implements k49 {
         }
     }
 
-    @Override // com.baidu.tieba.k49
-    public VideoItemModel G0() {
+    @Override // com.baidu.tieba.h99
+    public VideoItemModel I0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
         return (VideoItemModel) invokeV.objValue;
@@ -294,17 +293,17 @@ public final class VideoLoadingFragment extends BaseFragment implements k49 {
             super.onPrimary();
             if (isPrimary()) {
                 if (BdNetTypeUtil.isNetWorkAvailable()) {
-                    A1();
+                    F1();
                     showLoadingView(this.c, true);
                     return;
                 }
                 hideLoadingView(this.c);
-                D1();
+                I1();
             }
         }
     }
 
-    @Override // com.baidu.tieba.k49
+    @Override // com.baidu.tieba.h99
     public int s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -314,10 +313,10 @@ public final class VideoLoadingFragment extends BaseFragment implements k49 {
         return invokeV.intValue;
     }
 
-    public final void D1() {
+    public final void I1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            la5 la5Var = new la5(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.j49
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ab5 ab5Var = new ab5(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.g99
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -325,12 +324,12 @@ public final class VideoLoadingFragment extends BaseFragment implements k49 {
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        VideoLoadingFragment.E1(VideoLoadingFragment.this, view2);
+                        VideoLoadingFragment.J1(VideoLoadingFragment.this, view2);
                     }
                 }
             });
-            this.mRefreshView = la5Var;
-            la5Var.p();
+            this.mRefreshView = ab5Var;
+            ab5Var.p();
             this.mRefreshView.m(null);
             String string = getResources().getString(R.string.refresh_view_title_text);
             Intrinsics.checkNotNullExpressionValue(string, "resources.getString(R.st….refresh_view_title_text)");
@@ -368,7 +367,7 @@ public final class VideoLoadingFragment extends BaseFragment implements k49 {
             final GestureDetectorCompat gestureDetectorCompat = new GestureDetectorCompat(getContext(), new c(this));
             View view2 = this.c;
             if (view2 != null) {
-                view2.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.i49
+                view2.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.f99
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -376,13 +375,23 @@ public final class VideoLoadingFragment extends BaseFragment implements k49 {
                     public final boolean onTouch(View view3, MotionEvent motionEvent) {
                         InterceptResult invokeLL;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view3, motionEvent)) == null) ? VideoLoadingFragment.B1(GestureDetectorCompat.this, view3, motionEvent) : invokeLL.booleanValue;
+                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view3, motionEvent)) == null) ? VideoLoadingFragment.G1(GestureDetectorCompat.this, view3, motionEvent) : invokeLL.booleanValue;
                     }
                 });
             }
             View view3 = this.c;
             if (view3 != null) {
-                view3.setOnLongClickListener(h49.a);
+                view3.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.e99
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // android.view.View.OnLongClickListener
+                    public final boolean onLongClick(View view4) {
+                        InterceptResult invokeL;
+                        Interceptable interceptable2 = $ic;
+                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view4)) == null) ? VideoLoadingFragment.H1(view4) : invokeL.booleanValue;
+                    }
+                });
             }
             return this.c;
         }

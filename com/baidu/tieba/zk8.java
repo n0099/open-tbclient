@@ -1,137 +1,133 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tieba.al8;
+import android.content.Context;
+import android.view.MotionEvent;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class zk8 {
+public class zk8 extends yk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int N0;
+    public int O0;
 
-    /* loaded from: classes7.dex */
-    public static class a implements al8.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ TbPageContext b;
-
-        public a(String str, TbPageContext tbPageContext) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, tbPageContext};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = tbPageContext;
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:38:0x0080 A[ORIG_RETURN, RETURN] */
-        /* JADX WARN: Removed duplicated region for block: B:42:0x0044 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-        @Override // com.baidu.tieba.al8.c
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void a(HashMap<String, String> hashMap) {
-            JSONObject jSONObject;
-            String str;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, hashMap) != null) || hashMap == null) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zk8(Context context, View view2) {
+        super(context, view2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, view2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (View) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            Class<?> cls = null;
-            try {
-                JSONObject jSONObject2 = new JSONObject(this.a);
-                str = jSONObject2.optString("page");
-                try {
-                    String optString = jSONObject2.optString("refre");
-                    jSONObject = jSONObject2.optJSONObject("pageParams");
-                    if (jSONObject == null) {
-                        try {
-                            jSONObject = new JSONObject();
-                        } catch (Exception e) {
-                            e = e;
-                            e.printStackTrace();
-                            if (jSONObject == null) {
-                            }
-                        }
-                    }
-                    jSONObject.put("page", str);
-                    jSONObject.put("refre", optString);
-                    jSONObject.put("from", 1);
-                } catch (Exception e2) {
-                    e = e2;
-                    jSONObject = null;
-                }
-            } catch (Exception e3) {
-                e = e3;
-                jSONObject = null;
-                str = null;
+        }
+        m0(false);
+        this.N0 = zi.l(this.O) / 10;
+    }
+
+    @Override // com.baidu.tieba.yk8
+    public void V(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            Context context = this.O;
+            if (context instanceof BaseFragmentActivity) {
+                ((BaseFragmentActivity) context).setSwipeBackEnabled(this.Y);
+            } else if (context instanceof BaseActivity) {
+                ((BaseActivity) context).setSwipeBackEnabled(this.Y);
             }
-            if (jSONObject == null) {
-                try {
-                    cls = Class.forName(hashMap.get(str));
-                } catch (Exception e4) {
-                    e4.printStackTrace();
-                }
-                if (cls == null) {
-                    return;
-                }
-                for (Class<?> cls2 : cls.getInterfaces()) {
-                    if (cls2.isAssignableFrom(yk8.class)) {
-                        try {
-                            ((yk8) cls.newInstance()).dispatch(jSONObject, this.b.getPageActivity());
-                            return;
-                        } catch (Exception e5) {
-                            e5.printStackTrace();
-                            return;
-                        }
-                    }
-                }
+            super.V(z);
+            if (this.Y) {
+                this.Q.getLayoutParams().height = -1;
+                return;
             }
+            this.Q.getLayoutParams().height = this.O0;
         }
     }
 
-    public static int a(TbPageContext<?> tbPageContext, String[] strArr) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.yk8
+    public void e0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, strArr)) == null) {
-            if (tbPageContext != null && strArr != null && strArr.length != 0) {
-                String str = strArr[0];
-                if (TextUtils.isEmpty(str)) {
-                    return 3;
-                }
-                if (!str.startsWith("tiebaapp://router/portal") && !str.startsWith(UrlSchemaHelper.OPEN_GROUPCHAT_SCHEME) && ((str = xi.getUrlDecode(str)) == null || !str.startsWith(UrlSchemaHelper.OPEN_GROUPCHAT_SCHEME))) {
-                    str = null;
-                }
-                if (!TextUtils.isEmpty(str)) {
-                    try {
-                        al8.c().b(new a(Uri.parse(str).getQueryParameter("params"), tbPageContext));
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    return 0;
-                }
-            }
-            return 3;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.t.getControl().setVolume(1.0f, 1.0f);
         }
-        return invokeLL.intValue;
+    }
+
+    @Override // com.baidu.tieba.yk8
+    public boolean f0(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
+            if (!this.Y && motionEvent.getX() <= this.N0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.yk8
+    public void o0(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            super.o0(i);
+            this.J.setVisibility(8);
+            this.D.setVisibility(8);
+        }
+    }
+
+    @Override // com.baidu.tieba.yk8, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
+    public void onPrepared() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onPrepared();
+            if (this.t.getControl().getPlayerWidth() == 0) {
+                return;
+            }
+            if (this.t.getControl().getPlayerHeight() > this.t.getControl().getPlayerWidth()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.T = z;
+            int playerHeight = (int) ((this.t.getControl().getPlayerHeight() / this.t.getControl().getPlayerWidth()) * zi.l(this.O));
+            this.O0 = playerHeight;
+            if (playerHeight > zi.j(this.O)) {
+                this.O0 = zi.j(this.O);
+            }
+            this.Q.getLayoutParams().height = this.O0;
+            this.Q.requestLayout();
+        }
+    }
+
+    public void w0(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
+            this.U = str2;
+            P();
+            Q();
+            o0(this.b);
+            this.F.setPlayer(this.t.getControl());
+            this.B.setVisibility(8);
+            this.u.setPlaceHolder(3);
+            this.u.K(str, 10, false);
+            this.H.setShareData(null);
+        }
     }
 }

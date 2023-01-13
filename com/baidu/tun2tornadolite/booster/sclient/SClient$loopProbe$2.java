@@ -10,6 +10,7 @@ import com.baidu.tun2tornadolite.AndroidOperationInterface;
 import com.baidu.tun2tornadolite.booster.LogTo;
 import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetSocketAddress;
 import kotlin.Metadata;
@@ -103,7 +104,7 @@ public final class SClient$loopProbe$2 extends SuspendLambda implements Function
         InterceptResult invokeL;
         AndroidOperationInterface androidOperationInterface;
         String str;
-        Function1 sClient$loopProbe$2$handleData$1;
+        Function1<UByte, Long> function1;
         SClient$loopProbe$2 sClient$loopProbe$2;
         long j;
         Integer[] numArr;
@@ -124,7 +125,7 @@ public final class SClient$loopProbe$2 extends SuspendLambda implements Function
                 if (i2 == 1) {
                     j = this.J$0;
                     i = this.I$0;
-                    sClient$loopProbe$2$handleData$1 = (Function1) this.L$1;
+                    function1 = (Function1) this.L$1;
                     numArr = (Integer[]) this.L$0;
                     try {
                         ResultKt.throwOnFailure(obj);
@@ -170,7 +171,7 @@ public final class SClient$loopProbe$2 extends SuspendLambda implements Function
                             int i4 = 0;
                             while (true) {
                                 int i5 = i4 + 1;
-                                long longValue = ((Number) sClient$loopProbe$2$handleData$1.invoke(UByte.m720boximpl(UByte.m726constructorimpl((byte) i4)))).longValue();
+                                long longValue = function1.invoke(UByte.m784boximpl(UByte.m790constructorimpl((byte) i4))).longValue();
                                 if (longValue != j2) {
                                     j3 += longValue;
                                 }
@@ -192,7 +193,7 @@ public final class SClient$loopProbe$2 extends SuspendLambda implements Function
                         }
                         LogTo.INSTANCE.d("*****", "[Probe " + j + "] packets:" + sumOfInt + WebvttCueParser.CHAR_SLASH + i + " loss:" + TornadoLiteRuntime.INSTANCE.getLossRateFromMClientToSClient() + " latency:" + TornadoLiteRuntime.INSTANCE.getLatencyFromMClientToSClient());
                         sClient$loopProbe$2.L$0 = numArr;
-                        sClient$loopProbe$2.L$1 = sClient$loopProbe$2$handleData$1;
+                        sClient$loopProbe$2.L$1 = function1;
                         sClient$loopProbe$2.I$0 = i;
                         sClient$loopProbe$2.J$0 = j;
                         sClient$loopProbe$2.label = 1;
@@ -227,13 +228,84 @@ public final class SClient$loopProbe$2 extends SuspendLambda implements Function
                 }
                 str = SClient.address;
                 Intrinsics.checkNotNull(str);
-                InetSocketAddress inetSocketAddress = new InetSocketAddress((String) StringsKt__StringsKt.split$default((CharSequence) str, new String[]{":"}, false, 0, 6, (Object) null).get(0), 8018);
-                byte[] bArr = new byte[1];
-                Integer[] numArr2 = new Integer[10];
+                final InetSocketAddress inetSocketAddress = new InetSocketAddress((String) StringsKt__StringsKt.split$default((CharSequence) str, new String[]{":"}, false, 0, 6, (Object) null).get(0), 8018);
+                final byte[] bArr = new byte[1];
+                final Integer[] numArr2 = new Integer[10];
                 for (int i6 = 0; i6 < 10; i6++) {
                     numArr2[i6] = Boxing.boxInt(0);
                 }
-                sClient$loopProbe$2$handleData$1 = new SClient$loopProbe$2$handleData$1(bArr, inetSocketAddress, numArr2, 10);
+                function1 = new Function1<UByte, Long>(bArr, inetSocketAddress, numArr2, 10) { // from class: com.baidu.tun2tornadolite.booster.sclient.SClient$loopProbe$2$handleData$1
+                    public static /* synthetic */ Interceptable $ic;
+                    public final /* synthetic */ InetSocketAddress $address;
+                    public final /* synthetic */ byte[] $buf;
+                    public final /* synthetic */ Integer[] $cache;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ int $size;
+
+                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                    {
+                        super(1);
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {bArr, inetSocketAddress, numArr2, Integer.valueOf(r10)};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i7 = newInitContext.flag;
+                            if ((i7 & 1) != 0) {
+                                int i8 = i7 & 2;
+                                super(((Integer) newInitContext.callArgs[0]).intValue());
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.$buf = bArr;
+                        this.$address = inetSocketAddress;
+                        this.$cache = numArr2;
+                        this.$size = r10;
+                    }
+
+                    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                    @Override // kotlin.jvm.functions.Function1
+                    public /* bridge */ /* synthetic */ Long invoke(UByte uByte) {
+                        return m61invoke7apg3OU(uByte.m839unboximpl());
+                    }
+
+                    /* renamed from: invoke-7apg3OU  reason: not valid java name */
+                    public final Long m61invoke7apg3OU(byte b) {
+                        InterceptResult invokeB;
+                        long j4;
+                        DatagramSocket datagramSocket3;
+                        DatagramSocket datagramSocket4;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeB = interceptable2.invokeB(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b)) == null) {
+                            try {
+                                this.$buf[0] = b;
+                                DatagramPacket datagramPacket = new DatagramPacket(this.$buf, this.$buf.length, this.$address);
+                                datagramSocket3 = SClient.udpSocket;
+                                Intrinsics.checkNotNull(datagramSocket3);
+                                datagramSocket3.send(datagramPacket);
+                                DatagramPacket datagramPacket2 = new DatagramPacket(this.$buf, this.$buf.length, this.$address);
+                                long currentTimeMillis = System.currentTimeMillis();
+                                datagramSocket4 = SClient.udpSocket;
+                                Intrinsics.checkNotNull(datagramSocket4);
+                                datagramSocket4.receive(datagramPacket2);
+                                j4 = System.currentTimeMillis() - currentTimeMillis;
+                                this.$cache[UByte.m790constructorimpl(this.$buf[0]) & 255] = 1;
+                                LogTo logTo = LogTo.INSTANCE;
+                                logTo.d("*****", "[Probe time] " + ((Object) UByte.m833toStringimpl(b)) + WebvttCueParser.CHAR_SLASH + this.$size + " packet time:" + j4);
+                            } catch (Exception unused) {
+                                j4 = -1;
+                                LogTo logTo2 = LogTo.INSTANCE;
+                                logTo2.d("*****", "[Probe timeout] " + ((Object) UByte.m833toStringimpl(b)) + WebvttCueParser.CHAR_SLASH + this.$size + " packet timeout");
+                            }
+                            return Long.valueOf(j4);
+                        }
+                        return (Long) invokeB.objValue;
+                    }
+                };
                 sClient$loopProbe$2 = this;
                 j = 0;
                 numArr = numArr2;

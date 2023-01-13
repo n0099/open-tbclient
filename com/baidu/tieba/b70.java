@@ -1,25 +1,23 @@
 package com.baidu.tieba;
 
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.List;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.concurrent.Executor;
 /* loaded from: classes3.dex */
-public interface b70 extends Closeable {
-    void disconnect();
+public abstract class b70 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final Executor a;
 
-    int getCode() throws IOException;
+    public abstract void b(int i);
 
-    Map<String, List<String>> getHeaders() throws IOException;
-
-    InputStream getInputStream() throws IOException;
-
-    String getMessage() throws IOException;
-
-    InputStream q() throws IOException;
-
-    void t(int i);
-
-    int u();
+    public Executor a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (Executor) invokeV.objValue;
+    }
 }

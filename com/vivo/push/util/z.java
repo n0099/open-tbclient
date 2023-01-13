@@ -12,7 +12,6 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -486,7 +485,7 @@ public final class z {
                                 if (a2 != null) {
                                     str = a2.toString();
                                 } else {
-                                    Object a3 = a(context, packageName, Constants.API_KEY);
+                                    Object a3 = a(context, packageName, "api_key");
                                     if (a3 != null) {
                                         str = a3.toString();
                                     } else {

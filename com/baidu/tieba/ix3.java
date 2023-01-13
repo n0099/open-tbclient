@@ -1,77 +1,73 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
+import android.view.View;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes5.dex */
 public class ix3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ix3 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<kx3> a;
 
-    public ix3() {
+    public static boolean a(View view2, pu2 pu2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, pu2Var)) == null) {
+            am1 W = wp2.U().W();
+            if (W != null && W.c(view2, pu2Var)) {
+                return true;
             }
+            return false;
         }
-        this.a = new CopyOnWriteArrayList();
+        return invokeLL.booleanValue;
     }
 
-    public static ix3 b() {
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (ix3.class) {
-                    if (b == null) {
-                        b = new ix3();
-                    }
-                }
+            am1 W = wp2.U().W();
+            if (W == null || !W.b() || W.h()) {
+                return false;
             }
-            return b;
+            return true;
         }
-        return (ix3) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void a(kx3 kx3Var) {
+    public static boolean c(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, kx3Var) == null) && kx3Var != null && !this.a.contains(kx3Var)) {
-            this.a.add(kx3Var);
-        }
-    }
-
-    public void d(kx3 kx3Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kx3Var) == null) && this.a.contains(kx3Var)) {
-            this.a.remove(kx3Var);
-        }
-    }
-
-    public void c(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-            for (kx3 kx3Var : this.a) {
-                if (i == 16) {
-                    kx3Var.c();
-                } else if (i == 17) {
-                    kx3Var.b(str);
-                }
-                d(kx3Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            am1 W = wp2.U().W();
+            if (W != null && W.d(view2)) {
+                return true;
             }
+            return false;
         }
+        return invokeL.booleanValue;
+    }
+
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public static boolean d(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
+            am1 W = wp2.U().W();
+            if (W == null) {
+                return false;
+            }
+            if (W.h()) {
+                SwanAppActivity activity = wp2.U().getActivity();
+                if (activity != null) {
+                    activity.setRequestedOrientation(0);
+                }
+                W.g(false);
+            }
+            return W.removeView(view2);
+        }
+        return invokeL.booleanValue;
     }
 }

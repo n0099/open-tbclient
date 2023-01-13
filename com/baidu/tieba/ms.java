@@ -1,5 +1,7 @@
 package com.baidu.tieba;
+
+import java.util.Map;
 /* loaded from: classes5.dex */
 public interface ms {
-    void a(String str, ls lsVar);
+    Map<String, Object> a();
 }

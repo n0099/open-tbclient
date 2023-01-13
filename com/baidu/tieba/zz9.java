@@ -1,120 +1,195 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.FunNativeAd2;
+import com.fun.ad.sdk.channel.model.jy.JYNativeAdView;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.GlideHelper;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.win.opensdk.PBError;
+import com.win.opensdk.PBNative;
+import com.win.opensdk.PBNativeListener;
 /* loaded from: classes7.dex */
-public final class zz9 {
+public class zz9 extends ReporterPidLoader<PBNative> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final FunNativeAdListenerHelper<PBNative, PBNativeListener> e;
 
-    public static int b(int i, int i2) {
-        InterceptResult invokeII;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zz9(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.NATIVE), pid, true, true);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
-            int i3 = 1 << (i2 - 1);
-            while ((i & i3) != 0) {
-                i3 >>= 1;
-            }
-            return (i & (i3 - 1)) + i3;
-        }
-        return invokeII.intValue;
-    }
-
-    public static void a(int[] iArr, int i, int i2, int[] iArr2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{iArr, Integer.valueOf(i), Integer.valueOf(i2), iArr2, Integer.valueOf(i3)}) == null) {
-            int[] iArr3 = new int[i3];
-            int[] iArr4 = new int[16];
-            int[] iArr5 = new int[16];
-            int i4 = 0;
-            for (int i5 = 0; i5 < i3; i5++) {
-                int i6 = iArr2[i5];
-                iArr4[i6] = iArr4[i6] + 1;
-            }
-            iArr5[1] = 0;
-            int i7 = 1;
-            while (i7 < 15) {
-                int i8 = i7 + 1;
-                iArr5[i8] = iArr5[i7] + iArr4[i7];
-                i7 = i8;
-            }
-            for (int i9 = 0; i9 < i3; i9++) {
-                if (iArr2[i9] != 0) {
-                    int i10 = iArr2[i9];
-                    int i11 = iArr5[i10];
-                    iArr5[i10] = i11 + 1;
-                    iArr3[i11] = i9;
-                }
-            }
-            int i12 = 1 << i2;
-            if (iArr5[15] == 1) {
-                for (int i13 = 0; i13 < i12; i13++) {
-                    iArr[i + i13] = iArr3[0];
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            int i14 = 2;
-            int i15 = 0;
-            int i16 = 1;
-            int i17 = 2;
-            while (i16 <= i2) {
-                while (iArr4[i16] > 0) {
-                    d(iArr, i + i4, i17, i12, iArr3[i15] | (i16 << 16));
-                    i4 = b(i4, i16);
-                    iArr4[i16] = iArr4[i16] - 1;
-                    i15++;
+        }
+        this.e = new FunNativeAdListenerHelper<>(this);
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, context, funAdSlot) == null) {
+            onLoadStart(funAdSlot);
+            PBNative pBNative = new PBNative(context.getApplicationContext(), this.mPid.pid);
+            pBNative.setNativeListener(new a(this, pBNative));
+            pBNative.load();
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements PBNativeListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PBNative a;
+        public final /* synthetic */ zz9 b;
+
+        public a(zz9 zz9Var, PBNative pBNative) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zz9Var, pBNative};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                i16++;
-                i17 <<= 1;
             }
-            int i18 = i12 - 1;
-            int i19 = -1;
-            int i20 = i2 + 1;
-            int i21 = i;
-            while (i20 <= 15) {
-                while (iArr4[i20] > 0) {
-                    int i22 = i4 & i18;
-                    if (i22 != i19) {
-                        i21 += i12;
-                        int c = c(iArr4, i20, i2);
-                        iArr[i + i22] = ((c + i2) << 16) | ((i21 - i) - i22);
-                        i12 = 1 << c;
-                        i19 = i22;
-                    }
-                    d(iArr, (i4 >> i2) + i21, i14, i12, ((i20 - i2) << 16) | iArr3[i15]);
-                    i4 = b(i4, i20);
-                    iArr4[i20] = iArr4[i20] - 1;
-                    i15++;
-                }
-                i20++;
-                i14 <<= 1;
+            this.b = zz9Var;
+            this.a = pBNative;
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onFail(PBError pBError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) {
+                LogPrinter.e("onFail code: " + pBError.getCode() + ", message: " + pBError.getMsg(), new Object[0]);
+                this.b.onError(pBError.getCode(), pBError.getMsg());
+            }
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onLoaded() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                LogPrinter.d();
+                this.b.onAdLoaded((zz9) this.a);
+            }
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onClicked() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                LogPrinter.d();
+                this.b.e.onAdClick(this.a);
+            }
+        }
+
+        @Override // com.win.opensdk.PBNativeListener
+        public void onDisplayed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                LogPrinter.d();
+                this.b.e.onAdShow(this.a);
             }
         }
     }
 
-    public static int c(int[] iArr, int i, int i2) {
-        InterceptResult invokeLII;
-        int i3;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        PBNative pBNative;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, iArr, i, i2)) == null) {
-            int i4 = 1 << (i - i2);
-            while (i < 15 && (i3 = i4 - iArr[i]) > 0) {
-                i++;
-                i4 = i3 << 1;
-            }
-            return i - i2;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (pBNative = (PBNative) obj) != null) {
+            this.e.destroy(pBNative);
+            pBNative.destroy();
         }
-        return invokeLII.intValue;
     }
 
-    public static void d(int[] iArr, int i, int i2, int i3, int i4) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean isAdAvailable(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{iArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            do {
-                i3 -= i2;
-                iArr[i + i3] = i4;
-            } while (i3 > 0);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            PBNative pBNative = (PBNative) obj;
+            if (pBNative != null && pBNative.isReady()) {
+                return true;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
+    }
+
+    public JYNativeAdView e(PBNative pBNative) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pBNative)) == null) {
+            JYNativeAdView jYNativeAdView = (JYNativeAdView) LayoutInflater.from(FunAdSdk.getAppContext()).inflate(R.layout.fun_jy_ad_native_view, (ViewGroup) null, false);
+            jYNativeAdView.a.setText(pBNative.getBody());
+            jYNativeAdView.d.setText(pBNative.getHeadline());
+            GlideHelper.get().load(jYNativeAdView.getContext(), pBNative.getIcon(), jYNativeAdView.e);
+            jYNativeAdView.f.setText(pBNative.getCallToAction());
+            jYNativeAdView.g = (pBNative.getMediaViewWidth() * 1.0f) / (pBNative.getMediaViewHeight() * 1.0f);
+            pBNative.registerViewForInteraction(jYNativeAdView, jYNativeAdView.c);
+            return jYNativeAdView;
+        }
+        return (JYNativeAdView) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, obj)) == null) {
+            PBNative pBNative = (PBNative) obj;
+            d0a d0aVar = new d0a(context, pBNative);
+            return new BaseNativeAd2(FunNativeAd2.NativeType.BOTH, pBNative, d0aVar, new a0a(this, this, d0aVar));
+        }
+        return (FunNativeAd2) invokeLLL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, activity, viewGroup, str, obj)) == null) {
+            PBNative pBNative = (PBNative) obj;
+            this.e.startShow(pBNative, str, this.mPid, null, null);
+            JYNativeAdView e = e(pBNative);
+            viewGroup.removeAllViews();
+            viewGroup.addView(e);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

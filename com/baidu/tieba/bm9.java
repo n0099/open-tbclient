@@ -1,126 +1,91 @@
 package com.baidu.tieba;
 
-import android.media.MediaCodec;
-import android.media.MediaFormat;
-import android.media.MediaMuxer;
+import android.util.Base64OutputStream;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.faceunity.encoder.MediaMuxerWrapper;
 import java.io.IOException;
-import java.nio.ByteBuffer;
+import java.io.OutputStream;
 /* loaded from: classes3.dex */
-public class bm9 {
+public class bm9 extends Base64OutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MediaMuxer a;
-    public int b;
-    public int c;
-    public boolean d;
+    public boolean a;
+    public boolean b;
+    public long c;
 
-    public bm9(String str) throws IOException {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bm9(OutputStream outputStream, int i) {
+        super(outputStream, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {outputStream, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((OutputStream) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = 2;
-        this.c = 0;
-        this.d = false;
-        this.a = new MediaMuxer(str, 0);
+        this.a = false;
+        this.b = false;
+        this.c = 0L;
     }
 
-    public synchronized int a(MediaFormat mediaFormat) {
-        InterceptResult invokeL;
-        int addTrack;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mediaFormat)) == null) {
-            synchronized (this) {
-                if (this.d) {
-                    throw new IllegalStateException("muxer already started");
-                }
-                addTrack = this.a.addTrack(mediaFormat);
-                nm9.j(MediaMuxerWrapper.TAG, "addTrack:trackNum=" + this.b + ",trackIx=" + addTrack + ",format=" + mediaFormat);
-            }
-            return addTrack;
-        }
-        return invokeL.intValue;
-    }
-
-    public synchronized void b(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, byteBuffer, bufferInfo) == null) {
-            synchronized (this) {
-                if (this.c > 0) {
-                    this.a.writeSampleData(i, byteBuffer, bufferInfo);
-                }
-            }
-        }
-    }
-
-    public synchronized boolean c() {
+    public long a() {
         InterceptResult invokeV;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                nm9.k(MediaMuxerWrapper.TAG, "start:");
-                int i = this.c + 1;
-                this.c = i;
-                if (this.b > 0 && i == this.b) {
-                    this.a.start();
-                    this.d = true;
-                    notifyAll();
-                    nm9.k(MediaMuxerWrapper.TAG, "MediaMuxer started:");
-                }
-                z = this.d;
-            }
-            return z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return invokeV.booleanValue;
+        return invokeV.longValue;
     }
 
-    public synchronized void d() {
+    @Override // android.util.Base64OutputStream, java.io.FilterOutputStream, java.io.OutputStream
+    public void write(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                nm9.k(MediaMuxerWrapper.TAG, "stop:mStatredCount=" + this.c);
-                int i = this.c + (-1);
-                this.c = i;
-                if (this.b > 0 && i <= 0) {
-                    if (this.d) {
-                        this.a.stop();
-                    }
-                    this.a.release();
-                    this.d = false;
-                    nm9.k(MediaMuxerWrapper.TAG, "MediaMuxer stopped:");
-                }
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (!this.a) {
+                super.write(117);
+                this.a = true;
+            } else if (!this.b) {
+                super.write(123);
+                this.b = true;
+            } else {
+                super.write(i);
             }
         }
     }
 
-    public synchronized boolean e() {
-        InterceptResult invokeV;
-        boolean z;
+    @Override // android.util.Base64OutputStream, java.io.FilterOutputStream, java.io.OutputStream
+    public void write(byte[] bArr, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                z = this.d;
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2) == null) {
+            if (this.a && !this.b && i2 > 0 && bArr.length - i > 0) {
+                bArr[i] = 123;
+                this.b = true;
+            } else if (!this.a && i2 == 1 && bArr.length - i > 0) {
+                bArr[i] = 117;
+                this.a = true;
+            } else if (!this.a && i2 > 1 && bArr.length - i > 1) {
+                bArr[i] = 117;
+                this.a = true;
+                bArr[i + 1] = 123;
+                this.b = true;
             }
-            return z;
+            if (i2 > 0) {
+                this.c += i2;
+            }
+            super.write(bArr, i, i2);
         }
-        return invokeV.booleanValue;
     }
 }

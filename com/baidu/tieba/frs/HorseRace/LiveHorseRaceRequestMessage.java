@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.wj5;
+import com.baidu.tieba.nk5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,7 +50,7 @@ public class LiveHorseRaceRequestMessage extends NetMessage {
             builder.f1228common = this.f1070common;
             builder.forum_id = this.forum_id;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                wj5.a(builder, true);
+                nk5.a(builder, true);
             }
             GetHorseRaceLampListReqIdl.Builder builder2 = new GetHorseRaceLampListReqIdl.Builder();
             builder2.data = builder.build(false);

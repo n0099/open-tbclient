@@ -3,15 +3,24 @@ package com.baidu.tieba;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
-import java.lang.reflect.Type;
+import com.baidu.turbonet.net.UploadDataProvider;
+import java.io.IOException;
+import java.io.OutputStream;
 /* loaded from: classes7.dex */
-public class zj9 implements yj9 {
+public abstract class zj9 extends OutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public IOException a;
+    public boolean b;
+    public boolean c;
+
+    public abstract void e() throws IOException;
+
+    public abstract UploadDataProvider f();
+
+    public abstract void g() throws IOException;
 
     public zj9() {
         Interceptable interceptable = $ic;
@@ -27,57 +36,42 @@ public class zj9 implements yj9 {
         }
     }
 
-    @Override // com.baidu.tieba.yj9
-    public String a(Object obj) {
-        InterceptResult invokeL;
+    public void a() throws IOException {
+        IOException iOException;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            try {
-                if (qi9.c().d() != null && qi9.c().d().c() != null) {
-                    return qi9.c().d().c().a(obj);
-                }
-                return new Gson().toJson(obj);
-            } catch (Exception e) {
-                tm9.b(e.getMessage());
-                return "";
-            }
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (iOException = this.a) == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        throw iOException;
     }
 
-    @Override // com.baidu.tieba.yj9
-    public <T> T b(String str, Class<T> cls) {
-        InterceptResult invokeLL;
+    public void c() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cls)) == null) {
-            try {
-                if (qi9.c().d() != null && qi9.c().d().c() != null) {
-                    return (T) qi9.c().d().c().b(str, cls);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (!this.c) {
+                if (!this.b) {
+                    return;
                 }
-                return (T) new Gson().fromJson(str, (Class<Object>) cls);
-            } catch (Exception e) {
-                tm9.b(e.getMessage());
-                return null;
+                throw new IOException("Stream has been closed.");
             }
+            a();
+            throw new IOException("Writing after request completed.");
         }
-        return (T) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.yj9
-    public <T> T c(String str, Type type) {
-        InterceptResult invokeLL;
+    @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) {
-            try {
-                if (qi9.c().d() != null && qi9.c().d().c() != null) {
-                    return (T) qi9.c().d().c().c(str, type);
-                }
-                return (T) new Gson().fromJson(str, type);
-            } catch (Exception e) {
-                tm9.b(e.getMessage());
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = true;
         }
-        return (T) invokeLL.objValue;
+    }
+
+    public void h(IOException iOException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, iOException) == null) {
+            this.a = iOException;
+            this.c = true;
+        }
     }
 }

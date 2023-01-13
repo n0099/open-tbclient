@@ -4,13 +4,13 @@ import android.util.Log;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.b18;
-import com.baidu.tieba.i08;
+import com.baidu.tieba.i88;
 import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.r9;
-import com.baidu.tieba.s38;
+import com.baidu.tieba.r58;
+import com.baidu.tieba.s9;
 import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.tieba.xn;
+import com.baidu.tieba.y48;
+import com.baidu.tieba.yn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,15 +19,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class MoreGodReplyModel extends BdBaseModel<r9> {
+public class MoreGodReplyModel extends BdBaseModel<s9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PbModel a;
     public boolean b;
     public int c;
     public int d;
-    public s38.b e;
-    public final s38.b f;
+    public i88.b e;
+    public final i88.b f;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean loadData() {
@@ -40,7 +40,7 @@ public class MoreGodReplyModel extends BdBaseModel<r9> {
     }
 
     /* loaded from: classes5.dex */
-    public class a implements s38.b {
+    public class a implements i88.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MoreGodReplyModel a;
@@ -63,7 +63,7 @@ public class MoreGodReplyModel extends BdBaseModel<r9> {
             this.a = moreGodReplyModel;
         }
 
-        @Override // com.baidu.tieba.s38.b
+        @Override // com.baidu.tieba.i88.b
         public void a(int i, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, str2) == null) {
@@ -74,9 +74,9 @@ public class MoreGodReplyModel extends BdBaseModel<r9> {
             }
         }
 
-        @Override // com.baidu.tieba.s38.b
+        @Override // com.baidu.tieba.i88.b
         public void onSuccess(List<PostData> list) {
-            b18 V;
+            r58 V;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
                 this.a.b = false;
@@ -104,18 +104,18 @@ public class MoreGodReplyModel extends BdBaseModel<r9> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MoreGodReplyModel(r9 r9Var, PbModel pbModel) {
-        super(r9Var);
+    public MoreGodReplyModel(s9 s9Var, PbModel pbModel) {
+        super(s9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {r9Var, pbModel};
+            Object[] objArr = {s9Var, pbModel};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((r9) newInitContext.callArgs[0]);
+                super((s9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -129,7 +129,7 @@ public class MoreGodReplyModel extends BdBaseModel<r9> {
             return;
         }
         this.a = pbModel;
-        s38 h1 = pbModel.h1();
+        i88 h1 = pbModel.h1();
         if (h1 != null) {
             h1.f(this.f);
         }
@@ -145,7 +145,7 @@ public class MoreGodReplyModel extends BdBaseModel<r9> {
                         if (postData2 == postData) {
                             return true;
                         }
-                        if (postData2.M() != null && postData.M() != null && postData2.M().equals(postData.M())) {
+                        if (postData2.O() != null && postData.O() != null && postData2.O().equals(postData.O())) {
                             return true;
                         }
                     }
@@ -157,14 +157,14 @@ public class MoreGodReplyModel extends BdBaseModel<r9> {
         return invokeLL.booleanValue;
     }
 
-    public void S(s38.b bVar) {
+    public void S(i88.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
             this.e = bVar;
         }
     }
 
-    public List<xn> N() {
+    public List<yn> N() {
         InterceptResult invokeV;
         boolean z;
         Interceptable interceptable = $ic;
@@ -174,9 +174,9 @@ public class MoreGodReplyModel extends BdBaseModel<r9> {
             if (pbModel == null) {
                 return null;
             }
-            i08 l1 = pbModel.l1();
+            y48 l1 = pbModel.l1();
             if (l1 != null && l1.V() != null && !ListUtils.isEmpty(l1.V().a)) {
-                b18 V = l1.V();
+                r58 V = l1.V();
                 arrayList = new ArrayList();
                 List<PostData> list = V.a;
                 int size = list.size();
@@ -229,8 +229,8 @@ public class MoreGodReplyModel extends BdBaseModel<r9> {
 
     public boolean P() {
         InterceptResult invokeV;
-        i08 l1;
-        b18 V;
+        y48 l1;
+        r58 V;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             PbModel pbModel = this.a;
@@ -250,10 +250,10 @@ public class MoreGodReplyModel extends BdBaseModel<r9> {
 
     public boolean R() {
         InterceptResult invokeV;
-        b18 V;
+        r58 V;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            i08 l1 = this.a.l1();
+            y48 l1 = this.a.l1();
             if (l1 == null || (V = l1.V()) == null) {
                 return false;
             }

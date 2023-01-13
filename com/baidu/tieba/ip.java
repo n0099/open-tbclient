@@ -1,25 +1,29 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.bdhttpdns.BDHttpDns;
+import com.baidu.bdhttpdns.HttpDnsClient;
+import com.baidu.tieba.hp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
-import java.util.concurrent.LinkedBlockingDeque;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
-public final class ip {
+import java.util.Map;
+/* loaded from: classes5.dex */
+public class ip implements HttpDnsClient.b {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ip b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Executor a;
+    public final hp a;
+    public final BDHttpDns b;
+    public final BDHttpDns.CachePolicy c;
+    public final HttpDnsClient d;
 
-    public ip() {
+    public ip(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,31 +33,45 @@ public final class ip {
                 return;
             }
         }
-        this.a = new ThreadPoolExecutor(5, 25, 20L, TimeUnit.SECONDS, new LinkedBlockingDeque(50));
+        BDHttpDns h = BDHttpDns.h(context);
+        this.b = h;
+        this.a = h.e();
+        this.c = this.b.c();
+        this.d = this.b.f();
     }
 
-    public static ip b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.bdhttpdns.HttpDnsClient.b
+    public void a(int i, HttpDnsClient.RequestParamType requestParamType, Map<String, HttpDnsClient.e> map, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (ip.class) {
-                    if (b == null) {
-                        b = new ip();
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), requestParamType, map, str}) == null) {
+            if (i != -1) {
+                if (i != 0) {
+                    jp.a("Internal error: async httpdns resolve completion get error ret(%d)", Integer.valueOf(i));
+                } else {
+                    for (Map.Entry<String, HttpDnsClient.e> entry : map.entrySet()) {
+                        String key = entry.getKey();
+                        HttpDnsClient.e value = entry.getValue();
+                        if (value != null) {
+                            hp.a aVar = new hp.a();
+                            aVar.i(value.c());
+                            aVar.h(System.currentTimeMillis() / 1000);
+                            aVar.f(value.a());
+                            aVar.g(value.b());
+                            this.a.e(key, aVar);
+                        } else if (this.c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
+                            this.a.d(key);
+                        }
                     }
                 }
+            } else if (requestParamType.equals(HttpDnsClient.RequestParamType.DNLIST_HOSTS) && this.c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
+                for (String str2 : str.split(",")) {
+                    this.a.d(str2);
+                }
             }
-            return b;
+            if (this.b.g() > 0 && !this.d.C()) {
+                this.d.M(true);
+                jp.a("preResolve has finished", new Object[0]);
+            }
         }
-        return (ip) invokeV.objValue;
-    }
-
-    public Executor a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (Executor) invokeV.objValue;
     }
 }

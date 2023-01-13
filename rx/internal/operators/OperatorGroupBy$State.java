@@ -2,12 +2,12 @@ package rx.internal.operators;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c3a;
-import com.baidu.tieba.e3a;
-import com.baidu.tieba.h4a;
-import com.baidu.tieba.i3a;
-import com.baidu.tieba.j3a;
-import com.baidu.tieba.x3a;
+import com.baidu.tieba.f9a;
+import com.baidu.tieba.k8a;
+import com.baidu.tieba.m8a;
+import com.baidu.tieba.p9a;
+import com.baidu.tieba.q8a;
+import com.baidu.tieba.r8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,27 +20,27 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
-public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements e3a, j3a, c3a.a<T> {
+public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements m8a, r8a, k8a.a<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -3852313036005250360L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference<i3a<? super T>> actual;
+    public final AtomicReference<q8a<? super T>> actual;
     public final AtomicBoolean cancelled;
     public final boolean delayError;
     public volatile boolean done;
     public Throwable error;
     public final K key;
     public final AtomicBoolean once;
-    public final h4a<?, K, T> parent;
+    public final p9a<?, K, T> parent;
     public final Queue<Object> queue;
     public final AtomicLong requested;
 
-    public OperatorGroupBy$State(int i, h4a<?, K, T> h4aVar, K k, boolean z) {
+    public OperatorGroupBy$State(int i, p9a<?, K, T> p9aVar, K k, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), h4aVar, k, Boolean.valueOf(z)};
+            Object[] objArr = {Integer.valueOf(i), p9aVar, k, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -51,7 +51,7 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
             }
         }
         this.queue = new ConcurrentLinkedQueue();
-        this.parent = h4aVar;
+        this.parent = p9aVar;
         this.key = k;
         this.delayError = z;
         this.cancelled = new AtomicBoolean();
@@ -60,10 +60,10 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
         this.requested = new AtomicLong();
     }
 
-    public boolean checkTerminated(boolean z, boolean z2, i3a<? super T> i3aVar, boolean z3) {
+    public boolean checkTerminated(boolean z, boolean z2, q8a<? super T> q8aVar, boolean z3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), i3aVar, Boolean.valueOf(z3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), q8aVar, Boolean.valueOf(z3)})) == null) {
             if (this.cancelled.get()) {
                 this.queue.clear();
                 this.parent.g(this.key);
@@ -73,9 +73,9 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
                     if (z2) {
                         Throwable th = this.error;
                         if (th != null) {
-                            i3aVar.onError(th);
+                            q8aVar.onError(th);
                         } else {
-                            i3aVar.onCompleted();
+                            q8aVar.onCompleted();
                         }
                         return true;
                     }
@@ -84,10 +84,10 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
                 Throwable th2 = this.error;
                 if (th2 != null) {
                     this.queue.clear();
-                    i3aVar.onError(th2);
+                    q8aVar.onError(th2);
                     return true;
                 } else if (z2) {
-                    i3aVar.onCompleted();
+                    q8aVar.onCompleted();
                     return true;
                 } else {
                     return false;
@@ -99,17 +99,17 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
         return invokeCommon.booleanValue;
     }
 
-    public void call(i3a<? super T> i3aVar) {
+    public void call(q8a<? super T> q8aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, i3aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, q8aVar) == null) {
             if (this.once.compareAndSet(false, true)) {
-                i3aVar.b(this);
-                i3aVar.f(this);
-                this.actual.lazySet(i3aVar);
+                q8aVar.b(this);
+                q8aVar.f(this);
+                this.actual.lazySet(q8aVar);
                 drain();
                 return;
             }
-            i3aVar.onError(new IllegalStateException("Only one Subscriber allowed!"));
+            q8aVar.onError(new IllegalStateException("Only one Subscriber allowed!"));
         }
     }
 
@@ -135,9 +135,9 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
         }
     }
 
-    @Override // com.baidu.tieba.c3a.a, com.baidu.tieba.q3a
+    @Override // com.baidu.tieba.k8a.a, com.baidu.tieba.y8a
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((i3a) ((i3a) obj));
+        call((q8a) ((q8a) obj));
     }
 
     public void drain() {
@@ -148,11 +148,11 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
         }
         Queue<Object> queue = this.queue;
         boolean z2 = this.delayError;
-        i3a<? super T> i3aVar = this.actual.get();
+        q8a<? super T> q8aVar = this.actual.get();
         int i = 1;
         while (true) {
-            if (i3aVar != null) {
-                if (checkTerminated(this.done, queue.isEmpty(), i3aVar, z2)) {
+            if (q8aVar != null) {
+                if (checkTerminated(this.done, queue.isEmpty(), q8aVar, z2)) {
                     return;
                 }
                 long j = this.requested.get();
@@ -165,18 +165,18 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
                     } else {
                         z = false;
                     }
-                    if (checkTerminated(z3, z, i3aVar, z2)) {
+                    if (checkTerminated(z3, z, q8aVar, z2)) {
                         return;
                     }
                     if (z) {
                         break;
                     }
-                    i3aVar.onNext((Object) NotificationLite.e(poll));
+                    q8aVar.onNext((Object) NotificationLite.e(poll));
                     j2++;
                 }
                 if (j2 != 0) {
                     if (j != Long.MAX_VALUE) {
-                        x3a.g(this.requested, j2);
+                        f9a.g(this.requested, j2);
                     }
                     this.parent.e.request(j2);
                 }
@@ -185,13 +185,13 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
             if (i == 0) {
                 return;
             }
-            if (i3aVar == null) {
-                i3aVar = this.actual.get();
+            if (q8aVar == null) {
+                q8aVar = this.actual.get();
             }
         }
     }
 
-    @Override // com.baidu.tieba.j3a
+    @Override // com.baidu.tieba.r8a
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -209,7 +209,7 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
         }
     }
 
-    @Override // com.baidu.tieba.j3a
+    @Override // com.baidu.tieba.r8a
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.cancelled.compareAndSet(false, true) && getAndIncrement() == 0) {
@@ -217,14 +217,14 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
         }
     }
 
-    @Override // com.baidu.tieba.e3a
+    @Override // com.baidu.tieba.m8a
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i >= 0) {
                 if (i != 0) {
-                    x3a.b(this.requested, j);
+                    f9a.b(this.requested, j);
                     drain();
                     return;
                 }

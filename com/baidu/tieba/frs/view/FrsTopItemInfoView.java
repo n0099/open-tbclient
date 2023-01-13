@@ -22,12 +22,12 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.cx4;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.SerializableItemInfo;
-import com.baidu.tieba.lv4;
-import com.baidu.tieba.rw4;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.wv4;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -84,17 +84,17 @@ public class FrsTopItemInfoView extends LinearLayout {
         public final /* synthetic */ FrsTopItemInfoView a;
 
         /* loaded from: classes4.dex */
-        public class a implements lv4.e {
+        public class a implements wv4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ lv4 a;
+            public final /* synthetic */ wv4 a;
 
-            public a(b bVar, lv4 lv4Var) {
+            public a(b bVar, wv4 wv4Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, lv4Var};
+                    Object[] objArr = {bVar, wv4Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -104,13 +104,13 @@ public class FrsTopItemInfoView extends LinearLayout {
                         return;
                     }
                 }
-                this.a = lv4Var;
+                this.a = wv4Var;
             }
 
-            @Override // com.baidu.tieba.lv4.e
-            public void onClick(lv4 lv4Var) {
+            @Override // com.baidu.tieba.wv4.e
+            public void onClick(wv4 wv4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, lv4Var) == null) {
+                if (interceptable == null || interceptable.invokeL(1048576, this, wv4Var) == null) {
                     this.a.dismiss();
                 }
             }
@@ -140,10 +140,10 @@ public class FrsTopItemInfoView extends LinearLayout {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !(this.a.a instanceof FrsActivity)) {
                 return;
             }
-            lv4 lv4Var = new lv4((FrsActivity) this.a.a);
-            lv4Var.setMessage(this.a.a.getString(R.string.obfuscated_res_0x7f0f0422));
-            lv4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0421, new a(this, lv4Var));
-            lv4Var.create(((FrsActivity) this.a.a).getPageContext()).show();
+            wv4 wv4Var = new wv4((FrsActivity) this.a.a);
+            wv4Var.setMessage(this.a.a.getString(R.string.obfuscated_res_0x7f0f0428));
+            wv4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0427, new a(this, wv4Var));
+            wv4Var.create(((FrsActivity) this.a.a).getPageContext()).show();
         }
     }
 
@@ -200,12 +200,12 @@ public class FrsTopItemInfoView extends LinearLayout {
                 return;
             }
         }
-        u = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0706);
-        v = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0747);
-        w = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds8);
-        x = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
-        y = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds28);
-        z = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
+        u = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f070f);
+        v = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0750);
+        w = zi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds8);
+        x = zi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
+        y = zi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds28);
+        z = zi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -287,32 +287,32 @@ public class FrsTopItemInfoView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d035a, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0358, this);
             setOrientation(1);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09106c);
-            this.c = findViewById(R.id.obfuscated_res_0x7f091060);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09106e);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ea7);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091077);
+            this.c = findViewById(R.id.obfuscated_res_0x7f09106b);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091079);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090eb1);
             this.e = imageView;
             imageView.setOnClickListener(this.t);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0903a8);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09196f);
-            this.h = (ItemTableView) findViewById(R.id.obfuscated_res_0x7f091064);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0922a4);
-            this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090970);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0903a2);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09197e);
+            this.h = (ItemTableView) findViewById(R.id.obfuscated_res_0x7f09106f);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0922cd);
+            this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090972);
             this.k = (HeadImageView) findViewById(R.id.user_head);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f090673);
-            this.m = (RankStarView) findViewById(R.id.obfuscated_res_0x7f092038);
-            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ce7);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f090671);
+            this.m = (RankStarView) findViewById(R.id.obfuscated_res_0x7f092065);
+            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cf7);
             this.o = findViewById(R.id.bottom_line);
-            this.b.setText(R.string.obfuscated_res_0x7f0f0704);
-            this.l.setText(R.string.obfuscated_res_0x7f0f0702);
+            this.b.setText(R.string.obfuscated_res_0x7f0f070d);
+            this.l.setText(R.string.obfuscated_res_0x7f0f070b);
             this.f.setText(R.string.frs_evaluate_exception);
             if (DeviceInfoUtil.isXiaoMi()) {
                 this.f.setPadding(0, -w, 0, 0);
             }
             this.k.setPlaceHolder(1);
-            this.m.setStarSpacing(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10));
+            this.m.setStarSpacing(zi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10));
             this.j.setOnClickListener(this.s);
         }
     }
@@ -320,24 +320,24 @@ public class FrsTopItemInfoView extends LinearLayout {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            rw4 d = rw4.d(this);
+            cx4 d = cx4.d(this);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0201);
-            rw4 d2 = rw4.d(this.b);
+            cx4 d2 = cx4.d(this.b);
             d2.A(R.string.F_X02);
             d2.v(R.color.CAM_X0105);
             SkinManager.setBackgroundColor(this.c, R.color.CAM_X0109);
-            rw4 d3 = rw4.d(this.d);
+            cx4 d3 = cx4.d(this.d);
             d3.A(R.string.F_X02);
             d3.v(R.color.CAM_X0105);
-            rw4 d4 = rw4.d(this.f);
+            cx4 d4 = cx4.d(this.f);
             d4.A(R.string.F_X02);
             d4.v(R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.g, R.color.CAM_X0109, 1);
-            rw4 d5 = rw4.d(this.i);
+            cx4 d5 = cx4.d(this.i);
             d5.v(R.color.CAM_X0109);
             d5.A(R.string.F_X01);
-            rw4 d6 = rw4.d(this.l);
+            cx4 d6 = cx4.d(this.l);
             d6.A(R.string.F_X01);
             d6.v(R.color.CAM_X0105);
             this.h.d();
@@ -377,7 +377,7 @@ public class FrsTopItemInfoView extends LinearLayout {
                 double d = this.q;
                 if (d > 0.0d && d <= 10.0d) {
                     this.f.setText(String.valueOf(d));
-                    this.g.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0705, new Object[]{StringHelper.numberUniformFormatExtraWithRoundInt(intValue)}));
+                    this.g.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f070e, new Object[]{StringHelper.numberUniformFormatExtraWithRoundInt(intValue)}));
                     if (itemTable.is_commented.intValue() == 1 && itemTable.comment_star.intValue() >= 0 && itemTable.comment_star.intValue() <= 5) {
                         this.m.setStarCount(itemTable.comment_star.intValue());
                     }
@@ -395,7 +395,7 @@ public class FrsTopItemInfoView extends LinearLayout {
                 layoutParams2.topMargin = x;
                 this.g.setGravity(17);
                 this.g.setLayoutParams(layoutParams2);
-                this.g.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0705, new Object[]{"0"}));
+                this.g.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f070e, new Object[]{"0"}));
                 this.m.setStarCount(0.0f);
                 this.i.setVisibility(8);
                 this.c.setVisibility(8);

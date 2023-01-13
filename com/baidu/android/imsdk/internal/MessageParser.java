@@ -28,8 +28,8 @@ import com.baidu.lcp.sdk.client.bean.BLCPRequest;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tieba.k80;
-import com.baidu.tieba.o80;
+import com.baidu.tieba.p80;
+import com.baidu.tieba.t80;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -486,16 +486,6 @@ public class MessageParser {
         return (List) invokeLLZ.objValue;
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(10:9|(5:10|11|12|13|(5:15|16|17|18|19))|(1:21)(2:33|(2:35|(7:37|38|23|24|25|26|27)))|22|23|24|25|26|27|7) */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x00f9, code lost:
-        r0 = e;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x00fa, code lost:
-        r39 = r14;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static void handleAckArray(Context context, JSONArray jSONArray, long j, long j2, String str) {
         String str2;
         long j3;
@@ -505,13 +495,10 @@ public class MessageParser {
         int i2;
         long j4;
         long j5;
-        int optInt;
-        long optLong;
         NewAckMessage.Tripule tripule;
-        LinkedList linkedList2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, jSONArray, Long.valueOf(j), Long.valueOf(j2), str}) == null) {
-            LinkedList linkedList3 = new LinkedList();
+            LinkedList linkedList2 = new LinkedList();
             long triggerId = Utility.getTriggerId(context);
             if (AccountManagerImpl.getInstance(context).getLoginType() == 6) {
                 str2 = "cuid";
@@ -536,84 +523,105 @@ public class MessageParser {
                             textMsg.setMsgType(jSONObject.optInt("type"));
                             textMsg.setMsgTime(jSONObject.optLong("create_time"));
                             textMsg.setMsgContent(jSONObject.optString("content"));
-                            textMsg.setBusinessType(jSONObject.optInt("business_type"));
-                            optInt = jSONObject.optInt("category");
-                            optLong = jSONObject.optLong("contacter");
-                            j3 = triggerId;
-                            linkedList2 = linkedList3;
-                            i2 = 1;
-                            z = z2;
-                            i = i3;
-                            try {
-                                tripule = new NewAckMessage.Tripule(j4, textMsg.getMsgKey(), textMsg.getMsgTime(), optLong, textMsg.getMsgType(), str3, j5, uk, textMsg.getBusinessType(), optInt, j, j2, str);
-                                tripule.setOriginPa(jSONObject.optString("origin_pa"));
-                                ackMsgBody(context, textMsg, tripule);
-                            } catch (Exception e) {
-                                e = e;
+                            int optInt = jSONObject.optInt("business_type");
+                            textMsg.setBusinessType(optInt);
+                            int optInt2 = jSONObject.optInt("category");
+                            long optLong = jSONObject.optLong("contacter");
+                            if (optInt == 1 && optInt2 == 2) {
+                                j3 = triggerId;
+                                i = i3;
+                                j6 = j4;
+                                j7 = j5;
                                 linkedList = linkedList2;
+                            } else {
+                                j3 = triggerId;
+                                LinkedList linkedList3 = linkedList2;
+                                i2 = 1;
+                                z = z2;
+                                i = i3;
+                                try {
+                                    tripule = new NewAckMessage.Tripule(j4, textMsg.getMsgKey(), textMsg.getMsgTime(), optLong, textMsg.getMsgType(), str3, j5, uk, textMsg.getBusinessType(), optInt2, j, j2, str);
+                                    tripule.setOriginPa(jSONObject.optString("origin_pa"));
+                                    ackMsgBody(context, textMsg, tripule);
+                                } catch (Exception e) {
+                                    e = e;
+                                    linkedList = linkedList3;
+                                }
+                                try {
+                                    if (optInt2 == 1) {
+                                        tripule.setGroupId(optLong);
+                                    } else if (optInt2 == 4) {
+                                        tripule.setMcastId(optLong);
+                                        if (ConversationStudioManImpl.getInstance(context).isReliable(optLong)) {
+                                            tripule.setStudioIsReliable(true);
+                                            linkedList = linkedList3;
+                                            z2 = true;
+                                            linkedList.add(tripule);
+                                            j6 = j4;
+                                            j7 = j5;
+                                        }
+                                    }
+                                    linkedList.add(tripule);
+                                    j6 = j4;
+                                    j7 = j5;
+                                } catch (Exception e2) {
+                                    e = e2;
+                                    z = z2;
+                                    LogUtils.e(TAG, "handleAckMsg Exception ：" + e.getMessage());
+                                    NewAckMessage.Tripule tripule2 = new NewAckMessage.Tripule(j4, "", System.currentTimeMillis(), -1L, -1, str3, j5, uk, -1, -1, j, j2, str);
+                                    tripule2.setIsParseFailed(i2);
+                                    linkedList.add(tripule2);
+                                    j6 = j4;
+                                    j7 = j5;
+                                    z2 = z;
+                                    i3 = i + 1;
+                                    linkedList2 = linkedList;
+                                    triggerId = j3;
+                                }
+                                linkedList = linkedList3;
+                                z2 = z;
                             }
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e3) {
+                            e = e3;
                             j3 = triggerId;
                             z = z2;
                             i = i3;
-                            linkedList = linkedList3;
+                            linkedList = linkedList2;
                             i2 = 1;
                         }
-                    } catch (Exception e3) {
-                        e = e3;
+                    } catch (Exception e4) {
+                        e = e4;
                         j3 = triggerId;
                         z = z2;
                         i = i3;
-                        linkedList = linkedList3;
+                        linkedList = linkedList2;
                         i2 = 1;
                         j5 = j7;
                         LogUtils.e(TAG, "handleAckMsg Exception ：" + e.getMessage());
-                        NewAckMessage.Tripule tripule2 = new NewAckMessage.Tripule(j4, "", System.currentTimeMillis(), -1L, -1, str3, j5, uk, -1, -1, j, j2, str);
-                        tripule2.setIsParseFailed(i2);
-                        linkedList.add(tripule2);
+                        NewAckMessage.Tripule tripule22 = new NewAckMessage.Tripule(j4, "", System.currentTimeMillis(), -1L, -1, str3, j5, uk, -1, -1, j, j2, str);
+                        tripule22.setIsParseFailed(i2);
+                        linkedList.add(tripule22);
                         j6 = j4;
                         j7 = j5;
                         z2 = z;
                         i3 = i + 1;
-                        linkedList3 = linkedList;
+                        linkedList2 = linkedList;
                         triggerId = j3;
                     }
-                } catch (Exception e4) {
-                    e = e4;
+                } catch (Exception e5) {
+                    e = e5;
                     j3 = triggerId;
                     z = z2;
                     i = i3;
-                    linkedList = linkedList3;
+                    linkedList = linkedList2;
                     i2 = 1;
                     j4 = j6;
                 }
-                if (optInt == 1) {
-                    tripule.setGroupId(optLong);
-                } else if (optInt == 4) {
-                    tripule.setMcastId(optLong);
-                    if (ConversationStudioManImpl.getInstance(context).isReliable(optLong)) {
-                        tripule.setStudioIsReliable(true);
-                        linkedList = linkedList2;
-                        z2 = true;
-                        linkedList.add(tripule);
-                        j6 = j4;
-                        j7 = j5;
-                        i3 = i + 1;
-                        linkedList3 = linkedList;
-                        triggerId = j3;
-                    }
-                }
-                linkedList = linkedList2;
-                z2 = z;
-                linkedList.add(tripule);
-                j6 = j4;
-                j7 = j5;
                 i3 = i + 1;
-                linkedList3 = linkedList;
+                linkedList2 = linkedList;
                 triggerId = j3;
             }
-            sendNewAckToServer(context, triggerId, linkedList3, z2);
+            sendNewAckToServer(context, triggerId, linkedList2, z2);
         }
     }
 
@@ -671,27 +679,28 @@ public class MessageParser {
         return (ChatMsg) invokeCommon.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:40:0x0158 A[Catch: JSONException -> 0x01a7, Exception -> 0x021b, TRY_LEAVE, TryCatch #4 {JSONException -> 0x01a7, blocks: (B:38:0x014d, B:40:0x0158), top: B:68:0x014d, outer: #3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x015e A[Catch: JSONException -> 0x01b5, Exception -> 0x0280, TRY_LEAVE, TryCatch #2 {JSONException -> 0x01b5, blocks: (B:43:0x0153, B:45:0x015e), top: B:75:0x0153, outer: #0 }] */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x01c6 A[Catch: JSONException -> 0x0213, Exception -> 0x0280, TRY_LEAVE, TryCatch #1 {JSONException -> 0x0213, blocks: (B:49:0x01bb, B:51:0x01c6), top: B:73:0x01bb, outer: #0 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static ArrayList<ChatMsg> parseChatRoomMsg(Context context, List<ChatMsg> list) {
         InterceptResult invokeLL;
         String str;
+        String str2;
         JSONObject jSONObject;
         boolean has;
-        boolean has2;
         String optString;
         int parseInt;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, list)) == null) {
-            String str2 = "at_data";
+            String str3 = "at_data";
+            String str4 = "data";
             ArrayList<ChatMsg> arrayList = new ArrayList<>();
             for (ChatMsg chatMsg : list) {
                 try {
                     jSONObject = new JSONObject(new JSONObject(chatMsg.getJsonContent()).optString("text"));
-                    has = jSONObject.has("data");
-                    has2 = jSONObject.has(str2);
+                    has = jSONObject.has(str4);
                     if (has) {
                         optString = jSONObject.optString("type");
                     } else {
@@ -705,116 +714,168 @@ public class MessageParser {
                     ChatMsg newChatMsg = ChatMsgFactory.getInstance().newChatMsg(context, 4, parseInt, -1);
                     newChatMsg.setMsgType(parseInt);
                     newChatMsg.setContentExtra(chatMsg.getJsonContent());
-                    newChatMsg.setSenderUid(chatMsg.getSenderUid());
+                    newChatMsg.setChatRoomContentExt(jSONObject.optString("ext"));
+                    newChatMsg.setSenderUid(Utility.transBDUK(jSONObject.optString("baidu_uk")));
                     if (has) {
                         newChatMsg.setNotifyCmd(parseInt);
-                        newChatMsg.setMsgContent(jSONObject.optString("data"));
-                        str = str2;
+                        newChatMsg.setMsgContent(jSONObject.optString(str4));
                     } else {
                         newChatMsg.setMsgContent(jSONObject.optString("content_body"));
                         newChatMsg.setNickName(jSONObject.optString("name"));
                         newChatMsg.setPortrait(jSONObject.optString("portrait"));
-                        newChatMsg.setChatRoomContentExt(jSONObject.optString("ext"));
-                        newChatMsg.setSenderUid(Utility.transBDUK(jSONObject.optString("baidu_uk")));
-                        if (has2) {
-                            try {
-                                ArrayList arrayList2 = new ArrayList();
-                                JSONArray optJSONArray = jSONObject.optJSONArray(str2);
-                                if (optJSONArray != null) {
-                                    int i = 0;
-                                    while (i < optJSONArray.length()) {
-                                        IChatRoomEnterListener.AtUserInfo atUserInfo = new IChatRoomEnterListener.AtUserInfo();
-                                        str = str2;
+                    }
+                    try {
+                        if (jSONObject.has(str3)) {
+                            ArrayList arrayList2 = new ArrayList();
+                            JSONArray optJSONArray = jSONObject.optJSONArray(str3);
+                            if (optJSONArray != null) {
+                                int i = 0;
+                                while (i < optJSONArray.length()) {
+                                    IChatRoomEnterListener.AtUserInfo atUserInfo = new IChatRoomEnterListener.AtUserInfo();
+                                    str = str3;
+                                    try {
+                                        str2 = str4;
+                                    } catch (Exception e2) {
+                                        e = e2;
+                                        str2 = str4;
                                         try {
-                                            JSONObject jSONObject2 = new JSONObject(optJSONArray.get(i).toString());
-                                            atUserInfo.atType = jSONObject2.optString("at_type");
-                                            atUserInfo.atBdUk = jSONObject2.optString("at_baidu_uk");
-                                            atUserInfo.atName = jSONObject2.optString("at_name");
-                                            atUserInfo.atPortrait = jSONObject2.optString("at_portrait");
-                                            atUserInfo.atVip = jSONObject2.optString("at_vip");
-                                            atUserInfo.atCharacter = jSONObject2.optString("at_character");
-                                            atUserInfo.atCharacterName = jSONObject2.optString("at_character_name");
-                                            atUserInfo.atPosition = jSONObject2.optString(CriusAttrConstants.POSITION);
-                                            arrayList2.add(atUserInfo);
-                                            i++;
-                                            str2 = str;
-                                        } catch (Exception e2) {
-                                            e = e2;
-                                            try {
-                                                LogUtils.e(TAG, "parse AtUser exception", e);
-                                                IChatRoomEnterListener.ReMsgInfo reMsgInfo = new IChatRoomEnterListener.ReMsgInfo();
-                                                if (jSONObject.has("re_data")) {
-                                                }
-                                                newChatMsg.setCategory(chatMsg.getCategory());
-                                                newChatMsg.setContacter(chatMsg.getContacter());
-                                                newChatMsg.setMsgId(chatMsg.getMsgId());
-                                                newChatMsg.setMsgKey(chatMsg.getMsgKey());
-                                                newChatMsg.setMsgTime(chatMsg.getMsgTime());
-                                                newChatMsg.setSendMsgId(chatMsg.getSendMsgId());
-                                                newChatMsg.setFromUser(chatMsg.getFromUser());
-                                                newChatMsg.setStatus(chatMsg.getStatus());
-                                                newChatMsg.setLocalUrl(chatMsg.getLocalUrl());
-                                                newChatMsg.setContentExtra(chatMsg.getContentExtra());
-                                                LogUtils.d(TAG, "ChatRoom newMsg :" + newChatMsg.toString() + ", \n before msg :" + chatMsg.toString());
-                                                arrayList.add(newChatMsg);
-                                            } catch (Exception e3) {
-                                                e = e3;
-                                                LogUtils.e(TAG, "ChatRoom parse fail ", e);
-                                                str2 = str;
+                                            LogUtils.e(TAG, "parse AtUser exception", e);
+                                            IChatRoomEnterListener.ReMsgInfo reMsgInfo = new IChatRoomEnterListener.ReMsgInfo();
+                                            if (jSONObject.has("re_data")) {
                                             }
-                                            str2 = str;
+                                            IChatRoomEnterListener.TaskInfo taskInfo = new IChatRoomEnterListener.TaskInfo();
+                                            if (jSONObject.has("task_info")) {
+                                            }
+                                            newChatMsg.setCategory(chatMsg.getCategory());
+                                            newChatMsg.setContacter(chatMsg.getContacter());
+                                            newChatMsg.setMsgId(chatMsg.getMsgId());
+                                            newChatMsg.setMsgKey(chatMsg.getMsgKey());
+                                            newChatMsg.setSendMsgId(chatMsg.getSendMsgId());
+                                            newChatMsg.setMsgTime(chatMsg.getMsgTime());
+                                            newChatMsg.setFromUser(chatMsg.getFromUser());
+                                            newChatMsg.setStatus(chatMsg.getStatus());
+                                            newChatMsg.setLocalUrl(chatMsg.getLocalUrl());
+                                            LogUtils.d(TAG, "ChatRoom newMsg :" + newChatMsg.toString() + ", \n before msg :" + chatMsg.toString());
+                                            arrayList.add(newChatMsg);
+                                        } catch (Exception e3) {
+                                            e = e3;
+                                            LogUtils.e(TAG, "ChatRoom parse fail ", e);
+                                            str3 = str;
+                                            str4 = str2;
                                         }
+                                        str3 = str;
+                                        str4 = str2;
                                     }
-                                    str = str2;
-                                    newChatMsg.setAtUserList(arrayList2);
-                                } else {
-                                    str = str2;
+                                    try {
+                                        JSONObject jSONObject2 = new JSONObject(optJSONArray.get(i).toString());
+                                        atUserInfo.atType = jSONObject2.optString("at_type");
+                                        atUserInfo.atBdUk = jSONObject2.optString("at_baidu_uk");
+                                        atUserInfo.atName = jSONObject2.optString("at_name");
+                                        atUserInfo.atPortrait = jSONObject2.optString("at_portrait");
+                                        atUserInfo.atVip = jSONObject2.optString("at_vip");
+                                        atUserInfo.atCharacter = jSONObject2.optString("at_character");
+                                        atUserInfo.atCharacterName = jSONObject2.optString("at_character_name");
+                                        atUserInfo.atPosition = jSONObject2.optString(CriusAttrConstants.POSITION);
+                                        arrayList2.add(atUserInfo);
+                                        i++;
+                                        str3 = str;
+                                        str4 = str2;
+                                    } catch (Exception e4) {
+                                        e = e4;
+                                        LogUtils.e(TAG, "parse AtUser exception", e);
+                                        IChatRoomEnterListener.ReMsgInfo reMsgInfo2 = new IChatRoomEnterListener.ReMsgInfo();
+                                        if (jSONObject.has("re_data")) {
+                                        }
+                                        IChatRoomEnterListener.TaskInfo taskInfo2 = new IChatRoomEnterListener.TaskInfo();
+                                        if (jSONObject.has("task_info")) {
+                                        }
+                                        newChatMsg.setCategory(chatMsg.getCategory());
+                                        newChatMsg.setContacter(chatMsg.getContacter());
+                                        newChatMsg.setMsgId(chatMsg.getMsgId());
+                                        newChatMsg.setMsgKey(chatMsg.getMsgKey());
+                                        newChatMsg.setSendMsgId(chatMsg.getSendMsgId());
+                                        newChatMsg.setMsgTime(chatMsg.getMsgTime());
+                                        newChatMsg.setFromUser(chatMsg.getFromUser());
+                                        newChatMsg.setStatus(chatMsg.getStatus());
+                                        newChatMsg.setLocalUrl(chatMsg.getLocalUrl());
+                                        LogUtils.d(TAG, "ChatRoom newMsg :" + newChatMsg.toString() + ", \n before msg :" + chatMsg.toString());
+                                        arrayList.add(newChatMsg);
+                                        str3 = str;
+                                        str4 = str2;
+                                    }
                                 }
-                                LogUtils.d(TAG, "AtUser :" + arrayList2.toString());
-                            } catch (Exception e4) {
-                                e = e4;
-                                str = str2;
+                                str = str3;
+                                str2 = str4;
+                                newChatMsg.setAtUserList(arrayList2);
+                            } else {
+                                str = str3;
+                                str2 = str4;
                             }
+                            LogUtils.d(TAG, "AtUser :" + arrayList2.toString());
                         } else {
-                            str = str2;
+                            str = str3;
+                            str2 = str4;
                         }
-                        try {
-                            IChatRoomEnterListener.ReMsgInfo reMsgInfo2 = new IChatRoomEnterListener.ReMsgInfo();
-                            if (jSONObject.has("re_data")) {
-                                JSONObject jSONObject3 = new JSONObject(jSONObject.optString("re_data"));
-                                reMsgInfo2.msgType = jSONObject3.optString("re_content_type");
-                                reMsgInfo2.bdUk = jSONObject3.optString("re_baidu_uk");
-                                reMsgInfo2.nickName = jSONObject3.optString("re_nickname");
-                                reMsgInfo2.msgId = jSONObject3.optString("re_msg_id");
-                                reMsgInfo2.ext = jSONObject3.optString("re_ext");
-                                JSONObject jSONObject4 = new JSONObject(jSONObject3.optString("re_content_body"));
-                                reMsgInfo2.content = jSONObject4.optString("text");
-                                reMsgInfo2.url = jSONObject4.optString("url");
-                                newChatMsg.setReMsgInfo(reMsgInfo2);
-                            }
-                        } catch (JSONException e5) {
-                            LogUtils.e(TAG, "parse ReMsgInfo exception", e5);
+                    } catch (Exception e5) {
+                        e = e5;
+                        str = str3;
+                    }
+                    try {
+                        IChatRoomEnterListener.ReMsgInfo reMsgInfo22 = new IChatRoomEnterListener.ReMsgInfo();
+                        if (jSONObject.has("re_data")) {
+                            JSONObject jSONObject3 = new JSONObject(jSONObject.optString("re_data"));
+                            reMsgInfo22.msgType = jSONObject3.optString("re_content_type");
+                            reMsgInfo22.bdUk = jSONObject3.optString("re_baidu_uk");
+                            reMsgInfo22.nickName = jSONObject3.optString("re_nickname");
+                            reMsgInfo22.msgId = jSONObject3.optString("re_msg_id");
+                            reMsgInfo22.msgKey = jSONObject3.optString("re_msg_key");
+                            reMsgInfo22.ext = jSONObject3.optString("re_ext");
+                            JSONObject jSONObject4 = new JSONObject(jSONObject3.optString("re_content_body"));
+                            reMsgInfo22.content = jSONObject4.optString("text");
+                            reMsgInfo22.url = jSONObject4.optString("url");
+                            newChatMsg.setReMsgInfo(reMsgInfo22);
                         }
+                    } catch (JSONException e6) {
+                        LogUtils.e(TAG, "parse ReMsgInfo exception", e6);
+                    }
+                    try {
+                        IChatRoomEnterListener.TaskInfo taskInfo22 = new IChatRoomEnterListener.TaskInfo();
+                        if (jSONObject.has("task_info")) {
+                            JSONObject jSONObject5 = new JSONObject(jSONObject.optString("task_info"));
+                            taskInfo22.taskId = jSONObject5.optString("task_id");
+                            taskInfo22.taskType = jSONObject5.optInt("task_type");
+                            taskInfo22.taskState = jSONObject5.optInt("task_state");
+                            taskInfo22.taskResult = jSONObject5.optInt("task_result");
+                            taskInfo22.taskErrorMsg = jSONObject5.optString("task_error_msg");
+                            taskInfo22.originMsgId = jSONObject5.optLong("origin_msg_id");
+                            taskInfo22.originMsgKey = jSONObject5.optString("origin_msg_key");
+                            taskInfo22.taskProgress = jSONObject5.optInt("task_progress");
+                            newChatMsg.setTaskInfo(taskInfo22);
+                        }
+                    } catch (JSONException e7) {
+                        LogUtils.e(TAG, "parse TaskInfo exception", e7);
                     }
                     newChatMsg.setCategory(chatMsg.getCategory());
                     newChatMsg.setContacter(chatMsg.getContacter());
                     newChatMsg.setMsgId(chatMsg.getMsgId());
                     newChatMsg.setMsgKey(chatMsg.getMsgKey());
-                    newChatMsg.setMsgTime(chatMsg.getMsgTime());
                     newChatMsg.setSendMsgId(chatMsg.getSendMsgId());
+                    newChatMsg.setMsgTime(chatMsg.getMsgTime());
                     newChatMsg.setFromUser(chatMsg.getFromUser());
                     newChatMsg.setStatus(chatMsg.getStatus());
                     newChatMsg.setLocalUrl(chatMsg.getLocalUrl());
-                    newChatMsg.setContentExtra(chatMsg.getContentExtra());
                     LogUtils.d(TAG, "ChatRoom newMsg :" + newChatMsg.toString() + ", \n before msg :" + chatMsg.toString());
                     arrayList.add(newChatMsg);
-                } catch (Exception e6) {
-                    e = e6;
-                    str = str2;
+                } catch (Exception e8) {
+                    e = e8;
+                    str = str3;
+                    str2 = str4;
                     LogUtils.e(TAG, "ChatRoom parse fail ", e);
-                    str2 = str;
+                    str3 = str;
+                    str4 = str2;
                 }
-                str2 = str;
+                str3 = str;
+                str4 = str2;
             }
             return arrayList;
         }
@@ -1342,13 +1403,13 @@ public class MessageParser {
                     bLCPRequest.b = 95L;
                     bLCPRequest.c = newAckMessage.getBody().getBytes();
                     bLCPRequest.d = System.nanoTime();
-                    k80.c(bLCPRequest, new o80(newAckMessage, context) { // from class: com.baidu.android.imsdk.internal.MessageParser.2
+                    p80.c(bLCPRequest, new t80(newAckMessage, context) { // from class: com.baidu.android.imsdk.internal.MessageParser.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ Context val$context;
                         public final /* synthetic */ NewAckMessage val$msg;
 
-                        @Override // com.baidu.tieba.q80
+                        @Override // com.baidu.tieba.v80
                         public void onResponse(int i, String str, long j2, long j3, long j4, byte[] bArr) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), bArr}) == null) {
@@ -1374,8 +1435,8 @@ public class MessageParser {
                             this.val$context = context;
                         }
 
-                        @Override // com.baidu.tieba.o80
-                        public void onResponse(int i, String str, @NonNull o80.a aVar) {
+                        @Override // com.baidu.tieba.t80
+                        public void onResponse(int i, String str, @NonNull t80.a aVar) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, aVar) == null) {
                                 LogUtils.d(MessageParser.TAG, "MessageParser Ack Response err :" + i + ", methodId :" + aVar.a + ", data :" + new String(aVar.c));

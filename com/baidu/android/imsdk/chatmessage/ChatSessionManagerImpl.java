@@ -57,7 +57,7 @@ import com.baidu.android.imsdk.ubc.ScreenUbc;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.b80;
+import com.baidu.tieba.g80;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -281,7 +281,7 @@ public class ChatSessionManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, maxMsgid);
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             try {
-                b80.e(mContext).d(mContext, creatMethodIntent);
+                g80.e(mContext).d(mContext, creatMethodIntent);
             } catch (Exception e) {
                 onSyncDialogResult(1003, Constants.ERROR_MSG_SERVICE_ERROR, addListener, maxMsgid, null);
                 LogUtils.e(TAG, "Exception ", e);
@@ -320,7 +320,7 @@ public class ChatSessionManagerImpl {
     public long getBusiSessionCredibleMsgid(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65547, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65548, this, i)) == null) {
             return Utility.readLongData(mContext, getBusiSessionCredibleMsgidKey(i), Long.MAX_VALUE);
         }
         return invokeI.longValue;
@@ -329,7 +329,7 @@ public class ChatSessionManagerImpl {
     private String getBusiSessionCredibleMsgidKey(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65548, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65549, this, i)) == null) {
             return AccountManager.getUK(mContext) + KEY_BUSINESS_CREDIBLE_MSGID + i;
         }
         return (String) invokeI.objValue;
@@ -338,7 +338,7 @@ public class ChatSessionManagerImpl {
     private String getBusiSessionTotalUnreadKey(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65549, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65550, this, i)) == null) {
             return AccountManager.getUK(mContext) + KEY_BUSINESS_TOTAL_UNREAD + i;
         }
         return (String) invokeI.objValue;
@@ -347,7 +347,7 @@ public class ChatSessionManagerImpl {
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyBusinessUnread(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65552, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(65554, this, i) == null) {
             TaskManager.getInstance(mContext).submitForLocalOperation(new Runnable(this, i) { // from class: com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -606,7 +606,7 @@ public class ChatSessionManagerImpl {
 
     private void fetchSessionListByClass(int i, BIMValuesCallBack<GetSessionResult, SessionParam> bIMValuesCallBack, ScreenUbc.MethodInfo methodInfo, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65546, this, new Object[]{Integer.valueOf(i), bIMValuesCallBack, methodInfo, str}) != null) || i <= 0) {
+        if ((interceptable != null && interceptable.invokeCommon(65547, this, new Object[]{Integer.valueOf(i), bIMValuesCallBack, methodInfo, str}) != null) || i <= 0) {
             return;
         }
         TaskManager.getInstance(mContext).submitForNetWork(new Runnable(this, i, methodInfo, bIMValuesCallBack, str) { // from class: com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl.16
@@ -680,7 +680,7 @@ public class ChatSessionManagerImpl {
     public static ChatSessionManagerImpl getInstance(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
             if (mInstance == null) {
                 synchronized (ChatSessionManagerImpl.class) {
                     if (mInstance == null) {
@@ -699,7 +699,7 @@ public class ChatSessionManagerImpl {
     private long getMaxMsgid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) {
             Context context = mContext;
             return Math.max(Utility.readLongData(context, "sync_max_msgid_" + Utility.getUK(mContext), 0L), DialogRecordDBManager.getInstance(mContext).getMaxMsgid());
         }
@@ -707,10 +707,76 @@ public class ChatSessionManagerImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    public List<ChatSession> getSessionByGfhPA(int i, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (AccountManager.isLogin(mContext) && !AccountManager.isCuidLogin(mContext)) {
+                List<PaInfo> queryPaInfoByExt = PaInfoDBManager.getInstance(mContext).queryPaInfoByExt(String.valueOf(i));
+                if (queryPaInfoByExt != null && !queryPaInfoByExt.isEmpty()) {
+                    for (PaInfo paInfo : queryPaInfoByExt) {
+                        if (paInfo != null) {
+                            if (paInfo.getPaId() > 0) {
+                                ChatSession chatRecord = ChatMessageDBManager.getInstance(mContext).getChatRecord(new ChatObject(mContext, 0, paInfo.getPaId(), j));
+                                if (chatRecord != null) {
+                                    chatRecord.setBusinessType(i);
+                                    updatePADesc(chatRecord, chatRecord.getLastMsg());
+                                    arrayList.add(chatRecord);
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    return arrayList;
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeCommon.objValue;
+    }
+
+    private void updatePADesc(ChatSession chatSession, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65561, this, chatSession, str) == null) {
+            int chatType = chatSession.getChatType();
+            if (chatType == 7 || chatType == 16 || chatType == 17 || chatType == 27 || chatType == 23 || chatType == 25 || chatType == 26 || chatType == 5 || chatType == 32) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    if (jSONObject.has("msg")) {
+                        JSONObject jSONObject2 = new JSONObject(jSONObject.optString("msg"));
+                        if (jSONObject2.has("template_version") && jSONObject2.optInt("template_version") > 0) {
+                            str = jSONObject2.optString("card_title");
+                            if (TextUtils.isEmpty(str)) {
+                                str = jSONObject2.optString("title");
+                            }
+                        } else if (!TextUtils.isEmpty(jSONObject2.optString("ext"))) {
+                            str = jSONObject2.optString("title");
+                        }
+                        if (!TextUtils.isEmpty(str)) {
+                            chatSession.setLastMsg(str);
+                            if (chatSession.getBusinessType() == 27) {
+                                chatSession.setLastMsgId(jSONObject.optLong("id", -1L));
+                                return;
+                            }
+                            return;
+                        }
+                        chatSession.setLastMsg("你收到了一条消息");
+                    } else if (chatSession.getBusinessType() == 27) {
+                        chatSession.setLastMsg(jSONObject.optString("title", str));
+                    }
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "it doesn't matter>" + e.getMessage());
+                }
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
     public void onMediaGetSessionResult(@NonNull IMediaGetChatSessionListener iMediaGetChatSessionListener, int i, int i2, int i3, boolean z, List<ChatSession> list, long j) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65553, this, new Object[]{iMediaGetChatSessionListener, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), list, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65555, this, new Object[]{iMediaGetChatSessionListener, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), list, Long.valueOf(j)}) == null) {
             iMediaGetChatSessionListener.onMediaGetChatSessionResult(i, i2, i3, z, list);
             CaseUbc.DebugInfo debugInfo = new CaseUbc.DebugInfo();
             debugInfo.curClassName = "onMediaGetSessionResult";
@@ -745,7 +811,7 @@ public class ChatSessionManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                 creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, j3);
                 try {
-                    b80.e(mContext).d(mContext, creatMethodIntent);
+                    g80.e(mContext).d(mContext, creatMethodIntent);
                     return true;
                 } catch (Exception e) {
                     LogUtils.e(TAG, "sendCustomNotifyMsg Exception ", e);
@@ -838,7 +904,7 @@ public class ChatSessionManagerImpl {
     /* JADX INFO: Access modifiers changed from: private */
     public void setBusiSessionCredibleMsgid(int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65554, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65556, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
             LogUtils.d(TAG, "setBusiSessionCredibleMsgid busiType = " + i + " msgid = " + j);
             Utility.writeLongData(mContext, getBusiSessionCredibleMsgidKey(i), j);
         }
@@ -860,7 +926,7 @@ public class ChatSessionManagerImpl {
     /* JADX INFO: Access modifiers changed from: private */
     public void setUserAllSessionRead(@NonNull SessionParam sessionParam, BIMValueCallBack<Object> bIMValueCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65555, this, sessionParam, bIMValueCallBack) == null) {
+        if (interceptable == null || interceptable.invokeLL(65557, this, sessionParam, bIMValueCallBack) == null) {
             ChatMsgManager.setMsgReadByChatTpyes(mContext, sessionParam.allChatTypes, 0L);
             MediaSessionManager.getInstance(mContext).setSessionRead(SessionParam.getAdvisoryReadOrDelParam(0L, 0L, 0L, 0, 1), new BIMValueCallBack<Object>(this, bIMValueCallBack) { // from class: com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl.14
                 public static /* synthetic */ Interceptable $ic;
@@ -903,7 +969,7 @@ public class ChatSessionManagerImpl {
     public ChatSession updateChatSessionByChatUser(ChatSession chatSession, ChatUser chatUser) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65557, this, chatSession, chatUser)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65559, this, chatSession, chatUser)) == null) {
             if (chatSession != null && chatUser != null) {
                 chatSession.setName(chatUser.getUserName());
                 chatSession.setChatType(58);
@@ -1007,7 +1073,7 @@ public class ChatSessionManagerImpl {
     public void setUserSessionRead(@NonNull SessionParam sessionParam, BIMValueCallBack<Object> bIMValueCallBack) {
         List<ChatSession> strangerSessionList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65556, this, sessionParam, bIMValueCallBack) == null) {
+        if (interceptable == null || interceptable.invokeLL(65558, this, sessionParam, bIMValueCallBack) == null) {
             if (sessionParam.type == 1 && (sessionParam.classType > 0 || sessionParam.isStranger == 1)) {
                 if (sessionParam.classType > 0) {
                     ArrayList arrayList = new ArrayList();
@@ -1033,7 +1099,7 @@ public class ChatSessionManagerImpl {
     private void updateUnsupportDesc(ChatSession chatSession, String str) {
         ChatMsg latestMsg;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65560, this, chatSession, str) == null) && IMConstants.IS_UPDATE_VERSION && !TextUtils.isEmpty(str) && str.equals(UnSupportedMsg.unSupportedMsgDesc) && (latestMsg = ChatMessageDBManager.getInstance(mContext).getLatestMsg(chatSession.getCategory(), chatSession.getContacter())) != null && BIMManager.isSupportMsgType(latestMsg.getMsgType())) {
+        if ((interceptable == null || interceptable.invokeLL(65562, this, chatSession, str) == null) && IMConstants.IS_UPDATE_VERSION && !TextUtils.isEmpty(str) && str.equals(UnSupportedMsg.unSupportedMsgDesc) && (latestMsg = ChatMessageDBManager.getInstance(mContext).getLatestMsg(chatSession.getCategory(), chatSession.getContacter())) != null && BIMManager.isSupportMsgType(latestMsg.getMsgType())) {
             String recommendDescription = latestMsg.getRecommendDescription();
             if (latestMsg instanceof HtmlMsg) {
                 recommendDescription = ((HtmlMsg) latestMsg).getLocalUrl();
@@ -1066,7 +1132,7 @@ public class ChatSessionManagerImpl {
 
     private void updateGroupChatSession(ChatSession chatSession) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65558, this, chatSession) == null) {
+        if (interceptable == null || interceptable.invokeL(65560, this, chatSession) == null) {
             if (chatSession.getChatType() == 3 || chatSession.getChatType() == 4 || chatSession.getChatType() == 57) {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(String.valueOf(chatSession.getContacter()));
@@ -1124,71 +1190,6 @@ public class ChatSessionManagerImpl {
             return String.format(IMConstants.ADVISORY_AGG_DONE_DESC, nickName);
         }
         return (String) invokeL.objValue;
-    }
-
-    private void updatePADesc(ChatSession chatSession, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65559, this, chatSession, str) == null) {
-            int chatType = chatSession.getChatType();
-            if (chatType == 7 || chatType == 16 || chatType == 17 || chatType == 27 || chatType == 23 || chatType == 25 || chatType == 26 || chatType == 5 || chatType == 32) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    if (jSONObject.has("msg")) {
-                        JSONObject jSONObject2 = new JSONObject(jSONObject.optString("msg"));
-                        if (jSONObject2.has("template_version") && jSONObject2.optInt("template_version") > 0) {
-                            str = jSONObject2.optString("card_title");
-                            if (TextUtils.isEmpty(str)) {
-                                str = jSONObject2.optString("title");
-                            }
-                        } else if (!TextUtils.isEmpty(jSONObject2.optString("ext"))) {
-                            str = jSONObject2.optString("title");
-                        }
-                        if (!TextUtils.isEmpty(str)) {
-                            chatSession.setLastMsg(str);
-                            if (chatSession.getBusinessType() == 27) {
-                                chatSession.setLastMsgId(jSONObject.optLong("id", -1L));
-                                return;
-                            }
-                            return;
-                        }
-                        chatSession.setLastMsg("你收到了一条消息");
-                    } else if (chatSession.getBusinessType() == 27) {
-                        chatSession.setLastMsg(jSONObject.optString("title", str));
-                    }
-                } catch (Exception e) {
-                    LogUtils.e(TAG, "it doesn't matter>" + e.getMessage());
-                }
-            }
-        }
-    }
-
-    public void getSessionByGfhPA(IMediaGetChatSessionListener iMediaGetChatSessionListener, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048598, this, iMediaGetChatSessionListener, i) == null) {
-            if (AccountManager.isLogin(mContext) && !AccountManager.isCuidLogin(mContext)) {
-                List<PaInfo> queryPaInfoByExt = PaInfoDBManager.getInstance(mContext).queryPaInfoByExt(String.valueOf(i));
-                if (queryPaInfoByExt != null && !queryPaInfoByExt.isEmpty()) {
-                    ArrayList arrayList = new ArrayList();
-                    for (PaInfo paInfo : queryPaInfoByExt) {
-                        if (paInfo != null && paInfo.getPaId() > 0) {
-                            ChatSession chatRecord = ChatMessageDBManager.getInstance(mContext).getChatRecord(new ChatObject(mContext, 0, paInfo.getPaId()));
-                            if (chatRecord != null) {
-                                chatRecord.setBusinessType(i);
-                                updatePADesc(chatRecord, chatRecord.getLastMsg());
-                                arrayList.add(chatRecord);
-                            }
-                        }
-                    }
-                    if (iMediaGetChatSessionListener != null) {
-                        iMediaGetChatSessionListener.onMediaGetChatSessionResult(0, ChatMsgManager.getTotalUnReadMsgCountByAdvisory(mContext), 0, false, arrayList);
-                    }
-                } else if (iMediaGetChatSessionListener != null) {
-                    iMediaGetChatSessionListener.onMediaGetChatSessionResult(0, 0, 0, false, null);
-                }
-            } else if (iMediaGetChatSessionListener != null) {
-                iMediaGetChatSessionListener.onMediaGetChatSessionResult(1000, 0, 0, false, null);
-            }
-        }
     }
 
     public List<ChatSession> completeSessionInfo(List<ChatSession> list) {
@@ -1352,7 +1353,7 @@ public class ChatSessionManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                 creatMethodIntent.putExtra("session_type", i2);
                 try {
-                    b80.e(mContext).d(mContext, creatMethodIntent);
+                    g80.e(mContext).d(mContext, creatMethodIntent);
                 } catch (Exception e) {
                     LogUtils.e(TAG, "getBusiSessionFromServer Exception ", e);
                     ListenerManager.getInstance().removeListener(addListener);
@@ -1401,7 +1402,7 @@ public class ChatSessionManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             creatMethodIntent.putExtra(Constants.EXTRA_BUSINESS_FILTER_INFO, jSONObject.toString());
             try {
-                b80.e(mContext).d(mContext, creatMethodIntent);
+                g80.e(mContext).d(mContext, creatMethodIntent);
             } catch (Exception e) {
                 LogUtils.e(TAG, "getFilterSessionsByBusiness Exception ", e);
                 ListenerManager.getInstance().removeListener(addListener);
@@ -1553,23 +1554,35 @@ public class ChatSessionManagerImpl {
                         this.val$callBack = bIMValuesCallBack;
                     }
 
+                    /* JADX WARN: Removed duplicated region for block: B:39:0x0146  */
+                    /* JADX WARN: Removed duplicated region for block: B:40:0x0149  */
+                    /* JADX WARN: Removed duplicated region for block: B:60:0x01b3  */
+                    /* JADX WARN: Removed duplicated region for block: B:63:0x01ef  */
+                    /* JADX WARN: Removed duplicated region for block: B:73:? A[RETURN, SYNTHETIC] */
                     @Override // java.lang.Runnable
+                    /*
+                        Code decompiled incorrectly, please refer to instructions dump.
+                    */
                     public void run() {
                         int i2;
                         int i3;
                         int i4;
+                        int i5;
+                        int i6;
+                        long j;
+                        BIMValuesCallBack bIMValuesCallBack2;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            int i5 = this.val$param.count;
-                            if (i5 >= 0) {
-                                i2 = i5 + 1;
+                            int i7 = this.val$param.count;
+                            if (i7 >= 0) {
+                                i2 = i7 + 1;
                             } else {
-                                i2 = i5 - 1;
+                                i2 = i7 - 1;
                             }
-                            int i6 = i2;
+                            int i8 = i2;
                             ChatMessageDBManager chatMessageDBManager = ChatMessageDBManager.getInstance(ChatSessionManagerImpl.mContext);
                             SessionParam sessionParam2 = this.val$param;
-                            List<ChatSession> sessionList = chatMessageDBManager.getSessionList(sessionParam2.sortUpdateTimeBegin, sessionParam2.sortUpdateTimeEnd, i6, sessionParam2.mode, sessionParam2.needTop, sessionParam2.allChatTypes);
+                            List<ChatSession> sessionList = chatMessageDBManager.getSessionList(sessionParam2.sortUpdateTimeBegin, sessionParam2.sortUpdateTimeEnd, i8, sessionParam2.mode, sessionParam2.needTop, sessionParam2.allChatTypes);
                             Utility.addEventList(this.val$info.eventList, "getSessionList");
                             GetSessionResult getSessionResult = new GetSessionResult();
                             getSessionResult.hasMore = false;
@@ -1579,40 +1592,113 @@ public class ChatSessionManagerImpl {
                             }
                             getSessionResult.sessionList = this.this$0.completeSessionInfo(sessionList);
                             int busiSessionTotalUnread = ChatSessionManagerImpl.getInstance(ChatSessionManagerImpl.mContext).getBusiSessionTotalUnread(27);
-                            int totalUnReadMsgCountByAdvisory = ChatMsgManager.getTotalUnReadMsgCountByAdvisory(ChatSessionManagerImpl.mContext);
-                            if (busiSessionTotalUnread > 0) {
-                                getSessionResult.consultUnread = busiSessionTotalUnread;
-                            } else {
-                                if (totalUnReadMsgCountByAdvisory > 0) {
-                                    i3 = -1;
+                            int totalUnReadMsgCountByAdvisory = ChatMsgManager.getTotalUnReadMsgCountByAdvisory(ChatSessionManagerImpl.mContext, 0L);
+                            int i9 = -1;
+                            if (busiSessionTotalUnread > 0 || totalUnReadMsgCountByAdvisory > 0) {
+                                List<ChatSession> businessChatSessions = BusinessMessageDBManager.getInstance(ChatSessionManagerImpl.mContext).getBusinessChatSessions(27, 1, this.val$param.timeInterval, System.currentTimeMillis() / 1000, false);
+                                if (businessChatSessions != null && !businessChatSessions.isEmpty()) {
+                                    if (busiSessionTotalUnread > 0) {
+                                        i5 = busiSessionTotalUnread;
+                                    } else {
+                                        i5 = -1;
+                                    }
+                                    getSessionResult.weakConsultUnread = i5;
                                 } else {
-                                    i3 = 0;
-                                }
-                                getSessionResult.consultUnread = i3;
-                            }
-                            long j = 0;
-                            if (sessionList != null && sessionList.size() > 0) {
-                                j = sessionList.get(sessionList.size() - 1).getLastMsgTime();
-                                for (int size = sessionList.size() - 1; size >= 0; size--) {
-                                    ChatSession chatSession = sessionList.get(size);
-                                    if (chatSession.getClassType() <= 1 && chatSession.getIsStranger() == 0) {
-                                        i4 = chatSession.getMarkTop();
-                                        break;
+                                    List<ChatSession> sessionByGfhPA = ChatSessionManagerImpl.getInstance(ChatSessionManagerImpl.mContext).getSessionByGfhPA(27, this.val$param.timeInterval);
+                                    if (sessionByGfhPA != null && !sessionByGfhPA.isEmpty()) {
+                                        if (busiSessionTotalUnread > 0) {
+                                            i3 = busiSessionTotalUnread;
+                                        } else {
+                                            i3 = -1;
+                                        }
+                                        getSessionResult.weakConsultUnread = i3;
+                                        i4 = 0;
+                                        for (ChatSession chatSession : sessionByGfhPA) {
+                                            i4 = (int) (i4 + chatSession.getNewMsgSum());
+                                        }
+                                        LogUtils.d(ChatSessionManagerImpl.TAG, "时间区间 : " + this.val$param.timeInterval + " 秒 ");
+                                        StringBuilder sb = new StringBuilder();
+                                        sb.append("咨询订单未读 : ");
+                                        sb.append(busiSessionTotalUnread);
+                                        LogUtils.d(ChatSessionManagerImpl.TAG, sb.toString());
+                                        LogUtils.d(ChatSessionManagerImpl.TAG, "问一问官方号未读（未弱化） : " + totalUnReadMsgCountByAdvisory);
+                                        LogUtils.d(ChatSessionManagerImpl.TAG, "问一问官方号未读（弱化后） : " + i4);
+                                        if (busiSessionTotalUnread <= 0) {
+                                            getSessionResult.consultUnread = busiSessionTotalUnread;
+                                        } else {
+                                            if (totalUnReadMsgCountByAdvisory <= 0) {
+                                                i9 = 0;
+                                            }
+                                            getSessionResult.consultUnread = i9;
+                                        }
+                                        if (sessionList == null && sessionList.size() > 0) {
+                                            j = sessionList.get(sessionList.size() - 1).getLastMsgTime();
+                                            int size = sessionList.size() - 1;
+                                            while (true) {
+                                                if (size >= 0) {
+                                                    ChatSession chatSession2 = sessionList.get(size);
+                                                    if (chatSession2.getClassType() <= 1 && chatSession2.getIsStranger() == 0) {
+                                                        i6 = chatSession2.getMarkTop();
+                                                        break;
+                                                    }
+                                                    size--;
+                                                } else {
+                                                    i6 = 0;
+                                                    break;
+                                                }
+                                            }
+                                        } else {
+                                            i6 = 0;
+                                            j = 0;
+                                        }
+                                        getSessionResult.dotUnread = ChatMessageDBManager.getInstance(ChatSessionManagerImpl.mContext).getStrangerUnReadCount(this.val$param.timeInterval);
+                                        ChatMessageDBManager chatMessageDBManager2 = ChatMessageDBManager.getInstance(ChatSessionManagerImpl.mContext);
+                                        SessionParam sessionParam3 = this.val$param;
+                                        int newMsgCountWithStranger = chatMessageDBManager2.getNewMsgCountWithStranger(sessionParam3.userNumChatTypes, 0, sessionParam3.timeInterval);
+                                        if (i4 <= 0) {
+                                            i4 = 0;
+                                        }
+                                        getSessionResult.totalUnread = newMsgCountWithStranger - i4;
+                                        LogUtils.d(ChatSessionManagerImpl.TAG, "最终返回结果 ===> 陌生人未读 : " + getSessionResult.dotUnread + " 咨询的总未读数: " + getSessionResult.consultUnread + " 包含官方号的总未读 : " + newMsgCountWithStranger + " 去除官方号的总未读: " + getSessionResult.totalUnread);
+                                        bIMValuesCallBack2 = this.val$callBack;
+                                        if (bIMValuesCallBack2 == null) {
+                                            SessionParam sessionParam4 = this.val$param;
+                                            bIMValuesCallBack2.onResult(0, Constants.ERROR_MSG_SUCCESS, getSessionResult, SessionParam.getListNextParam(sessionParam4.businessType, sessionParam4.mode, j, i6));
+                                            ScreenUbc.MethodInfo methodInfo2 = this.val$info;
+                                            methodInfo2.errCode = 0;
+                                            methodInfo2.errMsg = Constants.ERROR_MSG_SUCCESS;
+                                            methodInfo2.endTime = System.currentTimeMillis();
+                                            ScreenUbc.onEvent(ChatSessionManagerImpl.mContext, this.val$param.screenKey, this.val$info);
+                                            return;
+                                        }
+                                        return;
                                     }
                                 }
                             }
                             i4 = 0;
-                            getSessionResult.dotUnread = ChatMessageDBManager.getInstance(ChatSessionManagerImpl.mContext).getStrangerUnReadCount();
-                            getSessionResult.totalUnread = ChatMessageDBManager.getInstance(ChatSessionManagerImpl.mContext).getNewMsgCountWithStranger(this.val$param.userNumChatTypes, 0) - totalUnReadMsgCountByAdvisory;
-                            BIMValuesCallBack bIMValuesCallBack2 = this.val$callBack;
-                            if (bIMValuesCallBack2 != null) {
-                                SessionParam sessionParam3 = this.val$param;
-                                bIMValuesCallBack2.onResult(0, Constants.ERROR_MSG_SUCCESS, getSessionResult, SessionParam.getListNextParam(sessionParam3.businessType, sessionParam3.mode, j, i4));
-                                ScreenUbc.MethodInfo methodInfo2 = this.val$info;
-                                methodInfo2.errCode = 0;
-                                methodInfo2.errMsg = Constants.ERROR_MSG_SUCCESS;
-                                methodInfo2.endTime = System.currentTimeMillis();
-                                ScreenUbc.onEvent(ChatSessionManagerImpl.mContext, this.val$param.screenKey, this.val$info);
+                            LogUtils.d(ChatSessionManagerImpl.TAG, "时间区间 : " + this.val$param.timeInterval + " 秒 ");
+                            StringBuilder sb2 = new StringBuilder();
+                            sb2.append("咨询订单未读 : ");
+                            sb2.append(busiSessionTotalUnread);
+                            LogUtils.d(ChatSessionManagerImpl.TAG, sb2.toString());
+                            LogUtils.d(ChatSessionManagerImpl.TAG, "问一问官方号未读（未弱化） : " + totalUnReadMsgCountByAdvisory);
+                            LogUtils.d(ChatSessionManagerImpl.TAG, "问一问官方号未读（弱化后） : " + i4);
+                            if (busiSessionTotalUnread <= 0) {
+                            }
+                            if (sessionList == null) {
+                            }
+                            i6 = 0;
+                            j = 0;
+                            getSessionResult.dotUnread = ChatMessageDBManager.getInstance(ChatSessionManagerImpl.mContext).getStrangerUnReadCount(this.val$param.timeInterval);
+                            ChatMessageDBManager chatMessageDBManager22 = ChatMessageDBManager.getInstance(ChatSessionManagerImpl.mContext);
+                            SessionParam sessionParam32 = this.val$param;
+                            int newMsgCountWithStranger2 = chatMessageDBManager22.getNewMsgCountWithStranger(sessionParam32.userNumChatTypes, 0, sessionParam32.timeInterval);
+                            if (i4 <= 0) {
+                            }
+                            getSessionResult.totalUnread = newMsgCountWithStranger2 - i4;
+                            LogUtils.d(ChatSessionManagerImpl.TAG, "最终返回结果 ===> 陌生人未读 : " + getSessionResult.dotUnread + " 咨询的总未读数: " + getSessionResult.consultUnread + " 包含官方号的总未读 : " + newMsgCountWithStranger2 + " 去除官方号的总未读: " + getSessionResult.totalUnread);
+                            bIMValuesCallBack2 = this.val$callBack;
+                            if (bIMValuesCallBack2 == null) {
                             }
                         }
                     }
@@ -1926,6 +2012,35 @@ public class ChatSessionManagerImpl {
                 ((IMediaSetSessionReadListener) removeListener).onMediaSetSessionReadResult(i, str);
             } else if (removeListener instanceof BIMValueCallBack) {
                 ((BIMValueCallBack) removeListener).onResult(i, str, null);
+            }
+        }
+    }
+
+    public void getSessionByGfhPA(IMediaGetChatSessionListener iMediaGetChatSessionListener, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048598, this, iMediaGetChatSessionListener, i) == null) {
+            if (AccountManager.isLogin(mContext) && !AccountManager.isCuidLogin(mContext)) {
+                List<PaInfo> queryPaInfoByExt = PaInfoDBManager.getInstance(mContext).queryPaInfoByExt(String.valueOf(i));
+                if (queryPaInfoByExt != null && !queryPaInfoByExt.isEmpty()) {
+                    ArrayList arrayList = new ArrayList();
+                    for (PaInfo paInfo : queryPaInfoByExt) {
+                        if (paInfo != null && paInfo.getPaId() > 0) {
+                            ChatSession chatRecord = ChatMessageDBManager.getInstance(mContext).getChatRecord(new ChatObject(mContext, 0, paInfo.getPaId()));
+                            if (chatRecord != null) {
+                                chatRecord.setBusinessType(i);
+                                updatePADesc(chatRecord, chatRecord.getLastMsg());
+                                arrayList.add(chatRecord);
+                            }
+                        }
+                    }
+                    if (iMediaGetChatSessionListener != null) {
+                        iMediaGetChatSessionListener.onMediaGetChatSessionResult(0, ChatMsgManager.getTotalUnReadMsgCountByAdvisory(mContext, 0L), 0, false, arrayList);
+                    }
+                } else if (iMediaGetChatSessionListener != null) {
+                    iMediaGetChatSessionListener.onMediaGetChatSessionResult(0, 0, 0, false, null);
+                }
+            } else if (iMediaGetChatSessionListener != null) {
+                iMediaGetChatSessionListener.onMediaGetChatSessionResult(1000, 0, 0, false, null);
             }
         }
     }

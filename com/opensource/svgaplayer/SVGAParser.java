@@ -8,7 +8,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.model.response.TaskProcessData;
 import com.baidu.sapi2.views.SmsLoginView;
-import com.baidu.tieba.iy9;
+import com.baidu.tieba.q3a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,6 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
+import com.opensource.svgaplayer.SVGAParser;
 import com.opensource.svgaplayer.proto.MovieEntity;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
@@ -193,11 +194,52 @@ public final class SVGAParser {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, url, function1, function12)) == null) {
-                Ref.BooleanRef booleanRef = new Ref.BooleanRef();
+                final Ref.BooleanRef booleanRef = new Ref.BooleanRef();
                 booleanRef.element = false;
-                SVGAParser$FileDownloader$resume$cancelBlock$1 sVGAParser$FileDownloader$resume$cancelBlock$1 = new SVGAParser$FileDownloader$resume$cancelBlock$1(booleanRef);
+                Function0<Unit> function0 = new Function0<Unit>(booleanRef) { // from class: com.opensource.svgaplayer.SVGAParser$FileDownloader$resume$cancelBlock$1
+                    public static /* synthetic */ Interceptable $ic;
+                    public final /* synthetic */ Ref.BooleanRef $cancelled;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                    {
+                        super(0);
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {booleanRef};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                super(((Integer) newInitContext.callArgs[0]).intValue());
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.$cancelled = booleanRef;
+                    }
+
+                    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                    @Override // kotlin.jvm.functions.Function0
+                    public /* bridge */ /* synthetic */ Unit invoke() {
+                        invoke2();
+                        return Unit.INSTANCE;
+                    }
+
+                    /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
+                    /* renamed from: invoke  reason: avoid collision after fix types in other method */
+                    public final void invoke2() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                            this.$cancelled.element = true;
+                        }
+                    }
+                };
                 SVGAParser.e.a().execute(new a(this, url, booleanRef, function1, function12));
-                return sVGAParser$FileDownloader$resume$cancelBlock$1;
+                return function0;
             }
             return (Function0) invokeLLL.objValue;
         }
@@ -549,7 +591,7 @@ public final class SVGAParser {
         }
     }
 
-    public final Function0<Unit> q(URL url, b bVar) {
+    public final Function0<Unit> q(final URL url, final b bVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, url, bVar)) == null) {
@@ -557,7 +599,97 @@ public final class SVGAParser {
                 d.execute(new c(this, url, bVar));
                 return null;
             }
-            return this.a.b(url, new SVGAParser$decodeFromURL$2(this, url, bVar), new SVGAParser$decodeFromURL$3(this, bVar));
+            return this.a.b(url, new Function1<InputStream, Unit>(this, url, bVar) { // from class: com.opensource.svgaplayer.SVGAParser$decodeFromURL$2
+                public static /* synthetic */ Interceptable $ic;
+                public final /* synthetic */ SVGAParser.b $callback;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ URL $url;
+                public final /* synthetic */ SVGAParser this$0;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(1);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, url, bVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            super(((Integer) newInitContext.callArgs[0]).intValue());
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.$url = url;
+                    this.$callback = bVar;
+                }
+
+                /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                @Override // kotlin.jvm.functions.Function1
+                public /* bridge */ /* synthetic */ Unit invoke(InputStream inputStream) {
+                    invoke2(inputStream);
+                    return Unit.INSTANCE;
+                }
+
+                /* renamed from: invoke  reason: avoid collision after fix types in other method */
+                public final void invoke2(InputStream inputStream) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream) == null) {
+                        SVGAParser sVGAParser = this.this$0;
+                        SVGAParser.p(sVGAParser, inputStream, sVGAParser.l(this.$url), this.$callback, false, 8, null);
+                    }
+                }
+            }, new Function1<Exception, Unit>(this, bVar) { // from class: com.opensource.svgaplayer.SVGAParser$decodeFromURL$3
+                public static /* synthetic */ Interceptable $ic;
+                public final /* synthetic */ SVGAParser.b $callback;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ SVGAParser this$0;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(1);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, bVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            super(((Integer) newInitContext.callArgs[0]).intValue());
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.$callback = bVar;
+                }
+
+                /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                @Override // kotlin.jvm.functions.Function1
+                public /* bridge */ /* synthetic */ Unit invoke(Exception exc) {
+                    invoke2(exc);
+                    return Unit.INSTANCE;
+                }
+
+                /* renamed from: invoke  reason: avoid collision after fix types in other method */
+                public final void invoke2(Exception exc) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null && interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) != null) {
+                        return;
+                    }
+                    this.this$0.t(exc, this.$callback);
+                }
+            });
         }
         return (Function0) invokeLL.objValue;
     }
@@ -648,7 +780,7 @@ public final class SVGAParser {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, inputStream, str) == null) {
-            i = iy9.a;
+            i = q3a.a;
             synchronized (Integer.valueOf(i)) {
                 File j = j(str);
                 j.mkdirs();

@@ -126,7 +126,7 @@ public final class a extends com.kwad.components.ad.h.a {
             public final void bk() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.kq.dt = false;
+                    a.a(this.kq, false);
                     this.kq.setAudioEnabled(false);
                 }
             }
@@ -219,6 +219,11 @@ public final class a extends com.kwad.components.ad.h.a {
                 }
             }
         });
+    }
+
+    public static /* synthetic */ boolean a(a aVar, boolean z) {
+        aVar.dt = false;
+        return false;
     }
 
     private void aQ() {

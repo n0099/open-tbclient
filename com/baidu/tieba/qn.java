@@ -1,64 +1,246 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.content.Context;
+import android.os.Handler;
+import android.view.View;
+import android.widget.Scroller;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.nn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class qn extends BaseCardInfo {
+/* loaded from: classes6.dex */
+public class qn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public xn b;
+    public int a;
+    public int b;
+    public lo c;
+    public nn.a d;
+    public boolean e;
+    public b f;
+    public int g;
+    public View h;
+    public Handler i;
+    public Runnable j;
 
-    public qn() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qn a;
+
+        public a(qn qnVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qnVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qnVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            b bVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.a.f) != null) {
+                bVar.b();
             }
         }
     }
 
-    public xn c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public Scroller b;
+        public final /* synthetic */ qn c;
+
+        public b(qn qnVar, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qnVar, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = qnVar;
+            this.b = new Scroller(context);
         }
-        return (xn) invokeV.objValue;
+
+        public void d(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) && this.c.h != null && this.b != null) {
+                if (i == 0) {
+                    i--;
+                }
+                c();
+                this.a = 0;
+                this.b.startScroll(0, 0, 0, i, i2);
+                this.c.h.post(this);
+            }
+        }
+
+        public final void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                qn qnVar = this.c;
+                qnVar.i.removeCallbacks(qnVar.j);
+                Scroller scroller = this.b;
+                if (scroller != null) {
+                    scroller.abortAnimation();
+                    this.b.forceFinished(true);
+                }
+                View view2 = this.c.h;
+                if (view2 != null) {
+                    view2.removeCallbacks(this);
+                }
+                if (this.c.c != null) {
+                    this.c.c.onOver();
+                }
+            }
+        }
+
+        public final void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                qn qnVar = this.c;
+                Handler handler = qnVar.i;
+                if (handler != null) {
+                    handler.removeCallbacks(qnVar.j);
+                }
+                View view2 = this.c.h;
+                if (view2 != null) {
+                    view2.removeCallbacks(this);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Scroller scroller;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.c.h != null && (scroller = this.b) != null) {
+                boolean computeScrollOffset = scroller.computeScrollOffset();
+                boolean z = false;
+                if (this.b.timePassed() >= this.c.g) {
+                    computeScrollOffset = false;
+                }
+                int currY = this.b.getCurrY();
+                int i = currY - this.a;
+                boolean z2 = true;
+                if (computeScrollOffset) {
+                    if (i != 0) {
+                        z = !this.c.c(i);
+                        this.a = currY;
+                    }
+                    if (!z) {
+                        this.c.h.post(this);
+                    }
+                    z2 = z;
+                }
+                if (z2) {
+                    qn qnVar = this.c;
+                    qnVar.i.removeCallbacks(qnVar.j);
+                    qn qnVar2 = this.c;
+                    qnVar2.i.post(qnVar2.j);
+                }
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.xn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public qn(Context context, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (BdUniqueId) invokeV.objValue;
+        this.a = 1;
+        this.e = true;
+        this.i = new Handler();
+        this.j = new a(this);
+        int abs = Math.abs(i - i2);
+        this.b = i2;
+        if (abs < this.a) {
+            this.e = false;
+        }
+        this.f = new b(this, context);
+        this.g = i3;
     }
 
-    public void f(xn xnVar) {
+    public void d(lo loVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xnVar) == null) {
-            this.b = xnVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, loVar) == null) {
+            this.c = loVar;
         }
     }
 
-    public void g(BdUniqueId bdUniqueId) {
+    public void e(nn.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
-            this.a = bdUniqueId;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.d = aVar;
         }
+    }
+
+    public void f(View view2) {
+        b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && this.e && (bVar = this.f) != null) {
+            this.h = view2;
+            bVar.d(Math.abs(this.b), this.g);
+            this.i.postDelayed(this.j, this.g);
+        }
+    }
+
+    public final boolean c(int i) {
+        InterceptResult invokeI;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            int paddingTop = this.h.getPaddingTop() - Math.abs(i);
+            int i2 = this.b;
+            if (paddingTop <= i2) {
+                paddingTop = i2;
+                z = false;
+            } else {
+                z = true;
+            }
+            View view2 = this.h;
+            view2.setPadding(view2.getPaddingLeft(), paddingTop, this.h.getPaddingRight(), this.h.getPaddingBottom());
+            nn.a aVar = this.d;
+            if (aVar != null) {
+                aVar.a(null, this.h.getPaddingLeft(), this.h.getPaddingRight(), this.h.getPaddingTop() - this.b, this.h.getPaddingBottom());
+            }
+            return z;
+        }
+        return invokeI.booleanValue;
     }
 }

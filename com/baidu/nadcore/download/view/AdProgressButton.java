@@ -18,17 +18,17 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d31;
-import com.baidu.tieba.el0;
-import com.baidu.tieba.lk0;
-import com.baidu.tieba.m31;
+import com.baidu.tieba.i31;
+import com.baidu.tieba.jl0;
+import com.baidu.tieba.qk0;
+import com.baidu.tieba.r31;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class AdProgressButton extends View implements el0<AdProgressButton> {
+public class AdProgressButton extends View implements jl0<AdProgressButton> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -44,7 +44,7 @@ public class AdProgressButton extends View implements el0<AdProgressButton> {
     public Typeface k;
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.el0
+    @Override // com.baidu.tieba.jl0
     @NonNull
     public AdProgressButton getRealView() {
         InterceptResult invokeV;
@@ -165,7 +165,7 @@ public class AdProgressButton extends View implements el0<AdProgressButton> {
         d(context, attributeSet);
     }
 
-    @Override // com.baidu.tieba.el0
+    @Override // com.baidu.tieba.jl0
     public void b(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, viewGroup) != null) || !(viewGroup instanceof RelativeLayout)) {
@@ -249,11 +249,11 @@ public class AdProgressButton extends View implements el0<AdProgressButton> {
     public final void d(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d31.nad_progress);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, i31.nad_progress);
             int color = getResources().getColor(R.color.nad_progress_download_button_text_color);
             int color2 = getResources().getColor(R.color.nad_progress_download_button_fg);
-            int a = m31.c.a(getContext(), 11.0f);
-            int a2 = m31.c.a(getContext(), 12.0f);
+            int a = r31.c.a(getContext(), 11.0f);
+            int a2 = r31.c.a(getContext(), 12.0f);
             this.j = 1;
             this.f = obtainStyledAttributes.getInteger(0, color2);
             this.b = obtainStyledAttributes.getColor(8, color);
@@ -293,12 +293,12 @@ public class AdProgressButton extends View implements el0<AdProgressButton> {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.el0
-    public void update(String str, @NonNull lk0 lk0Var) {
+    @Override // com.baidu.tieba.jl0
+    public void update(String str, @NonNull qk0 qk0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048592, this, str, lk0Var) == null) {
-            if (lk0Var.c == AdDownloadStatus.DOWNLOADING) {
-                setProgress((int) (lk0Var.i * 100.0f));
+        if (interceptable == null || interceptable.invokeLL(1048592, this, str, qk0Var) == null) {
+            if (qk0Var.c == AdDownloadStatus.DOWNLOADING) {
+                setProgress((int) (qk0Var.i * 100.0f));
                 return;
             }
             setProgressNoText(0);

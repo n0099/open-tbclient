@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
+import com.baidu.tieba.is7;
 import com.baidu.tieba.livesdk.share.model.AlaShareInBarModel;
-import com.baidu.tieba.tn7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -88,16 +88,16 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         }
 
         @Override // com.baidu.tieba.livesdk.share.model.AlaShareInBarModel.b
-        public void a(int i, String str, tn7 tn7Var) {
+        public void a(int i, String str, is7 is7Var) {
             int i2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, tn7Var) == null) {
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, is7Var) == null) {
                 this.a.closeLoadingDialog();
-                if (i == 0 && tn7Var != null) {
+                if (i == 0 && is7Var != null) {
                     BdToast b = BdToast.b(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getString(R.string.share_alert_success));
-                    b.f(BdToast.ToastIcon.SUCCESS);
-                    b.c(3000);
-                    b.i();
+                    b.g(BdToast.ToastIcon.SUCCESS);
+                    b.d(3000);
+                    b.k();
                     i2 = 1;
                 } else {
                     this.a.showToast(str);
@@ -182,7 +182,7 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                showToast(R.string.obfuscated_res_0x7f0f0cb8);
+                showToast(R.string.obfuscated_res_0x7f0f0cd1);
                 finish();
             } else if ((StringUtils.isNull(this.a) && TextUtils.isEmpty(this.b)) || ListUtils.isEmpty(this.c)) {
                 finish();

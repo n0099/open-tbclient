@@ -1,57 +1,76 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.tieba.c84;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.drawable.Drawable;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.e84;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class f84 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947717991, "Lcom/baidu/tieba/f84;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes4.dex */
+    public static class a implements e84.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947717991, "Lcom/baidu/tieba/f84;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        a = ok1.a;
+
+        @Override // com.baidu.tieba.e84.a
+        public void a(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2 == null) {
+                return;
+            }
+            view2.setAlpha(1.0f);
+        }
+
+        @Override // com.baidu.tieba.e84.a
+        public void b(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) || view2 == null) {
+                return;
+            }
+            view2.setAlpha(0.2f);
+        }
     }
 
-    public static void a(@NonNull e43 e43Var, @NonNull c84.e eVar) {
+    public static void a(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, e43Var, eVar) == null) {
-            long l = e43Var.W().l("launch_time", 0L);
-            if (l <= 0) {
-                if (a) {
-                    Log.d("GameWebViewStatistic", "doH5GameLoadingFinishStats: launchTime is invalid.");
-                    return;
-                }
-                return;
-            }
-            gb3 gb3Var = new gb3();
-            gb3Var.a = xa3.n(e43Var.W().G());
-            gb3Var.f = e43Var.getAppId();
-            gb3Var.c = e43Var.W().T();
-            gb3Var.b = "startup";
-            gb3Var.g = eVar.a;
-            gb3Var.e = eVar.b;
-            gb3Var.a("na_start", Long.valueOf(l));
-            gb3Var.a("h5_start", Long.valueOf(eVar.c));
-            gb3Var.a("h5_finish", Long.valueOf(eVar.d));
-            xa3.x("1235", gb3Var);
+        if (interceptable == null || interceptable.invokeL(65536, null, view2) == null) {
+            b(view2, null);
         }
+    }
+
+    public static void b(View view2, Drawable drawable) {
+        e84 e84Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65537, null, view2, drawable) != null) || view2 == null) {
+            return;
+        }
+        if (drawable == null) {
+            e84Var = new e84();
+        } else {
+            e84Var = new e84(drawable);
+        }
+        e84Var.b(view2);
+        e84Var.a(new a());
+        view2.setBackground(e84Var);
     }
 }

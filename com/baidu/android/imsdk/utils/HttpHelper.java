@@ -32,6 +32,7 @@ import java.util.Map;
 import java.util.zip.GZIPOutputStream;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.conn.ConnectTimeoutException;
+import org.json.JSONArray;
 @SuppressLint({"TrulyRandom"})
 /* loaded from: classes.dex */
 public class HttpHelper {
@@ -46,6 +47,11 @@ public class HttpHelper {
     public static final String TAG = "HttpHelper";
     public static Context mContext;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes.dex */
+    public interface LogoutResponseHandler extends ResponseHandler {
+        void onResult(int i, byte[] bArr, JSONArray jSONArray);
+    }
 
     /* loaded from: classes.dex */
     public interface Request {

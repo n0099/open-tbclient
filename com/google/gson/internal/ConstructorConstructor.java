@@ -31,7 +31,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.ConcurrentNavigableMap;
 import java.util.concurrent.ConcurrentSkipListMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ConstructorConstructor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -91,15 +91,13 @@ public final class ConstructorConstructor {
                         this.val$constructor = declaredConstructor;
                     }
 
-                    /* JADX WARN: Type inference failed for: r0v8, types: [T, java.lang.Object] */
-                    /* JADX WARN: Type inference failed for: r1v0, types: [T, java.lang.Object] */
                     @Override // com.google.gson.internal.ObjectConstructor
                     public T construct() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                             try {
-                                return this.val$constructor.newInstance(null);
+                                return (T) this.val$constructor.newInstance(null);
                             } catch (IllegalAccessException e) {
                                 throw new AssertionError(e);
                             } catch (InstantiationException e2) {
@@ -108,7 +106,7 @@ public final class ConstructorConstructor {
                                 throw new RuntimeException("Failed to invoke " + this.val$constructor + " with no args", e3.getTargetException());
                             }
                         }
-                        return invokeV.objValue;
+                        return (T) invokeV.objValue;
                     }
                 };
             } catch (NoSuchMethodException unused) {
@@ -147,16 +145,14 @@ public final class ConstructorConstructor {
                             this.this$0 = this;
                         }
 
-                        /* JADX WARN: Type inference failed for: r0v2, types: [T, java.util.TreeSet] */
-                        /* JADX WARN: Type inference failed for: r1v0, types: [T, java.lang.Object] */
                         @Override // com.google.gson.internal.ObjectConstructor
                         public T construct() {
                             InterceptResult invokeV;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                                return new TreeSet();
+                                return (T) new TreeSet();
                             }
-                            return invokeV.objValue;
+                            return (T) invokeV.objValue;
                         }
                     };
                 }
@@ -186,8 +182,6 @@ public final class ConstructorConstructor {
                             this.val$type = type;
                         }
 
-                        /* JADX WARN: Type inference failed for: r0v9, types: [T, java.util.EnumSet] */
-                        /* JADX WARN: Type inference failed for: r1v0, types: [T, java.lang.Object] */
                         @Override // com.google.gson.internal.ObjectConstructor
                         public T construct() {
                             InterceptResult invokeV;
@@ -197,13 +191,13 @@ public final class ConstructorConstructor {
                                 if (type2 instanceof ParameterizedType) {
                                     Type type3 = ((ParameterizedType) type2).getActualTypeArguments()[0];
                                     if (type3 instanceof Class) {
-                                        return EnumSet.noneOf((Class) type3);
+                                        return (T) EnumSet.noneOf((Class) type3);
                                     }
                                     throw new JsonIOException("Invalid EnumSet type: " + this.val$type.toString());
                                 }
                                 throw new JsonIOException("Invalid EnumSet type: " + this.val$type.toString());
                             }
-                            return invokeV.objValue;
+                            return (T) invokeV.objValue;
                         }
                     };
                 }
@@ -231,16 +225,14 @@ public final class ConstructorConstructor {
                             this.this$0 = this;
                         }
 
-                        /* JADX WARN: Type inference failed for: r0v2, types: [T, java.util.LinkedHashSet] */
-                        /* JADX WARN: Type inference failed for: r1v0, types: [T, java.lang.Object] */
                         @Override // com.google.gson.internal.ObjectConstructor
                         public T construct() {
                             InterceptResult invokeV;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                                return new LinkedHashSet();
+                                return (T) new LinkedHashSet();
                             }
-                            return invokeV.objValue;
+                            return (T) invokeV.objValue;
                         }
                     };
                 }
@@ -268,16 +260,14 @@ public final class ConstructorConstructor {
                             this.this$0 = this;
                         }
 
-                        /* JADX WARN: Type inference failed for: r0v2, types: [T, java.util.ArrayDeque] */
-                        /* JADX WARN: Type inference failed for: r1v0, types: [T, java.lang.Object] */
                         @Override // com.google.gson.internal.ObjectConstructor
                         public T construct() {
                             InterceptResult invokeV;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                                return new ArrayDeque();
+                                return (T) new ArrayDeque();
                             }
-                            return invokeV.objValue;
+                            return (T) invokeV.objValue;
                         }
                     };
                 }
@@ -304,16 +294,14 @@ public final class ConstructorConstructor {
                         this.this$0 = this;
                     }
 
-                    /* JADX WARN: Type inference failed for: r0v2, types: [T, java.util.ArrayList] */
-                    /* JADX WARN: Type inference failed for: r1v0, types: [T, java.lang.Object] */
                     @Override // com.google.gson.internal.ObjectConstructor
                     public T construct() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                            return new ArrayList();
+                            return (T) new ArrayList();
                         }
-                        return invokeV.objValue;
+                        return (T) invokeV.objValue;
                     }
                 };
             } else if (Map.class.isAssignableFrom(cls)) {
@@ -341,16 +329,14 @@ public final class ConstructorConstructor {
                             this.this$0 = this;
                         }
 
-                        /* JADX WARN: Type inference failed for: r0v2, types: [java.util.concurrent.ConcurrentSkipListMap, T] */
-                        /* JADX WARN: Type inference failed for: r1v0, types: [T, java.lang.Object] */
                         @Override // com.google.gson.internal.ObjectConstructor
                         public T construct() {
                             InterceptResult invokeV;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                                return new ConcurrentSkipListMap();
+                                return (T) new ConcurrentSkipListMap();
                             }
-                            return invokeV.objValue;
+                            return (T) invokeV.objValue;
                         }
                     };
                 }
@@ -378,16 +364,14 @@ public final class ConstructorConstructor {
                             this.this$0 = this;
                         }
 
-                        /* JADX WARN: Type inference failed for: r0v2, types: [T, java.util.concurrent.ConcurrentHashMap] */
-                        /* JADX WARN: Type inference failed for: r1v0, types: [T, java.lang.Object] */
                         @Override // com.google.gson.internal.ObjectConstructor
                         public T construct() {
                             InterceptResult invokeV;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                                return new ConcurrentHashMap();
+                                return (T) new ConcurrentHashMap();
                             }
-                            return invokeV.objValue;
+                            return (T) invokeV.objValue;
                         }
                     };
                 }
@@ -415,16 +399,14 @@ public final class ConstructorConstructor {
                             this.this$0 = this;
                         }
 
-                        /* JADX WARN: Type inference failed for: r0v2, types: [java.util.TreeMap, T] */
-                        /* JADX WARN: Type inference failed for: r1v0, types: [T, java.lang.Object] */
                         @Override // com.google.gson.internal.ObjectConstructor
                         public T construct() {
                             InterceptResult invokeV;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                                return new TreeMap();
+                                return (T) new TreeMap();
                             }
-                            return invokeV.objValue;
+                            return (T) invokeV.objValue;
                         }
                     };
                 }
@@ -452,16 +434,14 @@ public final class ConstructorConstructor {
                             this.this$0 = this;
                         }
 
-                        /* JADX WARN: Type inference failed for: r0v2, types: [java.util.LinkedHashMap, T] */
-                        /* JADX WARN: Type inference failed for: r1v0, types: [T, java.lang.Object] */
                         @Override // com.google.gson.internal.ObjectConstructor
                         public T construct() {
                             InterceptResult invokeV;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                                return new LinkedHashMap();
+                                return (T) new LinkedHashMap();
                             }
-                            return invokeV.objValue;
+                            return (T) invokeV.objValue;
                         }
                     };
                 }
@@ -488,16 +468,14 @@ public final class ConstructorConstructor {
                         this.this$0 = this;
                     }
 
-                    /* JADX WARN: Type inference failed for: r0v2, types: [T, com.google.gson.internal.LinkedTreeMap] */
-                    /* JADX WARN: Type inference failed for: r1v0, types: [T, java.lang.Object] */
                     @Override // com.google.gson.internal.ObjectConstructor
                     public T construct() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                            return new LinkedTreeMap();
+                            return (T) new LinkedTreeMap();
                         }
-                        return invokeV.objValue;
+                        return (T) invokeV.objValue;
                     }
                 };
             } else {
@@ -540,20 +518,18 @@ public final class ConstructorConstructor {
                     this.unsafeAllocator = UnsafeAllocator.create();
                 }
 
-                /* JADX WARN: Type inference failed for: r0v3, types: [T, java.lang.Object] */
-                /* JADX WARN: Type inference failed for: r1v2, types: [T, java.lang.Object] */
                 @Override // com.google.gson.internal.ObjectConstructor
                 public T construct() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                         try {
-                            return this.unsafeAllocator.newInstance(this.val$rawType);
+                            return (T) this.unsafeAllocator.newInstance(this.val$rawType);
                         } catch (Exception e) {
                             throw new RuntimeException("Unable to invoke no-args constructor for " + this.val$type + ". Registering an InstanceCreator with Gson for this type may fix this problem.", e);
                         }
                     }
-                    return invokeV.objValue;
+                    return (T) invokeV.objValue;
                 }
             };
         }
@@ -595,16 +571,14 @@ public final class ConstructorConstructor {
                         this.val$type = type;
                     }
 
-                    /* JADX WARN: Type inference failed for: r0v3, types: [T, java.lang.Object] */
-                    /* JADX WARN: Type inference failed for: r1v0, types: [T, java.lang.Object] */
                     @Override // com.google.gson.internal.ObjectConstructor
                     public T construct() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                            return this.val$typeCreator.createInstance(this.val$type);
+                            return (T) this.val$typeCreator.createInstance(this.val$type);
                         }
-                        return invokeV.objValue;
+                        return (T) invokeV.objValue;
                     }
                 };
             }
@@ -637,16 +611,14 @@ public final class ConstructorConstructor {
                         this.val$type = type;
                     }
 
-                    /* JADX WARN: Type inference failed for: r0v3, types: [T, java.lang.Object] */
-                    /* JADX WARN: Type inference failed for: r1v0, types: [T, java.lang.Object] */
                     @Override // com.google.gson.internal.ObjectConstructor
                     public T construct() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                            return this.val$rawTypeCreator.createInstance(this.val$type);
+                            return (T) this.val$rawTypeCreator.createInstance(this.val$type);
                         }
-                        return invokeV.objValue;
+                        return (T) invokeV.objValue;
                     }
                 };
             }

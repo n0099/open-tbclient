@@ -53,18 +53,50 @@ public class SequencesKt__SequencesKt extends SequencesKt__SequencesJVMKt {
 
     public static final <T> Sequence<T> flatten(Sequence<? extends Sequence<? extends T>> flatten) {
         Intrinsics.checkNotNullParameter(flatten, "$this$flatten");
-        return flatten$SequencesKt__SequencesKt(flatten, SequencesKt__SequencesKt$flatten$1.INSTANCE);
+        return flatten$SequencesKt__SequencesKt(flatten, new Function1<Sequence<? extends T>, Iterator<? extends T>>() { // from class: kotlin.sequences.SequencesKt__SequencesKt$flatten$1
+            @Override // kotlin.jvm.functions.Function1
+            public /* bridge */ /* synthetic */ Object invoke(Object obj) {
+                return invoke((Sequence) ((Sequence) obj));
+            }
+
+            /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: java.util.Iterator<? extends T>, java.util.Iterator<T> */
+            public final Iterator<T> invoke(Sequence<? extends T> it) {
+                Intrinsics.checkNotNullParameter(it, "it");
+                return (Iterator<? extends T>) it.iterator();
+            }
+        });
     }
 
     @JvmName(name = "flattenSequenceOfIterable")
     public static final <T> Sequence<T> flattenSequenceOfIterable(Sequence<? extends Iterable<? extends T>> flatten) {
         Intrinsics.checkNotNullParameter(flatten, "$this$flatten");
-        return flatten$SequencesKt__SequencesKt(flatten, SequencesKt__SequencesKt$flatten$2.INSTANCE);
+        return flatten$SequencesKt__SequencesKt(flatten, new Function1<Iterable<? extends T>, Iterator<? extends T>>() { // from class: kotlin.sequences.SequencesKt__SequencesKt$flatten$2
+            @Override // kotlin.jvm.functions.Function1
+            public /* bridge */ /* synthetic */ Object invoke(Object obj) {
+                return invoke((Iterable) ((Iterable) obj));
+            }
+
+            /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: java.util.Iterator<? extends T>, java.util.Iterator<T> */
+            public final Iterator<T> invoke(Iterable<? extends T> it) {
+                Intrinsics.checkNotNullParameter(it, "it");
+                return (Iterator<? extends T>) it.iterator();
+            }
+        });
     }
 
-    public static final <T> Sequence<T> generateSequence(Function0<? extends T> nextFunction) {
+    public static final <T> Sequence<T> generateSequence(final Function0<? extends T> nextFunction) {
         Intrinsics.checkNotNullParameter(nextFunction, "nextFunction");
-        return constrainOnce(new GeneratorSequence(nextFunction, new SequencesKt__SequencesKt$generateSequence$1(nextFunction)));
+        return constrainOnce(new GeneratorSequence(nextFunction, new Function1<T, T>() { // from class: kotlin.sequences.SequencesKt__SequencesKt$generateSequence$1
+            {
+                super(1);
+            }
+
+            @Override // kotlin.jvm.functions.Function1
+            public final T invoke(T it) {
+                Intrinsics.checkNotNullParameter(it, "it");
+                return (T) Function0.this.invoke();
+            }
+        }));
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: kotlin.sequences.Sequence<? extends T> */
@@ -113,16 +145,31 @@ public class SequencesKt__SequencesKt extends SequencesKt__SequencesJVMKt {
         if (sequence instanceof TransformingSequence) {
             return ((TransformingSequence) sequence).flatten$kotlin_stdlib(function1);
         }
-        return new FlatteningSequence(sequence, SequencesKt__SequencesKt$flatten$3.INSTANCE, function1);
+        return new FlatteningSequence(sequence, new Function1<T, T>() { // from class: kotlin.sequences.SequencesKt__SequencesKt$flatten$3
+            @Override // kotlin.jvm.functions.Function1
+            public final T invoke(T t) {
+                return t;
+            }
+        }, function1);
     }
 
     @LowPriorityInOverloadResolution
-    public static final <T> Sequence<T> generateSequence(T t, Function1<? super T, ? extends T> nextFunction) {
+    public static final <T> Sequence<T> generateSequence(final T t, Function1<? super T, ? extends T> nextFunction) {
         Intrinsics.checkNotNullParameter(nextFunction, "nextFunction");
         if (t == null) {
             return EmptySequence.INSTANCE;
         }
-        return new GeneratorSequence(new SequencesKt__SequencesKt$generateSequence$2(t), nextFunction);
+        return new GeneratorSequence(new Function0<T>() { // from class: kotlin.sequences.SequencesKt__SequencesKt$generateSequence$2
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(0);
+            }
+
+            @Override // kotlin.jvm.functions.Function0
+            public final T invoke() {
+                return (T) t;
+            }
+        }, nextFunction);
     }
 
     @SinceKotlin(version = "1.3")

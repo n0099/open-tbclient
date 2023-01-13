@@ -15,19 +15,19 @@ import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ap0;
-import com.baidu.tieba.e41;
-import com.baidu.tieba.eq0;
-import com.baidu.tieba.lo0;
-import com.baidu.tieba.mo0;
-import com.baidu.tieba.p01;
+import com.baidu.tieba.bi0;
+import com.baidu.tieba.bp0;
+import com.baidu.tieba.cj0;
+import com.baidu.tieba.dp0;
+import com.baidu.tieba.fp0;
+import com.baidu.tieba.j41;
+import com.baidu.tieba.jq0;
 import com.baidu.tieba.qo0;
-import com.baidu.tieba.to0;
-import com.baidu.tieba.uo0;
+import com.baidu.tieba.ro0;
+import com.baidu.tieba.u01;
 import com.baidu.tieba.vo0;
-import com.baidu.tieba.wh0;
-import com.baidu.tieba.wo0;
-import com.baidu.tieba.xi0;
 import com.baidu.tieba.yo0;
+import com.baidu.tieba.zo0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -44,7 +44,7 @@ public final class ArrowGuideComponent extends AbsComponentPlugin {
     public transient /* synthetic */ FieldHolder $fh;
     public AdVideoImmersiveTipsView d;
     public boolean e;
-    public eq0 f;
+    public jq0 f;
 
     /* loaded from: classes2.dex */
     public static final class a implements View.OnClickListener {
@@ -74,23 +74,23 @@ public final class ArrowGuideComponent extends AbsComponentPlugin {
         public final void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                yo0 yo0Var = (yo0) this.a.b().j(yo0.class);
-                if (yo0Var != null && yo0Var.k()) {
-                    wo0 wo0Var = (wo0) this.a.b().j(wo0.class);
-                    if (wo0Var != null) {
-                        wo0Var.j(false, true, false);
+                dp0 dp0Var = (dp0) this.a.b().j(dp0.class);
+                if (dp0Var != null && dp0Var.k()) {
+                    bp0 bp0Var = (bp0) this.a.b().j(bp0.class);
+                    if (bp0Var != null) {
+                        bp0Var.j(false, true, false);
                     }
                 } else {
-                    wo0 wo0Var2 = (wo0) this.a.b().j(wo0.class);
-                    if (wo0Var2 != null) {
-                        wo0Var2.j(true, true, false);
+                    bp0 bp0Var2 = (bp0) this.a.b().j(bp0.class);
+                    if (bp0Var2 != null) {
+                        bp0Var2.j(true, true, false);
                     }
                 }
-                vo0 vo0Var = (vo0) this.a.b().j(vo0.class);
-                if (vo0Var != null) {
+                ap0 ap0Var = (ap0) this.a.b().j(ap0.class);
+                if (ap0Var != null) {
                     String str = ClogBuilder.LogType.FREE_CLICK.type;
                     Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.LogType.FREE_CLICK.type");
-                    vo0Var.a(str, "learnmore");
+                    ap0Var.a(str, "learnmore");
                 }
             }
         }
@@ -146,8 +146,8 @@ public final class ArrowGuideComponent extends AbsComponentPlugin {
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin
     public void onPause() {
-        e41 animTimer;
-        e41 countDownTimer;
+        j41 animTimer;
+        j41 countDownTimer;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onPause();
@@ -170,7 +170,7 @@ public final class ArrowGuideComponent extends AbsComponentPlugin {
             AdVideoImmersiveTipsView adVideoImmersiveTipsView = this.d;
             if (adVideoImmersiveTipsView != null) {
                 adVideoImmersiveTipsView.j();
-                wh0.e(adVideoImmersiveTipsView);
+                bi0.e(adVideoImmersiveTipsView);
             }
             this.d = null;
         }
@@ -195,13 +195,13 @@ public final class ArrowGuideComponent extends AbsComponentPlugin {
         }
     }
 
-    public final void e(mo0 mo0Var) {
-        e41 animTimer;
-        e41 countDownTimer;
-        e41 animTimer2;
+    public final void e(ro0 ro0Var) {
+        j41 animTimer;
+        j41 countDownTimer;
+        j41 animTimer2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mo0Var) == null) {
-            int i = ap0.$EnumSwitchMapping$0[mo0Var.getType().ordinal()];
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ro0Var) == null) {
+            int i = fp0.$EnumSwitchMapping$0[ro0Var.getType().ordinal()];
             if (i != 1) {
                 if (i == 2) {
                     AdVideoImmersiveTipsView adVideoImmersiveTipsView = this.d;
@@ -237,26 +237,26 @@ public final class ArrowGuideComponent extends AbsComponentPlugin {
     }
 
     public final void f(int i, int i2) {
-        wo0 wo0Var;
-        yo0 yo0Var;
+        bp0 bp0Var;
+        dp0 dp0Var;
         int i3;
         int i4;
         int i5;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) && (wo0Var = (wo0) b().j(wo0.class)) != null && (yo0Var = (yo0) b().j(yo0.class)) != null) {
-            if (!wo0Var.g()) {
-                eq0 eq0Var = this.f;
-                if (eq0Var != null) {
-                    i3 = eq0Var.a();
+        if ((interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) && (bp0Var = (bp0) b().j(bp0.class)) != null && (dp0Var = (dp0) b().j(dp0.class)) != null) {
+            if (!bp0Var.g()) {
+                jq0 jq0Var = this.f;
+                if (jq0Var != null) {
+                    i3 = jq0Var.a();
                 } else {
                     i3 = 0;
                 }
                 if (i3 > 0) {
                     if (!this.e) {
-                        int l = yo0Var.l();
-                        eq0 eq0Var2 = this.f;
-                        if (eq0Var2 != null) {
-                            i4 = eq0Var2.a();
+                        int l = dp0Var.l();
+                        jq0 jq0Var2 = this.f;
+                        if (jq0Var2 != null) {
+                            i4 = jq0Var2.a();
                         } else {
                             i4 = -1;
                         }
@@ -281,14 +281,14 @@ public final class ArrowGuideComponent extends AbsComponentPlugin {
     }
 
     public final void h() {
-        wo0 wo0Var;
+        bp0 bp0Var;
         WebViewContainer b2;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            eq0 eq0Var = this.f;
-            if ((eq0Var == null || !eq0Var.e()) && this.d == null && (wo0Var = (wo0) b().j(wo0.class)) != null && (b2 = wo0Var.b()) != null) {
-                to0 a2 = uo0.a();
+            jq0 jq0Var = this.f;
+            if ((jq0Var == null || !jq0Var.e()) && this.d == null && (bp0Var = (bp0) b().j(bp0.class)) != null && (b2 = bp0Var.b()) != null) {
+                yo0 a2 = zo0.a();
                 Intrinsics.checkNotNullExpressionValue(a2, "NadMaxRuntime.getUIProvider()");
                 a2.a();
                 int i2 = -1;
@@ -297,13 +297,13 @@ public final class ArrowGuideComponent extends AbsComponentPlugin {
                 AdVideoImmersiveTipsView adVideoImmersiveTipsView = (AdVideoImmersiveTipsView) inflate.findViewById(R.id.max_bottom_tip);
                 if (adVideoImmersiveTipsView != null) {
                     adVideoImmersiveTipsView.setOutClickListener(new a(this));
-                    eq0 eq0Var2 = this.f;
-                    if (eq0Var2 != null) {
-                        i2 = eq0Var2.b();
+                    jq0 jq0Var2 = this.f;
+                    if (jq0Var2 != null) {
+                        i2 = jq0Var2.b();
                     }
-                    eq0 eq0Var3 = this.f;
-                    if (eq0Var3 != null) {
-                        i = eq0Var3.c();
+                    jq0 jq0Var3 = this.f;
+                    if (jq0Var3 != null) {
+                        i = jq0Var3.c();
                     } else {
                         i = 0;
                     }
@@ -335,35 +335,35 @@ public final class ArrowGuideComponent extends AbsComponentPlugin {
                 if (TextUtils.isEmpty(str2)) {
                     return;
                 }
-                this.f = eq0.f.a(p01.c(str2));
+                this.f = jq0.f.a(u01.c(str2));
             }
         }
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void o(xi0 event) {
-        lo0 lo0Var;
+    public void o(cj0 event) {
+        qo0 qo0Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
             super.o(event);
             String a2 = event.a();
-            if (Intrinsics.areEqual(a2, qo0.class.getSimpleName())) {
+            if (Intrinsics.areEqual(a2, vo0.class.getSimpleName())) {
+                if (!(event instanceof vo0)) {
+                    event = null;
+                }
+                vo0 vo0Var = (vo0) event;
+                if (vo0Var != null) {
+                    f(vo0Var.c(), vo0Var.b());
+                }
+            } else if (Intrinsics.areEqual(a2, ro0.class.getSimpleName())) {
+                e((ro0) event);
+            } else if (Intrinsics.areEqual(a2, qo0.class.getSimpleName())) {
                 if (!(event instanceof qo0)) {
                     event = null;
                 }
-                qo0 qo0Var = (qo0) event;
-                if (qo0Var != null) {
-                    f(qo0Var.c(), qo0Var.b());
-                }
-            } else if (Intrinsics.areEqual(a2, mo0.class.getSimpleName())) {
-                e((mo0) event);
-            } else if (Intrinsics.areEqual(a2, lo0.class.getSimpleName())) {
-                if (!(event instanceof lo0)) {
-                    event = null;
-                }
-                if (((lo0) event) != null) {
-                    float c = lo0Var.c() / (lo0Var.d() - lo0Var.b());
+                if (((qo0) event) != null) {
+                    float c = qo0Var.c() / (qo0Var.d() - qo0Var.b());
                     AdVideoImmersiveTipsView adVideoImmersiveTipsView = this.d;
                     if (adVideoImmersiveTipsView != null) {
                         adVideoImmersiveTipsView.i(c);
@@ -375,14 +375,14 @@ public final class ArrowGuideComponent extends AbsComponentPlugin {
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin
     public void onResume() {
-        e41 animTimer;
-        e41 animTimer2;
-        e41 countDownTimer;
+        j41 animTimer;
+        j41 animTimer2;
+        j41 countDownTimer;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onResume();
-            yo0 yo0Var = (yo0) b().j(yo0.class);
-            if (yo0Var != null && yo0Var.k()) {
+            dp0 dp0Var = (dp0) b().j(dp0.class);
+            if (dp0Var != null && dp0Var.k()) {
                 AdVideoImmersiveTipsView adVideoImmersiveTipsView = this.d;
                 if (adVideoImmersiveTipsView != null && (countDownTimer = adVideoImmersiveTipsView.getCountDownTimer()) != null) {
                     countDownTimer.c();

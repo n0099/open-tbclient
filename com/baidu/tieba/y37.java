@@ -1,45 +1,41 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.FrameLayout;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.homepage.personalize.PersonalizePageView;
-import com.baidu.tieba.homepage.personalize.data.ConcernUnreadTipHttpResMsg;
-import com.baidu.tieba.homepage.personalize.data.ConcernUnreadTipSocketResMsg;
-import com.baidu.tieba.homepage.personalize.view.ConcernUnreadTipView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.bz;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.qy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class y37 {
+/* loaded from: classes7.dex */
+public class y37 extends ln<o96, ThreadCardViewHolder<o96>> implements bs5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l17 a;
-    public PersonalizePageView b;
-    public ConcernUnreadTipView c;
-    public TbPageContext d;
-    public BdUniqueId e;
-    public Runnable f;
-    public qb g;
-    public CustomMessageListener h;
+    public BdUniqueId a;
+    public TbPageContext<?> b;
+    public String c;
+    public boolean d;
+    public eo e;
+    public z86<o96> f;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    /* loaded from: classes7.dex */
+    public class a extends z86<o96> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y37 a;
+        public final /* synthetic */ y37 b;
 
         public a(y37 y37Var) {
             Interceptable interceptable = $ic;
@@ -56,110 +52,27 @@ public class y37 {
                     return;
                 }
             }
-            this.a = y37Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
-                if (this.a.c != null) {
-                    this.a.b.removeView(this.a.c);
-                    TiebaStatic.log(new StatisticItem("c12632").param("obj_locate", 3));
-                }
-                this.a.b.setIsUnreadTipShow(false);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends qb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y37 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(y37 y37Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y37Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = y37Var;
-        }
-
-        @Override // com.baidu.tieba.qb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                if (!(responsedMessage instanceof ConcernUnreadTipHttpResMsg)) {
-                    if (!(responsedMessage instanceof ConcernUnreadTipSocketResMsg)) {
-                        return;
-                    }
-                    this.a.e(((ConcernUnreadTipSocketResMsg) responsedMessage).mData);
-                    return;
-                }
-                this.a.e(((ConcernUnreadTipHttpResMsg) responsedMessage).mData);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y37 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(y37 y37Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y37Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = y37Var;
+            this.b = y37Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // com.baidu.tieba.z86
+        /* renamed from: d */
+        public void a(View view2, o96 o96Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.a.f(true);
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, o96Var) == null) && view2 != null && o96Var != null && o96Var.getThreadData() != null && !StringUtils.isNull(o96Var.getThreadData().getTid())) {
+                this.b.w(view2, o96Var);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class d implements View.OnClickListener {
+    /* loaded from: classes7.dex */
+    public class b implements io {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ y37 a;
 
-        public d(y37 y37Var) {
+        public b(y37 y37Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -177,135 +90,117 @@ public class y37 {
             this.a = y37Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.io
+        public void b(View view2, yn ynVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.c != null && this.a.c.a != null) {
-                if (view2.getId() != this.a.c.a.getId()) {
-                    if (this.a.a != null) {
-                        this.a.a.setCurrentTab(0);
-                        return;
-                    }
-                    return;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, ynVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (ynVar instanceof o96) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
+                o96 o96Var = (o96) ynVar;
+                o96Var.f = 1;
+                if (this.a.f != null) {
+                    this.a.f.a(threadCardViewHolder.getView(), o96Var);
                 }
-                this.a.f(false);
-                TiebaStatic.log(new StatisticItem("c12632").param("obj_locate", 1));
+                ThreadCardUtils.jumpToPB((fs4) o96Var, view2.getContext(), 1, false);
+                threadCardViewHolder.a().p(new bz.a(1));
             }
         }
     }
 
-    public y37(TbPageContext tbPageContext) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y37(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.d = true;
         this.f = new a(this);
-        this.g = new b(this, CmdConfigHttp.CMD_CONCERN_UNREAD_TIP, 309541);
-        this.h = new c(this, 2921064);
-        if (tbPageContext == null) {
-            return;
-        }
-        this.d = tbPageContext;
-        tbPageContext.registerListener(this.g);
-        tbPageContext.registerListener(this.h);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_UNREAD_TIP, ur8.a(TbConfig.URL_CONCERN_UNREAD_TIP, 309541));
-        tbHttpMessageTask.setIsNeedAddCommenParam(true);
-        tbHttpMessageTask.setResponsedClass(ConcernUnreadTipHttpResMsg.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        og5 og5Var = new og5(309541);
-        og5Var.setResponsedClass(ConcernUnreadTipSocketResMsg.class);
-        og5Var.g(true);
-        MessageManager.getInstance().registerTask(og5Var);
+        this.b = tbPageContext;
     }
 
-    public void k(q57 q57Var) {
+    @Override // com.baidu.tieba.bs5
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, q57Var) != null) || this.b == null) {
-            return;
-        }
-        ConcernUnreadTipView concernUnreadTipView = new ConcernUnreadTipView(this.d.getContext());
-        this.c = concernUnreadTipView;
-        concernUnreadTipView.setBdUniqueId(this.e);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-        layoutParams.gravity = 49;
-        this.c.setLayoutParams(layoutParams);
-        this.c.setData(q57Var);
-        this.c.setClickListener(new d(this));
-        this.b.setIsUnreadTipShow(true);
-        this.b.addView(this.c);
-        if (q57Var != null) {
-            TiebaStatic.log(new StatisticItem("c12631").param("obj_param1", q57Var.a).param(TiebaStatic.Params.OBJ_PARAM2, q57Var.e));
-        }
-        ah.a().postDelayed(this.f, 5000L);
-    }
-
-    public final void e(q57 q57Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, q57Var) == null) && q57Var != null && q57Var.a()) {
-            k(q57Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.c = str;
         }
     }
 
-    public void h(BdUniqueId bdUniqueId) {
+    public void x(eo eoVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
-            this.e = bdUniqueId;
+        if (interceptable == null || interceptable.invokeL(1048582, this, eoVar) == null) {
+            this.e = eoVar;
         }
     }
 
-    public void i(PersonalizePageView personalizePageView) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ln
+    /* renamed from: u */
+    public ThreadCardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, personalizePageView) == null) {
-            this.b = personalizePageView;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            qy.b bVar = new qy.b(this.b.getPageActivity(), false);
+            ay ayVar = new ay(this.b.getPageActivity());
+            ayVar.w(ImageViewerConfig.FROM_CONCERN);
+            ayVar.x(this.d);
+            bVar.n(ayVar);
+            qy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.e);
+            k.s(1);
+            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
+            threadCardViewHolder.i(this.a);
+            setOnAdapterItemClickListener(new b(this));
+            return threadCardViewHolder;
         }
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    public void j(l17 l17Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ln
+    /* renamed from: v */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, o96 o96Var, ThreadCardViewHolder<o96> threadCardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, l17Var) == null) {
-            this.a = l17Var;
-        }
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            ah.a().removeCallbacks(this.f);
-            PersonalizePageView personalizePageView = this.b;
-            if (personalizePageView != null) {
-                ConcernUnreadTipView concernUnreadTipView = this.c;
-                if (concernUnreadTipView != null) {
-                    personalizePageView.removeView(concernUnreadTipView);
-                    if (z && this.b.getIsUnreadTipShow()) {
-                        ry4.l().y(ry4.p("concern_unread_tip_next_show_time"), 0L);
-                        TiebaStatic.log(new StatisticItem("c12632").param("obj_locate", 2));
-                    }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, o96Var, threadCardViewHolder})) == null) {
+            if (o96Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && o96Var.a != null) {
+                o96Var.I(o96Var.position + 1);
+                s86.b().a(o96Var.f("c12351"));
+                threadCardViewHolder.a().r(i);
+                if (threadCardViewHolder.a() instanceof as5) {
+                    threadCardViewHolder.a().b(this.c);
                 }
-                this.b.setIsUnreadTipShow(false);
+                threadCardViewHolder.e(o96Var);
+                threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
+                threadCardViewHolder.a().q(this.f);
+                return threadCardViewHolder.getView();
             }
+            return null;
         }
+        return (View) invokeCommon.objValue;
     }
 
-    public void g() {
+    public final void w(View view2, o96 o96Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = null;
-            this.a = null;
-            if (this.f != null) {
-                ah.a().removeCallbacks(this.f);
+        if (interceptable == null || interceptable.invokeLL(1048581, this, view2, o96Var) == null) {
+            if (view2.getId() == R.id.thread_card_root) {
+                p37.b(view2, o96Var, 2);
+            } else if (view2 instanceof TbImageView) {
+                p37.b(view2, o96Var, 3);
+            } else if (view2.getId() == R.id.thread_card_title || view2.getId() == R.id.thread_card_abstract) {
+                p37.b(view2, o96Var, 2);
             }
-            MessageManager.getInstance().unRegisterListener(this.g);
-            MessageManager.getInstance().unRegisterListener(this.h);
         }
     }
 }

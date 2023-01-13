@@ -31,45 +31,46 @@ public abstract class jf {
 
     public abstract byte a();
 
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract double m552a();
+    /* renamed from: a */
+    public abstract double mo615a();
 
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract int m553a();
+    /* renamed from: a */
+    public abstract int mo616a();
 
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract long m554a();
+    /* renamed from: a */
+    public abstract long mo617a();
 
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract jc m555a();
+    /* renamed from: a */
+    public abstract jc mo618a();
 
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract jd m556a();
+    /* renamed from: a */
+    public abstract jd mo619a();
 
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract je m557a();
+    /* renamed from: a */
+    public abstract je mo620a();
 
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract jj m558a();
+    /* renamed from: a */
+    public abstract jj mo621a();
 
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract jk m559a();
+    /* renamed from: a */
+    public abstract jk mo622a();
 
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract String m560a();
+    /* renamed from: a */
+    public abstract String mo623a();
 
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract ByteBuffer m561a();
+    /* renamed from: a */
+    public abstract ByteBuffer mo624a();
 
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract short m562a();
+    /* renamed from: a */
+    public abstract short mo625a();
 
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract void m563a();
+    /* renamed from: a */
+    public abstract void mo626a();
 
     public abstract void a(byte b);
 
-    public abstract void a(int i);
+    /* renamed from: a */
+    public abstract void mo627a(int i);
 
     public abstract void a(long j);
 
@@ -89,8 +90,8 @@ public abstract class jf {
 
     public abstract void a(boolean z);
 
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract boolean m564a();
+    /* renamed from: a */
+    public abstract boolean mo628a();
 
     public abstract void b();
 

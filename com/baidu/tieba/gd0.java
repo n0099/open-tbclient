@@ -1,9 +1,109 @@
 package com.baidu.tieba;
+
+import android.graphics.SurfaceTexture;
+import android.view.Surface;
+import android.view.SurfaceHolder;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface gd0 {
-    void a(hd0 hd0Var, md0 md0Var);
+public class gd0 extends id0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Surface d;
+    public boolean e;
 
-    void b(kd0 kd0Var, jd0 jd0Var);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gd0(hd0 hd0Var, SurfaceTexture surfaceTexture) {
+        super(hd0Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {hd0Var, surfaceTexture};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((hd0) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        a(surfaceTexture);
+    }
 
-    void release();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gd0(hd0 hd0Var, Surface surface, boolean z) {
+        super(hd0Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {hd0Var, surface, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((hd0) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        a(surface);
+        this.d = surface;
+        this.e = z;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gd0(hd0 hd0Var, SurfaceHolder surfaceHolder) {
+        super(hd0Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {hd0Var, surfaceHolder};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((hd0) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        a(surfaceHolder);
+    }
+
+    public void f(hd0 hd0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, hd0Var) == null) {
+            Surface surface = this.d;
+            if (surface != null) {
+                this.a = hd0Var;
+                a(surface);
+                return;
+            }
+            throw new RuntimeException("not yet implemented for SurfaceTexture");
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            c();
+            Surface surface = this.d;
+            if (surface != null) {
+                if (this.e) {
+                    surface.release();
+                }
+                this.d = null;
+            }
+        }
+    }
 }

@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.zj9;
+import com.baidu.tieba.hp9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -148,14 +148,14 @@ public class MediaSegment implements Parcelable, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public MediaSegment m33clone() {
+    public MediaSegment m35clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 MediaSegment mediaSegment = (MediaSegment) super.clone();
                 if (this.mediaAEffect != null) {
-                    mediaSegment.mediaAEffect = this.mediaAEffect.m31clone();
+                    mediaSegment.mediaAEffect = this.mediaAEffect.m33clone();
                 }
                 return mediaSegment;
             } catch (Exception e) {
@@ -205,7 +205,7 @@ public class MediaSegment implements Parcelable, Cloneable {
             }
             new ArrayList();
             try {
-                return (List) new zj9().c(str, new b().getType());
+                return (List) new hp9().c(str, new b().getType());
             } catch (Exception unused) {
                 return null;
             }

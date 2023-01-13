@@ -1,26 +1,44 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.module.frs.Frs$From;
-import com.baidu.tieba.frs.voiceroom.VoiceRoomListActivity;
+import com.baidu.tieba.filedownloader.TbFileDownloaderImpl;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes6.dex */
-public final class rk6 extends yf1<ob5> {
+public final class rk6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948124556, "Lcom/baidu/tieba/rk6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948124556, "Lcom/baidu/tieba/rk6;");
+                return;
+            }
+        }
+        a = new a(null);
+    }
+
     /* loaded from: classes6.dex */
-    public static final class a implements ob5 {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -36,58 +54,16 @@ public final class rk6 extends yf1<ob5> {
             }
         }
 
-        @Override // com.baidu.tieba.ob5
-        public void a(TbPageContext<?> tbPageContext, long j) {
+        public final sk6 a(int i) {
+            InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(1048576, this, tbPageContext, j) == null) {
-                Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
-                c(tbPageContext, Intrinsics.stringPlus("bdtiebalive://video/mixlive?room_id=", Long.valueOf(j)));
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                if (i == 1) {
+                    return TbFileDownloaderImpl.a.a();
+                }
+                return TbFileDownloaderImpl.a.a();
             }
+            return (sk6) invokeI.objValue;
         }
-
-        public void c(TbPageContext<?> tbPageContext, String scheme) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, scheme) == null) {
-                Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
-                Intrinsics.checkNotNullParameter(scheme, "scheme");
-                UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{scheme});
-            }
-        }
-
-        @Override // com.baidu.tieba.ob5
-        public void b(Context context, Frs$From from, Long l, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, from, l, str) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                Intrinsics.checkNotNullParameter(from, "from");
-                VoiceRoomListActivity.a.a(context, from, l, str);
-            }
-        }
-    }
-
-    public rk6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yf1
-    /* renamed from: a */
-    public ob5 createService() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a();
-        }
-        return (ob5) invokeV.objValue;
     }
 }

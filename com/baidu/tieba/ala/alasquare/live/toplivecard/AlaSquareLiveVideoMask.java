@@ -116,25 +116,25 @@ public class AlaSquareLiveVideoMask extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = context;
             this.n = AnimationUtils.loadAnimation(context, R.anim.obfuscated_res_0x7f01014d);
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0672, this);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0670, this);
             this.b = inflate;
-            this.m = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0909be);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0913db);
+            this.m = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0909c1);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0913e8);
             this.c = tbImageView;
             tbImageView.setDefaultBgResource(R.drawable.pic_bg_video_frs);
             this.c.setAutoChangeStyle(false);
-            View findViewById = this.b.findViewById(R.id.obfuscated_res_0x7f090db3);
+            View findViewById = this.b.findViewById(R.id.obfuscated_res_0x7f090dbd);
             this.d = findViewById;
-            findViewById.setBackgroundResource(R.drawable.obfuscated_res_0x7f081051);
-            this.e = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090e3a);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090e3b);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090e39);
+            findViewById.setBackgroundResource(R.drawable.obfuscated_res_0x7f081065);
+            this.e = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090e44);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090e45);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090e43);
             this.e.setIsRound(true);
             this.e.setAutoChangeStyle(false);
-            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092419);
-            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09240f);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092446);
+            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09243c);
             this.j = (ImageView) this.b.findViewById(R.id.image_video_play);
-            NoActiveStopAlaPlayAnimationView noActiveStopAlaPlayAnimationView = (NoActiveStopAlaPlayAnimationView) this.b.findViewById(R.id.obfuscated_res_0x7f090231);
+            NoActiveStopAlaPlayAnimationView noActiveStopAlaPlayAnimationView = (NoActiveStopAlaPlayAnimationView) this.b.findViewById(R.id.obfuscated_res_0x7f09022a);
             this.k = noActiveStopAlaPlayAnimationView;
             noActiveStopAlaPlayAnimationView.setFromSpecialForum(this.o);
             SkinManager.setImageResource(this.j, R.drawable.btn_icon_play_live_on_n);
@@ -163,12 +163,12 @@ public class AlaSquareLiveVideoMask extends FrameLayout {
                 this.d.setVisibility(0);
                 this.e.K(alaUserInfoData.portrait, 10, false);
                 this.f.setText(threadData.getAuthor().getName_show());
-                this.g.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f1268), String.valueOf(alaUserInfoData.ala_id)));
+                this.g.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f127f), String.valueOf(alaUserInfoData.ala_id)));
             } else {
                 this.d.setVisibility(8);
             }
             this.h.setText(threadData.getTitle());
-            this.i.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f126d, String.valueOf(threadAlaInfo.audience_count)));
+            this.i.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1284, String.valueOf(threadAlaInfo.audience_count)));
             if (!this.o) {
                 this.k.b();
             }

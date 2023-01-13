@@ -8,12 +8,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.flow.CoverFlowLocalView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ax4;
-import com.baidu.tieba.ww4;
-import com.baidu.tieba.xw4;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.yw4;
-import com.baidu.tieba.zj6;
+import com.baidu.tieba.hx4;
+import com.baidu.tieba.ix4;
+import com.baidu.tieba.jx4;
+import com.baidu.tieba.lx4;
+import com.baidu.tieba.mn6;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,13 +24,13 @@ import java.util.List;
 public class LocalBannerLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CoverFlowLocalView<zj6> a;
-    public yw4<zj6> b;
-    public List<zj6> c;
-    public yw4<zj6> d;
+    public CoverFlowLocalView<mn6> a;
+    public jx4<mn6> b;
+    public List<mn6> c;
+    public jx4<mn6> d;
 
     /* loaded from: classes4.dex */
-    public class a extends ww4 {
+    public class a extends hx4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LocalBannerLayout a;
@@ -53,7 +53,7 @@ public class LocalBannerLayout extends RelativeLayout {
             this.a = localBannerLayout;
         }
 
-        @Override // com.baidu.tieba.ww4, com.baidu.tieba.uw4
+        @Override // com.baidu.tieba.hx4, com.baidu.tieba.fx4
         public TbImageView d(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -68,37 +68,37 @@ public class LocalBannerLayout extends RelativeLayout {
             return (TbImageView) invokeL.objValue;
         }
 
-        @Override // com.baidu.tieba.ww4, com.baidu.tieba.uw4
-        public xw4 a() {
+        @Override // com.baidu.tieba.hx4, com.baidu.tieba.fx4
+        public ix4 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                xw4 xw4Var = new xw4();
-                xw4Var.c(R.drawable.icon_mask_goods_select8);
-                xw4Var.g(R.drawable.icon_mask_goods_unselect8);
-                xw4Var.d(81);
-                xw4Var.e(R.dimen.tbds36);
-                xw4Var.h(R.dimen.tbds20);
-                return xw4Var;
+                ix4 ix4Var = new ix4();
+                ix4Var.c(R.drawable.icon_mask_goods_select8);
+                ix4Var.g(R.drawable.icon_mask_goods_unselect8);
+                ix4Var.d(81);
+                ix4Var.e(R.dimen.tbds36);
+                ix4Var.h(R.dimen.tbds20);
+                return ix4Var;
             }
-            return (xw4) invokeV.objValue;
+            return (ix4) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.ww4, com.baidu.tieba.uw4
-        public ax4 c() {
+        @Override // com.baidu.tieba.hx4, com.baidu.tieba.fx4
+        public lx4 c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                ax4 ax4Var = new ax4();
-                ax4Var.a(yi.g(this.a.getContext(), R.dimen.tbds690));
-                return ax4Var;
+                lx4 lx4Var = new lx4();
+                lx4Var.a(zi.g(this.a.getContext(), R.dimen.tbds690));
+                return lx4Var;
             }
-            return (ax4) invokeV.objValue;
+            return (lx4) invokeV.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b implements yw4<zj6> {
+    public class b implements jx4<mn6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LocalBannerLayout a;
@@ -121,7 +121,7 @@ public class LocalBannerLayout extends RelativeLayout {
             this.a = localBannerLayout;
         }
 
-        @Override // com.baidu.tieba.yw4
+        @Override // com.baidu.tieba.jx4
         public void b(int i, String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && i >= 0 && this.a.c != null && i <= this.a.c.size() + 1 && this.a.b != null) {
@@ -130,12 +130,12 @@ public class LocalBannerLayout extends RelativeLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yw4
+        @Override // com.baidu.tieba.jx4
         /* renamed from: c */
-        public void a(int i, zj6 zj6Var) {
+        public void a(int i, mn6 mn6Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, zj6Var) == null) && i >= 0 && this.a.c != null && i <= this.a.c.size() + 1 && this.a.b != null) {
-                this.a.b.a(i, zj6Var);
+            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, mn6Var) == null) && i >= 0 && this.a.c != null && i <= this.a.c.size() + 1 && this.a.b != null) {
+                this.a.b.a(i, mn6Var);
             }
         }
     }
@@ -205,7 +205,7 @@ public class LocalBannerLayout extends RelativeLayout {
         c();
     }
 
-    public void setData(List<zj6> list) {
+    public void setData(List<mn6> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             this.c = list;
@@ -213,10 +213,10 @@ public class LocalBannerLayout extends RelativeLayout {
         }
     }
 
-    public void setOnCoverViewCallback(yw4<zj6> yw4Var) {
+    public void setOnCoverViewCallback(jx4<mn6> jx4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yw4Var) == null) {
-            this.b = yw4Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jx4Var) == null) {
+            this.b = jx4Var;
         }
     }
 

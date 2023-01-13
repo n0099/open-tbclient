@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,15 +11,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class kr2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public CallbackHandler a;
-    public JSONObject b;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public int h;
+    public float i;
+    public String j;
 
     static {
         InterceptResult invokeClinit;
@@ -35,24 +40,22 @@ public class kr2 {
                 return;
             }
         }
-        c = ok1.a;
+        boolean z = tk1.a;
     }
 
-    public boolean c() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return UnitedSchemeUtility.isInvokedFromSwanGame(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return !TextUtils.isEmpty(this.a);
         }
         return invokeV.booleanValue;
     }
 
-    public kr2(CallbackHandler callbackHandler, JSONObject jSONObject) {
+    public kr2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {callbackHandler, jSONObject};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -62,45 +65,45 @@ public class kr2 {
                 return;
             }
         }
-        this.a = callbackHandler;
-        this.b = jSONObject;
+        this.a = "";
+        this.b = "";
+        this.c = "";
+        this.d = 0;
+        this.e = false;
+        this.f = false;
+        this.g = true;
+        this.h = 0;
+        this.i = 1.0f;
     }
 
-    public void a(String str) {
+    public static kr2 a(JSONObject jSONObject, kr2 kr2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            b(str, null);
-        }
-    }
-
-    public void b(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) != null) || this.b == null) {
-            return;
-        }
-        JSONObject wrapCallbackParamsWithEncode = UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0);
-        this.a.handleSchemeDispatchCallback(this.b.optString(str), wrapCallbackParamsWithEncode.toString());
-        if (c) {
-            Log.d("AudioStatusCallback", "Audio callback type is : " + str + " , data is : " + wrapCallbackParamsWithEncode.toString());
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                if (c) {
-                    Log.d("AudioStatusCallback", "Audio Callback is Null");
-                    return;
-                }
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, kr2Var)) == null) {
+            kr2 kr2Var2 = new kr2();
+            if (jSONObject != null) {
+                kr2Var2.a = jSONObject.optString("audioId", kr2Var.a);
+                kr2Var2.b = jSONObject.optString("slaveId", kr2Var.b);
+                kr2Var2.e = jSONObject.optBoolean("autoplay", kr2Var.e);
+                kr2Var2.f = jSONObject.optBoolean("loop", kr2Var.f);
+                kr2Var2.c = jSONObject.optString("src", kr2Var.c);
+                kr2Var2.d = jSONObject.optInt(FetchLog.START_TIME, kr2Var.d);
+                kr2Var2.g = jSONObject.optBoolean("obeyMuteSwitch", kr2Var.g);
+                kr2Var2.h = jSONObject.optInt(CriusAttrConstants.POSITION, kr2Var.h);
+                kr2Var2.i = (float) jSONObject.optDouble("volume", kr2Var.i);
+                kr2Var2.j = jSONObject.optString("cb", kr2Var.j);
             }
-            try {
-                this.b = new JSONObject(str);
-            } catch (JSONException e) {
-                kb3.b("audio", 2009, "update json exception", -1, "");
-                hr2.c("AudioStatusCallback", "#setCallbacks error", e);
-            }
+            return kr2Var2;
         }
+        return (kr2) invokeLL.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "playerId : " + this.a + "; slaveId : " + this.b + "; url : " + this.c + "; AutoPlay : " + this.e + "; Loop : " + this.f + "; startTime : " + this.d + "; ObeyMute : " + this.g + "; pos : " + this.h;
+        }
+        return (String) invokeV.objValue;
     }
 }

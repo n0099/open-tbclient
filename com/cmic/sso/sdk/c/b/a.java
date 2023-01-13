@@ -2,7 +2,6 @@ package com.cmic.sso.sdk.c.b;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -76,7 +75,7 @@ public abstract class a extends g {
         this.r = "";
         this.s = "";
         this.t = "";
-        this.u = TbEnum.SystemMessage.EVENT_ID_APPLY_SUC;
+        this.u = "002";
         this.v = "";
         this.w = "";
     }

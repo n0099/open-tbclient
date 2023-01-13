@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import org.json.JSONObject;
+import android.os.Message;
 /* loaded from: classes5.dex */
 public interface jp1 {
-    void b(e43 e43Var, JSONObject jSONObject);
+    boolean a(Message message);
 }

@@ -197,19 +197,19 @@ public class DownloadProgressView extends FrameLayout {
     private void E(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0431, this);
-            TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f0911cf);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0430, this);
+            TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f0911da);
             this.bZ = textProgressBar;
             textProgressBar.setTextDimen(this.Cp);
             this.bZ.setTextColor(this.Cn, this.Co);
             this.bZ.setProgressDrawable(this.Cq);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09119f);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0911aa);
             this.Cl = textView;
             textView.setTextColor(this.Cm);
             this.Cl.setTextSize(0, this.Cp);
             this.Cl.setVisibility(0);
             this.Cl.setBackground(this.Cr);
-            findViewById(R.id.obfuscated_res_0x7f09114b).setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.ad.widget.DownloadProgressView.1
+            findViewById(R.id.obfuscated_res_0x7f091156).setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.ad.widget.DownloadProgressView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DownloadProgressView Ct;
@@ -255,12 +255,12 @@ public class DownloadProgressView extends FrameLayout {
             Drawable drawable = obtainStyledAttributes.getDrawable(6);
             this.Cq = drawable;
             if (drawable == null) {
-                this.Cq = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c6a);
+                this.Cq = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c7a);
             }
             Drawable drawable2 = obtainStyledAttributes.getDrawable(0);
             this.Cr = drawable2;
             if (drawable2 == null) {
-                this.Cr = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c69);
+                this.Cr = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c79);
             }
             String string = obtainStyledAttributes.getString(5);
             this.Cs = string;

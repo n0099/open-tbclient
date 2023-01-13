@@ -1,221 +1,182 @@
 package com.baidu.tieba;
 
-import android.util.LruCache;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdhttpdns.BDHttpDnsResult;
+import com.baidu.searchbox.dns.transmit.DnsTransmitter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.Inet4Address;
+import java.net.Inet6Address;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class fp {
+public final class fp {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile fp a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final LruCache<String, a> b;
-    public boolean c;
 
     /* loaded from: classes4.dex */
-    public static class a {
+    public interface a {
+        void a(int i, ArrayList<String> arrayList, ArrayList<String> arrayList2, long j, String str);
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ArrayList<String> a;
-        public ArrayList<String> b;
-        public long c;
-        public long d;
+        public String a;
+        public a b;
+        public final /* synthetic */ fp c;
 
-        public a() {
+        public b(fp fpVar, String str, a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fpVar, str, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.c = fpVar;
+            this.a = str;
+            this.b = aVar;
         }
 
-        public ArrayList<String> a() {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
+            ArrayList<String> arrayList;
+            ArrayList<String> arrayList2;
+            int i;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return (ArrayList) invokeV.objValue;
-        }
-
-        public ArrayList<String> b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.b;
-            }
-            return (ArrayList) invokeV.objValue;
-        }
-
-        public long c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.d;
-            }
-            return invokeV.longValue;
-        }
-
-        public long d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.c;
-            }
-            return invokeV.longValue;
-        }
-
-        public boolean e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                if (c() + this.c < System.currentTimeMillis() / 1000) {
-                    return true;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Map d = this.c.d(this.a);
+                if (d != null) {
+                    arrayList2 = (ArrayList) d.get("ipv6");
+                    arrayList = (ArrayList) d.get(DnsTransmitter.TYPE_VALUE_IPV4);
+                } else {
+                    arrayList = null;
+                    arrayList2 = null;
                 }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public void f(ArrayList<String> arrayList) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
-                this.a = arrayList;
-            }
-        }
-
-        public void g(ArrayList<String> arrayList) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) {
-                this.b = arrayList;
-            }
-        }
-
-        public void h(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-                this.d = j;
-            }
-        }
-
-        public void i(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-                this.c = j;
+                if ((arrayList != null && !arrayList.isEmpty()) || (arrayList2 != null && !arrayList2.isEmpty())) {
+                    i = 0;
+                } else {
+                    i = -1;
+                }
+                this.b.a(i, arrayList, arrayList2, 60L, this.a);
             }
         }
     }
 
-    public fp(String str, boolean z) {
+    public fp() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = false;
-        this.b = new LruCache<>(((int) Runtime.getRuntime().maxMemory()) / 16);
-        this.a = str;
-        this.c = z;
-    }
-
-    public void e(String str, a aVar) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, aVar) == null) {
-            ArrayList<String> a2 = aVar.a();
-            ArrayList<String> b = aVar.b();
-            if ((a2 != null && !a2.isEmpty()) || (b != null && !b.isEmpty())) {
-                this.b.put(str, aVar);
-                Object[] objArr = new Object[5];
-                objArr[0] = this.a;
-                objArr[1] = str;
-                String str3 = null;
-                if (a2 != null) {
-                    str2 = a2.toString();
-                } else {
-                    str2 = null;
-                }
-                objArr[2] = str2;
-                if (b != null) {
-                    str3 = b.toString();
-                }
-                objArr[3] = str3;
-                objArr[4] = Long.valueOf(aVar.d());
-                hp.a("Set entry to %s cache, host(%s), ipv4List(%s), ipv6List(%s), ttl(%d)", objArr);
             }
         }
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.evictAll();
-            hp.a("Clear %s cache", this.a);
-        }
-    }
-
-    public ArrayList<String> b() {
+    public static fp c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<String> arrayList = new ArrayList<>();
-            for (String str : this.b.snapshot().keySet()) {
-                arrayList.add(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (fp.class) {
+                    if (a == null) {
+                        a = new fp();
+                    }
+                }
             }
-            return arrayList;
+            return a;
         }
-        return (ArrayList) invokeV.objValue;
+        return (fp) invokeV.objValue;
     }
 
-    public a c(String str) {
+    public void b(String str, a aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) && str != null && !str.isEmpty()) {
+            kp.b().a().execute(new b(this, str, aVar));
+        }
+    }
+
+    public final Map<String, ArrayList> d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            a aVar = this.b.get(str);
-            if (aVar != null && aVar.e() && this.c) {
-                this.b.remove(str);
-                hp.a("Remove expired entry from %s cache while reading, host(%s)", this.a, str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            try {
+                InetAddress[] allByName = InetAddress.getAllByName(str);
+                if (allByName != null && allByName.length != 0) {
+                    ArrayList arrayList = new ArrayList();
+                    ArrayList arrayList2 = new ArrayList();
+                    HashMap hashMap = new HashMap();
+                    for (InetAddress inetAddress : allByName) {
+                        if (inetAddress instanceof Inet4Address) {
+                            String hostAddress = inetAddress.getHostAddress();
+                            if (ep.l(hostAddress)) {
+                                arrayList.add(hostAddress);
+                            }
+                        } else if (inetAddress instanceof Inet6Address) {
+                            String hostAddress2 = inetAddress.getHostAddress();
+                            if (ep.m(hostAddress2)) {
+                                arrayList2.add(hostAddress2);
+                            }
+                        }
+                    }
+                    hashMap.put(DnsTransmitter.TYPE_VALUE_IPV4, arrayList);
+                    hashMap.put("ipv6", arrayList2);
+                    if (arrayList.isEmpty() && arrayList2.isEmpty()) {
+                        jp.a("Dns resolve failed, host(%s), get no valid resolve result", str);
+                        return null;
+                    }
+                    jp.a("Dns resolve successful, host(%s), ipv4List(%s), ipv6List(%s)", str, arrayList.toString(), arrayList2.toString());
+                    return hashMap;
+                }
+                jp.a("Dns resolve failed, host(%s), get empty resolve result", str);
+                return null;
+            } catch (UnknownHostException e) {
+                e.printStackTrace();
+                jp.a("Dns resolve failed, host(%s), caught UnknownHostException", str);
                 return null;
             }
-            return aVar;
         }
-        return (a) invokeL.objValue;
+        return (Map) invokeL.objValue;
     }
 
-    public void d(String str) {
-        a c;
+    public BDHttpDnsResult e(String str) {
+        InterceptResult invokeL;
+        ArrayList arrayList;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || (c = c(str)) == null || !c.e()) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            Map<String, ArrayList> d = d(str);
+            ArrayList arrayList2 = null;
+            if (d != null) {
+                arrayList2 = d.get(DnsTransmitter.TYPE_VALUE_IPV4);
+                arrayList = d.get("ipv6");
+            } else {
+                arrayList = null;
+            }
+            if ((arrayList2 != null && !arrayList2.isEmpty()) || (arrayList != null && !arrayList.isEmpty())) {
+                return new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, arrayList2, arrayList);
+            }
+            return new BDHttpDnsResult(BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveErrorDnsResolve);
         }
-        this.b.remove(str);
-        hp.a("Remove expired entry from %s cache, host(%s)", this.a, str);
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.c = z;
-        }
+        return (BDHttpDnsResult) invokeL.objValue;
     }
 }

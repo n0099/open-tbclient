@@ -37,6 +37,11 @@ public final class c extends com.kwad.components.ad.reward.presenter.a implement
         this.oB = false;
     }
 
+    public static /* synthetic */ boolean a(c cVar, boolean z) {
+        cVar.oB = true;
+        return true;
+    }
+
     public static boolean k(AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -72,7 +77,7 @@ public final class c extends com.kwad.components.ad.reward.presenter.a implement
                 return;
             }
             AdInfo bQ = d.bQ(this.mAdTemplate);
-            ViewGroup viewGroup = (ViewGroup) this.nM.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091231);
+            ViewGroup viewGroup = (ViewGroup) this.nM.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09123c);
             if (viewGroup == null) {
                 return;
             }
@@ -116,7 +121,7 @@ public final class c extends com.kwad.components.ad.reward.presenter.a implement
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         com.kwad.sdk.core.e.b.d("RewardCouponDialogPresenter", "targetView x: " + this.oC[0] + ", y: " + this.oC[1]);
                         b.a(this.oD.getActivity(), this.oD.mAdTemplate, this.oD, this.oC);
-                        this.oD.oB = true;
+                        c.a(this.oD, true);
                     }
                 }
             });

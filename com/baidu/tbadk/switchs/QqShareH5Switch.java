@@ -1,29 +1,29 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kf;
-import com.baidu.tieba.ry4;
+import com.baidu.tieba.cz4;
+import com.baidu.tieba.lf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class QqShareH5Switch extends kf {
+public class QqShareH5Switch extends lf {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int OFF_TYPE = 0;
     public static final int ON_TYPE = 1;
     public static final String QQ_SHARE_H5_ENABLE = "switch_share_qq_smallapp_to_h5";
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.kf
+    @Override // com.baidu.tieba.lf
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.kf
+    @Override // com.baidu.tieba.lf
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class QqShareH5Switch extends kf {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.kf
+    @Override // com.baidu.tieba.lf
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class QqShareH5Switch extends kf {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.kf
+    @Override // com.baidu.tieba.lf
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -53,14 +53,14 @@ public class QqShareH5Switch extends kf {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.kf
+    @Override // com.baidu.tieba.lf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? QQ_SHARE_H5_ENABLE : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.kf
+    @Override // com.baidu.tieba.lf
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -88,7 +88,7 @@ public class QqShareH5Switch extends kf {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (ry4.l().m("key_qq_share_h5_enable", 0) != 1) {
+            if (cz4.l().m("key_qq_share_h5_enable", 0) != 1) {
                 return false;
             }
             return true;

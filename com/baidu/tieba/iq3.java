@@ -1,422 +1,195 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.swan.apps.media.chooser.activity.SwanAppAlbumPreviewActivity;
-import com.baidu.swan.apps.media.chooser.model.ImageModel;
-import com.baidu.swan.apps.media.chooser.model.MediaModel;
-import com.baidu.swan.facade.picture.wallpaper.PictureWallpaperActivity;
-import com.baidu.tieba.hq1;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.executors.UiThreadImmediateExecutorService;
-import com.facebook.common.memory.PooledByteBuffer;
-import com.facebook.common.memory.PooledByteBufferInputStream;
-import com.facebook.common.references.CloseableReference;
-import com.facebook.datasource.BaseDataSubscriber;
-import com.facebook.datasource.DataSource;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.generic.GenericDraweeHierarchy;
-import com.facebook.imageformat.ImageFormat;
-import com.facebook.imageformat.ImageFormatChecker;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONObject;
-@Singleton
-@Service
-/* loaded from: classes4.dex */
-public class iq3 implements yo1 {
-    public static /* synthetic */ Interceptable $ic;
+/* loaded from: classes5.dex */
+public class iq3 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String b = "iq3";
+    public static final boolean c;
+    public static SharedPreferences d;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    @Override // com.baidu.tieba.yo1
-    public void c(GenericDraweeHierarchy genericDraweeHierarchy, boolean z) {
+    public final void e(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, genericDraweeHierarchy, z) == null) {
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.yo1
-    public ImageRequestBuilder e(ImageRequestBuilder imageRequestBuilder, Map<String, String> map) {
-        InterceptResult invokeLL;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947862110, "Lcom/baidu/tieba/iq3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947862110, "Lcom/baidu/tieba/iq3;");
+                return;
+            }
+        }
+        c = tk1.a;
+        d = null;
+    }
+
+    public final void g() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, imageRequestBuilder, map)) == null) ? imageRequestBuilder : (ImageRequestBuilder) invokeLL.objValue;
-    }
-
-    /* loaded from: classes4.dex */
-    public class a implements hq1.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-
-        public a(iq3 iq3Var, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iq3Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && c) {
+            String str = b;
+            Log.d(str, "新旧版本一样:" + b(this.a));
         }
     }
 
-    /* loaded from: classes4.dex */
-    public static class b implements zi3<OutputStream, Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PooledByteBufferInputStream a;
-
-        public b(PooledByteBufferInputStream pooledByteBufferInputStream) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pooledByteBufferInputStream};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pooledByteBufferInputStream;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zi3
-        /* renamed from: b */
-        public Boolean a(OutputStream outputStream) {
-            InterceptResult invokeL;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, outputStream)) == null) {
-                if (ik4.g(this.a, outputStream) > 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                return Boolean.valueOf(z);
-            }
-            return (Boolean) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public final class c extends BaseDataSubscriber<CloseableReference<PooledByteBuffer>> implements Runnable, hz2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Context a;
-        public final JSONObject b;
-        public final /* synthetic */ iq3 c;
-
-        public c(iq3 iq3Var, Context context, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iq3Var, context, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = iq3Var;
-            this.a = context;
-            this.b = jSONObject;
-        }
-
-        @Override // com.baidu.tieba.hz2
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, str) != null) {
-                return;
-            }
-            this.c.l(this.a, this.b, this);
-        }
-
-        public final void c(boolean z) {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-                if (z) {
-                    i = R.string.obfuscated_res_0x7f0f12d6;
-                } else {
-                    i = R.string.obfuscated_res_0x7f0f12d3;
-                }
-                w33.f(this.a, i).v();
-            }
-        }
-
-        @Override // com.facebook.datasource.BaseDataSubscriber
-        public void onFailureImpl(DataSource<CloseableReference<PooledByteBuffer>> dataSource) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, dataSource) == null) {
-                c(false);
-            }
-        }
-
-        @Override // com.baidu.tieba.hz2
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                c(false);
-            }
-        }
-
-        @Override // com.facebook.datasource.BaseDataSubscriber
-        public void onNewResultImpl(DataSource<CloseableReference<PooledByteBuffer>> dataSource) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048580, this, dataSource) != null) || !dataSource.isFinished()) {
-                return;
-            }
-            CloseableReference<PooledByteBuffer> result = dataSource.getResult();
-            if (result == null) {
-                c(false);
-                return;
-            }
-            PooledByteBufferInputStream pooledByteBufferInputStream = new PooledByteBufferInputStream(result.get());
-            try {
-                c(iq3.m(this.a, pooledByteBufferInputStream));
-            } finally {
-                CloseableReference.closeSafely(result);
-                ik4.d(pooledByteBufferInputStream);
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                iq3.j(this.a, this);
-            }
-        }
-    }
-
-    public iq3() {
+    public iq3(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.a = context;
     }
 
-    public static void j(Context context, hz2 hz2Var) {
+    public static int a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, hz2Var) == null) {
-            gz2.e("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, context, hz2Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.yo1
-    public void a(Context context, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, jSONObject) == null) {
-            PictureWallpaperActivity.H(context, jSONObject.optString("imageUrl"), jSONObject.optString(Config.LAUNCH_REFERER));
-        }
-    }
-
-    public static boolean m(Context context, PooledByteBufferInputStream pooledByteBufferInputStream) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, pooledByteBufferInputStream)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
-                ImageFormat imageFormat = ImageFormatChecker.getImageFormat(pooledByteBufferInputStream);
-                if (imageFormat != null) {
-                    String fileExtension = imageFormat.getFileExtension();
-                    if (!TextUtils.isEmpty(fileExtension)) {
-                        String format = String.format("IMG_%s.%s", new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss", Locale.CHINA).format(new Date()), fileExtension);
-                        String format2 = String.format("image/%s", fileExtension);
-                        if (Build.VERSION.SDK_INT >= 29) {
-                            return n(context, pooledByteBufferInputStream, format2, format);
-                        }
-                        String str = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + File.separator + "Image" + File.separator + format;
-                        boolean q = ch3.q(str, new b(pooledByteBufferInputStream));
-                        if (q) {
-                            ch3.r(context, str);
-                        }
-                        return q;
-                    }
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+            } catch (PackageManager.NameNotFoundException e) {
+                if (c) {
+                    String str = b;
+                    Log.e(str, "error:" + e.getMessage());
+                    return -1;
                 }
-                return false;
-            } catch (IOException e) {
-                e.printStackTrace();
-                return false;
-            } finally {
-                ik4.d(pooledByteBufferInputStream);
+                return -1;
             }
         }
-        return invokeLL.booleanValue;
+        return invokeL.intValue;
     }
 
-    public static boolean n(@NonNull Context context, @NonNull InputStream inputStream, @NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLLLL;
+    public final int b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, context, inputStream, str, str2)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("_display_name", str2);
-            contentValues.put("mime_type", str);
-            if (Build.VERSION.SDK_INT >= 29) {
-                contentValues.put("relative_path", Environment.DIRECTORY_PICTURES + "/Image/");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            int i = c(context).getInt("old_versioncode_key", 0);
+            if (c) {
+                String str = b;
+                Log.d(str, "get old versioncode:" + i);
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    public static SharedPreferences c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (d == null) {
+                d = context.getSharedPreferences("downgradefile", 0);
+            }
+            return d;
+        }
+        return (SharedPreferences) invokeL.objValue;
+    }
+
+    public static iq3 d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            return new iq3(context);
+        }
+        return (iq3) invokeL.objValue;
+    }
+
+    public final void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            kg3.d(0, i);
+        }
+    }
+
+    public static void j(Context context, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65541, null, context, i) == null) {
+            if (c) {
+                String str = b;
+                Log.d(str, "set last version code:" + i);
+            }
+            SharedPreferences.Editor edit = c(context).edit();
+            edit.putInt("last_versioncode_key", i);
+            edit.apply();
+        }
+    }
+
+    public final void k(Context context, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048582, this, context, i) == null) {
+            if (c) {
+                String str = b;
+                Log.d(str, "set new versioncode:" + i);
+            }
+            SharedPreferences.Editor edit = c(context).edit();
+            edit.putInt("old_versioncode_key", i);
+            edit.apply();
+        }
+    }
+
+    public final void h(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            kg3.d(i2, i);
+            yd2.d.u();
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            int a = a(this.a);
+            int b2 = b(this.a);
+            if (c) {
+                String str = b;
+                Log.d(str, "处理升级逻辑：newVersionCode=" + a + " /oldVersionCode=" + b2);
+            }
+            if (b2 == 0) {
+                f(a);
+                k(this.a, a);
+                j(this.a, b2);
+            } else if (a > b2) {
+                h(a, b2);
+                k(this.a, a);
+                j(this.a, b2);
+            } else if (a < b2) {
+                e(a, b2);
+                k(this.a, a);
+                j(this.a, b2);
             } else {
-                contentValues.put("_data", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getPath() + "/Image");
+                g();
             }
-            Uri insert = context.getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues);
-            if (insert == null) {
-                e12.o("FacadeSwanAppImageImpl", "insert uri is null");
-                return false;
-            }
-            try {
-                OutputStream openOutputStream = context.getContentResolver().openOutputStream(insert);
-                if (openOutputStream == null) {
-                    ik4.d(openOutputStream);
-                    return false;
-                }
-                byte[] bArr = new byte[4096];
-                while (true) {
-                    int read = inputStream.read(bArr);
-                    if (read != -1) {
-                        openOutputStream.write(bArr, 0, read);
-                    } else {
-                        ik4.d(openOutputStream);
-                        return true;
-                    }
-                }
-            } catch (IOException unused) {
-                ik4.d(null);
-                return false;
-            } catch (Throwable th) {
-                ik4.d(null);
-                throw th;
-            }
-        } else {
-            return invokeLLLL.booleanValue;
-        }
-    }
-
-    @Override // com.baidu.tieba.yo1
-    public void b(Context context, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        int optInt = jSONObject.optInt("index");
-        JSONArray optJSONArray = jSONObject.optJSONArray("urls");
-        if (optJSONArray != null && optJSONArray.length() > 0) {
-            int length = optJSONArray.length();
-            ArrayList<MediaModel> arrayList = new ArrayList<>(length);
-            for (int i = 0; i < length; i++) {
-                String optString = optJSONArray.optString(i);
-                if (!TextUtils.isEmpty(optString)) {
-                    arrayList.add(new ImageModel(optString));
-                }
-            }
-            k(context, arrayList, optInt);
-        }
-    }
-
-    @Override // com.baidu.tieba.yo1
-    public void f(Context context, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, context, jSONObject) == null) {
-            hq1 v = ln2.v();
-            if (v.i()) {
-                String optString = jSONObject.optString("imageUrl");
-                if (!TextUtils.isEmpty(optString)) {
-                    v.C(context, new iq1().H(optString).I(true), new a(this, context));
-                    return;
-                } else {
-                    w33.g(context, "保存失败").v();
-                    return;
-                }
-            }
-            new c(this, context, jSONObject).run();
-        }
-    }
-
-    @Override // com.baidu.tieba.yo1
-    public void d(Context context, String[] strArr, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(1048579, this, context, strArr, i) == null) && strArr != null && strArr.length > 0) {
-            ArrayList<MediaModel> arrayList = new ArrayList<>(strArr.length);
-            for (String str : strArr) {
-                arrayList.add(new ImageModel(str));
-            }
-            k(context, arrayList, i);
-        }
-    }
-
-    public final void k(Context context, ArrayList<MediaModel> arrayList, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048582, this, context, arrayList, i) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putParcelableArrayList("mediaModels", arrayList);
-            bundle.putInt("previewPosition", i);
-            bundle.putString("previewFrom", UnitedSchemeConstants.SCHEME_INVOKE_TYPE_OUTSIDE);
-            Intent intent = new Intent(context, SwanAppAlbumPreviewActivity.class);
-            intent.putExtra("launchParams", bundle);
-            context.startActivity(intent);
-        }
-    }
-
-    public final void l(Context context, JSONObject jSONObject, BaseDataSubscriber<CloseableReference<PooledByteBuffer>> baseDataSubscriber) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048583, this, context, jSONObject, baseDataSubscriber) == null) {
-            String optString = jSONObject.optString("imageUrl");
-            String optString2 = jSONObject.optString(Config.LAUNCH_REFERER);
-            ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(Uri.parse(optString));
-            HashMap hashMap = new HashMap();
-            if (!TextUtils.isEmpty(optString2)) {
-                hashMap.put(Config.LAUNCH_REFERER, optString2);
-            }
-            ln2.C().e(newBuilderWithSource, hashMap);
-            Fresco.getImagePipeline().fetchEncodedImage(newBuilderWithSource.build(), context).subscribe(baseDataSubscriber, UiThreadImmediateExecutorService.getInstance());
         }
     }
 }

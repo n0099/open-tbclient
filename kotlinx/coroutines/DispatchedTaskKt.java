@@ -49,7 +49,7 @@ public final class DispatchedTaskKt {
             CoroutineDispatcher coroutineDispatcher = ((DispatchedContinuation) delegate$kotlinx_coroutines_core).dispatcher;
             CoroutineContext context = delegate$kotlinx_coroutines_core.getContext();
             if (coroutineDispatcher.isDispatchNeeded(context)) {
-                coroutineDispatcher.dispatch(context, dispatchedTask);
+                coroutineDispatcher.mo2188dispatch(context, dispatchedTask);
                 return;
             } else {
                 resumeUnconfined(dispatchedTask);
@@ -60,7 +60,7 @@ public final class DispatchedTaskKt {
     }
 
     public static final <T> void resume(DispatchedTask<? super T> dispatchedTask, Continuation<? super T> continuation, int i) {
-        Object m708constructorimpl;
+        Object m772constructorimpl;
         Object takeState$kotlinx_coroutines_core = dispatchedTask.takeState$kotlinx_coroutines_core();
         Throwable exceptionalResult$kotlinx_coroutines_core = dispatchedTask.getExceptionalResult$kotlinx_coroutines_core(takeState$kotlinx_coroutines_core);
         if (exceptionalResult$kotlinx_coroutines_core != null) {
@@ -72,10 +72,10 @@ public final class DispatchedTaskKt {
         }
         if (exceptionalResult$kotlinx_coroutines_core != null) {
             Result.Companion companion = Result.Companion;
-            m708constructorimpl = Result.m708constructorimpl(ResultKt.createFailure(exceptionalResult$kotlinx_coroutines_core));
+            m772constructorimpl = Result.m772constructorimpl(ResultKt.createFailure(exceptionalResult$kotlinx_coroutines_core));
         } else {
             Result.Companion companion2 = Result.Companion;
-            m708constructorimpl = Result.m708constructorimpl(takeState$kotlinx_coroutines_core);
+            m772constructorimpl = Result.m772constructorimpl(takeState$kotlinx_coroutines_core);
         }
         if (i != 0) {
             if (i != 1) {
@@ -85,7 +85,7 @@ public final class DispatchedTaskKt {
                         CoroutineContext context = dispatchedContinuation.getContext();
                         Object updateThreadContext = ThreadContextKt.updateThreadContext(context, dispatchedContinuation.countOrElement);
                         try {
-                            dispatchedContinuation.continuation.resumeWith(m708constructorimpl);
+                            dispatchedContinuation.continuation.resumeWith(m772constructorimpl);
                             Unit unit = Unit.INSTANCE;
                             return;
                         } finally {
@@ -96,10 +96,10 @@ public final class DispatchedTaskKt {
                 }
                 throw new IllegalStateException(("Invalid mode " + i).toString());
             }
-            DispatchedContinuationKt.resumeCancellableWith(continuation, m708constructorimpl);
+            DispatchedContinuationKt.resumeCancellableWith(continuation, m772constructorimpl);
             return;
         }
-        continuation.resumeWith(m708constructorimpl);
+        continuation.resumeWith(m772constructorimpl);
     }
 
     public static final void resumeUnconfined(DispatchedTask<?> dispatchedTask) {
@@ -125,7 +125,7 @@ public final class DispatchedTaskKt {
         if (DebugKt.getRECOVER_STACK_TRACES() && (continuation instanceof CoroutineStackFrame)) {
             th = StackTraceRecoveryKt.recoverFromStackFrame(th, (CoroutineStackFrame) continuation);
         }
-        continuation.resumeWith(Result.m708constructorimpl(ResultKt.createFailure(th)));
+        continuation.resumeWith(Result.m772constructorimpl(ResultKt.createFailure(th)));
     }
 
     public static final void runUnconfinedEventLoop(DispatchedTask<?> dispatchedTask, EventLoop eventLoop, Function0<Unit> function0) {

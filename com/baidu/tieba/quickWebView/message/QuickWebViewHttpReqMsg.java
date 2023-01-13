@@ -15,6 +15,7 @@ public class QuickWebViewHttpReqMsg extends HttpMessage {
     public String jsCallbackMethod;
     public String module;
     public String url;
+    public String urlSign;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public QuickWebViewHttpReqMsg() {

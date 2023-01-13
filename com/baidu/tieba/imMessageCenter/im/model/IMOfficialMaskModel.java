@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tieba.im.message.SettingChangeMessage;
-import com.baidu.tieba.qe7;
-import com.baidu.tieba.rm9;
-import com.baidu.tieba.sb;
+import com.baidu.tieba.mi7;
+import com.baidu.tieba.tb;
+import com.baidu.tieba.zr9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class IMOfficialMaskModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SWITCH_IM_OFFICAL = 6;
     public transient /* synthetic */ FieldHolder $fh;
-    public sb a;
+    public tb a;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean loadData() {
@@ -36,7 +36,7 @@ public class IMOfficialMaskModel extends BdBaseModel {
     }
 
     /* loaded from: classes4.dex */
-    public class a extends sb {
+    public class a extends tb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -77,9 +77,9 @@ public class IMOfficialMaskModel extends BdBaseModel {
                         return null;
                     }
                     if (this.b.isMuteNotifications()) {
-                        qe7.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a), false);
+                        mi7.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a), false);
                     } else {
-                        qe7.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a), true);
+                        mi7.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a), true);
                     }
                     return null;
                 }
@@ -109,10 +109,11 @@ public class IMOfficialMaskModel extends BdBaseModel {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
+        /* renamed from: a */
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) && socketResponsedMessage != null && socketResponsedMessage.getCmd() == 104102 && (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, socketResponsedMessage) == null) && socketResponsedMessage != null && socketResponsedMessage.getCmd() == 104102 && (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage)) {
                 ResponseUpdateMaskInfoMessage responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage;
                 if (!(responseUpdateMaskInfoMessage.getOrginalMessage() instanceof RequestUpdateMaskInfoMessage) || (requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) responseUpdateMaskInfoMessage.getOrginalMessage()) == null || requestUpdateMaskInfoMessage.getMaskType() != 6) {
                     return;
@@ -159,7 +160,7 @@ public class IMOfficialMaskModel extends BdBaseModel {
             requestUpdateMaskInfoMessage.setMute(true);
             requestUpdateMaskInfoMessage.setMuteNotifications(z);
             requestUpdateMaskInfoMessage.setMaskType(6);
-            requestUpdateMaskInfoMessage.setG_id(rm9.c(str, 0L));
+            requestUpdateMaskInfoMessage.setG_id(zr9.c(str, 0L));
             requestUpdateMaskInfoMessage.setList(str);
             MessageManager.getInstance().sendMessage(requestUpdateMaskInfoMessage);
         }

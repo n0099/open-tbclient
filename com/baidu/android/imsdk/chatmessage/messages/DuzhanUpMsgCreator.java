@@ -3,7 +3,6 @@ package com.baidu.android.imsdk.chatmessage.messages;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -95,7 +94,7 @@ public class DuzhanUpMsgCreator {
                 jSONObject2.put("name", optString);
                 jSONObject2.put("url", ((ImageMsg) chatMsg).getRemoteUrl());
                 jSONObject2.put("thumbnail", ((ImageMsg) chatMsg).getThumbUrl());
-                jSONObject2.put(Config.DEVICE_WIDTH, ((ImageMsg) chatMsg).getWidth());
+                jSONObject2.put("w", ((ImageMsg) chatMsg).getWidth());
                 jSONObject2.put("h", ((ImageMsg) chatMsg).getHeight());
                 if (jSONObject.has("ext")) {
                     jSONObject2.put("ext", jSONObject.get("ext"));

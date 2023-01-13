@@ -1,7 +1,7 @@
 package com.baidu.tieba;
+
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface op1 {
-    boolean a(String str, String str2, String str3);
-
-    void b();
+    void b(j43 j43Var, JSONObject jSONObject);
 }

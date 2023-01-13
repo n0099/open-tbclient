@@ -1,141 +1,151 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.exp.ADConfigError;
-import com.baidu.nadcore.net.util.NetUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class om0 {
+public final class om0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
-    public int c;
-    public BroadcastReceiver d;
-    public lm0 e;
+    public final y01 a;
+    public final Map<String, String> b;
+    @NonNull
+    public final Map<String, Map<String, String>> c;
+    public volatile boolean d;
 
-    /* loaded from: classes5.dex */
-    public class a implements sm0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ om0 a;
-
-        /* renamed from: com.baidu.tieba.om0$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0380a extends BroadcastReceiver {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a this$1;
-
-            public C0380a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$1 = aVar;
-            }
-
-            @Override // android.content.BroadcastReceiver
-            public void onReceive(Context context, Intent intent) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && "android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction()) && NetUtil.a(zi0.b())) {
-                    nm0.c().b();
-                    try {
-                        zi0.b().unregisterReceiver(this);
-                    } catch (Exception unused) {
-                    }
-                    this.this$1.a.d = null;
-                }
-            }
-        }
-
-        public a(om0 om0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {om0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = om0Var;
-        }
-
-        @Override // com.baidu.tieba.sm0
-        public void a(ADConfigError aDConfigError) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, aDConfigError) == null) && this.a.e != null && !this.a.e.j() && aDConfigError != null && !TextUtils.isEmpty(aDConfigError.reason)) {
-                if (NetUtil.a(zi0.b())) {
-                    nm0.c().b();
-                } else if (this.a.d == null) {
-                    IntentFilter intentFilter = new IntentFilter();
-                    intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-                    this.a.d = new C0380a(this);
-                    zi0.b().registerReceiver(this.a.d, intentFilter);
-                }
-            }
-        }
-    }
-
-    public om0(int i, int i2, boolean z) {
+    public om0() {
+        String[] a;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.c = i2;
-        this.b = z;
-    }
-
-    public void d() {
-        lm0 lm0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (lm0Var = this.e) != null) {
-            lm0Var.m(null);
+        this.b = new ConcurrentHashMap(128);
+        this.c = new ConcurrentHashMap(8);
+        this.a = b11.a().b("nad.cold.launch.config");
+        for (String str : vm0.a().a()) {
+            String string = this.a.getString(str, null);
+            if (string != null) {
+                v01.e(this.b, str, string);
+            }
         }
     }
 
-    public void e() {
+    @NonNull
+    public Map<String, String> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            lm0 lm0Var = new lm0(this.a, this.b, this.c);
-            this.e = lm0Var;
-            lm0Var.m(new a(this));
-            a21.c(this.e, "adc_async_request", 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @NonNull
+    public Map<String, Map<String, String>> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public final void c(@NonNull JSONObject jSONObject) {
+        String[] a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            this.b.clear();
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                v01.e(this.b, next, jSONObject.optString(next));
+            }
+            SharedPreferences.Editor edit = this.a.edit();
+            edit.clear();
+            for (String str : vm0.a().a()) {
+                String str2 = (String) v01.b(this.b, str);
+                if (str2 != null) {
+                    edit.putString(str, str2);
+                }
+            }
+            edit.apply();
+            SharedPreferences.Editor edit2 = b11.a().b("nad.launch.config.global").edit();
+            edit2.clear();
+            for (String str3 : this.b.keySet()) {
+                String str4 = (String) v01.b(this.b, str3);
+                if (str4 != null) {
+                    edit2.putString(str3, str4);
+                }
+            }
+            edit2.apply();
+        }
+    }
+
+    public final void d(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
+            this.c.clear();
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                String optString = jSONObject.optString(next);
+                HashMap hashMap = null;
+                if (!TextUtils.isEmpty(optString)) {
+                    hashMap = new HashMap(8);
+                    JSONObject c = u01.c(optString);
+                    Iterator<String> keys2 = c.keys();
+                    while (keys2.hasNext()) {
+                        String next2 = keys2.next();
+                        v01.e(hashMap, next2, c.optString(next2));
+                    }
+                }
+                if (hashMap != null) {
+                    v01.e(this.c, next, hashMap);
+                    b11 a = b11.a();
+                    SharedPreferences.Editor edit = a.b("nad.launch.config." + next).edit();
+                    edit.clear();
+                    for (String str : hashMap.keySet()) {
+                        String str2 = (String) hashMap.get(str);
+                        if (str2 != null) {
+                            edit.putString(str, str2);
+                        }
+                    }
+                    edit.apply();
+                }
+            }
+        }
+    }
+
+    public void update(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
+            String optString = jSONObject.optString("global");
+            if (!TextUtils.isEmpty(optString)) {
+                c(u01.c(optString));
+            }
+            String optString2 = jSONObject.optString("place_conf");
+            if (!TextUtils.isEmpty(optString2)) {
+                d(u01.c(optString2));
+            }
         }
     }
 }

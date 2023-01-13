@@ -13,6 +13,7 @@ import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.pms.constants.PmsConstant;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -483,7 +484,7 @@ public class a {
             c = new f("title", 2);
             d = new f("description", 3);
             e = new f("savePath", 4);
-            f = new f("fileName", 5);
+            f = new f(CommonTbJsBridge.FILE_DOWNLOAD_FILE_NAME, 5);
             g = new f("downloadBytes", 6);
             h = new f("totalBytes", 7);
             i = new f("downloadStatus", 8);

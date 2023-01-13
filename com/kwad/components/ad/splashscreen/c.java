@@ -288,7 +288,7 @@ public final class c {
                     public final void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.xP.xI.xC = true;
+                            c.a(this.xP.xI, true);
                             this.xP.xI.jp();
                         }
                     }
@@ -322,7 +322,7 @@ public final class c {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             this.xP.xI.xz.setVisibility(8);
-                            this.xP.xI.xA = true;
+                            c.b(this.xP.xI, true);
                         }
                     }
                 }), 200L);
@@ -405,11 +405,11 @@ public final class c {
         imageView.setImageDrawable(new BitmapDrawable(this.mContext.getResources(), this.xv.mBitmap));
         AdTemplate adTemplate = this.xv.getAdTemplate();
         com.kwad.components.core.c.a.c cVar = new com.kwad.components.core.c.a.c(adTemplate);
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d048c, (ViewGroup) null);
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d048b, (ViewGroup) null);
         this.uL = viewGroup;
-        this.xz = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09128a);
-        this.xx = (FrameLayout) this.uL.findViewById(R.id.obfuscated_res_0x7f091294);
-        this.xy = this.uL.findViewById(R.id.obfuscated_res_0x7f091288);
+        this.xz = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091295);
+        this.xx = (FrameLayout) this.uL.findViewById(R.id.obfuscated_res_0x7f09129f);
+        this.xy = this.uL.findViewById(R.id.obfuscated_res_0x7f091293);
         this.xx.setOnClickListener(new View.OnClickListener(this, adTemplate, cVar) { // from class: com.kwad.components.ad.splashscreen.c.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -441,7 +441,7 @@ public final class c {
             public final void onClick(View view2) {
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) && this.xI.xE) {
-                    com.kwad.components.core.c.a.a.a(new a.C0594a(view2.getContext()).L(this.xG).b(this.xH).aj(false).ae(2).a(new a.b(this) { // from class: com.kwad.components.ad.splashscreen.c.1.1
+                    com.kwad.components.core.c.a.a.a(new a.C0593a(view2.getContext()).L(this.xG).b(this.xH).aj(false).ae(2).a(new a.b(this) { // from class: com.kwad.components.ad.splashscreen.c.1.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ AnonymousClass1 xJ;
@@ -571,6 +571,16 @@ public final class c {
                 return invokeLL.booleanValue;
             }
         });
+    }
+
+    public static /* synthetic */ boolean a(c cVar, boolean z) {
+        cVar.xC = true;
+        return true;
+    }
+
+    public static /* synthetic */ boolean b(c cVar, boolean z) {
+        cVar.xA = true;
+        return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

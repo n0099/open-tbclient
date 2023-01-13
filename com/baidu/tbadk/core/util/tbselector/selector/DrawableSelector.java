@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.tbselector.interfaces.ISelector;
 import com.baidu.tbadk.core.util.tbselector.utils.SelectorHelper;
-import com.baidu.tieba.rq8;
+import com.baidu.tieba.nv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -377,7 +377,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
             this.gradientColors = r1;
             int[] iArr = {0, SelectorHelper.getColor(i)};
             int[] iArr2 = this.gradientColors;
-            iArr2[0] = rq8.c(iArr2[1]);
+            iArr2[0] = nv8.c(iArr2[1]);
             this.gradientType = 0;
             this.gradientOrientation = TOP_BOTTOM;
             return this;
@@ -646,10 +646,20 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return (DrawableSelector) invokeI.objValue;
     }
 
+    public DrawableSelector setGradientOrientation(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048641, this, str)) == null) {
+            this.gradientOrientation = str;
+            return this;
+        }
+        return (DrawableSelector) invokeL.objValue;
+    }
+
     public DrawableSelector setShape(@Shape int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048641, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048642, this, i)) == null) {
             this.mShape = i;
             return this;
         }
@@ -659,7 +669,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
     public DrawableSelector setType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048643, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048644, this, i)) == null) {
             this.mType = i;
             return this;
         }
@@ -669,7 +679,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
     public DrawableSelector strokeWidth(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048644, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048645, this, i)) == null) {
             this.mStrokeWidth = i;
             return this;
         }
@@ -679,7 +689,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
     public DrawableSelector strokeWidthDimenId(@DimenRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048645, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048646, this, i)) == null) {
             this.mStrokeWidth = SelectorHelper.getDimens(i);
             return this;
         }
@@ -689,7 +699,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
     public DrawableSelector tlRadius(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048646, this, f)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048647, this, f)) == null) {
             this.isRadius = true;
             this.topLeftRadius = f;
             return this;
@@ -700,7 +710,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
     public DrawableSelector trRadius(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048647, this, f)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048648, this, f)) == null) {
             this.isRadius = true;
             this.topRightRadius = f;
             return this;
@@ -1221,7 +1231,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
     public DrawableSelector setSize(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048642, this, i, i2)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048643, this, i, i2)) == null) {
             this.width = i;
             this.height = i2;
             return this;

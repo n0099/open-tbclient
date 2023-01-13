@@ -1,51 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class tn4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, String> a;
 
-    public tn4() {
+    public static JSONObject a(@Nullable JSONObject jSONObject, int i, int i2, String str) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{jSONObject, Integer.valueOf(i), Integer.valueOf(i2), str})) == null) {
+            if (i != 0 && i2 != 0 && !yi.isEmpty(str)) {
+                if (jSONObject == null) {
+                    jSONObject = new JSONObject();
+                }
+                try {
+                    jSONObject.put(i + "-" + i2, str);
+                } catch (JSONException e) {
+                    BdLog.e(e);
+                }
             }
+            return jSONObject;
         }
-        HashMap hashMap = new HashMap();
-        this.a = hashMap;
-        hashMap.put("@@ya", "_");
-        this.a.put("@@yb", "-");
-        this.a.put("@@yc", ".");
+        return (JSONObject) invokeCommon.objValue;
     }
 
-    public String a(String str) {
-        InterceptResult invokeL;
+    public static void b(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            for (Map.Entry<String, String> entry : this.a.entrySet()) {
-                str = str.replaceAll(entry.getKey(), entry.getValue());
-            }
-            return str;
+        if (interceptable == null || interceptable.invokeII(65537, null, i, i2) == null) {
+            new StatisticItem("c13318").param("obj_source", i).param("obj_type", i2).eventStat();
         }
-        return (String) invokeL.objValue;
+    }
+
+    public static void c(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65538, null, i, i2) == null) {
+            new StatisticItem("c13317").param("obj_source", i).param("obj_type", i2).eventStat();
+        }
     }
 }

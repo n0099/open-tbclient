@@ -69,11 +69,15 @@ public final class m extends d implements View.OnClickListener {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, couponInfo, viewGroup)) == null) {
-            KSCouponLabelTextView kSCouponLabelTextView = (KSCouponLabelTextView) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0475, viewGroup, false);
+            KSCouponLabelTextView kSCouponLabelTextView = (KSCouponLabelTextView) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0474, viewGroup, false);
             kSCouponLabelTextView.setText(couponInfo.getDisplayName());
             return kSCouponLabelTextView;
         }
         return (View) invokeLLL.objValue;
+    }
+
+    public static /* synthetic */ View a(m mVar, Context context, CouponInfo couponInfo, ViewGroup viewGroup) {
+        return a(context, couponInfo, viewGroup);
     }
 
     private void a(AdProductInfo adProductInfo, AdTemplate adTemplate) {
@@ -116,7 +120,8 @@ public final class m extends d implements View.OnClickListener {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             for (CouponInfo couponInfo : this.vJ.getCouponList()) {
-                                View a2 = m.a(this.vK.vC.getContext(), couponInfo, this.vK.vC);
+                                m mVar = this.vK;
+                                View a2 = m.a(mVar, mVar.vC.getContext(), couponInfo, this.vK.vC);
                                 ViewGroup.LayoutParams layoutParams = a2.getLayoutParams();
                                 if (layoutParams == null) {
                                     layoutParams = new ViewGroup.LayoutParams(-2, -1);
@@ -180,14 +185,14 @@ public final class m extends d implements View.OnClickListener {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            this.nL = (ViewGroup) this.es.findViewById(R.id.obfuscated_res_0x7f091242);
-            this.nG = (KSCornerImageView) this.es.findViewById(R.id.obfuscated_res_0x7f09123f);
-            this.li = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f091244);
-            this.vC = (LinearLayout) this.es.findViewById(R.id.obfuscated_res_0x7f091231);
-            this.vD = (KsPriceView) this.es.findViewById(R.id.obfuscated_res_0x7f091241);
-            this.vE = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f09122e);
-            this.vF = this.es.findViewById(R.id.obfuscated_res_0x7f091243);
-            this.vG = (KSCornerImageView) this.es.findViewById(R.id.obfuscated_res_0x7f091240);
+            this.nL = (ViewGroup) this.es.findViewById(R.id.obfuscated_res_0x7f09124d);
+            this.nG = (KSCornerImageView) this.es.findViewById(R.id.obfuscated_res_0x7f09124a);
+            this.li = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f09124f);
+            this.vC = (LinearLayout) this.es.findViewById(R.id.obfuscated_res_0x7f09123c);
+            this.vD = (KsPriceView) this.es.findViewById(R.id.obfuscated_res_0x7f09124c);
+            this.vE = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f091239);
+            this.vF = this.es.findViewById(R.id.obfuscated_res_0x7f09124e);
+            this.vG = (KSCornerImageView) this.es.findViewById(R.id.obfuscated_res_0x7f09124b);
             this.vE.setText(com.kwad.components.ad.c.b.ai());
             this.vE.setOnClickListener(this);
             this.nG.setOnClickListener(this);

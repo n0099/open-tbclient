@@ -1,49 +1,95 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
+import tbclient.AutoPayInfo;
+import tbclient.GetVipInfo.DataRes;
+import tbclient.GetVipInfo.VipInfo;
+import tbclient.GetVipInfo.VipUpgrade;
+import tbclient.GetVipInfo.VipUser;
 /* loaded from: classes6.dex */
-public class vw7 {
+public class vw7 implements yn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
-    public AtomicBoolean a;
 
-    public vw7(Boolean bool) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948255283, "Lcom/baidu/tieba/vw7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948255283, "Lcom/baidu/tieba/vw7;");
+                return;
+            }
+        }
+        a = BdUniqueId.gen();
+    }
+
+    @Override // com.baidu.tieba.yn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return a;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public vw7(DataRes dataRes) {
+        VipUser vipUser;
+        VipUpgrade vipUpgrade;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bool};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {dataRes};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new AtomicBoolean(bool.booleanValue());
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.get();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void setResult(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.a.set(z);
+        if (dataRes != null && (vipUser = dataRes.user) != null && (vipUpgrade = dataRes.upgrade) != null) {
+            String str = vipUser.card_id;
+            String str2 = vipUser.total_scores_link;
+            String str3 = vipUser.speed_link;
+            String str4 = vipUser.task_scores_link;
+            vipUser.task_scores.intValue();
+            String str5 = vipUser.name;
+            vipUser.id.longValue();
+            String str6 = vipUser.portrait;
+            String str7 = vipUser.name_show;
+            String str8 = vipUser.vip_link;
+            VipInfo vipInfo = vipUser.vipInfo;
+            if (vipInfo != null) {
+                String str9 = vipInfo.icon_url;
+                vipInfo.s_time.intValue();
+                vipUser.vipInfo.e_time.intValue();
+                vipUser.now_time.intValue();
+                vipUser.vipInfo.v_status.intValue();
+                vipUser.vipInfo.v_level.intValue();
+                vipUser.vipInfo.ext_score.intValue();
+                vipUser.vipInfo.a_score.intValue();
+                vipUser.vipInfo.n_score.intValue();
+            }
+            dataRes.today_get_score.intValue();
+            dataRes.today_unget_score.intValue();
+            vipUpgrade.normal.intValue();
+            vipUpgrade.pay.intValue();
+            AutoPayInfo autoPayInfo = dataRes.autopay_info;
         }
     }
 }

@@ -14,7 +14,7 @@ public class az {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (m.m570a()) {
+            if (m.m634a()) {
                 a = 1;
                 return new ay(context);
             } else if (as.a(context)) {

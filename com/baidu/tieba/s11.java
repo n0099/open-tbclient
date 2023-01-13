@@ -1,62 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.sweetsqlite.Column;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class s11 {
+public final class s11 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract r11 b();
-
-    public s11() {
+    public static <T> T a(Class<T> cls) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cls)) == null) {
+            try {
+                return cls.getConstructor(new Class[0]).newInstance(new Object[0]);
+            } catch (Exception e) {
+                throw new RuntimeException(cls + " can't init new instance by default constructor.", e);
             }
         }
-    }
-
-    public ContentValues a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return p11.b(b().c());
-        }
-        return (ContentValues) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Column[] c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(getClass().getName());
-            sb.append("\n");
-            for (Column column : b().c()) {
-                sb.append("|");
-                sb.append(column.field.e);
-                sb.append("| ");
-                sb.append(column.isAssignedValue ? 1 : 0);
-                sb.append(" | ");
-                sb.append(column.stringValue());
-                sb.append("\n");
-            }
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
+        return (T) invokeL.objValue;
     }
 }

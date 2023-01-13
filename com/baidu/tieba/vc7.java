@@ -1,627 +1,512 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.database.sqlite.SQLiteStatement;
-import android.text.TextUtils;
+import android.view.View;
+import android.widget.CompoundButton;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
+import com.baidu.tieba.ed7;
+import com.baidu.tieba.lz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
+import java.util.ArrayList;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class vc7 extends SQLiteOpenHelper {
+public class vc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ed7 a;
+    public gd7 b;
+    public TbPageContext c;
+    public CustomMessageListener d;
+    public NEGFeedBackView.b e;
+    public lz4.g f;
+    public BdListView.p g;
+    public ed7.f h;
+    public View.OnClickListener i;
 
-    public final void j(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase) == null) {
+    /* loaded from: classes6.dex */
+    public class e implements ed7.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vc7 a;
+
+        /* loaded from: classes6.dex */
+        public class a implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ e a;
+
+            public a(e eVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {eVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = eVar;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                    this.a.a.l();
+                }
+            }
+        }
+
+        public e(vc7 vc7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vc7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vc7Var;
+        }
+
+        @Override // com.baidu.tieba.ed7.f
+        public void a(int i, boolean z, boolean z2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+                this.a.b.u();
+                this.a.b.v();
+                if (!z && !z2) {
+                    this.a.b.Z(this.a.i(i));
+                } else {
+                    this.a.b.Z(null);
+                }
+                if (i != 0) {
+                    this.a.b.L(this.a.a.h());
+                    this.a.b.R(this.a.i);
+                } else if (ListUtils.isEmpty(this.a.b.r())) {
+                    this.a.b.V();
+                } else if (z) {
+                    this.a.b.W();
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.ed7.f
+        public void b(int i, String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
+                this.a.b.Z(null);
+                this.a.b.u();
+                this.a.b.v();
+                if (ListUtils.isEmpty(this.a.b.r())) {
+                    this.a.b.U(new a(this));
+                    return;
+                }
+                if (z) {
+                    this.a.b.R(this.a.i);
+                }
+                if (StringUtils.isNull(str)) {
+                    this.a.c.showToast(R.string.obfuscated_res_0x7f0f15e9);
+                } else {
+                    this.a.c.showToast(str);
+                }
+            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vc7(Context context, String str) {
-        super(context, str, (SQLiteDatabase.CursorFactory) null, 14);
+    /* loaded from: classes6.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vc7 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(vc7 vc7Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vc7Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vc7Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                this.a.h(customResponsedMessage);
+                if (this.a.b != null) {
+                    this.a.b.G();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements NEGFeedBackView.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vc7 a;
+
+        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
+        public void b(cu4 cu4Var, CompoundButton compoundButton, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cu4Var, compoundButton, z) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
+        public void c(cu4 cu4Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cu4Var) != null) || cu4Var == null) {
+            }
+        }
+
+        public b(vc7 vc7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vc7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vc7Var;
+        }
+
+        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
+        public void a(ArrayList<Integer> arrayList, String str, cu4 cu4Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLLL(1048576, this, arrayList, str, cu4Var) == null) && arrayList != null && cu4Var != null) {
+                StringBuilder sb = new StringBuilder();
+                int size = arrayList.size();
+                for (int i = 0; i < size; i++) {
+                    sb.append(arrayList.get(i));
+                    sb.append(",");
+                }
+                if (sb.length() > 0) {
+                    sb.deleteCharAt(sb.length() - 1);
+                }
+                int i2 = cu4Var.n;
+                if (i2 != 0 && i2 == 40) {
+                }
+                if (this.a.b != null) {
+                    this.a.b.I();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements lz4.g {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vc7 a;
+
+        public c(vc7 vc7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vc7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vc7Var;
+        }
+
+        @Override // com.baidu.tieba.lz4.g
+        public void f(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                if (BdNetTypeUtil.isNetWorkAvailable()) {
+                    this.a.b.N(false);
+                    this.a.a.j();
+                    TiebaStatic.log(new StatisticItem("c13582"));
+                    return;
+                }
+                this.a.b.Z(null);
+                this.a.c.showToast(R.string.obfuscated_res_0x7f0f0cd1);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements BdListView.p {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vc7 a;
+
+        public d(vc7 vc7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vc7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vc7Var;
+        }
+
+        @Override // com.baidu.adp.widget.ListView.BdListView.p
+        public void onScrollToBottom() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.b.S();
+                this.a.a.l();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class f implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vc7 a;
+
+        public f(vc7 vc7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vc7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vc7Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.b != null && this.a.a != null) {
+                this.a.b.S();
+                this.a.a.l();
+            }
+        }
+    }
+
+    public vc7(BaseFragment baseFragment, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {baseFragment, tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.d = new a(this, 2016488);
+        this.e = new b(this);
+        this.f = new c(this);
+        this.g = new d(this);
+        this.h = new e(this);
+        this.i = new f(this);
+        this.c = tbPageContext;
+        this.b = new gd7(baseFragment, tbPageContext, bdUniqueId, this.e);
+        this.a = new ed7(this.c, this.h);
     }
 
-    public static void b(SQLiteStatement sQLiteStatement, int i, String str) {
+    public void q(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65537, null, sQLiteStatement, i, str) == null) {
-            if (str == null) {
-                sQLiteStatement.bindNull(i);
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            if (z) {
+                this.b.F();
             } else {
-                sQLiteStatement.bindString(i, str);
+                this.b.E();
             }
         }
     }
 
-    public final void a(SQLiteDatabase sQLiteDatabase, String str) {
+    public void g() {
+        gd7 gd7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, sQLiteDatabase, str) == null) {
-            sQLiteDatabase.execSQL(str);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (gd7Var = this.b) != null) {
+            gd7Var.n();
         }
     }
 
-    public final void c(SQLiteDatabase sQLiteDatabase) {
+    public View j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) != null) || sQLiteDatabase == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            gd7 gd7Var = this.b;
+            if (gd7Var != null) {
+                return gd7Var.s();
+            }
+            return null;
         }
-        a(sQLiteDatabase, "CREATE TABLE IF NOT EXISTS tb_message_center(gid TEXT NOT NULL, group_name TEXT, group_head TEXT, custom_group_type int, group_ext TEXT, unread_count int, last_msgId TEXT, last_user_name TEXT, last_content_time long, send_status int, last_content TEXT, is_friend int, pull_msgid TEXT,is_hidden int,is_delete int, sent_mid long, read_mid long, sid long, task_id TEXT, service_id TEXT, ext1 TEXT, ext2 TEXT, user_type int default 1, visit_time LONG DEFAULT -1, group_name_show TEXT);");
+        return (View) invokeV.objValue;
     }
 
-    public final void d(SQLiteDatabase sQLiteDatabase) {
+    public void k() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) != null) || sQLiteDatabase == null) {
-            return;
-        }
-        a(sQLiteDatabase, "CREATE TABLE IF NOT EXISTS tb_message_center(gid TEXT NOT NULL, group_name TEXT, group_head TEXT, custom_group_type int, group_ext TEXT, unread_count int, last_msgId TEXT, last_user_name TEXT, last_content_time long, send_status int, last_content TEXT, is_friend int, pull_msgid TEXT,is_hidden int,is_delete int);");
-    }
-
-    public final void e(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, sQLiteDatabase) == null) {
-            a(sQLiteDatabase, "CREATE TABLE IF NOT EXISTS tb_new_friends(_id INTEGER primary key autoincrement, uid LONG NOT NULL, uname TEXT, ustatus INTEGER, uportrait TEXT, ucontent TEXT,isread INTEGER, name_show TEXT);");
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a.p();
+            this.b.w();
+            this.b.M(this.f);
+            this.b.O(this.g);
+            MessageManager.getInstance().registerListener(this.d);
         }
     }
 
-    public final void f(SQLiteDatabase sQLiteDatabase) {
+    public void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, sQLiteDatabase) == null) {
-            try {
-                a(sQLiteDatabase, "CREATE TABLE IF NOT EXISTS tb_group_news(notice_id TEXT NOT NULL UNIQUE, cmd TEXT, gid TEXT, time long, content TEXT, content_status int, ext TEXT);");
-                c(sQLiteDatabase);
-                e(sQLiteDatabase);
-            } catch (Exception e) {
-                TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.createTables", new Object[0]);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            gd7 gd7Var = this.b;
+            if (gd7Var != null) {
+                gd7Var.o();
+                this.b.T();
+            }
+            ed7 ed7Var = this.a;
+            if (ed7Var != null) {
+                ed7Var.j();
             }
         }
     }
 
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+    public void m() {
+        gd7 gd7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, sQLiteDatabase) == null) {
-            f(sQLiteDatabase);
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (gd7Var = this.b) != null) {
+            gd7Var.A();
         }
     }
 
-    public final LinkedList<String> g(SQLiteDatabase sQLiteDatabase) {
-        InterceptResult invokeL;
+    public void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, sQLiteDatabase)) == null) {
-            LinkedList<String> linkedList = new LinkedList<>();
-            Cursor cursor = null;
-            if (sQLiteDatabase != null) {
-                try {
-                    try {
-                        cursor = sQLiteDatabase.rawQuery("select * from sqlite_master where type='table'", null);
-                        if (cursor != null) {
-                            while (cursor.moveToNext()) {
-                                linkedList.add(cursor.getString(cursor.getColumnIndex("name")));
-                            }
-                        }
-                    } catch (Exception e) {
-                        TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.getAllTable", new Object[0]);
-                        e.printStackTrace();
-                    }
-                } finally {
-                    zi.a(cursor);
-                }
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            gd7 gd7Var = this.b;
+            if (gd7Var != null) {
+                gd7Var.M(null);
+                this.b.O(null);
+                this.b.C();
             }
-            return linkedList;
-        }
-        return (LinkedList) invokeL.objValue;
-    }
-
-    public final void h(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, sQLiteDatabase) == null) && sQLiteDatabase != null) {
-            LinkedList<String> g = g(sQLiteDatabase);
-            try {
-                sQLiteDatabase.beginTransaction();
-                Iterator<String> it = g.iterator();
-                while (it.hasNext()) {
-                    String next = it.next();
-                    if (!TextUtils.isEmpty(next) && next.startsWith("tb_group_msg_")) {
-                        try {
-                            sQLiteDatabase.execSQL("ALTER TABLE " + next + " ADD read_flag int default 0;");
-                        } catch (Exception e) {
-                            TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.groupMsg1to2", new Object[0]);
-                            sQLiteDatabase.execSQL("DROP TABLE IF EXISTS " + next);
-                        }
-                    }
-                }
-                sQLiteDatabase.setTransactionSuccessful();
-            } finally {
-                sQLiteDatabase.endTransaction();
+            ed7 ed7Var = this.a;
+            if (ed7Var != null) {
+                ed7Var.o();
             }
+            MessageManager.getInstance().unRegisterListener(this.d);
         }
     }
 
-    public final void l(SQLiteDatabase sQLiteDatabase) {
+    public void o() {
+        gd7 gd7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, sQLiteDatabase) == null) {
-            a(sQLiteDatabase, "CREATE TABLE IF NOT EXISTS tb_new_friends(_id INTEGER primary key autoincrement, uid INTEGER NOT NULL, uname TEXT, ustatus INTEGER, uportrait TEXT, ucontent TEXT,isread INTEGER);");
-            if (sQLiteDatabase != null) {
-                LinkedList<String> g = g(sQLiteDatabase);
-                try {
-                    sQLiteDatabase.beginTransaction();
-                    Iterator<String> it = g.iterator();
-                    while (it.hasNext()) {
-                        String next = it.next();
-                        if (!TextUtils.isEmpty(next) && (next.startsWith(cd7.e) || next.startsWith(bd7.e))) {
-                            try {
-                                sQLiteDatabase.execSQL("ALTER TABLE " + next + " ADD is_friend int default 1;");
-                            } catch (Exception e) {
-                                TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.groupMsg5to6", new Object[0]);
-                                sQLiteDatabase.execSQL("DROP TABLE IF EXISTS " + next);
-                            }
-                        }
-                    }
-                    sQLiteDatabase.setTransactionSuccessful();
-                } finally {
-                    sQLiteDatabase.endTransaction();
-                }
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (gd7Var = this.b) != null) {
+            gd7Var.D();
+            this.b.E();
+            this.b.Q(true);
+        }
+    }
+
+    public void p() {
+        gd7 gd7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (gd7Var = this.b) != null) {
+            gd7Var.N(false);
+            this.b.Y();
+            this.b.z();
+            this.b.X();
+        }
+    }
+
+    public final void h(CustomResponsedMessage<?> customResponsedMessage) {
+        ed7 ed7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && (ed7Var = this.a) != null && !ListUtils.isEmpty(ed7Var.h())) {
+            String optString = ((JSONObject) customResponsedMessage.getData()).optString("tid");
+            this.a.r(optString);
+            this.a.q(optString);
+            gd7 gd7Var = this.b;
+            if (gd7Var != null) {
+                gd7Var.K(optString);
             }
         }
     }
 
-    public final void r(SQLiteDatabase sQLiteDatabase) {
+    public final lz4.i i(int i) {
+        InterceptResult invokeI;
+        String string;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048594, this, sQLiteDatabase) != null) || sQLiteDatabase == null) {
-            return;
-        }
-        LinkedList<String> g = g(sQLiteDatabase);
-        try {
-            sQLiteDatabase.beginTransaction();
-            Iterator<String> it = g.iterator();
-            while (it.hasNext()) {
-                String next = it.next();
-                if (!TextUtils.isEmpty(next) && (next.startsWith(cd7.e) || next.startsWith(bd7.e))) {
-                    try {
-                        sQLiteDatabase.execSQL("ALTER TABLE " + next + " ADD read_count LONG default -1;");
-                    } catch (Exception e) {
-                        TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.groupMsg12to13", new Object[0]);
-                        sQLiteDatabase.execSQL("DROP TABLE IF EXISTS " + next);
-                    }
-                }
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (i <= 0) {
+                string = this.c.getResources().getString(R.string.obfuscated_res_0x7f0f15ea);
+            } else {
+                string = this.c.getResources().getString(R.string.obfuscated_res_0x7f0f15e8, Integer.valueOf(i));
             }
-            sQLiteDatabase.setTransactionSuccessful();
-        } finally {
-            sQLiteDatabase.endTransaction();
+            return new lz4.i(string, 1000);
         }
-    }
-
-    public final void i(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, sQLiteDatabase) == null) && sQLiteDatabase != null) {
-            LinkedList<String> g = g(sQLiteDatabase);
-            try {
-                sQLiteDatabase.beginTransaction();
-                Iterator<String> it = g.iterator();
-                while (it.hasNext()) {
-                    String next = it.next();
-                    if (!TextUtils.isEmpty(next) && next.startsWith("tb_group_msg_")) {
-                        try {
-                            sQLiteDatabase.execSQL("ALTER TABLE " + next + " ADD rid BIGINT;");
-                            sQLiteDatabase.execSQL("ALTER TABLE " + next + " ADD is_delete int default 0;");
-                            sQLiteDatabase.execSQL("UPDATE " + next + " SET read_flag=0 WHERE read_flag is null");
-                            sQLiteDatabase.execSQL("UPDATE " + next + " SET rid=mid WHERE rid is null");
-                        } catch (Exception e) {
-                            TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.groupMsg2to3", new Object[0]);
-                            sQLiteDatabase.execSQL("DROP TABLE IF EXISTS " + next);
-                        }
-                    }
-                }
-                sQLiteDatabase.setTransactionSuccessful();
-            } finally {
-                sQLiteDatabase.endTransaction();
-            }
-        }
-    }
-
-    public final void k(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, sQLiteDatabase) == null) && sQLiteDatabase != null) {
-            try {
-                sQLiteDatabase.beginTransaction();
-                try {
-                    sQLiteDatabase.execSQL("ALTER TABLE tb_message_center ADD custom_group_type int default 0;");
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.groupMsg4to5", new Object[0]);
-                    sQLiteDatabase.execSQL("DROP TABLE IF EXISTS tb_message_center");
-                }
-                sQLiteDatabase.setTransactionSuccessful();
-            } finally {
-                sQLiteDatabase.endTransaction();
-            }
-        }
-    }
-
-    public final void m(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, sQLiteDatabase) == null) && sQLiteDatabase != null) {
-            try {
-                sQLiteDatabase.beginTransaction();
-                try {
-                    sQLiteDatabase.execSQL("ALTER TABLE tb_message_center ADD sid long default 0;");
-                    sQLiteDatabase.execSQL("ALTER TABLE tb_message_center ADD task_id TEXT;");
-                    sQLiteDatabase.execSQL("ALTER TABLE tb_message_center ADD ext1 TEXT;");
-                    sQLiteDatabase.execSQL("ALTER TABLE tb_message_center ADD ext2 TEXT;");
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.groupMsg10to11", new Object[0]);
-                    sQLiteDatabase.execSQL("DROP TABLE IF EXISTS tb_message_center");
-                }
-                sQLiteDatabase.setTransactionSuccessful();
-            } finally {
-                sQLiteDatabase.endTransaction();
-            }
-        }
-    }
-
-    public final void n(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, sQLiteDatabase) == null) && sQLiteDatabase != null) {
-            try {
-                sQLiteDatabase.beginTransaction();
-                try {
-                    sQLiteDatabase.execSQL("ALTER TABLE tb_message_center ADD group_name_show TEXT;");
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.groupMsg11to12 for table message_center", new Object[0]);
-                    sQLiteDatabase.execSQL("DROP TABLE IF EXISTS tb_message_center");
-                }
-                sQLiteDatabase.setTransactionSuccessful();
-            } finally {
-                sQLiteDatabase.endTransaction();
-            }
-        }
-    }
-
-    public final void o(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048589, this, sQLiteDatabase) == null) && sQLiteDatabase != null) {
-            try {
-                sQLiteDatabase.beginTransaction();
-                try {
-                    sQLiteDatabase.execSQL("ALTER TABLE tb_new_friends ADD name_show TEXT;");
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.groupMsg11to12 for table new_friends", new Object[0]);
-                    sQLiteDatabase.execSQL("DROP TABLE IF EXISTS tb_new_friends");
-                }
-                sQLiteDatabase.setTransactionSuccessful();
-            } finally {
-                sQLiteDatabase.endTransaction();
-            }
-        }
-    }
-
-    public final void p(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048593, this, sQLiteDatabase) == null) && sQLiteDatabase != null) {
-            try {
-                sQLiteDatabase.beginTransaction();
-                try {
-                    sQLiteDatabase.execSQL("ALTER TABLE tb_message_center ADD visit_time LONG DEFAULT -1;");
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.groupMsg12to13 for table message_center", new Object[0]);
-                    sQLiteDatabase.execSQL("DROP TABLE IF EXISTS tb_message_center");
-                }
-                sQLiteDatabase.setTransactionSuccessful();
-            } finally {
-                sQLiteDatabase.endTransaction();
-            }
-        }
-    }
-
-    public final void s(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048595, this, sQLiteDatabase) == null) && sQLiteDatabase != null) {
-            try {
-                sQLiteDatabase.beginTransaction();
-                try {
-                    sQLiteDatabase.execSQL("ALTER TABLE tb_message_center ADD service_id TEXT;");
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.groupMsg13to14", new Object[0]);
-                    sQLiteDatabase.execSQL("DROP TABLE IF EXISTS tb_message_center");
-                }
-                sQLiteDatabase.setTransactionSuccessful();
-            } finally {
-                sQLiteDatabase.endTransaction();
-            }
-        }
-    }
-
-    public final void w(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048597, this, sQLiteDatabase) == null) && sQLiteDatabase != null) {
-            try {
-                sQLiteDatabase.beginTransaction();
-                try {
-                    sQLiteDatabase.execSQL("ALTER TABLE tb_message_center ADD sent_mid long default 0;");
-                    sQLiteDatabase.execSQL("ALTER TABLE tb_message_center ADD read_mid long default 0;");
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.groupMsg7to8", new Object[0]);
-                    sQLiteDatabase.execSQL("DROP TABLE IF EXISTS tb_message_center");
-                }
-                sQLiteDatabase.setTransactionSuccessful();
-            } finally {
-                sQLiteDatabase.endTransaction();
-            }
-        }
-    }
-
-    public final void x(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048598, this, sQLiteDatabase) == null) && sQLiteDatabase != null) {
-            try {
-                sQLiteDatabase.beginTransaction();
-                try {
-                    sQLiteDatabase.execSQL("ALTER TABLE tb_message_center ADD user_type int default  1;");
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.groupMsg8to9", new Object[0]);
-                    sQLiteDatabase.execSQL("DROP TABLE IF EXISTS tb_message_center");
-                }
-                sQLiteDatabase.setTransactionSuccessful();
-            } finally {
-                sQLiteDatabase.endTransaction();
-            }
-        }
-    }
-
-    public final void y(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048599, this, sQLiteDatabase) == null) && sQLiteDatabase != null) {
-            try {
-                sQLiteDatabase.beginTransaction();
-                try {
-                    sQLiteDatabase.execSQL("ALTER TABLE tb_new_friends RENAME TO tb_new_friends_tmp;");
-                    sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS tb_new_friends(_id INTEGER primary key autoincrement, uid LONG NOT NULL, uname TEXT, ustatus INTEGER, uportrait TEXT, ucontent TEXT,isread INTEGER);");
-                    sQLiteDatabase.execSQL("INSERT INTO tb_new_friends SELECT _id,uid,uname,ustatus,uportrait,ucontent,isread FROM tb_new_friends_tmp WHERE uid > 0;");
-                    sQLiteDatabase.execSQL("DROP TABLE tb_new_friends_tmp;");
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.groupMsg9to10", new Object[0]);
-                    sQLiteDatabase.execSQL("DROP TABLE IF EXISTS tb_new_friends");
-                }
-                sQLiteDatabase.setTransactionSuccessful();
-            } finally {
-                sQLiteDatabase.endTransaction();
-            }
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    @SuppressLint({"Override"})
-    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048591, this, sQLiteDatabase, i, i2) == null) {
-            try {
-                TbadkCoreApplication.getInst().getApp().deleteDatabase(TbadkCoreApplication.getCurrentAccount() + ".db");
-                f(sQLiteDatabase);
-            } catch (Exception e) {
-                TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.onDowngrade", new Object[0]);
-                e.printStackTrace();
-            }
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048592, this, sQLiteDatabase, i, i2) == null) {
-            switch (i) {
-                case 1:
-                    try {
-                        h(sQLiteDatabase);
-                        i(sQLiteDatabase);
-                        j(sQLiteDatabase);
-                        k(sQLiteDatabase);
-                        l(sQLiteDatabase);
-                        v(sQLiteDatabase);
-                        w(sQLiteDatabase);
-                        x(sQLiteDatabase);
-                        y(sQLiteDatabase);
-                        m(sQLiteDatabase);
-                        n(sQLiteDatabase);
-                        o(sQLiteDatabase);
-                        p(sQLiteDatabase);
-                        r(sQLiteDatabase);
-                        s(sQLiteDatabase);
-                        return;
-                    } catch (Exception e) {
-                        TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.onUpgrade", new Object[0]);
-                        TbadkCoreApplication.getInst().getApp().deleteDatabase(TbadkCoreApplication.getCurrentAccount() + ".db");
-                        f(sQLiteDatabase);
-                        return;
-                    }
-                case 2:
-                    i(sQLiteDatabase);
-                    j(sQLiteDatabase);
-                    k(sQLiteDatabase);
-                    l(sQLiteDatabase);
-                    v(sQLiteDatabase);
-                    w(sQLiteDatabase);
-                    x(sQLiteDatabase);
-                    y(sQLiteDatabase);
-                    m(sQLiteDatabase);
-                    n(sQLiteDatabase);
-                    o(sQLiteDatabase);
-                    p(sQLiteDatabase);
-                    r(sQLiteDatabase);
-                    s(sQLiteDatabase);
-                    return;
-                case 3:
-                    j(sQLiteDatabase);
-                    k(sQLiteDatabase);
-                    l(sQLiteDatabase);
-                    v(sQLiteDatabase);
-                    w(sQLiteDatabase);
-                    x(sQLiteDatabase);
-                    y(sQLiteDatabase);
-                    m(sQLiteDatabase);
-                    n(sQLiteDatabase);
-                    o(sQLiteDatabase);
-                    p(sQLiteDatabase);
-                    r(sQLiteDatabase);
-                    s(sQLiteDatabase);
-                    return;
-                case 4:
-                    k(sQLiteDatabase);
-                    l(sQLiteDatabase);
-                    v(sQLiteDatabase);
-                    w(sQLiteDatabase);
-                    x(sQLiteDatabase);
-                    y(sQLiteDatabase);
-                    m(sQLiteDatabase);
-                    n(sQLiteDatabase);
-                    o(sQLiteDatabase);
-                    p(sQLiteDatabase);
-                    r(sQLiteDatabase);
-                    s(sQLiteDatabase);
-                    return;
-                case 5:
-                    l(sQLiteDatabase);
-                    v(sQLiteDatabase);
-                    w(sQLiteDatabase);
-                    x(sQLiteDatabase);
-                    y(sQLiteDatabase);
-                    m(sQLiteDatabase);
-                    n(sQLiteDatabase);
-                    o(sQLiteDatabase);
-                    p(sQLiteDatabase);
-                    r(sQLiteDatabase);
-                    s(sQLiteDatabase);
-                    return;
-                case 6:
-                    v(sQLiteDatabase);
-                    w(sQLiteDatabase);
-                    x(sQLiteDatabase);
-                    y(sQLiteDatabase);
-                    m(sQLiteDatabase);
-                    n(sQLiteDatabase);
-                    o(sQLiteDatabase);
-                    p(sQLiteDatabase);
-                    r(sQLiteDatabase);
-                    s(sQLiteDatabase);
-                    return;
-                case 7:
-                    w(sQLiteDatabase);
-                    x(sQLiteDatabase);
-                    y(sQLiteDatabase);
-                    m(sQLiteDatabase);
-                    n(sQLiteDatabase);
-                    o(sQLiteDatabase);
-                    p(sQLiteDatabase);
-                    r(sQLiteDatabase);
-                    s(sQLiteDatabase);
-                    return;
-                case 8:
-                    x(sQLiteDatabase);
-                    y(sQLiteDatabase);
-                    m(sQLiteDatabase);
-                    n(sQLiteDatabase);
-                    o(sQLiteDatabase);
-                    p(sQLiteDatabase);
-                    r(sQLiteDatabase);
-                    s(sQLiteDatabase);
-                    return;
-                case 9:
-                    y(sQLiteDatabase);
-                    m(sQLiteDatabase);
-                    n(sQLiteDatabase);
-                    o(sQLiteDatabase);
-                    p(sQLiteDatabase);
-                    r(sQLiteDatabase);
-                    s(sQLiteDatabase);
-                    return;
-                case 10:
-                    m(sQLiteDatabase);
-                    n(sQLiteDatabase);
-                    o(sQLiteDatabase);
-                    p(sQLiteDatabase);
-                    r(sQLiteDatabase);
-                    s(sQLiteDatabase);
-                    return;
-                case 11:
-                    n(sQLiteDatabase);
-                    o(sQLiteDatabase);
-                    p(sQLiteDatabase);
-                    r(sQLiteDatabase);
-                    s(sQLiteDatabase);
-                    return;
-                case 12:
-                    p(sQLiteDatabase);
-                    r(sQLiteDatabase);
-                    s(sQLiteDatabase);
-                    return;
-                case 13:
-                    s(sQLiteDatabase);
-                    return;
-                default:
-                    return;
-            }
-        }
-    }
-
-    public final void v(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, sQLiteDatabase) == null) {
-            if (sQLiteDatabase != null) {
-                try {
-                    sQLiteDatabase.beginTransaction();
-                    try {
-                        sQLiteDatabase.execSQL("ALTER TABLE tb_message_center RENAME TO test_table_temp;");
-                        d(sQLiteDatabase);
-                        sQLiteDatabase.execSQL("INSERT INTO tb_message_center SELECT gid,group_name,group_head,custom_group_type,group_ext,unread_count,last_msgId,last_user_name,last_content_time,'send_status' as send_status,last_content,'is_friend' as is_friend,'pull_msgid' as pull_msgid,is_hidden,is_delete FROM test_table_temp;");
-                        sQLiteDatabase.execSQL("DROP TABLE test_table_temp;");
-                    } catch (Exception e) {
-                        TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.messageCenter6to7", new Object[0]);
-                        sQLiteDatabase.execSQL("DROP TABLE IF EXISTS tb_message_center");
-                        f(sQLiteDatabase);
-                    }
-                    sQLiteDatabase.setTransactionSuccessful();
-                    try {
-                        sQLiteDatabase.beginTransaction();
-                        HashMap<String, SQLiteDatabase> hashMap = wc7.c;
-                        hashMap.put(TbadkCoreApplication.getCurrentAccount() + ".db", sQLiteDatabase);
-                        ad7.b();
-                        sQLiteDatabase.setTransactionSuccessful();
-                    } finally {
-                        sQLiteDatabase.endTransaction();
-                        HashMap<String, SQLiteDatabase> hashMap2 = wc7.c;
-                        hashMap2.remove(TbadkCoreApplication.getCurrentAccount() + ".db");
-                    }
-                } finally {
-                    sQLiteDatabase.endTransaction();
-                }
-            }
-        }
+        return (lz4.i) invokeI.objValue;
     }
 }

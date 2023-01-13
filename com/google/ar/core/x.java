@@ -3,21 +3,21 @@ package com.google.ar.core;
 import android.os.Bundle;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tx9;
-import com.baidu.tieba.ux9;
-import com.baidu.tieba.yx9;
+import com.baidu.tieba.b3a;
+import com.baidu.tieba.c3a;
+import com.baidu.tieba.g3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class x extends com.google.a.b.a.a.a.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ AtomicBoolean a;
-    public final /* synthetic */ yx9 b;
+    public final /* synthetic */ g3a b;
 
     @Override // com.google.a.b.a.a.a.d
     public final void a() {
@@ -33,12 +33,12 @@ public final class x extends com.google.a.b.a.a.a.e {
         }
     }
 
-    public x(yx9 yx9Var, AtomicBoolean atomicBoolean) {
+    public x(g3a g3aVar, AtomicBoolean atomicBoolean) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {yx9Var, atomicBoolean};
+            Object[] objArr = {g3aVar, atomicBoolean};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -48,7 +48,7 @@ public final class x extends com.google.a.b.a.a.a.e {
                 return;
             }
         }
-        this.b = yx9Var;
+        this.b = g3aVar;
         this.a = atomicBoolean;
     }
 
@@ -68,13 +68,13 @@ public final class x extends com.google.a.b.a.a.a.e {
             sb.append(i);
             sb.append(", launching fullscreen.");
             Log.w("ARCore-InstallService", sb.toString());
-            yx9 yx9Var = this.b;
-            tx9 tx9Var = yx9Var.c;
-            tx9.n(yx9Var.a, yx9Var.b);
+            g3a g3aVar = this.b;
+            b3a b3aVar = g3aVar.c;
+            b3a.n(g3aVar.a, g3aVar.b);
         } else if (bundle.containsKey("resolution.intent")) {
-            yx9 yx9Var2 = this.b;
-            tx9 tx9Var2 = yx9Var2.c;
-            tx9.b(yx9Var2.a, bundle, yx9Var2.b);
+            g3a g3aVar2 = this.b;
+            b3a b3aVar2 = g3aVar2.c;
+            b3a.b(g3aVar2.a, bundle, g3aVar2.b);
         } else if (i2 != 10) {
             switch (i2) {
                 case 1:
@@ -92,11 +92,11 @@ public final class x extends com.google.a.b.a.a.a.e {
                     this.b.b.a(p.b);
                     return;
                 default:
-                    ux9 ux9Var = this.b.b;
+                    c3a c3aVar = this.b.b;
                     StringBuilder sb2 = new StringBuilder(38);
                     sb2.append("Unexpected install status: ");
                     sb2.append(i2);
-                    ux9Var.b(new FatalException(sb2.toString()));
+                    c3aVar.b(new FatalException(sb2.toString()));
                     return;
             }
         } else {

@@ -6,19 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class zq2 implements du2 {
+public class zq2 extends vq2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<xq2> a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
+    public cr2 z;
 
     public zq2() {
         Interceptable interceptable = $ic;
@@ -30,22 +24,16 @@ public class zq2 implements du2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = 1;
-        this.c = -16777216;
-        this.d = 0;
-        this.e = 0;
     }
 
-    @Override // com.baidu.tieba.du2
+    @Override // com.baidu.tieba.zz1, com.baidu.tieba.iu2
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<xq2> arrayList = this.a;
-            if (arrayList != null && !arrayList.isEmpty()) {
+            if (this.z != null) {
                 return true;
             }
             return false;
@@ -53,38 +41,22 @@ public class zq2 implements du2 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.du2
+    @Override // com.baidu.tieba.vq2, com.baidu.tieba.zz1, com.baidu.tieba.iu2
     public void a(JSONObject jSONObject) throws JSONException {
-        int length;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null || !jSONObject.has("points")) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        JSONArray optJSONArray = jSONObject.optJSONArray("points");
-        if (optJSONArray == null) {
-            length = 0;
-        } else {
-            length = optJSONArray.length();
-        }
-        if (length > 0) {
-            this.a = new ArrayList<>(length);
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    xq2 xq2Var = new xq2();
-                    xq2Var.a(optJSONObject);
-                    if (xq2Var.isValid()) {
-                        this.a.add(xq2Var);
-                    }
-                }
-            }
-        }
-        ArrayList<xq2> arrayList = this.a;
-        if (arrayList != null && arrayList.size() > 0) {
-            this.b = (int) Math.abs(rq2.b(jSONObject.optInt("strokeWidth", 1)));
-            this.c = rq2.a(jSONObject.optString("strokeColor"), -16777216);
-            this.d = rq2.a(jSONObject.optString("fillColor"), 0);
-            this.e = jSONObject.optInt("zIndex", 0);
+        super.a(jSONObject);
+        jSONObject.optString("cb");
+        double optDouble = jSONObject.optDouble("latitude");
+        double optDouble2 = jSONObject.optDouble("longitude");
+        jSONObject.optString("guideKey");
+        jSONObject.optString("guideIcon");
+        if (!Double.isNaN(optDouble) && !Double.isNaN(optDouble2) && optDouble >= -90.0d && optDouble <= 90.0d && optDouble2 >= -180.0d && optDouble2 <= 180.0d) {
+            cr2 cr2Var = new cr2();
+            this.z = cr2Var;
+            cr2Var.a(jSONObject);
         }
     }
 }

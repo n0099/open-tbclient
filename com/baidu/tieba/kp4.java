@@ -1,228 +1,73 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.lp4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class kp4 {
     public static /* synthetic */ Interceptable $ic;
-    public static lp4 a;
-    public static kp4 b;
-    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947920762, "Lcom/baidu/tieba/kp4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947920762, "Lcom/baidu/tieba/kp4;");
-                return;
-            }
-        }
-        new ArrayList(5);
-    }
+    public String a;
+    public int b;
 
     public kp4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public kp4(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = str;
+        this.b = i;
     }
 
-    public final void b() {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || a == null) {
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b();
-            lp4 lp4Var = a;
-            if (lp4Var != null) {
-                lp4Var.d();
-                c = false;
-            }
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            b();
-            lp4 lp4Var = a;
-            if (lp4Var != null) {
-                lp4Var.c();
-                c = false;
-            }
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            b();
-            lp4 lp4Var = a;
-            if (lp4Var != null) {
-                lp4Var.h();
-            }
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            b();
-            i();
-            m();
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            b();
-            lp4 lp4Var = a;
-            if (lp4Var != null) {
-                lp4Var.m();
-                c = true;
-            }
-        }
-    }
-
-    public static kp4 a(BaseFragmentActivity baseFragmentActivity) {
-        InterceptResult invokeL;
-        lp4 lp4Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
-            if (b == null) {
-                synchronized (kp4.class) {
-                    if (b == null) {
-                        b = new kp4();
-                        a = lp4.a(baseFragmentActivity);
-                    }
-                }
-            } else {
-                lp4 lp4Var2 = a;
-                if (lp4Var2 != null) {
-                    lp4Var2.j(baseFragmentActivity.getPageContext());
-                }
-            }
-            if (c && (lp4Var = a) != null) {
-                lp4Var.d();
-                a.c();
-                c = false;
-            }
-            return b;
-        }
-        return (kp4) invokeL.objValue;
-    }
-
-    public static void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            try {
-                if (a != null) {
-                    if (b != null) {
-                        b.j();
-                    }
-                    a.e();
-                    a.i();
-                    a = null;
-                }
-                if (b != null) {
-                    b = null;
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-        }
-    }
-
-    public void e(boolean z, boolean z2, boolean z3, lp4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), aVar}) == null) {
-            b();
-            if (z) {
-                c();
-            }
-            if (z2) {
-                d();
-            }
-            l(z3);
-            k(aVar);
-        }
-    }
-
-    public void f(lp4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            b();
-            lp4 lp4Var = a;
-            if (lp4Var != null) {
-                if (lp4Var.b()) {
-                    a.k(aVar);
-                }
-                a.f();
-            }
-        }
-    }
-
-    public void k(lp4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            b();
-            lp4 lp4Var = a;
-            if (lp4Var != null) {
-                lp4Var.k(aVar);
-            }
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            b();
-            lp4 lp4Var = a;
-            if (lp4Var != null) {
-                lp4Var.l(z);
-            }
-        }
-    }
-
-    public void g(int i, lp4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, aVar) == null) {
-            b();
-            lp4 lp4Var = a;
-            if (lp4Var != null) {
-                if (lp4Var.b()) {
-                    a.k(aVar);
-                }
-                a.g(i);
-            }
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = i;
         }
     }
 }

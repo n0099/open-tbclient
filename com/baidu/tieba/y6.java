@@ -1,17 +1,16 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class y6 extends v6 implements w6 {
+/* loaded from: classes7.dex */
+public class y6 extends w6 implements x6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b4 h;
+    public y3 h;
 
     public y6() {
         Interceptable interceptable = $ic;
@@ -27,12 +26,21 @@ public class y6 extends v6 implements w6 {
         }
     }
 
-    public y6(b4 b4Var) {
+    public y3 o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.h;
+        }
+        return (y3) invokeV.objValue;
+    }
+
+    public y6(y3 y3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {b4Var};
+            Object[] objArr = {y3Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,38 +50,53 @@ public class y6 extends v6 implements w6 {
                 return;
             }
         }
-        o(b4Var);
+        p(y3Var);
     }
 
-    public void o(b4 b4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, b4Var) == null) {
-            this.h = b4Var;
-            j(b4Var.n());
-            h(b4Var.k());
-        }
-    }
-
-    public y6 p(l3 l3Var) {
+    public y6 q(m3 m3Var) {
         InterceptResult invokeL;
-        b4 b4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l3Var)) == null) {
-            b4 b4Var2 = this.h;
-            if (b4Var2 instanceof c4.b) {
-                b4Var = new c4.b((c4.b) b4Var2);
-            } else {
-                b4Var = new b4(b4Var2);
-            }
-            b4Var.u(l3Var);
-            b4Var.z(a(), k());
-            y6 y6Var = new y6(b4Var);
-            y6Var.b(l());
-            y6Var.c(g());
-            y6Var.f(i());
-            y6Var.d(e());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m3Var)) == null) {
+            y6 y6Var = new y6(this);
+            y6Var.h = new y3(y6Var.o(), m3Var);
             return y6Var;
         }
         return (y6) invokeL.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y6(y6 y6Var) {
+        super(y6Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {y6Var};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((x6) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.h = y6Var.h;
+    }
+
+    public void p(y3 y3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y3Var) == null) {
+            this.h = y3Var;
+            if (y3Var != null) {
+                j(y3Var.k());
+                h(y3Var.j());
+                f(y3Var.g());
+                c(y3Var.f());
+                d(y3Var.d());
+                b(y3Var.e());
+            }
+        }
     }
 }

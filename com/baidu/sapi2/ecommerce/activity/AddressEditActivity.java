@@ -692,10 +692,10 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
             this.checkedCustomTagTv.setText(this.editTagEt.getText().toString().trim());
             if (this.isDarkMode) {
                 this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060960));
-                this.customTagLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f081076);
+                this.customTagLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f08108b);
             } else {
                 this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06095f));
-                this.customTagLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f081075);
+                this.customTagLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f08108a);
             }
             this.customTagLine.setVisibility(0);
             setTopRightBtnEnableStatus();
@@ -1105,13 +1105,13 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLI(1048576, this, radioGroup, i) == null) {
                         if (!this.this$0.isClickConfirmCustomTag) {
-                            if (R.id.obfuscated_res_0x7f091dc5 == i) {
+                            if (R.id.obfuscated_res_0x7f091de4 == i) {
                                 this.this$0.unCheckedCustomTag();
                                 return;
-                            } else if (R.id.obfuscated_res_0x7f091dc3 == i) {
+                            } else if (R.id.obfuscated_res_0x7f091de2 == i) {
                                 this.this$0.unCheckedCustomTag();
                                 return;
-                            } else if (R.id.obfuscated_res_0x7f091dc9 == i) {
+                            } else if (R.id.obfuscated_res_0x7f091de8 == i) {
                                 this.this$0.unCheckedCustomTag();
                                 return;
                             } else {
@@ -1255,10 +1255,10 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
             this.isCheckedCustomTag = false;
             if (this.isDarkMode) {
                 this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060964));
-                this.customTagLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810a4);
+                this.customTagLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810b8);
             } else {
                 this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060963));
-                this.customTagLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810a3);
+                this.customTagLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810b7);
             }
             this.customTagLine.setVisibility(8);
             setTopRightBtnEnableStatus();
@@ -1289,11 +1289,11 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                     str = this.editTagEt.getText().toString().trim();
                 } else {
                     int checkedRadioButtonId = this.addrTagGroup.getCheckedRadioButtonId();
-                    if (checkedRadioButtonId == R.id.obfuscated_res_0x7f091dc5) {
+                    if (checkedRadioButtonId == R.id.obfuscated_res_0x7f091de4) {
                         str = AddressField.VALUE_HOME_TAG;
-                    } else if (checkedRadioButtonId == R.id.obfuscated_res_0x7f091dc3) {
+                    } else if (checkedRadioButtonId == R.id.obfuscated_res_0x7f091de2) {
                         str = AddressField.VALUE_COMPANY_TAG;
-                    } else if (checkedRadioButtonId == R.id.obfuscated_res_0x7f091dc9) {
+                    } else if (checkedRadioButtonId == R.id.obfuscated_res_0x7f091de8) {
                         str = AddressField.VALUE_SCHOOL_TAG;
                     } else {
                         str = "";
@@ -1320,11 +1320,11 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
     private void closeAddrCopyLayout() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65602, this) == null) {
-            this.ivAddrCopyToggle.setImageResource(R.drawable.obfuscated_res_0x7f081093);
+            this.ivAddrCopyToggle.setImageResource(R.drawable.obfuscated_res_0x7f0810a7);
             if (this.isDarkMode) {
-                this.copyFormView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081079);
+                this.copyFormView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08108e);
             } else {
-                this.copyFormView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081078);
+                this.copyFormView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08108d);
             }
             this.addrCopyLayout.setVisibility(8);
         }
@@ -1335,9 +1335,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         if (interceptable == null || interceptable.invokeV(65603, this) == null) {
             this.isSetDefaultAddr = false;
             if (this.isDarkMode) {
-                this.isDefaultToggle.setBackgroundResource(R.drawable.obfuscated_res_0x7f08108f);
+                this.isDefaultToggle.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810a3);
             } else {
-                this.isDefaultToggle.setBackgroundResource(R.drawable.obfuscated_res_0x7f08108d);
+                this.isDefaultToggle.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810a1);
             }
             this.defaultTagClose.setVisibility(0);
             this.defaultTagOpen.setVisibility(8);
@@ -1360,7 +1360,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
     private void openAddrCopyLayout() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65609, this) == null) {
-            this.ivAddrCopyToggle.setImageResource(R.drawable.obfuscated_res_0x7f081094);
+            this.ivAddrCopyToggle.setImageResource(R.drawable.obfuscated_res_0x7f0810a8);
             if (this.isDarkMode) {
                 this.copyFormView.setBackgroundResource(R.color.obfuscated_res_0x7f060972);
             } else {
@@ -1386,9 +1386,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         if (interceptable == null || interceptable.invokeV(65611, this) == null) {
             this.isSetDefaultAddr = true;
             if (this.isDarkMode) {
-                this.isDefaultToggle.setBackgroundResource(R.drawable.obfuscated_res_0x7f081076);
+                this.isDefaultToggle.setBackgroundResource(R.drawable.obfuscated_res_0x7f08108b);
             } else {
-                this.isDefaultToggle.setBackgroundResource(R.drawable.obfuscated_res_0x7f081075);
+                this.isDefaultToggle.setBackgroundResource(R.drawable.obfuscated_res_0x7f08108a);
             }
             this.defaultTagClose.setVisibility(8);
             this.defaultTagOpen.setVisibility(0);
@@ -1643,15 +1643,15 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65605, this, z) == null) {
             if (z) {
-                viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091d9a);
+                viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091db9);
             } else {
-                viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091d9c);
+                viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091dbb);
             }
             View inflate = viewStub.inflate();
-            this.addrTagGroup = (RadioGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091dc4);
-            this.homeTagRb = (CheckedRadioButton) inflate.findViewById(R.id.obfuscated_res_0x7f091dc5);
-            this.companyTagRb = (CheckedRadioButton) inflate.findViewById(R.id.obfuscated_res_0x7f091dc3);
-            this.schoolTagRb = (CheckedRadioButton) inflate.findViewById(R.id.obfuscated_res_0x7f091dc9);
+            this.addrTagGroup = (RadioGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091de3);
+            this.homeTagRb = (CheckedRadioButton) inflate.findViewById(R.id.obfuscated_res_0x7f091de4);
+            this.companyTagRb = (CheckedRadioButton) inflate.findViewById(R.id.obfuscated_res_0x7f091de2);
+            this.schoolTagRb = (CheckedRadioButton) inflate.findViewById(R.id.obfuscated_res_0x7f091de8);
         }
     }
 
@@ -1700,57 +1700,57 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65607, this) == null) {
-            this.rootView = findViewById(R.id.obfuscated_res_0x7f091da4);
-            this.titleBarView = (TitleBarView) findViewById(R.id.obfuscated_res_0x7f091de9);
-            this.addrContentSv = (ScrollView) findViewById(R.id.obfuscated_res_0x7f091d92);
-            InputFormView inputFormView = (InputFormView) findViewById(R.id.obfuscated_res_0x7f091db4);
+            this.rootView = findViewById(R.id.obfuscated_res_0x7f091dc3);
+            this.titleBarView = (TitleBarView) findViewById(R.id.obfuscated_res_0x7f091e08);
+            this.addrContentSv = (ScrollView) findViewById(R.id.obfuscated_res_0x7f091db1);
+            InputFormView inputFormView = (InputFormView) findViewById(R.id.obfuscated_res_0x7f091dd3);
             this.nameInput = inputFormView;
             this.nameInputEt = inputFormView.getEditText();
             this.nameInput.setDarkMode(this.isDarkMode);
-            InputFormView inputFormView2 = (InputFormView) findViewById(R.id.obfuscated_res_0x7f091db3);
+            InputFormView inputFormView2 = (InputFormView) findViewById(R.id.obfuscated_res_0x7f091dd2);
             this.mobileInput = inputFormView2;
             this.mobileInputEt = inputFormView2.getEditText();
             this.mobileInput.setDarkMode(this.isDarkMode);
-            this.regionLayout = findViewById(R.id.obfuscated_res_0x7f091dbb);
-            this.selectRegionIv = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e3a);
-            this.tvRegion = (TextView) findViewById(R.id.obfuscated_res_0x7f091d8f);
-            InputFormView inputFormView3 = (InputFormView) findViewById(R.id.obfuscated_res_0x7f091da2);
+            this.regionLayout = findViewById(R.id.obfuscated_res_0x7f091dda);
+            this.selectRegionIv = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e59);
+            this.tvRegion = (TextView) findViewById(R.id.obfuscated_res_0x7f091dae);
+            InputFormView inputFormView3 = (InputFormView) findViewById(R.id.obfuscated_res_0x7f091dc1);
             this.detailInput = inputFormView3;
             this.detailAddrEt = inputFormView3.getEditText();
             this.detailInput.setDarkMode(this.isDarkMode);
-            this.ivAddrCopyToggle = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d97);
-            this.copyFormView = (TextFormView) findViewById(R.id.obfuscated_res_0x7f091d96);
-            this.addrCopyLayout = findViewById(R.id.obfuscated_res_0x7f091de3);
-            this.textOcrEt = (EditText) findViewById(R.id.obfuscated_res_0x7f091db7);
-            this.cleanLongTextBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091dda);
-            this.useLongTextBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091e61);
-            this.voiceOcrBtn = findViewById(R.id.obfuscated_res_0x7f091e64);
-            this.imgOcrBtn = findViewById(R.id.obfuscated_res_0x7f091dfa);
-            this.imgOcrIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f091df8);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d90);
+            this.ivAddrCopyToggle = (ImageView) findViewById(R.id.obfuscated_res_0x7f091db6);
+            this.copyFormView = (TextFormView) findViewById(R.id.obfuscated_res_0x7f091db5);
+            this.addrCopyLayout = findViewById(R.id.obfuscated_res_0x7f091e02);
+            this.textOcrEt = (EditText) findViewById(R.id.obfuscated_res_0x7f091dd6);
+            this.cleanLongTextBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091df9);
+            this.useLongTextBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091e80);
+            this.voiceOcrBtn = findViewById(R.id.obfuscated_res_0x7f091e83);
+            this.imgOcrBtn = findViewById(R.id.obfuscated_res_0x7f091e19);
+            this.imgOcrIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e17);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091daf);
             this.addTagBtn = imageView;
             if (this.isDarkMode) {
-                i = R.drawable.obfuscated_res_0x7f08106d;
+                i = R.drawable.obfuscated_res_0x7f081082;
             } else {
-                i = R.drawable.obfuscated_res_0x7f08106c;
+                i = R.drawable.obfuscated_res_0x7f081081;
             }
             imageView.setImageResource(i);
-            this.editTagLayout = findViewById(R.id.obfuscated_res_0x7f091dea);
-            LengthLimitEditText lengthLimitEditText = (LengthLimitEditText) findViewById(R.id.obfuscated_res_0x7f091e45);
+            this.editTagLayout = findViewById(R.id.obfuscated_res_0x7f091e09);
+            LengthLimitEditText lengthLimitEditText = (LengthLimitEditText) findViewById(R.id.obfuscated_res_0x7f091e64);
             this.editTagEt = lengthLimitEditText;
             lengthLimitEditText.setLengthLimit(5);
-            this.editTagConfirmBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091e44);
-            this.customTagLayout = findViewById(R.id.obfuscated_res_0x7f091de4);
-            this.checkedCustomTagTv = (TextView) findViewById(R.id.obfuscated_res_0x7f091de6);
-            this.customTagLine = findViewById(R.id.obfuscated_res_0x7f091de5);
-            this.updateCustomTagBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091de7);
-            this.isDefaultToggle = findViewById(R.id.obfuscated_res_0x7f091d9d);
-            this.defaultTagClose = findViewById(R.id.obfuscated_res_0x7f091d99);
-            this.defaultTagOpen = findViewById(R.id.obfuscated_res_0x7f091d9b);
-            this.suggestAddrLayout = findViewById(R.id.obfuscated_res_0x7f091e3d);
-            this.suggestAddrListView = (ListView) findViewById(R.id.obfuscated_res_0x7f091e3e);
-            this.delAddrBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091d9f);
-            this.mapAddrCheckValidTv = (TextView) findViewById(R.id.obfuscated_res_0x7f091d91);
+            this.editTagConfirmBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091e63);
+            this.customTagLayout = findViewById(R.id.obfuscated_res_0x7f091e03);
+            this.checkedCustomTagTv = (TextView) findViewById(R.id.obfuscated_res_0x7f091e05);
+            this.customTagLine = findViewById(R.id.obfuscated_res_0x7f091e04);
+            this.updateCustomTagBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e06);
+            this.isDefaultToggle = findViewById(R.id.obfuscated_res_0x7f091dbc);
+            this.defaultTagClose = findViewById(R.id.obfuscated_res_0x7f091db8);
+            this.defaultTagOpen = findViewById(R.id.obfuscated_res_0x7f091dba);
+            this.suggestAddrLayout = findViewById(R.id.obfuscated_res_0x7f091e5c);
+            this.suggestAddrListView = (ListView) findViewById(R.id.obfuscated_res_0x7f091e5d);
+            this.delAddrBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091dbe);
+            this.mapAddrCheckValidTv = (TextView) findViewById(R.id.obfuscated_res_0x7f091db0);
             initDefaultTagLayout(this.isDarkMode);
             this.titleBarView.setLeft(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, this);
             this.titleBarView.setRight("保存", this);
@@ -1766,54 +1766,54 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
             this.editTagConfirmBtn.setOnClickListener(this);
             this.updateCustomTagBtn.setOnClickListener(this);
             if (this.isDarkMode) {
-                this.mapAddrCheckValidTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f08105f);
+                this.mapAddrCheckValidTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081073);
                 this.mapAddrCheckValidTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609bb));
                 this.rootView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060a41));
                 this.titleBarView.setDarkMode();
-                this.nameInput.setBackgroundResource(R.drawable.obfuscated_res_0x7f08107b);
+                this.nameInput.setBackgroundResource(R.drawable.obfuscated_res_0x7f081090);
                 this.mobileInput.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060972));
                 this.regionLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060972));
                 this.tvRegion.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060974));
                 this.tvRegion.setHintTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060970));
-                findViewById(R.id.obfuscated_res_0x7f091ddd).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06096e));
-                this.detailInput.setBackgroundResource(R.drawable.obfuscated_res_0x7f081079);
-                TextFormView textFormView = (TextFormView) findViewById(R.id.obfuscated_res_0x7f091db6);
+                findViewById(R.id.obfuscated_res_0x7f091dfc).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06096e));
+                this.detailInput.setBackgroundResource(R.drawable.obfuscated_res_0x7f08108e);
+                TextFormView textFormView = (TextFormView) findViewById(R.id.obfuscated_res_0x7f091dd5);
                 textFormView.setDarkMode();
-                textFormView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08107b);
-                this.imgOcrBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810a4);
-                ((TextView) findViewById(R.id.obfuscated_res_0x7f091df9)).setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060976));
-                this.addrCopyLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f081079);
-                findViewById(R.id.obfuscated_res_0x7f091d95).setBackgroundResource(R.drawable.obfuscated_res_0x7f081071);
+                textFormView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081090);
+                this.imgOcrBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810b8);
+                ((TextView) findViewById(R.id.obfuscated_res_0x7f091e18)).setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060976));
+                this.addrCopyLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f08108e);
+                findViewById(R.id.obfuscated_res_0x7f091db4).setBackgroundResource(R.drawable.obfuscated_res_0x7f081086);
                 this.textOcrEt.setHintTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060970));
                 this.textOcrEt.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060974));
-                this.cleanLongTextBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f08109d);
+                this.cleanLongTextBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810b1);
                 this.cleanLongTextBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06095e));
-                this.useLongTextBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f081065);
+                this.useLongTextBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f081079);
                 this.useLongTextBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060984));
-                TextFormView textFormView2 = (TextFormView) findViewById(R.id.obfuscated_res_0x7f091da5);
-                textFormView2.setBackgroundResource(R.drawable.obfuscated_res_0x7f08107b);
+                TextFormView textFormView2 = (TextFormView) findViewById(R.id.obfuscated_res_0x7f091dc4);
+                textFormView2.setBackgroundResource(R.drawable.obfuscated_res_0x7f081090);
                 textFormView2.setDarkMode();
-                findViewById(R.id.obfuscated_res_0x7f091de8).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060972));
-                this.addTagBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f08108f);
-                this.editTagEt.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810a4);
+                findViewById(R.id.obfuscated_res_0x7f091e07).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060972));
+                this.addTagBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810a3);
+                this.editTagEt.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810b8);
                 this.editTagEt.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060974));
                 this.editTagEt.setHintTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060970));
-                this.editTagConfirmBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f08106f);
+                this.editTagConfirmBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f081084);
                 this.editTagConfirmBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06097c));
                 this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060964));
-                this.customTagLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810a4);
+                this.customTagLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810b8);
                 this.customTagLine.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060982));
-                this.updateCustomTagBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810c3);
-                findViewById(R.id.obfuscated_res_0x7f091da3).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06096e));
-                TextFormView textFormView3 = (TextFormView) findViewById(R.id.obfuscated_res_0x7f091e3b);
-                textFormView3.setBackgroundResource(R.drawable.obfuscated_res_0x7f081079);
+                this.updateCustomTagBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810d7);
+                findViewById(R.id.obfuscated_res_0x7f091dc2).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06096e));
+                TextFormView textFormView3 = (TextFormView) findViewById(R.id.obfuscated_res_0x7f091e5a);
+                textFormView3.setBackgroundResource(R.drawable.obfuscated_res_0x7f08108e);
                 textFormView3.setDarkMode();
-                this.isDefaultToggle.setBackgroundResource(R.drawable.obfuscated_res_0x7f081073);
-                this.defaultTagClose.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810ae);
-                this.defaultTagOpen.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810ae);
-                this.delAddrBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810af);
+                this.isDefaultToggle.setBackgroundResource(R.drawable.obfuscated_res_0x7f081088);
+                this.defaultTagClose.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810c2);
+                this.defaultTagOpen.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810c2);
+                this.delAddrBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810c3);
                 this.delAddrBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06096c));
-                this.copyFormView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081079);
+                this.copyFormView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08108e);
                 this.copyFormView.setDarkMode();
                 this.suggestAddrLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060978));
             }
@@ -2136,7 +2136,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         if (interceptable == null || interceptable.invokeL(65631, this, addressSelectedBean) == null) {
             String regionDetailStr = getRegionDetailStr(this.selectedRegion);
             if (!TextUtils.isEmpty(regionDetailStr) && !TextUtils.equals(regionDetailStr, getRegionDetailStr(addressSelectedBean))) {
-                ToastUtil.show(R.drawable.obfuscated_res_0x7f0810fb, "已切换所在地区");
+                ToastUtil.show(R.drawable.obfuscated_res_0x7f08110f, "已切换所在地区");
             }
             this.selectedRegion = addressSelectedBean;
             this.tvRegion.setText(getRegionDetailStr(addressSelectedBean));
@@ -2200,12 +2200,12 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
             if (i != 2001 && i != 2002) {
                 if (i != 3001) {
                     if (i != 3003 && !TextUtils.isEmpty(str)) {
-                        ToastUtil.show(R.drawable.obfuscated_res_0x7f0810a0, str);
+                        ToastUtil.show(R.drawable.obfuscated_res_0x7f0810b4, str);
                         return;
                     }
                     return;
                 }
-                ToastUtil.show(R.drawable.obfuscated_res_0x7f0810a0, "图片识别失败");
+                ToastUtil.show(R.drawable.obfuscated_res_0x7f0810b4, "图片识别失败");
             }
         }
     }
@@ -2291,7 +2291,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
             }
             BaseOptionActivity.lastClickTime = currentTimeMillis;
             int id = view2.getId();
-            if (R.id.obfuscated_res_0x7f091d9d == id) {
+            if (R.id.obfuscated_res_0x7f091dbc == id) {
                 if (this.isSetDefaultAddr) {
                     AddressStatUtil.statAddressOption(StatKey.EDITADDR_CANCEL_DEFAULT);
                     closeDefaultAddr();
@@ -2299,28 +2299,28 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                 }
                 AddressStatUtil.statAddressOption(StatKey.EDITADDR_SET_DEFAULT);
                 openDefaultAddr();
-            } else if (R.id.obfuscated_res_0x7f091d90 == id) {
+            } else if (R.id.obfuscated_res_0x7f091daf == id) {
                 this.addTagBtn.setVisibility(8);
                 this.customTagLayout.setVisibility(8);
                 this.editTagLayout.setVisibility(0);
-            } else if (R.id.obfuscated_res_0x7f091e44 == id) {
+            } else if (R.id.obfuscated_res_0x7f091e63 == id) {
                 this.isClickConfirmCustomTag = true;
                 checkedCustomTag();
                 this.editTagLayout.setVisibility(8);
                 this.customTagLayout.setVisibility(0);
-            } else if (R.id.obfuscated_res_0x7f091de7 == id) {
+            } else if (R.id.obfuscated_res_0x7f091e06 == id) {
                 this.customTagLayout.setVisibility(8);
                 this.editTagLayout.setVisibility(0);
-            } else if (R.id.obfuscated_res_0x7f091dda == id) {
+            } else if (R.id.obfuscated_res_0x7f091df9 == id) {
                 this.textOcrEt.setText("");
-            } else if (R.id.obfuscated_res_0x7f091e61 == id) {
+            } else if (R.id.obfuscated_res_0x7f091e80 == id) {
                 AddressStatUtil.statAddressOption(StatKey.EDITADDR_SPLIT_CLICK);
                 String trim = this.textOcrEt.getText().toString().trim();
                 if (TextUtils.isEmpty(trim)) {
                     return;
                 }
                 ((AddressEditPresenter) this.presenter).recogniseTextOcrAddressResult(trim, 3002);
-            } else if (R.id.obfuscated_res_0x7f091d8f == id) {
+            } else if (R.id.obfuscated_res_0x7f091dae == id) {
                 if (this.isKeyBoardShowing) {
                     this.isShowRegionSelectDialog = true;
                     InputMethodManager inputMethodManager = (InputMethodManager) getSystemService("input_method");
@@ -2331,7 +2331,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                     return;
                 }
                 showRegionSelectorDialog();
-            } else if (R.id.obfuscated_res_0x7f091dfa == id) {
+            } else if (R.id.obfuscated_res_0x7f091e19 == id) {
                 AddressStatUtil.statAddressOption(StatKey.EDITADDR_OCR_CLICK);
                 if (this.isKeyBoardShowing) {
                     this.isShowImgOcrDialog = true;
@@ -2343,23 +2343,23 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                     return;
                 }
                 showImgOcrOptionDialog();
-            } else if (R.id.obfuscated_res_0x7f091e49 == id) {
+            } else if (R.id.obfuscated_res_0x7f091e68 == id) {
                 if (this.isOpenEdit) {
                     endProcess();
                 }
                 finish();
-            } else if (R.id.obfuscated_res_0x7f091e4a == id) {
+            } else if (R.id.obfuscated_res_0x7f091e69 == id) {
                 AddressStatUtil.statAddressOption(StatKey.EDITADDR_SAVEBTN_CLICK);
                 checkUserInputAndSubmit();
-            } else if (R.id.obfuscated_res_0x7f091d96 == id) {
+            } else if (R.id.obfuscated_res_0x7f091db5 == id) {
                 if (this.addrCopyLayout.getVisibility() == 0) {
                     closeAddrCopyLayout();
                 } else {
                     openAddrCopyLayout();
                 }
-            } else if (R.id.obfuscated_res_0x7f091d9f == id) {
+            } else if (R.id.obfuscated_res_0x7f091dbe == id) {
                 showDelNoticeDialog();
-            } else if (R.id.obfuscated_res_0x7f091e3a == id) {
+            } else if (R.id.obfuscated_res_0x7f091e59 == id) {
                 if (this.isCreateAddress) {
                     str = "0";
                 } else {
@@ -2385,7 +2385,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0502);
+            setContentView(R.layout.obfuscated_res_0x7f0d0501);
             ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.obfuscated_res_0x7f060a42));
             initView();
             addAddress4ElementUpdateListener();

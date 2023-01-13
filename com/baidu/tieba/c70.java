@@ -1,15 +1,29 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
-public class c70 {
+import java.io.IOException;
+import java.net.Proxy;
+import java.net.ProxySelector;
+import java.net.SocketAddress;
+import java.net.URI;
+import java.util.Collections;
+import java.util.List;
+/* loaded from: classes4.dex */
+public class c70 extends ProxySelector {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // java.net.ProxySelector
+    public void connectFailed(URI uri, SocketAddress socketAddress, IOException iOException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, uri, socketAddress, iOException) == null) {
+        }
+    }
 
     public c70() {
         Interceptable interceptable = $ic;
@@ -25,28 +39,16 @@ public class c70 {
         }
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    @Override // java.net.ProxySelector
+    public List<Proxy> select(URI uri) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            try {
-                Method declaredMethod = Class.forName("com.baidu.browser.sailor.util.BdZeusUtil", true, c70.class.getClassLoader()).getDeclaredMethod("isWebkitLoaded", new Class[0]);
-                declaredMethod.setAccessible(true);
-                boolean booleanValue = ((Boolean) declaredMethod.invoke(null, new Object[0])).booleanValue();
-                Method declaredMethod2 = Class.forName("com.baidu.webkit.internal.blink.WebSettingsGlobalBlink", true, c70.class.getClassLoader()).getDeclaredMethod("getChromiunNetInit", new Class[0]);
-                declaredMethod2.setAccessible(true);
-                if (!booleanValue) {
-                    return false;
-                }
-                if (!((Boolean) declaredMethod2.invoke(null, new Object[0])).booleanValue()) {
-                    return false;
-                }
-                return true;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
+            if (uri != null) {
+                return Collections.singletonList(Proxy.NO_PROXY);
             }
+            throw new IllegalArgumentException("uri must not be null");
         }
-        return invokeV.booleanValue;
+        return (List) invokeL.objValue;
     }
 }

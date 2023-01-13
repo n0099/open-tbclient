@@ -1,43 +1,45 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.view.Window;
-import android.view.WindowManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class yz8 {
+public abstract class yz8 implements Comparable<yz8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    public abstract void b();
+
+    public abstract void c();
+
+    public abstract void d();
+
+    public yz8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                return 2038;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return i;
         }
-        return invokeI.intValue;
     }
 
-    public static void b(int i, WindowManager.LayoutParams layoutParams, Window window) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(yz8 yz8Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeILL(65537, null, i, layoutParams, window) == null) && layoutParams != null && window != null) {
-            try {
-                Field declaredField = layoutParams.getClass().getDeclaredField("layoutInDisplayCutoutMode");
-                if (declaredField != null) {
-                    declaredField.set(layoutParams, Integer.valueOf(i));
-                    window.setAttributes(layoutParams);
-                }
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (NoSuchFieldException e2) {
-                e2.printStackTrace();
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, yz8Var)) == null) {
+            return this.a - yz8Var.a;
         }
+        return invokeL.intValue;
     }
 }

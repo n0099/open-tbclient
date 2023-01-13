@@ -14,13 +14,13 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.fuseable.FuseToObservable;
 import io.reactivex.plugins.RxJavaPlugins;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ObservableIgnoreElementsCompletable<T> extends Completable implements FuseToObservable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ObservableSource<T> source;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class IgnoreObservable<T> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

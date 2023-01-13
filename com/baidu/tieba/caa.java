@@ -1,65 +1,46 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.k8a;
+import com.baidu.tieba.o8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.dialog.CancelType;
-/* loaded from: classes3.dex */
-public class caa implements nca {
+/* loaded from: classes4.dex */
+public final class caa<T> implements k8a.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public AbsViewEventHandler b;
-    public d9a c;
-    public eca d;
+    public final o8a.c<T> a;
 
-    @Override // com.baidu.tieba.nca
-    public boolean b(DialogInterface dialogInterface, CancelType cancelType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface, cancelType)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public caa(int i, int i2, Activity activity, AbsViewEventHandler absViewEventHandler, d9a d9aVar, eca ecaVar) {
+    public caa(o8a.c<T> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), activity, absViewEventHandler, d9aVar, ecaVar};
+            Object[] objArr = {cVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = activity;
-        this.b = absViewEventHandler;
-        this.c = d9aVar;
-        this.d = ecaVar;
+        this.a = cVar;
     }
 
-    @Override // com.baidu.tieba.nca
-    public void a(CancelType cancelType) {
+    public void call(q8a<? super T> q8aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
-                this.d.a();
-            }
-            RLog.info("PayWayDialogListener", "PaySplitOrderDialog notifyCancelType clickArea:" + cancelType);
-            this.c.d(cancelType, this.b);
+        if (interceptable == null || interceptable.invokeL(1048576, this, q8aVar) == null) {
+            aaa aaaVar = new aaa(q8aVar);
+            q8aVar.b(aaaVar);
+            this.a.call(aaaVar);
         }
+    }
+
+    @Override // com.baidu.tieba.k8a.a, com.baidu.tieba.y8a
+    public /* bridge */ /* synthetic */ void call(Object obj) {
+        call((q8a) ((q8a) obj));
     }
 }

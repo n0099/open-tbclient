@@ -1,27 +1,27 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Build;
+import com.baidu.bdtask.framework.ui.toast.ToastViewData;
+import com.baidu.tieba.gt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class ht {
+public abstract class ht<VM extends gt<? extends ToastViewData>> implements at<ToastViewData, VM> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Activity activity) {
-        InterceptResult invokeL;
+    public ht() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
-            if (activity == null || activity.isFinishing()) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if (Build.VERSION.SDK_INT >= 17 && activity.isDestroyed()) {
-                return true;
-            }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 }

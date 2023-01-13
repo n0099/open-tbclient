@@ -1,55 +1,65 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.channels.ReadableByteChannel;
-import okhttp3.ResponseBody;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class xd4 implements zd4 {
+public class xd4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final lh4 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ResponseBody a;
 
-    public xd4(@NonNull ResponseBody responseBody) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948296513, "Lcom/baidu/tieba/xd4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948296513, "Lcom/baidu/tieba/xd4;");
+                return;
+            }
+        }
+        a = lh4.e();
+    }
+
+    public xd4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {responseBody};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = responseBody;
     }
 
-    @Override // com.baidu.tieba.zd4
-    public long a() {
-        InterceptResult invokeV;
+    public Integer a(Map<String, Object> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.contentLength();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
+            if (map != null && !map.isEmpty() && map.containsKey("queue_priority")) {
+                try {
+                    int intValue = ((Integer) map.get("queue_priority")).intValue();
+                    if (intValue == 200 || intValue == 300) {
+                        return Integer.valueOf(intValue);
+                    }
+                } catch (Exception e) {
+                    a.h("QueuePriorityOptionHelper", "#parseOption error", e, false);
+                }
+            }
+            return 100;
         }
-        return invokeV.longValue;
-    }
-
-    @Override // com.baidu.tieba.zd4
-    public ReadableByteChannel source() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.source();
-        }
-        return (ReadableByteChannel) invokeV.objValue;
+        return (Integer) invokeL.objValue;
     }
 }

@@ -15,10 +15,10 @@ import com.baidu.tbadk.core.data.RecommendTopicData;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rw4;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.cx4;
+import com.baidu.tieba.pk5;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.yj5;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,9 +48,9 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
                 return;
             }
         }
-        b = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-        c = yi.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
-        d = (((((yi.l(TbadkCoreApplication.getInst()) / 2) - yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005)) - (yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004) * 2)) - yi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002)) - b) - c;
+        b = zi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+        c = zi.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
+        d = (((((zi.l(TbadkCoreApplication.getInst()) / 2) - zi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005)) - (zi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004) * 2)) - zi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002)) - b) - c;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -80,7 +80,7 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
             this.a = recommendTopicListData;
             if (recommendTopicListData != null) {
                 String topicName = recommendTopicListData.getTopicName();
-                if (xi.isEmpty(topicName)) {
+                if (yi.isEmpty(topicName)) {
                     setVisibility(8);
                     return;
                 }
@@ -152,7 +152,7 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            rw4 d2 = rw4.d(this);
+            cx4 d2 = cx4.d(this);
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0304);
@@ -174,10 +174,10 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
     public void onClick(View view2) {
         RecommendTopicData.RecommendTopicListData recommendTopicListData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && (recommendTopicListData = this.a) != null && !xi.isEmpty(recommendTopicListData.getTopicName())) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && (recommendTopicListData = this.a) != null && !yi.isEmpty(recommendTopicListData.getTopicName())) {
             if (NewWebHotTopicPageSwitch.isOn()) {
                 if (view2.getContext() instanceof BaseActivity) {
-                    yj5.e(((BaseActivity) view2.getContext()).getPageContext(), null, this.a.getTopicName());
+                    pk5.e(((BaseActivity) view2.getContext()).getPageContext(), null, this.a.getTopicName());
                     return;
                 }
                 return;

@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,25 +11,58 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.TreeMap;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public final class va2 {
+public class va2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean n;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public boolean g;
-    public String h;
-    public boolean i;
-    public String j;
-    public String k;
-    public String l;
-    public boolean m;
+    public final List<ke2> a;
+
+    /* loaded from: classes6.dex */
+    public static class a extends ke2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String d;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(@Nullable Map<String, String> map) {
+            super("TopPages", map);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {map};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (Map) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.je2
+        public String c(h32 h32Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, h32Var)) == null) {
+                if (this.d == null) {
+                    this.d = super.c(h32Var);
+                }
+                return this.d;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +77,7 @@ public final class va2 {
                 return;
             }
         }
-        n = ok1.a;
+        b = tk1.a;
     }
 
     public va2() {
@@ -57,73 +90,55 @@ public final class va2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList();
     }
 
-    public static fe2 a(va2 va2Var) {
+    public va2 a(ke2 ke2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, va2Var)) == null) {
-            TreeMap treeMap = new TreeMap();
-            treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, va2Var.a);
-            treeMap.put("pagePath", va2Var.b);
-            treeMap.put("pageType", va2Var.c);
-            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, va2Var.e);
-            if (!TextUtils.isEmpty(va2Var.f)) {
-                if (n) {
-                    Log.d("PageReadyEvent", "add initData: " + va2Var.f);
-                }
-                treeMap.put("initData", va2Var.f);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ke2Var)) == null) {
+            if (ke2Var != null) {
+                this.a.add(ke2Var);
             }
-            if (!TextUtils.isEmpty(va2Var.d)) {
-                treeMap.put("onReachBottomDistance", va2Var.d);
-            }
-            treeMap.put(PrefetchEvent.EVENT_DATA_SHOW_PERFORMANCE_PANEL, String.valueOf(va2Var.g));
-            if (!TextUtils.isEmpty(va2Var.h)) {
-                treeMap.put("routeId", va2Var.h);
-            }
-            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(va2Var.i));
-            if (!TextUtils.isEmpty(va2Var.j)) {
-                treeMap.put("slavePreload", va2Var.j);
-            }
-            treeMap.put("root", va2Var.k);
-            c03.a(treeMap, "page ready event");
-            w73.a(va2Var.b, treeMap);
-            String f = wh3.f(w73.b(va2Var.b));
-            e12.k("PageReadyEvent", "#createPageReadyMessage pagePath=" + ((String) treeMap.get("pagePath")));
-            String c = o43.c(va2Var.a, f);
-            va2Var.l = c;
-            if (!TextUtils.isEmpty(c)) {
-                treeMap.put("pageConfig", va2Var.l);
-            }
-            a62 W = ya2.U().W();
-            if (W != null) {
-                treeMap.put("masterId", W.a());
-            }
-            if (va2Var.m) {
-                treeMap.put("isFirstPage", "true");
-            }
-            if (i32.c()) {
-                treeMap.put("offlinePerfTool", String.valueOf(1));
-            }
-            if (ca3.d()) {
-                treeMap.put("performanceType", CloudStabilityUBCUtils.VALUE_TYPE);
-            }
-            if (ca3.f()) {
-                treeMap.put("performanceType", "stabilityProfile");
-            }
-            return new fe2("PageReady", treeMap);
+            return this;
         }
-        return (fe2) invokeL.objValue;
+        return (va2) invokeL.objValue;
     }
 
-    public String toString() {
+    public a b() {
+        InterceptResult invokeV;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (b) {
+                j = System.currentTimeMillis();
+            } else {
+                j = 0;
+            }
+            TreeMap treeMap = new TreeMap();
+            treeMap.put(NotificationCompat.WearableExtender.KEY_PAGES, c().toString());
+            if (b) {
+                long currentTimeMillis = System.currentTimeMillis();
+                Log.d("TopPageEvent", "build slave preload msg cost - " + (currentTimeMillis - j) + "ms");
+            }
+            return new a(treeMap);
+        }
+        return (a) invokeV.objValue;
+    }
+
+    public final JSONArray c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "PageReadyEvent{appPath='" + this.a + "', pagePath='" + this.b + "', pageType='" + this.c + "', onReachBottomDistance='" + this.d + "', sConsole='" + this.e + "', initData='" + this.f + "', showPerformancePanel=" + this.g + ", routeId='" + this.h + "', isT7Available=" + this.i + ", preloadFile='" + this.j + "', rootPath='" + this.k + "', pageConfig='" + this.l + "'}";
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            for (ke2 ke2Var : this.a) {
+                jSONArray.put(ke2Var.s());
+            }
+            return jSONArray;
         }
-        return (String) invokeV.objValue;
+        return (JSONArray) invokeV.objValue;
     }
 }

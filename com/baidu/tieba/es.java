@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.bdtask.framework.utils.DebugTrace;
 import com.baidu.searchbox.http.HttpManager;
 import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.searchbox.http.cookie.CookieManager;
@@ -10,101 +12,42 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.HashMap;
+import okhttp3.Headers;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
+import okio.Buffer;
 /* loaded from: classes4.dex */
-public class es {
+public class es<T> extends fs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String c;
+    public String d;
+    public ResponseCallback<T> e;
+    public int f;
 
-    /* loaded from: classes4.dex */
-    public interface b {
-        void a(boolean z, byte[] bArr);
+    @Override // com.baidu.tieba.fs
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "POST" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes4.dex */
-    public class a extends ResponseCallback<byte[]> {
+    public class a extends ResponseCallback<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
+        public T a;
+        public final /* synthetic */ es b;
 
-        /* renamed from: com.baidu.tieba.es$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class RunnableC0264a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ byte[] a;
-            public final /* synthetic */ a b;
-
-            public RunnableC0264a(a aVar, byte[] bArr) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, bArr};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = bArr;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                b bVar;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.b.a) != null) {
-                    bVar.a(true, this.a);
-                }
-            }
-        }
-
-        /* loaded from: classes4.dex */
-        public class b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public b(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                b bVar;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.a.a) != null) {
-                    bVar.a(false, null);
-                }
-            }
-        }
-
-        public a(es esVar, b bVar) {
+        public a(es esVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {esVar, bVar};
+                Object[] objArr = {esVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -114,36 +57,96 @@ public class es {
                     return;
                 }
             }
-            this.a = bVar;
+            this.b = esVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: a */
-        public void onSuccess(byte[] bArr, int i) {
+        public String parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, bArr, i) == null) {
-                ExecutorUtilsExt.postOnSerial(new RunnableC0264a(this, bArr), "HandshakeRequest");
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, response, i)) == null) {
+                Headers headers = response.headers();
+                if (headers != null && TextUtils.equals(headers.get("Bdtls"), "recovery")) {
+                    is.b().i().b(0);
+                    return "recovery";
+                }
+                es esVar = this.b;
+                if (esVar.a) {
+                    ResponseBody body = response.body();
+                    String g = this.b.g(body.bytes());
+                    DebugTrace debugTrace = DebugTrace.a;
+                    debugTrace.a("BdtlsPostRequest parseResponse=" + g);
+                    if (this.b.b == 1) {
+                        Buffer buffer = new Buffer();
+                        buffer.writeString(g, Charset.forName(IMAudioTransRequest.CHARSET));
+                        Response build = response.newBuilder().body(ResponseBody.create(body.contentType(), buffer.size(), buffer)).build();
+                        if (this.b.e != null) {
+                            this.a = (T) this.b.e.parseResponse(build, i);
+                        }
+                    }
+                    return g;
+                } else if (esVar.e != null) {
+                    this.a = (T) this.b.e.parseResponse(response, i);
+                    return "";
+                } else {
+                    return "";
+                }
             }
+            return (String) invokeLI.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: b */
-        public byte[] parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
+        public void onSuccess(String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
-                return response.body().bytes();
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
+                DebugTrace debugTrace = DebugTrace.a;
+                debugTrace.a("BdtlsPostRequest onSuccess=" + str);
+                if (TextUtils.equals(str, "recovery")) {
+                    if (is.b().i().m()) {
+                        is.b().i().f();
+                        this.b.e(true);
+                        this.b.k();
+                        return;
+                    }
+                    this.b.e.onFail(new Exception("Exceeded the limit of continuous downgrade"));
+                    return;
+                }
+                is.b().i().n();
+                es esVar = this.b;
+                if (esVar.a) {
+                    if (esVar.b == 1) {
+                        if (esVar.e != null) {
+                            this.b.e.onSuccess(this.a, i);
+                        }
+                        this.b.f = 0;
+                    } else if (es.m(esVar) >= 3) {
+                        ResponseCallback responseCallback = this.b.e;
+                        responseCallback.onFail(new IOException("request fail : " + this.a));
+                        this.b.f = 0;
+                    } else {
+                        es esVar2 = this.b;
+                        esVar2.j(esVar2.c, this.b.d, this.b.e);
+                    }
+                } else if (esVar.e != null) {
+                    this.b.e.onSuccess(this.a, i);
+                    this.b.f = 0;
+                }
             }
-            return (byte[]) invokeLI.objValue;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                ExecutorUtilsExt.postOnSerial(new b(this), "HandshakeRequest");
+                DebugTrace debugTrace = DebugTrace.a;
+                debugTrace.a("BdtlsPostRequest onFail=" + exc.getMessage());
+                if (this.b.e != null) {
+                    this.b.e.onFail(exc);
+                }
             }
         }
     }
@@ -158,19 +161,78 @@ public class es {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = null;
+        this.d = null;
+        this.e = null;
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            j(this.c, this.d, this.e);
+        }
+    }
+
+    public static /* synthetic */ int m(es esVar) {
+        int i = esVar.f;
+        esVar.f = i + 1;
+        return i;
+    }
+
+    @Override // com.baidu.tieba.fs
+    public void c(IOException iOException) {
+        ResponseCallback<T> responseCallback;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iOException) == null) && (responseCallback = this.e) != null) {
+            responseCallback.onFail(iOException);
+        }
+    }
+
+    @Override // com.baidu.tieba.fs
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            DebugTrace debugTrace = DebugTrace.a;
+            debugTrace.a("onRequestError=" + i);
+            ResponseCallback<T> responseCallback = this.e;
+            if (responseCallback != null) {
+                responseCallback.onFail(new Exception("request error  code : " + i));
             }
         }
     }
 
-    public void a(byte[] bArr, b bVar) {
+    @Override // com.baidu.tieba.fs
+    public void f(byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, bArr, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
+            String str = this.c;
             HashMap hashMap = new HashMap();
-            hashMap.put("Content-Type", "application/octet-stream");
-            hashMap.put("Bdtls", "Bdtls");
-            hashMap.put("Bdtls-Content-Type", "json");
-            CookieManager cookieManager = CookieManager.WEBKIT_COOKIES;
-            HttpManager.getDefault(kr.c.h().getAppContext()).postByteRequest().url(kr.c.h().getEnv().b() + "/bdtls").cookieManager(cookieManager).headers(hashMap).content(bArr).build().executeAsync(new a(this, bVar));
+            hashMap.put("Content-Type", "application/json");
+            if (this.a) {
+                hashMap.put("Bdtls", "Bdtls");
+                hashMap.put("Bdtls-Content-Type", "json");
+            }
+            DebugTrace debugTrace = DebugTrace.a;
+            debugTrace.a("BdtlsPostRequest url=" + str);
+            HttpManager.getDefault(mr.c.h().getAppContext()).postByteRequest().mediaType("application/json").url(str).cookieManager(CookieManager.WEBKIT_COOKIES).headers(hashMap).content(bArr).build().executeAsync(new a(this));
         }
+    }
+
+    public void j(String str, String str2, ResponseCallback<T> responseCallback) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(1048580, this, str, str2, responseCallback) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        this.c = str;
+        this.d = str2;
+        this.e = responseCallback;
+        DebugTrace debugTrace = DebugTrace.a;
+        debugTrace.a("requestPost url=" + str);
+        DebugTrace debugTrace2 = DebugTrace.a;
+        debugTrace2.a("requestPost body=" + str2);
+        d(this.d);
     }
 }

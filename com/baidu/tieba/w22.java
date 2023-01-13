@@ -1,179 +1,39 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
+import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.appcompat.R;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.v8engine.V8EngineConfiguration;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.tieba.ra3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.reflect.Field;
+import java.nio.channels.FileChannel;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class w22 {
+public class w22 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public static int b(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (z && z2) {
-                return 3;
-            }
-            if (z) {
-                return 1;
-            }
-            return z2 ? 2 : 0;
-        }
-        return invokeCommon.intValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public long c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final boolean a;
-        public static int b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static long e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-                return 31457280L;
-            }
-            return invokeV.longValue;
-        }
-
-        public static int f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-                return 20;
-            }
-            return invokeV.intValue;
-        }
-
-        public static int g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-                return 102400;
-            }
-            return invokeV.intValue;
-        }
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-367675852, "Lcom/baidu/tieba/w22$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-367675852, "Lcom/baidu/tieba/w22$b;");
-                    return;
-                }
-            }
-            a = ok1.a;
-            b = -1;
-        }
-
-        public static boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                if ((h() & 255) == 1) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public static int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                int h = h();
-                if (h == 0) {
-                    return h;
-                }
-                return (h >> 16) & 255;
-            }
-            return invokeV.intValue;
-        }
-
-        public static int c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                int h = h();
-                if (h == 0) {
-                    return h;
-                }
-                return (h >> 8) & 255;
-            }
-            return invokeV.intValue;
-        }
-
-        public static int h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-                if (b == -1) {
-                    ln2.g0().getSwitch("swan_custom_code_cache", 0);
-                    b = 0;
-                }
-                return b;
-            }
-            return invokeV.intValue;
-        }
-
-        public static a d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-                a aVar = new a();
-                aVar.a = f();
-                aVar.b = g();
-                aVar.c = e();
-                if (a) {
-                    Log.d("CodeCacheSwitcher", "getCodeCacheConfig() maxCount: " + aVar.a + " ,sizeLimit: " + aVar.b + " ,diskSizeThreshold: " + aVar.c);
-                }
-                return aVar;
-            }
-            return (a) invokeV.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -188,41 +48,289 @@ public final class w22 {
                 return;
             }
         }
-        a = ok1.a;
+        a = tk1.a;
     }
 
-    @NonNull
-    public static V8EngineConfiguration.CodeCacheSetting a(String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        char c;
+    public static boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            V8EngineConfiguration.CodeCacheSetting codeCacheSetting = new V8EngineConfiguration.CodeCacheSetting();
-            codeCacheSetting.id = str;
-            ArrayList<String> arrayList = new ArrayList<>();
-            codeCacheSetting.pathList = arrayList;
-            arrayList.add(str2);
-            if (str.hashCode() == 93029162 && str.equals("appjs")) {
-                c = 0;
-            } else {
-                c = 65535;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return qn2.o().N();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void a(File file, File file2) throws IOException {
+        FileChannel fileChannel;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, file, file2) == null) {
+            FileChannel fileChannel2 = 0;
+            try {
+                FileChannel channel = new FileInputStream(file).getChannel();
+                try {
+                    fileChannel2 = new FileOutputStream(file2).getChannel();
+                    fileChannel2.transferFrom(channel, 0L, channel.size());
+                    nk4.d(channel);
+                    nk4.d(fileChannel2);
+                } catch (Throwable th) {
+                    th = th;
+                    FileChannel fileChannel3 = fileChannel2;
+                    fileChannel2 = channel;
+                    fileChannel = fileChannel3;
+                    nk4.d(fileChannel2);
+                    nk4.d(fileChannel);
+                    throw th;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                fileChannel = null;
             }
-            if (c != 0) {
-                codeCacheSetting.maxCount = 20;
-                codeCacheSetting.sizeLimit = 102400;
-            } else {
-                a d = b.d();
-                codeCacheSetting.maxCount = d.a;
-                codeCacheSetting.sizeLimit = d.b;
-                codeCacheSetting.diskCodeCacheSizeThreshold = d.c;
+        }
+    }
+
+    public static void b(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
+            c(str, str2, str3, false);
+        }
+    }
+
+    public static void c(String str, String str2, String str3, boolean z) {
+        FileInputStream fileInputStream;
+        BufferedWriter bufferedWriter;
+        File file;
+        File file2;
+        File file3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) {
+            BufferedReader bufferedReader = null;
+            try {
+                file = new File(str);
+                String absolutePath = file.getParentFile().getAbsolutePath();
+                String name = file.getName();
+                file2 = new File(absolutePath + File.separator + name + ".tmp");
+                file3 = new File(absolutePath + File.separator + name + ".bak");
+            } catch (Exception e) {
+                e = e;
+                fileInputStream = null;
+                bufferedWriter = null;
+            } catch (Throwable th) {
+                th = th;
+                fileInputStream = null;
+                bufferedWriter = null;
+            }
+            if (z) {
+                if (file3.exists()) {
+                    file3.renameTo(file);
+                }
+                nk4.d(null);
+                nk4.d(null);
+                nk4.d(null);
+                return;
+            }
+            FileInputStream fileInputStream2 = new FileInputStream(file);
+            try {
+                BufferedReader bufferedReader2 = new BufferedReader(new InputStreamReader(fileInputStream2));
+                try {
+                    if (file3.exists()) {
+                        a(file3, file);
+                    } else {
+                        a(file, file3);
+                    }
+                    bufferedWriter = new BufferedWriter(new FileWriter(file2));
+                    boolean z2 = false;
+                    while (true) {
+                        try {
+                            String readLine = bufferedReader2.readLine();
+                            if (readLine == null) {
+                                break;
+                            }
+                            if (readLine.contains(str2)) {
+                                bufferedWriter.write(str3 + "\n");
+                                z2 = true;
+                            }
+                            bufferedWriter.write(readLine + "\n");
+                        } catch (Exception e2) {
+                            e = e2;
+                            bufferedReader = bufferedReader2;
+                            Exception exc = e;
+                            fileInputStream = fileInputStream2;
+                            e = exc;
+                            try {
+                                e.printStackTrace();
+                                nk4.d(bufferedReader);
+                                nk4.d(fileInputStream);
+                                nk4.d(bufferedWriter);
+                            } catch (Throwable th2) {
+                                th = th2;
+                                nk4.d(bufferedReader);
+                                nk4.d(fileInputStream);
+                                nk4.d(bufferedWriter);
+                                throw th;
+                            }
+                        } catch (Throwable th3) {
+                            th = th3;
+                            bufferedReader = bufferedReader2;
+                            Throwable th4 = th;
+                            fileInputStream = fileInputStream2;
+                            th = th4;
+                            nk4.d(bufferedReader);
+                            nk4.d(fileInputStream);
+                            nk4.d(bufferedWriter);
+                            throw th;
+                        }
+                    }
+                    bufferedWriter.flush();
+                    if (z2) {
+                        file2.renameTo(file);
+                    } else {
+                        file2.delete();
+                    }
+                    nk4.d(bufferedReader2);
+                    nk4.d(fileInputStream2);
+                } catch (Exception e3) {
+                    e = e3;
+                    bufferedWriter = null;
+                } catch (Throwable th5) {
+                    th = th5;
+                    bufferedWriter = null;
+                }
+            } catch (Exception e4) {
+                e = e4;
+                bufferedWriter = null;
+            } catch (Throwable th6) {
+                th = th6;
+                bufferedWriter = null;
+            }
+            nk4.d(bufferedWriter);
+        }
+    }
+
+    public static void e(@NonNull Context context) {
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                Class<?> cls = Class.forName("android.content.res.AssetManager");
+                Field declaredField = cls.getDeclaredField("mStringBlocks");
+                boolean z3 = true;
+                declaredField.setAccessible(true);
+                Object[] objArr = (Object[]) declaredField.get(context.getAssets());
+                if (objArr == null) {
+                    jSONObject.put("stringBlocks", StringUtil.NULL_STRING);
+                } else {
+                    jSONObject.put("stringBlocks size", objArr.length);
+                    for (int i = 0; i < objArr.length; i++) {
+                        String str = "stringBlocks " + i;
+                        StringBuilder sb = new StringBuilder();
+                        sb.append(" == null :");
+                        if (objArr[i] == null) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        sb.append(z);
+                        jSONObject.put(str, sb.toString());
+                    }
+                }
+                Field declaredField2 = cls.getDeclaredField("sSystem");
+                declaredField2.setAccessible(true);
+                Object obj = declaredField2.get(cls);
+                Field declaredField3 = cls.getDeclaredField("mStringBlocks");
+                declaredField3.setAccessible(true);
+                Object[] objArr2 = (Object[]) declaredField3.get(obj);
+                if (objArr2 == null) {
+                    jSONObject.put("stringBlocksSys", StringUtil.NULL_STRING);
+                } else {
+                    jSONObject.put("stringBlocksSys size", objArr2.length);
+                    for (int i2 = 0; i2 < objArr2.length; i2++) {
+                        String str2 = "stringBlocksSys " + i2;
+                        StringBuilder sb2 = new StringBuilder();
+                        sb2.append(" == null :");
+                        if (objArr2[i2] == null) {
+                            z2 = true;
+                        } else {
+                            z2 = false;
+                        }
+                        sb2.append(z2);
+                        jSONObject.put(str2, sb2.toString());
+                    }
+                }
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(null, R.styleable.View, Resources.getSystem().getIdentifier("webViewStyle", "attr", "android"), 0);
+                if (obtainStyledAttributes == null) {
+                    jSONObject.put("TypedArray", StringUtil.NULL_STRING);
+                } else {
+                    jSONObject.put("TypedArray ", obtainStyledAttributes.toString());
+                    jSONObject.put("TypedArray mLength", obtainStyledAttributes.length());
+                    Field declaredField4 = obtainStyledAttributes.getClass().getDeclaredField("mRecycled");
+                    declaredField4.setAccessible(true);
+                    jSONObject.put("TypedArray mRecycled", declaredField4.get(obtainStyledAttributes));
+                    Field declaredField5 = obtainStyledAttributes.getClass().getDeclaredField("mAssets");
+                    declaredField5.setAccessible(true);
+                    if (declaredField5.get(obtainStyledAttributes) != context.getAssets()) {
+                        z3 = false;
+                    }
+                    jSONObject.put("TypedArray mAssets", z3);
+                    obtainStyledAttributes.recycle();
+                }
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
+            String jSONObject2 = jSONObject.toString();
+            if (TextUtils.isEmpty(jSONObject2)) {
+                if (a) {
+                    Log.d("SwanAppCoreUtils", "reportFatalInfo: empty");
+                    return;
+                }
+                return;
             }
             if (a) {
-                Log.d("V8CodeCacheHelper", "buildCacheSetting cacheType: " + str);
-                Log.d("V8CodeCacheHelper", "buildCacheSetting maxCount: " + codeCacheSetting.maxCount);
-                Log.d("V8CodeCacheHelper", "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit);
+                Log.d("SwanAppCoreUtils", "reportFatalInfo: " + jSONObject2);
             }
-            return codeCacheSetting;
+            ra3.b bVar = new ra3.b(10006);
+            bVar.i(jSONObject2);
+            bVar.h(j43.g0());
+            bVar.m();
         }
-        return (V8EngineConfiguration.CodeCacheSetting) invokeLL.objValue;
+    }
+
+    public static void f(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65542, null, str, str2, str3) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("url", str);
+                jSONObject.put("package", AppRuntime.getApplication().getPackageName());
+                jSONObject.put("processName", ProcessUtils.getCurProcessName());
+                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, str2);
+                jSONObject.put("errMessage", str3);
+                jSONObject.put("isMainThread", di3.O());
+                String jSONObject2 = jSONObject.toString();
+                if (a && TextUtils.isEmpty(jSONObject2)) {
+                    Log.d("SwanAppCoreUtils", "reportInsertHistoryCrash: empty");
+                    return;
+                }
+                if (a) {
+                    Log.d("SwanAppCoreUtils", "reportInsertHistoryCrash: " + jSONObject2);
+                }
+                ra3.b bVar = new ra3.b(10008);
+                bVar.i(jSONObject2);
+                bVar.h(j43.g0());
+                bVar.m();
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public static void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
+            c(str, null, null, true);
+        }
     }
 }

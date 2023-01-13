@@ -6,32 +6,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class je4 implements ce4 {
+public class je4 {
     public static /* synthetic */ Interceptable $ic;
+    public static je4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<qd4> a;
-    public wb4 b;
-    public List<cd4> c;
-    public List<cd4> d;
-    public List<cd4> e;
+    public zd4 a;
 
-    @Override // com.baidu.tieba.ce4
-    public <T> void a(ge4<T> ge4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ge4Var) == null) {
-        }
-    }
-
-    public je4(wb4 wb4Var) {
+    public je4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wb4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,73 +26,90 @@ public class je4 implements ce4 {
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.d = new ArrayList();
-        this.e = new ArrayList();
-        this.b = wb4Var;
-        this.a = new ArrayList();
-        ee4.b().e(this);
+        this.a = new zd4();
     }
 
-    @Override // com.baidu.tieba.ce4
-    public <T> void b(ge4<T> ge4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ge4Var) != null) || ge4Var.k()) {
-            return;
-        }
-        Iterator<qd4> it = this.a.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                break;
-            }
-            qd4 next = it.next();
-            if (next.b(ge4Var)) {
-                int i = ge4Var.i();
-                this.a.remove(next);
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i == 10) {
-                            this.c.add(next.a().a.b);
-                        }
-                    } else {
-                        this.d.add(next.a().a.b);
-                    }
-                } else {
-                    this.e.add(next.a().a.b);
-                }
-            }
-        }
-        d();
-    }
-
-    public void c(qd4 qd4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qd4Var) == null) && qd4Var != null) {
-            this.a.add(qd4Var);
-        }
-    }
-
-    public final boolean d() {
+    public static je4 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.a.isEmpty()) {
-                this.b.b();
-                ee4.b().g(this);
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            je4 je4Var = b;
+            if (je4Var != null) {
+                return je4Var;
             }
-            return false;
+            synchronized (je4.class) {
+                if (b == null) {
+                    b = new je4();
+                }
+            }
+            return b;
         }
-        return invokeV.booleanValue;
+        return (je4) invokeV.objValue;
     }
 
-    public void e() {
+    public vd4 a(le4 le4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || d()) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, le4Var)) == null) {
+            if (le4Var == null) {
+                return null;
+            }
+            return new qe4(le4Var, false);
         }
-        for (qd4 qd4Var : this.a) {
-            qd4Var.c(false);
+        return (vd4) invokeL.objValue;
+    }
+
+    public synchronized boolean c(String str) {
+        InterceptResult invokeL;
+        boolean e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            synchronized (this) {
+                e = this.a.e(str);
+            }
+            return e;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized boolean d(String str) {
+        InterceptResult invokeL;
+        boolean f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            synchronized (this) {
+                f = this.a.f(str);
+            }
+            return f;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized void e(he4 he4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, he4Var) == null) {
+            synchronized (this) {
+                this.a.c(he4Var);
+            }
+        }
+    }
+
+    public synchronized <T> void f(le4<T> le4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, le4Var) == null) {
+            synchronized (this) {
+                le4Var.s(false);
+                this.a.h(le4Var);
+            }
+        }
+    }
+
+    public synchronized void g(he4 he4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, he4Var) == null) {
+            synchronized (this) {
+                this.a.i(he4Var);
+            }
         }
     }
 }

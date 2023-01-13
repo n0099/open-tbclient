@@ -1,9 +1,5 @@
 package com.baidu.tieba;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface cf5 {
-    void a();
-
-    void b();
-
-    void onError(String str);
+    df5 getTbFragmentExtra();
 }

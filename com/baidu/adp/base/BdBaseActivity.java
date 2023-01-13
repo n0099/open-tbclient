@@ -16,29 +16,29 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bo;
-import com.baidu.tieba.fl;
-import com.baidu.tieba.m9;
+import com.baidu.tieba.co;
+import com.baidu.tieba.gl;
 import com.baidu.tieba.n9;
-import com.baidu.tieba.qb;
-import com.baidu.tieba.r9;
+import com.baidu.tieba.o9;
+import com.baidu.tieba.rb;
 import com.baidu.tieba.s9;
 import com.baidu.tieba.t9;
-import com.baidu.tieba.tg;
-import com.baidu.tieba.v9;
+import com.baidu.tieba.u9;
+import com.baidu.tieba.ug;
 import com.baidu.tieba.w9;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.x9;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public abstract class BdBaseActivity<T> extends Activity implements View.OnClickListener, s9<T>, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, w9, Handler.Callback {
+public abstract class BdBaseActivity<T> extends Activity implements View.OnClickListener, t9<T>, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, x9, Handler.Callback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PRELOAD_DELAY = 100;
     public transient /* synthetic */ FieldHolder $fh;
-    public v9 iPageLifecycleCallback;
+    public w9 iPageLifecycleCallback;
     public final Handler mHandler;
     public BdUniqueId mId;
     public boolean mIsScroll;
@@ -50,8 +50,8 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (Activity) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.s9
-    public abstract /* synthetic */ r9<T> getPageContext();
+    @Override // com.baidu.tieba.t9
+    public abstract /* synthetic */ s9<T> getPageContext();
 
     @Override // android.os.Handler.Callback
     public boolean handleMessage(Message message) {
@@ -77,13 +77,13 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         }
     }
 
-    public bo onGetPreLoadListView() {
+    public co onGetPreLoadListView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return null;
         }
-        return (bo) invokeV.objValue;
+        return (co) invokeV.objValue;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -113,10 +113,10 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.w9
-    public void onPreLoad(bo boVar) {
+    @Override // com.baidu.tieba.x9
+    public void onPreLoad(co coVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, boVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, coVar) == null) {
         }
     }
 
@@ -197,8 +197,8 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         if ((interceptable != null && interceptable.invokeL(65537, this, view2) != null) || view2 == null) {
             return;
         }
-        if (view2 instanceof fl) {
-            ((fl) view2).refresh();
+        if (view2 instanceof gl) {
+            ((gl) view2).refresh();
         }
         if (view2 instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view2;
@@ -239,7 +239,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Resources resources = t9.a().getResources();
+            Resources resources = u9.a().getResources();
             if (resources != null && BdBaseApplication.getInst().getIsPluginResourcOpen()) {
                 return resources;
             }
@@ -248,7 +248,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         return (Resources) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.w9
+    @Override // com.baidu.tieba.x9
     public BdUniqueId getUniqueId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -258,7 +258,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         return (BdUniqueId) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.w9
+    @Override // com.baidu.tieba.x9
     public boolean isScroll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -273,7 +273,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onPause();
-            tg.h().e(this.mId);
+            ug.h().e(this.mId);
             this.mHandler.removeCallbacks(this.preLoadRunnable);
         }
     }
@@ -292,7 +292,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onStop();
-            bo onGetPreLoadListView = onGetPreLoadListView();
+            co onGetPreLoadListView = onGetPreLoadListView();
             if (onGetPreLoadListView != null) {
                 onGetPreLoadListView.cancelRefresh();
             }
@@ -303,10 +303,10 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
-            m9.b(this);
+            n9.b(this);
             super.onCreate(bundle);
             this.mId = BdUniqueId.gen();
-            n9.g().o(getPageContext().getPageActivity());
+            o9.f().n(getPageContext().getPageActivity());
         }
     }
 
@@ -331,7 +331,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         MessageManager.getInstance().sendMessage(message);
     }
 
-    @Override // com.baidu.tieba.w9
+    @Override // com.baidu.tieba.x9
     public void setIsScroll(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
@@ -343,7 +343,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
     public void setRequestedOrientation(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
-            if (m9.d(this) && m9.a(i)) {
+            if (n9.d(this) && n9.a(i)) {
                 return;
             }
             super.setRequestedOrientation(i);
@@ -353,7 +353,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
     public void showToast(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
-            yi.Q(getApplicationContext(), str);
+            zi.Q(getApplicationContext(), str);
         }
     }
 
@@ -361,15 +361,15 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            v9 v9Var = this.iPageLifecycleCallback;
-            if (v9Var != null) {
-                v9Var.onDestroy();
+            w9 w9Var = this.iPageLifecycleCallback;
+            if (w9Var != null) {
+                w9Var.onDestroy();
             }
             super.onDestroy();
             MessageManager.getInstance().unRegisterListener(this.mId);
             MessageManager.getInstance().removeMessage(this.mId);
-            tg.h().b(this.mId);
-            n9.g().m(getPageContext().getPageActivity());
+            ug.h().b(this.mId);
+            o9.f().l(getPageContext().getPageActivity());
             this.mHandler.removeCallbacks(this.preLoadRunnable);
         }
     }
@@ -384,23 +384,23 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         }
     }
 
-    public void registerListener(int i, qb qbVar) {
+    public void registerListener(int i, rb rbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048596, this, i, qbVar) == null) {
-            if (qbVar != null && qbVar.getTag() == null) {
-                qbVar.setTag(this.mId);
+        if (interceptable == null || interceptable.invokeIL(1048596, this, i, rbVar) == null) {
+            if (rbVar != null && rbVar.getTag() == null) {
+                rbVar.setTag(this.mId);
             }
-            MessageManager.getInstance().registerListener(i, qbVar);
+            MessageManager.getInstance().registerListener(i, rbVar);
         }
     }
 
-    public void registerListener(qb qbVar) {
+    public void registerListener(rb rbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, qbVar) == null) {
-            if (qbVar != null && qbVar.getTag() == null) {
-                qbVar.setTag(this.mId);
+        if (interceptable == null || interceptable.invokeL(1048598, this, rbVar) == null) {
+            if (rbVar != null && rbVar.getTag() == null) {
+                rbVar.setTag(this.mId);
             }
-            MessageManager.getInstance().registerListener(qbVar);
+            MessageManager.getInstance().registerListener(rbVar);
         }
     }
 

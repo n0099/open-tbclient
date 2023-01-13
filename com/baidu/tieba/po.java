@@ -1,13 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.refresh.IRefreshable$State;
+import android.graphics.Canvas;
+import android.view.MotionEvent;
 /* loaded from: classes5.dex */
 public interface po {
-    void a(IRefreshable$State iRefreshable$State);
+    boolean a(MotionEvent motionEvent);
 
-    void b();
+    void b(int i, int i2);
 
-    void c();
+    void c(int i);
 
-    void d();
+    boolean dispatchTouchEvent(MotionEvent motionEvent);
+
+    void draw(Canvas canvas);
+
+    boolean e(MotionEvent motionEvent);
 }

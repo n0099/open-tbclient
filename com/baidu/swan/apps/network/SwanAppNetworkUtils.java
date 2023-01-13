@@ -11,12 +11,12 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.n03;
-import com.baidu.tieba.ok1;
-import com.baidu.tieba.r03;
-import com.baidu.tieba.rv2;
-import com.baidu.tieba.ya2;
-import com.baidu.tieba.yh3;
+import com.baidu.tieba.db2;
+import com.baidu.tieba.di3;
+import com.baidu.tieba.s03;
+import com.baidu.tieba.tk1;
+import com.baidu.tieba.w03;
+import com.baidu.tieba.wv2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -120,7 +120,7 @@ public class SwanAppNetworkUtils {
     }
 
     /* loaded from: classes3.dex */
-    public static class a implements n03<Bundle> {
+    public static class a implements s03<Bundle> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
@@ -144,7 +144,7 @@ public class SwanAppNetworkUtils {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.n03
+        @Override // com.baidu.tieba.s03
         /* renamed from: a */
         public void onResult(Bundle bundle) {
             b bVar;
@@ -168,14 +168,14 @@ public class SwanAppNetworkUtils {
                 return;
             }
         }
-        a = ok1.a;
+        a = tk1.a;
     }
 
     public static String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            String f = yh3.f(ya2.U().g0());
+            String f = di3.f(db2.U().g0());
             if (TextUtils.isEmpty(f)) {
                 return "";
             }
@@ -224,7 +224,7 @@ public class SwanAppNetworkUtils {
     public static void b(@NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, bVar) == null) {
-            r03.a(rv2.class, null, new a(bVar));
+            w03.a(wv2.class, null, new a(bVar));
         }
     }
 

@@ -841,10 +841,9 @@ public class LottieDrawable extends Drawable implements Drawable.Callback, Anima
 
     public <T> void addValueCallback(KeyPath keyPath, T t, final SimpleLottieValueCallback<T> simpleLottieValueCallback) {
         addValueCallback(keyPath, (KeyPath) t, (LottieValueCallback<KeyPath>) new LottieValueCallback<T>() { // from class: com.airbnb.lottie.LottieDrawable.17
-            /* JADX WARN: Type inference failed for: r2v1, types: [T, java.lang.Object] */
             @Override // com.airbnb.lottie.value.LottieValueCallback
             public T getValue(LottieFrameInfo<T> lottieFrameInfo) {
-                return simpleLottieValueCallback.getValue(lottieFrameInfo);
+                return (T) simpleLottieValueCallback.getValue(lottieFrameInfo);
             }
         });
     }

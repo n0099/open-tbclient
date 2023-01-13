@@ -1,48 +1,83 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import android.os.Environment;
+import android.app.Application;
+import android.content.Context;
 import android.text.TextUtils;
-import android.view.KeyEvent;
-import android.view.View;
+import android.widget.Toast;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.consts.AdDownloadStatus;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.download.proxy.IAdDownloader;
+import com.baidu.nps.utils.Constant;
+import com.baidu.searchbox.bddownload.DownloadTask;
+import com.baidu.searchbox.bddownload.SpeedCalculator;
+import com.baidu.searchbox.bddownload.StatusUtil;
+import com.baidu.searchbox.bddownload.core.Util;
+import com.baidu.searchbox.bddownload.core.breakpoint.BlockInfo;
+import com.baidu.searchbox.bddownload.core.breakpoint.BreakpointInfo;
+import com.baidu.searchbox.bddownload.core.cause.EndCause;
+import com.baidu.searchbox.bddownload.core.listener.DownloadSpeedListener;
+import com.baidu.searchbox.bddownload.core.listener.assist.ListenerSpeedAssistExtend;
+import com.baidu.searchbox.common.runtime.AppRuntimeInit;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class nl0 {
+public class nl0 implements IAdDownloader {
     public static /* synthetic */ Interceptable $ic;
-    public static long b;
-    public static int c;
-    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<lk0> a;
+    public final HashMap<Integer, DownloadTask> a;
+
+    @Override // com.baidu.nadcore.download.proxy.IAdDownloader
+    public void b(@NonNull qk0 qk0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qk0Var) == null) {
+        }
+    }
 
     /* loaded from: classes5.dex */
-    public class a implements DialogInterface.OnKeyListener {
+    public static class a extends DownloadSpeedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lk0 a;
-        public final /* synthetic */ Activity b;
-        public final /* synthetic */ ll0 c;
-        public final /* synthetic */ nl0 d;
+        public long a;
+        public String b;
+        public long c;
+        public ml0 d;
 
-        public a(nl0 nl0Var, lk0 lk0Var, Activity activity, ll0 ll0Var) {
+        @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerSpeedAssistExtend.Listener4SpeedCallback
+        public void blockEnd(@NonNull DownloadTask downloadTask, int i, BlockInfo blockInfo, @NonNull SpeedCalculator speedCalculator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLILL(1048576, this, downloadTask, i, blockInfo, speedCalculator) == null) {
+            }
+        }
+
+        @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerSpeedAssistExtend.Listener4SpeedCallback
+        public void progressBlock(@NonNull DownloadTask downloadTask, int i, long j, @NonNull SpeedCalculator speedCalculator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{downloadTask, Integer.valueOf(i), Long.valueOf(j), speedCalculator}) == null) {
+            }
+        }
+
+        @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
+        public void taskStart(@NonNull DownloadTask downloadTask) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, downloadTask) == null) {
+            }
+        }
+
+        public a(ml0 ml0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nl0Var, lk0Var, activity, ll0Var};
+                Object[] objArr = {ml0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,134 +87,70 @@ public class nl0 {
                     return;
                 }
             }
-            this.d = nl0Var;
-            this.a = lk0Var;
-            this.b = activity;
-            this.c = ll0Var;
+            this.d = ml0Var;
         }
 
-        @Override // android.content.DialogInterface.OnKeyListener
-        public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
-            InterceptResult invokeLIL;
+        @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
+        public void connectEnd(@NonNull DownloadTask downloadTask, int i, int i2, @NonNull Map<String, List<String>> map) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, dialogInterface, i, keyEvent)) == null) {
-                nl0.a();
-                this.d.j();
-                this.d.g(ClogBuilder.LogType.FREE_CLICK, ClogBuilder.Area.DIALOG_KEYBACK, this.a);
-                if (kk0.b().a(this.b)) {
-                    kk0.b().e(this.b, System.currentTimeMillis());
-                    this.c.a();
-                    return true;
-                }
-                this.c.b();
-                return true;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{downloadTask, Integer.valueOf(i), Integer.valueOf(i2), map}) == null) {
+                String str = "Connect End " + i;
             }
-            return invokeLIL.booleanValue;
         }
-    }
 
-    /* loaded from: classes5.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ll0 a;
-        public final /* synthetic */ lk0 b;
-        public final /* synthetic */ nl0 c;
-
-        public b(nl0 nl0Var, ll0 ll0Var, lk0 lk0Var) {
+        @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerSpeedAssistExtend.Listener4SpeedCallback
+        public void infoReady(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, boolean z, @NonNull ListenerSpeedAssistExtend.Listener4SpeedModel listener4SpeedModel) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nl0Var, ll0Var, lk0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{downloadTask, breakpointInfo, Boolean.valueOf(z), listener4SpeedModel}) == null) {
+                long totalLength = breakpointInfo.getTotalLength();
+                this.a = totalLength;
+                this.b = Util.humanReadableBytes(totalLength, true);
+                this.d.b(this.a, downloadTask.getFile());
             }
-            this.c = nl0Var;
-            this.a = ll0Var;
-            this.b = lk0Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
+        public void connectStart(@NonNull DownloadTask downloadTask, int i, @NonNull Map<String, List<String>> map) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.c.j();
-                kk0.b().d(false);
-                this.a.a();
-                this.c.g(ClogBuilder.LogType.FREE_CLICK, ClogBuilder.Area.DIALOG_NEGATIVE, this.b);
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, downloadTask, i, map) == null) {
+                String str = "Connect Start " + i;
             }
         }
-    }
 
-    /* loaded from: classes5.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lk0 a;
-        public final /* synthetic */ nl0 b;
-
-        public c(nl0 nl0Var, lk0 lk0Var) {
+        @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerSpeedAssistExtend.Listener4SpeedCallback
+        public void progress(@NonNull DownloadTask downloadTask, long j, @NonNull SpeedCalculator speedCalculator) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nl0Var, lk0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{downloadTask, Long.valueOf(j), speedCalculator}) == null) {
+                String str = (Util.humanReadableBytes(j, true) + "/" + this.b) + "(" + speedCalculator.speed() + SmallTailInfo.EMOTION_SUFFIX;
+                this.c = j;
+                this.d.a(downloadTask.getId(), j, this.a);
             }
-            this.b = nl0Var;
-            this.a = lk0Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerSpeedAssistExtend.Listener4SpeedCallback
+        public void taskEnd(@NonNull DownloadTask downloadTask, @NonNull EndCause endCause, @Nullable Exception exc, @NonNull SpeedCalculator speedCalculator) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b.j();
-                kk0.b().d(false);
-                this.b.g(ClogBuilder.LogType.FREE_CLICK, ClogBuilder.Area.DIALOG_POSITIVE, this.a);
-                if (TextUtils.equals(this.a.q.o, "reminded_type_unopen")) {
-                    pl0.g(this.a.d);
-                    return;
+            if (interceptable == null || interceptable.invokeLLLL(1048582, this, downloadTask, endCause, exc, speedCalculator) == null) {
+                downloadTask.removeTag();
+                if (endCause == EndCause.COMPLETED) {
+                    this.d.onSuccess(downloadTask.getId());
+                } else if (endCause == EndCause.CANCELED) {
+                    this.d.c(downloadTask.getId(), (int) ((this.c / this.a) * 100.0d));
+                } else if (endCause == EndCause.ERROR) {
+                    yk0 yk0Var = new yk0();
+                    yk0Var.a = exc;
+                    yk0Var.c = true;
+                    this.d.d(yk0Var);
+                } else {
+                    yk0 yk0Var2 = new yk0();
+                    yk0Var2.a = exc;
+                    this.d.d(yk0Var2);
                 }
-                pl0.e(this.a.h, this.a.a());
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic;
-        public static final nl0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-571833513, "Lcom/baidu/tieba/nl0$d;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-571833513, "Lcom/baidu/tieba/nl0$d;");
-                    return;
+                if (sg0.a && exc != null) {
+                    Context b = ej0.b();
+                    Toast.makeText(b, "下载失败！原因：" + exc, 0).show();
                 }
             }
-            a = new nl0(null);
         }
     }
 
@@ -196,173 +167,82 @@ public class nl0 {
                 return;
             }
         }
-        this.a = new ArrayList();
+        this.a = new HashMap<>();
+        AppRuntimeInit.onApplicationattachBaseContext((Application) ej0.b());
     }
 
-    public static /* synthetic */ int a() {
-        int i = c;
-        c = i + 1;
-        return i;
-    }
-
-    public static long e() {
-        InterceptResult invokeV;
+    @Override // com.baidu.nadcore.download.proxy.IAdDownloader
+    public int a(@NonNull qk0 qk0Var, @NonNull ml0 ml0Var) {
+        InterceptResult invokeLL;
+        DownloadTask build;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return w01.a().b("nad_app_quick_config").getLong("key_last_alert_dialog_show_time", 0L);
-        }
-        return invokeV.longValue;
-    }
-
-    public static nl0 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return d.a;
-        }
-        return (nl0) invokeV.objValue;
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            b = currentTimeMillis;
-            h(currentTimeMillis);
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c++;
-        }
-    }
-
-    public /* synthetic */ nl0(a aVar) {
-        this();
-    }
-
-    public static void h(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65543, null, j) == null) {
-            w01.a().b("nad_app_quick_config").h("key_last_alert_dialog_show_time", j);
-        }
-    }
-
-    public final lk0 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            lk0 lk0Var = null;
-            if (o01.g(this.a)) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, qk0Var, ml0Var)) == null) {
+            File a2 = wl0.a(ej0.b());
+            String e = e(qk0Var);
+            if (!TextUtils.isEmpty(e)) {
+                build = new DownloadTask.Builder(qk0Var.g, a2).setPassIfAlreadyCompleted(false).setFilename(e + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).build();
+            } else {
+                build = new DownloadTask.Builder(qk0Var.g, a2).setPassIfAlreadyCompleted(false).build();
             }
-            ArrayList arrayList = new ArrayList();
-            int l = o01.l(this.a) - 1;
-            lk0 lk0Var2 = null;
-            while (true) {
-                if (l < 0) {
-                    break;
-                }
-                lk0 lk0Var3 = (lk0) o01.d(this.a, l);
-                if (lk0Var3 != null) {
-                    String str = lk0Var3.d;
-                    boolean c2 = pl0.c(str);
-                    boolean exists = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/" + str).exists();
-                    if (c2) {
-                        if (exists) {
-                            o01.b(arrayList, lk0Var3);
-                        } else {
-                            lk0Var3.q.o = "reminded_type_unopen";
-                            o01.b(arrayList, lk0Var3);
-                            lk0Var = lk0Var3;
-                            break;
-                        }
-                    } else if (pl0.f(lk0Var3.h) && lk0Var3.c != AdDownloadStatus.NONE && TextUtils.equals(lk0Var3.q.o, "reminded_type_none") && lk0Var2 == null) {
-                        lk0Var3.q.o = "reminded_type_uninstall";
-                        lk0Var2 = lk0Var3;
-                    }
-                }
-                l--;
+            a aVar = new a(ml0Var);
+            if (build.getTag() != null) {
+                build.cancel();
             }
-            o01.k(this.a, arrayList);
-            if (lk0Var != null) {
-                return lk0Var;
-            }
-            return lk0Var2;
+            build.enqueue(aVar);
+            build.setTag("mark-task-started");
+            v01.e(this.a, Integer.valueOf(build.getId()), build);
+            return build.getId();
         }
-        return (lk0) invokeV.objValue;
+        return invokeLL.intValue;
     }
 
-    public final void g(ClogBuilder.LogType logType, ClogBuilder.Area area, lk0 lk0Var) {
+    @Override // com.baidu.nadcore.download.proxy.IAdDownloader
+    public void c(@NonNull qk0 qk0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qk0Var) == null) {
+            DownloadTask downloadTask = (DownloadTask) v01.b(this.a, Integer.valueOf(qk0Var.b));
+            if (downloadTask != null && downloadTask.getTag() != null) {
+                downloadTask.cancel();
+            }
+        }
+    }
+
+    @Override // com.baidu.nadcore.download.proxy.IAdDownloader
+    public void d(@NonNull qk0 qk0Var, @NonNull ml0 ml0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, qk0Var, ml0Var) == null) {
+            DownloadTask downloadTask = (DownloadTask) v01.b(this.a, Integer.valueOf(qk0Var.b));
+            if (downloadTask != null && StatusUtil.getStatus(downloadTask) == StatusUtil.Status.IDLE) {
+                downloadTask.setTag("mark-task-started");
+                downloadTask.enqueue(new a(ml0Var));
+                return;
+            }
+            a(qk0Var, ml0Var);
+        }
+    }
+
+    public final String e(qk0 qk0Var) {
+        InterceptResult invokeL;
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, logType, area, lk0Var) != null) || lk0Var == null) {
-            return;
-        }
-        ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.u(ClogBuilder.Page.POPUP);
-        if (logType != null) {
-            clogBuilder.y(logType);
-        }
-        if (area != null) {
-            clogBuilder.i(area);
-        }
-        if (!TextUtils.isEmpty(lk0Var.p.a)) {
-            clogBuilder.p(lk0Var.p.a);
-        }
-        clogBuilder.k(String.valueOf(c));
-        clogBuilder.l(String.valueOf(d));
-        if (TextUtils.equals(lk0Var.q.o, "reminded_type_uninstall")) {
-            str = "1";
-        } else {
-            str = "2";
-        }
-        clogBuilder.m(str);
-        z01.b(clogBuilder);
-    }
-
-    public void i(Activity activity, ll0 ll0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, ll0Var) == null) && kk0.b().isMainActivity(activity) && ll0Var != null) {
-            if (b == 0) {
-                b = e();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, qk0Var)) == null) {
+            if (qk0Var != null && vm0.b().a().a("uad_set_filename_switch", 0) == 1) {
+                uk0 uk0Var = qk0Var.p;
+                if (uk0Var != null && !TextUtils.isEmpty(uk0Var.h)) {
+                    str = qk0Var.p.h;
+                } else {
+                    str = "";
+                }
+                if (TextUtils.isEmpty(str) && !TextUtils.isEmpty(qk0Var.g)) {
+                    str = s31.a("MD5", qk0Var.g.getBytes(), false);
+                }
+                if (str.length() > 250) {
+                    return str.substring(0, 250);
+                }
+                return str;
             }
-            if (System.currentTimeMillis() - b < 600000) {
-                ll0Var.a();
-                return;
-            }
-            lk0 d2 = d();
-            if (d2 == null) {
-                ll0Var.a();
-                return;
-            }
-            sl0 sl0Var = new sl0(activity);
-            sl0Var.d();
-            sl0Var.e(false);
-            sl0Var.f(false);
-            sl0Var.g(d2);
-            sl0Var.j(new c(this, d2));
-            sl0Var.h(new b(this, ll0Var, d2));
-            sl0Var.i(new a(this, d2, activity, ll0Var));
-            sl0Var.k();
-            d++;
-            kk0.b().d(true);
-            g(ClogBuilder.LogType.FREE_SHOW, ClogBuilder.Area.DIALOG, d2);
+            return null;
         }
-    }
-
-    public void k(lk0 lk0Var) {
-        File file;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, lk0Var) == null) && lk0Var != null && (file = lk0Var.h) != null && file.exists()) {
-            String str = lk0Var.p.h;
-            String absolutePath = lk0Var.h.getAbsolutePath();
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(absolutePath)) {
-                lk0Var.q.o = "reminded_type_none";
-                o01.b(this.a, lk0Var);
-            }
-        }
+        return (String) invokeL.objValue;
     }
 }

@@ -62,6 +62,7 @@ public class d extends c<SubAliasStatus> {
         return !this.k && "com.meizu.cloud".equals(this.h);
     }
 
+    /* JADX DEBUG: Possible override for method com.meizu.cloud.pushsdk.platform.b.c.a(I)Z */
     public void a(int i) {
         this.b = i;
     }
@@ -107,6 +108,7 @@ public class d extends c<SubAliasStatus> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Possible override for method com.meizu.cloud.pushsdk.platform.b.c.h()Z */
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     /* renamed from: h */
     public SubAliasStatus b() {

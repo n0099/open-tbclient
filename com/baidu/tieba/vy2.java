@@ -1,21 +1,24 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.graphics.Color;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 /* loaded from: classes6.dex */
-public final class vy2 {
+public class vy2 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile vy2 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, wy2> a;
-    public HashMap<String, wy2> b;
-    public HashMap<String, wy2> c;
+    public boolean a;
+    public boolean b;
 
     public vy2() {
         Interceptable interceptable = $ic;
@@ -27,235 +30,116 @@ public final class vy2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        c();
-    }
-
-    public static vy2 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == null) {
-                synchronized (vy2.class) {
-                    if (d == null) {
-                        d = new vy2();
-                    }
-                }
-            }
-            return d;
-        }
-        return (vy2) invokeV.objValue;
-    }
-
-    public static synchronized void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            synchronized (vy2.class) {
-                if (d != null) {
-                    d.e();
-                    d = null;
-                }
             }
         }
     }
 
-    public final void c() {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.a == null) {
-                this.a = new HashMap<>();
-            }
-            if (this.b == null) {
-                this.b = new HashMap<>();
-            }
-            if (this.c == null) {
-                this.c = new HashMap<>();
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = true;
         }
     }
 
-    public final void e() {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            HashMap<String, wy2> hashMap = this.a;
-            if (hashMap != null) {
-                hashMap.clear();
-            }
-            HashMap<String, wy2> hashMap2 = this.b;
-            if (hashMap2 != null) {
-                hashMap2.clear();
-            }
-            HashMap<String, wy2> hashMap3 = this.c;
-            if (hashMap3 != null) {
-                hashMap3.clear();
-            }
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b) {
+            d();
         }
     }
 
-    public final void a(String str, long j) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLJ(1048576, this, str, j) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != 767526192) {
-            if (hashCode != 1331686101) {
-                if (hashCode == 1390184462 && str.equals("PageUpdateRender")) {
-                    c = 2;
-                }
-            } else if (str.equals("PageInitRender")) {
-                c = 1;
-            }
-        } else if (str.equals("PageSwitchCost")) {
-            c = 0;
-        }
-        if (c != 0) {
-            if (c != 1) {
-                if (c == 2) {
-                    ag3.f.update((zf3<Long>) Long.valueOf(j));
-                    return;
-                }
-                return;
-            }
-            ag3.e.update((zf3<Long>) Long.valueOf(j));
-            return;
-        }
-        ag3.d.update((zf3<Long>) Long.valueOf(j));
-    }
-
-    public void d(String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && j >= 0) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a = false;
             c();
-            char c = 65535;
-            switch (str2.hashCode()) {
-                case -1880922749:
-                    if (str2.equals("pageUpdateEnd")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case -964566145:
-                    if (str2.equals("pageSwitchStart")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case -410083667:
-                    if (str2.equals("pageInitRenderStart")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case 4028902:
-                    if (str2.equals("pageInitRenderEnd")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 627578634:
-                    if (str2.equals("pageUpdateStart")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 1719651128:
-                    if (str2.equals("pageSwitchEnd")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-            }
-            if (c != 0 && c != 1 && c != 2) {
-                if (c == 3 || c == 4 || c == 5) {
-                    g(str, str2, j);
-                    return;
-                }
-                return;
-            }
-            h(str, str2, j);
+            k();
         }
     }
 
-    public final void g(String str, String str2, long j) {
+    public void k() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            wy2 wy2Var = null;
-            char c = 65535;
-            int hashCode = str2.hashCode();
-            if (hashCode != -1880922749) {
-                if (hashCode != 4028902) {
-                    if (hashCode == 1719651128 && str2.equals("pageSwitchEnd")) {
-                        c = 0;
-                    }
-                } else if (str2.equals("pageInitRenderEnd")) {
-                    c = 1;
-                }
-            } else if (str2.equals("pageUpdateEnd")) {
-                c = 2;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c == 2) {
-                        wy2Var = this.c.remove(str);
-                    }
-                } else {
-                    wy2Var = this.b.remove(str);
-                }
-            } else {
-                wy2Var = this.a.remove(str);
-            }
-            if (wy2Var == null) {
-                return;
-            }
-            wy2Var.b(j);
-            a(wy2Var.getType(), wy2Var.a());
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && !this.b) {
+            b();
         }
     }
 
-    public final void h(String str, String str2, long j) {
+    public final ViewGroup b() {
+        InterceptResult invokeV;
+        ViewGroup viewGroup;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            wy2 wy2Var = null;
-            char c = 65535;
-            int hashCode = str2.hashCode();
-            if (hashCode != -964566145) {
-                if (hashCode != -410083667) {
-                    if (hashCode == 627578634 && str2.equals("pageUpdateStart")) {
-                        c = 2;
-                    }
-                } else if (str2.equals("pageInitRenderStart")) {
-                    c = 1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (j43.b0() != null && j43.b0().w() != null && (viewGroup = (ViewGroup) j43.b0().w().findViewById(16908290)) != null) {
+                ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f09206f);
+                if (viewGroup2 != null) {
+                    return viewGroup2;
                 }
-            } else if (str2.equals("pageSwitchStart")) {
-                c = 0;
+                ViewGroup viewGroup3 = (ViewGroup) LayoutInflater.from(j43.b0().w()).inflate(R.layout.obfuscated_res_0x7f0d0849, viewGroup);
+                this.b = true;
+                return viewGroup3;
             }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c == 2 && (wy2Var = this.c.get(str)) == null) {
-                        wy2Var = new uy2();
-                        this.c.put(str, wy2Var);
-                    }
-                } else {
-                    wy2Var = this.b.get(str);
-                    if (wy2Var == null) {
-                        wy2Var = new sy2();
-                        this.b.put(str, wy2Var);
-                    }
-                }
-            } else {
-                wy2Var = this.a.get(str);
-                if (wy2Var == null) {
-                    wy2Var = new ty2();
-                    this.a.put(str, wy2Var);
-                }
-            }
-            if (wy2Var != null) {
-                wy2Var.c(j);
-            }
+            return null;
         }
+        return (ViewGroup) invokeV.objValue;
+    }
+
+    public final void d() {
+        j43 b0;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (b0 = j43.b0()) != null && b0.w() != null) {
+            ViewGroup viewGroup = (ViewGroup) b0.w().findViewById(R.id.obfuscated_res_0x7f09206f);
+            if (viewGroup != null && (viewGroup.getParent() instanceof ViewGroup)) {
+                ((ViewGroup) viewGroup.getParent()).removeView(viewGroup);
+            }
+            this.b = false;
+        }
+    }
+
+    public void f(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            j(R.id.obfuscated_res_0x7f0909dc, j, "#80ff0000", "FCP");
+        }
+    }
+
+    public void g(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            j(R.id.obfuscated_res_0x7f0909f9, j, "#80ff0000", "FIP");
+        }
+    }
+
+    public void h(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            j(R.id.obfuscated_res_0x7f090a53, j, "#8000ff00", "FMP");
+        }
+    }
+
+    public void i(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            j(R.id.obfuscated_res_0x7f090c68, j, "#80ff0000", "FTP");
+        }
+    }
+
+    public final void j(int i, long j, String str, String str2) {
+        ViewGroup b;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, str2}) != null) || this.a || (b = b()) == null) {
+            return;
+        }
+        TextView textView = (TextView) b.findViewById(i);
+        textView.setText(String.format(str2 + ":[%s]ms", Long.valueOf(j)));
+        textView.setBackgroundColor(Color.parseColor(str));
+    }
+
+    public void l(long j, long j2) {
+        ViewGroup b;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) != null) || this.a || (b = b()) == null) {
+            return;
+        }
+        ((TextView) b.findViewById(R.id.obfuscated_res_0x7f0920a6)).setText(String.format("启动:[%s] 耗时:[%s]ms", new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault()).format(Long.valueOf(j)), Long.valueOf(j2)));
     }
 }

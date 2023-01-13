@@ -1,25 +1,28 @@
 package com.baidu.tieba;
 
-import com.yy.mobile.framework.revenuesdk.IRevenue;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.IRLogDelegate;
-import java.util.List;
-import tv.athena.revenue.api.IMiddleRevenue;
-import tv.athena.revenue.api.MiddleRevenueConfig;
+import android.media.MediaRecorder;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import org.webrtc.CameraVideoCapturer;
+/* compiled from: CameraVideoCapturer.java */
 /* loaded from: classes3.dex */
-public interface b8a {
-    void addLogDelegate(IRLogDelegate iRLogDelegate);
+public final /* synthetic */ class b8a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void addRevenueConfig(MiddleRevenueConfig middleRevenueConfig);
+    @Deprecated
+    public static void $default$addMediaRecorderToCamera(CameraVideoCapturer cameraVideoCapturer, MediaRecorder mediaRecorder, CameraVideoCapturer.MediaRecorderHandler mediaRecorderHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, cameraVideoCapturer, mediaRecorder, mediaRecorderHandler) == null) {
+            throw new UnsupportedOperationException("Deprecated and not implemented.");
+        }
+    }
 
-    List<IRevenue> getAllRevenue();
-
-    IMiddleRevenue getMiddleRevenue(int i, int i2);
-
-    IRevenue getRevenue(int i, int i2);
-
-    c8a getYYPayMiddleService(int i, int i2);
-
-    void removeRevenueConfig(int i, int i2);
-
-    void updateMiddleRevenueConfig(int i, int i2, Long l, String str);
+    @Deprecated
+    public static void $default$removeMediaRecorderFromCamera(CameraVideoCapturer cameraVideoCapturer, CameraVideoCapturer.MediaRecorderHandler mediaRecorderHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, cameraVideoCapturer, mediaRecorderHandler) == null) {
+            throw new UnsupportedOperationException("Deprecated and not implemented.");
+        }
+    }
 }

@@ -189,7 +189,7 @@ public class DataCore {
             }
             if (jSONObject2.getLong("ss") > 0 && j == 0) {
                 i = 1;
-                jSONArray = jSONObject.getJSONArray(Config.PRINCIPAL_PART);
+                jSONArray = jSONObject.getJSONArray("pr");
                 if (jSONArray != null && jSONArray.length() != 0) {
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                         JSONObject jSONObject3 = (JSONObject) jSONArray.get(i2);
@@ -202,7 +202,7 @@ public class DataCore {
                 return i;
             }
             i = 0;
-            jSONArray = jSONObject.getJSONArray(Config.PRINCIPAL_PART);
+            jSONArray = jSONObject.getJSONArray("pr");
             if (jSONArray != null) {
                 while (i2 < jSONArray.length()) {
                 }
@@ -680,7 +680,7 @@ public class DataCore {
                 jSONObject2.put("sign", CooperService.instance().getUUID());
                 jSONObject2.put("k", str);
                 jSONObject.put(Config.HEADER_PART, jSONObject2);
-                jSONObject.put(Config.PRINCIPAL_PART, jSONArray);
+                jSONObject.put("pr", jSONArray);
                 jSONObject.put(Config.EVENT_PART, jSONArray);
                 jSONObject.put(Config.EXCEPTION_PART, jSONArray);
                 return jSONObject.toString();
@@ -697,7 +697,7 @@ public class DataCore {
             JSONObject jSONObject = new JSONObject();
             try {
                 synchronized (this.d) {
-                    jSONObject.put(Config.PRINCIPAL_PART, new JSONArray(this.d.toString()));
+                    jSONObject.put("pr", new JSONArray(this.d.toString()));
                 }
                 synchronized (this.e) {
                     jSONObject.put(Config.EVENT_PART, new JSONArray(this.e.toString()));
@@ -750,7 +750,7 @@ public class DataCore {
         }
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            JSONArray jSONArray = jSONObject.getJSONArray(Config.PRINCIPAL_PART);
+            JSONArray jSONArray = jSONObject.getJSONArray("pr");
             if (jSONArray != null) {
                 for (int i = 0; i < jSONArray.length(); i++) {
                     JSONObject jSONObject2 = jSONArray.getJSONObject(i);
@@ -982,7 +982,7 @@ public class DataCore {
                     jSONObject2.put(Config.HEADER_PART, a);
                     synchronized (this.d) {
                         try {
-                            jSONObject2.put(Config.PRINCIPAL_PART, this.d);
+                            jSONObject2.put("pr", this.d);
                             synchronized (this.e) {
                                 try {
                                     jSONObject2.put(Config.EVENT_PART, this.e);

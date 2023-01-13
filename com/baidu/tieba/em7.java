@@ -1,101 +1,71 @@
 package com.baidu.tieba;
 
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.style.ForegroundColorSpan;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.AtUserInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
 public class em7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final List<int[]> a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
-    public final int c;
-    public final String d;
 
-    public em7(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947739226, "Lcom/baidu/tieba/em7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947739226, "Lcom/baidu/tieba/em7;");
                 return;
             }
         }
-        if (jSONObject != null) {
-            this.a = jSONObject.optString("moreText");
-            this.b = gm7.b(jSONObject.optString("moreColor", ""));
-            this.c = gm7.b(jSONObject.optString("moreColorNight", ""));
-            this.d = jSONObject.optString("moreScheme");
-            return;
-        }
-        this.a = "";
-        this.b = Integer.MAX_VALUE;
-        this.c = Integer.MAX_VALUE;
-        this.d = "";
+        a = new ArrayList();
+        b = SkinManager.getColor(R.color.CAM_X0304);
     }
 
-    public static em7 a(JSONObject jSONObject) {
+    public static SpannableStringBuilder a(SpannableStringBuilder spannableStringBuilder) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            return new em7(jSONObject);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, spannableStringBuilder)) == null) {
+            if (!TextUtils.isEmpty(spannableStringBuilder) && !ListUtils.isEmpty(a)) {
+                for (int[] iArr : a) {
+                    int i = iArr[0];
+                    int i2 = iArr[1];
+                    if (i < spannableStringBuilder.length() && i2 < spannableStringBuilder.length()) {
+                        spannableStringBuilder.setSpan(new ForegroundColorSpan(b), i, i2, 18);
+                    }
+                }
+            }
+            return spannableStringBuilder;
         }
-        return (em7) invokeL.objValue;
+        return (SpannableStringBuilder) invokeL.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public static void b(List<AtUserInfo> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeL(65538, null, list) == null) {
+            a.clear();
+            if (ListUtils.isEmpty(list)) {
+                return;
+            }
+            for (AtUserInfo atUserInfo : list) {
+                int atPosition = atUserInfo.getAtPosition();
+                a.add(new int[]{atPosition, atUserInfo.getAtName().length() + atPosition + 1});
+            }
         }
-        return invokeV.intValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return !TextUtils.isEmpty(this.a);
-        }
-        return invokeV.booleanValue;
     }
 }

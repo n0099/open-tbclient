@@ -2,6 +2,7 @@ package com.baidu.cyberplayer.sdk;
 
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -106,7 +107,7 @@ public class MPDParser {
                             Object obj = jSONArray2.get(i);
                             if (obj instanceof JSONObject) {
                                 JSONObject jSONObject = (JSONObject) obj;
-                                if (jSONObject.getInt("rank") == parseInt) {
+                                if (jSONObject.getInt(MultiRatePlayUrlHelper.RANK) == parseInt) {
                                     break;
                                 }
                                 uri2 = Uri.parse(jSONObject.getString("url"));

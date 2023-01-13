@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,72 +10,51 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class bq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public TbPageContext b;
-    public wp5 c;
 
-    public bq5(TbPageContext tbPageContext, int i) {
+    public bq5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = tbPageContext;
-        this.a = i;
     }
 
-    public bq5(wp5 wp5Var, int i) {
+    public static void b(c25 c25Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wp5Var, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if ((interceptable != null && interceptable.invokeL(65537, null, c25Var) != null) || c25Var == null) {
+            return;
         }
-        this.c = wp5Var;
-        this.a = i;
+        if (c25Var.b != 0) {
+            cz4.l().z("app_entrance_nologin", c25Var.b + "");
+        }
+        if (c25Var.a != 0 && TbadkCoreApplication.getCurrentAccount() != null) {
+            cz4.l().z("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), c25Var.a + "");
+        }
     }
 
     public int a() {
         InterceptResult invokeV;
+        String r;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            if (TbadkCoreApplication.getCurrentAccount() == null) {
+                r = cz4.l().r("app_entrance_nologin", "");
+            } else {
+                cz4 l = cz4.l();
+                r = l.r("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), "");
+            }
+            int e = yg.e(r, 0);
+            if (e != 1 && e == 2) {
+                return 1;
+            }
+            return 2;
         }
         return invokeV.intValue;
-    }
-
-    public TbPageContext b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (TbPageContext) invokeV.objValue;
-    }
-
-    public wp5 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (wp5) invokeV.objValue;
     }
 }

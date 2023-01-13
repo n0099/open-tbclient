@@ -436,7 +436,7 @@ public class e {
                     if (bundle != null) {
                         CallArgs callArgs = new CallArgs();
                         bundle.setClassLoader(MyProvider.class.getClassLoader());
-                        CallArgs callArgs2 = (CallArgs) bundle.getParcelable("args");
+                        CallArgs callArgs2 = (CallArgs) bundle.getParcelable(WebChromeClient.KEY_ARG_ARRAY);
                         if (callArgs2 != null) {
                             Object[] objArr = callArgs2.e;
                             if (objArr.length == 2) {
@@ -478,7 +478,7 @@ public class e {
                     if (bundle != null) {
                         CallArgs callArgs3 = new CallArgs();
                         bundle.setClassLoader(MyProvider.class.getClassLoader());
-                        CallArgs callArgs4 = (CallArgs) bundle.getParcelable("args");
+                        CallArgs callArgs4 = (CallArgs) bundle.getParcelable(WebChromeClient.KEY_ARG_ARRAY);
                         int i2 = callArgs4.a;
                         int i3 = callArgs4.b;
                         String str5 = callArgs4.c;
@@ -672,7 +672,7 @@ public class e {
                     }
                     callArgs2.e = objArr;
                     Bundle bundle = new Bundle();
-                    bundle.putParcelable("args", callArgs2);
+                    bundle.putParcelable(WebChromeClient.KEY_ARG_ARRAY, callArgs2);
                     Bundle a3 = o.a(context, str2, bundle, "sofire");
                     if (a3 == null) {
                         return Pair.create(3, null);

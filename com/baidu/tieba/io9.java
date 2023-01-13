@@ -1,41 +1,19 @@
 package com.baidu.tieba;
+/* loaded from: classes5.dex */
+public interface io9 {
+    int availableBytes();
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
-public class io9 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = true;
-    public static boolean b = false;
-    public static boolean c = false;
-    public static boolean d = true;
-    public static long e = 300000;
-    public static int f = 10;
-    public static long g = 604800000;
-    public static long h = 104857600;
-    public static int i = 100;
-    public static int j = 5;
-    public static long k = 104857600;
-    public static int l = 0;
-    public static int m = 1;
-    public static int n;
-    public transient /* synthetic */ FieldHolder $fh;
+    void close();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947860374, "Lcom/baidu/tieba/io9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947860374, "Lcom/baidu/tieba/io9;");
-        }
-    }
+    void flush();
+
+    byte[] getOutPutBytes();
+
+    void init(int i, int i2);
+
+    boolean putBytes(byte[] bArr, int i);
+
+    int receiveBytes(byte[] bArr, int i);
+
+    void setSpeed(float f);
 }

@@ -46,7 +46,7 @@ public class b extends al.a {
 
     @Override // com.xiaomi.push.al.a
     /* renamed from: a */
-    public String mo217a() {
+    public String mo222a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "22" : (String) invokeV.objValue;
@@ -62,7 +62,7 @@ public class b extends al.a {
         }
         this.a.a(bd.a());
         this.a.a(false);
-        com.xiaomi.channel.commonutils.logger.b.c("MoleInfo aw_ping : send aw_Ping msg " + this.a.m490a());
+        com.xiaomi.channel.commonutils.logger.b.c("MoleInfo aw_ping : send aw_Ping msg " + this.a.m553a());
         try {
             String c = this.a.c();
             xMPushService.a(c, it.a(ah.a(c, this.a.b(), this.a, hj.i)), this.f943a);

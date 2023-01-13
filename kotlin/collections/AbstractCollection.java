@@ -7,6 +7,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import kotlin.Metadata;
 import kotlin.SinceKotlin;
+import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.CollectionToArray;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.markers.KMappedMarker;
@@ -68,7 +69,28 @@ public abstract class AbstractCollection<E> implements Collection<E>, KMappedMar
     }
 
     public String toString() {
-        return CollectionsKt___CollectionsKt.joinToString$default(this, StringUtil.ARRAY_ELEMENT_SEPARATOR, PreferencesUtil.LEFT_MOUNT, PreferencesUtil.RIGHT_MOUNT, 0, null, new AbstractCollection$toString$1(this), 24, null);
+        return CollectionsKt___CollectionsKt.joinToString$default(this, StringUtil.ARRAY_ELEMENT_SEPARATOR, PreferencesUtil.LEFT_MOUNT, PreferencesUtil.RIGHT_MOUNT, 0, null, new Function1<E, CharSequence>() { // from class: kotlin.collections.AbstractCollection$toString$1
+            {
+                super(1);
+            }
+
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // kotlin.jvm.functions.Function1
+            public final CharSequence invoke(E e) {
+                if (e == AbstractCollection.this) {
+                    return "(this Collection)";
+                }
+                return String.valueOf(e);
+            }
+
+            /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            /* JADX WARN: Multi-variable type inference failed */
+            @Override // kotlin.jvm.functions.Function1
+            public /* bridge */ /* synthetic */ CharSequence invoke(Object obj) {
+                return invoke((AbstractCollection$toString$1<E>) obj);
+            }
+        }, 24, null);
     }
 
     @Override // java.util.Collection

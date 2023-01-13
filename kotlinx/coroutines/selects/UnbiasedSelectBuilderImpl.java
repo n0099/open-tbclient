@@ -55,23 +55,95 @@ public final class UnbiasedSelectBuilderImpl<R> implements SelectBuilder<R> {
     }
 
     @Override // kotlinx.coroutines.selects.SelectBuilder
-    public void invoke(SelectClause0 selectClause0, Function1<? super Continuation<? super R>, ? extends Object> function1) {
-        this.clauses.add(new UnbiasedSelectBuilderImpl$invoke$1(this, selectClause0, function1));
+    public void invoke(final SelectClause0 selectClause0, final Function1<? super Continuation<? super R>, ? extends Object> function1) {
+        this.clauses.add(new Function0<Unit>() { // from class: kotlinx.coroutines.selects.UnbiasedSelectBuilderImpl$invoke$1
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(0);
+            }
+
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function0
+            public /* bridge */ /* synthetic */ Unit invoke() {
+                invoke2();
+                return Unit.INSTANCE;
+            }
+
+            /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
+            /* renamed from: invoke  reason: avoid collision after fix types in other method */
+            public final void invoke2() {
+                selectClause0.registerSelectClause0(UnbiasedSelectBuilderImpl.this.getInstance(), function1);
+            }
+        });
     }
 
     @Override // kotlinx.coroutines.selects.SelectBuilder
-    public void onTimeout(long j, Function1<? super Continuation<? super R>, ? extends Object> function1) {
-        this.clauses.add(new UnbiasedSelectBuilderImpl$onTimeout$1(this, j, function1));
+    public void onTimeout(final long j, final Function1<? super Continuation<? super R>, ? extends Object> function1) {
+        this.clauses.add(new Function0<Unit>() { // from class: kotlinx.coroutines.selects.UnbiasedSelectBuilderImpl$onTimeout$1
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(0);
+            }
+
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function0
+            public /* bridge */ /* synthetic */ Unit invoke() {
+                invoke2();
+                return Unit.INSTANCE;
+            }
+
+            /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
+            /* renamed from: invoke  reason: avoid collision after fix types in other method */
+            public final void invoke2() {
+                UnbiasedSelectBuilderImpl.this.getInstance().onTimeout(j, function1);
+            }
+        });
     }
 
     @Override // kotlinx.coroutines.selects.SelectBuilder
-    public <Q> void invoke(SelectClause1<? extends Q> selectClause1, Function2<? super Q, ? super Continuation<? super R>, ? extends Object> function2) {
-        this.clauses.add(new UnbiasedSelectBuilderImpl$invoke$2(this, selectClause1, function2));
+    public <Q> void invoke(final SelectClause1<? extends Q> selectClause1, final Function2<? super Q, ? super Continuation<? super R>, ? extends Object> function2) {
+        this.clauses.add(new Function0<Unit>() { // from class: kotlinx.coroutines.selects.UnbiasedSelectBuilderImpl$invoke$2
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(0);
+            }
+
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function0
+            public /* bridge */ /* synthetic */ Unit invoke() {
+                invoke2();
+                return Unit.INSTANCE;
+            }
+
+            /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
+            /* renamed from: invoke  reason: avoid collision after fix types in other method */
+            public final void invoke2() {
+                selectClause1.registerSelectClause1(UnbiasedSelectBuilderImpl.this.getInstance(), function2);
+            }
+        });
     }
 
     @Override // kotlinx.coroutines.selects.SelectBuilder
-    public <P, Q> void invoke(SelectClause2<? super P, ? extends Q> selectClause2, P p, Function2<? super Q, ? super Continuation<? super R>, ? extends Object> function2) {
-        this.clauses.add(new UnbiasedSelectBuilderImpl$invoke$3(this, selectClause2, p, function2));
+    public <P, Q> void invoke(final SelectClause2<? super P, ? extends Q> selectClause2, final P p, final Function2<? super Q, ? super Continuation<? super R>, ? extends Object> function2) {
+        this.clauses.add(new Function0<Unit>() { // from class: kotlinx.coroutines.selects.UnbiasedSelectBuilderImpl$invoke$3
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(0);
+            }
+
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function0
+            public /* bridge */ /* synthetic */ Unit invoke() {
+                invoke2();
+                return Unit.INSTANCE;
+            }
+
+            /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
+            /* renamed from: invoke  reason: avoid collision after fix types in other method */
+            public final void invoke2() {
+                selectClause2.registerSelectClause2(UnbiasedSelectBuilderImpl.this.getInstance(), p, function2);
+            }
+        });
     }
 
     @Override // kotlinx.coroutines.selects.SelectBuilder

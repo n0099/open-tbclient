@@ -50,6 +50,7 @@ public class g extends c<UnRegisterStatus> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Possible override for method com.meizu.cloud.pushsdk.platform.b.c.h()Z */
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     /* renamed from: h */
     public UnRegisterStatus b() {

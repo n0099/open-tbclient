@@ -8,9 +8,9 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.q9;
-import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.rb;
+import com.baidu.tieba.s9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,8 +23,9 @@ public abstract class BdBaseModel<T> extends OrmObject {
     public transient /* synthetic */ FieldHolder $fh;
     public int mErrorCode;
     public String mErrorString;
-    public q9 mLoadDataCallBack;
+    public r9 mLoadDataCallBack;
     public int mLoadDataMode;
+    public boolean mNeedShowSeverToast;
     public BdUniqueId unique_id;
 
     public abstract boolean cancelLoadData();
@@ -44,6 +45,7 @@ public abstract class BdBaseModel<T> extends OrmObject {
                 return;
             }
         }
+        this.mNeedShowSeverToast = true;
         this.mLoadDataMode = 0;
         this.unique_id = null;
         this.mLoadDataCallBack = null;
@@ -94,12 +96,12 @@ public abstract class BdBaseModel<T> extends OrmObject {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public BdBaseModel(r9<T> r9Var) {
+    public BdBaseModel(s9<T> s9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {r9Var};
+            Object[] objArr = {s9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -109,15 +111,16 @@ public abstract class BdBaseModel<T> extends OrmObject {
                 return;
             }
         }
+        this.mNeedShowSeverToast = true;
         this.mLoadDataMode = 0;
         this.unique_id = null;
         this.mLoadDataCallBack = null;
         this.mErrorCode = 0;
         this.mErrorString = null;
-        if (r9Var == null) {
+        if (s9Var == null) {
             return;
         }
-        this.unique_id = r9Var.getUniqueId();
+        this.unique_id = s9Var.getUniqueId();
     }
 
     public void registerListener(int i, MessageListener<?> messageListener) {
@@ -130,13 +133,13 @@ public abstract class BdBaseModel<T> extends OrmObject {
         }
     }
 
-    public void registerListener(int i, qb qbVar) {
+    public void registerListener(int i, rb rbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, qbVar) == null) {
-            if (qbVar != null && qbVar.getTag() == null) {
-                qbVar.setTag(this.unique_id);
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, rbVar) == null) {
+            if (rbVar != null && rbVar.getTag() == null) {
+                rbVar.setTag(this.unique_id);
             }
-            MessageManager.getInstance().registerListener(i, qbVar);
+            MessageManager.getInstance().registerListener(i, rbVar);
         }
     }
 
@@ -175,27 +178,34 @@ public abstract class BdBaseModel<T> extends OrmObject {
         }
     }
 
-    public void setLoadDataCallBack(q9 q9Var) {
+    public void setLoadDataCallBack(r9 r9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, q9Var) == null) {
-            this.mLoadDataCallBack = q9Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, r9Var) == null) {
+            this.mLoadDataCallBack = r9Var;
+        }
+    }
+
+    public void setNeedShowSeverToast(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            this.mNeedShowSeverToast = z;
         }
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, bdUniqueId) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, bdUniqueId) == null) {
             this.unique_id = bdUniqueId;
         }
     }
 
-    public void registerListener(qb qbVar) {
+    public void registerListener(rb rbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, qbVar) == null) {
-            if (qbVar != null && qbVar.getTag() == null) {
-                qbVar.setTag(this.unique_id);
+        if (interceptable == null || interceptable.invokeL(1048586, this, rbVar) == null) {
+            if (rbVar != null && rbVar.getTag() == null) {
+                rbVar.setTag(this.unique_id);
             }
-            MessageManager.getInstance().registerListener(qbVar);
+            MessageManager.getInstance().registerListener(rbVar);
         }
     }
 

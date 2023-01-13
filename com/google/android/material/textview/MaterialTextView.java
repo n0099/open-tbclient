@@ -18,7 +18,7 @@ import com.google.android.material.R;
 import com.google.android.material.resources.MaterialAttributes;
 import com.google.android.material.resources.MaterialResources;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MaterialTextView extends AppCompatTextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -131,7 +131,7 @@ public class MaterialTextView extends AppCompatTextView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            return MaterialAttributes.resolveBoolean(context, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406d9, true);
+            return MaterialAttributes.resolveBoolean(context, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406e2, true);
         }
         return invokeL.booleanValue;
     }

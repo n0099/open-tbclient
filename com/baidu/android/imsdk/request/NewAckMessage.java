@@ -13,7 +13,7 @@ import com.baidu.android.imsdk.ubc.MessageUbc;
 import com.baidu.android.imsdk.ubc.UBCConstants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.p70;
+import com.baidu.tieba.u70;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -268,7 +268,7 @@ public class NewAckMessage extends Message {
                             jSONObject.put(Constants.EXTRA_NOTIFY_ID, this.notifyId);
                         }
                         if (!TextUtils.isEmpty(this.eventList)) {
-                            jSONArray = new JSONObject(this.eventList).optJSONArray(Constants.EXTRA_EVENT_LIST);
+                            jSONArray = new JSONObject(this.eventList).optJSONArray("event_list");
                         } else {
                             jSONArray = null;
                         }
@@ -279,9 +279,9 @@ public class NewAckMessage extends Message {
                         jSONObject2.put("event", "CSaveT");
                         jSONObject2.put("timestamp_ms", System.currentTimeMillis());
                         jSONArray.put(jSONObject2);
-                        jSONObject.put(Constants.EXTRA_EVENT_LIST, jSONArray);
+                        jSONObject.put("event_list", jSONArray);
                         JSONObject jSONObject3 = new JSONObject();
-                        jSONObject3.put(Constants.EXTRA_EVENT_LIST, jSONArray);
+                        jSONObject3.put("event_list", jSONArray);
                         this.eventList = jSONObject3.toString();
                     } catch (JSONException e) {
                         LogUtils.e(NewAckMessage.TAG, "toJsonObject exception :", e);
@@ -448,7 +448,7 @@ public class NewAckMessage extends Message {
                     jSONObject2.put("event", "CIMAckBegin");
                     jSONObject2.put("timestamp_ms", System.currentTimeMillis());
                     jSONArray.put(jSONObject2);
-                    jSONObject.put(Constants.EXTRA_EVENT_LIST, jSONArray);
+                    jSONObject.put("event_list", jSONArray);
                 } catch (JSONException e) {
                     LogUtils.i(TAG, "buildBody ackJson JSONException:" + e.getMessage());
                 }
@@ -465,12 +465,12 @@ public class NewAckMessage extends Message {
                     this.mDebugInfo.eventList = this.tripules.get(0).getEventList();
                     JSONObject jSONObject3 = new JSONObject();
                     try {
-                        JSONArray optJSONArray = new JSONObject(this.tripules.get(0).getEventList()).optJSONArray(Constants.EXTRA_EVENT_LIST);
+                        JSONArray optJSONArray = new JSONObject(this.tripules.get(0).getEventList()).optJSONArray("event_list");
                         if (optJSONArray == null) {
                             optJSONArray = new JSONArray();
                         }
                         optJSONArray.put(jSONObject2);
-                        jSONObject3.put(Constants.EXTRA_EVENT_LIST, optJSONArray);
+                        jSONObject3.put("event_list", optJSONArray);
                     } catch (JSONException e2) {
                         LogUtils.i(TAG, "buildBody JSONException:" + e2.getMessage());
                     }
@@ -548,7 +548,7 @@ public class NewAckMessage extends Message {
                 });
                 return;
             }
-            p70.d().f(this.mUbcData.generateUBCData(String.valueOf(i), str), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+            u70.d().f(this.mUbcData.generateUBCData(String.valueOf(i), str), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
         }
     }
 

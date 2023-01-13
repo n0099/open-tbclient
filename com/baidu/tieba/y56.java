@@ -1,34 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.os.Build;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.User;
-import tbclient.VoiceRoom;
-/* loaded from: classes6.dex */
-public class y56 extends w56 {
+import java.io.File;
+import java.io.IOException;
+/* loaded from: classes7.dex */
+public abstract class y56 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String O0;
-    public List<String> P0;
-    public String Q0;
-    public String R0;
-    public long S0;
+    public final WebView a;
 
-    public y56(ThreadData threadData) {
+    public y56(WebView webView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {threadData};
+            Object[] objArr = {webView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,104 +33,82 @@ public class y56 extends w56 {
                 return;
             }
         }
-        if (threadData == null) {
-            return;
-        }
-        this.a = threadData;
-        String str = threadData.tid;
-        threadData.getTitle();
-        VoiceRoom voiceRoomData = threadData.getVoiceRoomData();
-        if (voiceRoomData != null) {
-            this.O0 = voiceRoomData.room_name;
-            this.P0 = e0(voiceRoomData);
-            this.Q0 = String.valueOf(voiceRoomData.talker_num);
-            this.R0 = String.valueOf(voiceRoomData.joined_num);
-            this.S0 = voiceRoomData.room_id.longValue();
-        }
+        this.a = webView;
+        webView.setDrawingCacheEnabled(false);
+        webView.setLayerType(2, null);
+        webView.setScrollBarStyle(0);
+        webView.requestFocusFromTouch();
     }
 
-    public static boolean W(ThreadData threadData) {
-        InterceptResult invokeL;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, threadData)) == null) {
-            if (threadData != null && threadData.getVoiceRoomData() != null && threadData.getVoiceRoomData().room_id.longValue() > 0 && !StringUtils.isNull(threadData.getVoiceRoomData().room_name)) {
-                return true;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            WebSettings c = c();
+            c.setJavaScriptEnabled(true);
+            c.setDisplayZoomControls(false);
+            if (d76.c()) {
+                c.setCacheMode(-1);
+            } else {
+                c.setCacheMode(1);
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final List<String> e0(VoiceRoom voiceRoom) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, voiceRoom)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (User user : voiceRoom.talker) {
-                if (user != null) {
-                    arrayList.add(user.portrait);
-                }
+            c.setGeolocationEnabled(true);
+            c.setLoadsImagesAutomatically(true);
+            c.setBlockNetworkImage(false);
+            c.setBlockNetworkLoads(false);
+            c.setLoadWithOverviewMode(true);
+            c.setAllowFileAccess(true);
+            c.setUseWideViewPort(true);
+            if (Build.VERSION.SDK_INT >= 21) {
+                c.setMixedContentMode(0);
             }
-            return arrayList;
+            c.setSupportZoom(true);
+            c.setBuiltInZoomControls(false);
+            c.setMediaPlaybackRequiresUserGesture(false);
+            c.setDomStorageEnabled(true);
+            c.setDatabaseEnabled(true);
+            try {
+                c.setAppCacheMaxSize(16777216L);
+                c.setAppCacheEnabled(true);
+                c.setAppCachePath(b(getContext(), "tb_web_cache").getPath());
+            } catch (IOException unused) {
+                c.setAppCachePath(getContext().getCacheDir().getPath());
+            }
+            String userAgentString = c().getUserAgentString();
+            String b = g56.b();
+            if (!userAgentString.endsWith(b)) {
+                c.setUserAgentString(userAgentString + " " + b);
+            }
         }
-        return (List) invokeL.objValue;
     }
 
-    public String Z() {
-        InterceptResult invokeV;
+    public final File b(Context context, String str) throws IOException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.R0;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            File file = new File(context.getCacheDir(), str);
+            if (!file.exists() && !file.mkdirs()) {
+                throw new IOException(file.getAbsolutePath() + "文件夹创建失败！");
+            }
+            return file;
         }
-        return (String) invokeV.objValue;
+        return (File) invokeLL.objValue;
     }
 
-    public List<String> a0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.P0;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public long b0() {
+    public WebSettings c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.S0;
+            return this.a.getSettings();
         }
-        return invokeV.longValue;
+        return (WebSettings) invokeV.objValue;
     }
 
-    public String c0() {
+    public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.O0;
+            return this.a.getContext();
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String d0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.Q0;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.w56, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.xn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!this.B) {
-                return w56.G0;
-            }
-            return ThreadData.TYPE_CONTENT_VOICE_ROOM;
-        }
-        return (BdUniqueId) invokeV.objValue;
+        return (Context) invokeV.objValue;
     }
 }

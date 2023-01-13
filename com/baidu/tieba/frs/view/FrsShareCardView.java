@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -83,22 +83,22 @@ public class FrsShareCardView extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return xi.cutString(str, 18) + this.b.getString(R.string.obfuscated_res_0x7f0f0683);
+            return yi.cutString(str, 18) + this.b.getString(R.string.obfuscated_res_0x7f0f068b);
         }
         return (String) invokeL.objValue;
     }
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, shareFromFrsMsgData) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, shareFromFrsMsgData) == null) {
             this.h = shareFromFrsMsgData;
-            e();
+            d();
         }
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bdUniqueId) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, bdUniqueId) == null) {
             this.d.setPageId(bdUniqueId);
         }
     }
@@ -115,7 +115,7 @@ public class FrsShareCardView extends LinearLayout {
     public EditText getChatMsgView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.c;
         }
         return (EditText) invokeV.objValue;
@@ -124,12 +124,12 @@ public class FrsShareCardView extends LinearLayout {
     public String getLeaveMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             EditText editText = this.c;
             if (editText == null) {
                 return null;
             }
-            return xi.charSequence2String(editText.getText(), null);
+            return yi.charSequence2String(editText.getText(), null);
         }
         return (String) invokeV.objValue;
     }
@@ -153,17 +153,9 @@ public class FrsShareCardView extends LinearLayout {
         }
     }
 
-    public void d(String str, boolean z) {
-        HeadImageView headImageView;
+    public final void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048579, this, str, z) == null) && (headImageView = this.d) != null) {
-            headImageView.K(str, 15, false);
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.e.setText(a(this.h.getName()));
             BdLog.e("mData.getImageUrl()的图片URL" + this.h.getImageUrl());
             this.d.K(this.h.getImageUrl(), 15, false);
@@ -177,7 +169,7 @@ public class FrsShareCardView extends LinearLayout {
     public LinearLayout.LayoutParams generateDefaultLayoutParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return new LinearLayout.LayoutParams(-1, -2);
         }
         return (LinearLayout.LayoutParams) invokeV.objValue;

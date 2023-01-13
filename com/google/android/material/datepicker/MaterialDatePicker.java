@@ -288,7 +288,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65556, this) == null) {
             String headerText = getHeaderText();
-            this.headerSelectionText.setContentDescription(String.format(getString(R.string.obfuscated_res_0x7f0f0b73), headerText));
+            this.headerSelectionText.setContentDescription(String.format(getString(R.string.obfuscated_res_0x7f0f0b8d), headerText));
             this.headerSelectionText.setText(headerText);
         }
     }
@@ -471,8 +471,8 @@ public final class MaterialDatePicker<S> extends DialogFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             StateListDrawable stateListDrawable = new StateListDrawable();
-            stateListDrawable.addState(new int[]{16842912}, AppCompatResources.getDrawable(context, R.drawable.obfuscated_res_0x7f080dad));
-            stateListDrawable.addState(new int[0], AppCompatResources.getDrawable(context, R.drawable.obfuscated_res_0x7f080daf));
+            stateListDrawable.addState(new int[]{16842912}, AppCompatResources.getDrawable(context, R.drawable.obfuscated_res_0x7f080dbe));
+            stateListDrawable.addState(new int[0], AppCompatResources.getDrawable(context, R.drawable.obfuscated_res_0x7f080dc0));
             return stateListDrawable;
         }
         return (Drawable) invokeL.objValue;
@@ -561,9 +561,9 @@ public final class MaterialDatePicker<S> extends DialogFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65557, this, checkableImageButton) == null) {
             if (this.headerToggleButton.isChecked()) {
-                string = checkableImageButton.getContext().getString(R.string.obfuscated_res_0x7f0f0b8c);
+                string = checkableImageButton.getContext().getString(R.string.obfuscated_res_0x7f0f0ba6);
             } else {
-                string = checkableImageButton.getContext().getString(R.string.obfuscated_res_0x7f0f0b8e);
+                string = checkableImageButton.getContext().getString(R.string.obfuscated_res_0x7f0f0ba8);
             }
             this.headerToggleButton.setContentDescription(string);
         }
@@ -662,7 +662,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
             this.pickerFragment = pickerFragment;
             updateHeader();
             FragmentTransaction beginTransaction = getChildFragmentManager().beginTransaction();
-            beginTransaction.replace(R.id.obfuscated_res_0x7f09162b, this.pickerFragment);
+            beginTransaction.replace(R.id.obfuscated_res_0x7f09163b, this.pickerFragment);
             beginTransaction.commitNow();
             this.pickerFragment.addOnSelectionChangedListener(new OnSelectionChangedListener<S>(this) { // from class: com.google.android.material.datepicker.MaterialDatePicker.3
                 public static /* synthetic */ Interceptable $ic;
@@ -756,25 +756,25 @@ public final class MaterialDatePicker<S> extends DialogFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, layoutInflater, viewGroup, bundle)) == null) {
             if (this.fullscreen) {
-                i = R.layout.obfuscated_res_0x7f0d05df;
+                i = R.layout.obfuscated_res_0x7f0d05dd;
             } else {
-                i = R.layout.obfuscated_res_0x7f0d05de;
+                i = R.layout.obfuscated_res_0x7f0d05dc;
             }
             View inflate = layoutInflater.inflate(i, viewGroup);
             Context context = inflate.getContext();
             if (this.fullscreen) {
-                inflate.findViewById(R.id.obfuscated_res_0x7f09162b).setLayoutParams(new LinearLayout.LayoutParams(getPaddedPickerWidth(context), -2));
+                inflate.findViewById(R.id.obfuscated_res_0x7f09163b).setLayoutParams(new LinearLayout.LayoutParams(getPaddedPickerWidth(context), -2));
             } else {
-                View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09162c);
-                View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f09162b);
+                View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09163c);
+                View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f09163b);
                 findViewById.setLayoutParams(new LinearLayout.LayoutParams(getPaddedPickerWidth(context), -1));
                 findViewById2.setMinimumHeight(getDialogPickerHeight(requireContext()));
             }
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091637);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091647);
             this.headerSelectionText = textView;
             ViewCompat.setAccessibilityLiveRegion(textView, 1);
-            this.headerToggleButton = (CheckableImageButton) inflate.findViewById(R.id.obfuscated_res_0x7f091639);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09163d);
+            this.headerToggleButton = (CheckableImageButton) inflate.findViewById(R.id.obfuscated_res_0x7f091649);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09164d);
             CharSequence charSequence = this.titleText;
             if (charSequence != null) {
                 textView2.setText(charSequence);
@@ -782,7 +782,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
                 textView2.setText(this.titleTextResId);
             }
             initHeaderToggle(context);
-            this.confirmButton = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f0906f0);
+            this.confirmButton = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f0906ee);
             if (this.dateSelector.isSelectionComplete()) {
                 this.confirmButton.setEnabled(true);
             } else {
@@ -826,7 +826,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
                     }
                 }
             });
-            Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f0904b1);
+            Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f0904ae);
             button.setTag(CANCEL_BUTTON_TAG);
             button.setOnClickListener(new View.OnClickListener(this) { // from class: com.google.android.material.datepicker.MaterialDatePicker.2
                 public static /* synthetic */ Interceptable $ic;

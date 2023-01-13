@@ -1,19 +1,44 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class q40 {
+public final class q40 extends o40 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static r40 a(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
+    public q40(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bArr, bArr2)) == null) {
-            return new u40(bArr, bArr2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (r40) invokeLL.objValue;
+        this.a = 32;
+        this.b = i;
+        this.c = i2;
+    }
+
+    @Override // com.baidu.tieba.o40
+    public com.baidu.helios.common.cc.a b(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
+            r40 r40Var = new r40();
+            r40Var.b(bArr, i, i2);
+            return com.baidu.helios.common.cc.a.a(new long[]{r40Var.c()});
+        }
+        return (com.baidu.helios.common.cc.a) invokeLII.objValue;
     }
 }

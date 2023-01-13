@@ -188,6 +188,10 @@ public final class BIMLogPb {
                     maybeForceBuilderInitialization();
                 }
 
+                public static /* synthetic */ Builder access$200() {
+                    return create();
+                }
+
                 public static Builder create() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
@@ -256,8 +260,9 @@ public final class BIMLogPb {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-                public Builder clone() {
+                @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
+                /* renamed from: clone */
+                public Builder mo29clone() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
                     if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -477,7 +482,7 @@ public final class BIMLogPb {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-                    return Builder.create();
+                    return Builder.access$200();
                 }
                 return (Builder) invokeV.objValue;
             }
@@ -874,6 +879,10 @@ public final class BIMLogPb {
                 maybeForceBuilderInitialization();
             }
 
+            public static /* synthetic */ Builder access$600() {
+                return create();
+            }
+
             public static Builder create() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -965,8 +974,9 @@ public final class BIMLogPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            public Builder clone() {
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
+            /* renamed from: clone */
+            public Builder mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
@@ -1514,10 +1524,10 @@ public final class BIMLogPb {
         public static Builder newBuilder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeV = interceptable.invokeV(65553, null)) != null) {
-                return (Builder) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
+                return Builder.access$600();
             }
-            return Builder.create();
+            return (Builder) invokeV.objValue;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.logpb.BIMLogPb.LogRequestOrBuilder
@@ -2124,6 +2134,10 @@ public final class BIMLogPb {
                 maybeForceBuilderInitialization();
             }
 
+            public static /* synthetic */ Builder access$1600() {
+                return create();
+            }
+
             public static Builder create() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -2202,8 +2216,9 @@ public final class BIMLogPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            public Builder clone() {
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
+            /* renamed from: clone */
+            public Builder mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -2526,7 +2541,7 @@ public final class BIMLogPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-                return Builder.create();
+                return Builder.access$1600();
             }
             return (Builder) invokeV.objValue;
         }

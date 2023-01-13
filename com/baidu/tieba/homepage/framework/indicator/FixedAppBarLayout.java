@@ -7,6 +7,7 @@ import android.animation.StateListAnimator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +26,6 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.atomData.DebugToolActivityConfig;
 import com.baidu.tbadk.core.atomData.SquareSearchActivityConfig;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
@@ -39,14 +39,13 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.coreExtra.floatCardView.AlaLiveTipView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ah;
+import com.baidu.tieba.bh;
+import com.baidu.tieba.cz4;
+import com.baidu.tieba.fr4;
 import com.baidu.tieba.homepage.personalize.view.HomeTabBarView;
-import com.baidu.tieba.i35;
-import com.baidu.tieba.rw4;
-import com.baidu.tieba.ry4;
-import com.baidu.tieba.vq4;
-import com.baidu.tieba.xg;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.s35;
+import com.baidu.tieba.yg;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -357,14 +356,14 @@ public class FixedAppBarLayout extends AppBarLayout {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 e eVar = new e();
                 eVar.a = view2;
-                eVar.b = (AlaLiveTipView) view2.findViewById(R.id.obfuscated_res_0x7f091444);
-                eVar.c = (HomeTabBarView) view2.findViewById(R.id.obfuscated_res_0x7f090e2b);
-                eVar.d = view2.findViewById(R.id.obfuscated_res_0x7f0907a2);
-                eVar.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091eb9);
-                eVar.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ecd);
-                eVar.g = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091ed4);
-                eVar.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e99);
-                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f52);
+                eVar.b = (AlaLiveTipView) view2.findViewById(R.id.obfuscated_res_0x7f09144f);
+                eVar.c = (HomeTabBarView) view2.findViewById(R.id.obfuscated_res_0x7f090e35);
+                eVar.d = view2.findViewById(R.id.obfuscated_res_0x7f0907a6);
+                eVar.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ed7);
+                eVar.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091eeb);
+                eVar.g = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091ef2);
+                eVar.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091eb8);
+                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f5e);
                 eVar.i = tbImageView;
                 tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 eVar.i.setUseNightOrDarkMask(false);
@@ -466,15 +465,22 @@ public class FixedAppBarLayout extends AppBarLayout {
 
     public void setImageBackground(Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, bitmap) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, bitmap) == null) {
             this.a.i.setImageBitmap(bitmap);
         }
     }
 
     public void setImageBackgroundVisibility(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
             this.a.i.setVisibility(i);
+        }
+    }
+
+    public void setImageDrawable(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, drawable) == null) {
+            this.a.i.setImageDrawable(drawable);
         }
     }
 
@@ -482,10 +488,10 @@ public class FixedAppBarLayout extends AppBarLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.b = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0293, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d028e, (ViewGroup) this, true);
             this.a = e.a(this);
+            n();
             o();
-            p();
             i();
             j();
             f();
@@ -499,7 +505,7 @@ public class FixedAppBarLayout extends AppBarLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View view2 = this.a.d;
-            if (vq4.h()) {
+            if (fr4.h()) {
                 i = 0;
             } else {
                 i = 8;
@@ -516,10 +522,10 @@ public class FixedAppBarLayout extends AppBarLayout {
         }
     }
 
-    public void m() {
+    public void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            ah.a().removeCallbacks(this.g);
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            bh.a().removeCallbacks(this.g);
             AnimatorSet animatorSet = this.c;
             if (animatorSet != null) {
                 animatorSet.cancel();
@@ -527,20 +533,30 @@ public class FixedAppBarLayout extends AppBarLayout {
         }
     }
 
-    public void n() {
+    public void m() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.d) {
-            ah.a().postDelayed(this.g, 2000L);
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.d) {
+            bh.a().postDelayed(this.g, 2000L);
             this.d = false;
+        }
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            CoordinatorLayout.LayoutParams layoutParams = new CoordinatorLayout.LayoutParams(-1, -2);
+            layoutParams.setBehavior(new AppBarLayout.Behavior());
+            setLayoutParams(layoutParams);
         }
     }
 
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            CoordinatorLayout.LayoutParams layoutParams = new CoordinatorLayout.LayoutParams(-1, -2);
-            layoutParams.setBehavior(new AppBarLayout.Behavior());
-            setLayoutParams(layoutParams);
+            ViewCompat.setElevation(this, 0.0f);
+            StateListAnimator stateListAnimator = new StateListAnimator();
+            stateListAnimator.addState(new int[0], ObjectAnimator.ofFloat(this, Key.ELEVATION, 0.0f));
+            setStateListAnimator(stateListAnimator);
         }
     }
 
@@ -562,16 +578,6 @@ public class FixedAppBarLayout extends AppBarLayout {
         }
     }
 
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            ViewCompat.setElevation(this, 0.0f);
-            StateListAnimator stateListAnimator = new StateListAnimator();
-            stateListAnimator.addState(new int[0], ObjectAnimator.ofFloat(this, Key.ELEVATION, 0.0f));
-            setStateListAnimator(stateListAnimator);
-        }
-    }
-
     public final void g() {
         AlaLiveTipView alaLiveTipView;
         Interceptable interceptable = $ic;
@@ -581,7 +587,7 @@ public class FixedAppBarLayout extends AppBarLayout {
         alaLiveTipView.setViewLocate(1);
         this.a.b.setHasBubble(false);
         if (this.a.b.getVisibility() != 0) {
-            i35.f();
+            s35.f();
         }
         this.a.b.setVisibility(0);
     }
@@ -589,7 +595,7 @@ public class FixedAppBarLayout extends AppBarLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.g.setText(this.b.getString(R.string.obfuscated_res_0x7f0f113e));
+            this.a.g.setText(this.b.getString(R.string.obfuscated_res_0x7f0f1150));
             if (k()) {
                 this.d = true;
                 this.a.h.setVisibility(0);
@@ -609,10 +615,10 @@ public class FixedAppBarLayout extends AppBarLayout {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            String[] split = ry4.l().r("key_home_page_seacher_anim_show_number", "").split(",");
+            String[] split = cz4.l().r("key_home_page_seacher_anim_show_number", "").split(",");
             long currentTimeMillis = System.currentTimeMillis();
-            if (split.length < 7 && !TimeHelper.isSameDay(xg.g(split[split.length - 1], 0L), currentTimeMillis)) {
-                ry4 l = ry4.l();
+            if (split.length < 7 && !TimeHelper.isSameDay(yg.g(split[split.length - 1], 0L), currentTimeMillis)) {
+                cz4 l = cz4.l();
                 if (split.length == 6) {
                     str = String.valueOf(currentTimeMillis);
                 } else {
@@ -636,33 +642,9 @@ public class FixedAppBarLayout extends AppBarLayout {
             }
             if (this.a.i.getLayoutParams() instanceof FrameLayout.LayoutParams) {
                 FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.a.i.getLayoutParams();
-                layoutParams2.height = UtilHelper.getStatusBarHeight() + yi.g(getContext(), R.dimen.tbds156);
+                layoutParams2.height = UtilHelper.getStatusBarHeight() + zi.g(getContext(), R.dimen.tbds156);
                 this.a.i.setLayoutParams(layoutParams2);
             }
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            setImageBackgroundVisibility(8);
-            SkinManager.setBackgroundColor(this, R.color.CAM_X0208);
-            this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_search40, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
-            rw4 d2 = rw4.d(this.a.g);
-            d2.z(R.dimen.T_X09);
-            d2.v(R.color.CAM_X0105);
-            if (TbadkApplication.getInst().getSkinType() != 1 && TbadkApplication.getInst().getSkinType() != 4) {
-                rw4 d3 = rw4.d(this.a.h);
-                d3.l(R.dimen.L_X01);
-                d3.k(R.color.CAM_X0113);
-                d3.n(R.string.J_X01);
-                d3.f(R.color.CAM_X0211);
-            } else {
-                rw4 d4 = rw4.d(this.a.h);
-                d4.n(R.string.J_X01);
-                d4.f(R.color.CAM_X0211);
-            }
-            this.a.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_home_search16, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
         }
     }
 }

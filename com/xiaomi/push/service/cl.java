@@ -32,7 +32,8 @@ public class cl implements gj {
     }
 
     @Override // com.xiaomi.push.gj
-    public boolean a(gn gnVar) {
+    /* renamed from: a */
+    public boolean mo422a(gn gnVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gnVar)) == null) {

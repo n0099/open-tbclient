@@ -149,11 +149,16 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
             public final void onRewardVerify() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.sb.sa = true;
+                    a.a(this.sb, true);
                     this.sb.rV.setText(a.rZ[2]);
                 }
             }
         };
+    }
+
+    public static /* synthetic */ boolean a(a aVar, boolean z) {
+        aVar.sa = true;
+        return true;
     }
 
     private void bQ() {
@@ -318,7 +323,7 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             if (view2 == this.rW || view2 == this.rX) {
-                com.kwad.components.core.c.a.a.a(new a.C0594a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(2).l(this.nM.eF.getPlayDuration()).a(new a.b(this) { // from class: com.kwad.components.ad.reward.presenter.platdetail.kwai.a.5
+                com.kwad.components.core.c.a.a.a(new a.C0593a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(2).l(this.nM.eF.getPlayDuration()).a(new a.b(this) { // from class: com.kwad.components.ad.reward.presenter.platdetail.kwai.a.5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ a sb;
@@ -358,10 +363,10 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.ey = (TextView) findViewById(R.id.obfuscated_res_0x7f0912b1);
-            this.rW = (ImageView) findViewById(R.id.obfuscated_res_0x7f09112c);
-            this.rV = (TextView) findViewById(R.id.obfuscated_res_0x7f0911f9);
-            this.rX = findViewById(R.id.obfuscated_res_0x7f09112a);
+            this.ey = (TextView) findViewById(R.id.obfuscated_res_0x7f0912bc);
+            this.rW = (ImageView) findViewById(R.id.obfuscated_res_0x7f091137);
+            this.rV = (TextView) findViewById(R.id.obfuscated_res_0x7f091204);
+            this.rX = findViewById(R.id.obfuscated_res_0x7f091135);
         }
     }
 

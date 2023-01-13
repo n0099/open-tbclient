@@ -1,41 +1,92 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Intent;
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.BDPTask;
+import com.baidu.bdtask.component.dialog.TaskDialogViewData;
+import com.baidu.bdtask.ui.components.dialog.DoubleBtnDialog;
+import com.baidu.bdtask.ui.components.dialog.SingleBtnDialog;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class iv {
+public final class iv extends zs<cq> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CharSequence a;
-    public int b;
-    public CharSequence c;
-    public int d;
-    public int e;
-    public a f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
-    public gt m;
 
     /* loaded from: classes5.dex */
-    public interface a {
-        void a();
-    }
+    public static final class a<T> implements et<TaskDialogViewData> {
+        public static /* synthetic */ Interceptable $ic;
+        public static final a a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public iv a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this : (iv) invokeI.objValue;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(254319043, "Lcom/baidu/tieba/iv$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(254319043, "Lcom/baidu/tieba/iv$a;");
+                    return;
+                }
+            }
+            a = new a();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.et
+        /* renamed from: a */
+        public final void onChanged(TaskDialogViewData taskDialogViewData) {
+            Context context;
+            Class cls;
+            ks h;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, taskDialogViewData) == null) && taskDialogViewData != null) {
+                ku v = BDPTask.m.v();
+                if (v != null && (h = v.h()) != null) {
+                    context = h.getAppContext();
+                } else {
+                    context = null;
+                }
+                if (taskDialogViewData.getShowType() == 1) {
+                    cls = SingleBtnDialog.class;
+                } else {
+                    cls = DoubleBtnDialog.class;
+                }
+                Intent intent = new Intent(context, cls);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("data", taskDialogViewData);
+                intent.putExtras(bundle);
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                if (context != null) {
+                    context.startActivity(intent);
+                }
+            }
+        }
     }
 
     public iv() {
@@ -48,175 +99,17 @@ public class iv {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = 2;
-        this.b = 14;
-        this.d = 14;
     }
 
-    public static void f() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.at
+    /* renamed from: b */
+    public void a(cq cqVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            kv.e();
-            mv.f();
-        }
-    }
-
-    public final boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.a == null) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static int m(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            return kt.a();
-        }
-        return invokeL.intValue;
-    }
-
-    public iv b(gt gtVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gtVar)) == null) {
-            this.m = gtVar;
-            return this;
-        }
-        return (iv) invokeL.objValue;
-    }
-
-    public iv c(a aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) {
-            this.f = aVar;
-            return this;
-        }
-        return (iv) invokeL.objValue;
-    }
-
-    public iv d(CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, charSequence)) == null) {
-            this.a = charSequence;
-            return this;
-        }
-        return (iv) invokeL.objValue;
-    }
-
-    public iv e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.g = str;
-            return this;
-        }
-        return (iv) invokeL.objValue;
-    }
-
-    public void g(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, context) != null) || !l()) {
-            return;
-        }
-        f();
-        kv.g(context, this.a, this.e, this.g, this.l, this.h, this.m);
-    }
-
-    public iv h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            if (i >= 1 && i <= 10) {
-                this.e = i;
-            } else {
-                this.e = 2;
-            }
-            return this;
-        }
-        return (iv) invokeI.objValue;
-    }
-
-    public iv i(CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, charSequence)) == null) {
-            this.c = charSequence;
-            return this;
-        }
-        return (iv) invokeL.objValue;
-    }
-
-    public iv j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            this.h = str;
-            return this;
-        }
-        return (iv) invokeL.objValue;
-    }
-
-    public iv n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            this.i = str;
-            return this;
-        }
-        return (iv) invokeL.objValue;
-    }
-
-    public iv o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            this.j = str;
-            return this;
-        }
-        return (iv) invokeL.objValue;
-    }
-
-    public iv p(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            this.k = str;
-            return this;
-        }
-        return (iv) invokeL.objValue;
-    }
-
-    public iv q(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            this.l = str;
-            return this;
-        }
-        return (iv) invokeL.objValue;
-    }
-
-    public void k(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, context) == null) && l() && context != null) {
-            f();
-            if (context instanceof Activity) {
-                mv.g((Activity) context, this.a, this.b, this.c, this.d, this.e, this.g, this.l, this.h, this.i, this.j, this.k, this.f, this.m);
-            } else {
-                kv.f(context, this.a, this.b, this.l, this.c, this.d, this.e, this.g, this.h, this.i, this.j, this.k, this.f, this.m);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cqVar) == null) {
+            cqVar.a().l(a.a);
         }
     }
 }

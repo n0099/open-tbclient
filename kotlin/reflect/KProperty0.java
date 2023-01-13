@@ -19,6 +19,6 @@ public interface KProperty0<V> extends KProperty<V>, Function0<V> {
     @SinceKotlin(version = "1.1")
     Object getDelegate();
 
-    @Override // 
+    @Override // kotlin.reflect.KProperty
     Getter<V> getGetter();
 }

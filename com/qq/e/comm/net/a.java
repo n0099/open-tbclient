@@ -110,7 +110,7 @@ public class a {
                 jSONObject.putOpt("did", deviceStatus.getDeviceId());
                 jSONObject.putOpt("md", deviceStatus.model);
                 jSONObject.putOpt("lg", deviceStatus.getLanguage());
-                jSONObject.putOpt(Config.DEVICE_WIDTH, Integer.valueOf(deviceStatus.getDeviceWidth()));
+                jSONObject.putOpt("w", Integer.valueOf(deviceStatus.getDeviceWidth()));
                 jSONObject.putOpt("h", Integer.valueOf(deviceStatus.getDeviceHeight()));
                 jSONObject.putOpt(Config.DEVICE_ID_SEC, Integer.valueOf(deviceStatus.getDeviceDensity()));
                 jSONObject.putOpt("apil", Integer.valueOf(deviceStatus.getVersion()));

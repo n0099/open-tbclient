@@ -114,7 +114,7 @@ public final class c {
                 synchronized (c.f) {
                     if (this.b.d != null) {
                         this.b.d.unzipFinished();
-                        this.b.d = null;
+                        c.b(this.b);
                     }
                 }
             }
@@ -247,6 +247,11 @@ public final class c {
             return cVar;
         }
         return (c) invokeL.objValue;
+    }
+
+    public static /* synthetic */ WebViewFactory.WebKitUnzipCallback b(c cVar) {
+        cVar.d = null;
+        return null;
     }
 
     private void d() {

@@ -2,18 +2,34 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import androidx.annotation.Nullable;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 /* loaded from: classes5.dex */
-public interface qi0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "cmd");
-    public static final qi0 b = new pi0();
+public abstract class qi0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean a(Context context, String str, @Nullable Map<String, Object> map, @Nullable ri0 ri0Var);
+    @Nullable
+    public abstract String a();
 
-    void b(String str, String str2, ti0 ti0Var);
+    public abstract String b();
 
-    String[] c();
+    public abstract boolean c(Context context, si0 si0Var, @Nullable Map<String, Object> map, @Nullable wi0 wi0Var);
 
-    boolean d(Context context, String str);
+    public qi0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

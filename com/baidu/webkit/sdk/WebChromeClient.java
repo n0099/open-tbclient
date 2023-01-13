@@ -485,7 +485,7 @@ public class WebChromeClient {
                 String string = jSONObject.getString("obj");
                 Object[] objArr = null;
                 String optString = jSONObject.optString(KEY_FUNCTION_NAME, null);
-                JSONArray optJSONArray = jSONObject.optJSONArray("args");
+                JSONArray optJSONArray = jSONObject.optJSONArray(KEY_ARG_ARRAY);
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
                     objArr = new Object[length];

@@ -2,18 +2,27 @@ package com.baidu.tieba;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.database.SQLException;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class jc4 extends ec4<ed4> {
+public abstract class jc4<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract ContentValues c(T t);
+
+    public abstract T d(Cursor cursor) throws SQLException;
+
+    public abstract List<T> e(Cursor cursor) throws SQLException;
 
     public jc4() {
         Interceptable interceptable = $ic;
@@ -29,77 +38,70 @@ public class jc4 extends ec4<ed4> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ec4
-    /* renamed from: f */
-    public ContentValues c(ed4 ed4Var) {
+    public ContentValues a(hd4 hd4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, ed4Var)) == null) {
-            ContentValues a = super.a(ed4Var);
-            a.put("independent", Integer.valueOf(ed4Var.r ? 1 : 0));
-            a.put("sub_pkg_name", ed4Var.p);
-            a.put("app_id", ed4Var.o);
-            return a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hd4Var)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("bundle_id", hd4Var.g);
+            contentValues.put("category", Integer.valueOf(hd4Var.h));
+            contentValues.put("version_name", hd4Var.j);
+            contentValues.put("version_code", Long.valueOf(hd4Var.i));
+            contentValues.put("size", Long.valueOf(hd4Var.k));
+            contentValues.put(PackageTable.MD5, hd4Var.l);
+            contentValues.put("sign", hd4Var.m);
+            contentValues.put(TTDownloadField.TT_DOWNLOAD_URL, hd4Var.n);
+            contentValues.put(PackageTable.FILE_PATH, hd4Var.a);
+            contentValues.put(PackageTable.CURRENT_SIZE, Long.valueOf(hd4Var.b));
+            contentValues.put("create_time", Long.valueOf(hd4Var.c));
+            contentValues.put("update_time", Long.valueOf(hd4Var.d));
+            contentValues.put("state", Integer.valueOf(hd4Var.e));
+            return contentValues;
         }
         return (ContentValues) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ec4
-    /* renamed from: g */
-    public ed4 d(Cursor cursor) {
-        InterceptResult invokeL;
+    public boolean b(Cursor cursor, hd4 hd4Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                return h(cursor);
-            }
-            return null;
-        }
-        return (ed4) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ec4
-    public List<ed4> e(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                do {
-                    arrayList.add(h(cursor));
-                } while (cursor.moveToNext());
-                return arrayList;
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public final ed4 h(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cursor)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor, hd4Var)) == null) {
             if (cursor != null) {
-                int columnIndex = cursor.getColumnIndex("independent");
-                int columnIndex2 = cursor.getColumnIndex("sub_pkg_name");
-                int columnIndex3 = cursor.getColumnIndex("app_id");
-                ed4 ed4Var = new ed4();
-                if (b(cursor, ed4Var)) {
-                    boolean z = true;
-                    if (cursor.getInt(columnIndex) != 1) {
-                        z = false;
-                    }
-                    ed4Var.r = z;
-                    ed4Var.p = cursor.getString(columnIndex2);
-                    ed4Var.o = cursor.getString(columnIndex3);
-                    return ed4Var;
+                int columnIndex = cursor.getColumnIndex("bundle_id");
+                int columnIndex2 = cursor.getColumnIndex("category");
+                int columnIndex3 = cursor.getColumnIndex("version_name");
+                int columnIndex4 = cursor.getColumnIndex("version_code");
+                int columnIndex5 = cursor.getColumnIndex("size");
+                int columnIndex6 = cursor.getColumnIndex(PackageTable.MD5);
+                int columnIndex7 = cursor.getColumnIndex("sign");
+                int columnIndex8 = cursor.getColumnIndex(TTDownloadField.TT_DOWNLOAD_URL);
+                int columnIndex9 = cursor.getColumnIndex("_id");
+                int columnIndex10 = cursor.getColumnIndex(PackageTable.FILE_PATH);
+                int columnIndex11 = cursor.getColumnIndex(PackageTable.CURRENT_SIZE);
+                int columnIndex12 = cursor.getColumnIndex("create_time");
+                int columnIndex13 = cursor.getColumnIndex("update_time");
+                int columnIndex14 = cursor.getColumnIndex("state");
+                String string = cursor.getString(columnIndex);
+                if (TextUtils.isEmpty(string)) {
+                    return false;
                 }
-                return null;
+                hd4Var.g = string;
+                hd4Var.h = cursor.getInt(columnIndex2);
+                hd4Var.j = cursor.getString(columnIndex3);
+                hd4Var.i = cursor.getLong(columnIndex4);
+                hd4Var.k = cursor.getLong(columnIndex5);
+                hd4Var.l = cursor.getString(columnIndex6);
+                hd4Var.m = cursor.getString(columnIndex7);
+                hd4Var.n = cursor.getString(columnIndex8);
+                hd4Var.a = cursor.getString(columnIndex10);
+                hd4Var.b = cursor.getLong(columnIndex11);
+                hd4Var.c = cursor.getLong(columnIndex12);
+                hd4Var.d = cursor.getLong(columnIndex13);
+                hd4Var.f = cursor.getLong(columnIndex9);
+                hd4Var.e = cursor.getInt(columnIndex14);
+                return true;
             }
-            return null;
+            return false;
         }
-        return (ed4) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 }

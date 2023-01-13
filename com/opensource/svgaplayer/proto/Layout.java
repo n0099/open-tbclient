@@ -1,9 +1,9 @@
 package com.opensource.svgaplayer.proto;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.az9;
-import com.baidu.tieba.bz9;
-import com.baidu.tieba.fz9;
+import com.baidu.tieba.i4a;
+import com.baidu.tieba.j4a;
+import com.baidu.tieba.n4a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -139,35 +139,35 @@ public final class Layout extends Message<Layout, Builder> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.ProtoAdapter
-        public Layout decode(az9 az9Var) throws IOException {
+        public Layout decode(i4a i4aVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, az9Var)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, i4aVar)) == null) {
                 Builder builder = new Builder();
-                long c = az9Var.c();
+                long c = i4aVar.c();
                 while (true) {
-                    int f = az9Var.f();
+                    int f = i4aVar.f();
                     if (f != -1) {
                         if (f != 1) {
                             if (f != 2) {
                                 if (f != 3) {
                                     if (f != 4) {
-                                        FieldEncoding g = az9Var.g();
-                                        builder.addUnknownField(f, g, g.rawProtoAdapter().decode(az9Var));
+                                        FieldEncoding g = i4aVar.g();
+                                        builder.addUnknownField(f, g, g.rawProtoAdapter().decode(i4aVar));
                                     } else {
-                                        builder.height(ProtoAdapter.FLOAT.decode(az9Var));
+                                        builder.height(ProtoAdapter.FLOAT.decode(i4aVar));
                                     }
                                 } else {
-                                    builder.width(ProtoAdapter.FLOAT.decode(az9Var));
+                                    builder.width(ProtoAdapter.FLOAT.decode(i4aVar));
                                 }
                             } else {
-                                builder.y(ProtoAdapter.FLOAT.decode(az9Var));
+                                builder.y(ProtoAdapter.FLOAT.decode(i4aVar));
                             }
                         } else {
-                            builder.x(ProtoAdapter.FLOAT.decode(az9Var));
+                            builder.x(ProtoAdapter.FLOAT.decode(i4aVar));
                         }
                     } else {
-                        az9Var.d(c);
+                        i4aVar.d(c);
                         return builder.build();
                     }
                 }
@@ -191,26 +191,26 @@ public final class Layout extends Message<Layout, Builder> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        public void encode(bz9 bz9Var, Layout layout) throws IOException {
+        public void encode(j4a j4aVar, Layout layout) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bz9Var, layout) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, j4aVar, layout) == null) {
                 Float f = layout.x;
                 if (f != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(bz9Var, 1, f);
+                    ProtoAdapter.FLOAT.encodeWithTag(j4aVar, 1, f);
                 }
                 Float f2 = layout.y;
                 if (f2 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(bz9Var, 2, f2);
+                    ProtoAdapter.FLOAT.encodeWithTag(j4aVar, 2, f2);
                 }
                 Float f3 = layout.width;
                 if (f3 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(bz9Var, 3, f3);
+                    ProtoAdapter.FLOAT.encodeWithTag(j4aVar, 3, f3);
                 }
                 Float f4 = layout.height;
                 if (f4 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(bz9Var, 4, f4);
+                    ProtoAdapter.FLOAT.encodeWithTag(j4aVar, 4, f4);
                 }
-                bz9Var.k(layout.unknownFields());
+                j4aVar.k(layout.unknownFields());
             }
         }
 
@@ -332,7 +332,7 @@ public final class Layout extends Message<Layout, Builder> {
                 return false;
             }
             Layout layout = (Layout) obj;
-            if (unknownFields().equals(layout.unknownFields()) && fz9.f(this.x, layout.x) && fz9.f(this.y, layout.y) && fz9.f(this.width, layout.width) && fz9.f(this.height, layout.height)) {
+            if (unknownFields().equals(layout.unknownFields()) && n4a.f(this.x, layout.x) && n4a.f(this.y, layout.y) && n4a.f(this.width, layout.width) && n4a.f(this.height, layout.height)) {
                 return true;
             }
             return false;

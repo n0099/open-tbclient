@@ -15,14 +15,14 @@ import io.reactivex.functions.Function;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.ObjectHelper;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class MaybeOnErrorNext<T> extends AbstractMaybeWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean allowFatal;
     public final Function<? super Throwable, ? extends MaybeSource<? extends T>> resumeFunction;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class OnErrorNextMaybeObserver<T> extends AtomicReference<Disposable> implements MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2026620218879969836L;
@@ -31,7 +31,7 @@ public final class MaybeOnErrorNext<T> extends AbstractMaybeWithUpstream<T, T> {
         public final boolean allowFatal;
         public final Function<? super Throwable, ? extends MaybeSource<? extends T>> resumeFunction;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public static final class NextMaybeObserver<T> implements MaybeObserver<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

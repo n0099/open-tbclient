@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,10 +51,10 @@ public class AutoLinearLayout extends LinearLayout {
         this.h = 0;
         this.a = context;
         setOrientation(0);
-        this.c = yi.g(context, R.dimen.obfuscated_res_0x7f0701e8);
-        this.d = yi.g(context, R.dimen.obfuscated_res_0x7f0701d5);
-        this.g = yi.g(context, R.dimen.obfuscated_res_0x7f070207);
-        this.e = yi.l(this.a) - (this.g * 2);
+        this.c = zi.g(context, R.dimen.obfuscated_res_0x7f0701e8);
+        this.d = zi.g(context, R.dimen.obfuscated_res_0x7f0701d5);
+        this.g = zi.g(context, R.dimen.obfuscated_res_0x7f070207);
+        this.e = zi.l(this.a) - (this.g * 2);
         this.h = (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070253);
     }
 
@@ -85,10 +85,10 @@ public class AutoLinearLayout extends LinearLayout {
         this.h = 0;
         this.a = context;
         setOrientation(0);
-        this.c = yi.g(context, R.dimen.obfuscated_res_0x7f0701e8);
-        this.d = yi.g(context, R.dimen.obfuscated_res_0x7f0701d5);
-        this.g = yi.g(context, R.dimen.obfuscated_res_0x7f070207);
-        this.e = yi.l(this.a) - (this.g * 2);
+        this.c = zi.g(context, R.dimen.obfuscated_res_0x7f0701e8);
+        this.d = zi.g(context, R.dimen.obfuscated_res_0x7f0701d5);
+        this.g = zi.g(context, R.dimen.obfuscated_res_0x7f070207);
+        this.e = zi.l(this.a) - (this.g * 2);
         this.h = (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070253);
     }
 

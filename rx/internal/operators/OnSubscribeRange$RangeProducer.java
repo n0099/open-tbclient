@@ -1,29 +1,29 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.e3a;
-import com.baidu.tieba.i3a;
-import com.baidu.tieba.x3a;
+import com.baidu.tieba.f9a;
+import com.baidu.tieba.m8a;
+import com.baidu.tieba.q8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes9.dex */
-public final class OnSubscribeRange$RangeProducer extends AtomicLong implements e3a {
+public final class OnSubscribeRange$RangeProducer extends AtomicLong implements m8a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 4114392207069098388L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final i3a<? super Integer> childSubscriber;
+    public final q8a<? super Integer> childSubscriber;
     public long currentIndex;
     public final int endOfRange;
 
-    public OnSubscribeRange$RangeProducer(i3a<? super Integer> i3aVar, int i, int i2) {
+    public OnSubscribeRange$RangeProducer(q8a<? super Integer> q8aVar, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {i3aVar, Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {q8aVar, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -33,7 +33,7 @@ public final class OnSubscribeRange$RangeProducer extends AtomicLong implements 
                 return;
             }
         }
-        this.childSubscriber = i3aVar;
+        this.childSubscriber = q8aVar;
         this.currentIndex = i;
         this.endOfRange = i2;
     }
@@ -42,20 +42,20 @@ public final class OnSubscribeRange$RangeProducer extends AtomicLong implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             long j = this.endOfRange + 1;
-            i3a<? super Integer> i3aVar = this.childSubscriber;
+            q8a<? super Integer> q8aVar = this.childSubscriber;
             for (long j2 = this.currentIndex; j2 != j; j2++) {
-                if (i3aVar.isUnsubscribed()) {
+                if (q8aVar.isUnsubscribed()) {
                     return;
                 }
-                i3aVar.onNext(Integer.valueOf((int) j2));
+                q8aVar.onNext(Integer.valueOf((int) j2));
             }
-            if (!i3aVar.isUnsubscribed()) {
-                i3aVar.onCompleted();
+            if (!q8aVar.isUnsubscribed()) {
+                q8aVar.onCompleted();
             }
         }
     }
 
-    @Override // com.baidu.tieba.e3a
+    @Override // com.baidu.tieba.m8a
     public void request(long j) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) != null) || get() == Long.MAX_VALUE) {
@@ -63,7 +63,7 @@ public final class OnSubscribeRange$RangeProducer extends AtomicLong implements 
         }
         if (j == Long.MAX_VALUE && compareAndSet(0L, Long.MAX_VALUE)) {
             fastPath();
-        } else if (j > 0 && x3a.b(this, j) == 0) {
+        } else if (j > 0 && f9a.b(this, j) == 0) {
             slowPath(j);
         }
     }
@@ -73,22 +73,22 @@ public final class OnSubscribeRange$RangeProducer extends AtomicLong implements 
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
             long j2 = this.endOfRange + 1;
             long j3 = this.currentIndex;
-            i3a<? super Integer> i3aVar = this.childSubscriber;
+            q8a<? super Integer> q8aVar = this.childSubscriber;
             do {
                 long j4 = 0;
                 while (true) {
                     if (j4 != j && j3 != j2) {
-                        if (i3aVar.isUnsubscribed()) {
+                        if (q8aVar.isUnsubscribed()) {
                             return;
                         }
-                        i3aVar.onNext(Integer.valueOf((int) j3));
+                        q8aVar.onNext(Integer.valueOf((int) j3));
                         j3++;
                         j4++;
-                    } else if (i3aVar.isUnsubscribed()) {
+                    } else if (q8aVar.isUnsubscribed()) {
                         return;
                     } else {
                         if (j3 == j2) {
-                            i3aVar.onCompleted();
+                            q8aVar.onCompleted();
                             return;
                         }
                         j = get();

@@ -6175,11 +6175,11 @@ public class SapiJsInterpreters {
                         str = "100";
                     } else if (fingerPrintState != 101 && fingerPrintState != 102) {
                         if (contains) {
-                            str = TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY;
+                            str = "103";
                         } else if (!this.this$0.sapiWebView.supportTouchGuide) {
-                            str = TbEnum.SystemMessage.EVENT_ID_GROUP_QUIT;
+                            str = "106";
                         } else if (z) {
-                            str = TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP;
+                            str = "107";
                         } else {
                             str = fingerPrintState + "";
                         }

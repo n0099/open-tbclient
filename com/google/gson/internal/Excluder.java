@@ -25,7 +25,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class Excluder implements TypeAdapterFactory, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Excluder DEFAULT;
@@ -56,7 +56,7 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public Excluder m78clone() {
+    public Excluder m82clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -73,9 +73,9 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Excluder m78clone = m78clone();
-            m78clone.serializeInnerClasses = false;
-            return m78clone;
+            Excluder m82clone = m82clone();
+            m82clone.serializeInnerClasses = false;
+            return m82clone;
         }
         return (Excluder) invokeV.objValue;
     }
@@ -84,9 +84,9 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            Excluder m78clone = m78clone();
-            m78clone.requireExpose = true;
-            return m78clone;
+            Excluder m82clone = m82clone();
+            m82clone.requireExpose = true;
+            return m82clone;
         }
         return (Excluder) invokeV.objValue;
     }
@@ -234,12 +234,12 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iArr)) == null) {
-            Excluder m78clone = m78clone();
-            m78clone.modifiers = 0;
+            Excluder m82clone = m82clone();
+            m82clone.modifiers = 0;
             for (int i : iArr) {
-                m78clone.modifiers = i | m78clone.modifiers;
+                m82clone.modifiers = i | m82clone.modifiers;
             }
-            return m78clone;
+            return m82clone;
         }
         return (Excluder) invokeL.objValue;
     }
@@ -248,9 +248,9 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Double.valueOf(d)})) == null) {
-            Excluder m78clone = m78clone();
-            m78clone.version = d;
-            return m78clone;
+            Excluder m82clone = m82clone();
+            m82clone.version = d;
+            return m82clone;
         }
         return (Excluder) invokeCommon.objValue;
     }
@@ -314,7 +314,7 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(65537, this)) == null) {
                         TypeAdapter<T> typeAdapter = this.delegate;
-                        if (typeAdapter == 0) {
+                        if (typeAdapter == null) {
                             TypeAdapter<T> delegateAdapter = this.val$gson.getDelegateAdapter(this.this$0, this.val$type);
                             this.delegate = delegateAdapter;
                             return delegateAdapter;
@@ -324,8 +324,6 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
                     return (TypeAdapter) invokeV.objValue;
                 }
 
-                /* JADX WARN: Type inference failed for: r1v0, types: [T, java.lang.Object] */
-                /* JADX WARN: Type inference failed for: r5v1, types: [T, java.lang.Object] */
                 @Override // com.google.gson.TypeAdapter
                 public T read(JsonReader jsonReader) throws IOException {
                     InterceptResult invokeL;
@@ -337,7 +335,7 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
                         }
                         return delegate().read(jsonReader);
                     }
-                    return invokeL.objValue;
+                    return (T) invokeL.objValue;
                 }
 
                 @Override // com.google.gson.TypeAdapter
@@ -397,18 +395,18 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{exclusionStrategy, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            Excluder m78clone = m78clone();
+            Excluder m82clone = m82clone();
             if (z) {
                 ArrayList arrayList = new ArrayList(this.serializationStrategies);
-                m78clone.serializationStrategies = arrayList;
+                m82clone.serializationStrategies = arrayList;
                 arrayList.add(exclusionStrategy);
             }
             if (z2) {
                 ArrayList arrayList2 = new ArrayList(this.deserializationStrategies);
-                m78clone.deserializationStrategies = arrayList2;
+                m82clone.deserializationStrategies = arrayList2;
                 arrayList2.add(exclusionStrategy);
             }
-            return m78clone;
+            return m82clone;
         }
         return (Excluder) invokeCommon.objValue;
     }

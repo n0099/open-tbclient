@@ -20,7 +20,8 @@ public final class RingBuffer<T> extends AbstractList<T> implements RandomAccess
         this(new Object[i], 0);
     }
 
-    @Override // kotlin.collections.AbstractCollection, java.util.Collection
+    /* JADX DEBUG: Possible override for method kotlin.collections.AbstractCollection.add(Ljava/lang/Object;)Z */
+    @Override // java.util.Collection, java.util.List
     public final void add(T t) {
         if (!isFull()) {
             this.buffer[(this.startIndex + size()) % this.capacity] = t;
@@ -102,6 +103,8 @@ public final class RingBuffer<T> extends AbstractList<T> implements RandomAccess
                 this.index = i;
             }
 
+            /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: kotlin.collections.RingBuffer$iterator$1<T> */
+            /* JADX WARN: Multi-variable type inference failed */
             @Override // kotlin.collections.AbstractIterator
             public void computeNext() {
                 Object[] objArr;

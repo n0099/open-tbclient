@@ -1,160 +1,326 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.sweetsqlite.Column;
+import com.baidu.tieba.q11;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class mk0 {
+public class mk0 extends p11 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public long e;
-    public boolean f;
-    public int g;
-    public int h;
-    public int i;
-    public String j;
-    public int k;
-    public int l;
-    public String m;
-    public String n;
-    public String o;
-    public long p;
-    public long q;
-    public boolean r;
-    public boolean s;
-    public int t;
-    public boolean u;
 
-    public mk0() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mk0(SQLiteDatabase sQLiteDatabase) {
+        super(sQLiteDatabase);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sQLiteDatabase};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((SQLiteDatabase) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = "";
-        this.e = 0L;
-        this.f = false;
-        this.g = 0;
-        this.h = 0;
-        this.i = 0;
-        this.p = -1L;
-        this.q = -1L;
-        this.s = false;
-        this.t = 0;
-        this.u = true;
     }
 
-    @NonNull
-    public static mk0 a(String str) {
-        InterceptResult invokeL;
-        boolean z;
-        boolean z2;
+    @Override // com.baidu.tieba.p11, com.baidu.tieba.q11
+    public synchronized q11.a a(x11 x11Var, o11... o11VarArr) {
+        InterceptResult invokeLL;
+        q11.a a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            mk0 mk0Var = new mk0();
-            JSONObject c = p01.c(str);
-            mk0Var.a = c.optString("page");
-            mk0Var.b = c.optString("business");
-            mk0Var.d = c.optString("content_type");
-            mk0Var.e = c.optLong(BreakpointSQLiteKey.CONTENT_LENGTH);
-            boolean z3 = false;
-            if (c.optInt("is_dirty", 0) == 1) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, x11Var, o11VarArr)) == null) {
+            synchronized (this) {
+                a = super.a(x11Var, o11VarArr);
             }
-            mk0Var.f = z;
-            mk0Var.g = c.optInt("close_v_download", 0);
-            mk0Var.h = c.optInt("no_click_opt");
-            mk0Var.i = c.optInt("open_after_install");
-            mk0Var.j = c.optString("action_area");
-            mk0Var.k = c.optInt("notification_show_count");
-            mk0Var.l = c.optInt("tips_show_count");
-            mk0Var.p = c.optLong("als_app_save_day");
-            mk0Var.q = c.optLong("finished_install_time", -1L);
-            if (c.optInt("lazy_launch_switch", 0) == 1) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            mk0Var.s = z2;
-            mk0Var.t = c.optInt("lazy_launch_internal", 0);
-            int optInt = c.optInt("package_launch_switch", Integer.MIN_VALUE);
-            if (optInt == Integer.MIN_VALUE) {
-                if (qm0.b().a().a("package_launch_switch", 1) == 1) {
-                    z3 = true;
-                }
-                mk0Var.u = z3;
-            } else {
-                if (optInt == 1) {
-                    z3 = true;
-                }
-                mk0Var.u = z3;
-            }
-            return mk0Var;
+            return a;
         }
-        return (mk0) invokeL.objValue;
+        return (q11.a) invokeLL.objValue;
     }
 
-    public static String b(@NonNull mk0 mk0Var) {
-        InterceptResult invokeL;
-        int i;
-        int i2;
+    @Override // com.baidu.tieba.p11, com.baidu.tieba.q11
+    public synchronized int delete(x11 x11Var, o11... o11VarArr) {
+        InterceptResult invokeLL;
+        int delete;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, mk0Var)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("page", mk0Var.a);
-                jSONObject.put("business", mk0Var.b);
-                jSONObject.put("content_type", mk0Var.d);
-                jSONObject.put(BreakpointSQLiteKey.CONTENT_LENGTH, mk0Var.e);
-                int i3 = 1;
-                if (mk0Var.f) {
-                    i = 1;
-                } else {
-                    i = 0;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, x11Var, o11VarArr)) == null) {
+            synchronized (this) {
+                try {
+                    delete = super.delete(x11Var, o11VarArr);
+                } catch (Exception unused) {
+                    return -1;
                 }
-                jSONObject.put("is_dirty", i);
-                jSONObject.put("close_v_download", mk0Var.g);
-                jSONObject.put("no_click_opt", mk0Var.h);
-                jSONObject.put("open_after_install", mk0Var.i);
-                jSONObject.put("action_area", mk0Var.j);
-                jSONObject.put("notification_show_count", mk0Var.k);
-                jSONObject.put("tips_show_count", mk0Var.l);
-                jSONObject.put("als_app_save_day", mk0Var.p);
-                jSONObject.put("finished_install_time", mk0Var.q);
-                if (mk0Var.s) {
-                    i2 = 1;
-                } else {
-                    i2 = 0;
-                }
-                jSONObject.put("lazy_launch_switch", i2);
-                jSONObject.put("lazy_launch_internal", mk0Var.t);
-                if (!mk0Var.u) {
-                    i3 = 0;
-                }
-                jSONObject.put("package_launch_switch", i3);
-            } catch (JSONException unused) {
             }
-            return jSONObject.toString();
+            return delete;
         }
-        return (String) invokeL.objValue;
+        return invokeLL.intValue;
+    }
+
+    @Override // com.baidu.tieba.p11
+    public synchronized boolean query(x11 x11Var, y11 y11Var) {
+        InterceptResult invokeLL;
+        boolean query;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, x11Var, y11Var)) == null) {
+            synchronized (this) {
+                try {
+                    query = super.query(x11Var, y11Var);
+                } catch (Exception unused) {
+                    return false;
+                }
+            }
+            return query;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.p11
+    public synchronized int update(x11 x11Var, y11 y11Var) {
+        InterceptResult invokeLL;
+        int update;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, x11Var, y11Var)) == null) {
+            synchronized (this) {
+                try {
+                    update = super.update(x11Var, y11Var);
+                } catch (Exception unused) {
+                    return -1;
+                }
+            }
+            return update;
+        }
+        return invokeLL.intValue;
+    }
+
+    @Override // com.baidu.tieba.p11, com.baidu.tieba.q11
+    public synchronized void beginTransaction() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                try {
+                    super.beginTransaction();
+                } catch (Exception unused) {
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.p11, com.baidu.tieba.q11
+    public synchronized void endTransaction() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                try {
+                    super.endTransaction();
+                } catch (Exception unused) {
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.p11, com.baidu.tieba.q11
+    public synchronized void setTransactionSuccessful() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            synchronized (this) {
+                try {
+                    super.setTransactionSuccessful();
+                } catch (Exception unused) {
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.p11
+    public synchronized int delete(String str, y11 y11Var) {
+        InterceptResult invokeLL;
+        int delete;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, y11Var)) == null) {
+            synchronized (this) {
+                try {
+                    delete = super.delete(str, y11Var);
+                } catch (Exception unused) {
+                    return -1;
+                }
+            }
+            return delete;
+        }
+        return invokeLL.intValue;
+    }
+
+    @Override // com.baidu.tieba.p11
+    public synchronized boolean query(x11 x11Var, o11... o11VarArr) {
+        InterceptResult invokeLL;
+        boolean query;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, x11Var, o11VarArr)) == null) {
+            synchronized (this) {
+                try {
+                    query = super.query(x11Var, o11VarArr);
+                } catch (Exception unused) {
+                    return false;
+                }
+            }
+            return query;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.p11, com.baidu.tieba.q11
+    public synchronized int update(x11 x11Var, o11... o11VarArr) {
+        InterceptResult invokeLL;
+        int update;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, x11Var, o11VarArr)) == null) {
+            synchronized (this) {
+                try {
+                    update = super.update(x11Var, o11VarArr);
+                } catch (Exception unused) {
+                    return -1;
+                }
+            }
+            return update;
+        }
+        return invokeLL.intValue;
+    }
+
+    @Override // com.baidu.tieba.p11
+    public synchronized long insert(x11 x11Var) {
+        InterceptResult invokeL;
+        long insert;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, x11Var)) == null) {
+            synchronized (this) {
+                try {
+                    insert = super.insert(x11Var);
+                } catch (Exception unused) {
+                    return -1L;
+                }
+            }
+            return insert;
+        }
+        return invokeL.longValue;
+    }
+
+    @Override // com.baidu.tieba.p11, com.baidu.tieba.q11
+    public synchronized Cursor query(c21 c21Var) {
+        InterceptResult invokeL;
+        Cursor query;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, c21Var)) == null) {
+            synchronized (this) {
+                try {
+                    query = super.query(c21Var);
+                } catch (Exception unused) {
+                    return new d21(null);
+                }
+            }
+            return query;
+        }
+        return (Cursor) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.p11
+    public synchronized long insert(String str, String[] strArr, Object... objArr) {
+        InterceptResult invokeLLL;
+        long insert;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, str, strArr, objArr)) == null) {
+            synchronized (this) {
+                try {
+                    insert = super.insert(str, strArr, objArr);
+                } catch (Exception unused) {
+                    return -1L;
+                }
+            }
+            return insert;
+        }
+        return invokeLLL.longValue;
+    }
+
+    @Override // com.baidu.tieba.p11
+    public synchronized Cursor query(String str, o11[] o11VarArr, y11 y11Var) {
+        InterceptResult invokeLLL;
+        Cursor query;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, o11VarArr, y11Var)) == null) {
+            synchronized (this) {
+                try {
+                    query = super.query(str, o11VarArr, y11Var);
+                } catch (Exception unused) {
+                    return new d21(null);
+                }
+            }
+            return query;
+        }
+        return (Cursor) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.p11
+    public synchronized int update(String str, ContentValues contentValues, y11 y11Var) {
+        InterceptResult invokeLLL;
+        int update;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048591, this, str, contentValues, y11Var)) == null) {
+            synchronized (this) {
+                try {
+                    update = super.update(str, contentValues, y11Var);
+                } catch (Exception unused) {
+                    return -1;
+                }
+            }
+            return update;
+        }
+        return invokeLLL.intValue;
+    }
+
+    @Override // com.baidu.tieba.p11
+    public synchronized int update(Class<? extends x11> cls, y11 y11Var, o11[] o11VarArr, Object... objArr) {
+        InterceptResult invokeLLLL;
+        int update;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048590, this, cls, y11Var, o11VarArr, objArr)) == null) {
+            synchronized (this) {
+                try {
+                    update = super.update(cls, y11Var, o11VarArr, objArr);
+                } catch (Exception unused) {
+                    return -1;
+                }
+            }
+            return update;
+        }
+        return invokeLLLL.intValue;
+    }
+
+    @Override // com.baidu.tieba.p11
+    public synchronized int update(String str, Column[] columnArr, y11 y11Var) {
+        InterceptResult invokeLLL;
+        int update;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048592, this, str, columnArr, y11Var)) == null) {
+            synchronized (this) {
+                try {
+                    update = super.update(str, columnArr, y11Var);
+                } catch (Exception unused) {
+                    return -1;
+                }
+            }
+            return update;
+        }
+        return invokeLLL.intValue;
     }
 }

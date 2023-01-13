@@ -24,7 +24,7 @@ public final class gx extends gl {
         }
     }
 
-    @Override // com.xiaomi.push.gl, com.xiaomi.push.gn
+    @Override // com.xiaomi.push.gl
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

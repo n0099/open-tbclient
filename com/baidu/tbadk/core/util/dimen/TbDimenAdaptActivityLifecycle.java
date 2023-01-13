@@ -86,7 +86,7 @@ public class TbDimenAdaptActivityLifecycle implements Application.ActivityLifecy
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
             if (activity != null && activity.getClass() != null) {
                 String simpleName = activity.getClass().getSimpleName();
-                if (!"ImageViewerActivity".equalsIgnoreCase(simpleName) && !"LiveShowActivity".equalsIgnoreCase(simpleName) && !"AlaMasterLiveRoomActivity".equalsIgnoreCase(simpleName) && !"AlaGiftTabActivity".equalsIgnoreCase(simpleName) && !"LiveListActivity".equalsIgnoreCase(simpleName) && !"YuyinLivePlayerActivity".equalsIgnoreCase(simpleName) && !"YuyinAlaCreateLiveRoomActivity".equalsIgnoreCase(simpleName)) {
+                if (!"ImageViewerActivity".equalsIgnoreCase(simpleName) && !"PersonalMsgImageActivity".equalsIgnoreCase(simpleName) && !"LiveShowActivity".equalsIgnoreCase(simpleName) && !"AlaMasterLiveRoomActivity".equalsIgnoreCase(simpleName) && !"AlaGiftTabActivity".equalsIgnoreCase(simpleName) && !"LiveListActivity".equalsIgnoreCase(simpleName) && !"YuyinLivePlayerActivity".equalsIgnoreCase(simpleName) && !"YuyinAlaCreateLiveRoomActivity".equalsIgnoreCase(simpleName)) {
                     String canonicalName = activity.getClass().getCanonicalName();
                     if (TextUtils.isEmpty(canonicalName)) {
                         return false;

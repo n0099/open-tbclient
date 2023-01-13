@@ -44,8 +44,8 @@ public final class R {
     /* loaded from: classes2.dex */
     public static final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int pass_base_ui_common_dialog_bg = 0x7f080ee1;
-        public static final int pass_base_ui_common_dialog_dark_bg = 0x7f080ee2;
+        public static final int pass_base_ui_common_dialog_bg = 0x7f080ef2;
+        public static final int pass_base_ui_common_dialog_dark_bg = 0x7f080ef3;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -66,14 +66,14 @@ public final class R {
     /* loaded from: classes2.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int negative_btn = 0x7f09170e;
-        public static final int pass_base_ui_dialog_content = 0x7f09183b;
-        public static final int pass_base_ui_dialog_horizontal_split_line = 0x7f09183c;
-        public static final int pass_base_ui_dialog_root_view = 0x7f09183d;
-        public static final int pass_base_ui_dialog_title = 0x7f09183e;
-        public static final int pass_base_ui_dialog_vertical_split_line = 0x7f09183f;
-        public static final int pass_base_ui_first_btn_layout = 0x7f091840;
-        public static final int positive_btn = 0x7f091aed;
+        public static final int negative_btn = 0x7f09171e;
+        public static final int pass_base_ui_dialog_content = 0x7f09184a;
+        public static final int pass_base_ui_dialog_horizontal_split_line = 0x7f09184b;
+        public static final int pass_base_ui_dialog_root_view = 0x7f09184c;
+        public static final int pass_base_ui_dialog_title = 0x7f09184d;
+        public static final int pass_base_ui_dialog_vertical_split_line = 0x7f09184e;
+        public static final int pass_base_ui_first_btn_layout = 0x7f09184f;
+        public static final int positive_btn = 0x7f091afb;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -94,7 +94,7 @@ public final class R {
     /* loaded from: classes2.dex */
     public static final class layout {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int pass_sdk_base_ui_common_dialog = 0x7f0d06c3;
+        public static final int pass_sdk_base_ui_common_dialog = 0x7f0d06c1;
         public transient /* synthetic */ FieldHolder $fh;
 
         public layout() {

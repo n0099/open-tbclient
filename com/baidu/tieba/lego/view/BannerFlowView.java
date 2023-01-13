@@ -12,13 +12,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.viewpager.ListViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gn7;
-import com.baidu.tieba.hn7;
-import com.baidu.tieba.pm7;
-import com.baidu.tieba.u05;
-import com.baidu.tieba.w05;
-import com.baidu.tieba.xn;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.er7;
+import com.baidu.tieba.f15;
+import com.baidu.tieba.h15;
+import com.baidu.tieba.vr7;
+import com.baidu.tieba.wr7;
+import com.baidu.tieba.yn;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -31,17 +31,17 @@ public class BannerFlowView extends FrameLayout {
     public ListViewPager a;
     public View b;
     public IndicatorView c;
-    public hn7 d;
-    public gn7 e;
+    public wr7 d;
+    public vr7 e;
     public c f;
 
     /* loaded from: classes5.dex */
-    public interface c extends pm7 {
+    public interface c extends er7 {
         void onPageSelected(int i);
     }
 
     /* loaded from: classes5.dex */
-    public class a implements pm7 {
+    public class a implements er7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BannerFlowView a;
@@ -64,7 +64,7 @@ public class BannerFlowView extends FrameLayout {
             this.a = bannerFlowView;
         }
 
-        @Override // com.baidu.tieba.pm7
+        @Override // com.baidu.tieba.er7
         public void a(int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && this.a.f != null) {
@@ -72,7 +72,7 @@ public class BannerFlowView extends FrameLayout {
             }
         }
 
-        @Override // com.baidu.tieba.pm7
+        @Override // com.baidu.tieba.er7
         public void b(float f) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) && this.a.f != null) {
@@ -178,7 +178,7 @@ public class BannerFlowView extends FrameLayout {
         }
     }
 
-    public void setData(List<xn> list) {
+    public void setData(List<yn> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.a.removeAllViews();
@@ -200,11 +200,11 @@ public class BannerFlowView extends FrameLayout {
         }
     }
 
-    public void setOnItemClickListener(u05.a<w05, gn7.a> aVar) {
-        gn7 gn7Var;
+    public void setOnItemClickListener(f15.a<h15, vr7.a> aVar) {
+        vr7 vr7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) && (gn7Var = this.e) != null) {
-            gn7Var.e(aVar);
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) && (vr7Var = this.e) != null) {
+            vr7Var.e(aVar);
         }
     }
 
@@ -243,18 +243,18 @@ public class BannerFlowView extends FrameLayout {
             this.c = indicatorView;
             indicatorView.setSpacing(0);
             b();
-            this.d = new hn7(context, this.a, this.c, null);
-            this.e = new gn7(context, w05.a);
+            this.d = new wr7(context, this.a, this.c, null);
+            this.e = new vr7(context, h15.a);
             this.d.m(5000L);
             this.d.l(context, this.e);
             this.d.q(new b(this));
             addView(this.a, new FrameLayout.LayoutParams(-1, -1));
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, yi.g(context, R.dimen.obfuscated_res_0x7f070275));
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, zi.g(context, R.dimen.obfuscated_res_0x7f070275));
             layoutParams.gravity = 80;
             addView(this.b, layoutParams);
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, -2);
             layoutParams2.gravity = 85;
-            layoutParams2.setMargins(0, 0, yi.g(context, R.dimen.obfuscated_res_0x7f0701d5), yi.g(context, R.dimen.obfuscated_res_0x7f0701be));
+            layoutParams2.setMargins(0, 0, zi.g(context, R.dimen.obfuscated_res_0x7f0701d5), zi.g(context, R.dimen.obfuscated_res_0x7f0701be));
             addView(this.c, layoutParams2);
         }
     }

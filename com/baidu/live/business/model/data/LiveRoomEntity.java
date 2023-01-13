@@ -5,6 +5,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -280,7 +281,7 @@ public class LiveRoomEntity implements Parcelable {
         if ((interceptable != null && interceptable.invokeL(1048585, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        this.rank = jSONObject.optInt("rank");
+        this.rank = jSONObject.optInt(MultiRatePlayUrlHelper.RANK);
         this.nid = jSONObject.optString("nid");
         this.feedId = jSONObject.optString("feed_id");
         this.title = jSONObject.optString("title");
@@ -363,7 +364,7 @@ public class LiveRoomEntity implements Parcelable {
         if ((interceptable != null && interceptable.invokeL(1048586, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        this.rank = jSONObject.optInt("rank");
+        this.rank = jSONObject.optInt(MultiRatePlayUrlHelper.RANK);
         this.nid = jSONObject.optString("nid");
         this.feedId = jSONObject.optString("feed_id");
         this.roomId = jSONObject.optString("room_id");

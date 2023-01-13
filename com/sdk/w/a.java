@@ -9,8 +9,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.o.f;
 import org.json.JSONObject;
+/* JADX INFO: Add missing generic type declarations: [T] */
 /* loaded from: classes8.dex */
-public class a implements com.sdk.e.a<T> {
+public class a<T> implements com.sdk.e.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ int a;
@@ -69,7 +70,7 @@ public class a implements com.sdk.e.a<T> {
                 com.sdk.b.a.a(context2, this.a, com.sdk.b.a.a(t, str2), f.b.b.a());
                 try {
                     unused = this.b.d;
-                    t = com.sdk.t.a.a(String.valueOf(t));
+                    t = (T) com.sdk.t.a.a(String.valueOf(t));
                     if (t == 0) {
                         this.b.a(1, "SDK解密异常", 302001, t, str2);
                         return;
@@ -77,7 +78,7 @@ public class a implements com.sdk.e.a<T> {
                     JSONObject jSONObject = new JSONObject((String) t);
                     if (this.a == 1) {
                         jSONObject.remove(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE);
-                        t = jSONObject.toString();
+                        t = (T) jSONObject.toString();
                     }
                 } catch (Exception unused2) {
                 }

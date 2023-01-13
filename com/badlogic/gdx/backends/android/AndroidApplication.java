@@ -13,21 +13,21 @@ import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Graphics;
 import com.badlogic.gdx.Net;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b7;
-import com.baidu.tieba.c1;
+import com.baidu.tieba.c7;
 import com.baidu.tieba.d1;
 import com.baidu.tieba.e1;
 import com.baidu.tieba.f1;
-import com.baidu.tieba.h1;
-import com.baidu.tieba.h2;
-import com.baidu.tieba.h8;
-import com.baidu.tieba.k2;
-import com.baidu.tieba.k7;
-import com.baidu.tieba.m2;
-import com.baidu.tieba.o2;
-import com.baidu.tieba.r2;
-import com.baidu.tieba.t2;
-import com.baidu.tieba.x2;
+import com.baidu.tieba.g1;
+import com.baidu.tieba.i1;
+import com.baidu.tieba.i2;
+import com.baidu.tieba.i8;
+import com.baidu.tieba.l2;
+import com.baidu.tieba.l7;
+import com.baidu.tieba.n2;
+import com.baidu.tieba.p2;
+import com.baidu.tieba.s2;
+import com.baidu.tieba.u2;
+import com.baidu.tieba.y2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,28 +36,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class AndroidApplication extends Activity implements h2 {
+public class AndroidApplication extends Activity implements i2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r2 a;
-    public t2 b;
-    public k2 c;
-    public o2 d;
-    public x2 e;
-    public c1 f;
+    public s2 a;
+    public u2 b;
+    public l2 c;
+    public p2 d;
+    public y2 e;
+    public d1 f;
     public boolean g;
-    public final b7<Runnable> h;
-    public final b7<Runnable> i;
-    public final h8<h1> j;
-    public final b7<m2> k;
+    public final c7<Runnable> h;
+    public final c7<Runnable> i;
+    public final i8<i1> j;
+    public final c7<n2> k;
     public int l;
-    public d1 m;
+    public e1 m;
     public boolean n;
     public boolean o;
     public int p;
     public boolean q;
 
-    @Override // com.baidu.tieba.h2
+    @Override // com.baidu.tieba.i2
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -77,25 +77,25 @@ public class AndroidApplication extends Activity implements h2 {
                 return;
             }
         }
-        k7.a();
+        l7.a();
     }
 
-    public d1 a() {
+    public e1 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.m;
         }
-        return (d1) invokeV.objValue;
+        return (e1) invokeV.objValue;
     }
 
-    public e1 b() {
+    public f1 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.c;
         }
-        return (e1) invokeV.objValue;
+        return (f1) invokeV.objValue;
     }
 
     public Files c() {
@@ -126,16 +126,16 @@ public class AndroidApplication extends Activity implements h2 {
     }
 
     @Override // com.badlogic.gdx.Application
-    public c1 getApplicationListener() {
+    public d1 getApplicationListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.f;
         }
-        return (c1) invokeV.objValue;
+        return (d1) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.h2
+    @Override // com.baidu.tieba.i2
     public Window getApplicationWindow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -145,14 +145,14 @@ public class AndroidApplication extends Activity implements h2 {
         return (Window) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.h2
-    public b7<Runnable> getExecutedRunnables() {
+    @Override // com.baidu.tieba.i2
+    public c7<Runnable> getExecutedRunnables() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.i;
         }
-        return (b7) invokeV.objValue;
+        return (c7) invokeV.objValue;
     }
 
     @Override // com.badlogic.gdx.Application
@@ -165,34 +165,35 @@ public class AndroidApplication extends Activity implements h2 {
         return (Graphics) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.h2
-    public t2 getInput() {
+    @Override // com.baidu.tieba.i2
+    /* renamed from: getInput */
+    public u2 mo6getInput() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return this.b;
         }
-        return (t2) invokeV.objValue;
+        return (u2) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.h2
-    public h8<h1> getLifecycleListeners() {
+    @Override // com.baidu.tieba.i2
+    public i8<i1> getLifecycleListeners() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             return this.j;
         }
-        return (h8) invokeV.objValue;
+        return (i8) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.h2
-    public b7<Runnable> getRunnables() {
+    @Override // com.baidu.tieba.i2
+    public c7<Runnable> getRunnables() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             return this.h;
         }
-        return (b7) invokeV.objValue;
+        return (c7) invokeV.objValue;
     }
 
     @Override // com.badlogic.gdx.Application
@@ -227,10 +228,10 @@ public class AndroidApplication extends Activity implements h2 {
             }
         }
         this.g = true;
-        this.h = new b7<>();
-        this.i = new b7<>();
-        this.j = new h8<>(h1.class);
-        this.k = new b7<>();
+        this.h = new c7<>();
+        this.i = new c7<>();
+        this.j = new i8<>(i1.class);
+        this.k = new c7<>();
         this.l = 2;
         this.n = false;
         this.o = false;
@@ -243,8 +244,8 @@ public class AndroidApplication extends Activity implements h2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             boolean d = this.a.d();
-            boolean z = r2.w;
-            r2.w = true;
+            boolean z = s2.w;
+            s2.w = true;
             this.a.u(true);
             this.a.r();
             this.b.onPause();
@@ -252,7 +253,7 @@ public class AndroidApplication extends Activity implements h2 {
                 this.a.h();
                 this.a.j();
             }
-            r2.w = z;
+            s2.w = z;
             this.a.u(d);
             this.a.p();
             super.onPause();
@@ -263,16 +264,16 @@ public class AndroidApplication extends Activity implements h2 {
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            f1.a = this;
-            getInput();
-            f1.c = b();
-            f1.d = c();
-            f1.b = getGraphics();
+            g1.a = this;
+            mo6getInput();
+            g1.c = b();
+            g1.d = c();
+            g1.b = getGraphics();
             d();
             this.b.onResume();
-            r2 r2Var = this.a;
-            if (r2Var != null) {
-                r2Var.q();
+            s2 s2Var = this.a;
+            if (s2Var != null) {
+                s2Var.q();
             }
             if (!this.g) {
                 this.a.t();
@@ -389,7 +390,7 @@ public class AndroidApplication extends Activity implements h2 {
         if (interceptable == null || interceptable.invokeL(1048602, this, runnable) == null) {
             synchronized (this.h) {
                 this.h.a(runnable);
-                f1.b.c();
+                g1.b.c();
             }
         }
     }

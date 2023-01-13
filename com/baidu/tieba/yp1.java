@@ -1,7 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
-public interface yp1 {
-    boolean a();
 
-    String b();
+import com.baidu.searchbox.widget.SlideInterceptor;
+/* loaded from: classes7.dex */
+public interface yp1 extends SlideInterceptor {
+    double A();
 }

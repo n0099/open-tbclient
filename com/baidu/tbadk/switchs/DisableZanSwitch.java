@@ -2,8 +2,8 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.lc5;
-import com.baidu.tieba.ry4;
+import com.baidu.tieba.cz4;
+import com.baidu.tieba.zc5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +35,7 @@ public class DisableZanSwitch extends BaseNormalSwitch {
         }
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.kf
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.lf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -65,10 +65,10 @@ public class DisableZanSwitch extends BaseNormalSwitch {
                 return false;
             }
             if (mCachedSwitchValue < 0) {
-                mCachedSwitchValue = ry4.l().m(KEY_SWITCH, 0);
-                if (!TbadkCoreApplication.getInst().isMainProcess(false) && (c = lc5.c(KEY_SWITCH, -1)) >= 0) {
+                mCachedSwitchValue = cz4.l().m(KEY_SWITCH, 0);
+                if (!TbadkCoreApplication.getInst().isMainProcess(false) && (c = zc5.c(KEY_SWITCH, -1)) >= 0) {
                     mCachedSwitchValue = c;
-                    ry4.l().x(KEY_SWITCH, c);
+                    cz4.l().x(KEY_SWITCH, c);
                 }
             }
             if (mCachedSwitchValue != 1) {
@@ -83,8 +83,8 @@ public class DisableZanSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
             mCachedSwitchValue = i;
-            ry4.l().x(KEY_SWITCH, i);
-            lc5.i(KEY_SWITCH, i);
+            cz4.l().x(KEY_SWITCH, i);
+            zc5.i(KEY_SWITCH, i);
         }
     }
 }

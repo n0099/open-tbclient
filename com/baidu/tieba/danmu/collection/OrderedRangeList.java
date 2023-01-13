@@ -7,6 +7,7 @@ import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.tieba.danmu.collection.OrderedRangeList;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,6 +27,7 @@ import kotlin.Pair;
 import kotlin.Unit;
 import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.collections.CollectionsKt___CollectionsKt;
+import kotlin.comparisons.ComparisonsKt__ComparisonsKt;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
@@ -245,7 +247,52 @@ public final class OrderedRangeList<T> {
                 int d = ((a) CollectionsKt___CollectionsKt.first((List<? extends Object>) place)).d();
                 int b = ((a) CollectionsKt___CollectionsKt.last((List<? extends Object>) place)).b();
                 List<a<T>> list = this.e;
-                int binarySearch = CollectionsKt__CollectionsKt.binarySearch(list, 0, list.size(), new OrderedRangeList$add$$inlined$binarySearchBy$default$1(Integer.valueOf(d)));
+                final Integer valueOf = Integer.valueOf(d);
+                int binarySearch = CollectionsKt__CollectionsKt.binarySearch(list, 0, list.size(), new Function1<a<T>, Integer>(valueOf) { // from class: com.baidu.tieba.danmu.collection.OrderedRangeList$add$$inlined$binarySearchBy$default$1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ Comparable $key;
+
+                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                    {
+                        super(1);
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {valueOf};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
+                                super(((Integer) newInitContext.callArgs[0]).intValue());
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.$key = valueOf;
+                    }
+
+                    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
+                    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                    /* JADX WARN: Multi-variable type inference failed */
+                    @Override // kotlin.jvm.functions.Function1
+                    public /* bridge */ /* synthetic */ Integer invoke(Object obj) {
+                        return Integer.valueOf(invoke2(obj));
+                    }
+
+                    /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function1.invoke(Ljava/lang/Object;)Ljava/lang/Object; */
+                    /* renamed from: invoke  reason: avoid collision after fix types in other method */
+                    public final int invoke2(OrderedRangeList.a<T> aVar) {
+                        InterceptResult invokeL;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
+                            return ComparisonsKt__ComparisonsKt.compareValues(Integer.valueOf(aVar.d()), this.$key);
+                        }
+                        return invokeL.intValue;
+                    }
+                });
                 if (binarySearch < 0) {
                     return false;
                 }
@@ -506,7 +553,52 @@ public final class OrderedRangeList<T> {
         if (interceptable == null || interceptable.invokeL(1048586, this, holder) == null) {
             Intrinsics.checkNotNullParameter(holder, "holder");
             List<a<T>> list = this.e;
-            int binarySearch = CollectionsKt__CollectionsKt.binarySearch(list, 0, list.size(), new OrderedRangeList$remove$$inlined$binarySearchBy$default$1(Integer.valueOf(holder.d())));
+            final Integer valueOf = Integer.valueOf(holder.d());
+            int binarySearch = CollectionsKt__CollectionsKt.binarySearch(list, 0, list.size(), new Function1<a<T>, Integer>(valueOf) { // from class: com.baidu.tieba.danmu.collection.OrderedRangeList$remove$$inlined$binarySearchBy$default$1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Comparable $key;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(1);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {valueOf};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            super(((Integer) newInitContext.callArgs[0]).intValue());
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.$key = valueOf;
+                }
+
+                /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
+                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                /* JADX WARN: Multi-variable type inference failed */
+                @Override // kotlin.jvm.functions.Function1
+                public /* bridge */ /* synthetic */ Integer invoke(Object obj) {
+                    return Integer.valueOf(invoke2(obj));
+                }
+
+                /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function1.invoke(Ljava/lang/Object;)Ljava/lang/Object; */
+                /* renamed from: invoke  reason: avoid collision after fix types in other method */
+                public final int invoke2(OrderedRangeList.a<T> aVar) {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
+                        return ComparisonsKt__ComparisonsKt.compareValues(Integer.valueOf(aVar.d()), this.$key);
+                    }
+                    return invokeL.intValue;
+                }
+            });
             if (binarySearch < 0) {
                 return;
             }

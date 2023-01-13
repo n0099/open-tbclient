@@ -1,118 +1,60 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.consts.AdDownloadAction;
-import com.baidu.nadcore.download.consts.AdDownloadStatus;
-import com.baidu.nadcore.download.proxy.IAdDownloader;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.crius.CriusLoader;
+import com.baidu.searchbox.crius.parser.CriusData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
+import java.util.Map;
+import java.util.Set;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class yj0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, List<dl0>> a;
-    public final ReentrantReadWriteLock b;
-    public final IAdDownloader c;
+    public Map<String, String> a;
+    public Map<String, a> b;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-258759987, "Lcom/baidu/tieba/yj0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-258759987, "Lcom/baidu/tieba/yj0$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[AdDownloadAction.values().length];
-            a = iArr;
-            try {
-                iArr[AdDownloadAction.START.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[AdDownloadAction.PAUSE.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[AdDownloadAction.RESUME.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[AdDownloadAction.COMPLETE.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                a[AdDownloadAction.INSTALL_START.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                a[AdDownloadAction.INSTALL_FINISH.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
-            }
-            try {
-                a[AdDownloadAction.OPEN.ordinal()] = 7;
-            } catch (NoSuchFieldError unused7) {
-            }
-            try {
-                a[AdDownloadAction.FAIL.ordinal()] = 8;
-            } catch (NoSuchFieldError unused8) {
-            }
-            try {
-                a[AdDownloadAction.FAIL_RETRY.ordinal()] = 9;
-            } catch (NoSuchFieldError unused9) {
-            }
-            try {
-                a[AdDownloadAction.FAIL_PERMISSION_DENY.ordinal()] = 10;
-            } catch (NoSuchFieldError unused10) {
-            }
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
     /* loaded from: classes7.dex */
-    public static class b {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final yj0 a;
         public transient /* synthetic */ FieldHolder $fh;
+        public CriusData a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-258759956, "Lcom/baidu/tieba/yj0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-258759956, "Lcom/baidu/tieba/yj0$b;");
-                    return;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            a = new yj0(null);
         }
     }
 
@@ -126,215 +68,151 @@ public class yj0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new HashMap<>(32);
-        this.b = new ReentrantReadWriteLock();
-        this.c = fl0.b();
     }
 
-    public /* synthetic */ yj0(a aVar) {
-        this();
-    }
-
-    public static void c(@NonNull lk0 lk0Var) {
+    public static yj0 b(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, lk0Var) == null) {
-            if (!TextUtils.isEmpty(lk0Var.p.c) && ii0.b(lk0Var.p.c)) {
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            yj0 yj0Var = new yj0();
+            yj0Var.i(jSONObject);
+            return yj0Var;
+        }
+        return (yj0) invokeL.objValue;
+    }
+
+    public void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            CriusLoader.init(context);
+            CriusLoader.registerComponentFactory(new wj0());
+            CriusLoader.registerNativeRenderFactory(new xj0());
+        }
+    }
+
+    public CriusData e(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            pl0.g(lk0Var.d);
-            d(AdDownloadAction.OPEN, lk0Var);
-        }
-    }
-
-    public void a(@NonNull lk0 lk0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, lk0Var) != null) || lk0Var.f()) {
-            return;
-        }
-        this.c.b(lk0Var);
-        lk0Var.c = AdDownloadStatus.NONE;
-        tk0 tk0Var = new tk0();
-        tk0Var.b = "install_failed";
-        g(AdDownloadAction.FAIL, lk0Var, tk0Var);
-    }
-
-    public void h(@NonNull lk0 lk0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, lk0Var) == null) {
-            this.c.c(lk0Var);
-        }
-    }
-
-    public void j(@NonNull lk0 lk0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, lk0Var) == null) {
-            f(AdDownloadAction.PROGRESS_UPDATE, lk0Var);
-            this.c.d(lk0Var, new zj0(lk0Var));
-        }
-    }
-
-    public void k(@NonNull lk0 lk0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, lk0Var) == null) {
-            f(AdDownloadAction.PROGRESS_UPDATE, lk0Var);
-            lk0Var.b = this.c.a(lk0Var, new zj0(lk0Var));
-            lk0Var.c = AdDownloadStatus.DOWNLOADING;
-        }
-    }
-
-    public static yj0 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (yj0) invokeV.objValue;
-    }
-
-    public static void d(@NonNull AdDownloadAction adDownloadAction, @NonNull lk0 lk0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, adDownloadAction, lk0Var) == null) {
-            e(adDownloadAction, lk0Var, null);
-        }
-    }
-
-    public void f(@NonNull AdDownloadAction adDownloadAction, @NonNull lk0 lk0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adDownloadAction, lk0Var) == null) {
-            g(adDownloadAction, lk0Var, null);
-        }
-    }
-
-    public static void e(@NonNull AdDownloadAction adDownloadAction, @NonNull lk0 lk0Var, @Nullable tk0 tk0Var) {
-        ClogBuilder.LogType logType;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65541, null, adDownloadAction, lk0Var, tk0Var) != null) || TextUtils.isEmpty(lk0Var.p.a)) {
-            return;
-        }
-        String str = lk0Var.q.j;
-        switch (a.a[adDownloadAction.ordinal()]) {
-            case 1:
-                logType = ClogBuilder.LogType.DOWNLOAD_START;
-                break;
-            case 2:
-                logType = ClogBuilder.LogType.DOWNLOAD_PAUSE;
-                break;
-            case 3:
-                logType = ClogBuilder.LogType.DOWNLOAD_CONTINUE;
-                break;
-            case 4:
-                logType = ClogBuilder.LogType.DOWNLOAD_COMPLETE;
-                break;
-            case 5:
-                logType = ClogBuilder.LogType.DOWNLOAD_INSTALL;
-                break;
-            case 6:
-                logType = ClogBuilder.LogType.INSTALL_COMPLETE;
-                break;
-            case 7:
-                logType = ClogBuilder.LogType.DEEP_LINK;
-                break;
-            case 8:
-                logType = ClogBuilder.LogType.DOWNLOAD_FAILED;
-                break;
-            case 9:
-                logType = ClogBuilder.LogType.DOWNLOAD_RETRY;
-                break;
-            default:
-                return;
-        }
-        if (TextUtils.isEmpty(str)) {
-            str = ClogBuilder.Area.DOWNLOAD_BUTTON.type;
-        }
-        ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.y(logType).p(lk0Var.p.a).v(lk0Var.q.a).j(str).k(lk0Var.d).l(lk0Var.q.a).m(lk0Var.q.b).n(lk0Var.g);
-        JSONObject jSONObject = new JSONObject();
-        if (!TextUtils.isEmpty(lk0Var.q.d)) {
-            p01.f(jSONObject, "ad_download_content_type", lk0Var.q.d);
-        }
-        long j = lk0Var.q.e;
-        if (j > 0) {
-            p01.e(jSONObject, "ad_download_content_length", j);
-        }
-        int i = lk0Var.n;
-        if (i > 0) {
-            p01.d(jSONObject, "version_code", i);
-        }
-        if (!TextUtils.isEmpty(lk0Var.o)) {
-            p01.f(jSONObject, "version_name", lk0Var.o);
-        }
-        if (tk0Var != null) {
-            Exception exc = tk0Var.a;
-            if (exc != null) {
-                p01.f(jSONObject, "failed_reason", exc.getClass().toString());
-            }
-            String str2 = tk0Var.b;
-            if (str2 != null) {
-                p01.f(jSONObject, "failed_reason", str2);
-            }
-        }
-        if (jSONObject.length() > 0) {
-            clogBuilder.o(jSONObject.toString());
-        }
-        z01.b(clogBuilder);
-    }
-
-    public void g(@NonNull AdDownloadAction adDownloadAction, @NonNull lk0 lk0Var, @Nullable tk0 tk0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, adDownloadAction, lk0Var, tk0Var) == null) {
-            e(adDownloadAction, lk0Var, tk0Var);
-            this.b.readLock().lock();
             try {
-                List list = (List) q01.b(this.a, lk0Var.e());
-                if (list == null) {
-                    return;
-                }
-                for (int i = 0; i != o01.l(list); i++) {
-                    dl0 dl0Var = (dl0) o01.d(list, i);
-                    if (dl0Var != null && dl0Var.getData() != null) {
-                        dl0Var.getData().i(lk0Var);
-                        dl0Var.a(adDownloadAction, dl0Var.getData());
+                return new CriusData(ej0.b(), jSONObject, true, null);
+            } catch (Throwable unused) {
+                return null;
+            }
+        }
+        return (CriusData) invokeL.objValue;
+    }
+
+    public final void g(Set<String> set) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, set) != null) || set == null) {
+            return;
+        }
+        for (String str : set) {
+            un0.a().d(str);
+        }
+    }
+
+    public yj0 i(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, jSONObject)) == null) {
+            j(jSONObject, "cmd_map", Arrays.asList("crius", "crius_pop", "crius_content"));
+            return this;
+        }
+        return (yj0) invokeL.objValue;
+    }
+
+    public final Map<String, String> c(@NonNull JSONObject jSONObject, @NonNull String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, str)) == null) {
+            JSONObject optJSONObject = jSONObject.optJSONObject(str);
+            if (optJSONObject != null) {
+                HashMap hashMap = new HashMap();
+                Iterator<String> keys = optJSONObject.keys();
+                while (keys != null && keys.hasNext()) {
+                    String next = keys.next();
+                    String optString = optJSONObject.optString(next);
+                    if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(optString)) {
+                        hashMap.put(next, optString);
                     }
                 }
-            } finally {
-                this.b.readLock().unlock();
+                return hashMap;
             }
+            return null;
         }
+        return (Map) invokeLL.objValue;
     }
 
-    public void i(String str, dl0 dl0Var) {
+    public a d(@NonNull JSONObject jSONObject, @NonNull String str, @NonNull Map<String, String> map) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, dl0Var) == null) && !TextUtils.isEmpty(str) && dl0Var != null) {
-            this.b.writeLock().lock();
-            try {
-                List list = (List) q01.b(this.a, str);
-                if (list == null) {
-                    list = new ArrayList();
-                    q01.e(this.a, str, list);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str, map)) == null) {
+            a aVar = new a();
+            String optString = jSONObject.optString(str);
+            if (h()) {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    if (!TextUtils.isEmpty(entry.getKey()) && !TextUtils.isEmpty(entry.getValue()) && optString != null) {
+                        optString = optString.replaceAll(entry.getKey(), Uri.encode(entry.getValue()));
+                    }
                 }
-                o01.b(list, dl0Var);
-            } finally {
-                this.b.writeLock().unlock();
             }
+            if (CriusLoader.isCriusNone()) {
+                a(ej0.b());
+            }
+            if (!CriusLoader.isCriusOk()) {
+                return aVar;
+            }
+            try {
+                aVar.a = e(new JSONObject(optString));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            CriusData criusData = aVar.a;
+            if (criusData != null && criusData.getImageUrls() != null) {
+                g(aVar.a.getImageUrls());
+            }
+            return aVar;
         }
+        return (a) invokeLLL.objValue;
     }
 
-    public void l(String str, dl0 dl0Var) {
+    public final Map<String, a> f(@NonNull JSONObject jSONObject, @NonNull List<String> list, @NonNull Map<String, String> map) {
+        InterceptResult invokeLLL;
+        a d;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048583, this, str, dl0Var) == null) && !TextUtils.isEmpty(str) && dl0Var != null) {
-            this.b.writeLock().lock();
-            try {
-                List list = (List) q01.b(this.a, str);
-                if (list == null) {
-                    return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, jSONObject, list, map)) == null) {
+            HashMap hashMap = null;
+            for (String str : list) {
+                if (!TextUtils.isEmpty(str) && (d = d(jSONObject, str, map)) != null) {
+                    if (hashMap == null) {
+                        hashMap = new HashMap();
+                    }
+                    hashMap.put(str, d);
                 }
-                o01.j(list, dl0Var);
-            } finally {
-                this.b.writeLock().unlock();
             }
+            return hashMap;
         }
+        return (Map) invokeLLL.objValue;
+    }
+
+    public yj0 j(@NonNull JSONObject jSONObject, @NonNull String str, @NonNull List<String> list) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject, str, list)) == null) {
+            Map<String, String> c = c(jSONObject, str);
+            this.a = c;
+            if (c != null) {
+                this.b = f(jSONObject, list, c);
+            }
+            return this;
+        }
+        return (yj0) invokeLLL.objValue;
     }
 }

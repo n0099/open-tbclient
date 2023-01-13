@@ -4,6 +4,7 @@ import androidx.exifinterface.media.ExifInterface;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 import kotlin.BuilderInference;
 import kotlin.Metadata;
+import kotlin.Result;
 import kotlin.ResultKt;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
@@ -15,6 +16,7 @@ import kotlin.coroutines.jvm.internal.DebugProbesKt;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
+import kotlinx.coroutines.CancellableContinuation;
 import kotlinx.coroutines.CancellableContinuationImpl;
 import kotlinx.coroutines.CoroutineContextKt;
 import kotlinx.coroutines.CoroutineScope;
@@ -63,8 +65,28 @@ public final class ProduceKt {
                             produceKt$awaitClose$1.L$0 = producerScope;
                             produceKt$awaitClose$1.L$1 = function0;
                             produceKt$awaitClose$1.label = 1;
-                            CancellableContinuationImpl cancellableContinuationImpl = new CancellableContinuationImpl(IntrinsicsKt__IntrinsicsJvmKt.intercepted(produceKt$awaitClose$1), 1);
-                            producerScope.invokeOnClose(new ProduceKt$awaitClose$4$1(cancellableContinuationImpl));
+                            final CancellableContinuationImpl cancellableContinuationImpl = new CancellableContinuationImpl(IntrinsicsKt__IntrinsicsJvmKt.intercepted(produceKt$awaitClose$1), 1);
+                            producerScope.mo2191invokeOnClose(new Function1<Throwable, Unit>() { // from class: kotlinx.coroutines.channels.ProduceKt$awaitClose$4$1
+                                {
+                                    super(1);
+                                }
+
+                                /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                                @Override // kotlin.jvm.functions.Function1
+                                public /* bridge */ /* synthetic */ Unit invoke(Throwable th) {
+                                    invoke2(th);
+                                    return Unit.INSTANCE;
+                                }
+
+                                /* renamed from: invoke  reason: avoid collision after fix types in other method */
+                                public final void invoke2(Throwable th) {
+                                    CancellableContinuation cancellableContinuation = CancellableContinuation.this;
+                                    Unit unit = Unit.INSTANCE;
+                                    Result.Companion companion = Result.Companion;
+                                    cancellableContinuation.resumeWith(Result.m772constructorimpl(unit));
+                                }
+                            });
                             Object result = cancellableContinuationImpl.getResult();
                             if (result == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
                                 DebugProbesKt.probeCoroutineSuspended(produceKt$awaitClose$1);
@@ -96,7 +118,19 @@ public final class ProduceKt {
 
     public static /* synthetic */ Object awaitClose$default(ProducerScope producerScope, Function0 function0, Continuation continuation, int i, Object obj) {
         if ((i & 1) != 0) {
-            function0 = ProduceKt$awaitClose$2.INSTANCE;
+            function0 = new Function0<Unit>() { // from class: kotlinx.coroutines.channels.ProduceKt$awaitClose$2
+                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                @Override // kotlin.jvm.functions.Function0
+                public /* bridge */ /* synthetic */ Unit invoke() {
+                    invoke2();
+                    return Unit.INSTANCE;
+                }
+
+                /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
+                /* renamed from: invoke  reason: avoid collision after fix types in other method */
+                public final void invoke2() {
+                }
+            };
         }
         return awaitClose(producerScope, function0, continuation);
     }

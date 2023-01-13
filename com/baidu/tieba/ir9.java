@@ -1,20 +1,28 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import androidx.core.view.InputDeviceCompat;
+import android.media.AudioRecord;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.FunAdSdk;
-import java.io.ObjectInput;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.record.RecordConstants;
+import java.nio.ByteBuffer;
+/* loaded from: classes5.dex */
 public class ir9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object a;
-    public static final SharedPreferences b;
+    public static final int[] b;
+    public static int c;
+    public static int d;
+    public static int e;
+    public static ir9 f;
+    public static byte[] g;
     public transient /* synthetic */ FieldHolder $fh;
+    public AudioRecord a;
 
     static {
         InterceptResult invokeClinit;
@@ -29,113 +37,145 @@ public class ir9 {
                 return;
             }
         }
-        a = new Object();
-        b = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk", 0);
+        b = new int[]{1, 0, 5, 7, 6};
+        c = RecordConstants.MOVIE_ENCODE_SAMPLE_RATE;
+        d = 2048;
+        e = 24;
+        g = new byte[0];
     }
 
-    public static lq9 b() {
-        InterceptResult invokeV;
+    public ir9(int i) {
+        int[] iArr;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (lq9) rq9.b(b.getString("key_adcfg", null), fq9.a) : (lq9) invokeV.objValue;
-    }
-
-    public static /* synthetic */ lq9 c(ObjectInput objectInput) {
-        return new lq9(objectInput.readInt(), objectInput);
-    }
-
-    public static void d(double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Double.valueOf(d)}) == null) {
-            b.edit().putLong("key_price_total", Double.doubleToRawLongBits(d)).apply();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-    }
-
-    public static void e(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(65541, null, i, i2, i3) == null) {
-            synchronized (a) {
-                int j = j();
-                int k = k();
-                int i4 = i();
-                b.edit().putInt("key_rpt_req_c", ((j - i) - i2) - i3).putInt("key_rpt_fai_c", g() - i).putInt("key_rpt_suc_c", k - i2).putInt("key_rpt_mis_c", i4 - i3).apply();
+        int minBufferSize = AudioRecord.getMinBufferSize(c, 16, 2);
+        int i4 = d;
+        int i5 = e * i4;
+        i5 = i5 < minBufferSize ? ((minBufferSize / i4) + 1) * i4 * 2 : i5;
+        if (i != -100) {
+            try {
+                AudioRecord audioRecord = new AudioRecord(i, c, 16, 2, i5);
+                this.a = audioRecord;
+                if (audioRecord.getState() != 1) {
+                    this.a = null;
+                }
+            } catch (Exception unused) {
+                this.a = null;
+            }
+            if (this.a != null) {
+                vr9.d("audio_source:(if) ---> " + i);
+            }
+        }
+        if (this.a == null) {
+            for (int i6 : b) {
+                try {
+                    AudioRecord audioRecord2 = new AudioRecord(i6, c, 16, 2, i5);
+                    this.a = audioRecord2;
+                    if (audioRecord2.getState() != 1) {
+                        this.a = null;
+                    }
+                } catch (Exception unused2) {
+                    this.a = null;
+                }
+                if (this.a != null) {
+                    vr9.d("audio_source:(for) ---> " + i6);
+                    return;
+                }
             }
         }
     }
 
-    public static void f(String str, int i) {
+    public int a(@NonNull ByteBuffer byteBuffer, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65542, null, str, i) == null) {
-            b.edit().putInt(str, i).apply();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, byteBuffer, i)) == null) {
+            AudioRecord audioRecord = this.a;
+            if (audioRecord == null) {
+                return 0;
+            }
+            return audioRecord.read(byteBuffer, i);
         }
+        return invokeLI.intValue;
     }
 
-    public static /* synthetic */ xq9 h(ObjectInput objectInput) {
-        return new xq9(objectInput.readInt(), objectInput);
-    }
-
-    public static xq9 l() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? (xq9) rq9.b(b.getString("key_rptcfg", null), zp9.a) : (xq9) invokeV.objValue;
-    }
-
-    public static double m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? Double.longBitsToDouble(b.getLong("key_price_total", 0L)) : invokeV.doubleValue;
-    }
-
-    public static void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            synchronized (a) {
-                f("key_rpt_req_c", j() + 1);
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a == null) {
+            return;
+        }
+        synchronized (g) {
+            g();
+            if (f == this) {
+                f = null;
             }
         }
     }
 
-    public static int a(String str) {
-        InterceptResult invokeL;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return b.getInt("key_sid_c_pre_" + str, 0);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (g) {
+                if (f == this) {
+                    return;
+                }
+                if (f != null) {
+                    f.g();
+                    f = null;
+                }
+                f();
+                f = this;
+            }
         }
-        return invokeL.intValue;
     }
 
-    public static int g() {
+    public AudioRecord d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return b.getInt("key_rpt_fai_c", 0);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (AudioRecord) invokeV.objValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            AudioRecord audioRecord = this.a;
+            if (audioRecord != null) {
+                return audioRecord.getRecordingState();
+            }
+            return -1;
         }
         return invokeV.intValue;
     }
 
-    public static int i() {
-        InterceptResult invokeV;
+    public final void f() {
+        AudioRecord audioRecord;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return b.getInt("key_rpt_mis_c", 0);
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (audioRecord = this.a) == null) {
+            return;
         }
-        return invokeV.intValue;
+        audioRecord.startRecording();
     }
 
-    public static int j() {
-        InterceptResult invokeV;
+    public final void g() {
+        AudioRecord audioRecord;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return b.getInt("key_rpt_req_c", 0);
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (audioRecord = this.a) == null) {
+            return;
         }
-        return invokeV.intValue;
-    }
-
-    public static int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return b.getInt("key_rpt_suc_c", 0);
-        }
-        return invokeV.intValue;
+        this.a = null;
+        audioRecord.stop();
+        audioRecord.release();
     }
 }

@@ -201,6 +201,25 @@ public final /* synthetic */ class FlowKt__TransformKt {
         return new FlowKt__TransformKt$scanReduce$$inlined$unsafeFlow$1(flow, function3);
     }
 
+    /*  JADX ERROR: IndexOutOfBoundsException in pass: MarkMethodsForInline
+        java.lang.IndexOutOfBoundsException: Index: 0
+        	at java.base/java.util.Collections$EmptyList.get(Collections.java:4807)
+        	at jadx.core.dex.nodes.InsnNode.getArg(InsnNode.java:104)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:117)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.visit(MarkMethodsForInline.java:37)
+        */
+    public static final /* synthetic */ <R> kotlinx.coroutines.flow.Flow<R> filterIsInstance(kotlinx.coroutines.flow.Flow<?> r1) {
+        /*
+            kotlin.jvm.internal.Intrinsics.needClassReification()
+            kotlinx.coroutines.flow.FlowKt__TransformKt$filterIsInstance$$inlined$filter$1 r0 = new kotlinx.coroutines.flow.FlowKt__TransformKt$filterIsInstance$$inlined$filter$1
+            r0.<init>(r1)
+            return r0
+        */
+        throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.flow.FlowKt__TransformKt.filterIsInstance(kotlinx.coroutines.flow.Flow):kotlinx.coroutines.flow.Flow");
+    }
+
     public static final <T> Flow<T> filterNotNull(final Flow<? extends T> flow) {
         return new Flow<T>() { // from class: kotlinx.coroutines.flow.FlowKt__TransformKt$filterNotNull$$inlined$unsafeTransform$1
             @Override // kotlinx.coroutines.flow.Flow

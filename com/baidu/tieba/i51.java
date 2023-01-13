@@ -1,136 +1,74 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.webkit.ValueCallback;
-import android.webkit.WebChromeClient;
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.sailor.BdSailorConfig;
-import com.baidu.nadcore.webarch.feature.NadWebFeature;
+import androidx.annotation.Nullable;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes4.dex */
-public class i51 extends NadWebFeature {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public Map<Activity, h51> b;
+public interface i51 {
+    public static final i51 a = new a();
 
-    @Override // com.baidu.nadcore.webarch.feature.NadWebFeature
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? BdSailorConfig.SAILOR_BASE_UPLOAD : (String) invokeV.objValue;
-    }
+    boolean a(Context context, String str, String str2, @Nullable wi0 wi0Var);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i51(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = new HashMap();
-    }
+    /* loaded from: classes4.dex */
+    public static class a implements i51 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public h51 d(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
-            Map<Activity, h51> map = this.b;
-            if (map != null) {
-                return map.get(activity);
-            }
-            return null;
-        }
-        return (h51) invokeL.objValue;
-    }
-
-    public h51 e(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {
-            h51 d = d(activity);
-            if (d == null) {
-                h51 h51Var = new h51(activity);
-                this.b.put(activity, h51Var);
-                return h51Var;
-            }
-            return d;
-        }
-        return (h51) invokeL.objValue;
-    }
-
-    public void f(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            h51 d = d(activity);
-            if (activity != null && d != null) {
-                this.b.remove(activity);
-                if (!d.o()) {
-                    d.p(-1, null);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
-    }
 
-    public void g(Activity activity, int i, Intent intent) {
-        h51 d;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(1048580, this, activity, i, intent) == null) && (d = d(activity)) != null) {
-            d.p(i, intent);
-            this.b.remove(activity);
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:10:0x0014  */
-    @RequiresApi(api = 21)
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean h(Activity activity, @NonNull ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
-        InterceptResult invokeLLL;
-        boolean z;
-        Map<Activity, h51> map;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, activity, valueCallback, fileChooserParams)) == null) {
-            if (activity != null) {
-                h51 e = e(activity);
-                if (fileChooserParams != null) {
-                    z = e.q(valueCallback, fileChooserParams);
-                    if (!z) {
-                        valueCallback.onReceiveValue(null);
-                        if (activity != null && (map = this.b) != null) {
-                            map.remove(activity);
-                        }
-                    }
-                    return z;
+        @Override // com.baidu.tieba.i51
+        public boolean a(Context context, String str, String str2, @Nullable wi0 wi0Var) {
+            InterceptResult invokeLLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, str, str2, wi0Var)) == null) {
+                if (str != null) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put(TiebaStatic.Params.REFER, str2);
+                    hashMap.put("from_web_view", Boolean.TRUE);
+                    return ni0.e(str, context, hashMap, wi0Var);
                 }
+                return false;
             }
-            z = false;
-            if (!z) {
-            }
-            return z;
+            return invokeLLLL.booleanValue;
         }
-        return invokeLLL.booleanValue;
+    }
+
+    @Autowired
+    /* loaded from: classes4.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @NonNull
+        @Inject(force = false)
+        public static i51 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+                return i51.a;
+            }
+            return (i51) invokeV.objValue;
+        }
     }
 }

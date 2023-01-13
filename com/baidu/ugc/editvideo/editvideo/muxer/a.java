@@ -3,12 +3,12 @@ package com.baidu.ugc.editvideo.editvideo.muxer;
 import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fn9;
-import com.baidu.tieba.hn9;
-import com.baidu.tieba.in9;
-import com.baidu.tieba.jl9;
-import com.baidu.tieba.kl9;
-import com.baidu.tieba.qi9;
+import com.baidu.tieba.ns9;
+import com.baidu.tieba.ps9;
+import com.baidu.tieba.qs9;
+import com.baidu.tieba.rq9;
+import com.baidu.tieba.sq9;
+import com.baidu.tieba.yn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,16 +23,16 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinkedList<Pair<String, Object>> a;
-    public InterfaceC0513a b;
+    public InterfaceC0512a b;
     public String c;
     public boolean d;
 
     /* renamed from: com.baidu.ugc.editvideo.editvideo.muxer.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0513a {
+    public interface InterfaceC0512a {
         void onAudioVideoMuxerCancel();
 
-        void onAudioVideoMuxerFail(jl9 jl9Var);
+        void onAudioVideoMuxerFail(rq9 rq9Var);
 
         void onAudioVideoMuxerFinish(String str);
     }
@@ -41,7 +41,7 @@ public class a {
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public jl9 a;
+        public rq9 a;
         public String b;
 
         public b() {
@@ -79,7 +79,7 @@ public class a {
     public void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, bVar) == null) {
-            fn9.a().postDelayed(new Runnable(this, bVar) { // from class: com.baidu.ugc.editvideo.editvideo.muxer.a.2
+            ns9.a().postDelayed(new Runnable(this, bVar) { // from class: com.baidu.ugc.editvideo.editvideo.muxer.a.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ b a;
@@ -113,7 +113,7 @@ public class a {
                         } else if (this.b.b != null) {
                             b bVar2 = this.a;
                             if (bVar2 != null) {
-                                if (hn9.a(bVar2.b) || !FileUtils.checkFile(this.a.b)) {
+                                if (ps9.a(bVar2.b) || !FileUtils.checkFile(this.a.b)) {
                                     this.b.b.onAudioVideoMuxerFail(this.a.a);
                                     return;
                                 } else {
@@ -121,12 +121,12 @@ public class a {
                                     return;
                                 }
                             }
-                            jl9 jl9Var = new jl9();
-                            jl9Var.b = true;
-                            jl9Var.a = 24;
-                            jl9Var.c = "error_mixtrue";
-                            jl9Var.e = "合成音乐失败 MuxerMusicResult is null";
-                            this.b.b.onAudioVideoMuxerFail(jl9Var);
+                            rq9 rq9Var = new rq9();
+                            rq9Var.b = true;
+                            rq9Var.a = 24;
+                            rq9Var.c = "error_mixtrue";
+                            rq9Var.e = "合成音乐失败 MuxerMusicResult is null";
+                            this.b.b.onAudioVideoMuxerFail(rq9Var);
                         }
                     }
                 }
@@ -138,9 +138,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.d = true;
-            InterfaceC0513a interfaceC0513a = this.b;
-            if (interfaceC0513a != null) {
-                interfaceC0513a.onAudioVideoMuxerCancel();
+            InterfaceC0512a interfaceC0512a = this.b;
+            if (interfaceC0512a != null) {
+                interfaceC0512a.onAudioVideoMuxerCancel();
             }
             try {
                 File file = new File(this.c);
@@ -155,16 +155,16 @@ public class a {
     public void a(VideoMuxerData videoMuxerData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoMuxerData) == null) {
-            kl9.b("muxerAV2Mp4", "音视频混合 to mp4");
+            sq9.b("muxerAV2Mp4", "音视频混合 to mp4");
             this.d = false;
             if (videoMuxerData == null) {
                 if (this.b != null) {
-                    jl9 jl9Var = new jl9();
-                    jl9Var.b = true;
-                    jl9Var.a = 24;
-                    jl9Var.c = "error_mixtrue";
-                    jl9Var.e = "音视频合成VideoMuxerData为空合成失败";
-                    this.b.onAudioVideoMuxerFail(jl9Var);
+                    rq9 rq9Var = new rq9();
+                    rq9Var.b = true;
+                    rq9Var.a = 24;
+                    rq9Var.c = "error_mixtrue";
+                    rq9Var.e = "音视频合成VideoMuxerData为空合成失败";
+                    this.b.onAudioVideoMuxerFail(rq9Var);
                     return;
                 }
                 return;
@@ -204,7 +204,7 @@ public class a {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             StringBuilder sb = new StringBuilder();
-                            String f = qi9.c().f();
+                            String f = yn9.c().f();
                             if (TextUtils.isEmpty(f)) {
                                 sb.append("getMixVideoAudioDir 是空");
                                 return;
@@ -212,38 +212,38 @@ public class a {
                             FileUtils.mkdirs(f);
                             a aVar = this.c;
                             aVar.c = f + File.separator + "audio_video_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION;
-                            boolean j = in9.j(sb, this.a.getFinalAudioPath(), this.a.getVideoPath(), this.c.c, 0L, -1L);
+                            boolean j = qs9.j(sb, this.a.getFinalAudioPath(), this.a.getVideoPath(), this.c.c, 0L, -1L);
                             b bVar = new b();
                             if (j) {
                                 bVar.b = this.c.c;
                             } else {
-                                jl9 jl9Var2 = new jl9();
-                                jl9Var2.b = true;
-                                jl9Var2.a = 24;
-                                jl9Var2.c = "error_mixtrue";
-                                jl9Var2.e = " 预处理音乐合成失败-4 musicPath" + this.a.getFinalAudioPath() + " ,videoPath" + this.a.getVideoPath() + " ,outputVideoPath" + this.c.c + " ,muxResult:" + j + ",errorMsg" + sb.toString() + " ,audio file size =" + this.b;
-                                bVar.a = jl9Var2;
+                                rq9 rq9Var2 = new rq9();
+                                rq9Var2.b = true;
+                                rq9Var2.a = 24;
+                                rq9Var2.c = "error_mixtrue";
+                                rq9Var2.e = " 预处理音乐合成失败-4 musicPath" + this.a.getFinalAudioPath() + " ,videoPath" + this.a.getVideoPath() + " ,outputVideoPath" + this.c.c + " ,muxResult:" + j + ",errorMsg" + sb.toString() + " ,audio file size =" + this.b;
+                                bVar.a = rq9Var2;
                             }
-                            kl9.b("avMuxThead", "音视频混合:" + j);
+                            sq9.b("avMuxThead", "音视频混合:" + j);
                             this.c.a(bVar);
                         }
                     }
                 }).start();
             } else if (this.b != null) {
-                jl9 jl9Var2 = new jl9();
-                jl9Var2.b = true;
-                jl9Var2.a = 24;
-                jl9Var2.c = "error_mixtrue";
-                jl9Var2.e = "musicPath" + videoMuxerData.getFinalAudioPath() + "outputVideoPath" + this.c + "videoPath: " + videoMuxerData.getVideoPath() + "muxResult:false 合成音乐视频路径丢失";
-                this.b.onAudioVideoMuxerFail(jl9Var2);
+                rq9 rq9Var2 = new rq9();
+                rq9Var2.b = true;
+                rq9Var2.a = 24;
+                rq9Var2.c = "error_mixtrue";
+                rq9Var2.e = "musicPath" + videoMuxerData.getFinalAudioPath() + "outputVideoPath" + this.c + "videoPath: " + videoMuxerData.getVideoPath() + "muxResult:false 合成音乐视频路径丢失";
+                this.b.onAudioVideoMuxerFail(rq9Var2);
             }
         }
     }
 
-    public void a(InterfaceC0513a interfaceC0513a) {
+    public void a(InterfaceC0512a interfaceC0512a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC0513a) == null) {
-            this.b = interfaceC0513a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC0512a) == null) {
+            this.b = interfaceC0512a;
         }
     }
 }

@@ -192,8 +192,8 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setContentView(R.layout.activity_lc_update_layout);
-            B1(bundle);
-            C1();
+            C1(bundle);
+            D1();
             registerReceiver();
         }
     }
@@ -239,7 +239,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         return invokeV.booleanValue;
     }
 
-    public final void C1() {
+    public final void D1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.b = (LinearLayout) findViewById(R.id.lc_update_trans_bg);
@@ -261,7 +261,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         }
     }
 
-    public final void B1(Bundle bundle) {
+    public final void C1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             if (bundle != null) {

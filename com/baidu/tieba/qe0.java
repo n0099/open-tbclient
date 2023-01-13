@@ -1,162 +1,127 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.Build;
-import android.os.Process;
-import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.oe0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class qe0 {
+public abstract class qe0 implements oe0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public oe0.d a;
+    public oe0.a b;
+    public oe0.e c;
+    public oe0.b d;
+    public oe0.c e;
 
-    public static NetworkInfo a(Context context) {
-        InterceptResult invokeL;
+    public qe0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            me0.c("DpNetworkUtils", "getNetWorkInfo()");
-            if (context == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            try {
-                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-                if (connectivityManager != null) {
-                    return connectivityManager.getActiveNetworkInfo();
-                }
-            } catch (Exception unused) {
-            }
-            return null;
-        }
-        return (NetworkInfo) invokeL.objValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            me0.c("DpNetworkUtils", "shouldCheckPermission()");
-            return Build.VERSION.SDK_INT >= 23;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean c(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            me0.c("DpNetworkUtils", "checkPermissionGranted()");
-            return str != null && context.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0041  */
-    /* JADX WARN: Removed duplicated region for block: B:37:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean d(Context context) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, context)) != null) {
-            return invokeL.booleanValue;
-        }
-        me0.c("DpNetworkUtils", "checkPhonePermission()");
-        boolean z2 = true;
-        if (!b()) {
-            return true;
-        }
-        if (context == null) {
-            return false;
-        }
-        try {
-            if (!c(context, "android.permission.CALL_PHONE") && !c(context, "android.permission.MODIFY_PHONE_STATE") && !c(context, com.kuaishou.weapon.p0.h.c) && !c(context, "android.permission.PROCESS_OUTGOING_CALLS")) {
-                z = false;
-                if (Build.VERSION.SDK_INT < 16) {
-                    if (!z) {
-                        if (!c(context, "android.permission.READ_CALL_LOG")) {
-                            z2 = false;
-                        }
-                    }
-                    return z2;
-                }
-                return z;
-            }
-            z = true;
-            if (Build.VERSION.SDK_INT < 16) {
-            }
-        } catch (Throwable unused) {
-            return false;
         }
     }
 
-    public static String e(Context context) {
-        InterceptResult invokeL;
-        int i;
-        TelephonyManager telephonyManager;
-        String subscriberId;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            me0.c("DpNetworkUtils", "getNetworkStatisticsData()");
-            NetworkInfo a = a(context);
-            int i2 = 3;
-            if (a == null || a.getState() != NetworkInfo.State.CONNECTED) {
-                i = 0;
-            } else if (a.getType() == 0) {
-                switch (a.getSubtype()) {
-                    case 1:
-                    case 2:
-                    case 4:
-                    case 7:
-                    case 11:
-                        i = 2;
-                        break;
-                    case 3:
-                    case 5:
-                    case 6:
-                    case 8:
-                    case 9:
-                    case 10:
-                    case 12:
-                    case 14:
-                    case 15:
-                        i = 3;
-                        break;
-                    case 13:
-                        i = 4;
-                        break;
-                    default:
-                        i = 1;
-                        break;
-                }
-            } else {
-                i = a.getType() == 1 ? 100 : a.getType() == 9 ? 101 : 999;
-            }
-            int i3 = 99;
-            try {
-                if (!d(context) || (telephonyManager = (TelephonyManager) context.getSystemService("phone")) == null || (subscriberId = ApiReplaceUtil.getSubscriberId(telephonyManager)) == null) {
-                    i2 = 0;
-                } else {
-                    if (!subscriberId.startsWith("46000") && !subscriberId.startsWith("46002")) {
-                        if (!subscriberId.startsWith("46001")) {
-                            i2 = subscriberId.startsWith("46003") ? 2 : 99;
-                        }
-                    }
-                    i2 = 1;
-                }
-                i3 = i2;
-            } catch (Throwable th) {
-                me0.e("DpNetworkUtils", "network changed: " + th);
-            }
-            return i + "_" + i3;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
+            this.b = null;
+            this.c = null;
+            this.d = null;
+            this.e = null;
         }
-        return (String) invokeL.objValue;
+    }
+
+    public final boolean a(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
+            oe0.b bVar = this.d;
+            return bVar != null && bVar.d(this, i, i2);
+        }
+        return invokeII.booleanValue;
+    }
+
+    public final boolean a(int i, int i2, Object obj) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
+            oe0.c cVar = this.e;
+            return cVar != null && cVar.e(this, i, i2, obj);
+        }
+        return invokeIIL.booleanValue;
+    }
+
+    public final void b() {
+        oe0.d dVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (dVar = this.a) == null) {
+            return;
+        }
+        dVar.c(this);
+    }
+
+    public final void c() {
+        oe0.a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.b) == null) {
+            return;
+        }
+        aVar.b(this);
+    }
+
+    public final void d() {
+        oe0.e eVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (eVar = this.c) == null) {
+            return;
+        }
+        eVar.a(this);
+    }
+
+    public final void setOnCompletionListener(oe0.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
+            this.b = aVar;
+        }
+    }
+
+    public final void setOnErrorListener(oe0.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
+            this.d = bVar;
+        }
+    }
+
+    public final void setOnInfoListener(oe0.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
+            this.e = cVar;
+        }
+    }
+
+    public final void setOnPreparedListener(oe0.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, dVar) == null) {
+            this.a = dVar;
+        }
+    }
+
+    public final void setOnTerminalListener(oe0.e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, eVar) == null) {
+            this.c = eVar;
+        }
     }
 }

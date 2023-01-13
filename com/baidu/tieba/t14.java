@@ -1,7 +1,15 @@
 package com.baidu.tieba;
+
+import android.content.Context;
+import android.view.View;
+import com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView;
 /* loaded from: classes6.dex */
 public interface t14 {
-    void a(s44 s44Var, r44 r44Var);
+    View a(Context context, GameCloseGuidePopView.e eVar);
 
-    void b(j44 j44Var, i44 i44Var);
+    void b(int i);
+
+    void c();
+
+    void release();
 }

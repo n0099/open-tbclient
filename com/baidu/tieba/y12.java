@@ -3,9 +3,7 @@ package com.baidu.tieba;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
+import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,21 +11,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.http.cookie.ClientCookie;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class y12 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean h;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
+    public JSONArray b;
     public String c;
     public String d;
-    public String e;
-    public String f;
-    public JSONArray g;
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +38,7 @@ public class y12 {
                 return;
             }
         }
-        h = ok1.a;
+        e = tk1.a;
     }
 
     public y12() {
@@ -59,35 +55,21 @@ public class y12 {
         }
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.c)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static y12 e(JSONObject jSONObject) {
+    public static y12 b(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
             y12 y12Var = new y12();
             try {
+                y12Var.b = jSONObject.getJSONArray("host");
                 y12Var.a = jSONObject.getString("appKey");
-                y12Var.b = jSONObject.getString(DeepLinkItem.DEEPLINK_APPURL_KEY) + "?swanJsVersion=" + jd3.h(0) + "&appVersion=" + yh3.D();
-                y12Var.c = jSONObject.getString("wsUrl");
-                y12Var.d = jSONObject.optString("notInHistory", "1");
-                y12Var.e = jSONObject.optString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD);
-                y12Var.f = jSONObject.optString("slavePreload");
-                y12Var.g = jSONObject.optJSONArray("hosts");
+                jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+                y12Var.c = jSONObject.getString(ClientCookie.PORT_ATTR);
+                y12Var.d = Uri.decode(jSONObject.optString("url"));
                 return y12Var;
             } catch (JSONException unused) {
-                if (h) {
-                    Log.e("WirelessDebugModel", "DebuggerLaunchAction params is invalid");
+                if (e) {
+                    Log.e("RemoteDebugModel", "DebuggerLaunchAction params is invalid");
                     return null;
                 }
                 return null;
@@ -100,33 +82,16 @@ public class y12 {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return b(i, this.b);
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public String c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            return b(i, this.c);
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public final String b(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
-            if (this.g != null && !TextUtils.isEmpty(str) && i >= 0 && i < this.g.length()) {
-                Uri parse = Uri.parse(str);
-                String optString = this.g.optString(i);
-                if (!TextUtils.isEmpty(optString) && parse.getHost() != null) {
-                    return str.replace(parse.getHost(), optString);
-                }
+            JSONArray jSONArray = this.b;
+            if (jSONArray == null) {
+                return "";
             }
-            return str;
+            String optString = jSONArray.optString(i);
+            if (TextUtils.isEmpty(optString)) {
+                return "";
+            }
+            return "http://" + optString + ":" + this.c;
         }
-        return (String) invokeIL.objValue;
+        return (String) invokeI.objValue;
     }
 }

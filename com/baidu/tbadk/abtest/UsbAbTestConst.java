@@ -52,6 +52,7 @@ public class UsbAbTestConst {
     public static final String KEY_VIDEOTAB_AUTO_PLAY = "12_5_zp_1";
     public static final String KEY_VIDEO_AUTO_PLAY_NEXT_VIDEO = "12_15_autoplay_a";
     public static final String KEY_VIDEO_SET_URL_AGAIN = "12_20_repeatset_a";
+    public static final String KEY_WEB_VIEW_OPTIMIZE = "12.35_webview_optimize_test";
     public static final String KEY_WRITE_PROTO = "12_26_thread_proto_android_a";
     public static final String VIDEO_PLAY_DANMU_SHOW = "12_14_danmu_1";
     public transient /* synthetic */ FieldHolder $fh;

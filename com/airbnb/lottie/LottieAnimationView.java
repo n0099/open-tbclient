@@ -814,10 +814,9 @@ public class LottieAnimationView extends AppCompatImageView {
 
     public <T> void addValueCallback(KeyPath keyPath, T t, final SimpleLottieValueCallback<T> simpleLottieValueCallback) {
         this.lottieDrawable.addValueCallback(keyPath, (KeyPath) t, (LottieValueCallback<KeyPath>) new LottieValueCallback<T>() { // from class: com.airbnb.lottie.LottieAnimationView.6
-            /* JADX WARN: Type inference failed for: r2v1, types: [T, java.lang.Object] */
             @Override // com.airbnb.lottie.value.LottieValueCallback
             public T getValue(LottieFrameInfo<T> lottieFrameInfo) {
-                return simpleLottieValueCallback.getValue(lottieFrameInfo);
+                return (T) simpleLottieValueCallback.getValue(lottieFrameInfo);
             }
         });
     }

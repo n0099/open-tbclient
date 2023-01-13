@@ -1,15 +1,16 @@
 package com.baidu.tieba;
 
-import android.graphics.BitmapFactory;
+import android.content.SharedPreferences;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.fun.ad.sdk.FunAdSdk;
 /* loaded from: classes5.dex */
-public final class jy9 {
+public class jy9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BitmapFactory.Options a;
+    public static final SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -25,6 +26,6 @@ public final class jy9 {
                 return;
             }
         }
-        a = new BitmapFactory.Options();
+        a = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk_req_id", 0);
     }
 }

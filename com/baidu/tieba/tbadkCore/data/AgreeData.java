@@ -13,6 +13,7 @@ import tbclient.Agree;
 public class AgreeData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int agreeClickType;
     public long agreeNum;
     public int agreeType;
     public BaijiahaoData baijiahaoData;

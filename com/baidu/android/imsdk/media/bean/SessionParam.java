@@ -46,6 +46,7 @@ public class SessionParam implements Parcelable, RequestParam {
     public int sessionType;
     public long sortUpdateTimeBegin;
     public long sortUpdateTimeEnd;
+    public long timeInterval;
     public int type;
     public List<Integer> userNumChatTypes;
 

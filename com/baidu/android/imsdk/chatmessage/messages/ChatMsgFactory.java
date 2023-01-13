@@ -175,6 +175,8 @@ public class ChatMsgFactory {
                                                                             return new GalleryMsg();
                                                                         case 82:
                                                                             return new AudioTextMsg();
+                                                                        case 84:
+                                                                            return new TextImageMsg();
                                                                         case 1001:
                                                                             return new GroupMemberAddMsg();
                                                                         case 1002:

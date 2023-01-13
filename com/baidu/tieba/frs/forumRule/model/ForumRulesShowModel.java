@@ -16,17 +16,17 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.at6;
+import com.baidu.tieba.bt6;
+import com.baidu.tieba.ct6;
 import com.baidu.tieba.frs.forumRule.ForumRulesShowActivity;
 import com.baidu.tieba.frs.forumRule.message.ForumRuleDetailHttpResMsg;
 import com.baidu.tieba.frs.forumRule.message.ForumRuleDetailReqMsg;
 import com.baidu.tieba.frs.forumRule.message.ForumRuleDetailScoketResMsg;
-import com.baidu.tieba.ip6;
-import com.baidu.tieba.kp6;
-import com.baidu.tieba.lp6;
-import com.baidu.tieba.mp6;
-import com.baidu.tieba.qb;
-import com.baidu.tieba.r9;
-import com.baidu.tieba.ur8;
+import com.baidu.tieba.qw8;
+import com.baidu.tieba.rb;
+import com.baidu.tieba.s9;
+import com.baidu.tieba.ys6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,10 +49,10 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
     public int d;
     public String e;
     public String f;
-    public lp6 g;
+    public bt6 g;
     public ForumRuleBaseData h;
-    public ip6 i;
-    public qb j;
+    public ys6 i;
+    public rb j;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
@@ -81,7 +81,7 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
     }
 
     /* loaded from: classes4.dex */
-    public class a extends qb {
+    public class a extends rb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumRulesShowModel a;
@@ -108,7 +108,7 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
             this.a = forumRulesShowModel;
         }
 
-        @Override // com.baidu.tieba.qb
+        @Override // com.baidu.tieba.rb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             boolean z;
             Interceptable interceptable = $ic;
@@ -125,13 +125,13 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
                             this.a.g = ((ForumRuleDetailScoketResMsg) responsedMessage).getmForumRuleDetailData();
                         }
                         if (this.a.g != null && this.a.i != null) {
-                            ip6 ip6Var = this.a.i;
+                            ys6 ys6Var = this.a.i;
                             if (this.a.g.b() == 2) {
                                 z = true;
                             } else {
                                 z = false;
                             }
-                            ip6Var.c(z, this.a.g.a());
+                            ys6Var.c(z, this.a.g.a());
                             this.a.i.e(this.a.g.m());
                             this.a.i.d(this.a.g);
                             this.a.U();
@@ -160,7 +160,7 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((r9) newInitContext.callArgs[0]);
+                super((s9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -219,10 +219,10 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
         }
     }
 
-    public void T(ip6 ip6Var) {
+    public void T(ys6 ys6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, ip6Var) == null) {
-            this.i = ip6Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, ys6Var) == null) {
+            this.i = ys6Var;
         }
     }
 
@@ -231,25 +231,25 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.h != null) {
             this.i.c(false, "");
             this.i.e(this.h.getTitle());
-            lp6 lp6Var = new lp6();
+            bt6 bt6Var = new bt6();
             BawuRoleInfoPub.Builder builder = new BawuRoleInfoPub.Builder();
             builder.portrait = TbadkCoreApplication.getCurrentPortrait();
             builder.name_show = TbadkCoreApplication.getCurrentAccountNameShow();
             builder.user_level = Integer.valueOf(this.d);
-            lp6Var.q(builder.build(true));
+            bt6Var.q(builder.build(true));
             ForumInfo.Builder builder2 = new ForumInfo.Builder();
             builder2.forum_name = this.c;
-            lp6Var.r(builder2.build(true));
-            lp6Var.s(false);
-            lp6Var.t(this.h.getPreface());
-            this.i.d(lp6Var);
+            bt6Var.r(builder2.build(true));
+            bt6Var.s(false);
+            bt6Var.t(this.h.getPreface());
+            this.i.d(bt6Var);
             U();
-            kp6 kp6Var = new kp6();
-            kp6Var.k(this.c);
-            kp6Var.i(this.e);
-            kp6Var.l(TbadkCoreApplication.getCurrentAccountNameShow());
-            kp6Var.m(TbadkCoreApplication.getCurrentPortrait());
-            this.i.a(kp6Var);
+            at6 at6Var = new at6();
+            at6Var.k(this.c);
+            at6Var.i(this.e);
+            at6Var.l(TbadkCoreApplication.getCurrentAccountNameShow());
+            at6Var.m(TbadkCoreApplication.getCurrentPortrait());
+            this.i.a(at6Var);
             this.i.finish();
         }
     }
@@ -325,27 +325,27 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
         }
     }
 
-    public final mp6 Q(ForumRuleBaseData.ForumRuleItemData forumRuleItemData) {
+    public final ct6 Q(ForumRuleBaseData.ForumRuleItemData forumRuleItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, forumRuleItemData)) == null) {
             if (forumRuleItemData != null) {
-                mp6 mp6Var = new mp6();
-                mp6Var.i(forumRuleItemData.getTitle());
-                mp6Var.h(O(forumRuleItemData.getContent()));
-                mp6Var.g(false);
-                return mp6Var;
+                ct6 ct6Var = new ct6();
+                ct6Var.i(forumRuleItemData.getTitle());
+                ct6Var.h(O(forumRuleItemData.getContent()));
+                ct6Var.g(false);
+                return ct6Var;
             }
             return null;
         }
-        return (mp6) invokeL.objValue;
+        return (ct6) invokeL.objValue;
     }
 
     public final void R() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            ur8.h(309690, ForumRuleDetailScoketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FORUM_RULES_SHOW, ur8.a(TbConfig.FORUM_RULES_SHOW, 309690));
+            qw8.h(309690, ForumRuleDetailScoketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FORUM_RULES_SHOW, qw8.a(TbConfig.FORUM_RULES_SHOW, 309690));
             tbHttpMessageTask.setResponsedClass(ForumRuleDetailHttpResMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -368,9 +368,9 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
                 List<ForumRule> l = this.g.l();
                 if (l != null && l.size() > 0) {
                     for (ForumRule forumRule : l) {
-                        mp6 mp6Var = new mp6();
-                        mp6Var.f(forumRule);
-                        arrayList.add(mp6Var);
+                        ct6 ct6Var = new ct6();
+                        ct6Var.f(forumRule);
+                        arrayList.add(ct6Var);
                     }
                 }
             }

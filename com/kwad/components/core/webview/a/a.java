@@ -36,13 +36,13 @@ public final class a {
     @KsJson
     /* renamed from: com.kwad.components.core.webview.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static final class C0606a extends com.kwad.sdk.core.response.kwai.a {
+    public static final class C0605a extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String packageName;
         public String url;
 
-        public C0606a() {
+        public C0605a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,19 +107,19 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, str) == null) {
             try {
-                C0606a c0606a = new C0606a();
-                c0606a.parseJson(new JSONObject(str));
-                if (k(c0606a.url, c0606a.packageName)) {
+                C0605a c0605a = new C0605a();
+                c0605a.parseJson(new JSONObject(str));
+                if (k(c0605a.url, c0605a.packageName)) {
                     return;
                 }
                 if (this.DV == null) {
-                    j(c0606a.url, c0606a.packageName);
+                    j(c0605a.url, c0605a.packageName);
                 }
                 if (this.DV.mR()) {
                     return;
                 }
                 this.DV.d(this.KW);
-                this.DV.m(new a.C0594a(this.mJsBridgeContext.Fv.getContext()).aj(true).ak(false).L(this.mAdTemplate).am(false));
+                this.DV.m(new a.C0593a(this.mJsBridgeContext.Fv.getContext()).aj(true).ak(false).L(this.mAdTemplate).am(false));
             } catch (JSONException e) {
                 com.kwad.sdk.core.e.b.printStackTrace(e);
             }

@@ -72,11 +72,11 @@ public class s {
 
     private void a(Cif cif, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{cif, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && !com.xiaomi.push.m.m571a(this.f109a) && com.xiaomi.push.m.m570a() && cif != null && cif.f649a == hj.e && cif.m475a() != null && z) {
-            com.xiaomi.channel.commonutils.logger.b.m99a("click to start activity result:" + String.valueOf(i));
-            ii iiVar = new ii(cif.m475a().m441a(), false);
+        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{cif, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && !com.xiaomi.push.m.m635a(this.f109a) && com.xiaomi.push.m.m634a() && cif != null && cif.f649a == hj.e && cif.m538a() != null && z) {
+            com.xiaomi.channel.commonutils.logger.b.m103a("click to start activity result:" + String.valueOf(i));
+            ii iiVar = new ii(cif.m538a().m504a(), false);
             iiVar.c(ht.ae.f529a);
-            iiVar.b(cif.m476a());
+            iiVar.b(cif.m539a());
             iiVar.d(cif.f656b);
             HashMap hashMap = new HashMap();
             iiVar.f668a = hashMap;
@@ -111,14 +111,14 @@ public class s {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(65544, null, context, cif, z) == null) {
-            b m141a = b.m141a(context);
-            if (TextUtils.isEmpty(m141a.m149c()) || TextUtils.isEmpty(m141a.d())) {
+            b m145a = b.m145a(context);
+            if (TextUtils.isEmpty(m145a.m153c()) || TextUtils.isEmpty(m145a.d())) {
                 a2 = a(context);
                 i = 6;
             } else {
-                boolean m153f = m141a.m153f();
+                boolean m157f = m145a.m157f();
                 a2 = a(context);
-                i = m153f ? 7 : 5;
+                i = m157f ? 7 : 5;
             }
             a2.a(cif, i, z);
         }

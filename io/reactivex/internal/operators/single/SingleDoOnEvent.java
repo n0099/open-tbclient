@@ -12,14 +12,14 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.BiConsumer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class SingleDoOnEvent<T> extends Single<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final BiConsumer<? super T, ? super Throwable> onEvent;
     public final SingleSource<T> source;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public final class DoOnEvent implements SingleObserver<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

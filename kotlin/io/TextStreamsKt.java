@@ -137,8 +137,27 @@ public final class TextStreamsKt {
 
     public static final List<String> readLines(Reader readLines) {
         Intrinsics.checkNotNullParameter(readLines, "$this$readLines");
-        ArrayList arrayList = new ArrayList();
-        forEachLine(readLines, new TextStreamsKt$readLines$1(arrayList));
+        final ArrayList arrayList = new ArrayList();
+        forEachLine(readLines, new Function1<String, Unit>() { // from class: kotlin.io.TextStreamsKt$readLines$1
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(1);
+            }
+
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function1
+            public /* bridge */ /* synthetic */ Unit invoke(String str) {
+                invoke2(str);
+                return Unit.INSTANCE;
+            }
+
+            /* renamed from: invoke  reason: avoid collision after fix types in other method */
+            public final void invoke2(String it) {
+                Intrinsics.checkNotNullParameter(it, "it");
+                arrayList.add(it);
+            }
+        });
         return arrayList;
     }
 

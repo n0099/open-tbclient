@@ -1,167 +1,133 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.ShapeDrawable;
-import android.widget.EditText;
-import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.hw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-/* loaded from: classes5.dex */
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes6.dex */
 public class qp6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public fw4 a;
+    public hw4 b;
+    public String c;
+    public String[] d;
+    public String e;
+    public hw4.f f;
+    public s9 g;
 
-    public static String d(int i) {
-        InterceptResult invokeI;
+    public qp6(s9 s9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            switch (i) {
-                case 1:
-                    return "一";
-                case 2:
-                    return "二";
-                case 3:
-                    return "三";
-                case 4:
-                    return "四";
-                case 5:
-                    return "五";
-                case 6:
-                    return "六";
-                case 7:
-                    return "七";
-                case 8:
-                    return "八";
-                case 9:
-                    return "九";
-                case 10:
-                    return "十";
-                case 11:
-                    return "十一";
-                case 12:
-                    return "十二";
-                case 13:
-                    return "十三";
-                case 14:
-                    return "十四";
-                case 15:
-                    return "十五";
-                case 16:
-                    return "十六";
-                case 17:
-                    return "十七";
-                case 18:
-                    return "十八";
-                case 19:
-                    return "十九";
-                case 20:
-                    return "二十";
-                default:
-                    return "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {s9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeI.objValue;
+        this.g = s9Var;
     }
 
-    /* loaded from: classes5.dex */
-    public static class a extends ShapeDrawable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-
-        public a(int i, int i2, int i3, int i4) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i3;
-            this.b = i4;
-            setDither(false);
-            getPaint().setColor(i);
-            setIntrinsicWidth(i2);
-        }
-
-        @Override // android.graphics.drawable.Drawable
-        public void setBounds(int i, int i2, int i3, int i4) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIIII(1048576, this, i, i2, i3, i4) == null) {
-                super.setBounds(i, i2 + this.a, i3, i4 + this.b);
-            }
-        }
-    }
-
-    public static long a(String str) {
+    public static qp6 c(s9 s9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            long j = 0;
-            if (StringUtils.isNull(str)) {
-                return 0L;
-            }
-            try {
-                Date parse = new SimpleDateFormat("yyyy.MM.dd").parse(str);
-                if (parse != null) {
-                    j = parse.getTime();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, s9Var)) == null) {
+            return new qp6(s9Var);
+        }
+        return (qp6) invokeL.objValue;
+    }
+
+    public qp6 d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            this.e = str;
+            return this;
+        }
+        return (qp6) invokeL.objValue;
+    }
+
+    public qp6 e(hw4.f fVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fVar)) == null) {
+            this.f = fVar;
+            return this;
+        }
+        return (qp6) invokeL.objValue;
+    }
+
+    public qp6 f(String[] strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, strArr)) == null) {
+            this.d = strArr;
+            return this;
+        }
+        return (qp6) invokeL.objValue;
+    }
+
+    public qp6 g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            this.c = str;
+            return this;
+        }
+        return (qp6) invokeL.objValue;
+    }
+
+    public final List<dw4> a(String[] strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < strArr.length; i++) {
+                String str = strArr[i];
+                dw4 dw4Var = new dw4(i, str, this.b);
+                if (!StringUtils.isNull(this.e) && this.e.equals(str)) {
+                    dw4Var.q(R.color.CAM_X0304);
+                    dw4Var.p();
                 }
-                return j / 1000;
-            } catch (ParseException e) {
-                e.printStackTrace();
-                return 0L;
+                arrayList.add(dw4Var);
             }
+            return arrayList;
         }
-        return invokeL.longValue;
+        return (List) invokeL.objValue;
     }
 
-    public static int b(long j) {
-        InterceptResult invokeJ;
+    public void b() {
+        fw4 fw4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
-            if (j < 0) {
-                return -1;
-            }
-            return (int) (j / 86400);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (fw4Var = this.a) != null) {
+            fw4Var.dismiss();
         }
-        return invokeJ.intValue;
     }
 
-    public static void c(int i, int i2, EditText editText) {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65538, null, i, i2, editText) == null) {
-            try {
-                Method declaredMethod = TextView.class.getDeclaredMethod("createEditorIfNeeded", new Class[0]);
-                declaredMethod.setAccessible(true);
-                declaredMethod.invoke(editText, new Object[0]);
-                Field declaredField = TextView.class.getDeclaredField("mEditor");
-                Field declaredField2 = Class.forName("android.widget.Editor").getDeclaredField("mCursorDrawable");
-                declaredField.setAccessible(true);
-                declaredField2.setAccessible(true);
-                Object obj = declaredField2.get(declaredField.get(editText));
-                Array.set(obj, 0, new a(SkinManager.getColor(R.color.CAM_X0302), UtilHelper.getDimenPixelSize(R.dimen.tbds5), i, i2));
-                Array.set(obj, 1, new a(SkinManager.getColor(R.color.CAM_X0302), UtilHelper.getDimenPixelSize(R.dimen.tbds5), i, i2));
-            } catch (Exception unused) {
-            }
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            hw4 hw4Var = new hw4(this.g.getPageActivity());
+            this.b = hw4Var;
+            hw4Var.s(this.c);
+            this.b.p(this.f);
+            this.b.k(a(this.d));
+            this.b.m(zi.g(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f07075d));
+            fw4 fw4Var = new fw4(this.g, this.b);
+            this.a = fw4Var;
+            fw4Var.k();
         }
     }
 }

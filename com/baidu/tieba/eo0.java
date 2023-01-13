@@ -1,31 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.lp.reward.NadRewardVideoActivity;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-import java.util.Map;
-@Service
 /* loaded from: classes4.dex */
-public class eo0 extends ji0 {
+public final class eo0 extends hm0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.ji0
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "rewardImpl" : (String) invokeV.objValue;
-    }
+    @NonNull
+    public String a;
+    @Nullable
+    public HashMap<String, String> b;
 
     public eo0() {
         Interceptable interceptable = $ic;
@@ -37,31 +26,9 @@ public class eo0 extends ji0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.ji0
-    public boolean b(@NonNull Context context, @NonNull ni0 ni0Var, @Nullable Map<String, Object> map, @Nullable ri0 ri0Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ni0Var, map, ri0Var)) == null) {
-            super.b(context, ni0Var, map, ri0Var);
-            HashMap<String, String> d = ni0Var.d();
-            int i = 0;
-            if (d.isEmpty()) {
-                c(ri0Var, ni0Var, 202, false);
-                return true;
-            }
-            Intent intent = new Intent(context, NadRewardVideoActivity.class);
-            intent.putExtra("params", d);
-            boolean d2 = g31.d(context, intent);
-            if (!d2) {
-                i = 1001;
-            }
-            c(ri0Var, ni0Var, i, d2);
-            return true;
-        }
-        return invokeLLLL.booleanValue;
+        this.a = "-1";
     }
 }

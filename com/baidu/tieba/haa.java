@@ -1,258 +1,133 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bca;
-import com.baidu.tieba.c9a;
-import com.baidu.tieba.cca;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.atomic.AtomicReference;
+import rx.internal.schedulers.GenericScheduledExecutorServiceFactory;
 /* loaded from: classes4.dex */
-public class haa implements c9a {
+public final class haa implements laa {
     public static /* synthetic */ Interceptable $ic;
+    public static final ScheduledExecutorService[] b;
+    public static final ScheduledExecutorService c;
+    public static final haa d;
+    public static int e;
     public transient /* synthetic */ FieldHolder $fh;
-    public e9a a;
-    public PayFlowType b;
-    public taa c;
-    public taa d;
+    public final AtomicReference<ScheduledExecutorService[]> a;
 
-    /* loaded from: classes4.dex */
-    public class a implements bca.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Dialog a;
-
-        public a(haa haaVar, Dialog dialog) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947818369, "Lcom/baidu/tieba/haa;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {haaVar, dialog};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947818369, "Lcom/baidu/tieba/haa;");
+                return;
+            }
+        }
+        b = new ScheduledExecutorService[0];
+        ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(0);
+        c = newScheduledThreadPool;
+        newScheduledThreadPool.shutdown();
+        d = new haa();
+    }
+
+    public static ScheduledExecutorService a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            ScheduledExecutorService[] scheduledExecutorServiceArr = d.a.get();
+            if (scheduledExecutorServiceArr == b) {
+                return c;
+            }
+            int i = e + 1;
+            if (i >= scheduledExecutorServiceArr.length) {
+                i = 0;
+            }
+            e = i;
+            return scheduledExecutorServiceArr[i];
+        }
+        return (ScheduledExecutorService) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.laa
+    public void shutdown() {
+        ScheduledExecutorService[] scheduledExecutorServiceArr;
+        ScheduledExecutorService[] scheduledExecutorServiceArr2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            do {
+                scheduledExecutorServiceArr = this.a.get();
+                scheduledExecutorServiceArr2 = b;
+                if (scheduledExecutorServiceArr == scheduledExecutorServiceArr2) {
                     return;
                 }
-            }
-            this.a = dialog;
-        }
-
-        @Override // com.baidu.tieba.bca.a
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                lba.a(this.a, PayDialogType.PAY_CONFIRM_FINISH_DIALOG);
+            } while (!this.a.compareAndSet(scheduledExecutorServiceArr, scheduledExecutorServiceArr2));
+            for (ScheduledExecutorService scheduledExecutorService : scheduledExecutorServiceArr) {
+                kaa.d(scheduledExecutorService);
+                scheduledExecutorService.shutdownNow();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements cca.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c9a.b a;
-        public final /* synthetic */ Dialog b;
-
-        public b(haa haaVar, c9a.b bVar, Dialog dialog) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {haaVar, bVar, dialog};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bVar;
-            this.b = dialog;
-        }
-
-        @Override // com.baidu.tieba.cca.a
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c9a.b bVar = this.a;
-                if (bVar != null) {
-                    bVar.b();
-                }
-                lba.a(this.b, PayDialogType.PAY_SHOW_GIFT_DIALOG);
-            }
-        }
-    }
-
-    public haa(PayFlowType payFlowType, e9a e9aVar) {
+    public haa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {payFlowType, e9aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        RLog.info("PayCampaignManager", "create PayCampaignManager:" + this);
-        this.b = payFlowType;
-        this.a = e9aVar;
+        this.a = new AtomicReference<>(b);
+        start();
     }
 
-    @Override // com.baidu.tieba.c9a
-    public GiftBagsInfo a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.laa
+    public void start() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            taa taaVar = this.c;
-            if (taaVar != null) {
-                return taaVar.a();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int availableProcessors = Runtime.getRuntime().availableProcessors();
+            if (availableProcessors > 4) {
+                availableProcessors /= 2;
             }
-            return null;
-        }
-        return (GiftBagsInfo) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.c9a
-    public boolean b(Activity activity, c9a.b bVar, d9a d9aVar, AbsViewEventHandler absViewEventHandler) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bVar, d9aVar, absViewEventHandler)) == null) {
-            RLog.info("PayCampaignManager", "showPayGiftDialog mGiftPackageData:" + this.d + " mPayFlowType:" + this.b);
-            if (this.b != PayFlowType.DIOALOG_PAY_FLOW) {
-                RLog.info("PayCampaignManager", "showPayGiftDialog but not DIOALOG_PAY_FLOW ");
-                return false;
-            } else if (taa.b(this.d)) {
-                RLog.info("PayCampaignManager", "showPayGiftDialog but giftbag empty");
-                return false;
-            } else if (this.d.c()) {
-                RLog.info("PayCampaignManager", "showPayGiftDialog but hasShow");
-                return false;
-            } else {
-                e9a e9aVar = this.a;
-                if (e9aVar == null) {
-                    RLog.error("PayCampaignManager", "showPayGiftDialog error mPayView null", new Object[0]);
-                    return false;
+            if (availableProcessors > 8) {
+                availableProcessors = 8;
+            }
+            ScheduledExecutorService[] scheduledExecutorServiceArr = new ScheduledExecutorService[availableProcessors];
+            int i = 0;
+            for (int i2 = 0; i2 < availableProcessors; i2++) {
+                scheduledExecutorServiceArr[i2] = GenericScheduledExecutorServiceFactory.create();
+            }
+            if (this.a.compareAndSet(b, scheduledExecutorServiceArr)) {
+                while (i < availableProcessors) {
+                    ScheduledExecutorService scheduledExecutorService = scheduledExecutorServiceArr[i];
+                    if (!kaa.k(scheduledExecutorService) && (scheduledExecutorService instanceof ScheduledThreadPoolExecutor)) {
+                        kaa.g((ScheduledThreadPoolExecutor) scheduledExecutorService);
+                    }
+                    i++;
                 }
-                cca d = e9aVar.d(activity);
-                d.setGiftBagsInfo(this.d.a());
-                d.refreshView();
-                this.d.d(true);
-                d.setCallback(new b(this, bVar, h(activity, "", d, bVar, d9aVar, absViewEventHandler)));
-                return true;
+                return;
+            }
+            while (i < availableProcessors) {
+                scheduledExecutorServiceArr[i].shutdownNow();
+                i++;
             }
         }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.c9a
-    public boolean e(Activity activity, c9a.a aVar, d9a d9aVar, AbsViewEventHandler absViewEventHandler) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, activity, aVar, d9aVar, absViewEventHandler)) == null) {
-            RLog.info("PayCampaignManager", "showConfirmLeaveDialog mConfirmLeaveData:" + this.c + " mPayFlowType:" + this.b);
-            if (this.b != PayFlowType.DIOALOG_PAY_FLOW) {
-                RLog.info("PayCampaignManager", "showPayGiftDialog but not DIOALOG_PAY_FLOW ");
-                return false;
-            } else if (taa.b(this.c)) {
-                RLog.info("PayCampaignManager", "showConfirmLeaveDialog but giftbag empty");
-                return false;
-            } else if (this.c.c()) {
-                RLog.info("PayCampaignManager", "showConfirmFinishDialog but hasShow");
-                return false;
-            } else {
-                e9a e9aVar = this.a;
-                if (e9aVar == null) {
-                    RLog.error("PayCampaignManager", "showConfirmFinishDialog error mPayView null", new Object[0]);
-                    return false;
-                }
-                bca b2 = e9aVar.b(activity);
-                b2.setGiftBagsInfo(this.c.a());
-                b2.refreshView();
-                this.c.d(true);
-                b2.setCallback(new a(this, g(activity, "", b2, aVar, d9aVar, absViewEventHandler)));
-                return true;
-            }
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.c9a
-    public void c(ViewGroup viewGroup, Activity activity) {
-        aca c;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, activity) != null) || viewGroup == null) {
-            return;
-        }
-        if (taa.b(this.c)) {
-            viewGroup.removeAllViews();
-            return;
-        }
-        e9a e9aVar = this.a;
-        if (e9aVar != null && (c = e9aVar.c(activity)) != null) {
-            viewGroup.removeAllViews();
-            c.setGiftBagsInfo(this.c.a());
-            viewGroup.addView(c.getContentView());
-            c.refreshView();
-        }
-    }
-
-    @Override // com.baidu.tieba.c9a
-    public void d(GiftBagsInfo giftBagsInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, giftBagsInfo) == null) {
-            RLog.info("PayCampaignManager", "updateConfirmLeaveData- confirmLeaveData:" + giftBagsInfo + " mPayFlowType:" + this.b);
-            this.c = new taa(giftBagsInfo, false);
-        }
-    }
-
-    @Override // com.baidu.tieba.c9a
-    public void f(GiftBagsInfo giftBagsInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, giftBagsInfo) == null) {
-            RLog.info("PayCampaignManager", "updateGiftPackageData packageData:" + giftBagsInfo + " mPayFlowType:" + this.b);
-            this.d = new taa(giftBagsInfo, false);
-        }
-    }
-
-    public final Dialog g(Activity activity, String str, bca bcaVar, c9a.a aVar, d9a d9aVar, AbsViewEventHandler absViewEventHandler) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{activity, str, bcaVar, aVar, d9aVar, absViewEventHandler})) == null) {
-            RLog.info("PayCampaignManager", "createConfirmFinishDialog");
-            d9aVar.k(absViewEventHandler, PayDialogType.PAY_CONFIRM_FINISH_DIALOG);
-            return mca.b.e(activity, str, bcaVar.getContentView(), new u9a(aVar), absViewEventHandler, PayDialogType.PAY_CONFIRM_FINISH_DIALOG, this.b);
-        }
-        return (Dialog) invokeCommon.objValue;
-    }
-
-    public final Dialog h(Activity activity, String str, cca ccaVar, c9a.b bVar, d9a d9aVar, AbsViewEventHandler absViewEventHandler) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{activity, str, ccaVar, bVar, d9aVar, absViewEventHandler})) == null) {
-            RLog.info("PayCampaignManager", "createPayGiftDialog");
-            d9aVar.k(absViewEventHandler, PayDialogType.PAY_SHOW_GIFT_DIALOG);
-            return mca.b.e(activity, str, ccaVar.getContentView(), new w9a(bVar), absViewEventHandler, PayDialogType.PAY_SHOW_GIFT_DIALOG, this.b);
-        }
-        return (Dialog) invokeCommon.objValue;
     }
 }

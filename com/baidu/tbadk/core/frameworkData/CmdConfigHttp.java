@@ -57,7 +57,6 @@ public class CmdConfigHttp {
     public static final int CMD_CHANNEL_VIDEO_UNSET_TOP = 1003308;
     public static final int CMD_CHECK_BAIDU_SIM = 1003392;
     public static final int CMD_CHECK_CARD_INFO = 1003442;
-    public static final int CMD_CHECK_INTEREST_COMMIT = 1003514;
     public static final int CMD_CHECK_IS_QUESTION_THREAD = 1003544;
     public static final int CMD_CHECK_POST = 1003451;
     public static final int CMD_CHECK_REAL_NAME = 1003325;
@@ -85,6 +84,7 @@ public class CmdConfigHttp {
     public static final int CMD_ENTERTAINMENT = 1003079;
     public static final int CMD_ENTER_FORUM_AD_REQUEST = 1003444;
     public static final int CMD_ENTER_FORUM_DATA = 1003528;
+    public static final int CMD_FESTIVAL_TASK_SHARE_REPORT = 1003559;
     public static final int CMD_FETCH_STAMP = 1003522;
     public static final int CMD_FINISH_MEMBER_TASK = 1003188;
     public static final int CMD_FOLLOW_SWITCH = 1002005;
@@ -215,6 +215,7 @@ public class CmdConfigHttp {
     public static final int CMD_HTTP_CHAT_GROUP_ROOM_LIST = 1003552;
     public static final int CMD_HTTP_CHAT_ROOM_DETAIL = 1003550;
     public static final int CMD_HTTP_DECRYPT_CODE = 1003421;
+    public static final int CMD_HTTP_DEL_TOKEN_INFO = 1003558;
     public static final int CMD_HTTP_ET_VIDEO = 1003519;
     public static final int CMD_HTTP_FRS_TAB_AD = 1003411;
     public static final int CMD_HTTP_GET_HOTFORUM = 1001534;

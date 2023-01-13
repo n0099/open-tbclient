@@ -16,10 +16,11 @@ import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.ranges.RangesKt___RangesKt;
 import kotlin.sequences.SequenceScope;
+/* JADX INFO: Add missing generic type declarations: [T] */
 @Metadata(d1 = {"\u0000\u0014\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010 \n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u0002H\u00020\u00040\u0003H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "Lkotlin/sequences/SequenceScope;", "", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 5, 1})
 @DebugMetadata(c = "kotlin.collections.SlidingWindowKt$windowedIterator$1", f = "SlidingWindow.kt", i = {}, l = {34, 40, 49, 55, 58}, m = "invokeSuspend", n = {}, s = {})
 /* loaded from: classes9.dex */
-public final class SlidingWindowKt$windowedIterator$1 extends RestrictedSuspendLambda implements Function2<SequenceScope<? super List<? extends T>>, Continuation<? super Unit>, Object> {
+public final class SlidingWindowKt$windowedIterator$1<T> extends RestrictedSuspendLambda implements Function2<SequenceScope<? super List<? extends T>>, Continuation<? super Unit>, Object> {
     public final /* synthetic */ Iterator $iterator;
     public final /* synthetic */ boolean $partialWindows;
     public final /* synthetic */ boolean $reuseBuffer;
@@ -75,10 +76,10 @@ public final class SlidingWindowKt$windowedIterator$1 extends RestrictedSuspendL
         RingBuffer ringBuffer;
         Iterator it;
         SequenceScope sequenceScope;
-        SlidingWindowKt$windowedIterator$1 slidingWindowKt$windowedIterator$1;
+        SlidingWindowKt$windowedIterator$1<T> slidingWindowKt$windowedIterator$1;
         int i2;
         SequenceScope sequenceScope2;
-        SlidingWindowKt$windowedIterator$1 slidingWindowKt$windowedIterator$12;
+        SlidingWindowKt$windowedIterator$1<T> slidingWindowKt$windowedIterator$12;
         ArrayList arrayList;
         Iterator it2;
         RingBuffer ringBuffer2;

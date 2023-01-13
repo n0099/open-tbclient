@@ -20,9 +20,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.NoNetworkMoreActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.r9;
-import com.baidu.tieba.su8;
-import com.baidu.tieba.tq4;
+import com.baidu.tieba.dr4;
+import com.baidu.tieba.oz8;
+import com.baidu.tieba.s9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -288,7 +288,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
             this.c = (TextView) findViewById(R.id.check_detail_view);
             setOnClickListener(this);
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, su8.noNetworkView);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, oz8.noNetworkView);
                 this.d = obtainStyledAttributes.getBoolean(0, false);
                 obtainStyledAttributes.recycle();
             }
@@ -306,12 +306,12 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         }
     }
 
-    public void d(r9<?> r9Var, int i) {
+    public void d(s9<?> s9Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, r9Var, i) == null) {
-            if (r9Var instanceof TbPageContext) {
-                TbPageContext tbPageContext = (TbPageContext) r9Var;
-                tq4 layoutMode = tbPageContext.getLayoutMode();
+        if (interceptable == null || interceptable.invokeLI(1048579, this, s9Var, i) == null) {
+            if (s9Var instanceof TbPageContext) {
+                TbPageContext tbPageContext = (TbPageContext) s9Var;
+                dr4 layoutMode = tbPageContext.getLayoutMode();
                 boolean z = true;
                 if (i != 1) {
                     z = false;

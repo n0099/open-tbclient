@@ -44,6 +44,8 @@ public final /* synthetic */ class FlowKt__BuildersKt {
 
     public static final <T> Flow<T> flowOf(final T t) {
         return new Flow<T>() { // from class: kotlinx.coroutines.flow.FlowKt__BuildersKt$flowOf$$inlined$unsafeFlow$2
+            /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: kotlinx.coroutines.flow.FlowCollector */
+            /* JADX WARN: Multi-variable type inference failed */
             @Override // kotlinx.coroutines.flow.Flow
             public Object collect(FlowCollector flowCollector, Continuation continuation) {
                 Object emit = flowCollector.emit(t, continuation);
@@ -66,6 +68,8 @@ public final /* synthetic */ class FlowKt__BuildersKt {
     @FlowPreview
     public static final <T> Flow<T> asFlow(final Function0<? extends T> function0) {
         return new Flow<T>() { // from class: kotlinx.coroutines.flow.FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$1
+            /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: kotlinx.coroutines.flow.FlowCollector */
+            /* JADX WARN: Multi-variable type inference failed */
             @Override // kotlinx.coroutines.flow.Flow
             public Object collect(FlowCollector flowCollector, Continuation continuation) {
                 Object emit = flowCollector.emit(Function0.this.invoke(), continuation);

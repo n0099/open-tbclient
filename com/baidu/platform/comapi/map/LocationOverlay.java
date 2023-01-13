@@ -3,7 +3,6 @@ package com.baidu.platform.comapi.map;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.platform.comjni.map.basemap.AppBaseMap;
 import com.baidu.platform.comjni.tools.ParcelItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -114,7 +113,7 @@ public class LocationOverlay extends InnerOverlay {
                 image.copyPixelsToBuffer(allocate);
                 byte[] array = allocate.array();
                 bundle2.putByteArray("imgbin", array);
-                bundle2.putInt(Config.DEVICE_WIDTH, overlayLocationData.getImgWidth());
+                bundle2.putInt("w", overlayLocationData.getImgWidth());
                 bundle2.putInt("h", overlayLocationData.getImgHeight());
                 bundle2.putInt("rotation", overlayLocationData.isRotation());
                 bundle2.putString("name", overlayLocationData.getImgName() + "_" + Arrays.hashCode(array));

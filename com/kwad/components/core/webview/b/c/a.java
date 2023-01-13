@@ -21,7 +21,7 @@ public final class a {
 
     /* renamed from: com.kwad.components.core.webview.b.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0608a {
+    public static class C0607a {
         public static /* synthetic */ Interceptable $ic;
         public static final a Os;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public final class a {
     public static a pR() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? C0608a.Os : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? C0607a.Os : (a) invokeV.objValue;
     }
 
     public final void a(b bVar) {

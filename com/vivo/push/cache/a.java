@@ -57,6 +57,7 @@ public final class a extends c<com.vivo.push.model.a> {
         return (String) invokeL.objValue;
     }
 
+    /* JADX DEBUG: Possible override for method com.vivo.push.cache.c.c(Ljava/lang/String;)V */
     public final com.vivo.push.model.a c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -115,6 +116,7 @@ public final class a extends c<com.vivo.push.model.a> {
         return (List) invokeL.objValue;
     }
 
+    /* JADX DEBUG: Possible override for method com.vivo.push.cache.c.b()Ljava/lang/String; */
     public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

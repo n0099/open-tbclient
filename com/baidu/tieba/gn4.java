@@ -1,19 +1,23 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class gn4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
     public long b;
+    public ArrayList<kn4> c;
+    public String d;
 
     public gn4() {
         Interceptable interceptable = $ic;
@@ -33,7 +37,7 @@ public class gn4 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b + UtilHelper.getTimesMorning();
+            return this.b;
         }
         return invokeV.longValue;
     }
@@ -42,16 +46,51 @@ public class gn4 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a + UtilHelper.getTimesMorning();
+            return this.a;
         }
         return invokeV.longValue;
     }
 
-    public void c(JSONArray jSONArray) {
+    public ArrayList<kn4> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray) == null) && jSONArray != null && jSONArray.length() == 2) {
-            this.a = jSONArray.optLong(0, 0L) * 1000;
-            this.b = jSONArray.optLong(1, 0L) * 1000;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || yi.isEmpty(str)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            this.a = jSONObject.optLong("start_date", 0L) * 1000;
+            this.b = jSONObject.optLong("end_date", 0L) * 1000;
+            this.d = jSONObject.optString("ahead_url", "");
+            this.c = new ArrayList<>();
+            JSONArray optJSONArray = jSONObject.optJSONArray("time");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONArray optJSONArray2 = optJSONArray.optJSONArray(i);
+                    kn4 kn4Var = new kn4();
+                    kn4Var.c(optJSONArray2);
+                    this.c.add(kn4Var);
+                }
+            }
+        } catch (Exception e) {
+            BdLog.e(e);
         }
     }
 }

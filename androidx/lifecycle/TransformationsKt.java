@@ -53,16 +53,14 @@ public final class TransformationsKt {
                     this.$transform = function1;
                 }
 
-                /* JADX WARN: Type inference failed for: r1v0, types: [Y, java.lang.Object] */
-                /* JADX WARN: Type inference failed for: r5v1, types: [Y, java.lang.Object] */
                 @Override // androidx.arch.core.util.Function
                 public final Y apply(X x) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, x)) == null) {
-                        return this.$transform.invoke(x);
+                        return (Y) this.$transform.invoke(x);
                     }
-                    return invokeL.objValue;
+                    return (Y) invokeL.objValue;
                 }
             });
             Intrinsics.checkExpressionValueIsNotNull(map, "Transformations.map(this) { transform(it) }");
@@ -98,9 +96,11 @@ public final class TransformationsKt {
                     this.$transform = function1;
                 }
 
+                /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
+                /* JADX WARN: Multi-variable type inference failed */
                 @Override // androidx.arch.core.util.Function
                 public /* bridge */ /* synthetic */ Object apply(Object obj) {
-                    return apply((TransformationsKt$switchMap$1<I, O>) obj);
+                    return apply((TransformationsKt$switchMap$1<I, O, X, Y>) obj);
                 }
 
                 @Override // androidx.arch.core.util.Function

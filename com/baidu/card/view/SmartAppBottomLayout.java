@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sx;
-import com.baidu.tieba.vr4;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.fs4;
+import com.baidu.tieba.ux;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class SmartAppBottomLayout extends LinearLayout implements sx<vr4> {
+public class SmartAppBottomLayout extends LinearLayout implements ux<fs4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class SmartAppBottomLayout extends LinearLayout implements sx<vr4> {
                 return;
             }
         }
-        e = (yi.l(TbadkCoreApplication.getInst()) - (yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2)) - yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds58);
+        e = (zi.l(TbadkCoreApplication.getInst()) - (zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2)) - zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds58);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -111,12 +111,12 @@ public class SmartAppBottomLayout extends LinearLayout implements sx<vr4> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sx
+    @Override // com.baidu.tieba.ux
     /* renamed from: c */
-    public void a(vr4 vr4Var) {
+    public void a(fs4 fs4Var) {
         ThreadData threadData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vr4Var) == null) && (threadData = vr4Var.getThreadData()) != null && threadData.getSmartApp() != null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fs4Var) == null) && (threadData = fs4Var.getThreadData()) != null && threadData.getSmartApp() != null) {
             if (!TextUtils.isEmpty(threadData.getSmartApp().avatar)) {
                 this.b.K(threadData.getSmartApp().avatar, 10, false);
             } else {

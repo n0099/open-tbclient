@@ -416,7 +416,7 @@ public class am {
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put("x", ag.a(activity, e.left));
                 jSONObject3.put("y", ag.a(activity, e.top));
-                jSONObject3.put(Config.DEVICE_WIDTH, ag.a(activity, e.width()));
+                jSONObject3.put("w", ag.a(activity, e.width()));
                 jSONObject3.put("h", ag.a(activity, e.height()));
                 jSONObject.put("frame", jSONObject3);
                 jSONObject.put(Key.ALPHA, bi.i(view2));
@@ -509,7 +509,7 @@ public class am {
                     jSONObject2.put(StatisticConstants.SCREENSHOT, bi.a(b2));
                     jSONObject2.put(SapiOptions.KEY_CACHE_MODULE_HASH, bi.b(b2));
                     JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put(Config.DEVICE_WIDTH, b2.getWidth());
+                    jSONObject3.put("w", b2.getWidth());
                     jSONObject3.put("h", b2.getHeight());
                     jSONObject2.put("screen", jSONObject3);
                     jSONObject2.put("page", activity.getClass().getName());

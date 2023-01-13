@@ -1,12 +1,10 @@
 package com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.itemdata;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseMsg;
+import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.Action;
 import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseSysMsg;
-import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.CommonMsgField;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -83,7 +81,7 @@ public class RecallSysMsg extends BaseSysMsg {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseSysMsg, com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.xn
+    @Override // com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseSysMsg, com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.yn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -102,69 +100,14 @@ public class RecallSysMsg extends BaseSysMsg {
         return (BaseSysMsg.User) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseSysMsg
+    @Override // com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseMsg
     @Nullable
-    public BaseMsg tryCreateRecalledMsgShadow() {
+    public Action provideAction() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            CommonMsgField commonMsgField = new CommonMsgField();
-            commonMsgField.setMsgId(this.recallMsgId);
-            commonMsgField.setMsgKey(this.recallMsgKey);
-            BaseMsg baseMsg = new BaseMsg(this) { // from class: com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.itemdata.RecallSysMsg.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ RecallSysMsg this$0;
-
-                @Override // com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseMsg
-                public int getMsgType() {
-                    InterceptResult invokeV2;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048576, this)) == null) {
-                        return 0;
-                    }
-                    return invokeV2.intValue;
-                }
-
-                @Override // com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseMsg
-                @NonNull
-                public CharSequence getThumbnailText() {
-                    InterceptResult invokeV2;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (CharSequence) invokeV2.objValue;
-                }
-
-                @Override // com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.xn
-                public BdUniqueId getType() {
-                    InterceptResult invokeV2;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                        return null;
-                    }
-                    return (BdUniqueId) invokeV2.objValue;
-                }
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-            };
-            baseMsg.setCommonMsgField(commonMsgField);
-            return baseMsg;
+            return Action.a(this.recallMsgId, this.recallMsgKey, Action.Op.DELETE, null);
         }
-        return (BaseMsg) invokeV.objValue;
+        return (Action) invokeV.objValue;
     }
 }

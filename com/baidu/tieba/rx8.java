@@ -1,210 +1,43 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tieba.bw4;
-import com.baidu.tieba.nk7;
-import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class rx8 extends bw4 {
+public class rx8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MainTabActivity c;
-    public boolean d;
+    public boolean a;
+    public String b;
+    public String c;
+    public qx8 d;
+    public qx8 e;
+    public qx8 f;
 
-    /* loaded from: classes6.dex */
-    public class a implements nk7.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bw4.a a;
-        public final /* synthetic */ rx8 b;
-
-        public a(rx8 rx8Var, bw4.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rx8Var, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = rx8Var;
-            this.a = aVar;
-        }
-
-        @Override // com.baidu.tieba.nk7.e
-        public void a() {
-            bw4.a aVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (aVar = this.a) != null) {
-                aVar.a(false);
-            }
-        }
-
-        @Override // com.baidu.tieba.nk7.e
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (!nk7.n(this.b.c).k(this.b.c.B.intValue(), 0)) {
-                    bw4.a aVar = this.a;
-                    if (aVar != null) {
-                        aVar.a(false);
-                        return;
-                    }
-                    return;
-                }
-                bw4.a aVar2 = this.a;
-                if (aVar2 != null) {
-                    aVar2.a(true);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements nk7.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rx8 a;
-
-        public b(rx8 rx8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rx8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rx8Var;
-        }
-
-        @Override // com.baidu.tieba.nk7.f
-        public void dismiss() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                iw4.t("insertAd");
-                this.a.c();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rx8 a;
-
-        public c(rx8 rx8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rx8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rx8Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!nk7.n(this.a.c).I(this.a.c.B.intValue(), 0)) {
-                    this.a.c();
-                } else {
-                    iw4.n("insertAd");
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rx8(TbPageContext tbPageContext, av8 av8Var, MainTabActivity mainTabActivity, boolean z) {
-        super(mainTabActivity);
+    public rx8(String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, av8Var, mainTabActivity, Boolean.valueOf(z)};
+            Object[] objArr = {str, str2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = mainTabActivity;
-        this.d = z;
-    }
-
-    @Override // com.baidu.tieba.bw4
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            nk7.n(this.c).l();
-        }
-    }
-
-    @Override // com.baidu.tieba.bw4
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            nk7.n(this.c).F(new b(this));
-            ah.a().postDelayed(new c(this), 400L);
-        }
-    }
-
-    @Override // com.baidu.tieba.bw4
-    public void d(bw4.a aVar) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            if (iw4.l() && aVar != null) {
-                aVar.a(false);
-            } else if (!nk7.m && ((TbSingleton.getInstance().isCanShowHotSplash || nk7.m || TbSingleton.getInstance().mIsSplashClick) && !this.d)) {
-                if (aVar != null) {
-                    aVar.a(false);
-                }
-            } else {
-                nk7 n = nk7.n(this.c);
-                if (nk7.m) {
-                    str = "1";
-                } else {
-                    str = "2";
-                }
-                if (!n.C(str, this.c.B.intValue(), 0, this.c.K, new a(this, aVar), false) && aVar != null) {
-                    aVar.a(false);
-                }
-            }
-        }
+        this.a = false;
+        this.b = null;
+        this.c = null;
+        this.d = new qx8();
+        this.e = new qx8();
+        this.f = new qx8();
+        this.c = str;
+        this.b = str2;
+        this.a = z;
     }
 }

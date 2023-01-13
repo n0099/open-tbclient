@@ -293,9 +293,9 @@ public class IMFetchBusinessSessionMsg extends Message {
         }
 
         /* JADX WARN: Removed duplicated region for block: B:20:0x0098  */
-        /* JADX WARN: Removed duplicated region for block: B:28:0x00d6  */
-        /* JADX WARN: Removed duplicated region for block: B:33:0x00e6  */
-        /* JADX WARN: Removed duplicated region for block: B:47:0x0137 A[ADDED_TO_REGION] */
+        /* JADX WARN: Removed duplicated region for block: B:31:0x00df  */
+        /* JADX WARN: Removed duplicated region for block: B:36:0x00ef  */
+        /* JADX WARN: Removed duplicated region for block: B:50:0x0140 A[ADDED_TO_REGION] */
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -375,7 +375,8 @@ public class IMFetchBusinessSessionMsg extends Message {
                             if (jSONObject2.has("client_logid")) {
                                 this.this$0.mScreenMethodInfo.clientLogId = jSONObject2.optString("client_logid");
                             }
-                        } catch (JSONException unused4) {
+                        } catch (JSONException e) {
+                            LogUtils.e(IMFetchBusinessSessionMsg.TAG, "mScreenKey exception ", e);
                         }
                         Utility.addEventList(this.this$0.mScreenMethodInfo.eventList, "MediaSessionResultTask");
                     }
@@ -605,7 +606,7 @@ public class IMFetchBusinessSessionMsg extends Message {
                     for (ChatSession chatSession : list) {
                         if (chatSession != null && chatSession.getIsStranger() != 1 && chatSession.getClassType() != 12) {
                             if (chatSession.getBusinessType() == 27) {
-                                chatSession.setNewMsgSum(chatSession.getNewMsgSum() + ChatMsgManager.getTotalUnReadMsgCountByAdvisory(this.mContext));
+                                chatSession.setNewMsgSum(chatSession.getNewMsgSum() + ChatMsgManager.getTotalUnReadMsgCountByAdvisory(this.mContext, 0L));
                             } else {
                                 ArrayList arrayList4 = new ArrayList();
                                 arrayList4.add(Integer.valueOf(chatSession.getClassType()));

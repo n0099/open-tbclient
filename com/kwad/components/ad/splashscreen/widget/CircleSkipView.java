@@ -118,6 +118,11 @@ public class CircleSkipView extends KSFrameLayout implements a {
         ab(context);
     }
 
+    public static /* synthetic */ boolean a(CircleSkipView circleSkipView, boolean z) {
+        circleSkipView.Aa = true;
+        return true;
+    }
+
     private void ab(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, context) == null) {
@@ -179,7 +184,7 @@ public class CircleSkipView extends KSFrameLayout implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             TextView textView = new TextView(context);
-            textView.setText(context.getString(R.string.obfuscated_res_0x7f0f0a27));
+            textView.setText(context.getString(R.string.obfuscated_res_0x7f0f0a41));
             textView.setTextColor(-1);
             textView.setTextSize(12.0f);
             return textView;
@@ -257,7 +262,7 @@ public class CircleSkipView extends KSFrameLayout implements a {
                         float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                         this.Ae.Ad = floatValue;
                         if (this.Af) {
-                            this.Ae.Aa = true;
+                            CircleSkipView.a(this.Ae, true);
                             float f = floatValue * 360.0f;
                             this.Ae.zW = 270.0f - f;
                             this.Ae.zX = 360.0f - f;

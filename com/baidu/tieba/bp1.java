@@ -1,19 +1,14 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.swan.apps.SwanAppActivity;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public interface bp1 {
-    void a(String str);
+    void a();
 
-    void b();
+    void b(String str, zs1 zs1Var);
 
-    void c(String str);
+    void c(SwanAppActivity swanAppActivity, String str, zs1 zs1Var);
 
-    void d(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable bp2 bp2Var);
-
-    void e(String str);
-
-    void f(String str);
+    void d(String str, String str2, JSONObject jSONObject, zs1 zs1Var);
 }

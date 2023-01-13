@@ -1,19 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface oj {
-    boolean isOnCancle();
+    void b(int i);
 
-    void onDeletedVoice(String str);
+    void c(String str, int i);
 
-    void onSendVoice(String str, int i);
-
-    void onShowErr(int i, String str);
-
-    void onShowRecordTime(int i);
-
-    void onShowRecording(int i);
-
-    void onStartedRecorder(boolean z, int i);
-
-    void onStopingRecorder();
+    void error(int i, String str);
 }

@@ -20,16 +20,16 @@ import com.baidu.tbadk.core.util.httpNet.NetWorkUtil;
 import com.baidu.tbadk.switchs.EncSigNewSwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.StringU;
-import com.baidu.tieba.az6;
-import com.baidu.tieba.fj;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.gr4;
-import com.baidu.tieba.gy4;
-import com.baidu.tieba.h15;
-import com.baidu.tieba.i15;
-import com.baidu.tieba.kc5;
-import com.baidu.tieba.lg;
-import com.baidu.tieba.nt4;
+import com.baidu.tieba.gj;
+import com.baidu.tieba.mg;
+import com.baidu.tieba.qr4;
+import com.baidu.tieba.ry4;
+import com.baidu.tieba.s15;
+import com.baidu.tieba.t15;
+import com.baidu.tieba.y27;
+import com.baidu.tieba.yc5;
+import com.baidu.tieba.yt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,6 +54,7 @@ public class NetWork {
     public transient /* synthetic */ FieldHolder $fh;
     public int mErrorNums;
     public boolean mNeedBdussForGet;
+    public boolean mNeedShowSeverToast;
     public boolean mNeedSig;
     public INetWorkCore mNet;
     public NetWork mNetLogin;
@@ -76,9 +77,460 @@ public class NetWork {
         this.netContext = null;
         this.mNet = null;
         this.mNetLogin = null;
+        this.mNeedShowSeverToast = true;
         this.mStatisticsData = null;
         this.mErrorNums = 0;
         initNetWork();
+    }
+
+    public Map<String, String> getPostDataMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            ArrayMap arrayMap = new ArrayMap();
+            INetWorkCore iNetWorkCore = this.mNet;
+            if (iNetWorkCore == null) {
+                return arrayMap;
+            }
+            ArrayList<BasicNameValuePair> postData = iNetWorkCore.getPostData();
+            if (postData == null) {
+                return arrayMap;
+            }
+            for (int i = 0; i < postData.size(); i++) {
+                BasicNameValuePair basicNameValuePair = postData.get(i);
+                if (basicNameValuePair != null) {
+                    arrayMap.put(basicNameValuePair.getName(), basicNameValuePair.getValue());
+                }
+            }
+            return arrayMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public NetWork(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.netContext = null;
+        this.mNet = null;
+        this.mNetLogin = null;
+        this.mNeedShowSeverToast = true;
+        this.mStatisticsData = null;
+        this.mErrorNums = 0;
+        initNetWork();
+        this.netContext.getRequest().mUrl = str;
+    }
+
+    private String netErrorToString(HttpResponse httpResponse) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, httpResponse)) == null) {
+            if (httpResponse == null) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("error_code", httpResponse.mNetErrorCode);
+                jSONObject.put(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "serverErrorCode=" + httpResponse.mServerErrorCode + "&errorString=" + httpResponse.mErrorString + "&exception=" + httpResponse.mException);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    private String process_second(int i) {
+        InterceptResult invokeI;
+        String netString;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65547, this, i)) == null) {
+            modSessionData();
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return null;
+                    }
+                    netString = this.mNet.postMultiNetData();
+                } else {
+                    netString = this.mNet.postNetData();
+                }
+            } else {
+                netString = this.mNet.getNetString();
+            }
+            if (this.netContext.getResponse().isNetSuccess() && ((i2 = this.netContext.getResponse().mServerErrorCode) == 1 || i2 == 2 || i2 == 5)) {
+                sendLoginMessage();
+                this.netContext.getResponse().mErrorString = "";
+                return null;
+            }
+            return netString;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public NetWork(String str, ArrayList<BasicNameValuePair> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, arrayList};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.netContext = null;
+        this.mNet = null;
+        this.mNetLogin = null;
+        this.mNeedShowSeverToast = true;
+        this.mStatisticsData = null;
+        this.mErrorNums = 0;
+        initNetWork();
+        this.netContext.getRequest().mUrl = str;
+        this.mNet.setPostData(arrayList);
+    }
+
+    private void addSign() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            StringBuffer stringBuffer = new StringBuffer(1024);
+            ArrayList<BasicNameValuePair> postData = this.mNet.getPostData();
+            for (int i = 0; postData != null && i < postData.size(); i++) {
+                BasicNameValuePair basicNameValuePair = postData.get(i);
+                if (basicNameValuePair != null) {
+                    String name = basicNameValuePair.getName();
+                    String value = basicNameValuePair.getValue();
+                    stringBuffer.append(name + "=");
+                    stringBuffer.append(value);
+                }
+            }
+            stringBuffer.append("tiebaclient!!!");
+            this.mNet.addPostData("sign", gj.c(stringBuffer.toString()));
+            if (this.netContext.getRequest().mNeedSig) {
+                this.mNet.addPostData(FunAdSdk.PLATFORM_SIG, StringU.b(stringBuffer.toString()));
+            }
+        }
+    }
+
+    private void addStatisticsDataParam() {
+        NetWorkState.StatisticsData statisticsData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            if (this.mStatisticsData == null) {
+                this.mStatisticsData = NetWorkState.delStatisticsData();
+            }
+            NetWorkState.StatisticsData statisticsData2 = this.mStatisticsData;
+            if (statisticsData2 != null) {
+                this.mNet.addPostData("stTime", String.valueOf(statisticsData2.mTime));
+                this.mNet.addPostData("stSize", String.valueOf(this.mStatisticsData.mSize));
+                this.mNet.addPostData("stTimesNum", String.valueOf(this.mStatisticsData.mTimesNum));
+                this.mNet.addPostData("stMode", String.valueOf(this.mStatisticsData.mMode));
+                this.mNet.addPostData("stMethod", String.valueOf(this.mStatisticsData.mMethod));
+            }
+            int errorNumsAndSet = NetWorkState.getErrorNumsAndSet(0);
+            this.mErrorNums = errorNumsAndSet;
+            if (errorNumsAndSet == 0 && (statisticsData = this.mStatisticsData) != null) {
+                this.mErrorNums = statisticsData.mTimesNum;
+            }
+            this.mNet.addPostData("stErrorNums", String.valueOf(this.mErrorNums));
+        }
+    }
+
+    private void modSessionData() {
+        String b;
+        String f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
+            if (TbadkCoreApplication.getInst().isMainProcess(false)) {
+                b = TbadkCoreApplication.getCurrentBduss();
+            } else {
+                b = yc5.b();
+            }
+            BasicNameValuePair basicNameValuePair = new BasicNameValuePair(HttpRequest.BDUSS, b);
+            if (TbadkCoreApplication.getInst().isMainProcess(false)) {
+                f = TbadkCoreApplication.getInst().getTbs();
+            } else {
+                f = yc5.f();
+            }
+            BasicNameValuePair basicNameValuePair2 = new BasicNameValuePair(HttpRequest.TBS, f);
+            if (b != null) {
+                ArrayList<BasicNameValuePair> postData = this.mNet.getPostData();
+                int size = postData.size();
+                for (int i = 0; i < size; i++) {
+                    BasicNameValuePair basicNameValuePair3 = postData.get(i);
+                    if (basicNameValuePair3.getName().equals(HttpRequest.BDUSS)) {
+                        postData.set(i, basicNameValuePair);
+                    } else if (basicNameValuePair3.getName().equals(HttpRequest.TBS)) {
+                        postData.set(i, basicNameValuePair2);
+                    }
+                }
+            }
+        }
+    }
+
+    private void initNetWork() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+            this.netContext = new HttpNetContext();
+            this.mNet = NetWorkCoreFacotry.getInstance().createINetWorkCore(this.netContext);
+            this.mNetLogin = null;
+            this.netContext.getRequest().mNetType = NetWorkUtil.getNetType();
+            mg.o(TbadkCoreApplication.getInst().getCuid());
+            mg.p(TbadkCoreApplication.getInst().getCuidGalaxy2());
+            mg.q(TbadkCoreApplication.getInst().getCuidGalaxy3());
+            mg.r(TbadkCoreApplication.getInst().getCuidGid());
+        }
+    }
+
+    private yt4 login(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                try {
+                    ry4.a(DI.ACCOUNT, -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
+                    TbadkCoreApplication.setCurrentAccount(null, TbadkCoreApplication.getInst().getApp().getApplicationContext());
+                    StringBuilder sb = new StringBuilder(32);
+                    sb.append(TbConfig.LOGIN_FULL_ADDRESS);
+                    if (this.mNetLogin == null) {
+                        this.mNetLogin = new NetWork(sb.toString());
+                    } else {
+                        this.mNetLogin.cancelNetConnect();
+                    }
+                    this.mNetLogin.getNetContext().getRequest().mIsNeedAddCommenParam = false;
+                    this.mNetLogin.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
+                    this.mNetLogin.getNetContext().getRequest().mNeedBackgroundLogin = false;
+                    this.mNetLogin.addPostData("un", str);
+                    this.mNetLogin.addPostData("passwd", str2);
+                    this.mNetLogin.addPostData("isphone", "0");
+                    this.mNetLogin.addPostData("channel_id", TbadkCoreApplication.getInst().getPushChannelId());
+                    this.mNetLogin.addPostData("channel_uid", TbadkCoreApplication.getInst().getPushChannelUserId());
+                    this.mNetLogin.addPostData("first_login", TbadkCoreApplication.getInst().getDeviceIsFirstLogin());
+                    this.mNetLogin.getNetContext().getRequest().mRequestGzip = true;
+                    String postNetData = this.mNetLogin.postNetData();
+                    if (this.mNetLogin.getNetContext().getResponse().isRequestSuccess() && postNetData != null) {
+                        yt4 yt4Var = new yt4();
+                        yt4Var.d(postNetData);
+                        String userId = yt4Var.c().getUserId();
+                        if (userId != null && userId.length() > 0) {
+                            AccountData accountData = new AccountData();
+                            accountData.setAccount(yt4Var.c().getUserName());
+                            if (yt4Var.c().getPassword() != null) {
+                                accountData.setPassword(yt4Var.c().getPassword());
+                            } else {
+                                accountData.setPassword(str2);
+                            }
+                            accountData.setID(yt4Var.c().getUserId());
+                            accountData.setBDUSS(yt4Var.c().getBDUSS());
+                            accountData.setPortrait(yt4Var.c().getPortrait());
+                            accountData.setIsActive(1);
+                            if (yt4Var.a() != null) {
+                                accountData.setTbs(yt4Var.a().getTbs());
+                            }
+                            accountData.setGrowthSwitch(yt4Var.b());
+                            qr4.g(accountData);
+                            TbadkCoreApplication.setBdussAndTbsFromBackgroundInRelogin(accountData, accountData.getBDUSS(), accountData.getTbs());
+                            ry4.a(DI.ACCOUNT, -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
+                            TbadkCoreApplication.setCurrentAccount(accountData, TbadkCoreApplication.getInst().getApp().getApplicationContext());
+                            return yt4Var;
+                        }
+                        this.netContext.getResponse().mErrorString = TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f0cd1);
+                        return null;
+                    } else if (this.mNetLogin.isNetSuccess()) {
+                        int serverErrorCode = this.mNetLogin.getServerErrorCode();
+                        if (serverErrorCode == 1 || serverErrorCode == 2 || serverErrorCode == 5) {
+                            TbadkCoreApplication.getInst().handler.sendMessage(TbadkCoreApplication.getInst().handler.obtainMessage(1));
+                        }
+                        return null;
+                    }
+                } catch (Exception e) {
+                    BdLog.detailException(e);
+                }
+            }
+            return null;
+        }
+        return (yt4) invokeLL.objValue;
+    }
+
+    private String process(int i, boolean z) {
+        InterceptResult invokeCommon;
+        boolean z2;
+        String netString;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            HttpRequest request = this.netContext.getRequest();
+            if (this.mNeedSig && EncSigNewSwitch.isOn()) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            request.mNeedSig = z2;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return null;
+                    }
+                    if (getNetContext().getRequest().mIsUseCurrentBDUSS) {
+                        getNetContext().getRequest().addBdussData(this.mNet);
+                    }
+                    if (getNetContext().getRequest().mIsNeedAddCommenParam) {
+                        this.netContext.getRequest().addCommonParam(this.mNet);
+                    }
+                    addSign();
+                    netString = this.mNet.postMultiNetData();
+                } else {
+                    if (getNetContext().getRequest().mIsUseCurrentBDUSS) {
+                        getNetContext().getRequest().addBdussData(this.mNet);
+                    }
+                    if (getNetContext().getRequest().mIsNeedAddCommenParam) {
+                        this.netContext.getRequest().addCommonParam(this.mNet);
+                    }
+                    addStatisticsDataParam();
+                    netString = this.mNet.postNetData();
+                }
+            } else {
+                if (getNetContext().getRequest().mIsNeedAddCommenParam) {
+                    this.netContext.getRequest().addCommonParam(this.mNet, this.mNeedBdussForGet);
+                }
+                addStatisticsDataParam();
+                netString = this.mNet.getNetString();
+            }
+            if (!this.netContext.getResponse().isNetSuccess()) {
+                NetWorkState.addStatisticsData(this.mStatisticsData);
+                NetWorkState.addErrorNumsAndGet(this.mErrorNums);
+                if (z && TextUtils.isEmpty(netString)) {
+                    return netErrorToString(this.netContext.getResponse());
+                }
+                return netString;
+            }
+            parseToastData(netString);
+            if (this.netContext.getResponse().isRequestSuccess()) {
+                return netString;
+            }
+            if (this.netContext.getResponse().mServerErrorCode == 1 && this.netContext.getRequest().mNeedBackgroundLogin) {
+                String str = this.netContext.getResponse().mErrorString;
+                this.netContext.getResponse().mErrorString = "";
+                AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+                if (currentAccountObj == null) {
+                    currentAccountObj = qr4.e();
+                }
+                if (currentAccountObj != null && (!TextUtils.isEmpty(currentAccountObj.getAccount()) || !TextUtils.isEmpty(currentAccountObj.getAccountNameShow()))) {
+                    qr4.c(currentAccountObj.getID());
+                    if (ReloginManager.g().i()) {
+                        removeAccount(currentAccountObj);
+                        ReloginManager.g().f(null);
+                        return null;
+                    }
+                    yt4 login = login(currentAccountObj.getAccount(), currentAccountObj.getPassword());
+                    removeAccount(currentAccountObj);
+                    if (login == null) {
+                        if (this.mNetLogin != null) {
+                            this.netContext.getResponse().mErrorString = this.mNetLogin.getErrorString();
+                            return null;
+                        }
+                        this.netContext.getResponse().mErrorString = str;
+                        return netString;
+                    }
+                    netString = process_second(i);
+                } else {
+                    sendLoginMessage();
+                    return null;
+                }
+            }
+            y27.b(this);
+            return netString;
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    private void parseToastData(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65545, this, str) == null) && str != null) {
+            try {
+                BdToastData bdToastData = new BdToastData();
+                bdToastData.parserJson(str);
+                if (this.mNeedShowSeverToast) {
+                    BdToastHelper.toast(bdToastData);
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    private void removeAccount(AccountData accountData) {
+        t15 b;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65548, this, accountData) == null) && !TextUtils.isEmpty(accountData.getID()) && (b = s15.b()) != null) {
+            b.c(accountData);
+        }
+    }
+
+    public void addPostData(BasicNameValuePair basicNameValuePair) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, basicNameValuePair) == null) {
+            this.mNet.addPostData(basicNameValuePair);
+        }
+    }
+
+    public String postMultiNetData(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048594, this, z)) == null) {
+            return process(3, z);
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public void setNeedBdussForGet(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
+            this.mNeedBdussForGet = z;
+        }
+    }
+
+    public void setNeedShowSeverToast(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
+            this.mNeedShowSeverToast = z;
+        }
+    }
+
+    public void setNeedSig(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
+            this.mNeedSig = z;
+        }
+    }
+
+    public void setPostData(ArrayList<BasicNameValuePair> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, arrayList) == null) {
+            this.mNet.setPostData(arrayList);
+        }
+    }
+
+    public void setUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
+            this.netContext.getRequest().mUrl = str;
+        }
     }
 
     private void sendLoginMessage() {
@@ -219,450 +671,6 @@ public class NetWork {
         }
     }
 
-    public NetWork(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.netContext = null;
-        this.mNet = null;
-        this.mNetLogin = null;
-        this.mStatisticsData = null;
-        this.mErrorNums = 0;
-        initNetWork();
-        this.netContext.getRequest().mUrl = str;
-    }
-
-    public String uploadImage(String str) throws IOException {
-        InterceptResult invokeL;
-        byte[] bArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, str)) == null) {
-            try {
-                InputStream GetStreamFromFile = FileHelper.GetStreamFromFile(str);
-                byte[] bArr2 = new byte[5120];
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(5120);
-                while (true) {
-                    int read = GetStreamFromFile.read(bArr2);
-                    if (read == -1) {
-                        break;
-                    }
-                    byteArrayOutputStream.write(bArr2, 0, read);
-                }
-                bArr = byteArrayOutputStream.toByteArray();
-            } catch (Exception unused) {
-                bArr = null;
-            }
-            if (bArr == null || bArr.length <= 0) {
-                return null;
-            }
-            addPostData("pic", bArr);
-            return postMultiNetData();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public NetWork(String str, ArrayList<BasicNameValuePair> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, arrayList};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.netContext = null;
-        this.mNet = null;
-        this.mNetLogin = null;
-        this.mStatisticsData = null;
-        this.mErrorNums = 0;
-        initNetWork();
-        this.netContext.getRequest().mUrl = str;
-        this.mNet.setPostData(arrayList);
-    }
-
-    private void addSign() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            StringBuffer stringBuffer = new StringBuffer(1024);
-            ArrayList<BasicNameValuePair> postData = this.mNet.getPostData();
-            for (int i = 0; postData != null && i < postData.size(); i++) {
-                BasicNameValuePair basicNameValuePair = postData.get(i);
-                if (basicNameValuePair != null) {
-                    String name = basicNameValuePair.getName();
-                    String value = basicNameValuePair.getValue();
-                    stringBuffer.append(name + "=");
-                    stringBuffer.append(value);
-                }
-            }
-            stringBuffer.append("tiebaclient!!!");
-            this.mNet.addPostData("sign", fj.c(stringBuffer.toString()));
-            if (this.netContext.getRequest().mNeedSig) {
-                this.mNet.addPostData(FunAdSdk.PLATFORM_SIG, StringU.b(stringBuffer.toString()));
-            }
-        }
-    }
-
-    private void addStatisticsDataParam() {
-        NetWorkState.StatisticsData statisticsData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            if (this.mStatisticsData == null) {
-                this.mStatisticsData = NetWorkState.delStatisticsData();
-            }
-            NetWorkState.StatisticsData statisticsData2 = this.mStatisticsData;
-            if (statisticsData2 != null) {
-                this.mNet.addPostData("stTime", String.valueOf(statisticsData2.mTime));
-                this.mNet.addPostData("stSize", String.valueOf(this.mStatisticsData.mSize));
-                this.mNet.addPostData("stTimesNum", String.valueOf(this.mStatisticsData.mTimesNum));
-                this.mNet.addPostData("stMode", String.valueOf(this.mStatisticsData.mMode));
-                this.mNet.addPostData("stMethod", String.valueOf(this.mStatisticsData.mMethod));
-            }
-            int errorNumsAndSet = NetWorkState.getErrorNumsAndSet(0);
-            this.mErrorNums = errorNumsAndSet;
-            if (errorNumsAndSet == 0 && (statisticsData = this.mStatisticsData) != null) {
-                this.mErrorNums = statisticsData.mTimesNum;
-            }
-            this.mNet.addPostData("stErrorNums", String.valueOf(this.mErrorNums));
-        }
-    }
-
-    private void modSessionData() {
-        String b;
-        String f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                b = TbadkCoreApplication.getCurrentBduss();
-            } else {
-                b = kc5.b();
-            }
-            BasicNameValuePair basicNameValuePair = new BasicNameValuePair(HttpRequest.BDUSS, b);
-            if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                f = TbadkCoreApplication.getInst().getTbs();
-            } else {
-                f = kc5.f();
-            }
-            BasicNameValuePair basicNameValuePair2 = new BasicNameValuePair(HttpRequest.TBS, f);
-            if (b != null) {
-                ArrayList<BasicNameValuePair> postData = this.mNet.getPostData();
-                int size = postData.size();
-                for (int i = 0; i < size; i++) {
-                    BasicNameValuePair basicNameValuePair3 = postData.get(i);
-                    if (basicNameValuePair3.getName().equals(HttpRequest.BDUSS)) {
-                        postData.set(i, basicNameValuePair);
-                    } else if (basicNameValuePair3.getName().equals(HttpRequest.TBS)) {
-                        postData.set(i, basicNameValuePair2);
-                    }
-                }
-            }
-        }
-    }
-
-    private void initNetWork() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            this.netContext = new HttpNetContext();
-            this.mNet = NetWorkCoreFacotry.getInstance().createINetWorkCore(this.netContext);
-            this.mNetLogin = null;
-            this.netContext.getRequest().mNetType = NetWorkUtil.getNetType();
-            lg.o(TbadkCoreApplication.getInst().getCuid());
-            lg.p(TbadkCoreApplication.getInst().getCuidGalaxy2());
-            lg.q(TbadkCoreApplication.getInst().getCuidGalaxy3());
-            lg.r(TbadkCoreApplication.getInst().getCuidGid());
-        }
-    }
-
-    private nt4 login(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                try {
-                    gy4.a(DI.ACCOUNT, -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
-                    TbadkCoreApplication.setCurrentAccount(null, TbadkCoreApplication.getInst().getApp().getApplicationContext());
-                    StringBuilder sb = new StringBuilder(32);
-                    sb.append(TbConfig.LOGIN_FULL_ADDRESS);
-                    if (this.mNetLogin == null) {
-                        this.mNetLogin = new NetWork(sb.toString());
-                    } else {
-                        this.mNetLogin.cancelNetConnect();
-                    }
-                    this.mNetLogin.getNetContext().getRequest().mIsNeedAddCommenParam = false;
-                    this.mNetLogin.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
-                    this.mNetLogin.getNetContext().getRequest().mNeedBackgroundLogin = false;
-                    this.mNetLogin.addPostData("un", str);
-                    this.mNetLogin.addPostData("passwd", str2);
-                    this.mNetLogin.addPostData("isphone", "0");
-                    this.mNetLogin.addPostData("channel_id", TbadkCoreApplication.getInst().getPushChannelId());
-                    this.mNetLogin.addPostData("channel_uid", TbadkCoreApplication.getInst().getPushChannelUserId());
-                    this.mNetLogin.addPostData("first_login", TbadkCoreApplication.getInst().getDeviceIsFirstLogin());
-                    this.mNetLogin.getNetContext().getRequest().mRequestGzip = true;
-                    String postNetData = this.mNetLogin.postNetData();
-                    if (this.mNetLogin.getNetContext().getResponse().isRequestSuccess() && postNetData != null) {
-                        nt4 nt4Var = new nt4();
-                        nt4Var.d(postNetData);
-                        String userId = nt4Var.c().getUserId();
-                        if (userId != null && userId.length() > 0) {
-                            AccountData accountData = new AccountData();
-                            accountData.setAccount(nt4Var.c().getUserName());
-                            if (nt4Var.c().getPassword() != null) {
-                                accountData.setPassword(nt4Var.c().getPassword());
-                            } else {
-                                accountData.setPassword(str2);
-                            }
-                            accountData.setID(nt4Var.c().getUserId());
-                            accountData.setBDUSS(nt4Var.c().getBDUSS());
-                            accountData.setPortrait(nt4Var.c().getPortrait());
-                            accountData.setIsActive(1);
-                            if (nt4Var.a() != null) {
-                                accountData.setTbs(nt4Var.a().getTbs());
-                            }
-                            accountData.setGrowthSwitch(nt4Var.b());
-                            gr4.g(accountData);
-                            TbadkCoreApplication.setBdussAndTbsFromBackgroundInRelogin(accountData, accountData.getBDUSS(), accountData.getTbs());
-                            gy4.a(DI.ACCOUNT, -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
-                            TbadkCoreApplication.setCurrentAccount(accountData, TbadkCoreApplication.getInst().getApp().getApplicationContext());
-                            return nt4Var;
-                        }
-                        this.netContext.getResponse().mErrorString = TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f0cb8);
-                        return null;
-                    } else if (this.mNetLogin.isNetSuccess()) {
-                        int serverErrorCode = this.mNetLogin.getServerErrorCode();
-                        if (serverErrorCode == 1 || serverErrorCode == 2 || serverErrorCode == 5) {
-                            TbadkCoreApplication.getInst().handler.sendMessage(TbadkCoreApplication.getInst().handler.obtainMessage(1));
-                        }
-                        return null;
-                    }
-                } catch (Exception e) {
-                    BdLog.detailException(e);
-                }
-            }
-            return null;
-        }
-        return (nt4) invokeLL.objValue;
-    }
-
-    private String process(int i, boolean z) {
-        InterceptResult invokeCommon;
-        boolean z2;
-        String netString;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            HttpRequest request = this.netContext.getRequest();
-            if (this.mNeedSig && EncSigNewSwitch.isOn()) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            request.mNeedSig = z2;
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        return null;
-                    }
-                    if (getNetContext().getRequest().mIsUseCurrentBDUSS) {
-                        getNetContext().getRequest().addBdussData(this.mNet);
-                    }
-                    if (getNetContext().getRequest().mIsNeedAddCommenParam) {
-                        this.netContext.getRequest().addCommonParam(this.mNet);
-                    }
-                    addSign();
-                    netString = this.mNet.postMultiNetData();
-                } else {
-                    if (getNetContext().getRequest().mIsUseCurrentBDUSS) {
-                        getNetContext().getRequest().addBdussData(this.mNet);
-                    }
-                    if (getNetContext().getRequest().mIsNeedAddCommenParam) {
-                        this.netContext.getRequest().addCommonParam(this.mNet);
-                    }
-                    addStatisticsDataParam();
-                    netString = this.mNet.postNetData();
-                }
-            } else {
-                if (getNetContext().getRequest().mIsNeedAddCommenParam) {
-                    this.netContext.getRequest().addCommonParam(this.mNet, this.mNeedBdussForGet);
-                }
-                addStatisticsDataParam();
-                netString = this.mNet.getNetString();
-            }
-            if (!this.netContext.getResponse().isNetSuccess()) {
-                NetWorkState.addStatisticsData(this.mStatisticsData);
-                NetWorkState.addErrorNumsAndGet(this.mErrorNums);
-                if (z && TextUtils.isEmpty(netString)) {
-                    return netErrorToString(this.netContext.getResponse());
-                }
-                return netString;
-            }
-            parseToastData(netString);
-            if (this.netContext.getResponse().isRequestSuccess()) {
-                return netString;
-            }
-            if (this.netContext.getResponse().mServerErrorCode == 1 && this.netContext.getRequest().mNeedBackgroundLogin) {
-                String str = this.netContext.getResponse().mErrorString;
-                this.netContext.getResponse().mErrorString = "";
-                AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-                if (currentAccountObj == null) {
-                    currentAccountObj = gr4.e();
-                }
-                if (currentAccountObj != null && (!TextUtils.isEmpty(currentAccountObj.getAccount()) || !TextUtils.isEmpty(currentAccountObj.getAccountNameShow()))) {
-                    gr4.c(currentAccountObj.getID());
-                    if (ReloginManager.g().i()) {
-                        removeAccount(currentAccountObj);
-                        ReloginManager.g().f(null);
-                        return null;
-                    }
-                    nt4 login = login(currentAccountObj.getAccount(), currentAccountObj.getPassword());
-                    removeAccount(currentAccountObj);
-                    if (login == null) {
-                        if (this.mNetLogin != null) {
-                            this.netContext.getResponse().mErrorString = this.mNetLogin.getErrorString();
-                            return null;
-                        }
-                        this.netContext.getResponse().mErrorString = str;
-                        return netString;
-                    }
-                    netString = process_second(i);
-                } else {
-                    sendLoginMessage();
-                    return null;
-                }
-            }
-            az6.b(this);
-            return netString;
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    private String netErrorToString(HttpResponse httpResponse) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, httpResponse)) == null) {
-            if (httpResponse == null) {
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("error_code", httpResponse.mNetErrorCode);
-                jSONObject.put(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "serverErrorCode=" + httpResponse.mServerErrorCode + "&errorString=" + httpResponse.mErrorString + "&exception=" + httpResponse.mException);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    private String process_second(int i) {
-        InterceptResult invokeI;
-        String netString;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65547, this, i)) == null) {
-            modSessionData();
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        return null;
-                    }
-                    netString = this.mNet.postMultiNetData();
-                } else {
-                    netString = this.mNet.postNetData();
-                }
-            } else {
-                netString = this.mNet.getNetString();
-            }
-            if (this.netContext.getResponse().isNetSuccess() && ((i2 = this.netContext.getResponse().mServerErrorCode) == 1 || i2 == 2 || i2 == 5)) {
-                sendLoginMessage();
-                this.netContext.getResponse().mErrorString = "";
-                return null;
-            }
-            return netString;
-        }
-        return (String) invokeI.objValue;
-    }
-
-    private void parseToastData(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, this, str) == null) && str != null) {
-            try {
-                BdToastData bdToastData = new BdToastData();
-                bdToastData.parserJson(str);
-                BdToastHelper.toast(bdToastData);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    private void removeAccount(AccountData accountData) {
-        i15 b;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65548, this, accountData) == null) && !TextUtils.isEmpty(accountData.getID()) && (b = h15.b()) != null) {
-            b.c(accountData);
-        }
-    }
-
-    public void addPostData(BasicNameValuePair basicNameValuePair) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, basicNameValuePair) == null) {
-            this.mNet.addPostData(basicNameValuePair);
-        }
-    }
-
-    public String postMultiNetData(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048594, this, z)) == null) {
-            return process(3, z);
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public void setNeedBdussForGet(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
-            this.mNeedBdussForGet = z;
-        }
-    }
-
-    public void setNeedSig(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
-            this.mNeedSig = z;
-        }
-    }
-
-    public void setPostData(ArrayList<BasicNameValuePair> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, arrayList) == null) {
-            this.mNet.setPostData(arrayList);
-        }
-    }
-
-    public void setUrl(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
-            this.netContext.getRequest().mUrl = str;
-        }
-    }
-
     public void addPostData(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
@@ -705,35 +713,11 @@ public class NetWork {
         return invokeCommon.booleanValue;
     }
 
-    public Map<String, String> getPostDataMap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            ArrayMap arrayMap = new ArrayMap();
-            INetWorkCore iNetWorkCore = this.mNet;
-            if (iNetWorkCore == null) {
-                return arrayMap;
-            }
-            ArrayList<BasicNameValuePair> postData = iNetWorkCore.getPostData();
-            if (postData == null) {
-                return arrayMap;
-            }
-            for (int i = 0; i < postData.size(); i++) {
-                BasicNameValuePair basicNameValuePair = postData.get(i);
-                if (basicNameValuePair != null) {
-                    arrayMap.put(basicNameValuePair.getName(), basicNameValuePair.getValue());
-                }
-            }
-            return arrayMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
     public String uploadFile(String str, String str2) {
         InterceptResult invokeLL;
         byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048601, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048602, this, str, str2)) == null) {
             try {
                 InputStream GetStreamFromTmpFile = FileHelper.GetStreamFromTmpFile(str2);
                 byte[] bArr2 = new byte[5120];
@@ -756,5 +740,34 @@ public class NetWork {
             return postMultiNetData();
         }
         return (String) invokeLL.objValue;
+    }
+
+    public String uploadImage(String str) throws IOException {
+        InterceptResult invokeL;
+        byte[] bArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, str)) == null) {
+            try {
+                InputStream GetStreamFromFile = FileHelper.GetStreamFromFile(str);
+                byte[] bArr2 = new byte[5120];
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(5120);
+                while (true) {
+                    int read = GetStreamFromFile.read(bArr2);
+                    if (read == -1) {
+                        break;
+                    }
+                    byteArrayOutputStream.write(bArr2, 0, read);
+                }
+                bArr = byteArrayOutputStream.toByteArray();
+            } catch (Exception unused) {
+                bArr = null;
+            }
+            if (bArr == null || bArr.length <= 0) {
+                return null;
+            }
+            addPostData("pic", bArr);
+            return postMultiNetData();
+        }
+        return (String) invokeL.objValue;
     }
 }

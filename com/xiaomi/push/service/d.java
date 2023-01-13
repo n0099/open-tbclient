@@ -90,10 +90,10 @@ public class d {
 
     public static void a(Context context, StatusBarNotification statusBarNotification, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65538, null, context, statusBarNotification, i) == null) || !com.xiaomi.push.m.m571a(context) || i <= 0 || statusBarNotification == null || Build.VERSION.SDK_INT < 20) {
+        if (!(interceptable == null || interceptable.invokeLLI(65538, null, context, statusBarNotification, i) == null) || !com.xiaomi.push.m.m635a(context) || i <= 0 || statusBarNotification == null || Build.VERSION.SDK_INT < 20) {
             return;
         }
-        a(new a(statusBarNotification.getKey(), SystemClock.elapsedRealtime(), i, ay.m644a(statusBarNotification.getNotification())));
+        a(new a(statusBarNotification.getKey(), SystemClock.elapsedRealtime(), i, ay.m708a(statusBarNotification.getNotification())));
     }
 
     public static void a(a aVar) {

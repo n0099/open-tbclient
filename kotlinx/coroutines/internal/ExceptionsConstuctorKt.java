@@ -13,6 +13,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 import kotlin.Metadata;
 import kotlin.Result;
 import kotlin.ResultKt;
+import kotlin.TypeCastException;
 import kotlin.Unit;
 import kotlin.collections.ArraysKt___ArraysKt;
 import kotlin.comparisons.ComparisonsKt__ComparisonsKt;
@@ -27,7 +28,7 @@ public final class ExceptionsConstuctorKt {
     public static final ReentrantReadWriteLock cacheLock = new ReentrantReadWriteLock();
     public static final WeakHashMap<Class<? extends Throwable>, Function1<Throwable, Throwable>> exceptionCtors = new WeakHashMap<>();
 
-    public static final Function1<Throwable, Throwable> createConstructor(Constructor<?> constructor) {
+    public static final Function1<Throwable, Throwable> createConstructor(final Constructor<?> constructor) {
         Class<?>[] parameterTypes = constructor.getParameterTypes();
         int length = parameterTypes.length;
         if (length != 0) {
@@ -35,18 +36,130 @@ public final class ExceptionsConstuctorKt {
                 if (length != 2 || !Intrinsics.areEqual(parameterTypes[0], String.class) || !Intrinsics.areEqual(parameterTypes[1], Throwable.class)) {
                     return null;
                 }
-                return new ExceptionsConstuctorKt$createConstructor$$inlined$safeCtor$1(constructor);
+                return new Function1<Throwable, Throwable>() { // from class: kotlinx.coroutines.internal.ExceptionsConstuctorKt$createConstructor$$inlined$safeCtor$1
+                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                    {
+                        super(1);
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // kotlin.jvm.functions.Function1
+                    public final Throwable invoke(Throwable th) {
+                        Object m772constructorimpl;
+                        Object newInstance;
+                        try {
+                            Result.Companion companion = Result.Companion;
+                            newInstance = constructor.newInstance(th.getMessage(), th);
+                        } catch (Throwable th2) {
+                            Result.Companion companion2 = Result.Companion;
+                            m772constructorimpl = Result.m772constructorimpl(ResultKt.createFailure(th2));
+                        }
+                        if (newInstance != null) {
+                            m772constructorimpl = Result.m772constructorimpl((Throwable) newInstance);
+                            if (Result.m778isFailureimpl(m772constructorimpl)) {
+                                m772constructorimpl = null;
+                            }
+                            return (Throwable) m772constructorimpl;
+                        }
+                        throw new TypeCastException("null cannot be cast to non-null type kotlin.Throwable");
+                    }
+                };
             }
             Class<?> cls = parameterTypes[0];
             if (Intrinsics.areEqual(cls, Throwable.class)) {
-                return new ExceptionsConstuctorKt$createConstructor$$inlined$safeCtor$2(constructor);
+                return new Function1<Throwable, Throwable>() { // from class: kotlinx.coroutines.internal.ExceptionsConstuctorKt$createConstructor$$inlined$safeCtor$2
+                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                    {
+                        super(1);
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // kotlin.jvm.functions.Function1
+                    public final Throwable invoke(Throwable th) {
+                        Object m772constructorimpl;
+                        Object newInstance;
+                        try {
+                            Result.Companion companion = Result.Companion;
+                            newInstance = constructor.newInstance(th);
+                        } catch (Throwable th2) {
+                            Result.Companion companion2 = Result.Companion;
+                            m772constructorimpl = Result.m772constructorimpl(ResultKt.createFailure(th2));
+                        }
+                        if (newInstance != null) {
+                            m772constructorimpl = Result.m772constructorimpl((Throwable) newInstance);
+                            if (Result.m778isFailureimpl(m772constructorimpl)) {
+                                m772constructorimpl = null;
+                            }
+                            return (Throwable) m772constructorimpl;
+                        }
+                        throw new TypeCastException("null cannot be cast to non-null type kotlin.Throwable");
+                    }
+                };
             }
             if (!Intrinsics.areEqual(cls, String.class)) {
                 return null;
             }
-            return new ExceptionsConstuctorKt$createConstructor$$inlined$safeCtor$3(constructor);
+            return new Function1<Throwable, Throwable>() { // from class: kotlinx.coroutines.internal.ExceptionsConstuctorKt$createConstructor$$inlined$safeCtor$3
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(1);
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // kotlin.jvm.functions.Function1
+                public final Throwable invoke(Throwable th) {
+                    Object m772constructorimpl;
+                    Object newInstance;
+                    try {
+                        Result.Companion companion = Result.Companion;
+                        newInstance = constructor.newInstance(th.getMessage());
+                    } catch (Throwable th2) {
+                        Result.Companion companion2 = Result.Companion;
+                        m772constructorimpl = Result.m772constructorimpl(ResultKt.createFailure(th2));
+                    }
+                    if (newInstance != null) {
+                        Throwable th3 = (Throwable) newInstance;
+                        th3.initCause(th);
+                        m772constructorimpl = Result.m772constructorimpl(th3);
+                        if (Result.m778isFailureimpl(m772constructorimpl)) {
+                            m772constructorimpl = null;
+                        }
+                        return (Throwable) m772constructorimpl;
+                    }
+                    throw new TypeCastException("null cannot be cast to non-null type kotlin.Throwable");
+                }
+            };
         }
-        return new ExceptionsConstuctorKt$createConstructor$$inlined$safeCtor$4(constructor);
+        return new Function1<Throwable, Throwable>() { // from class: kotlinx.coroutines.internal.ExceptionsConstuctorKt$createConstructor$$inlined$safeCtor$4
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(1);
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // kotlin.jvm.functions.Function1
+            public final Throwable invoke(Throwable th) {
+                Object m772constructorimpl;
+                Object newInstance;
+                try {
+                    Result.Companion companion = Result.Companion;
+                    newInstance = constructor.newInstance(new Object[0]);
+                } catch (Throwable th2) {
+                    Result.Companion companion2 = Result.Companion;
+                    m772constructorimpl = Result.m772constructorimpl(ResultKt.createFailure(th2));
+                }
+                if (newInstance != null) {
+                    Throwable th3 = (Throwable) newInstance;
+                    th3.initCause(th);
+                    m772constructorimpl = Result.m772constructorimpl(th3);
+                    if (Result.m778isFailureimpl(m772constructorimpl)) {
+                        m772constructorimpl = null;
+                    }
+                    return (Throwable) m772constructorimpl;
+                }
+                throw new TypeCastException("null cannot be cast to non-null type kotlin.Throwable");
+            }
+        };
     }
 
     public static final int fieldsCount(Class<?> cls, int i) {
@@ -64,20 +177,20 @@ public final class ExceptionsConstuctorKt {
     }
 
     public static final int fieldsCountOrDefault(Class<?> cls, int i) {
-        Integer m708constructorimpl;
+        Integer m772constructorimpl;
         JvmClassMappingKt.getKotlinClass(cls);
         try {
             Result.Companion companion = Result.Companion;
-            m708constructorimpl = Result.m708constructorimpl(Integer.valueOf(fieldsCount$default(cls, 0, 1, null)));
+            m772constructorimpl = Result.m772constructorimpl(Integer.valueOf(fieldsCount$default(cls, 0, 1, null)));
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            m708constructorimpl = Result.m708constructorimpl(ResultKt.createFailure(th));
+            m772constructorimpl = Result.m772constructorimpl(ResultKt.createFailure(th));
         }
         Integer valueOf = Integer.valueOf(i);
-        if (Result.m714isFailureimpl(m708constructorimpl)) {
-            m708constructorimpl = valueOf;
+        if (Result.m778isFailureimpl(m772constructorimpl)) {
+            m772constructorimpl = valueOf;
         }
-        return ((Number) m708constructorimpl).intValue();
+        return ((Number) m772constructorimpl).intValue();
     }
 
     public static /* synthetic */ int fieldsCount$default(Class cls, int i, int i2, Object obj) {
@@ -87,13 +200,34 @@ public final class ExceptionsConstuctorKt {
         return fieldsCount(cls, i);
     }
 
-    public static final Function1<Throwable, Throwable> safeCtor(Function1<? super Throwable, ? extends Throwable> function1) {
-        return new ExceptionsConstuctorKt$safeCtor$1(function1);
+    public static final Function1<Throwable, Throwable> safeCtor(final Function1<? super Throwable, ? extends Throwable> function1) {
+        return new Function1<Throwable, Throwable>() { // from class: kotlinx.coroutines.internal.ExceptionsConstuctorKt$safeCtor$1
+            {
+                super(1);
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // kotlin.jvm.functions.Function1
+            public final Throwable invoke(Throwable th) {
+                Object m772constructorimpl;
+                try {
+                    Result.Companion companion = Result.Companion;
+                    m772constructorimpl = Result.m772constructorimpl((Throwable) Function1.this.invoke(th));
+                } catch (Throwable th2) {
+                    Result.Companion companion2 = Result.Companion;
+                    m772constructorimpl = Result.m772constructorimpl(ResultKt.createFailure(th2));
+                }
+                if (Result.m778isFailureimpl(m772constructorimpl)) {
+                    m772constructorimpl = null;
+                }
+                return (Throwable) m772constructorimpl;
+            }
+        };
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, ARITH, INVOKE] complete} */
     public static final <E extends Throwable> E tryCopyException(E e) {
-        Object m708constructorimpl;
+        Object m772constructorimpl;
         ReentrantReadWriteLock.ReadLock readLock;
         int i;
         ReentrantReadWriteLock.WriteLock writeLock;
@@ -103,13 +237,13 @@ public final class ExceptionsConstuctorKt {
         if (e instanceof CopyableThrowable) {
             try {
                 Result.Companion companion = Result.Companion;
-                m708constructorimpl = Result.m708constructorimpl(((CopyableThrowable) e).createCopy());
+                m772constructorimpl = Result.m772constructorimpl(((CopyableThrowable) e).createCopy());
             } catch (Throwable th) {
                 Result.Companion companion2 = Result.Companion;
-                m708constructorimpl = Result.m708constructorimpl(ResultKt.createFailure(th));
+                m772constructorimpl = Result.m772constructorimpl(ResultKt.createFailure(th));
             }
-            if (!Result.m714isFailureimpl(m708constructorimpl)) {
-                obj = m708constructorimpl;
+            if (!Result.m778isFailureimpl(m772constructorimpl)) {
+                obj = m772constructorimpl;
             }
             return (E) obj;
         }
@@ -135,7 +269,13 @@ public final class ExceptionsConstuctorKt {
                 writeLock = reentrantReadWriteLock.writeLock();
                 writeLock.lock();
                 try {
-                    exceptionCtors.put(e.getClass(), ExceptionsConstuctorKt$tryCopyException$4$1.INSTANCE);
+                    exceptionCtors.put(e.getClass(), new Function1() { // from class: kotlinx.coroutines.internal.ExceptionsConstuctorKt$tryCopyException$4$1
+                        /* JADX DEBUG: Method merged with bridge method */
+                        @Override // kotlin.jvm.functions.Function1
+                        public final Void invoke(Throwable th2) {
+                            return null;
+                        }
+                    });
                     Unit unit = Unit.INSTANCE;
                     return null;
                 } finally {
@@ -173,7 +313,13 @@ public final class ExceptionsConstuctorKt {
                 if (function13 != null) {
                     function1 = function13;
                 } else {
-                    function1 = ExceptionsConstuctorKt$tryCopyException$5$1.INSTANCE;
+                    function1 = new Function1() { // from class: kotlinx.coroutines.internal.ExceptionsConstuctorKt$tryCopyException$5$1
+                        /* JADX DEBUG: Method merged with bridge method */
+                        @Override // kotlin.jvm.functions.Function1
+                        public final Void invoke(Throwable th2) {
+                            return null;
+                        }
+                    };
                 }
                 abstractMap.put(cls, function1);
                 Unit unit2 = Unit.INSTANCE;

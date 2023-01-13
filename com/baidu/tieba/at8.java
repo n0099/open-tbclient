@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.webkit.JsPromptResult;
+import com.baidu.searchbox.http.statistics.NetworkStatRecord;
 /* loaded from: classes3.dex */
 public interface at8 {
-    boolean onJsPrompt(String str, JsPromptResult jsPromptResult);
+    boolean a(NetworkStatRecord networkStatRecord);
 }

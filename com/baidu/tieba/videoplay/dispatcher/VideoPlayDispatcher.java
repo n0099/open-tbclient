@@ -5,11 +5,11 @@ import android.text.TextUtils;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoRecommentPlayActivityConfig;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.sj5;
+import com.baidu.tieba.jk5;
+import com.baidu.tieba.pp8;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.xg;
-import com.baidu.tieba.yk8;
+import com.baidu.tieba.yg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -18,7 +18,7 @@ import com.tencent.connect.share.QzonePublish;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class VideoPlayDispatcher implements yk8 {
+public class VideoPlayDispatcher implements pp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -36,7 +36,7 @@ public class VideoPlayDispatcher implements yk8 {
         }
     }
 
-    @Override // com.baidu.tieba.yk8
+    @Override // com.baidu.tieba.pp8
     public void dispatch(JSONObject jSONObject, Context context) {
         boolean z;
         boolean z2;
@@ -56,8 +56,8 @@ public class VideoPlayDispatcher implements yk8 {
             videoItemData.video_url = jSONObject.optString("videoUrl");
             videoItemData.video_width = jSONObject.optString("videoWidth");
             videoItemData.video_height = jSONObject.optString("videoHeight");
-            videoItemData.video_duration = xg.e(jSONObject.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION), 0);
-            if (xg.g(jSONObject.optString("videoHeight"), 0L) > xg.g(jSONObject.optString("videoWidth"), 0L)) {
+            videoItemData.video_duration = yg.e(jSONObject.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION), 0);
+            if (yg.g(jSONObject.optString("videoHeight"), 0L) > yg.g(jSONObject.optString("videoWidth"), 0L)) {
                 z = true;
             } else {
                 z = false;
@@ -78,7 +78,7 @@ public class VideoPlayDispatcher implements yk8 {
             if (TextUtils.isEmpty(videoItemData.video_url)) {
                 new VideoRecommentPlayActivityConfig(context, arrayList, (String) null, VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE, z2).start();
             } else {
-                sj5.d(context, arrayList, videoItemData.nid, z, 0, null, "from_nani_video", "personalize_page", "", VideoPlayActivityConfig.FROM_H5_SEARCH, "", z2, false, xg.g(videoItemData.forum_id, 0L));
+                jk5.d(context, arrayList, videoItemData.nid, z, 0, null, "from_nani_video", "personalize_page", "", VideoPlayActivityConfig.FROM_H5_SEARCH, "", z2, false, yg.g(videoItemData.forum_id, 0L));
             }
         }
     }

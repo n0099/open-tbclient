@@ -18,17 +18,17 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.mutiprocess.event.PrivacyPolicyEvent;
-import com.baidu.tieba.aj;
-import com.baidu.tieba.cj5;
-import com.baidu.tieba.d09;
-import com.baidu.tieba.gc5;
-import com.baidu.tieba.ik5;
-import com.baidu.tieba.jj5;
-import com.baidu.tieba.mc5;
-import com.baidu.tieba.mj5;
-import com.baidu.tieba.mk5;
-import com.baidu.tieba.ry4;
-import com.baidu.tieba.zz8;
+import com.baidu.tieba.ad5;
+import com.baidu.tieba.ak5;
+import com.baidu.tieba.bj;
+import com.baidu.tieba.cz4;
+import com.baidu.tieba.dk5;
+import com.baidu.tieba.dl5;
+import com.baidu.tieba.rj5;
+import com.baidu.tieba.uc5;
+import com.baidu.tieba.v49;
+import com.baidu.tieba.z49;
+import com.baidu.tieba.zk5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +45,7 @@ public class PermissionUtil {
     public static boolean isBrowseMode;
     public static boolean isSdkInited;
     public static String localMacAddress;
-    public static gc5 mAgreePrivacyPolicyEventListener;
+    public static uc5 mAgreePrivacyPolicyEventListener;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -61,7 +61,7 @@ public class PermissionUtil {
                 return;
             }
         }
-        mAgreePrivacyPolicyEventListener = new gc5<PrivacyPolicyEvent>() { // from class: com.baidu.tbadk.core.util.PermissionUtil.1
+        mAgreePrivacyPolicyEventListener = new uc5<PrivacyPolicyEvent>() { // from class: com.baidu.tbadk.core.util.PermissionUtil.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -80,7 +80,7 @@ public class PermissionUtil {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.gc5
+            @Override // com.baidu.tieba.uc5
             public boolean onEvent(PrivacyPolicyEvent privacyPolicyEvent) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
@@ -129,7 +129,7 @@ public class PermissionUtil {
     public static void doBrowseModeAgreePrivacy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65556, null) == null) {
-            mk5.b(new ik5<Object>() { // from class: com.baidu.tbadk.core.util.PermissionUtil.2
+            dl5.b(new zk5<Object>() { // from class: com.baidu.tbadk.core.util.PermissionUtil.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -147,17 +147,17 @@ public class PermissionUtil {
                     }
                 }
 
-                @Override // com.baidu.tieba.ik5
+                @Override // com.baidu.tieba.zk5
                 public Object doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        d09.b();
+                        z49.b();
                         return null;
                     }
                     return invokeV.objValue;
                 }
-            }, new mj5<Object>() { // from class: com.baidu.tbadk.core.util.PermissionUtil.3
+            }, new dk5<Object>() { // from class: com.baidu.tbadk.core.util.PermissionUtil.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -175,12 +175,12 @@ public class PermissionUtil {
                     }
                 }
 
-                @Override // com.baidu.tieba.mj5
+                @Override // com.baidu.tieba.dk5
                 public void onReturnDataInUI(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
                         PermissionUtil.setIsAgreePrivacyPolicy(true);
-                        zz8.b(true);
+                        v49.b(true);
                     }
                 }
             });
@@ -203,7 +203,7 @@ public class PermissionUtil {
                 return true;
             }
             try {
-                isAgreePrivacyPolicy = ry4.l().i("key_secret_is_show_new", false);
+                isAgreePrivacyPolicy = cz4.l().i("key_secret_is_show_new", false);
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -224,7 +224,7 @@ public class PermissionUtil {
     public static void registerMutiProcessPrivacyPolicy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65563, null) == null) {
-            mc5.f().l(PrivacyPolicyEvent.class, mAgreePrivacyPolicyEventListener);
+            ad5.f().l(PrivacyPolicyEvent.class, mAgreePrivacyPolicyEventListener);
         }
     }
 
@@ -345,7 +345,7 @@ public class PermissionUtil {
                 return "";
             }
             if (localMacAddress == null) {
-                localMacAddress = cj5.c().d(context);
+                localMacAddress = rj5.c().d(context);
             }
             return localMacAddress;
         }
@@ -368,7 +368,7 @@ public class PermissionUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65570, null, z) == null) {
             isAgreePrivacyPolicy = z;
-            ry4.l().v("key_secret_is_show_new", z);
+            cz4.l().v("key_secret_is_show_new", z);
         }
     }
 
@@ -473,11 +473,11 @@ public class PermissionUtil {
             if (!isAgreePrivacyPolicy()) {
                 return "";
             }
-            String r = ry4.l().r("key_last_cached_oid", "");
+            String r = cz4.l().r("key_last_cached_oid", "");
             try {
                 if (TextUtils.isEmpty(r)) {
-                    r = aj.i();
-                    ry4.l().z("key_last_cached_oid", r);
+                    r = bj.i();
+                    cz4.l().z("key_last_cached_oid", r);
                     return r;
                 }
                 return r;
@@ -568,9 +568,9 @@ public class PermissionUtil {
                 }
             }
             GrowthStatsUtil.statisticActivity();
-            mc5.f().g(TbadkCoreApplication.getInst());
-            mc5.i(new PrivacyPolicyEvent(Boolean.valueOf(isAgreePrivacyPolicy())));
-            jj5.g().s();
+            ad5.f().g(TbadkCoreApplication.getInst());
+            ad5.i(new PrivacyPolicyEvent(Boolean.valueOf(isAgreePrivacyPolicy())));
+            ak5.g().s();
         }
     }
 

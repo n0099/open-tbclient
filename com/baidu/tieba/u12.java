@@ -1,10 +1,12 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
+import android.webkit.ValueCallback;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.fn2;
+import com.baidu.tieba.gp2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,30 +14,162 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Timer;
-import java.util.TimerTask;
-import org.json.JSONArray;
+import java.io.File;
+import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class u12 {
+public class u12 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static volatile u12 b;
-    public static ka3 c;
-    public static Timer d;
-    public static boolean e;
+    public static final boolean f;
+    public static volatile u12 g;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract void h(String str);
+    public e62 a;
+    public volatile boolean b;
+    public volatile boolean c;
+    public volatile boolean d;
+    public volatile boolean e;
 
     /* loaded from: classes6.dex */
-    public class a extends TimerTask {
+    public class a implements bc2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u12 a;
+        public final /* synthetic */ gp2 a;
+        public final /* synthetic */ f62 b;
+        public final /* synthetic */ pq1 c;
+        public final /* synthetic */ fn2.g d;
+        public final /* synthetic */ u12 e;
 
-        public a(u12 u12Var) {
+        public a(u12 u12Var, gp2 gp2Var, f62 f62Var, pq1 pq1Var, fn2.g gVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u12Var, gp2Var, f62Var, pq1Var, gVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = u12Var;
+            this.a = gp2Var;
+            this.b = f62Var;
+            this.c = pq1Var;
+            this.d = gVar;
+        }
+
+        @Override // com.baidu.tieba.bc2
+        public void a(rb2 rb2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, rb2Var) == null) {
+                this.e.d = true;
+                s12.e().f("loaddebug");
+                j12.k("LocalDebugger", "prepareDaemon finish.");
+                ke2 j = this.e.j(this.a);
+                this.e.t(j);
+                if (u12.f) {
+                    Log.d("LocalDebugger", "debugInitMsg - " + j.s().toString());
+                }
+                this.e.n(this.b, this.c, this.a, this.d);
+                this.e.p(this.b, this.c, this.a, this.d);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements ValueCallback<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f62 a;
+        public final /* synthetic */ pq1 b;
+        public final /* synthetic */ gp2 c;
+        public final /* synthetic */ fn2.g d;
+        public final /* synthetic */ u12 e;
+
+        public b(u12 u12Var, f62 f62Var, pq1 pq1Var, gp2 gp2Var, fn2.g gVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u12Var, f62Var, pq1Var, gp2Var, gVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = u12Var;
+            this.a = f62Var;
+            this.b = pq1Var;
+            this.c = gp2Var;
+            this.d = gVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.webkit.ValueCallback
+        /* renamed from: a */
+        public void onReceiveValue(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                if (u12.f) {
+                    Log.d("LocalDebugger", "master onReceiveValue: " + str);
+                }
+                this.e.b = true;
+                this.e.u(this.a, this.b, this.c, this.d);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f62 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ ValueCallback c;
+
+        public c(u12 u12Var, f62 f62Var, String str, ValueCallback valueCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u12Var, f62Var, str, valueCallback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = f62Var;
+            this.b = str;
+            this.c = valueCallback;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.f().evaluateJavascript(this.b, this.c);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements ValueCallback<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d(u12 u12Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,178 +181,141 @@ public abstract class u12 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.webkit.ValueCallback
+        /* renamed from: a */
+        public void onReceiveValue(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && u12.f) {
+                Log.d("LocalDebugger", "slave onReceiveValue: " + str);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pq1 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ ValueCallback c;
+
+        public e(u12 u12Var, pq1 pq1Var, String str, ValueCallback valueCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u12Var, pq1Var, str, valueCallback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = u12Var;
+            this.a = pq1Var;
+            this.b = str;
+            this.c = valueCallback;
         }
 
-        @Override // java.util.TimerTask, java.lang.Runnable
+        /* JADX WARN: Type inference failed for: r0v3, types: [com.baidu.tieba.qq1] */
+        @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (u12.a) {
-                    Log.d("RemoteDebugStatistic", "timer: send remote debug ubc flow");
-                }
-                this.a.e();
-                this.a.n();
+                this.a.r().evaluateJavascript(this.b, this.c);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class b extends u12 {
+    public class f implements ValueCallback<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f62 a;
+        public final /* synthetic */ pq1 b;
+        public final /* synthetic */ gp2 c;
+        public final /* synthetic */ fn2.g d;
+        public final /* synthetic */ u12 e;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b() {
-            super(null);
+        public f(u12 u12Var, f62 f62Var, pq1 pq1Var, gp2 gp2Var, fn2.g gVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u12Var, f62Var, pq1Var, gp2Var, gVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((a) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.e = u12Var;
+            this.a = f62Var;
+            this.b = pq1Var;
+            this.c = gp2Var;
+            this.d = gVar;
         }
 
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        @Override // com.baidu.tieba.u12
-        public void h(String str) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.webkit.ValueCallback
+        /* renamed from: a */
+        public void onReceiveValue(String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || TextUtils.isEmpty(str)) {
-                return;
-            }
-            if (u12.a) {
-                Log.d("RemoteDebugStatistic", "remote-debug statistic event name is : " + str);
-            }
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != 50335962) {
-                if (hashCode != 1109597094) {
-                    if (hashCode == 1158237819 && str.equals("downloadsuccess")) {
-                        c = 1;
-                    }
-                } else if (str.equals("downloadfail")) {
-                    c = 2;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                if (u12.f) {
+                    Log.d("LocalDebugger", "slave onReceiveValue: " + str);
                 }
-            } else if (str.equals("downloadstart")) {
-                c = 0;
+                this.e.c = true;
+                this.e.u(this.a, this.b, this.c, this.d);
             }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        ka3 ka3Var = u12.c;
-                        if (ka3Var != null) {
-                            la3.d(ka3Var, str, f());
-                            return;
-                        }
-                        return;
-                    }
-                    e();
-                    n();
-                    return;
-                }
-                ka3 ka3Var2 = u12.c;
-                if (ka3Var2 != null) {
-                    la3.b(ka3Var2);
-                }
-                n();
-                return;
-            }
-            p(true);
-            la3.d(u12.c, str, f());
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class c extends u12 {
+    public class g implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f62 a;
+        public final /* synthetic */ pq1 b;
+        public final /* synthetic */ gp2 c;
+        public final /* synthetic */ fn2.g d;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c() {
-            super(null);
+        public g(u12 u12Var, f62 f62Var, pq1 pq1Var, gp2 gp2Var, fn2.g gVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u12Var, f62Var, pq1Var, gp2Var, gVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((a) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = f62Var;
+            this.b = pq1Var;
+            this.c = gp2Var;
+            this.d = gVar;
         }
 
-        public /* synthetic */ c(a aVar) {
-            this();
-        }
-
-        @Override // com.baidu.tieba.u12
-        public void h(String str) {
-            SwanAppActivity w;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(str) && !v12.c()) {
-                if (u12.a) {
-                    Log.d("RemoteDebugStatistic", "remote-debug statistic event name is : " + str);
-                }
-                char c = 65535;
-                int hashCode = str.hashCode();
-                boolean z = true;
-                if (hashCode != 511060680) {
-                    if (hashCode == 900970612 && str.equals("pageready")) {
-                        c = 1;
-                    }
-                } else if (str.equals("loadmaster")) {
-                    c = 0;
-                }
-                if (c != 0) {
-                    if (c != 1) {
-                        ka3 ka3Var = u12.c;
-                        if (ka3Var != null) {
-                            la3.d(ka3Var, str, f());
-                            return;
-                        }
-                        return;
-                    }
-                    ka3 ka3Var2 = u12.c;
-                    if (ka3Var2 != null) {
-                        la3.d(ka3Var2, str, f());
-                        e();
-                        n();
-                        return;
-                    }
-                    return;
-                }
-                if (e43.b0() != null && (w = e43.b0().w()) != null && !w.isFinishing()) {
-                    z = false;
-                }
-                p(z);
-                if (z) {
-                    ka3 ka3Var3 = u12.c;
-                    la3.d(ka3Var3, str + "-destroy", f());
-                    boolean unused = u12.e = false;
-                } else if (u12.e) {
-                    ka3 ka3Var4 = u12.c;
-                    la3.d(ka3Var4, str + "-preload", f());
-                    boolean unused2 = u12.e = false;
-                } else {
-                    la3.d(u12.c, str, f());
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                u73.a(this.a, this.b, this.c, this.d);
             }
         }
     }
@@ -236,7 +333,7 @@ public abstract class u12 {
                 return;
             }
         }
-        a = ok1.a;
+        f = tk1.a;
     }
 
     public u12() {
@@ -249,197 +346,161 @@ public abstract class u12 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = false;
+        this.c = false;
+        this.d = false;
+        this.e = false;
     }
 
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            hb3 hb3Var = new hb3();
-            hb3Var.a = "swan";
-            hb3Var.b = "launch";
-            hb3Var.c = "remote-debug";
-            hb3Var.e = "appready";
-            xa3.onEvent(hb3Var);
-        }
-    }
-
-    public static void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            hb3 hb3Var = new hb3();
-            hb3Var.a = "swan";
-            hb3Var.b = "launch";
-            hb3Var.c = "remote-debug";
-            hb3Var.e = "loadmaster";
-            xa3.onEvent(hb3Var);
-        }
-    }
-
-    public static void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            hb3 hb3Var = new hb3();
-            hb3Var.a = "swan";
-            hb3Var.b = "launch";
-            hb3Var.c = "remote-debug";
-            hb3Var.e = "downloadstart";
-            xa3.onEvent(hb3Var);
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Timer timer = d;
-            if (timer != null) {
-                timer.cancel();
-                d = null;
-            }
-            b = null;
-            c = null;
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            e = true;
-        }
-    }
-
-    public /* synthetic */ u12(a aVar) {
-        this();
-    }
-
-    public static u12 g() {
+    public static u12 k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (b == null) {
-                synchronized (rp2.class) {
-                    if (b == null) {
-                        if (nf1.g()) {
-                            b = new b(null);
-                        } else {
-                            b = new c(null);
-                        }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            if (g == null) {
+                synchronized (u12.class) {
+                    if (g == null) {
+                        g = new u12();
                     }
                 }
             }
-            return b;
+            return g;
         }
         return (u12) invokeV.objValue;
     }
 
-    public String f() {
+    public rb2 l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            e62 e62Var = this.a;
+            if (e62Var != null) {
+                return e62Var.a();
+            }
+            return null;
+        }
+        return (rb2) invokeV.objValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            j12.k("LocalDebugger", "releaseLocalDebugger");
+            e62 e62Var = this.a;
+            if (e62Var != null) {
+                e62Var.b();
+                this.a = null;
+            }
+            g = null;
+        }
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            j12.k("LocalDebugger", "resetMasterAndSlaveStatus");
+            this.e = true;
+            this.b = false;
+            this.c = false;
+        }
+    }
+
+    public final ke2 j(@NonNull gp2<gp2.a> gp2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gp2Var)) == null) {
+            HashMap hashMap = new HashMap();
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.putOpt("timestamp", Long.valueOf(System.currentTimeMillis()));
+                jSONObject.put("type", "debugInit");
+                jSONObject.put("host", gp2Var.X());
+                jSONObject.put("wsServerPort", gp2Var.Y());
             } catch (JSONException e2) {
-                if (a) {
-                    Log.d("RemoteDebugStatistic", "add event content fail", e2);
+                e2.printStackTrace();
+            }
+            hashMap.put("message", jSONObject.toString());
+            return new ke2("message", hashMap);
+        }
+        return (ke2) invokeL.objValue;
+    }
+
+    public final void n(f62 f62Var, pq1<?> pq1Var, gp2<gp2.a> gp2Var, fn2.g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048579, this, f62Var, pq1Var, gp2Var, gVar) == null) {
+            if (f62Var != null && f62Var.f() != null) {
+                di3.a0(new c(this, f62Var, nk4.E(new File(q12.e())), new b(this, f62Var, pq1Var, gp2Var, gVar)));
+            } else {
+                j12.k("LocalDebugger", "loadMasterDebugJs - master or js container is null");
+            }
+        }
+    }
+
+    public final synchronized void u(f62 f62Var, pq1<?> pq1Var, gp2<gp2.a> gp2Var, fn2.g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048586, this, f62Var, pq1Var, gp2Var, gVar) == null) {
+            synchronized (this) {
+                if (this.b && this.c) {
+                    j12.k("LocalDebugger", "startFirstPage");
+                    di3.a0(new g(this, f62Var, pq1Var, gp2Var, gVar));
                 }
             }
-            return jSONObject.toString();
         }
-        return (String) invokeV.objValue;
     }
 
-    public static void i(JSONArray jSONArray) {
-        String str;
+    public void o(pq1<?> pq1Var, ValueCallback<String> valueCallback) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65544, null, jSONArray) == null) && jSONArray != null && jSONArray.length() > 0) {
-            JSONObject optJSONObject = jSONArray.optJSONObject(0);
-            if (optJSONObject != null) {
-                str = optJSONObject.optString("actionId");
-            } else {
-                str = "";
+        if (interceptable == null || interceptable.invokeLL(1048580, this, pq1Var, valueCallback) == null) {
+            if (pq1Var != null && pq1Var.r() != null) {
+                String E = nk4.E(new File(q12.f()));
+                if (valueCallback == null) {
+                    valueCallback = new d(this);
+                }
+                di3.a0(new e(this, pq1Var, E, valueCallback));
+                return;
             }
-            if (!TextUtils.isEmpty(str) && b != null) {
-                b.h(str);
-            }
+            j12.k("LocalDebugger", "loadSlaveDebugJs - slave or WebView is null");
         }
     }
 
-    public static void m(cp2 cp2Var) {
+    public final void p(f62 f62Var, pq1<?> pq1Var, gp2<gp2.a> gp2Var, fn2.g gVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, cp2Var) == null) {
-            hb3 hb3Var = new hb3();
-            hb3Var.j(cp2Var);
-            hb3Var.a = xa3.n(cp2Var.G());
-            hb3Var.b = "launch";
-            hb3Var.c = "remote-debug";
-            hb3Var.e = "downloadsuccess";
-            xa3.onEvent(hb3Var);
+        if (interceptable == null || interceptable.invokeLLLL(1048581, this, f62Var, pq1Var, gp2Var, gVar) == null) {
+            o(pq1Var, new f(this, f62Var, pq1Var, gp2Var, gVar));
         }
     }
 
-    public void p(boolean z) {
+    public void q(f62 f62Var, pq1<?> pq1Var, gp2<gp2.a> gp2Var, fn2.g gVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048581, this, z) != null) || c != null) {
+        if ((interceptable != null && interceptable.invokeLLLL(1048582, this, f62Var, pq1Var, gp2Var, gVar) != null) || !db2.U().q0()) {
             return;
         }
-        ka3 c2 = xa3.c("1153");
-        c = c2;
-        if (!z) {
-            la3.d(c2, "downloadstart", f());
-            la3.d(c, "downloadsuccess", f());
-        }
-        Timer timer = new Timer();
-        d = timer;
-        timer.schedule(new a(this), 40000L);
-    }
-
-    public static void j(cp2 cp2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, cp2Var) == null) {
-            cp2Var.s0().putString("aiapp_extra_need_download", "1");
-            cp2Var.s0().putString("aiapp_extra_pkg_downloading", "0");
-            cp2Var.s0().putLong("launch_flag_for_statistic", System.currentTimeMillis());
-            hb3 hb3Var = new hb3();
-            hb3Var.a = xa3.n(cp2Var.G());
-            hb3Var.j(cp2Var);
-            hb3Var.b = "launch";
-            hb3Var.o = "1";
-            hb3Var.c = "remote-debug";
-            JSONObject k = xa3.k(cp2Var.W());
-            hb3Var.d(cp2Var.s0().getString(UBCCloudControlProcessor.UBC_KEY));
-            hb3Var.b(k);
-            xa3.onEvent(hb3Var);
-        }
-    }
-
-    public void e() {
-        String O;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || c == null) {
+        j12.k("LocalDebugger", "prepareDaemon start.");
+        if (this.e && this.d && this.a != null) {
+            n(f62Var, pq1Var, gp2Var, gVar);
+            p(f62Var, pq1Var, gp2Var, gVar);
             return;
         }
-        JSONObject jSONObject = new JSONObject();
-        JSONObject jSONObject2 = new JSONObject();
-        try {
-            e43 b0 = e43.b0();
-            if (b0 == null) {
-                O = "";
-            } else {
-                O = b0.O();
-            }
-            jSONObject2.putOpt("appid", O);
-            jSONObject2.putOpt("from", "remote-debug");
-            wa3.a(jSONObject2);
-            jSONObject.putOpt("from", "swan");
-            jSONObject.putOpt("ext", jSONObject2);
-        } catch (JSONException unused) {
-            if (a) {
-                Log.d("RemoteDebugStatistic", "page ready statistic value is invalid ");
-            }
+        e62 d2 = db2.U().f0().d();
+        this.a = d2;
+        d2.c(new a(this, gp2Var, f62Var, pq1Var, gVar));
+    }
+
+    public final void t(je2 je2Var) {
+        e62 e62Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, je2Var) == null) && (e62Var = this.a) != null) {
+            fe2.a(e62Var.a(), je2Var);
         }
-        la3.f(c, jSONObject.toString());
-        la3.c(c);
     }
 }

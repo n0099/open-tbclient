@@ -9,6 +9,7 @@ public class CommonStatisticKey {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_FRIEND_ROOM_CARD_CLICK = "c14008";
     public static final String ALA_FRIEND_ROOM_CARD_SHOW = "c14007";
+    public static final String BUBBLE_TOOL_SHOW = "c15103";
     public static final String FRS_PUBLISH_ALA_CLICK = "c14138";
     public static final String FRS_VOICE_PLAY = "frs_voice_play";
     public static final int FUNCTION_STATISTIC_LOCATION_ALA = 6;
@@ -63,6 +64,7 @@ public class CommonStatisticKey {
     public static final String KEY_DRESS_UP_BUNDLE_CLICK = "c15002";
     public static final String KEY_DRESS_UP_BUNDLE_SHOW = "c15001";
     public static final String KEY_ENTRANCE_CLICKED = "c12611";
+    public static final String KEY_FESTIVAL_TIP_VIEW_CLICK = "c15170";
     public static final String KEY_FORUM_INSIDE_LIVE_CLICK = "c14137";
     public static final String KEY_FORUM_INSIDE_LIVE_SHOW = "c14136";
     public static final String KEY_FORUM_REC_THREAD_CLICK = "c19001";
@@ -70,6 +72,7 @@ public class CommonStatisticKey {
     public static final String KEY_FRS_ADVANCED_AD_AUTO_JUMP_H5 = "c14197";
     public static final String KEY_FRS_ADVANCED_AD_CLICK_JUMP_H5 = "c14196";
     public static final String KEY_FRS_ADVANCED_AD_COMPLETE_SHOW = "c14195";
+    public static final String KEY_FRS_CONTENT_COLLECTION_TAB_LOG = "c15138";
     public static final String KEY_FRS_FORUM_FLOAT_CLICK = "c13881";
     public static final String KEY_FRS_ITEM_ACCELERATOR_START_BTN_DESC_CLICK = "c14541";
     public static final String KEY_FRS_ITEM_ACCELERATOR_START_BTN_DESC_SHOW = "c14540";
@@ -103,6 +106,7 @@ public class CommonStatisticKey {
     public static final String KEY_GET_ALI_PAY_USER_INFO = "c15118";
     public static final String KEY_GROUP_CHAT_ENTRANCE_CLICK = "c15075";
     public static final String KEY_GROUP_CHAT_LINK_SHOW = "c15077";
+    public static final String KEY_GROUP_CHAT_ROBOT_CLICK = "c15133";
     public static final String KEY_HEATING_THREAD_AGREE = "c14204";
     public static final String KEY_HEATING_THREAD_CLICK = "c14203";
     public static final String KEY_HEATING_THREAD_COMMENT = "c14205";
@@ -147,6 +151,8 @@ public class CommonStatisticKey {
     public static final String KEY_NAMEPLATE_OF_USER_LEVEL_STATIC = "c14927";
     public static final String KEY_NEW_SCHEME_PULL_UP = "c13321";
     public static final String KEY_ONE_KEY_READ = "c14662";
+    public static final String KEY_PB_CONTENT_COLLECTION_VIEW_CLICK = "c15141";
+    public static final String KEY_PB_CONTENT_COLLECTION_VIEW_SHOW = "c15143";
     public static final String KEY_PB_FOLD_FLOOR_COMPLAINT = "c14439";
     public static final String KEY_PB_FOLD_FLOOR_COMPLAINT_CLICK = "c14438";
     public static final String KEY_PB_FOLD_FLOOR_COMPLAINT_SHOW = "c14437";
@@ -164,6 +170,7 @@ public class CommonStatisticKey {
     public static final String KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_CLICK = "c14519";
     public static final String KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_SHOW = "c14518";
     public static final String KEY_PB_OPTIMIZE_LOAD_DURATION = "c14610";
+    public static final String KEY_PB_PAGE_CONTENT_COLLECTION_SHOW = "c15140";
     public static final String KEY_PB_RECOMMEND_GUIDE_VIEW_JUMP = "c14875";
     public static final String KEY_PB_RECOMMEND_GUIDE_VIEW_SHOW = "c14874";
     public static final String KEY_PERSON_LIVE_TAB_CLICK = "c14123";

@@ -4,12 +4,11 @@ import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.model.FontCharacter;
 import com.airbnb.lottie.model.content.ShapeGroup;
 import com.airbnb.lottie.parser.moshi.JsonReader;
-import com.baidu.mobstat.Config;
 import java.io.IOException;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class FontCharacterParser {
-    public static final JsonReader.Options NAMES = JsonReader.Options.of("ch", "size", Config.DEVICE_WIDTH, "style", "fFamily", "data");
+    public static final JsonReader.Options NAMES = JsonReader.Options.of("ch", "size", "w", "style", "fFamily", "data");
     public static final JsonReader.Options DATA_NAMES = JsonReader.Options.of("shapes");
 
     public static FontCharacter parse(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {

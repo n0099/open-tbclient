@@ -37,13 +37,13 @@ import com.google.android.material.shape.MarkerEdgeTreatment;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.OffsetEdgeTreatment;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawableHelper.TextDrawableDelegate {
     public static /* synthetic */ Interceptable $ic = null;
     @StyleRes
     public static final int DEFAULT_STYLE = 2131755931;
     @AttrRes
-    public static final int DEFAULT_THEME_ATTR = 2130970410;
+    public static final int DEFAULT_THEME_ATTR = 2130970419;
     public transient /* synthetic */ FieldHolder $fh;
     public int arrowSize;
     @NonNull

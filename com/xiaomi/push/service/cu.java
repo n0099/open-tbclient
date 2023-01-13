@@ -47,23 +47,25 @@ public class cu extends XMPushService.j {
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
-    public String a() {
+    /* renamed from: a */
+    public String mo673a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "clear account cache." : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
-    public void a() {
+    /* renamed from: a */
+    public void mo394a() {
         fx fxVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            u.m692a((Context) this.a);
-            bg.a().m650a("5");
+            u.m756a((Context) this.a);
+            bg.a().m714a("5");
             com.xiaomi.push.ae.a(this.b);
             fxVar = this.a.f869a;
             fxVar.c(fx.a());
-            com.xiaomi.channel.commonutils.logger.b.m99a("clear account and start registration. " + this.f998a);
+            com.xiaomi.channel.commonutils.logger.b.m103a("clear account and start registration. " + this.f998a);
             this.a.a(this.f999a, this.f998a);
         }
     }

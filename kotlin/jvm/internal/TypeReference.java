@@ -11,6 +11,7 @@ import kotlin.SinceKotlin;
 import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.jvm.JvmClassMappingKt;
+import kotlin.jvm.functions.Function1;
 import kotlin.reflect.KClass;
 import kotlin.reflect.KClassifier;
 import kotlin.reflect.KType;
@@ -69,7 +70,20 @@ public final class TypeReference implements KType {
         if (getArguments().isEmpty()) {
             joinToString$default = "";
         } else {
-            joinToString$default = CollectionsKt___CollectionsKt.joinToString$default(getArguments(), StringUtil.ARRAY_ELEMENT_SEPARATOR, "<", ">", 0, null, new TypeReference$asString$args$1(this), 24, null);
+            joinToString$default = CollectionsKt___CollectionsKt.joinToString$default(getArguments(), StringUtil.ARRAY_ELEMENT_SEPARATOR, "<", ">", 0, null, new Function1<KTypeProjection, CharSequence>() { // from class: kotlin.jvm.internal.TypeReference$asString$args$1
+                {
+                    super(1);
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // kotlin.jvm.functions.Function1
+                public final CharSequence invoke(KTypeProjection it) {
+                    String asString;
+                    Intrinsics.checkNotNullParameter(it, "it");
+                    asString = TypeReference.this.asString(it);
+                    return asString;
+                }
+            }, 24, null);
         }
         if (isMarkedNullable()) {
             str = "?";

@@ -6,18 +6,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class ar2 implements du2 {
+public class ar2 implements iu2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<xq2> a;
+    public cr2 a;
     public int b;
-    public float c;
-    public boolean d;
+    public int c;
+    public int d;
+    public float e;
 
     public ar2() {
         Interceptable interceptable = $ic;
@@ -33,17 +32,18 @@ public class ar2 implements du2 {
             }
         }
         this.b = 0;
-        this.c = 0.0f;
-        this.d = false;
+        this.c = -16777216;
+        this.d = -1;
+        this.e = 0.0f;
     }
 
-    @Override // com.baidu.tieba.du2
+    @Override // com.baidu.tieba.iu2
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<xq2> arrayList = this.a;
-            if (arrayList != null && arrayList.size() > 0) {
+            cr2 cr2Var = this.a;
+            if (cr2Var != null && cr2Var.isValid() && this.d != -1) {
                 return true;
             }
             return false;
@@ -51,41 +51,30 @@ public class ar2 implements du2 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.du2
+    @Override // com.baidu.tieba.iu2
     public void a(JSONObject jSONObject) throws JSONException {
-        int length;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null || !jSONObject.has("points")) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null || !jSONObject.has("radius")) {
             return;
         }
-        JSONArray optJSONArray = jSONObject.optJSONArray("points");
-        if (optJSONArray == null) {
-            length = 0;
-        } else {
-            length = optJSONArray.length();
+        cr2 cr2Var = new cr2();
+        this.a = cr2Var;
+        cr2Var.a(jSONObject);
+        if (!this.a.isValid()) {
+            return;
         }
-        if (length > 0) {
-            this.a = new ArrayList<>(length);
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    xq2 xq2Var = new xq2();
-                    xq2Var.a(optJSONObject);
-                    if (xq2Var.isValid()) {
-                        this.a.add(xq2Var);
-                    }
-                }
-            }
+        this.b = wq2.a(jSONObject.optString("color"), 0);
+        this.c = wq2.a(jSONObject.optString("fillColor"), -16777216);
+        this.d = jSONObject.optInt("radius", -1);
+        this.e = Math.abs(wq2.b(jSONObject.optDouble("strokeWidth", 0.0d)));
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "coordinate ->" + this.a + "color ->" + this.b + "fillColor ->" + this.c + "radius ->" + this.d + "strokeWidth ->" + this.e;
         }
-        ArrayList<xq2> arrayList = this.a;
-        if (arrayList != null && arrayList.size() > 0) {
-            this.b = rq2.a(jSONObject.optString("color"), 0);
-            this.c = Math.abs(rq2.b(jSONObject.optDouble("width", 0.0d)));
-            this.d = jSONObject.optBoolean("dottedLine", false);
-            jSONObject.optBoolean("arrowLine", false);
-            jSONObject.optString("arrowIconPath");
-            rq2.a(jSONObject.optString("borderColor"), 0);
-            Math.abs(rq2.b(jSONObject.optDouble("borderWidth", 0.0d)));
-        }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,16 +1,23 @@
 package com.baidu.tieba;
 
+import android.webkit.ValueCallback;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+import com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class kc2 implements ub2 {
+public class kc2 implements V8FileSystemDelegatePolicy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy
+    public void destroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
 
     public kc2() {
         Interceptable interceptable = $ic;
@@ -26,23 +33,11 @@ public class kc2 implements ub2 {
         }
     }
 
-    @Override // com.baidu.tieba.ub2
-    public String getUserAgent() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy
+    public void loadFileFromUrl(String str, ValueCallback<String> valueCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return dg3.a();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, valueCallback) == null) {
+            ic2.e().g(str, valueCallback);
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ub2
-    public mb2 a(String str, jc2 jc2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jc2Var, v8ThreadDelegatePolicy)) == null) {
-            return new qb2(str, jc2Var, v8ThreadDelegatePolicy);
-        }
-        return (mb2) invokeLLL.objValue;
     }
 }

@@ -1,23 +1,21 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.utils.ThirdPartyUtil;
+import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
-public class bo4 extends xn4 {
+public abstract class bo4 implements ao4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.wn4
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "i" : (String) invokeV.objValue;
-    }
 
     public bo4() {
         Interceptable interceptable = $ic;
@@ -33,21 +31,117 @@ public class bo4 extends xn4 {
         }
     }
 
-    @Override // com.baidu.tieba.wn4
-    public String a(String[] strArr, Map<String, String> map) {
-        InterceptResult invokeLL;
+    public void c(String[] strArr, StringBuilder sb, Map<String, String> map, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, strArr, map)) == null) {
-            if (strArr != null && strArr.length != 0) {
-                String substring = strArr[0].substring(1);
-                StringBuilder sb = new StringBuilder("com.baidu.tieba://unidispatch/item");
-                sb.append("?item_id=");
-                sb.append(substring);
-                c(strArr, sb, map, 1);
-                return sb.toString();
+        if ((interceptable == null || interceptable.invokeLLLI(1048576, this, strArr, sb, map, i) == null) && strArr != null && strArr.length > i && map != null && sb != null) {
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            while (i < strArr.length) {
+                String str = "@" + strArr[i];
+                Iterator<Map.Entry<String, String>> it = map.entrySet().iterator();
+                while (true) {
+                    if (it.hasNext()) {
+                        Map.Entry<String, String> next = it.next();
+                        if (str.startsWith(next.getKey())) {
+                            String replace = str.replace(next.getKey(), "");
+                            if ("@p".equals(next.getKey())) {
+                                String d = d(replace);
+                                if (!StringUtils.isNull(d)) {
+                                    linkedHashMap.put(next.getValue(), d);
+                                }
+                            } else {
+                                linkedHashMap.put(next.getValue(), replace);
+                            }
+                        }
+                    }
+                }
+                i++;
             }
-            return null;
+            for (Map.Entry entry : linkedHashMap.entrySet()) {
+                if (!StringUtils.isNull((String) entry.getKey()) && !StringUtils.isNull((String) entry.getValue())) {
+                    String str2 = "?";
+                    if (sb.toString().contains("?")) {
+                        str2 = "&";
+                    }
+                    sb.append(str2);
+                    sb.append((String) entry.getKey());
+                    sb.append("=");
+                    sb.append((String) entry.getValue());
+                }
+            }
         }
-        return (String) invokeLL.objValue;
+    }
+
+    public final String d(String str) {
+        InterceptResult invokeL;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            int hashCode = str.hashCode();
+            if (hashCode != 81) {
+                if (hashCode != 104) {
+                    if (hashCode != 112) {
+                        if (hashCode != 119) {
+                            if (hashCode != 122) {
+                                if (hashCode != 98) {
+                                    if (hashCode == 99 && str.equals("c")) {
+                                        c = 1;
+                                    }
+                                    c = 65535;
+                                } else {
+                                    if (str.equals("b")) {
+                                        c = 2;
+                                    }
+                                    c = 65535;
+                                }
+                            } else {
+                                if (str.equals("z")) {
+                                    c = 5;
+                                }
+                                c = 65535;
+                            }
+                        } else {
+                            if (str.equals("w")) {
+                                c = 0;
+                            }
+                            c = 65535;
+                        }
+                    } else {
+                        if (str.equals("p")) {
+                            c = 4;
+                        }
+                        c = 65535;
+                    }
+                } else {
+                    if (str.equals("h")) {
+                        c = 3;
+                    }
+                    c = 65535;
+                }
+            } else {
+                if (str.equals("Q")) {
+                    c = 6;
+                }
+                c = 65535;
+            }
+            switch (c) {
+                case 0:
+                    return PbModel.WISE;
+                case 1:
+                    return ThirdPartyUtil.TYPE_WEIXIN;
+                case 2:
+                    return "shoubai";
+                case 3:
+                    return "tbShareH5";
+                case 4:
+                    return "pc";
+                case 5:
+                    return "zhongjianye";
+                case 6:
+                    return com.tencent.connect.common.Constants.SOURCE_QQ;
+                default:
+                    return null;
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

@@ -1,101 +1,26 @@
 package com.baidu.tieba;
 
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.producers.SingleDelayedProducer;
 /* loaded from: classes4.dex */
-public final class f4a<T> implements c3a.b<Boolean, T> {
+public final class f4a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final u3a<? super T, Boolean> a;
-    public final boolean b;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public boolean e;
 
-    /* loaded from: classes4.dex */
-    public class a extends i3a<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean e;
-        public boolean f;
-        public final /* synthetic */ SingleDelayedProducer g;
-        public final /* synthetic */ i3a h;
-        public final /* synthetic */ f4a i;
-
-        public a(f4a f4aVar, SingleDelayedProducer singleDelayedProducer, i3a i3aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f4aVar, singleDelayedProducer, i3aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.i = f4aVar;
-            this.g = singleDelayedProducer;
-            this.h = i3aVar;
-        }
-
-        @Override // com.baidu.tieba.d3a
-        public void onCompleted() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.f) {
-                this.f = true;
-                if (this.e) {
-                    this.g.setValue(Boolean.FALSE);
-                } else {
-                    this.g.setValue(Boolean.valueOf(this.i.b));
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.d3a
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                if (!this.f) {
-                    this.f = true;
-                    this.h.onError(th);
-                    return;
-                }
-                j7a.j(th);
-            }
-        }
-
-        @Override // com.baidu.tieba.d3a
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) != null) || this.f) {
-                return;
-            }
-            this.e = true;
-            try {
-                if (this.i.a.call(t).booleanValue()) {
-                    this.f = true;
-                    this.g.setValue(Boolean.valueOf(true ^ this.i.b));
-                    unsubscribe();
-                }
-            } catch (Throwable th) {
-                o3a.g(th, this, t);
-            }
-        }
-    }
-
-    public f4a(u3a<? super T, Boolean> u3aVar, boolean z) {
+    public f4a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u3aVar, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -105,22 +30,165 @@ public final class f4a<T> implements c3a.b<Boolean, T> {
                 return;
             }
         }
-        this.a = u3aVar;
-        this.b = z;
+        this.c = 1.0f;
+        this.d = 1.0f;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.c3a.b, com.baidu.tieba.u3a
-    public i3a<? super T> call(i3a<? super Boolean> i3aVar) {
-        InterceptResult invokeL;
+    public final boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, i3aVar)) == null) {
-            SingleDelayedProducer singleDelayedProducer = new SingleDelayedProducer(i3aVar);
-            a aVar = new a(this, singleDelayedProducer, i3aVar);
-            i3aVar.b(aVar);
-            i3aVar.f(singleDelayedProducer);
-            return aVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
-        return (i3a) invokeL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public final float b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final float c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final float d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final float e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.a = 0.0f;
+            this.b = 0.0f;
+            this.c = 1.0f;
+            this.d = 1.0f;
+            this.e = false;
+        }
+    }
+
+    public final void f(float f, float f2, float f3, float f4, ImageView.ScaleType scaleType) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), scaleType}) == null) && f != 0.0f && f2 != 0.0f && f3 != 0.0f && f4 != 0.0f) {
+            g();
+            float f5 = (f - f3) / 2.0f;
+            float f6 = (f2 - f4) / 2.0f;
+            float f7 = f3 / f4;
+            float f8 = f / f2;
+            float f9 = f2 / f4;
+            float f10 = f / f3;
+            boolean z = false;
+            switch (e4a.$EnumSwitchMapping$0[scaleType.ordinal()]) {
+                case 1:
+                    this.a = f5;
+                    this.b = f6;
+                    return;
+                case 2:
+                    if (f7 > f8) {
+                        this.e = false;
+                        this.c = f9;
+                        this.d = f9;
+                        this.a = (f - (f3 * f9)) / 2.0f;
+                        return;
+                    }
+                    this.e = true;
+                    this.c = f10;
+                    this.d = f10;
+                    this.b = (f2 - (f4 * f10)) / 2.0f;
+                    return;
+                case 3:
+                    if (f3 < f && f4 < f2) {
+                        this.a = f5;
+                        this.b = f6;
+                        return;
+                    } else if (f7 > f8) {
+                        this.e = true;
+                        this.c = f10;
+                        this.d = f10;
+                        this.b = (f2 - (f4 * f10)) / 2.0f;
+                        return;
+                    } else {
+                        this.e = false;
+                        this.c = f9;
+                        this.d = f9;
+                        this.a = (f - (f3 * f9)) / 2.0f;
+                        return;
+                    }
+                case 4:
+                    if (f7 > f8) {
+                        this.e = true;
+                        this.c = f10;
+                        this.d = f10;
+                        this.b = (f2 - (f4 * f10)) / 2.0f;
+                        return;
+                    }
+                    this.e = false;
+                    this.c = f9;
+                    this.d = f9;
+                    this.a = (f - (f3 * f9)) / 2.0f;
+                    return;
+                case 5:
+                    if (f7 > f8) {
+                        this.e = true;
+                        this.c = f10;
+                        this.d = f10;
+                        return;
+                    }
+                    this.e = false;
+                    this.c = f9;
+                    this.d = f9;
+                    return;
+                case 6:
+                    if (f7 > f8) {
+                        this.e = true;
+                        this.c = f10;
+                        this.d = f10;
+                        this.b = f2 - (f4 * f10);
+                        return;
+                    }
+                    this.e = false;
+                    this.c = f9;
+                    this.d = f9;
+                    this.a = f - (f3 * f9);
+                    return;
+                case 7:
+                    Math.max(f10, f9);
+                    if (f10 > f9) {
+                        z = true;
+                    }
+                    this.e = z;
+                    this.c = f10;
+                    this.d = f9;
+                    return;
+                default:
+                    this.e = true;
+                    this.c = f10;
+                    this.d = f10;
+                    return;
+            }
+        }
     }
 }

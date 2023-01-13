@@ -223,7 +223,7 @@ public abstract class gn {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
             for (gk gkVar : this.f463a) {
                 if (str2 == null || str2.equals(gkVar.b())) {
-                    if (str.equals(gkVar.m377a())) {
+                    if (str.equals(gkVar.m439a())) {
                         return gkVar;
                     }
                 }
@@ -234,14 +234,14 @@ public abstract class gn {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public gr m379a() {
+    public gr m443a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f462a : (gr) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized Object m380a(String str) {
+    public synchronized Object m444a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
@@ -255,11 +255,11 @@ public abstract class gn {
         return invokeL.objValue;
     }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract String m381a();
+    /* renamed from: a */
+    public abstract String mo442a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized Collection<gk> m382a() {
+    public synchronized Collection<gk> m445a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -450,41 +450,41 @@ public abstract class gn {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             synchronized (this) {
                 StringBuilder sb2 = new StringBuilder();
-                for (gk gkVar : m382a()) {
+                for (gk gkVar : m445a()) {
                     sb2.append(gkVar.d());
                 }
                 if (this.f464a != null && !this.f464a.isEmpty()) {
                     sb2.append("<properties xmlns=\"http://www.jivesoftware.com/xmlns/xmpp/properties\">");
                     for (String str2 : b()) {
-                        Object m380a = m380a(str2);
+                        Object m444a = m444a(str2);
                         sb2.append("<property>");
                         sb2.append("<name>");
                         sb2.append(gy.a(str2));
                         sb2.append("</name>");
                         sb2.append("<value type=\"");
-                        if (m380a instanceof Integer) {
+                        if (m444a instanceof Integer) {
                             sb2.append("integer\">");
-                            sb2.append(m380a);
+                            sb2.append(m444a);
                             str = "</value>";
-                        } else if (m380a instanceof Long) {
+                        } else if (m444a instanceof Long) {
                             sb2.append("long\">");
-                            sb2.append(m380a);
+                            sb2.append(m444a);
                             str = "</value>";
-                        } else if (m380a instanceof Float) {
+                        } else if (m444a instanceof Float) {
                             sb2.append("float\">");
-                            sb2.append(m380a);
+                            sb2.append(m444a);
                             str = "</value>";
-                        } else if (m380a instanceof Double) {
+                        } else if (m444a instanceof Double) {
                             sb2.append("double\">");
-                            sb2.append(m380a);
+                            sb2.append(m444a);
                             str = "</value>";
-                        } else if (m380a instanceof Boolean) {
+                        } else if (m444a instanceof Boolean) {
                             sb2.append("boolean\">");
-                            sb2.append(m380a);
+                            sb2.append(m444a);
                             str = "</value>";
-                        } else if (m380a instanceof String) {
+                        } else if (m444a instanceof String) {
                             sb2.append("string\">");
-                            sb2.append(gy.a((String) m380a));
+                            sb2.append(gy.a((String) m444a));
                             str = "</value>";
                         } else {
                             ObjectOutputStream objectOutputStream2 = null;
@@ -494,7 +494,7 @@ public abstract class gn {
                                     objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                                     try {
                                         try {
-                                            objectOutputStream.writeObject(m380a);
+                                            objectOutputStream.writeObject(m444a);
                                             sb2.append("java-object\">");
                                             sb2.append(gy.a(byteArrayOutputStream.toByteArray()));
                                             sb2.append("</value>");

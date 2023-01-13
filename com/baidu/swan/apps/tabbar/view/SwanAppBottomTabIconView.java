@@ -44,11 +44,11 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0099, (ViewGroup) this, true);
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090413);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090415);
-        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090414);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090412);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0098, (ViewGroup) this, true);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09040e);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090410);
+        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09040f);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09040d);
     }
 
     public boolean a() {

@@ -13,13 +13,13 @@ import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.fuseable.HasUpstreamMaybeSource;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class MaybeCount<T> extends Single<Long> implements HasUpstreamMaybeSource<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MaybeSource<T> source;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class CountMaybeObserver implements MaybeObserver<Object>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

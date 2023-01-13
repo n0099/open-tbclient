@@ -111,7 +111,7 @@ public final class e extends b {
             public final void u(String str) {
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) && "ksad-interstitial-card".equals(str)) {
-                    this.iC.iA = false;
+                    e.a(this.iC, false);
                     com.kwad.components.ad.interstitial.b.b bVar = this.iC.iz;
                     if (bVar != null) {
                         bVar.bt();
@@ -147,6 +147,11 @@ public final class e extends b {
         return (f) invokeLLL.objValue;
     }
 
+    public static /* synthetic */ boolean a(e eVar, boolean z) {
+        eVar.iA = false;
+        return false;
+    }
+
     private com.kwad.components.ad.interstitial.b.c dU() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -159,7 +164,7 @@ public final class e extends b {
             cVar.mApkDownloadHelper = new com.kwad.components.core.c.a.c(adTemplate);
             cVar.cN = this.cN;
             cVar.dp = new com.kwad.sdk.core.video.videoview.a(this.mContext);
-            KSFrameLayout kSFrameLayout = (KSFrameLayout) this.iB.findViewById(R.id.obfuscated_res_0x7f09111d);
+            KSFrameLayout kSFrameLayout = (KSFrameLayout) this.iB.findViewById(R.id.obfuscated_res_0x7f091128);
             cVar.gq = kSFrameLayout;
             com.kwad.components.ad.interstitial.c.b bVar = new com.kwad.components.ad.interstitial.c.b(kSFrameLayout, 100);
             cVar.gt = bVar;
@@ -262,7 +267,7 @@ public final class e extends b {
     public final int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? R.layout.obfuscated_res_0x7f0d044a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? R.layout.obfuscated_res_0x7f0d0449 : invokeV.intValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View

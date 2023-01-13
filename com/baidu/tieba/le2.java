@@ -1,56 +1,84 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.ContentValues;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 /* loaded from: classes5.dex */
-public class le2 extends ee2 {
+public class le2 extends ke2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String c;
-    public final String d;
+    @Nullable
+    public ContentValues d;
 
-    public le2(@Nullable String str, @Nullable String str2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public le2(@NonNull ContentValues contentValues) {
+        super("lifecycle", null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
+            Object[] objArr = {contentValues};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Map) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = str;
-        this.d = str2;
-        this.a = "firstMeaningfulPainted";
+        this.d = contentValues;
     }
 
-    @Override // com.baidu.tieba.ee2
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public le2(@Nullable Map<String, String> map) {
+        super("lifecycle", map);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {map};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Map) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ke2, com.baidu.tieba.je2
     public void m(Map<String, Object> map) {
-        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            String str2 = "";
-            if (TextUtils.isEmpty(this.c)) {
-                str = "";
-            } else {
-                str = this.c;
+            map.put("cuid", qn2.h0().i(qn2.c()));
+            map.put("mtjCuid", qn2.h0().i(qn2.c()));
+            ContentValues contentValues = this.d;
+            if (contentValues != null) {
+                for (String str : contentValues.keySet()) {
+                    Object obj = this.d.get(str);
+                    if (!(obj instanceof Number) && !(obj instanceof Boolean)) {
+                        map.put(str, String.valueOf(obj));
+                    } else {
+                        map.put(str, obj);
+                    }
+                }
+                return;
             }
-            map.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, str);
-            if (!TextUtils.isEmpty(this.d)) {
-                str2 = this.d;
+            for (Map.Entry<String, String> entry : this.c.entrySet()) {
+                map.put(entry.getKey(), entry.getValue());
             }
-            map.put(PrefetchEvent.EVENT_KEY_PAGE_URL, str2);
         }
     }
 }

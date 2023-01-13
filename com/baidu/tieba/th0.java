@@ -1,31 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.app.Activity;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebChromeClient;
-import java.util.HashMap;
-import java.util.Map;
-@Service
 /* loaded from: classes6.dex */
-public class th0 extends ji0 {
+public final class th0 extends on0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.ji0
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "loadCache" : (String) invokeV.objValue;
-    }
+    public boolean a;
+    public long b;
+    public long c;
 
     public th0() {
         Interceptable interceptable = $ic;
@@ -37,26 +26,45 @@ public class th0 extends ji0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = true;
+        this.b = 0L;
+        this.c = 0L;
+    }
+
+    public final void e() {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ClogBuilder k = new ClogBuilder().y(ClogBuilder.LogType.CHECK).u(ClogBuilder.Page.NA_SPLASH).k("4");
+            if (this.a) {
+                str = "4003";
+            } else {
+                str = "4002";
+            }
+            e11.b(k.l(str).m(String.valueOf(this.c)));
         }
     }
 
-    @Override // com.baidu.tieba.ji0
-    public boolean b(@NonNull Context context, @NonNull ni0 ni0Var, @Nullable Map<String, Object> map, @Nullable ri0 ri0Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.on0, com.baidu.tieba.rn0
+    public void onBackgroundToForeground(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ni0Var, map, ri0Var)) == null) {
-            super.b(context, ni0Var, map, ri0Var);
-            HashMap<String, String> d = ni0Var.d();
-            String str = d.get("key");
-            String str2 = d.get(WebChromeClient.KEY_ARG_CALLBACK);
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                d(ri0Var, ni0Var, uh0.a().b(str), 0, true);
-                return true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+            if (!this.a) {
+                this.c = System.currentTimeMillis() - this.b;
             }
-            c(ri0Var, ni0Var, 202, false);
-            return true;
+            e();
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.on0, com.baidu.tieba.rn0
+    public void onForegroundToBackground(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            this.a = false;
+            this.b = System.currentTimeMillis();
+        }
     }
 }

@@ -1,108 +1,193 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.annotation.SuppressLint;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.tieba.ls1;
+import com.baidu.tieba.o93;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class ql3 extends ProviderDelegation {
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class ql3 extends ms1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a implements yi3<Bundle> {
+    @Override // com.baidu.tieba.ms1
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "PrivateAccount" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ms1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "GetBdussApi" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends ls1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Bundle a;
-        public final /* synthetic */ ql3 b;
+        public final /* synthetic */ ql3 d;
 
-        public a(ql3 ql3Var, Bundle bundle) {
+        /* renamed from: com.baidu.tieba.ql3$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class C0421a implements cj3<m93<o93.e>> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ls1.b a;
+            public final /* synthetic */ a b;
+
+            public C0421a(a aVar, ls1.b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = bVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.cj3
+            /* renamed from: b */
+            public void a(m93<o93.e> m93Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m93Var) == null) {
+                    if (!h93.h(m93Var)) {
+                        int b = m93Var.b();
+                        this.a.a(new jw1(b, h93.f(b)));
+                        return;
+                    }
+                    this.a.a(this.b.d.z());
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ql3 ql3Var, String str) {
+            super(str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ql3Var, bundle};
+                Object[] objArr = {ql3Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = ql3Var;
-            this.a = bundle;
+            this.d = ql3Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yi3
-        /* renamed from: a */
-        public Bundle create() {
+        @Override // com.baidu.tieba.ls1
+        @NonNull
+        public jw1 d(@NonNull JSONObject jSONObject, @NonNull ls1.b bVar) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, bVar)) == null) {
+                j43 b0 = j43.b0();
+                if (b0 == null) {
+                    return new jw1(1001, "null swan runtime");
+                }
+                b0.e0().g(i43.K(), "mapp_i_get_bduss", new C0421a(this, bVar));
+                return jw1.f();
+            }
+            return (jw1) invokeLL.objValue;
+        }
+
+        @Override // com.baidu.tieba.ls1
+        @NonNull
+        public jw1 e(@NonNull JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+                return this.d.z();
+            }
+            return (jw1) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.ls1
+        public boolean i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.b.c(this.a);
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                if (i43.K().E() && i43.K().q().e0().f("mapp_i_get_bduss")) {
+                    return true;
+                }
+                return false;
             }
-            return (Bundle) invokeV.objValue;
+            return invokeV.booleanValue;
         }
     }
 
-    public ql3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ql3(@NonNull ks1 ks1Var) {
+        super(ks1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ks1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ks1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public Bundle c(@NonNull Bundle bundle) {
+    @SuppressLint({"SwanBindApiNote"})
+    public jw1 y(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            int i = bundle.getInt("type");
-            pl3 pl3Var = new pl3();
-            String string = bundle.getString("param1");
-            Bundle bundle2 = new Bundle();
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            return bundle2;
-                        }
-                        bundle2.putString("result", pl3Var.getCookie(string));
-                        return bundle2;
-                    }
-                    pl3Var.storeCookie(string, bundle.getStringArrayList("param2"));
-                    return bundle2;
-                }
-                bundle2.putBoolean("result", pl3Var.shouldSendCookie(string, bundle.getString("param2")));
-                return bundle2;
-            }
-            bundle2.putBoolean("result", pl3Var.shouldAcceptCookie(string, bundle.getString("param2")));
-            return bundle2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#getBduss", false);
+            return m(str, new a(this, "getBDUSS"));
         }
-        return (Bundle) invokeL.objValue;
+        return (jw1) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(@NonNull Bundle bundle) {
-        InterceptResult invokeL;
+    @NonNull
+    public final jw1 z() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
-            return (Bundle) vi3.b(new a(this, bundle));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String i = kk3.i(i43.K());
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("bduss", i);
+                return new jw1(0, jSONObject);
+            } catch (JSONException e) {
+                p("#getBdussResult json put data fail", e, false);
+                return new jw1(1001, "json put data fail");
+            }
         }
-        return (Bundle) invokeL.objValue;
+        return (jw1) invokeV.objValue;
     }
 }

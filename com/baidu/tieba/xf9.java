@@ -4,21 +4,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
 /* loaded from: classes6.dex */
-public abstract class xf9 {
+public class xf9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract void a();
-
-    public abstract String b() throws IOException;
-
-    public abstract int c();
-
-    public abstract String d();
-
-    public abstract boolean e();
 
     public xf9() {
         Interceptable interceptable = $ic;

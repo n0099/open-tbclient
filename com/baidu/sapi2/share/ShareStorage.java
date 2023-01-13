@@ -26,6 +26,7 @@ import com.baidu.sapi2.utils.ThreadPoolService;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -500,7 +501,7 @@ public class ShareStorage {
             }
             String str3 = this.context.getApplicationInfo().dataDir;
             String str4 = (str3.replace(this.context.getPackageName(), "") + str) + "/" + SP_FILE_PATH + str2;
-            Log.e(ShareUtils.TAG, "getDataFromShareInternal", "fileName", str4);
+            Log.e(ShareUtils.TAG, "getDataFromShareInternal", CommonTbJsBridge.FILE_DOWNLOAD_FILE_NAME, str4);
             return FileUtil.read(str4);
         }
         return (String) invokeLL.objValue;

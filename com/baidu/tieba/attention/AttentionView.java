@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
@@ -21,11 +20,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ab5;
 import com.baidu.tieba.adapter.SelectForumItemAdapter;
-import com.baidu.tieba.ka5;
-import com.baidu.tieba.la5;
-import com.baidu.tieba.op5;
-import com.baidu.tieba.xq5;
+import com.baidu.tieba.iq5;
+import com.baidu.tieba.rr5;
+import com.baidu.tieba.za5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,15 +33,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class AttentionView extends FrameLayout implements op5<String> {
+public class AttentionView extends FrameLayout implements iq5<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public RecyclerView b;
     public SelectForumItemAdapter c;
     public LinearLayoutManager d;
-    public ka5 e;
-    public la5 f;
+    public za5 e;
+    public ab5 f;
     public List<SelectForumData> g;
     public List<SelectForumData> h;
     public boolean i;
@@ -55,7 +54,7 @@ public class AttentionView extends FrameLayout implements op5<String> {
         void a();
     }
 
-    @Override // com.baidu.tieba.op5
+    @Override // com.baidu.tieba.iq5
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -89,43 +88,99 @@ public class AttentionView extends FrameLayout implements op5<String> {
             this.a = attentionView;
         }
 
+        /*  JADX ERROR: JadxRuntimeException in pass: InlineMethods
+            jadx.core.utils.exceptions.JadxRuntimeException: Failed to process method for inline: com.baidu.tieba.attention.AttentionView.i(com.baidu.tieba.attention.AttentionView, java.util.List):java.util.List
+            	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:76)
+            	at jadx.core.dex.visitors.InlineMethods.visit(InlineMethods.java:51)
+            Caused by: java.lang.NullPointerException: Cannot invoke "jadx.core.dex.instructions.args.InsnArg.isRegister()" because "arg" is null
+            	at jadx.core.dex.instructions.args.RegisterArg.sameRegAndSVar(RegisterArg.java:173)
+            	at jadx.core.dex.instructions.args.InsnArg.isSameVar(InsnArg.java:269)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:118)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
+            	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:65)
+            	... 1 more
+            */
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                this.a.l();
-                if (httpResponsedMessage.getError() != 0) {
-                    if (ListUtils.isEmpty(this.a.h)) {
-                        this.a.w(false, true);
-                    }
-                } else if (!(httpResponsedMessage instanceof AttentionResMsg)) {
-                    if (ListUtils.isEmpty(this.a.h)) {
-                        this.a.w(false, true);
-                    }
-                } else {
-                    AttentionResMsg attentionResMsg = (AttentionResMsg) httpResponsedMessage;
-                    List<SelectForumData> selectForumDataList = attentionResMsg.getSelectForumDataList();
-                    if (ListUtils.isEmpty(selectForumDataList)) {
-                        if (ListUtils.isEmpty(this.a.h)) {
-                            this.a.w(false, false);
-                            if (this.a.k != null) {
-                                this.a.k.a();
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    }
-                    this.a.i = attentionResMsg.getHasMore();
-                    AttentionView.h(this.a);
-                    List list = this.a.h;
-                    this.a.s(selectForumDataList);
-                    list.addAll(selectForumDataList);
-                    this.a.c.i(this.a.h);
-                    this.a.c.notifyDataSetChanged();
-                }
-            }
+        public void onMessage(com.baidu.adp.framework.message.HttpResponsedMessage r5) {
+            /*
+                r4 = this;
+                com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.tieba.attention.AttentionView.a.$ic
+                if (r0 != 0) goto L9d
+            L4:
+                com.baidu.tieba.attention.AttentionView r0 = r4.a
+                r0.l()
+                int r0 = r5.getError()
+                r1 = 1
+                r2 = 0
+                if (r0 == 0) goto L23
+                com.baidu.tieba.attention.AttentionView r5 = r4.a
+                java.util.List r5 = com.baidu.tieba.attention.AttentionView.d(r5)
+                boolean r5 = com.baidu.tbadk.core.util.ListUtils.isEmpty(r5)
+                if (r5 == 0) goto L22
+                com.baidu.tieba.attention.AttentionView r5 = r4.a
+                r5.w(r2, r1)
+            L22:
+                return
+            L23:
+                boolean r0 = r5 instanceof com.baidu.tieba.attention.AttentionResMsg
+                if (r0 != 0) goto L39
+                com.baidu.tieba.attention.AttentionView r5 = r4.a
+                java.util.List r5 = com.baidu.tieba.attention.AttentionView.d(r5)
+                boolean r5 = com.baidu.tbadk.core.util.ListUtils.isEmpty(r5)
+                if (r5 == 0) goto L38
+                com.baidu.tieba.attention.AttentionView r5 = r4.a
+                r5.w(r2, r1)
+            L38:
+                return
+            L39:
+                com.baidu.tieba.attention.AttentionResMsg r5 = (com.baidu.tieba.attention.AttentionResMsg) r5
+                java.util.List r0 = r5.getSelectForumDataList()
+                boolean r1 = com.baidu.tbadk.core.util.ListUtils.isEmpty(r0)
+                if (r1 == 0) goto L68
+                com.baidu.tieba.attention.AttentionView r5 = r4.a
+                java.util.List r5 = com.baidu.tieba.attention.AttentionView.d(r5)
+                boolean r5 = com.baidu.tbadk.core.util.ListUtils.isEmpty(r5)
+                if (r5 == 0) goto L67
+                com.baidu.tieba.attention.AttentionView r5 = r4.a
+                r5.w(r2, r2)
+                com.baidu.tieba.attention.AttentionView r5 = r4.a
+                com.baidu.tieba.attention.AttentionView$d r5 = com.baidu.tieba.attention.AttentionView.e(r5)
+                if (r5 == 0) goto L67
+                com.baidu.tieba.attention.AttentionView r5 = r4.a
+                com.baidu.tieba.attention.AttentionView$d r5 = com.baidu.tieba.attention.AttentionView.e(r5)
+                r5.a()
+            L67:
+                return
+            L68:
+                com.baidu.tieba.attention.AttentionView r1 = r4.a
+                boolean r5 = r5.getHasMore()
+                com.baidu.tieba.attention.AttentionView.g(r1, r5)
+                com.baidu.tieba.attention.AttentionView r5 = r4.a
+                com.baidu.tieba.attention.AttentionView.h(r5)
+                com.baidu.tieba.attention.AttentionView r5 = r4.a
+                java.util.List r5 = com.baidu.tieba.attention.AttentionView.d(r5)
+                com.baidu.tieba.attention.AttentionView r1 = r4.a
+                com.baidu.tieba.attention.AttentionView.i(r1, r0)
+                r5.addAll(r0)
+                com.baidu.tieba.attention.AttentionView r5 = r4.a
+                com.baidu.tieba.adapter.SelectForumItemAdapter r5 = com.baidu.tieba.attention.AttentionView.j(r5)
+                com.baidu.tieba.attention.AttentionView r0 = r4.a
+                java.util.List r0 = com.baidu.tieba.attention.AttentionView.d(r0)
+                r5.i(r0)
+                com.baidu.tieba.attention.AttentionView r5 = r4.a
+                com.baidu.tieba.adapter.SelectForumItemAdapter r5 = com.baidu.tieba.attention.AttentionView.j(r5)
+                r5.notifyDataSetChanged()
+                return
+            L9d:
+                r2 = r0
+                r3 = 1048576(0x100000, float:1.469368E-39)
+                com.baidu.titan.sdk.runtime.InterceptResult r0 = r2.invokeL(r3, r4, r5)
+                if (r0 == 0) goto L4
+                return
+            */
+            throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.attention.AttentionView.a.onMessage(com.baidu.adp.framework.message.HttpResponsedMessage):void");
         }
     }
 
@@ -305,6 +360,12 @@ public class AttentionView extends FrameLayout implements op5<String> {
         return i;
     }
 
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.attention.AttentionView.a.onMessage(com.baidu.adp.framework.message.HttpResponsedMessage):void] */
+    public static /* synthetic */ SelectForumItemAdapter j(AttentionView attentionView) {
+        return attentionView.c;
+    }
+
     public void o(ArrayList<SelectForumData> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, arrayList) == null) {
@@ -312,7 +373,7 @@ public class AttentionView extends FrameLayout implements op5<String> {
         }
     }
 
-    public void setForumSelectStateChangedListener(xq5.e eVar) {
+    public void setForumSelectStateChangedListener(rr5.e eVar) {
         SelectForumItemAdapter selectForumItemAdapter;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048589, this, eVar) == null) && (selectForumItemAdapter = this.c) != null) {
@@ -341,14 +402,31 @@ public class AttentionView extends FrameLayout implements op5<String> {
             return;
         }
         if (this.e == null) {
-            ka5 ka5Var = new ka5(getContext());
-            this.e = ka5Var;
-            ka5Var.onChangeSkinType();
+            za5 za5Var = new za5(getContext());
+            this.e = za5Var;
+            za5Var.onChangeSkinType();
         }
         this.e.attachView(this, z);
     }
 
-    @Override // com.baidu.tieba.op5
+    /*  JADX ERROR: NullPointerException in pass: MarkMethodsForInline
+        java.lang.NullPointerException: Cannot invoke "jadx.core.dex.instructions.args.InsnArg.isRegister()" because "arg" is null
+        	at jadx.core.dex.instructions.args.RegisterArg.sameRegAndSVar(RegisterArg.java:173)
+        	at jadx.core.dex.instructions.args.InsnArg.isSameVar(InsnArg.java:269)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:118)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.visit(MarkMethodsForInline.java:37)
+        */
+    public static /* synthetic */ java.util.List i(com.baidu.tieba.attention.AttentionView r0, java.util.List r1) {
+        /*
+            r0.s(r1)
+            return r1
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.attention.AttentionView.i(com.baidu.tieba.attention.AttentionView, java.util.List):java.util.List");
+    }
+
+    @Override // com.baidu.tieba.iq5
     public void a() {
         int skinType;
         Interceptable interceptable = $ic;
@@ -356,32 +434,32 @@ public class AttentionView extends FrameLayout implements op5<String> {
             return;
         }
         this.a = skinType;
-        ka5 ka5Var = this.e;
-        if (ka5Var != null) {
-            ka5Var.onChangeSkinType();
+        za5 za5Var = this.e;
+        if (za5Var != null) {
+            za5Var.onChangeSkinType();
         }
-        la5 la5Var = this.f;
-        if (la5Var != null) {
-            la5Var.onChangeSkinType();
+        ab5 ab5Var = this.f;
+        if (ab5Var != null) {
+            ab5Var.onChangeSkinType();
         }
         this.c.notifyDataSetChanged();
     }
 
-    @Override // com.baidu.tieba.op5
+    @Override // com.baidu.tieba.iq5
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return getContext().getString(R.string.obfuscated_res_0x7f0f0092);
+            return getContext().getString(R.string.obfuscated_res_0x7f0f0094);
         }
         return (String) invokeV.objValue;
     }
 
     public void l() {
-        ka5 ka5Var;
+        za5 za5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (ka5Var = this.e) != null) {
-            ka5Var.dettachView(this);
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (za5Var = this.e) != null) {
+            za5Var.dettachView(this);
             this.e = null;
         }
     }
@@ -389,16 +467,16 @@ public class AttentionView extends FrameLayout implements op5<String> {
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            la5 la5Var = this.f;
-            if (la5Var != null) {
-                la5Var.dettachView(this);
+            ab5 ab5Var = this.f;
+            if (ab5Var != null) {
+                ab5Var.dettachView(this);
                 this.f = null;
             }
             this.b.setVisibility(0);
         }
     }
 
-    @Override // com.baidu.tieba.op5
+    @Override // com.baidu.tieba.iq5
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -415,9 +493,9 @@ public class AttentionView extends FrameLayout implements op5<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            ka5 ka5Var = this.e;
-            if (ka5Var != null) {
-                return ka5Var.isViewAttached();
+            za5 za5Var = this.e;
+            if (za5Var != null) {
+                return za5Var.isViewAttached();
             }
             return false;
         }
@@ -428,9 +506,9 @@ public class AttentionView extends FrameLayout implements op5<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            la5 la5Var = this.f;
-            if (la5Var != null) {
-                return la5Var.isViewAttached();
+            ab5 ab5Var = this.f;
+            if (ab5Var != null) {
+                return ab5Var.isViewAttached();
             }
             return false;
         }
@@ -440,8 +518,8 @@ public class AttentionView extends FrameLayout implements op5<String> {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07da, (ViewGroup) this, true);
-            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091eff);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07d7, (ViewGroup) this, true);
+            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091f1e);
             SelectForumItemAdapter selectForumItemAdapter = new SelectForumItemAdapter(this);
             this.c = selectForumItemAdapter;
             selectForumItemAdapter.k(2);
@@ -455,7 +533,7 @@ public class AttentionView extends FrameLayout implements op5<String> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.op5
+    @Override // com.baidu.tieba.iq5
     /* renamed from: u */
     public void c(String str) {
         Interceptable interceptable = $ic;
@@ -484,7 +562,7 @@ public class AttentionView extends FrameLayout implements op5<String> {
             return;
         }
         if (this.f == null) {
-            this.f = new la5(getContext(), new c(this));
+            this.f = new ab5(getContext(), new c(this));
         }
         this.f.k(getResources().getDimensionPixelSize(R.dimen.tbds380));
         this.f.attachView(this, z);
@@ -494,7 +572,7 @@ public class AttentionView extends FrameLayout implements op5<String> {
             this.f.h(R.drawable.new_pic_emotion_01);
             this.f.e();
         }
-        this.f.o(getContext().getString(R.string.obfuscated_res_0x7f0f008f));
+        this.f.o(getContext().getString(R.string.obfuscated_res_0x7f0f0091));
         this.b.setVisibility(8);
     }
 }

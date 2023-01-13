@@ -25,6 +25,16 @@ public final class a {
     public static boolean Zo;
     public static boolean sGetOaidFail;
 
+    public static /* synthetic */ boolean aK(boolean z) {
+        sGetOaidFail = true;
+        return true;
+    }
+
+    public static /* synthetic */ boolean aL(boolean z) {
+        Zo = false;
+        return false;
+    }
+
     public static String bv(Context context) {
         if (!aq.Ab() || TextUtils.isEmpty(aq.Ac())) {
             if (TextUtils.isEmpty(Zn)) {
@@ -194,7 +204,7 @@ public final class a {
                             String unused222222222 = a.Zn = oaid;
                             break;
                         default:
-                            if (a.ue() || a.uf()) {
+                            if (a.uh() || a.ui()) {
                                 oaid = new j(applicationContext).getOAID();
                                 String unused2222222222 = a.Zn = oaid;
                                 break;
@@ -203,10 +213,10 @@ public final class a {
                     }
                     com.kwad.sdk.core.e.b.i("OAIDHelper", "manufacturer:" + upperCase + "--OAID:" + a.Zn);
                     if (TextUtils.isEmpty(a.Zn)) {
-                        boolean unused3 = a.sGetOaidFail = true;
+                        a.aK(true);
                     }
                     a.ug();
-                    boolean unused4 = a.Zo = false;
+                    a.aL(false);
                 } catch (Throwable th) {
                     com.kwad.sdk.core.e.b.printStackTraceOnly(th);
                 }
@@ -249,5 +259,13 @@ public final class a {
     }
 
     public static /* synthetic */ void ug() {
+    }
+
+    public static /* synthetic */ boolean uh() {
+        return ue();
+    }
+
+    public static /* synthetic */ boolean ui() {
+        return uf();
     }
 }

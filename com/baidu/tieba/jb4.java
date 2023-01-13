@@ -1,124 +1,47 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.http.request.HttpCommonRequestBuilder;
-import com.baidu.searchbox.http.request.HttpRequestBuilder;
+import com.baidu.searchbox.http.AbstractHttpManager;
+import com.baidu.searchbox.http.request.HttpRequest;
+import com.baidu.searchbox.http.request.PostStringRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import okhttp3.RequestBody;
-import org.apache.http.client.methods.HttpDelete;
-import org.apache.http.client.methods.HttpOptions;
-import org.apache.http.client.methods.HttpPut;
-import org.apache.http.client.methods.HttpTrace;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class jb4 {
+public class jb4 extends PostStringRequest.PostStringRequestBuilder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static HttpRequestBuilder a(@NonNull hb4 hb4Var) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jb4(AbstractHttpManager abstractHttpManager) {
+        super(abstractHttpManager);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, hb4Var)) == null) {
-            return b(hb4Var, null);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {abstractHttpManager};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((AbstractHttpManager) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (HttpRequestBuilder) invokeL.objValue;
     }
 
-    @NonNull
-    public static HttpRequestBuilder b(@NonNull hb4 hb4Var, @Nullable ib4 ib4Var) {
-        InterceptResult invokeLL;
-        HttpCommonRequestBuilder o;
+    @Override // com.baidu.searchbox.http.request.PostStringRequest.PostStringRequestBuilder, com.baidu.searchbox.http.request.HttpRequestBuilder
+    public HttpRequest build() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, hb4Var, ib4Var)) == null) {
-            if (ib4Var == null) {
-                ib4Var = ib4.g();
-            }
-            String str = hb4Var.b;
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -531492226:
-                    if (str.equals(HttpOptions.METHOD_NAME)) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 70454:
-                    if (str.equals("GET")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case 79599:
-                    if (str.equals(HttpPut.METHOD_NAME)) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 2213344:
-                    if (str.equals("HEAD")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case 2461856:
-                    if (str.equals("POST")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 80083237:
-                    if (str.equals(HttpTrace.METHOD_NAME)) {
-                        c = 6;
-                        break;
-                    }
-                    break;
-                case 1669334218:
-                    if (str.equals("CONNECT")) {
-                        c = 7;
-                        break;
-                    }
-                    break;
-                case 2012838315:
-                    if (str.equals(HttpDelete.METHOD_NAME)) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    return ib4Var.getRequest();
-                case 1:
-                    return ib4Var.headerRequest();
-                case 2:
-                    o = ib4Var.o();
-                    break;
-                case 3:
-                    o = ib4Var.postRequest();
-                    break;
-                case 4:
-                    o = ib4Var.putRequest();
-                    break;
-                case 5:
-                    o = ib4Var.deleteRequest();
-                    break;
-                case 6:
-                    o = ib4Var.y();
-                    break;
-                case 7:
-                    o = ib4Var.a();
-                    break;
-                default:
-                    return ib4Var.getRequest();
-            }
-            RequestBody requestBody = hb4Var.d;
-            if (requestBody != null) {
-                o.requestBody(requestBody);
-            }
-            return o;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            bb4.b().j(this.httpUrl.toString(), this);
+            requestFrom(6);
+            return super.build();
         }
-        return (HttpRequestBuilder) invokeLL.objValue;
+        return (HttpRequest) invokeV.objValue;
     }
 }

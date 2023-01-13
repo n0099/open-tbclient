@@ -191,7 +191,7 @@ public final class PublisherCoroutine<T> extends AbstractCoroutine<Unit> impleme
         return cancelCoroutine(th);
     }
 
-    @Override // kotlinx.coroutines.channels.SendChannel
+    /* JADX DEBUG: Possible override for method kotlinx.coroutines.channels.SendChannel.invokeOnClose(Lkotlin/jvm/functions/Function1;)V */
     public Void invokeOnClose(Function1<? super Throwable, Unit> function1) {
         throw new UnsupportedOperationException("PublisherCoroutine doesn't support invokeOnClose");
     }
@@ -255,7 +255,8 @@ public final class PublisherCoroutine<T> extends AbstractCoroutine<Unit> impleme
     }
 
     @Override // kotlinx.coroutines.channels.SendChannel
-    public /* bridge */ /* synthetic */ void invokeOnClose(Function1 function1) {
+    /* renamed from: invokeOnClose  reason: collision with other method in class */
+    public /* bridge */ /* synthetic */ void mo2191invokeOnClose(Function1 function1) {
         invokeOnClose((Function1<? super Throwable, Unit>) function1);
     }
 

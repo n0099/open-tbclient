@@ -10,13 +10,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import com.baidu.tieba.cb7;
-import com.baidu.tieba.ic7;
+import com.baidu.tieba.bf7;
+import com.baidu.tieba.gg7;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.data.MsgLocalData;
-import com.baidu.tieba.na;
-import com.baidu.tieba.xg;
-import com.baidu.tieba.xn;
+import com.baidu.tieba.oa;
+import com.baidu.tieba.yg;
+import com.baidu.tieba.yn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,20 +30,16 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public abstract class ChatMessage extends TbSocketMessage implements na, xn {
+public abstract class ChatMessage extends TbSocketMessage implements oa, yn {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId TYPE_MSG_GROUP_ACTIVITY;
     public static final BdUniqueId TYPE_MSG_ICE_BREAK;
     public static final BdUniqueId TYPE_MSG_LEFT;
-    public static final BdUniqueId TYPE_MSG_LEFT_FORUM;
-    public static final BdUniqueId TYPE_MSG_LEFT_IMAGE_THREAD;
     public static final BdUniqueId TYPE_MSG_MID;
     public static final BdUniqueId TYPE_MSG_MULTI_PIC_TEXT;
     public static final BdUniqueId TYPE_MSG_PHOTOLIVE;
     public static final BdUniqueId TYPE_MSG_REPLY_CARD;
     public static final BdUniqueId TYPE_MSG_RIGHT;
-    public static final BdUniqueId TYPE_MSG_RIGHT_FORUM;
-    public static final BdUniqueId TYPE_MSG_RIGHT_IMAGE_THREAD;
     public static final BdUniqueId TYPE_MSG_STRANGER_TIP;
     public static final BdUniqueId TYPE_MSG_TOPIC;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,10 +52,10 @@ public abstract class ChatMessage extends TbSocketMessage implements na, xn {
     public String groupId;
     public boolean hasRead;
     public int height;
-    public List<ic7> iceBreakEmotions;
+    public List<gg7> iceBreakEmotions;
     public int isFriend;
     public boolean isUploading;
-    public WeakReference<cb7> itemViewWeakReference;
+    public WeakReference<bf7> itemViewWeakReference;
     public String link;
     public MsgLocalData localData;
     public long logTime;
@@ -115,109 +111,66 @@ public abstract class ChatMessage extends TbSocketMessage implements na, xn {
         TYPE_MSG_PHOTOLIVE = BdUniqueId.gen();
         TYPE_MSG_ICE_BREAK = BdUniqueId.gen();
         TYPE_MSG_STRANGER_TIP = BdUniqueId.gen();
-        TYPE_MSG_LEFT_FORUM = BdUniqueId.gen();
-        TYPE_MSG_RIGHT_FORUM = BdUniqueId.gen();
-        TYPE_MSG_LEFT_IMAGE_THREAD = BdUniqueId.gen();
-        TYPE_MSG_RIGHT_IMAGE_THREAD = BdUniqueId.gen();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0027  */
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0071 A[RETURN] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public GifInfo getGifInfo() {
+    public long getStatTaskId() {
         InterceptResult invokeV;
-        JSONObject jSONObject;
-        JSONArray jSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            GifInfo gifInfo = this.gifInfo;
-            if (gifInfo != null) {
-                return gifInfo;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            long j = this.statisticsTaskId;
+            if (j != -1) {
+                return j;
             }
-            String str = this.content;
-            try {
+            long j2 = 0;
+            if (!TextUtils.isEmpty(this.content)) {
                 try {
-                    jSONArray = new JSONArray(str);
-                } catch (JSONException unused) {
+                    JSONArray jSONArray = new JSONArray(this.content);
+                    if (jSONArray.length() > 0) {
+                        this.statisticsTaskId = yg.g(jSONArray.optJSONObject(0).optString("task_id"), 0L);
+                    }
+                } catch (Exception unused) {
                 }
-            } catch (JSONException unused2) {
-                jSONObject = new JSONObject(str);
             }
-            if (jSONArray.length() > 0) {
-                jSONObject = jSONArray.getJSONObject(0);
-                if (jSONObject != null) {
-                    return null;
+            if (this.statisticsTaskId <= 0) {
+                long j3 = this.taskId;
+                if (j3 >= 0) {
+                    j2 = j3;
                 }
-                String optString = jSONObject.optString("face_name");
-                String optString2 = jSONObject.optString("url_s");
-                String optString3 = jSONObject.optString("url_d");
-                String optString4 = jSONObject.optString("pid");
-                String optString5 = jSONObject.optString("packet_name");
-                String optString6 = jSONObject.optString("icon");
-                int optInt = jSONObject.optInt("size_width");
-                int optInt2 = jSONObject.optInt("size_height");
-                GifInfo gifInfo2 = new GifInfo();
-                gifInfo2.mLoadFailed = false;
-                gifInfo2.mSharpText = optString;
-                gifInfo2.mStaticUrl = optString2;
-                gifInfo2.mDynamicUrl = optString3;
-                gifInfo2.mGid = optString4;
-                gifInfo2.mGifWidth = optInt;
-                gifInfo2.mGifHeight = optInt2;
-                gifInfo2.mPackageName = optString5;
-                gifInfo2.mIcon = optString6;
-                this.gifInfo = gifInfo2;
-                return gifInfo2;
+                this.statisticsTaskId = j2;
             }
-            jSONObject = null;
-            if (jSONObject != null) {
-            }
-        } else {
-            return (GifInfo) invokeV.objValue;
+            return this.statisticsTaskId;
         }
+        return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.xn
-    public BdUniqueId getType() {
+    public long getStatisticsServiceId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
-            int i = this.msgType;
-            if (i == 11) {
-                return TYPE_MSG_MID;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            long j = this.statisticsServiceId;
+            if (j != -1) {
+                return j;
             }
-            if (i == 12) {
-                return TYPE_MSG_TOPIC;
-            }
-            if (i == 6) {
-                return TYPE_MSG_GROUP_ACTIVITY;
-            }
-            if (i != 7 && i != 35) {
-                if (i == 23) {
-                    return TYPE_MSG_REPLY_CARD;
-                }
-                if (i == 25) {
-                    return TYPE_MSG_PHOTOLIVE;
-                }
-                if (i == 8001) {
-                    return TYPE_MSG_STRANGER_TIP;
-                }
-                if (this.iceBreakEmotions != null) {
-                    return TYPE_MSG_ICE_BREAK;
-                }
-                if (getUserInfo() != null && getUserInfo().getUserId() != null) {
-                    if (getUserInfo().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
-                        return TYPE_MSG_RIGHT;
+            long j2 = 0;
+            if (!TextUtils.isEmpty(this.content)) {
+                try {
+                    JSONArray jSONArray = new JSONArray(this.content);
+                    if (jSONArray.length() > 0) {
+                        this.statisticsServiceId = yg.g(jSONArray.optJSONObject(0).optString("service_id"), 0L);
                     }
-                    return TYPE_MSG_LEFT;
+                } catch (Exception unused) {
                 }
-                return TYPE_MSG_LEFT;
             }
-            return TYPE_MSG_MULTI_PIC_TEXT;
+            if (this.statisticsServiceId <= 0) {
+                long j3 = this.serviceId;
+                if (j3 >= 0) {
+                    j2 = j3;
+                }
+                this.statisticsServiceId = j2;
+            }
+            return this.statisticsServiceId;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return invokeV.longValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -328,7 +281,7 @@ public abstract class ChatMessage extends TbSocketMessage implements na, xn {
         return invokeV.intValue;
     }
 
-    public List<ic7> getIceBreakEmotions() {
+    public List<gg7> getIceBreakEmotions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -356,17 +309,17 @@ public abstract class ChatMessage extends TbSocketMessage implements na, xn {
     }
 
     @Nullable
-    public cb7 getItemView() {
+    public bf7 getItemView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            WeakReference<cb7> weakReference = this.itemViewWeakReference;
+            WeakReference<bf7> weakReference = this.itemViewWeakReference;
             if (weakReference == null) {
                 return null;
             }
             return weakReference.get();
         }
-        return (cb7) invokeV.objValue;
+        return (bf7) invokeV.objValue;
     }
 
     public String getLink() {
@@ -567,67 +520,106 @@ public abstract class ChatMessage extends TbSocketMessage implements na, xn {
         return invokeV.booleanValue;
     }
 
-    public long getStatTaskId() {
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0027  */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0071 A[RETURN] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public GifInfo getGifInfo() {
         InterceptResult invokeV;
+        JSONObject jSONObject;
+        JSONArray jSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            long j = this.statisticsTaskId;
-            if (j != -1) {
-                return j;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            GifInfo gifInfo = this.gifInfo;
+            if (gifInfo != null) {
+                return gifInfo;
             }
-            long j2 = 0;
-            if (!TextUtils.isEmpty(this.content)) {
+            String str = this.content;
+            try {
                 try {
-                    JSONArray jSONArray = new JSONArray(this.content);
-                    if (jSONArray.length() > 0) {
-                        this.statisticsTaskId = xg.g(jSONArray.optJSONObject(0).optString("task_id"), 0L);
-                    }
-                } catch (Exception unused) {
+                    jSONArray = new JSONArray(str);
+                } catch (JSONException unused) {
                 }
+            } catch (JSONException unused2) {
+                jSONObject = new JSONObject(str);
             }
-            if (this.statisticsTaskId <= 0) {
-                long j3 = this.taskId;
-                if (j3 >= 0) {
-                    j2 = j3;
+            if (jSONArray.length() > 0) {
+                jSONObject = jSONArray.getJSONObject(0);
+                if (jSONObject != null) {
+                    return null;
                 }
-                this.statisticsTaskId = j2;
+                String optString = jSONObject.optString("face_name");
+                String optString2 = jSONObject.optString("url_s");
+                String optString3 = jSONObject.optString("url_d");
+                String optString4 = jSONObject.optString("pid");
+                String optString5 = jSONObject.optString("packet_name");
+                String optString6 = jSONObject.optString("icon");
+                int optInt = jSONObject.optInt("size_width");
+                int optInt2 = jSONObject.optInt("size_height");
+                GifInfo gifInfo2 = new GifInfo();
+                gifInfo2.mLoadFailed = false;
+                gifInfo2.mSharpText = optString;
+                gifInfo2.mStaticUrl = optString2;
+                gifInfo2.mDynamicUrl = optString3;
+                gifInfo2.mGid = optString4;
+                gifInfo2.mGifWidth = optInt;
+                gifInfo2.mGifHeight = optInt2;
+                gifInfo2.mPackageName = optString5;
+                gifInfo2.mIcon = optString6;
+                this.gifInfo = gifInfo2;
+                return gifInfo2;
             }
-            return this.statisticsTaskId;
+            jSONObject = null;
+            if (jSONObject != null) {
+            }
+        } else {
+            return (GifInfo) invokeV.objValue;
         }
-        return invokeV.longValue;
     }
 
-    public long getStatisticsServiceId() {
+    @Override // com.baidu.tieba.yn
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            long j = this.statisticsServiceId;
-            if (j != -1) {
-                return j;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            int i = this.msgType;
+            if (i == 11) {
+                return TYPE_MSG_MID;
             }
-            long j2 = 0;
-            if (!TextUtils.isEmpty(this.content)) {
-                try {
-                    JSONArray jSONArray = new JSONArray(this.content);
-                    if (jSONArray.length() > 0) {
-                        this.statisticsServiceId = xg.g(jSONArray.optJSONObject(0).optString("service_id"), 0L);
+            if (i == 12) {
+                return TYPE_MSG_TOPIC;
+            }
+            if (i == 6) {
+                return TYPE_MSG_GROUP_ACTIVITY;
+            }
+            if (i != 7 && i != 35) {
+                if (i == 23) {
+                    return TYPE_MSG_REPLY_CARD;
+                }
+                if (i == 25) {
+                    return TYPE_MSG_PHOTOLIVE;
+                }
+                if (i == 8001) {
+                    return TYPE_MSG_STRANGER_TIP;
+                }
+                if (this.iceBreakEmotions != null) {
+                    return TYPE_MSG_ICE_BREAK;
+                }
+                if (getUserInfo() != null && getUserInfo().getUserId() != null) {
+                    if (getUserInfo().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+                        return TYPE_MSG_RIGHT;
                     }
-                } catch (Exception unused) {
+                    return TYPE_MSG_LEFT;
                 }
+                return TYPE_MSG_LEFT;
             }
-            if (this.statisticsServiceId <= 0) {
-                long j3 = this.serviceId;
-                if (j3 >= 0) {
-                    j2 = j3;
-                }
-                this.statisticsServiceId = j2;
-            }
-            return this.statisticsServiceId;
+            return TYPE_MSG_MULTI_PIC_TEXT;
         }
-        return invokeV.longValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.na
+    @Override // com.baidu.tieba.oa
     public boolean onFindMessage(SocketMessage socketMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -644,24 +636,24 @@ public abstract class ChatMessage extends TbSocketMessage implements na, xn {
         return invokeL.booleanValue;
     }
 
-    public void setItemView(@Nullable cb7 cb7Var) {
-        WeakReference<cb7> weakReference;
+    public void setItemView(@Nullable bf7 bf7Var) {
+        WeakReference<bf7> weakReference;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048631, this, cb7Var) == null) {
-            if (cb7Var == null && (weakReference = this.itemViewWeakReference) != null) {
+        if (interceptable == null || interceptable.invokeL(1048631, this, bf7Var) == null) {
+            if (bf7Var == null && (weakReference = this.itemViewWeakReference) != null) {
                 weakReference.clear();
                 this.itemViewWeakReference = null;
                 return;
             }
-            WeakReference<cb7> weakReference2 = this.itemViewWeakReference;
+            WeakReference<bf7> weakReference2 = this.itemViewWeakReference;
             if (weakReference2 != null) {
-                if (weakReference2.get() == cb7Var) {
+                if (weakReference2.get() == bf7Var) {
                     return;
                 }
                 this.itemViewWeakReference.clear();
                 this.itemViewWeakReference = null;
             }
-            this.itemViewWeakReference = new WeakReference<>(cb7Var);
+            this.itemViewWeakReference = new WeakReference<>(bf7Var);
         }
     }
 
@@ -735,7 +727,7 @@ public abstract class ChatMessage extends TbSocketMessage implements na, xn {
         }
     }
 
-    public void setIceBreakEmotions(List<ic7> list) {
+    public void setIceBreakEmotions(List<gg7> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048627, this, list) == null) {
             this.iceBreakEmotions = list;

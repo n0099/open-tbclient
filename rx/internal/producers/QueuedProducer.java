@@ -2,14 +2,14 @@ package rx.internal.producers;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d3a;
-import com.baidu.tieba.e3a;
-import com.baidu.tieba.i3a;
-import com.baidu.tieba.o3a;
-import com.baidu.tieba.s5a;
-import com.baidu.tieba.s6a;
-import com.baidu.tieba.x3a;
-import com.baidu.tieba.z6a;
+import com.baidu.tieba.aba;
+import com.baidu.tieba.aca;
+import com.baidu.tieba.f9a;
+import com.baidu.tieba.hca;
+import com.baidu.tieba.l8a;
+import com.baidu.tieba.m8a;
+import com.baidu.tieba.q8a;
+import com.baidu.tieba.w8a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,12 +22,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes9.dex */
-public final class QueuedProducer<T> extends AtomicLong implements e3a, d3a<T> {
+public final class QueuedProducer<T> extends AtomicLong implements m8a, l8a<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object NULL_SENTINEL;
     public static final long serialVersionUID = 7277121710709137047L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final i3a<? super T> child;
+    public final q8a<? super T> child;
     public volatile boolean done;
     public Throwable error;
     public final Queue<Object> queue;
@@ -49,7 +49,7 @@ public final class QueuedProducer<T> extends AtomicLong implements e3a, d3a<T> {
         NULL_SENTINEL = new Object();
     }
 
-    @Override // com.baidu.tieba.d3a
+    @Override // com.baidu.tieba.l8a
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -62,38 +62,38 @@ public final class QueuedProducer<T> extends AtomicLong implements e3a, d3a<T> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public QueuedProducer(i3a<? super T> i3aVar) {
-        this(i3aVar, r0);
-        Queue s5aVar;
+    public QueuedProducer(q8a<? super T> q8aVar) {
+        this(q8aVar, r0);
+        Queue abaVar;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {i3aVar};
+            Object[] objArr = {q8aVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((i3a) objArr2[0], (Queue) objArr2[1]);
+                this((q8a) objArr2[0], (Queue) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        if (z6a.b()) {
-            s5aVar = new s6a();
+        if (hca.b()) {
+            abaVar = new aca();
         } else {
-            s5aVar = new s5a();
+            abaVar = new aba();
         }
     }
 
-    public QueuedProducer(i3a<? super T> i3aVar, Queue<Object> queue) {
+    public QueuedProducer(q8a<? super T> q8aVar, Queue<Object> queue) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {i3aVar, queue};
+            Object[] objArr = {q8aVar, queue};
             interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -103,7 +103,7 @@ public final class QueuedProducer<T> extends AtomicLong implements e3a, d3a<T> {
                 return;
             }
         }
-        this.child = i3aVar;
+        this.child = q8aVar;
         this.queue = queue;
         this.wip = new AtomicInteger();
     }
@@ -137,7 +137,7 @@ public final class QueuedProducer<T> extends AtomicLong implements e3a, d3a<T> {
         boolean z;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.wip.getAndIncrement() == 0) {
-            i3a<? super T> i3aVar = this.child;
+            q8a<? super T> q8aVar = this.child;
             Queue<Object> queue = this.queue;
             while (!checkTerminated(this.done, queue.isEmpty())) {
                 this.wip.lazySet(1);
@@ -159,9 +159,9 @@ public final class QueuedProducer<T> extends AtomicLong implements e3a, d3a<T> {
                     }
                     try {
                         if (poll == NULL_SENTINEL) {
-                            i3aVar.onNext(null);
+                            q8aVar.onNext(null);
                         } else {
-                            i3aVar.onNext(poll);
+                            q8aVar.onNext(poll);
                         }
                         j--;
                         j2++;
@@ -169,7 +169,7 @@ public final class QueuedProducer<T> extends AtomicLong implements e3a, d3a<T> {
                         if (poll == NULL_SENTINEL) {
                             poll = null;
                         }
-                        o3a.g(th, i3aVar, poll);
+                        w8a.g(th, q8aVar, poll);
                         return;
                     }
                 }
@@ -200,7 +200,7 @@ public final class QueuedProducer<T> extends AtomicLong implements e3a, d3a<T> {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.d3a
+    @Override // com.baidu.tieba.l8a
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -210,7 +210,7 @@ public final class QueuedProducer<T> extends AtomicLong implements e3a, d3a<T> {
         }
     }
 
-    @Override // com.baidu.tieba.d3a
+    @Override // com.baidu.tieba.l8a
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, t) == null) && !offer(t)) {
@@ -218,14 +218,14 @@ public final class QueuedProducer<T> extends AtomicLong implements e3a, d3a<T> {
         }
     }
 
-    @Override // com.baidu.tieba.e3a
+    @Override // com.baidu.tieba.m8a
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i >= 0) {
                 if (i > 0) {
-                    x3a.b(this, j);
+                    f9a.b(this, j);
                     drain();
                     return;
                 }

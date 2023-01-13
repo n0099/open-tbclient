@@ -115,7 +115,7 @@ public class r {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m579a(String str, String str2, String str3) {
+    public synchronized void m643a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3) == null) {
             synchronized (this) {

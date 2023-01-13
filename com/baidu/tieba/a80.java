@@ -1,92 +1,70 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.pm.PackageManager;
-import android.util.DisplayMetrics;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a80 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(Context context) {
+    public static byte[] a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            DisplayMetrics c = c(context);
-            if (c != null) {
-                return c.densityDpi;
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            DisplayMetrics c = c(context);
-            if (c != null) {
-                return c.heightPixels;
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static DisplayMetrics c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (context == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return context.getResources().getDisplayMetrics();
-        }
-        return (DisplayMetrics) invokeL.objValue;
-    }
-
-    public static int d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            DisplayMetrics c = c(context);
-            if (c != null) {
-                return c.widthPixels;
+            byte[] a = d80.a(str.getBytes());
+            if (a != null && a.length > 2) {
+                a[0] = 117;
+                a[1] = 123;
             }
-            return 0;
+            return a;
         }
-        return invokeL.intValue;
+        return (byte[]) invokeL.objValue;
     }
 
-    public static String f(Context context) {
-        InterceptResult invokeL;
+    public static boolean b(Context context, JSONArray jSONArray, boolean z, boolean z2, boolean z3) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return "unknown";
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, jSONArray, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+            if (jSONArray != null && jSONArray.length() != 0) {
+                e80.a("UBCUploader", "uploadjson:" + jSONArray.toString() + ", isReal:" + z + ", isSave:" + z2);
+                if (z2) {
+                    e80.a("UBCUploader", "save ubcdata");
+                    return true;
+                }
+                c(context, jSONArray, z, z2, z3);
+                return true;
             }
+            e80.a("UBCUploader", "upload json is null");
+            return false;
         }
-        return (String) invokeL.objValue;
+        return invokeCommon.booleanValue;
     }
 
-    public static String e(Context context) {
-        InterceptResult invokeL;
+    public static void c(Context context, JSONArray jSONArray, boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            int d = d(context);
-            int b = b(context);
-            int a = a(context);
-            String f = f(context);
-            return d + "_" + b + "_android_" + f + "_" + a;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, jSONArray, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+            JSONObject b = new b80(z, jSONArray).b();
+            if (b == null) {
+                e80.a("UBCUploader", "uploadJsonData is null");
+                return;
+            }
+            byte[] a = a(b.toString());
+            if (a != null && a.length >= 3) {
+                e80.a("UBCUploader", "gzip success, length:" + a.length);
+                e80.a("UBCUploader", "start execute http upload data");
+                y70 y70Var = new y70(context);
+                v70.e(context).b(context, y70Var, y70Var, a, z3);
+                return;
+            }
+            e80.a("UBCUploader", "uploadGzip is null or uploadGzip length<3");
         }
-        return (String) invokeL.objValue;
     }
 }

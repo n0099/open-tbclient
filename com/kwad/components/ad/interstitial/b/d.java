@@ -472,6 +472,15 @@ public final class d extends b {
         return invokeL.booleanValue;
     }
 
+    public static /* synthetic */ boolean a(d dVar, Dialog dialog) {
+        return a(dialog);
+    }
+
+    public static /* synthetic */ boolean a(d dVar, boolean z) {
+        dVar.gZ = true;
+        return true;
+    }
+
     private void aE() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, this) == null) {
@@ -502,7 +511,7 @@ public final class d extends b {
             float a = a(cB, av);
             com.kwad.sdk.core.e.b.d("InterstitialWebViewPresenter", "replaceNativeView cardRatio: " + a);
             this.gh.gj.setRatio(a);
-            ViewGroup viewGroup = (ViewGroup) this.gS.findViewById(R.id.obfuscated_res_0x7f09116c);
+            ViewGroup viewGroup = (ViewGroup) this.gS.findViewById(R.id.obfuscated_res_0x7f091177);
             viewGroup.setVisibility(0);
             viewGroup.post(new Runnable(this, cB, av, viewGroup) { // from class: com.kwad.components.ad.interstitial.b.d.22
                 public static /* synthetic */ Interceptable $ic;
@@ -547,7 +556,7 @@ public final class d extends b {
                         this.hl.addView(this.hc.gh.gj);
                         this.hc.gh.gj.f(a2.width, a2.height);
                         this.hc.dp.requestLayout();
-                        this.hc.gZ = true;
+                        d.a(this.hc, true);
                     }
                 }
             });
@@ -662,7 +671,7 @@ public final class d extends b {
             com.kwad.components.ad.f.kwai.kwai.b j = com.kwad.components.ad.f.kwai.kwai.b.j(this.mAdTemplate);
             this.gY = j;
             if (j != null) {
-                j.a(new b.InterfaceC0549b(this) { // from class: com.kwad.components.ad.interstitial.b.d.2
+                j.a(new b.InterfaceC0548b(this) { // from class: com.kwad.components.ad.interstitial.b.d.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ d hc;
@@ -685,7 +694,7 @@ public final class d extends b {
                         this.hc = this;
                     }
 
-                    @Override // com.kwad.components.ad.f.kwai.kwai.b.InterfaceC0549b
+                    @Override // com.kwad.components.ad.f.kwai.kwai.b.InterfaceC0548b
                     public final void C(int i) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
@@ -708,7 +717,7 @@ public final class d extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65565, this)) == null) {
             com.kwad.components.ad.f.kwai.kwai.a aVar = new com.kwad.components.ad.f.kwai.kwai.a();
-            this.gh.gs.add(new c.InterfaceC0558c(this, aVar) { // from class: com.kwad.components.ad.interstitial.b.d.3
+            this.gh.gs.add(new c.InterfaceC0557c(this, aVar) { // from class: com.kwad.components.ad.interstitial.b.d.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ d hc;
@@ -733,7 +742,7 @@ public final class d extends b {
                     this.hd = aVar;
                 }
 
-                @Override // com.kwad.components.ad.interstitial.b.c.InterfaceC0558c
+                @Override // com.kwad.components.ad.interstitial.b.c.InterfaceC0557c
                 public final void cH() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -1059,7 +1068,11 @@ public final class d extends b {
                             @Override // java.lang.Runnable
                             public final void run() {
                                 Interceptable interceptable3 = $ic;
-                                if ((interceptable3 == null || interceptable3.invokeV(1048576, this) == null) && this.hf.hc.gi != null && d.a(this.hf.hc.gi)) {
+                                if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || this.hf.hc.gi == null) {
+                                    return;
+                                }
+                                d dVar = this.hf.hc;
+                                if (d.a(dVar, dVar.gi)) {
                                     this.hf.hc.gi.dismiss();
                                     if (this.hf.hc.gh.gn || this.hf.hc.gh.fo == null) {
                                         return;
@@ -1147,7 +1160,10 @@ public final class d extends b {
                             if (!this.hh.hc.gh.gn && this.hg.type == 0 && !this.hh.hc.gh.gl && !this.hh.hc.gh.gm && com.kwad.components.ad.interstitial.c.a.c(this.hh.hc.gh)) {
                                 this.hh.hc.gh.gm = true;
                                 com.kwad.components.ad.interstitial.a.b.J(this.hh.hc.mContext);
-                            } else if (d.a(this.hh.hc.gi)) {
+                                return;
+                            }
+                            d dVar = this.hh.hc;
+                            if (d.a(dVar, dVar.gi)) {
                                 this.hh.hc.gi.dismiss();
                                 this.hh.hc.gh.a(this.hg.type == 3, -1, this.hh.hc.dp);
                                 if (this.hh.hc.gh.gn || this.hh.hc.gh.fo == null) {
@@ -1457,7 +1473,7 @@ public final class d extends b {
             public final void a(com.kwad.components.core.webview.a.b bVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, bVar) == null) {
-                    AdWebViewActivityProxy.launch(this.hc.mContext, new AdWebViewActivityProxy.a.C0601a().ao(bVar.title).ap(bVar.url).N(this.hc.mAdTemplate).nx());
+                    AdWebViewActivityProxy.launch(this.hc.mContext, new AdWebViewActivityProxy.a.C0600a().ao(bVar.title).ap(bVar.url).N(this.hc.mAdTemplate).nx());
                 }
             }
         } : (w.a) invokeV.objValue;
@@ -1690,15 +1706,15 @@ public final class d extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onCreate();
-            KsAdWebView ksAdWebView = (KsAdWebView) getRootView().findViewById(R.id.obfuscated_res_0x7f0912d0);
+            KsAdWebView ksAdWebView = (KsAdWebView) getRootView().findViewById(R.id.obfuscated_res_0x7f0912db);
             this.gT = ksAdWebView;
             ksAdWebView.setBackgroundColor(0);
             this.gT.setVisibility(4);
             this.aM = new com.kwad.components.core.widget.kwai.b(this.gT, 100);
-            this.gS = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f09111d);
-            this.dN = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f0912a7);
-            this.f6do = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f0912b7);
-            this.gU = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f091174);
+            this.gS = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f091128);
+            this.dN = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f0912b2);
+            this.f6do = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f0912c2);
+            this.gU = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f09117f);
             Context context = getContext();
             this.mContext = context;
             if (context != null) {

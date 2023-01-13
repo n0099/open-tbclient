@@ -350,6 +350,7 @@ public class MediaChatMessageManager implements IChatMessageManager {
     }
 
     public void onFetchMsgByIdResult(FetchMsgResponse fetchMsgResponse, String str) {
+        ScreenUbc.MethodInfo screenMethodInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, fetchMsgResponse, str) == null) {
             LogUtils.d(TAG, "onFetchMsgByIdResult:" + fetchMsgResponse.toString());
@@ -360,7 +361,9 @@ public class MediaChatMessageManager implements IChatMessageManager {
                     fetchMsgResponse.msgs = MediaMessageDBManager.getInstance(this.mAppContext).fetchMsg(new ChatObject(this.mAppContext, fetchMsgResponse.category, fetchMsgResponse.contacter), fetchMsgResponse.endId, fetchMsgResponse.count, -1L, false);
                 }
                 bIMValueCallBack.onResult(fetchMsgResponse.errorCode, fetchMsgResponse.strMsg, fetchMsgResponse);
-                ScreenUbc.MethodInfo screenMethodInfo = Utility.getScreenMethodInfo(str);
+                if (TextUtils.isEmpty(str) || (screenMethodInfo = Utility.getScreenMethodInfo(str)) == null) {
+                    return;
+                }
                 screenMethodInfo.errCode = fetchMsgResponse.errorCode;
                 screenMethodInfo.errMsg = fetchMsgResponse.strMsg;
                 screenMethodInfo.endTime = System.currentTimeMillis();

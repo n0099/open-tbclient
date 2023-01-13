@@ -9,6 +9,7 @@ import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.coroutines.CoroutineContext;
+import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.ranges.RangesKt___RangesKt;
@@ -29,7 +30,8 @@ public final class HandlerContext extends HandlerDispatcher implements Delay {
     }
 
     @Override // kotlinx.coroutines.CoroutineDispatcher
-    public void dispatch(CoroutineContext coroutineContext, Runnable runnable) {
+    /* renamed from: dispatch */
+    public void mo2188dispatch(CoroutineContext coroutineContext, Runnable runnable) {
         this.handler.post(runnable);
     }
 
@@ -47,15 +49,36 @@ public final class HandlerContext extends HandlerDispatcher implements Delay {
     }
 
     @Override // kotlinx.coroutines.Delay
-    public void scheduleResumeAfterDelay(long j, final CancellableContinuation<? super Unit> cancellableContinuation) {
-        Runnable runnable = new Runnable() { // from class: kotlinx.coroutines.android.HandlerContext$scheduleResumeAfterDelay$$inlined$Runnable$1
+    /* renamed from: scheduleResumeAfterDelay */
+    public void mo2189scheduleResumeAfterDelay(long j, final CancellableContinuation<? super Unit> cancellableContinuation) {
+        final Runnable runnable = new Runnable() { // from class: kotlinx.coroutines.android.HandlerContext$scheduleResumeAfterDelay$$inlined$Runnable$1
             @Override // java.lang.Runnable
             public final void run() {
                 cancellableContinuation.resumeUndispatched(HandlerContext.this, Unit.INSTANCE);
             }
         };
         this.handler.postDelayed(runnable, RangesKt___RangesKt.coerceAtMost(j, 4611686018427387903L));
-        cancellableContinuation.invokeOnCancellation(new HandlerContext$scheduleResumeAfterDelay$1(this, runnable));
+        cancellableContinuation.invokeOnCancellation(new Function1<Throwable, Unit>() { // from class: kotlinx.coroutines.android.HandlerContext$scheduleResumeAfterDelay$1
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(1);
+            }
+
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function1
+            public /* bridge */ /* synthetic */ Unit invoke(Throwable th) {
+                invoke2(th);
+                return Unit.INSTANCE;
+            }
+
+            /* renamed from: invoke  reason: avoid collision after fix types in other method */
+            public final void invoke2(Throwable th) {
+                Handler handler;
+                handler = HandlerContext.this.handler;
+                handler.removeCallbacks(runnable);
+            }
+        });
     }
 
     public /* synthetic */ HandlerContext(Handler handler, String str, int i, DefaultConstructorMarker defaultConstructorMarker) {

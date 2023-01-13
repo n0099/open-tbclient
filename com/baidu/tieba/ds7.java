@@ -1,50 +1,40 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetVipInfo.VipThemeItem;
+import java.util.Iterator;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ds7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    public ds7(VipThemeItem vipThemeItem) {
+    public static String a(String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vipThemeItem};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, jSONObject)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(str + "?");
+            Iterator<String> keys = jSONObject.keys();
+            boolean z = true;
+            while (keys.hasNext()) {
+                if (z) {
+                    String next = keys.next();
+                    if (next != null) {
+                        sb.append(next + "=" + jSONObject.optString(next));
+                        z = false;
+                    }
+                } else {
+                    String next2 = keys.next();
+                    if (next2 != null) {
+                        sb.append("&");
+                        sb.append(next2 + "=" + jSONObject.optString(next2));
+                    }
+                }
             }
+            return sb.toString();
         }
-        vipThemeItem.props_id.intValue();
-        String str = vipThemeItem.title;
-        String str2 = vipThemeItem.img_url;
-        String str3 = vipThemeItem.tag_img_url;
-        this.a = vipThemeItem.props_category.intValue();
-        String str4 = vipThemeItem.props_category_name;
-        String str5 = vipThemeItem.link;
-        String str6 = vipThemeItem.update_time;
-        vipThemeItem.id.intValue();
-        vipThemeItem.type.intValue();
-    }
-
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
+        return (String) invokeLL.objValue;
     }
 }

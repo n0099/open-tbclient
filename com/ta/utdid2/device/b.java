@@ -37,7 +37,7 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, aVar)) == null) {
             if (aVar != null) {
                 String format = String.format("%s%s%s%s%s", aVar.f(), aVar.getDeviceId(), Long.valueOf(aVar.a()), aVar.getImsi(), aVar.e());
-                if (!g.m89a(format)) {
+                if (!g.m93a(format)) {
                     Adler32 adler32 = new Adler32();
                     adler32.reset();
                     adler32.update(format.getBytes());
@@ -57,7 +57,7 @@ public class b {
             if (context != null) {
                 synchronized (d) {
                     String value = c.a(context).getValue();
-                    if (!g.m89a(value)) {
+                    if (!g.m93a(value)) {
                         if (value.endsWith("\n")) {
                             value = value.substring(0, value.length() - 1);
                         }

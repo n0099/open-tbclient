@@ -1,20 +1,19 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.storage.swankv.AshmemFileDescriptor;
-import com.baidu.storage.swankv.SwanKV;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class xc3 {
+public final class xc3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, rc3> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AshmemFileDescriptor a;
-    public volatile SwanKV b;
 
     static {
         InterceptResult invokeClinit;
@@ -29,32 +28,49 @@ public class xc3 {
                 return;
             }
         }
-        vc3.f();
+        boolean z = tk1.a;
+        a = new HashMap();
     }
 
-    public AshmemFileDescriptor a() {
+    public xc3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static rc3 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b("searchbox_webapps_sp");
         }
-        return (AshmemFileDescriptor) invokeV.objValue;
+        return (rc3) invokeV.objValue;
     }
 
-    @NonNull
-    public SwanKV b() {
-        InterceptResult invokeV;
+    public static rc3 b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            rc3 rc3Var = a.get(str);
+            if (rc3Var == null) {
+                synchronized (xc3.class) {
+                    rc3Var = a.get(str);
+                    if (rc3Var == null) {
+                        rc3Var = new rc3(str);
+                        a.put(str, rc3Var);
+                    }
+                }
+            }
+            return rc3Var;
         }
-        return (SwanKV) invokeV.objValue;
-    }
-
-    public void c(@NonNull SwanKV swanKV) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, swanKV) == null) {
-            this.b = swanKV;
-        }
+        return (rc3) invokeL.objValue;
     }
 }

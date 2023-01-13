@@ -61,7 +61,7 @@ public class LookMoreSocketResMessage extends SocketResponsedMessage {
             if (getPostListResIdl != null && (dataRes = getPostListResIdl.data) != null && (list = dataRes.post_list) != null && list.size() > 0) {
                 for (Post post : list) {
                     PostData postData = new PostData();
-                    postData.y0(post);
+                    postData.A0(post);
                     postData.O = 102;
                     this.list.add(postData);
                 }

@@ -1,16 +1,17 @@
 package com.baidu.searchbox.live.interfaces.defaultimpl.service;
 
+import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
-import com.alipay.sdk.encrypt.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.searchbox.live.interfaces.mix.PluginInvokeService;
 import com.baidu.searchbox.live.interfaces.player.BuildParams;
 import com.baidu.searchbox.live.interfaces.player.LivePlayer;
+import com.baidu.searchbox.live.interfaces.player.internal.LivePlayUrlService;
 import com.baidu.searchbox.live.interfaces.player.internal.LivePreStartPlayerService;
 import com.baidu.searchbox.live.interfaces.service.AbConfigService;
 import com.baidu.searchbox.live.interfaces.service.AppInfoService;
@@ -26,6 +27,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Map;
 import kotlin.Lazy;
@@ -40,10 +42,9 @@ import kotlin.jvm.internal.PropertyReference1Impl;
 import kotlin.jvm.internal.Reflection;
 import kotlin.reflect.KProperty;
 import kotlin.text.StringsKt__StringsJVMKt;
-import kotlin.text.StringsKt__StringsKt;
 import org.json.JSONException;
 import org.json.JSONObject;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000X\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0000\u0018\u0000 :2\u00020\u0001:\u0002:;B\u0007¢\u0006\u0004\b9\u0010\u001cJ#\u0010\u0005\u001a\u0004\u0018\u00010\u00022\u0006\u0010\u0003\u001a\u00020\u00022\b\u0010\u0004\u001a\u0004\u0018\u00010\u0002H\u0002¢\u0006\u0004\b\u0005\u0010\u0006J)\u0010\t\u001a\u00020\b2\u0006\u0010\u0003\u001a\u00020\u00022\b\u0010\u0004\u001a\u0004\u0018\u00010\u00022\u0006\u0010\u0007\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\t\u0010\nJ'\u0010\u000e\u001a\u00020\u00022\u0006\u0010\u000b\u001a\u00020\u00022\u0006\u0010\f\u001a\u00020\u00022\u0006\u0010\r\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u000e\u0010\u000fJ\u001b\u0010\u0012\u001a\u0004\u0018\u00010\u00112\b\u0010\u0010\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\u0012\u0010\u0013J\u000f\u0010\u0014\u001a\u00020\bH\u0002¢\u0006\u0004\b\u0014\u0010\u0015J\u0019\u0010\u0018\u001a\u00020\u00172\b\u0010\u0016\u001a\u0004\u0018\u00010\u0002H\u0002¢\u0006\u0004\b\u0018\u0010\u0019J-\u0010\u001a\u001a\u00020\b2\b\u0010\u0003\u001a\u0004\u0018\u00010\u00022\b\u0010\u0004\u001a\u0004\u0018\u00010\u00022\b\u0010\u0007\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\u001a\u0010\nJ\u000f\u0010\u001b\u001a\u00020\u0017H\u0016¢\u0006\u0004\b\u001b\u0010\u001cJ\u000f\u0010\u001d\u001a\u00020\u0017H\u0002¢\u0006\u0004\b\u001d\u0010\u001cR\u001e\u0010 \u001a\n \u001f*\u0004\u0018\u00010\u001e0\u001e8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b \u0010!R%\u0010'\u001a\n \u001f*\u0004\u0018\u00010\"0\"8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b#\u0010$\u001a\u0004\b%\u0010&R\u001d\u0010,\u001a\u00020(8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b)\u0010$\u001a\u0004\b*\u0010+R%\u00101\u001a\n \u001f*\u0004\u0018\u00010-0-8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b.\u0010$\u001a\u0004\b/\u00100R%\u00106\u001a\n \u001f*\u0004\u0018\u000102028B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b3\u0010$\u001a\u0004\b4\u00105R\u0018\u0010\u001a\u001a\u0004\u0018\u0001078\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001a\u00108¨\u0006<"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/defaultimpl/service/LivePreStartPlayServiceImpl;", "Lcom/baidu/searchbox/live/interfaces/player/internal/LivePreStartPlayerService;", "", "roomId", "source", "buildExtLog", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", "params", "", "createAndStartPlayer", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z", "url", "paramKey", "paramValue", "fillParam", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", "cacheKey", "Lcom/baidu/searchbox/live/interfaces/player/LivePlayer;", "getPreStartPlayer", "(Ljava/lang/String;)Lcom/baidu/searchbox/live/interfaces/player/LivePlayer;", "isLiveNpsSupportPreStart", "()Z", "msg", "", "log", "(Ljava/lang/String;)V", "preStartPlayer", "releasePreStartPlayer", "()V", "resetTimeoutWork", "Lcom/baidu/searchbox/live/interfaces/service/AbConfigService;", "kotlin.jvm.PlatformType", "abService", "Lcom/baidu/searchbox/live/interfaces/service/AbConfigService;", "Lcom/baidu/searchbox/live/interfaces/service/AppInfoService;", "appService$delegate", "Lkotlin/Lazy;", "getAppService", "()Lcom/baidu/searchbox/live/interfaces/service/AppInfoService;", "appService", "Landroid/os/Handler;", "mainHandler$delegate", "getMainHandler", "()Landroid/os/Handler;", "mainHandler", "Lcom/baidu/searchbox/live/interfaces/service/ILivePlayerService;", "playerService$delegate", "getPlayerService", "()Lcom/baidu/searchbox/live/interfaces/service/ILivePlayerService;", "playerService", "Lcom/baidu/searchbox/live/interfaces/mix/PluginInvokeService;", "pluginManagerService$delegate", "getPluginManagerService", "()Lcom/baidu/searchbox/live/interfaces/mix/PluginInvokeService;", "pluginManagerService", "Lcom/baidu/searchbox/live/interfaces/defaultimpl/service/LivePreStartPlayServiceImpl$PreStartPlayer;", "Lcom/baidu/searchbox/live/interfaces/defaultimpl/service/LivePreStartPlayServiceImpl$PreStartPlayer;", "<init>", "Companion", "PreStartPlayer", "lib-live-interfaces-impl_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000`\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0000\u0018\u0000 82\u00020\u0001:\u000289B\u0007¢\u0006\u0004\b7\u0010\u0017J#\u0010\u0005\u001a\u0004\u0018\u00010\u00022\u0006\u0010\u0003\u001a\u00020\u00022\b\u0010\u0004\u001a\u0004\u0018\u00010\u0002H\u0002¢\u0006\u0004\b\u0005\u0010\u0006J)\u0010\t\u001a\u00020\b2\u0006\u0010\u0003\u001a\u00020\u00022\b\u0010\u0004\u001a\u0004\u0018\u00010\u00022\u0006\u0010\u0007\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\t\u0010\nJ\u001b\u0010\r\u001a\u0004\u0018\u00010\f2\b\u0010\u000b\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\r\u0010\u000eJ\u000f\u0010\u000f\u001a\u00020\bH\u0002¢\u0006\u0004\b\u000f\u0010\u0010J\u0019\u0010\u0013\u001a\u00020\u00122\b\u0010\u0011\u001a\u0004\u0018\u00010\u0002H\u0002¢\u0006\u0004\b\u0013\u0010\u0014J-\u0010\u0015\u001a\u00020\b2\b\u0010\u0003\u001a\u0004\u0018\u00010\u00022\b\u0010\u0004\u001a\u0004\u0018\u00010\u00022\b\u0010\u0007\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\u0015\u0010\nJ\u000f\u0010\u0016\u001a\u00020\u0012H\u0016¢\u0006\u0004\b\u0016\u0010\u0017J\u000f\u0010\u0018\u001a\u00020\u0012H\u0002¢\u0006\u0004\b\u0018\u0010\u0017R\u001e\u0010\u001b\u001a\n \u001a*\u0004\u0018\u00010\u00190\u00198\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u001b\u0010\u001cR%\u0010\"\u001a\n \u001a*\u0004\u0018\u00010\u001d0\u001d8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001e\u0010\u001f\u001a\u0004\b \u0010!R\u001d\u0010'\u001a\u00020#8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b$\u0010\u001f\u001a\u0004\b%\u0010&R\u001e\u0010)\u001a\n \u001a*\u0004\u0018\u00010(0(8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b)\u0010*R%\u0010/\u001a\n \u001a*\u0004\u0018\u00010+0+8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b,\u0010\u001f\u001a\u0004\b-\u0010.R%\u00104\u001a\n \u001a*\u0004\u0018\u000100008B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b1\u0010\u001f\u001a\u0004\b2\u00103R\u0018\u0010\u0015\u001a\u0004\u0018\u0001058\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0015\u00106¨\u0006:"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/defaultimpl/service/LivePreStartPlayServiceImpl;", "Lcom/baidu/searchbox/live/interfaces/player/internal/LivePreStartPlayerService;", "", "roomId", "source", "buildExtLog", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", "params", "", "createAndStartPlayer", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z", "cacheKey", "Lcom/baidu/searchbox/live/interfaces/player/LivePlayer;", "getPreStartPlayer", "(Ljava/lang/String;)Lcom/baidu/searchbox/live/interfaces/player/LivePlayer;", "isLiveNpsSupportPreStart", "()Z", "msg", "", "log", "(Ljava/lang/String;)V", "preStartPlayer", "releasePreStartPlayer", "()V", "resetTimeoutWork", "Lcom/baidu/searchbox/live/interfaces/service/AbConfigService;", "kotlin.jvm.PlatformType", "abService", "Lcom/baidu/searchbox/live/interfaces/service/AbConfigService;", "Lcom/baidu/searchbox/live/interfaces/service/AppInfoService;", "appService$delegate", "Lkotlin/Lazy;", "getAppService", "()Lcom/baidu/searchbox/live/interfaces/service/AppInfoService;", "appService", "Landroid/os/Handler;", "mainHandler$delegate", "getMainHandler", "()Landroid/os/Handler;", "mainHandler", "Lcom/baidu/searchbox/live/interfaces/player/internal/LivePlayUrlService;", "playUrlService", "Lcom/baidu/searchbox/live/interfaces/player/internal/LivePlayUrlService;", "Lcom/baidu/searchbox/live/interfaces/service/ILivePlayerService;", "playerService$delegate", "getPlayerService", "()Lcom/baidu/searchbox/live/interfaces/service/ILivePlayerService;", "playerService", "Lcom/baidu/searchbox/live/interfaces/mix/PluginInvokeService;", "pluginManagerService$delegate", "getPluginManagerService", "()Lcom/baidu/searchbox/live/interfaces/mix/PluginInvokeService;", "pluginManagerService", "Lcom/baidu/searchbox/live/interfaces/defaultimpl/service/LivePreStartPlayServiceImpl$PreStartPlayer;", "Lcom/baidu/searchbox/live/interfaces/defaultimpl/service/LivePreStartPlayServiceImpl$PreStartPlayer;", "<init>", "Companion", "PreStartPlayer", "lib-live-interfaces-impl_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
 public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerService {
     public static final /* synthetic */ KProperty[] $$delegatedProperties;
@@ -52,8 +53,6 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
     public static final Companion Companion;
     public static final int ENABLE_ERROR_NO_CONVERT = 2013;
     public static final int FORMAT_KEY = 114;
-    public static final String KEY_PLAY_CDN_TRACE_ID = "live_add_cdn_trace_id";
-    public static final String KEY_PLAY_CONFIG_PLAY_RATE = "live_play_rate";
     public static final int K_LIVE_PLAY_RATE_SETTING = 2014;
     public static final int K_RTC_MEDIA_HEVC_TYPE = 2015;
     public static final int K_RTC_MEDIA_SERVER_IP = 2010;
@@ -62,8 +61,6 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
     public static final String LIVE_STATE_BACK = "3";
     public static final String LIVE_TEMPLATE_AUDIO = "5";
     public static final String LIVE_TEMPLATE_DATE = "7";
-    public static final String PARAM_KABR_SPTS = "kabr_spts";
-    public static final String PARAM_URL = "url";
     public static final long PLAYER_TIME_OUT_DURATION = 6000;
     public static final int V_MEDIA_SOURCE_TYPE_DEF = 0;
     public static final int V_MEDIA_SOURCE_TYPE_DURTC = 2;
@@ -72,9 +69,29 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
     public final AbConfigService abService;
     public final Lazy appService$delegate;
     public final Lazy mainHandler$delegate;
+    public final LivePlayUrlService playUrlService;
     public final Lazy playerService$delegate;
     public final Lazy pluginManagerService$delegate;
     public PreStartPlayer preStartPlayer;
+
+    @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
+    /* loaded from: classes2.dex */
+    public final /* synthetic */ class WhenMappings {
+        public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+        public static final /* synthetic */ int[] $EnumSwitchMapping$1;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            int[] iArr = new int[LivePlayUrlService.UrlType.values().length];
+            $EnumSwitchMapping$0 = iArr;
+            iArr[LivePlayUrlService.UrlType.RTC_HEVC.ordinal()] = 1;
+            int[] iArr2 = new int[LivePlayUrlService.UrlType.values().length];
+            $EnumSwitchMapping$1 = iArr2;
+            iArr2[LivePlayUrlService.UrlType.RTC_HEVC.ordinal()] = 1;
+            $EnumSwitchMapping$1[LivePlayUrlService.UrlType.RTC_AVC.ordinal()] = 2;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -96,7 +113,7 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
     private final AppInfoService getAppService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             Lazy lazy = this.appService$delegate;
             KProperty kProperty = $$delegatedProperties[2];
             return (AppInfoService) lazy.getValue();
@@ -108,7 +125,7 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
     public final Handler getMainHandler() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
             Lazy lazy = this.mainHandler$delegate;
             KProperty kProperty = $$delegatedProperties[3];
             return (Handler) lazy.getValue();
@@ -119,7 +136,7 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
     private final ILivePlayerService getPlayerService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
             Lazy lazy = this.playerService$delegate;
             KProperty kProperty = $$delegatedProperties[0];
             return (ILivePlayerService) lazy.getValue();
@@ -131,7 +148,7 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
     public final PluginInvokeService getPluginManagerService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
             Lazy lazy = this.pluginManagerService$delegate;
             KProperty kProperty = $$delegatedProperties[1];
             return (PluginInvokeService) lazy.getValue();
@@ -139,7 +156,7 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
         return (PluginInvokeService) invokeV.objValue;
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u000f\n\u0002\u0010\t\n\u0002\b\b\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u001a\u0010\u001bR\u0016\u0010\u0002\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0006R\u0016\u0010\u0007\u001a\u00020\u00048\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0007\u0010\u0006R\u0016\u0010\b\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\b\u0010\u0003R\u0016\u0010\t\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\t\u0010\u0003R\u0016\u0010\n\u001a\u00020\u00048\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\n\u0010\u0006R\u0016\u0010\u000b\u001a\u00020\u00048\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u000b\u0010\u0006R\u0016\u0010\f\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\f\u0010\u0006R\u0016\u0010\r\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\r\u0010\u0003R\u0016\u0010\u000e\u001a\u00020\u00048\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u000e\u0010\u0006R\u0016\u0010\u000f\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u000f\u0010\u0003R\u0016\u0010\u0010\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0010\u0010\u0003R\u0016\u0010\u0011\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0011\u0010\u0003R\u0016\u0010\u0012\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0012\u0010\u0003R\u0016\u0010\u0013\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0013\u0010\u0003R\u0016\u0010\u0015\u001a\u00020\u00148\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0015\u0010\u0016R\u0016\u0010\u0017\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0017\u0010\u0006R\u0016\u0010\u0018\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0018\u0010\u0006R\u0016\u0010\u0019\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0019\u0010\u0006¨\u0006\u001c"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/defaultimpl/service/LivePreStartPlayServiceImpl$Companion;", "", "AB_PRE_START_PLAYER_SWITCH", "Ljava/lang/String;", "", "ENABLE_ERROR_NO_CONVERT", "I", "FORMAT_KEY", "KEY_PLAY_CDN_TRACE_ID", "KEY_PLAY_CONFIG_PLAY_RATE", "K_LIVE_PLAY_RATE_SETTING", "K_RTC_MEDIA_HEVC_TYPE", "K_RTC_MEDIA_SERVER_IP", "LIVE_NPS", "LIVE_PLUGIN_SUPPORT_PRE_START_PLAYER_MIM_VERSION", "LIVE_STATE_BACK", "LIVE_TEMPLATE_AUDIO", "LIVE_TEMPLATE_DATE", "PARAM_KABR_SPTS", "PARAM_URL", "", "PLAYER_TIME_OUT_DURATION", "J", "V_MEDIA_SOURCE_TYPE_DEF", "V_MEDIA_SOURCE_TYPE_DURTC", "V_MEDIA_SOURCE_TYPE_PLAYBACK", "<init>", "()V", "lib-live-interfaces-impl_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u000b\n\u0002\u0010\t\n\u0002\b\b\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0016\u0010\u0017R\u0016\u0010\u0002\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0006R\u0016\u0010\u0007\u001a\u00020\u00048\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0007\u0010\u0006R\u0016\u0010\b\u001a\u00020\u00048\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\b\u0010\u0006R\u0016\u0010\t\u001a\u00020\u00048\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\t\u0010\u0006R\u0016\u0010\n\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\n\u0010\u0006R\u0016\u0010\u000b\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u000b\u0010\u0003R\u0016\u0010\f\u001a\u00020\u00048\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\f\u0010\u0006R\u0016\u0010\r\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\r\u0010\u0003R\u0016\u0010\u000e\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u000e\u0010\u0003R\u0016\u0010\u000f\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u000f\u0010\u0003R\u0016\u0010\u0011\u001a\u00020\u00108\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0011\u0010\u0012R\u0016\u0010\u0013\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0013\u0010\u0006R\u0016\u0010\u0014\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0014\u0010\u0006R\u0016\u0010\u0015\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0015\u0010\u0006¨\u0006\u0018"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/defaultimpl/service/LivePreStartPlayServiceImpl$Companion;", "", "AB_PRE_START_PLAYER_SWITCH", "Ljava/lang/String;", "", "ENABLE_ERROR_NO_CONVERT", "I", "FORMAT_KEY", "K_LIVE_PLAY_RATE_SETTING", "K_RTC_MEDIA_HEVC_TYPE", "K_RTC_MEDIA_SERVER_IP", "LIVE_NPS", "LIVE_PLUGIN_SUPPORT_PRE_START_PLAYER_MIM_VERSION", "LIVE_STATE_BACK", "LIVE_TEMPLATE_AUDIO", "LIVE_TEMPLATE_DATE", "", "PLAYER_TIME_OUT_DURATION", "J", "V_MEDIA_SOURCE_TYPE_DEF", "V_MEDIA_SOURCE_TYPE_DURTC", "V_MEDIA_SOURCE_TYPE_PLAYBACK", "<init>", "()V", "lib-live-interfaces-impl_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
     public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
@@ -292,6 +309,7 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
         this.pluginManagerService$delegate = LazyKt__LazyJVMKt.lazy(LivePreStartPlayServiceImpl$pluginManagerService$2.INSTANCE);
         this.appService$delegate = LazyKt__LazyJVMKt.lazy(LivePreStartPlayServiceImpl$appService$2.INSTANCE);
         this.abService = (AbConfigService) ServiceManager.getService(AbConfigService.Companion.getSERVICE_REFERENCE());
+        this.playUrlService = (LivePlayUrlService) ServiceManager.getService(LivePlayUrlService.Companion.getSERVICE_REFERENCE());
         this.mainHandler$delegate = LazyKt__LazyJVMKt.lazy(LivePreStartPlayServiceImpl$mainHandler$2.INSTANCE);
     }
 
@@ -324,7 +342,7 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
     public final void log(String str) {
         AppInfoService appService;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65549, this, str) == null) && (appService = getAppService()) != null && appService.isDebug() && !TextUtils.isEmpty(str)) {
+        if ((interceptable == null || interceptable.invokeL(65548, this, str) == null) && (appService = getAppService()) != null && appService.isDebug() && !TextUtils.isEmpty(str)) {
             Log.i("LivePreStartPlayService", String.valueOf(str));
         }
     }
@@ -350,422 +368,336 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
         return (String) invokeLL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:192:0x02e1  */
-    /* JADX WARN: Removed duplicated region for block: B:193:0x02e3  */
-    /* JADX WARN: Removed duplicated region for block: B:195:0x02e6 A[Catch: Exception -> 0x0470, TryCatch #0 {Exception -> 0x0470, blocks: (B:5:0x0010, B:10:0x0023, B:14:0x003a, B:18:0x0044, B:22:0x004f, B:26:0x005a, B:28:0x007b, B:30:0x0096, B:32:0x009e, B:35:0x00a8, B:40:0x00b4, B:45:0x00bf, B:50:0x00ca, B:55:0x00d5, B:60:0x00e0, B:62:0x00e7, B:64:0x0124, B:66:0x012a, B:69:0x012f, B:72:0x0135, B:75:0x013e, B:77:0x0145, B:79:0x014c, B:80:0x0150, B:82:0x0157, B:83:0x015b, B:85:0x0162, B:86:0x0166, B:89:0x0172, B:91:0x0185, B:93:0x018b, B:96:0x0190, B:98:0x0194, B:99:0x0197, B:101:0x019f, B:103:0x01b2, B:105:0x01b8, B:108:0x01bd, B:110:0x01c1, B:111:0x01c4, B:113:0x01cc, B:115:0x01df, B:117:0x01e5, B:120:0x01ea, B:122:0x01ee, B:123:0x01f1, B:129:0x0200, B:131:0x0206, B:133:0x020d, B:135:0x0213, B:137:0x021b, B:139:0x0221, B:141:0x0228, B:143:0x022e, B:145:0x0236, B:190:0x02db, B:195:0x02e6, B:197:0x02ed, B:200:0x02f6, B:203:0x0300, B:205:0x0307, B:206:0x0310, B:208:0x0334, B:212:0x033f, B:216:0x0348, B:217:0x034f, B:221:0x035e, B:225:0x036d, B:227:0x0380, B:231:0x038a, B:254:0x03df, B:256:0x041a, B:234:0x0390, B:236:0x0397, B:238:0x039d, B:240:0x03a6, B:243:0x03ad, B:247:0x03b4, B:249:0x03d0, B:253:0x03dc, B:146:0x0245, B:151:0x0250, B:153:0x0256, B:155:0x025d, B:157:0x0263, B:159:0x026b, B:160:0x0279, B:165:0x0284, B:167:0x028a, B:169:0x0291, B:171:0x0297, B:173:0x029f, B:174:0x02a6, B:179:0x02b1, B:181:0x02b7, B:183:0x02be, B:185:0x02c4, B:187:0x02cc, B:188:0x02d3, B:258:0x0455), top: B:269:0x0010 }] */
-    /* JADX WARN: Removed duplicated region for block: B:197:0x02ed A[Catch: Exception -> 0x0470, TryCatch #0 {Exception -> 0x0470, blocks: (B:5:0x0010, B:10:0x0023, B:14:0x003a, B:18:0x0044, B:22:0x004f, B:26:0x005a, B:28:0x007b, B:30:0x0096, B:32:0x009e, B:35:0x00a8, B:40:0x00b4, B:45:0x00bf, B:50:0x00ca, B:55:0x00d5, B:60:0x00e0, B:62:0x00e7, B:64:0x0124, B:66:0x012a, B:69:0x012f, B:72:0x0135, B:75:0x013e, B:77:0x0145, B:79:0x014c, B:80:0x0150, B:82:0x0157, B:83:0x015b, B:85:0x0162, B:86:0x0166, B:89:0x0172, B:91:0x0185, B:93:0x018b, B:96:0x0190, B:98:0x0194, B:99:0x0197, B:101:0x019f, B:103:0x01b2, B:105:0x01b8, B:108:0x01bd, B:110:0x01c1, B:111:0x01c4, B:113:0x01cc, B:115:0x01df, B:117:0x01e5, B:120:0x01ea, B:122:0x01ee, B:123:0x01f1, B:129:0x0200, B:131:0x0206, B:133:0x020d, B:135:0x0213, B:137:0x021b, B:139:0x0221, B:141:0x0228, B:143:0x022e, B:145:0x0236, B:190:0x02db, B:195:0x02e6, B:197:0x02ed, B:200:0x02f6, B:203:0x0300, B:205:0x0307, B:206:0x0310, B:208:0x0334, B:212:0x033f, B:216:0x0348, B:217:0x034f, B:221:0x035e, B:225:0x036d, B:227:0x0380, B:231:0x038a, B:254:0x03df, B:256:0x041a, B:234:0x0390, B:236:0x0397, B:238:0x039d, B:240:0x03a6, B:243:0x03ad, B:247:0x03b4, B:249:0x03d0, B:253:0x03dc, B:146:0x0245, B:151:0x0250, B:153:0x0256, B:155:0x025d, B:157:0x0263, B:159:0x026b, B:160:0x0279, B:165:0x0284, B:167:0x028a, B:169:0x0291, B:171:0x0297, B:173:0x029f, B:174:0x02a6, B:179:0x02b1, B:181:0x02b7, B:183:0x02be, B:185:0x02c4, B:187:0x02cc, B:188:0x02d3, B:258:0x0455), top: B:269:0x0010 }] */
-    /* JADX WARN: Removed duplicated region for block: B:245:0x03b1  */
-    /* JADX WARN: Removed duplicated region for block: B:246:0x03b3  */
-    /* JADX WARN: Removed duplicated region for block: B:249:0x03d0 A[Catch: Exception -> 0x0470, TryCatch #0 {Exception -> 0x0470, blocks: (B:5:0x0010, B:10:0x0023, B:14:0x003a, B:18:0x0044, B:22:0x004f, B:26:0x005a, B:28:0x007b, B:30:0x0096, B:32:0x009e, B:35:0x00a8, B:40:0x00b4, B:45:0x00bf, B:50:0x00ca, B:55:0x00d5, B:60:0x00e0, B:62:0x00e7, B:64:0x0124, B:66:0x012a, B:69:0x012f, B:72:0x0135, B:75:0x013e, B:77:0x0145, B:79:0x014c, B:80:0x0150, B:82:0x0157, B:83:0x015b, B:85:0x0162, B:86:0x0166, B:89:0x0172, B:91:0x0185, B:93:0x018b, B:96:0x0190, B:98:0x0194, B:99:0x0197, B:101:0x019f, B:103:0x01b2, B:105:0x01b8, B:108:0x01bd, B:110:0x01c1, B:111:0x01c4, B:113:0x01cc, B:115:0x01df, B:117:0x01e5, B:120:0x01ea, B:122:0x01ee, B:123:0x01f1, B:129:0x0200, B:131:0x0206, B:133:0x020d, B:135:0x0213, B:137:0x021b, B:139:0x0221, B:141:0x0228, B:143:0x022e, B:145:0x0236, B:190:0x02db, B:195:0x02e6, B:197:0x02ed, B:200:0x02f6, B:203:0x0300, B:205:0x0307, B:206:0x0310, B:208:0x0334, B:212:0x033f, B:216:0x0348, B:217:0x034f, B:221:0x035e, B:225:0x036d, B:227:0x0380, B:231:0x038a, B:254:0x03df, B:256:0x041a, B:234:0x0390, B:236:0x0397, B:238:0x039d, B:240:0x03a6, B:243:0x03ad, B:247:0x03b4, B:249:0x03d0, B:253:0x03dc, B:146:0x0245, B:151:0x0250, B:153:0x0256, B:155:0x025d, B:157:0x0263, B:159:0x026b, B:160:0x0279, B:165:0x0284, B:167:0x028a, B:169:0x0291, B:171:0x0297, B:173:0x029f, B:174:0x02a6, B:179:0x02b1, B:181:0x02b7, B:183:0x02be, B:185:0x02c4, B:187:0x02cc, B:188:0x02d3, B:258:0x0455), top: B:269:0x0010 }] */
+    /* JADX WARN: Code restructure failed: missing block: B:145:0x028a, code lost:
+        r3 = r8.toString();
+        kotlin.jvm.internal.Intrinsics.checkExpressionValueIsNotNull(r3, "it.toString()");
+        r10.put(2017, r3);
+     */
+    /* JADX WARN: Removed duplicated region for block: B:107:0x0209  */
+    /* JADX WARN: Removed duplicated region for block: B:117:0x022c  */
+    /* JADX WARN: Removed duplicated region for block: B:124:0x023d A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:125:0x023e A[Catch: Exception -> 0x0330, TryCatch #5 {Exception -> 0x0330, blocks: (B:5:0x0014, B:7:0x0043, B:9:0x005d, B:11:0x0065, B:14:0x006f, B:16:0x0078, B:19:0x0080, B:22:0x008c, B:25:0x00c2, B:31:0x00ea, B:35:0x00f7, B:37:0x011a, B:41:0x0125, B:42:0x0128, B:52:0x0143, B:53:0x014a, B:55:0x015d, B:57:0x0163, B:60:0x0168, B:63:0x016e, B:66:0x0177, B:68:0x017e, B:69:0x0187, B:73:0x0196, B:77:0x01a5, B:86:0x01d2, B:108:0x020b, B:110:0x0211, B:112:0x021e, B:116:0x0228, B:145:0x028a, B:146:0x029c, B:148:0x02d7, B:125:0x023e, B:127:0x0244, B:129:0x024b, B:131:0x0251, B:133:0x0257, B:137:0x025e, B:139:0x027a, B:143:0x0285, B:118:0x022e, B:122:0x0238, B:80:0x01be, B:84:0x01cc, B:45:0x0130, B:26:0x00c8, B:30:0x00e7, B:150:0x0310, B:152:0x0316, B:88:0x01d8, B:95:0x01ec, B:97:0x01f1, B:102:0x0200, B:101:0x01fd), top: B:167:0x0014 }] */
+    /* JADX WARN: Removed duplicated region for block: B:135:0x025b  */
+    /* JADX WARN: Removed duplicated region for block: B:136:0x025d  */
+    /* JADX WARN: Removed duplicated region for block: B:139:0x027a A[Catch: Exception -> 0x0330, TryCatch #5 {Exception -> 0x0330, blocks: (B:5:0x0014, B:7:0x0043, B:9:0x005d, B:11:0x0065, B:14:0x006f, B:16:0x0078, B:19:0x0080, B:22:0x008c, B:25:0x00c2, B:31:0x00ea, B:35:0x00f7, B:37:0x011a, B:41:0x0125, B:42:0x0128, B:52:0x0143, B:53:0x014a, B:55:0x015d, B:57:0x0163, B:60:0x0168, B:63:0x016e, B:66:0x0177, B:68:0x017e, B:69:0x0187, B:73:0x0196, B:77:0x01a5, B:86:0x01d2, B:108:0x020b, B:110:0x0211, B:112:0x021e, B:116:0x0228, B:145:0x028a, B:146:0x029c, B:148:0x02d7, B:125:0x023e, B:127:0x0244, B:129:0x024b, B:131:0x0251, B:133:0x0257, B:137:0x025e, B:139:0x027a, B:143:0x0285, B:118:0x022e, B:122:0x0238, B:80:0x01be, B:84:0x01cc, B:45:0x0130, B:26:0x00c8, B:30:0x00e7, B:150:0x0310, B:152:0x0316, B:88:0x01d8, B:95:0x01ec, B:97:0x01f1, B:102:0x0200, B:101:0x01fd), top: B:167:0x0014 }] */
+    /* JADX WARN: Removed duplicated region for block: B:148:0x02d7 A[Catch: Exception -> 0x0330, TryCatch #5 {Exception -> 0x0330, blocks: (B:5:0x0014, B:7:0x0043, B:9:0x005d, B:11:0x0065, B:14:0x006f, B:16:0x0078, B:19:0x0080, B:22:0x008c, B:25:0x00c2, B:31:0x00ea, B:35:0x00f7, B:37:0x011a, B:41:0x0125, B:42:0x0128, B:52:0x0143, B:53:0x014a, B:55:0x015d, B:57:0x0163, B:60:0x0168, B:63:0x016e, B:66:0x0177, B:68:0x017e, B:69:0x0187, B:73:0x0196, B:77:0x01a5, B:86:0x01d2, B:108:0x020b, B:110:0x0211, B:112:0x021e, B:116:0x0228, B:145:0x028a, B:146:0x029c, B:148:0x02d7, B:125:0x023e, B:127:0x0244, B:129:0x024b, B:131:0x0251, B:133:0x0257, B:137:0x025e, B:139:0x027a, B:143:0x0285, B:118:0x022e, B:122:0x0238, B:80:0x01be, B:84:0x01cc, B:45:0x0130, B:26:0x00c8, B:30:0x00e7, B:150:0x0310, B:152:0x0316, B:88:0x01d8, B:95:0x01ec, B:97:0x01f1, B:102:0x0200, B:101:0x01fd), top: B:167:0x0014 }] */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x0141  */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x015d A[Catch: Exception -> 0x0330, TryCatch #5 {Exception -> 0x0330, blocks: (B:5:0x0014, B:7:0x0043, B:9:0x005d, B:11:0x0065, B:14:0x006f, B:16:0x0078, B:19:0x0080, B:22:0x008c, B:25:0x00c2, B:31:0x00ea, B:35:0x00f7, B:37:0x011a, B:41:0x0125, B:42:0x0128, B:52:0x0143, B:53:0x014a, B:55:0x015d, B:57:0x0163, B:60:0x0168, B:63:0x016e, B:66:0x0177, B:68:0x017e, B:69:0x0187, B:73:0x0196, B:77:0x01a5, B:86:0x01d2, B:108:0x020b, B:110:0x0211, B:112:0x021e, B:116:0x0228, B:145:0x028a, B:146:0x029c, B:148:0x02d7, B:125:0x023e, B:127:0x0244, B:129:0x024b, B:131:0x0251, B:133:0x0257, B:137:0x025e, B:139:0x027a, B:143:0x0285, B:118:0x022e, B:122:0x0238, B:80:0x01be, B:84:0x01cc, B:45:0x0130, B:26:0x00c8, B:30:0x00e7, B:150:0x0310, B:152:0x0316, B:88:0x01d8, B:95:0x01ec, B:97:0x01f1, B:102:0x0200, B:101:0x01fd), top: B:167:0x0014 }] */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x0162  */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x0167  */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x0193  */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x0194  */
+    /* JADX WARN: Removed duplicated region for block: B:75:0x01a1  */
+    /* JADX WARN: Removed duplicated region for block: B:76:0x01a4  */
+    /* JADX WARN: Removed duplicated region for block: B:86:0x01d2 A[Catch: Exception -> 0x0330, TRY_LEAVE, TryCatch #5 {Exception -> 0x0330, blocks: (B:5:0x0014, B:7:0x0043, B:9:0x005d, B:11:0x0065, B:14:0x006f, B:16:0x0078, B:19:0x0080, B:22:0x008c, B:25:0x00c2, B:31:0x00ea, B:35:0x00f7, B:37:0x011a, B:41:0x0125, B:42:0x0128, B:52:0x0143, B:53:0x014a, B:55:0x015d, B:57:0x0163, B:60:0x0168, B:63:0x016e, B:66:0x0177, B:68:0x017e, B:69:0x0187, B:73:0x0196, B:77:0x01a5, B:86:0x01d2, B:108:0x020b, B:110:0x0211, B:112:0x021e, B:116:0x0228, B:145:0x028a, B:146:0x029c, B:148:0x02d7, B:125:0x023e, B:127:0x0244, B:129:0x024b, B:131:0x0251, B:133:0x0257, B:137:0x025e, B:139:0x027a, B:143:0x0285, B:118:0x022e, B:122:0x0238, B:80:0x01be, B:84:0x01cc, B:45:0x0130, B:26:0x00c8, B:30:0x00e7, B:150:0x0310, B:152:0x0316, B:88:0x01d8, B:95:0x01ec, B:97:0x01f1, B:102:0x0200, B:101:0x01fd), top: B:167:0x0014 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private final boolean createAndStartPlayer(String str, String str2, String str3) {
         InterceptResult invokeLLL;
+        JSONObject jSONObject;
+        boolean areEqual;
+        String optString;
+        String optString2;
+        String optString3;
+        String optString4;
+        LivePlayUrlService.PlayUrlData playUrlData;
         boolean z;
-        Object obj;
-        boolean z2;
-        boolean z3;
-        boolean z4;
-        boolean z5;
-        Object obj2;
         Map<String, Object> mediaLivePlayConfig;
-        boolean z6;
-        Integer num;
-        Object obj3;
-        Map<String, Object> mediaLivePlayConfig2;
-        Object obj4;
-        Map<String, Object> mediaLivePlayConfig3;
-        boolean z7;
+        Object obj;
         String str4;
-        int i;
-        Object obj5;
-        Object obj6;
-        Object obj7;
+        String buildExtLog;
         String str5;
+        LivePlayUrlService.UrlType urlType;
+        int i;
+        Integer num;
+        int i2;
+        PluginInvokeService pluginManagerService;
+        Object obj2;
+        Object obj3;
         String str6;
-        Object obj8;
-        Object obj9;
-        Map<String, Object> mediaLivePlayConfig4;
-        Map<String, Object> mediaLivePlayConfig5;
-        Object obj10;
-        Object obj11;
-        Object obj12;
-        boolean z8;
-        boolean z9;
-        boolean z10;
-        boolean z11;
+        Map<String, Object> mediaLivePlayConfig2;
+        LivePlayer createPlayer;
+        int i3;
+        String it;
+        String url;
+        String queryParameter;
+        JSONObject jSONObject2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, this, str, str2, str3)) == null) {
             try {
-                JSONObject jSONObject = new JSONObject(str3);
-                String optString = jSONObject.optString("playUrl");
-                if (optString == null) {
-                    optString = "";
-                }
-                boolean areEqual = Intrinsics.areEqual("3", jSONObject.optString("status"));
-                String optString2 = jSONObject.optString("avcUrl");
-                if (optString2 == null) {
-                    optString2 = "";
-                }
-                String optString3 = jSONObject.optString("hevcUrl");
-                if (optString3 == null) {
-                    optString3 = "";
-                }
-                String optString4 = jSONObject.optString("rtcUrl");
-                if (optString4 == null) {
-                    optString4 = "";
-                }
-                String optString5 = jSONObject.optString("rtcHevcUrl");
-                if (optString5 == null) {
-                    optString5 = "";
-                }
-                String optString6 = jSONObject.optString("templateId");
-                String optString7 = jSONObject.optString("format");
-                String optString8 = jSONObject.optString(PARAM_KABR_SPTS);
-                String optString9 = jSONObject.optString("playerIdentifier");
-                if (!TextUtils.isEmpty(optString9)) {
-                    log("preStartPlayer paramsString: playerCacheKey " + optString9 + ",内核复用场景，直播间外已经起播，无需预播放");
-                    return false;
-                }
-                if (!Intrinsics.areEqual(optString6, "5") && !Intrinsics.areEqual(optString6, "7")) {
-                    if (optString.length() == 0) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (z) {
-                        if (optString2.length() == 0) {
-                            z8 = true;
-                        } else {
-                            z8 = false;
-                        }
-                        if (z8) {
-                            if (optString3.length() == 0) {
-                                z9 = true;
-                            } else {
-                                z9 = false;
-                            }
-                            if (z9) {
-                                if (optString4.length() == 0) {
-                                    z10 = true;
-                                } else {
-                                    z10 = false;
-                                }
-                                if (z10) {
-                                    if (optString5.length() == 0) {
-                                        z11 = true;
-                                    } else {
-                                        z11 = false;
-                                    }
-                                    if (z11) {
-                                        log("preStartPlayer paramsString: 无起播地址，返回 ");
-                                        return false;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    log("preStartPlayer paramsString: 开始构建起播参数， 流地址： playUrl " + optString + ", avcUrl " + optString2 + ", hevcUrl " + optString3);
-                    Map<String, Object> mediaLivePlayConfig6 = getPluginManagerService().getMediaLivePlayConfig(KEY_PLAY_CONFIG_PLAY_RATE, MapsKt__MapsJVMKt.mapOf(new Pair(PARAM_KABR_SPTS, optString8)));
-                    if (mediaLivePlayConfig6 != null) {
-                        obj = mediaLivePlayConfig6.get(KEY_PLAY_CONFIG_PLAY_RATE);
-                    } else {
-                        obj = null;
-                    }
-                    if (!(obj instanceof String)) {
-                        obj = null;
-                    }
-                    String str7 = (String) obj;
-                    if (!areEqual && optString8 != null && (!StringsKt__StringsJVMKt.isBlank(optString8)) && str7 != null && (!StringsKt__StringsJVMKt.isBlank(str7))) {
-                        if (!StringsKt__StringsJVMKt.isBlank(optString)) {
-                            optString = fillParam(optString, PARAM_KABR_SPTS, optString8);
-                        }
-                        if (!StringsKt__StringsJVMKt.isBlank(optString2)) {
-                            optString2 = fillParam(optString2, PARAM_KABR_SPTS, optString8);
-                        }
-                        if (!StringsKt__StringsJVMKt.isBlank(optString3)) {
-                            optString3 = fillParam(optString3, PARAM_KABR_SPTS, optString8);
-                        }
-                    }
-                    if (!StringsKt__StringsJVMKt.isBlank(optString)) {
-                        Map<String, Object> mediaLivePlayConfig7 = getPluginManagerService().getMediaLivePlayConfig(KEY_PLAY_CDN_TRACE_ID, MapsKt__MapsJVMKt.mapOf(new Pair("url", optString)));
-                        if (mediaLivePlayConfig7 != null) {
-                            obj12 = mediaLivePlayConfig7.get(KEY_PLAY_CDN_TRACE_ID);
-                        } else {
-                            obj12 = null;
-                        }
-                        if (!(obj12 instanceof String)) {
-                            obj12 = null;
-                        }
-                        String str8 = (String) obj12;
-                        if (str8 != null) {
-                            Unit unit = Unit.INSTANCE;
-                            optString = str8;
-                        }
-                    }
-                    if (!StringsKt__StringsJVMKt.isBlank(optString2)) {
-                        Map<String, Object> mediaLivePlayConfig8 = getPluginManagerService().getMediaLivePlayConfig(KEY_PLAY_CDN_TRACE_ID, MapsKt__MapsJVMKt.mapOf(new Pair("url", optString2)));
-                        if (mediaLivePlayConfig8 != null) {
-                            obj11 = mediaLivePlayConfig8.get(KEY_PLAY_CDN_TRACE_ID);
-                        } else {
-                            obj11 = null;
-                        }
-                        if (!(obj11 instanceof String)) {
-                            obj11 = null;
-                        }
-                        String str9 = (String) obj11;
-                        if (str9 != null) {
-                            Unit unit2 = Unit.INSTANCE;
-                            optString2 = str9;
-                        }
-                    }
-                    if (!StringsKt__StringsJVMKt.isBlank(optString3)) {
-                        Map<String, Object> mediaLivePlayConfig9 = getPluginManagerService().getMediaLivePlayConfig(KEY_PLAY_CDN_TRACE_ID, MapsKt__MapsJVMKt.mapOf(new Pair("url", optString3)));
-                        if (mediaLivePlayConfig9 != null) {
-                            obj10 = mediaLivePlayConfig9.get(KEY_PLAY_CDN_TRACE_ID);
-                        } else {
-                            obj10 = null;
-                        }
-                        if (!(obj10 instanceof String)) {
-                            obj10 = null;
-                        }
-                        String str10 = (String) obj10;
-                        if (str10 != null) {
-                            Unit unit3 = Unit.INSTANCE;
-                            optString3 = str10;
-                        }
-                    }
-                    if (optString5.length() > 0) {
-                        z2 = true;
-                    } else {
-                        z2 = false;
-                    }
-                    if (z2) {
-                        PluginInvokeService pluginManagerService = getPluginManagerService();
-                        if (pluginManagerService != null && (mediaLivePlayConfig5 = pluginManagerService.getMediaLivePlayConfig("is_support_rtc", null)) != null) {
-                            obj8 = mediaLivePlayConfig5.get("is_support_rtc");
-                        } else {
-                            obj8 = null;
-                        }
-                        if (Intrinsics.areEqual(obj8, Boolean.TRUE)) {
-                            PluginInvokeService pluginManagerService2 = getPluginManagerService();
-                            if (pluginManagerService2 != null && (mediaLivePlayConfig4 = pluginManagerService2.getMediaLivePlayConfig("is_support_hevc", null)) != null) {
-                                obj9 = mediaLivePlayConfig4.get("is_support_hevc");
-                            } else {
-                                obj9 = null;
-                            }
-                            if (Intrinsics.areEqual(obj9, Boolean.TRUE)) {
-                                log("preStartPlayer 使用 rtcHevc");
-                                num = 2;
-                                optString4 = optString5;
-                                z6 = true;
-                                if (optString4.length() == 0) {
-                                    z7 = true;
-                                } else {
-                                    z7 = false;
-                                }
-                                if (z7) {
-                                    log("preStartPlayer 无有效流地址");
-                                    return false;
-                                }
-                                HashMap<Integer, String> hashMap = new HashMap<>();
-                                if (!areEqual && optString8 != null && (!StringsKt__StringsJVMKt.isBlank(optString8)) && str7 != null && (!StringsKt__StringsJVMKt.isBlank(str7))) {
-                                    hashMap.put(2014, str7);
-                                }
-                                hashMap.put(0, optString4);
-                                hashMap.put(301, "live");
-                                hashMap.put(124, "live_landing");
-                                if (!TextUtils.isEmpty(optString7)) {
-                                    if (optString7 == null) {
-                                        optString7 = "";
-                                    }
-                                    hashMap.put(114, optString7);
-                                }
-                                if (z6) {
-                                    hashMap.put(2015, "1");
-                                }
-                                String buildExtLog = buildExtLog(str, str2);
-                                if (buildExtLog == null) {
-                                    buildExtLog = "";
-                                }
-                                hashMap.put(111, buildExtLog);
-                                if (!areEqual) {
-                                    str4 = "1";
-                                } else {
-                                    str4 = "0";
-                                }
-                                hashMap.put(2000, str4);
-                                hashMap.put(2013, "1");
-                                BuildParams buildParams = new BuildParams(str);
-                                if (num != null) {
-                                    i = num.intValue();
-                                } else if (areEqual) {
-                                    i = 1;
-                                } else {
-                                    i = 0;
-                                }
-                                buildParams.setPlayerType(i);
-                                if (num != null && num.intValue() == 2) {
-                                    PluginInvokeService pluginManagerService3 = getPluginManagerService();
-                                    if (pluginManagerService3 != null) {
-                                        obj5 = null;
-                                        Map<String, Object> mediaLivePlayConfig10 = pluginManagerService3.getMediaLivePlayConfig("get_preset_ip", null);
-                                        if (mediaLivePlayConfig10 != null) {
-                                            obj6 = mediaLivePlayConfig10.get("get_preset_ip");
-                                            if (obj6 instanceof String) {
-                                                obj7 = obj5;
-                                            } else {
-                                                obj7 = obj6;
-                                            }
-                                            str5 = (String) obj7;
-                                            log("preStartPlayer rtc preset_ip " + str5);
-                                            if (!TextUtils.isEmpty(str5)) {
-                                                if (str5 == null) {
-                                                    str6 = "";
-                                                } else {
-                                                    str6 = str5;
-                                                }
-                                                hashMap.put(2010, str6);
-                                            }
-                                        }
-                                    } else {
-                                        obj5 = null;
-                                    }
-                                    obj6 = obj5;
-                                    if (obj6 instanceof String) {
-                                    }
-                                    str5 = (String) obj7;
-                                    log("preStartPlayer rtc preset_ip " + str5);
-                                    if (!TextUtils.isEmpty(str5)) {
-                                    }
-                                }
-                                log("preStartPlayer paramsString: 开始构建起播参数， 流类型：" + buildParams.getPlayerType() + WebvttCueParser.CHAR_SPACE);
-                                LivePlayer createPlayer = getPlayerService().createPlayer(buildParams);
-                                log("preStartPlayer: 播放器创建结束： " + createPlayer);
-                                if (createPlayer != null) {
-                                    log("preStartPlayer: 播放器开始起播");
-                                    long currentTimeMillis = System.currentTimeMillis();
-                                    createPlayer.setUseLivePreStartPlayerState(true);
-                                    createPlayer.setVideoInfo(hashMap);
-                                    createPlayer.mute(true);
-                                    createPlayer.start();
-                                    log("preStartPlayer: 播放器起播动作耗时：" + (System.currentTimeMillis() - currentTimeMillis));
-                                    this.preStartPlayer = new PreStartPlayer(str, createPlayer);
-                                    resetTimeoutWork();
-                                    return true;
-                                }
-                                return false;
-                            }
-                        }
-                    }
-                    if (optString4.length() > 0) {
-                        z3 = true;
-                    } else {
-                        z3 = false;
-                    }
-                    if (z3) {
-                        PluginInvokeService pluginManagerService4 = getPluginManagerService();
-                        if (pluginManagerService4 != null && (mediaLivePlayConfig3 = pluginManagerService4.getMediaLivePlayConfig("is_support_rtc", null)) != null) {
-                            obj4 = mediaLivePlayConfig3.get("is_support_rtc");
-                        } else {
-                            obj4 = null;
-                        }
-                        if (Intrinsics.areEqual(obj4, Boolean.TRUE)) {
-                            log("preStartPlayer 使用 rtc");
-                            num = 2;
-                            z6 = false;
-                            if (optString4.length() == 0) {
-                            }
-                            if (z7) {
-                            }
-                        }
-                    }
-                    if (optString3.length() > 0) {
-                        z4 = true;
-                    } else {
-                        z4 = false;
-                    }
-                    if (z4) {
-                        PluginInvokeService pluginManagerService5 = getPluginManagerService();
-                        if (pluginManagerService5 != null && (mediaLivePlayConfig2 = pluginManagerService5.getMediaLivePlayConfig("is_support_hevc", null)) != null) {
-                            obj3 = mediaLivePlayConfig2.get("is_support_hevc");
-                        } else {
-                            obj3 = null;
-                        }
-                        if (Intrinsics.areEqual(obj3, Boolean.TRUE)) {
-                            log("preStartPlayer 使用 hevc");
-                            optString4 = optString3;
-                            z6 = false;
-                            num = null;
-                            if (optString4.length() == 0) {
-                            }
-                            if (z7) {
-                            }
-                        }
-                    }
-                    if (optString3.length() > 0) {
-                        z5 = true;
-                    } else {
-                        z5 = false;
-                    }
-                    if (z5) {
-                        PluginInvokeService pluginManagerService6 = getPluginManagerService();
-                        if (pluginManagerService6 != null && (mediaLivePlayConfig = pluginManagerService6.getMediaLivePlayConfig("is_support_avc", null)) != null) {
-                            obj2 = mediaLivePlayConfig.get("is_support_avc");
-                        } else {
-                            obj2 = null;
-                        }
-                        if (Intrinsics.areEqual(obj2, Boolean.TRUE)) {
-                            log("preStartPlayer 使用 avc");
-                            optString4 = optString2;
-                            z6 = false;
-                            num = null;
-                            if (optString4.length() == 0) {
-                            }
-                            if (z7) {
-                            }
-                        }
-                    }
-                    log("preStartPlayer 使用默认流地址");
-                    optString4 = optString;
-                    z6 = false;
-                    num = null;
-                    if (optString4.length() == 0) {
-                    }
-                    if (z7) {
-                    }
-                }
-                log("preStartPlayer paramsString: templateId " + optString6 + " ,非可起播模版，返回 ");
-                return false;
+                jSONObject = new JSONObject(str3);
+                areEqual = Intrinsics.areEqual("3", jSONObject.optString("status"));
+                optString = jSONObject.optString("templateId");
+                optString2 = jSONObject.optString("format");
+                optString3 = jSONObject.optString("kabr_spts");
+                optString4 = jSONObject.optString("playerIdentifier");
             } catch (Exception e) {
                 log("preStartPlayer Exception " + e.getMessage());
+            }
+            if (!TextUtils.isEmpty(optString4)) {
+                log("preStartPlayer paramsString: playerCacheKey " + optString4 + ",内核复用场景，直播间外已经起播，无需预播放");
                 return false;
             }
+            if (!Intrinsics.areEqual(optString, "5") && !Intrinsics.areEqual(optString, "7")) {
+                HashMap<Integer, String> hashMap = new HashMap<>();
+                LivePlayUrlService livePlayUrlService = this.playUrlService;
+                if (livePlayUrlService != null) {
+                    playUrlData = livePlayUrlService.getPlayUrlBySchemeParams(str3);
+                } else {
+                    playUrlData = null;
+                }
+                if (playUrlData != null && !TextUtils.isEmpty(playUrlData.getUrl())) {
+                    log("preStartPlayer 获取到流地址 " + playUrlData.getUrl() + ", type: " + playUrlData.getUrlType());
+                    String transEtnUrl = this.playUrlService.transEtnUrl(playUrlData.getUrl());
+                    if (TextUtils.isEmpty(transEtnUrl)) {
+                        log("preStartPlayer ETN 转换地址为空，不使用 ETN");
+                    } else {
+                        log("preStartPlayer ETN 转换地址非控，使用 ETN: " + transEtnUrl);
+                        if (transEtnUrl == null) {
+                            transEtnUrl = "";
+                        }
+                        hashMap.put(2018, transEtnUrl);
+                    }
+                    JSONObject optJSONObject = jSONObject.optJSONObject("vr");
+                    String url2 = playUrlData.getUrl();
+                    if (url2 == null) {
+                        url2 = "";
+                    }
+                    hashMap.put(0, url2);
+                    hashMap.put(301, "live");
+                    hashMap.put(124, "live_landing");
+                    if (!TextUtils.isEmpty(optString2)) {
+                        if (optString2 == null) {
+                            optString2 = "";
+                        }
+                        hashMap.put(114, optString2);
+                    }
+                    LivePlayUrlService.UrlType urlType2 = playUrlData.getUrlType();
+                    if (urlType2 != null && WhenMappings.$EnumSwitchMapping$0[urlType2.ordinal()] == 1) {
+                        z = true;
+                        if (z) {
+                            hashMap.put(2015, "1");
+                        }
+                        mediaLivePlayConfig = getPluginManagerService().getMediaLivePlayConfig("live_play_rate", MapsKt__MapsJVMKt.mapOf(new Pair("kabr_spts", optString3)));
+                        if (mediaLivePlayConfig == null) {
+                            obj = mediaLivePlayConfig.get("live_play_rate");
+                        } else {
+                            obj = null;
+                        }
+                        if (!(obj instanceof String)) {
+                            obj = null;
+                        }
+                        str4 = (String) obj;
+                        if (!areEqual && optString3 != null && (!StringsKt__StringsJVMKt.isBlank(optString3)) && str4 != null && (!StringsKt__StringsJVMKt.isBlank(str4))) {
+                            hashMap.put(2014, str4);
+                        }
+                        buildExtLog = buildExtLog(str, str2);
+                        if (buildExtLog != null) {
+                            buildExtLog = "";
+                        }
+                        hashMap.put(111, buildExtLog);
+                        if (areEqual) {
+                            str5 = "1";
+                        } else {
+                            str5 = "0";
+                        }
+                        hashMap.put(2000, str5);
+                        hashMap.put(2013, "1");
+                        BuildParams buildParams = new BuildParams(str);
+                        urlType = playUrlData.getUrlType();
+                        if (urlType != null && ((i = WhenMappings.$EnumSwitchMapping$1[urlType.ordinal()]) == 1 || i == 2)) {
+                            num = 2;
+                            if (optJSONObject == null && (url = playUrlData.getUrl()) != null) {
+                                queryParameter = Uri.parse(url).getQueryParameter("vr");
+                                try {
+                                    jSONObject2 = new JSONObject(queryParameter);
+                                    try {
+                                        Unit unit = Unit.INSTANCE;
+                                    } catch (Throwable th) {
+                                        th = th;
+                                        optJSONObject = jSONObject2;
+                                        th.printStackTrace();
+                                        if (queryParameter != null) {
+                                            try {
+                                                optJSONObject = new JSONObject(URLDecoder.decode(queryParameter));
+                                            } catch (Throwable th2) {
+                                                th2.printStackTrace();
+                                            }
+                                            Unit unit2 = Unit.INSTANCE;
+                                        }
+                                        jSONObject2 = optJSONObject;
+                                        optJSONObject = jSONObject2;
+                                        if (optJSONObject != null) {
+                                        }
+                                        if (num == null) {
+                                        }
+                                        log("preStartPlayer paramsString: 开始构建起播参数， 流类型：" + buildParams.getPlayerType() + WebvttCueParser.CHAR_SPACE);
+                                        createPlayer = getPlayerService().createPlayer(buildParams);
+                                        log("preStartPlayer: 播放器创建结束： " + createPlayer);
+                                        if (createPlayer != null) {
+                                        }
+                                        return false;
+                                    }
+                                } catch (Throwable th3) {
+                                    th = th3;
+                                }
+                                optJSONObject = jSONObject2;
+                            }
+                            if (optJSONObject != null) {
+                                if (optJSONObject != null && (it = optJSONObject.toString()) != null) {
+                                    Intrinsics.checkExpressionValueIsNotNull(it, "it");
+                                    buildParams.setOption(BuildParams.K_VR, it);
+                                }
+                                if (num != null) {
+                                    i3 = num.intValue();
+                                } else if (areEqual) {
+                                    i3 = 4;
+                                } else {
+                                    i3 = 3;
+                                }
+                                buildParams.setPlayerType(i3);
+                            } else {
+                                if (num != null) {
+                                    i2 = num.intValue();
+                                } else if (areEqual) {
+                                    i2 = 1;
+                                } else {
+                                    i2 = 0;
+                                }
+                                buildParams.setPlayerType(i2);
+                            }
+                            if (num == null && num.intValue() == 2) {
+                                pluginManagerService = getPluginManagerService();
+                                if (pluginManagerService == null && (mediaLivePlayConfig2 = pluginManagerService.getMediaLivePlayConfig("get_preset_ip", null)) != null) {
+                                    obj2 = mediaLivePlayConfig2.get("get_preset_ip");
+                                } else {
+                                    obj2 = null;
+                                }
+                                if (obj2 instanceof String) {
+                                    obj3 = null;
+                                } else {
+                                    obj3 = obj2;
+                                }
+                                str6 = (String) obj3;
+                                log("preStartPlayer rtc preset_ip " + str6);
+                                if (!TextUtils.isEmpty(str6)) {
+                                    if (str6 == null) {
+                                        str6 = "";
+                                    }
+                                    hashMap.put(2010, str6);
+                                }
+                            }
+                            log("preStartPlayer paramsString: 开始构建起播参数， 流类型：" + buildParams.getPlayerType() + WebvttCueParser.CHAR_SPACE);
+                            createPlayer = getPlayerService().createPlayer(buildParams);
+                            log("preStartPlayer: 播放器创建结束： " + createPlayer);
+                            if (createPlayer != null) {
+                                log("preStartPlayer: 播放器开始起播");
+                                long currentTimeMillis = System.currentTimeMillis();
+                                createPlayer.setUseLivePreStartPlayerState(true);
+                                createPlayer.setVideoInfo(hashMap);
+                                createPlayer.mute(true);
+                                createPlayer.start();
+                                log("preStartPlayer: 播放器起播动作耗时：" + (System.currentTimeMillis() - currentTimeMillis));
+                                this.preStartPlayer = new PreStartPlayer(str, createPlayer);
+                                resetTimeoutWork();
+                                return true;
+                            }
+                            return false;
+                        }
+                        num = null;
+                        if (optJSONObject == null) {
+                            queryParameter = Uri.parse(url).getQueryParameter("vr");
+                            jSONObject2 = new JSONObject(queryParameter);
+                            Unit unit3 = Unit.INSTANCE;
+                            optJSONObject = jSONObject2;
+                        }
+                        if (optJSONObject != null) {
+                        }
+                        if (num == null) {
+                            pluginManagerService = getPluginManagerService();
+                            if (pluginManagerService == null) {
+                            }
+                            obj2 = null;
+                            if (obj2 instanceof String) {
+                            }
+                            str6 = (String) obj3;
+                            log("preStartPlayer rtc preset_ip " + str6);
+                            if (!TextUtils.isEmpty(str6)) {
+                            }
+                        }
+                        log("preStartPlayer paramsString: 开始构建起播参数， 流类型：" + buildParams.getPlayerType() + WebvttCueParser.CHAR_SPACE);
+                        createPlayer = getPlayerService().createPlayer(buildParams);
+                        log("preStartPlayer: 播放器创建结束： " + createPlayer);
+                        if (createPlayer != null) {
+                        }
+                        return false;
+                    }
+                    z = false;
+                    if (z) {
+                    }
+                    mediaLivePlayConfig = getPluginManagerService().getMediaLivePlayConfig("live_play_rate", MapsKt__MapsJVMKt.mapOf(new Pair("kabr_spts", optString3)));
+                    if (mediaLivePlayConfig == null) {
+                    }
+                    if (!(obj instanceof String)) {
+                    }
+                    str4 = (String) obj;
+                    if (!areEqual) {
+                        hashMap.put(2014, str4);
+                    }
+                    buildExtLog = buildExtLog(str, str2);
+                    if (buildExtLog != null) {
+                    }
+                    hashMap.put(111, buildExtLog);
+                    if (areEqual) {
+                    }
+                    hashMap.put(2000, str5);
+                    hashMap.put(2013, "1");
+                    BuildParams buildParams2 = new BuildParams(str);
+                    urlType = playUrlData.getUrlType();
+                    if (urlType != null) {
+                        num = 2;
+                        if (optJSONObject == null) {
+                        }
+                        if (optJSONObject != null) {
+                        }
+                        if (num == null) {
+                        }
+                        log("preStartPlayer paramsString: 开始构建起播参数， 流类型：" + buildParams2.getPlayerType() + WebvttCueParser.CHAR_SPACE);
+                        createPlayer = getPlayerService().createPlayer(buildParams2);
+                        log("preStartPlayer: 播放器创建结束： " + createPlayer);
+                        if (createPlayer != null) {
+                        }
+                        return false;
+                    }
+                    num = null;
+                    if (optJSONObject == null) {
+                    }
+                    if (optJSONObject != null) {
+                    }
+                    if (num == null) {
+                    }
+                    log("preStartPlayer paramsString: 开始构建起播参数， 流类型：" + buildParams2.getPlayerType() + WebvttCueParser.CHAR_SPACE);
+                    createPlayer = getPlayerService().createPlayer(buildParams2);
+                    log("preStartPlayer: 播放器创建结束： " + createPlayer);
+                    if (createPlayer != null) {
+                    }
+                    return false;
+                }
+                log("preStartPlayer paramsString: 解析 scheme 后未找到可用流地址，返回");
+                return false;
+            }
+            log("preStartPlayer paramsString: templateId " + optString + " ,非可起播模版，返回 ");
+            return false;
         }
         return invokeLLL.booleanValue;
-    }
-
-    private final String fillParam(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, this, str, str2, str3)) == null) {
-            if (!StringsKt__StringsJVMKt.isBlank(str2) && !StringsKt__StringsJVMKt.isBlank(str3)) {
-                if (StringsKt__StringsKt.contains$default((CharSequence) str, (CharSequence) "?", false, 2, (Object) null)) {
-                    return str + '&' + str2 + a.h + str3;
-                }
-                return str + '?' + str2 + a.h + str3;
-            }
-            return str;
-        }
-        return (String) invokeLLL.objValue;
     }
 
     private final boolean isLiveNpsSupportPreStart() {
         InterceptResult invokeV;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
             PluginInvokeService pluginManagerService = getPluginManagerService();
             if (pluginManagerService != null) {
                 i = pluginManagerService.getLiveNpsPluginWillLoadVersion();
@@ -782,7 +714,7 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
 
     private final void resetTimeoutWork() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
             getMainHandler().removeCallbacksAndMessages(null);
             getMainHandler().postDelayed(new Runnable(this) { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl$resetTimeoutWork$1
                 public static /* synthetic */ Interceptable $ic;

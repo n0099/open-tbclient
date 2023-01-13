@@ -157,7 +157,7 @@ public class d {
                                 this.Nx.Nv.a(this.Nw, new a(this) { // from class: com.kwad.components.core.webview.b.d.1.1.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
-                                    public final /* synthetic */ RunnableC06091 Ny;
+                                    public final /* synthetic */ RunnableC06081 Ny;
 
                                     {
                                         Interceptable interceptable3 = $ic;
@@ -262,7 +262,7 @@ public class d {
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     com.kwad.sdk.core.e.b.d("TKLoadController", "已经超时");
                     this.Nv.pM();
-                    this.Nv.Nn = true;
+                    d.a(this.Nv, true);
                     this.Nv.pI();
                 }
             }
@@ -927,6 +927,11 @@ public class d {
             });
             a(bVar, cVar, hVar, viewGroup);
         }
+    }
+
+    public static /* synthetic */ boolean a(d dVar, boolean z) {
+        dVar.Nn = true;
+        return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

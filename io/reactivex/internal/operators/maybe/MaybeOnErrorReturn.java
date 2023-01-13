@@ -14,13 +14,13 @@ import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Function;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.ObjectHelper;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class MaybeOnErrorReturn<T> extends AbstractMaybeWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Function<? super Throwable, ? extends T> valueSupplier;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class OnErrorReturnMaybeObserver<T> implements MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

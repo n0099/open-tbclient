@@ -84,9 +84,9 @@ public class AppScoreView extends LinearLayout {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0426, this);
-            this.Cj = (ImageView) findViewById(R.id.obfuscated_res_0x7f09126e);
-            this.Ck = (ImageView) findViewById(R.id.obfuscated_res_0x7f09126d);
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0425, this);
+            this.Cj = (ImageView) findViewById(R.id.obfuscated_res_0x7f091279);
+            this.Ck = (ImageView) findViewById(R.id.obfuscated_res_0x7f091278);
         }
     }
 
@@ -95,22 +95,22 @@ public class AppScoreView extends LinearLayout {
         if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
             double d = f;
             if (d > 4.5d) {
-                this.Cj.setImageResource(R.drawable.obfuscated_res_0x7f080ce5);
-                this.Ck.setImageResource(R.drawable.obfuscated_res_0x7f080ce5);
+                this.Cj.setImageResource(R.drawable.obfuscated_res_0x7f080cf5);
+                this.Ck.setImageResource(R.drawable.obfuscated_res_0x7f080cf5);
             } else if (d > 4.0d) {
-                this.Cj.setImageResource(R.drawable.obfuscated_res_0x7f080ce5);
-                this.Ck.setImageResource(R.drawable.obfuscated_res_0x7f080ce6);
+                this.Cj.setImageResource(R.drawable.obfuscated_res_0x7f080cf5);
+                this.Ck.setImageResource(R.drawable.obfuscated_res_0x7f080cf6);
             } else if (d > 3.5d) {
-                this.Cj.setImageResource(R.drawable.obfuscated_res_0x7f080ce5);
-                this.Ck.setImageResource(R.drawable.obfuscated_res_0x7f080ce7);
+                this.Cj.setImageResource(R.drawable.obfuscated_res_0x7f080cf5);
+                this.Ck.setImageResource(R.drawable.obfuscated_res_0x7f080cf7);
             } else {
                 int i = (d > 3.0d ? 1 : (d == 3.0d ? 0 : -1));
                 if (i > 0) {
-                    this.Cj.setImageResource(R.drawable.obfuscated_res_0x7f080ce6);
-                    this.Ck.setImageResource(R.drawable.obfuscated_res_0x7f080ce7);
+                    this.Cj.setImageResource(R.drawable.obfuscated_res_0x7f080cf6);
+                    this.Ck.setImageResource(R.drawable.obfuscated_res_0x7f080cf7);
                 } else if (i == 0) {
-                    this.Cj.setImageResource(R.drawable.obfuscated_res_0x7f080ce7);
-                    this.Ck.setImageResource(R.drawable.obfuscated_res_0x7f080ce7);
+                    this.Cj.setImageResource(R.drawable.obfuscated_res_0x7f080cf7);
+                    this.Ck.setImageResource(R.drawable.obfuscated_res_0x7f080cf7);
                 }
             }
         }

@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ly7;
-import com.baidu.tieba.ry4;
+import com.baidu.tieba.b38;
+import com.baidu.tieba.cz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class InterestGuideActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ly7 a;
+    public b38 a;
     public int b;
     public boolean c;
     public ArrayList<Integer> d;
@@ -50,7 +50,7 @@ public class InterestGuideActivity extends BaseFragmentActivity {
         }
     }
 
-    public final void L0() {
+    public final void N0() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getIntent() != null) {
             this.b = getIntent().getIntExtra(InterestGuideActivityConfig.KEY_INTEREST_GUID_SHOW_SCENE, 2);
@@ -61,12 +61,12 @@ public class InterestGuideActivity extends BaseFragmentActivity {
         }
     }
 
-    public final void N0() {
+    public final void P0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             TbSingleton.getInstance().setShowedInterestGuide(true);
             String str = "";
-            String r = ry4.l().r("key_interest_guide_show", "");
+            String r = cz4.l().r("key_interest_guide_show", "");
             StringBuilder sb = new StringBuilder();
             sb.append(r);
             if (!StringUtils.isNull(r)) {
@@ -74,9 +74,9 @@ public class InterestGuideActivity extends BaseFragmentActivity {
             }
             sb.append(str);
             String sb2 = sb.toString();
-            ry4 l = ry4.l();
+            cz4 l = cz4.l();
             l.z("key_interest_guide_show", sb2 + System.currentTimeMillis());
-            ry4.l().y("key_interest_panel_show_time", System.currentTimeMillis());
+            cz4.l().y("key_interest_panel_show_time", System.currentTimeMillis());
         }
     }
 
@@ -95,11 +95,11 @@ public class InterestGuideActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            L0();
-            ly7 ly7Var = new ly7(this, this.b, this.c, this.d, this.e, this.f);
-            this.a = ly7Var;
-            setContentView(ly7Var.d());
             N0();
+            b38 b38Var = new b38(this, this.b, this.c, this.d, this.e, this.f);
+            this.a = b38Var;
+            setContentView(b38Var.d());
+            P0();
         }
     }
 }

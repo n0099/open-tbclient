@@ -1,48 +1,26 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.hottopic.data.PostForumData;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.homepage.personalize.data.RealTimeHttpResponse;
+import com.baidu.tieba.homepage.personalize.data.RealTimeRequest;
+import com.baidu.tieba.homepage.personalize.data.RealTimeSocketResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Hottopic.DataRes;
-import tbclient.Hottopic.HotThread;
-import tbclient.Hottopic.PkModule;
-import tbclient.Hottopic.RelateForum;
-import tbclient.Hottopic.SpecialTopic;
-import tbclient.RecomTopicList;
-import tbclient.ThreadInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class y97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<xn> a;
-    public z97 b;
-    public fa7 c;
-    public ju4 d;
-    public PostForumData e;
-    public ca7 f;
-    public u97 g;
-    public u97 h;
-    public u97 i;
-    public aa7 j;
-    public x97 k;
-    public aa7 l;
-    public List<o56> m;
-    public List<xn> n;
-    public vt4 o;
-    public int p;
-    public RecomTopicList q;
+    public BdUniqueId a;
 
     public y97() {
         Interceptable interceptable = $ic;
@@ -58,276 +36,66 @@ public class y97 {
             }
         }
         this.a = null;
-        this.b = null;
-        this.c = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = null;
-        this.j = null;
-        this.k = null;
-        this.l = null;
-        this.m = null;
-        this.n = null;
-        this.o = null;
-        this.a = new ArrayList<>();
     }
 
-    public u97 a() {
-        InterceptResult invokeV;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_REPORT_HOME_PIC_CLICK, qw8.a(TbConfig.HOME_REALTIME_ADDRESS, 309277));
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            tbHttpMessageTask.setResponsedClass(RealTimeHttpResponse.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
-        return (u97) invokeV.objValue;
     }
 
-    public u97 b() {
-        InterceptResult invokeV;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.h;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            dh5 dh5Var = new dh5(309277);
+            dh5Var.setResponsedClass(RealTimeSocketResponse.class);
+            dh5Var.g(true);
+            MessageManager.getInstance().registerTask(dh5Var);
         }
-        return (u97) invokeV.objValue;
     }
 
-    public ju4 c() {
-        InterceptResult invokeV;
+    public void a(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bdUniqueId) == null) {
+            this.a = bdUniqueId;
+            b();
+            c();
         }
-        return (ju4) invokeV.objValue;
     }
 
-    public ca7 d() {
-        InterceptResult invokeV;
+    public final void d(NetMessage netMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
-        }
-        return (ca7) invokeV.objValue;
-    }
-
-    public z97 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (z97) invokeV.objValue;
-    }
-
-    public List<xn> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.n;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public u97 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.i;
-        }
-        return (u97) invokeV.objValue;
-    }
-
-    public void h(DataRes dataRes) {
-        boolean z;
-        boolean z2;
-        boolean z3;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, dataRes) != null) || dataRes == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, netMessage) != null) || netMessage == null) {
             return;
         }
-        dataRes.is_new_url.intValue();
-        if (dataRes.topic_info != null) {
-            z97 z97Var = new z97();
-            this.b = z97Var;
-            z97Var.a(dataRes.topic_info);
+        if (netMessage.getTag() == null) {
+            netMessage.setTag(this.a);
         }
-        HotThread hotThread = dataRes.good_threads;
-        if (hotThread != null && !StringUtils.isNull(hotThread.hot_title) && ListUtils.getCount(dataRes.good_threads.thread_list) != 0) {
-            aa7 aa7Var = new aa7();
-            this.l = aa7Var;
-            aa7Var.a(dataRes.good_threads);
-            this.m = new ArrayList();
-            for (ThreadInfo threadInfo : dataRes.good_threads.thread_list) {
-                ThreadData threadData = new ThreadData();
-                threadData.setResource(5);
-                threadData.parserProtobuf(threadInfo);
-                o56 o56Var = null;
-                if (threadData.isShareThread) {
-                    o56Var = new w56();
-                    o56Var.a = threadData;
-                } else if (x56.R(threadData)) {
-                    o56Var = new x56(threadData);
-                    o56Var.s = true;
-                } else if (w56.W(threadData)) {
-                    o56Var = new w56();
-                    o56Var.a = threadData;
-                }
-                if (o56Var != null && o56Var.isValid()) {
-                    o56Var.L("c10814");
-                    this.m.add(o56Var);
-                }
-            }
-        }
-        List<RelateForum> list = dataRes.relate_forum;
-        if (list != null && list.size() != 0) {
-            fa7 fa7Var = new fa7();
-            this.c = fa7Var;
-            fa7Var.parserProtobuf(dataRes.relate_forum);
-            ju4 ju4Var = new ju4();
-            this.d = ju4Var;
-            ju4Var.floorPosition = 2;
-            if (TextUtils.isEmpty(dataRes.relate_forum_title)) {
-                this.d.d = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08d7);
-            } else {
-                this.d.d = dataRes.relate_forum_title;
-            }
-            ju4 ju4Var2 = this.d;
-            ju4Var2.e = R.color.CAM_X0108;
-            ArrayList<iu4> g = ju4Var2.g();
-            for (RelateForum relateForum : dataRes.relate_forum) {
-                if (!StringUtils.isNull(relateForum.forum_name)) {
-                    iu4 iu4Var = new iu4();
-                    iu4Var.z(relateForum.forum_id.intValue());
-                    iu4Var.C(relateForum.forum_name);
-                    iu4Var.y(relateForum.avatar);
-                    iu4Var.v(relateForum.desc);
-                    iu4Var.x(relateForum.thread_num.intValue());
-                    iu4Var.s(relateForum.member_num.intValue());
-                    if (relateForum.is_liked.intValue() != 0) {
-                        z3 = true;
-                    } else {
-                        z3 = false;
-                    }
-                    iu4Var.r(z3);
-                    g.add(iu4Var);
-                }
-            }
-        }
-        List<RelateForum> list2 = dataRes.post_forum;
-        if (list2 != null && list2.size() != 0) {
-            PostForumData postForumData = new PostForumData();
-            this.e = postForumData;
-            postForumData.parserProtobuf(dataRes.post_forum);
-        }
-        PkModule pkModule = dataRes.pk_module;
-        if (pkModule != null && !StringUtils.isNull(pkModule.ques_desc)) {
-            ca7 ca7Var = new ca7();
-            this.f = ca7Var;
-            ca7Var.a(dataRes.pk_module);
-        }
-        if (dataRes.bless_module != null) {
-            u97 u97Var = new u97();
-            this.g = u97Var;
-            u97Var.a(dataRes.bless_module);
-        }
-        if (dataRes.candle_module != null) {
-            u97 u97Var2 = new u97();
-            this.h = u97Var2;
-            u97Var2.a(dataRes.candle_module);
-        }
-        if (dataRes.weiguan_module != null) {
-            u97 u97Var3 = new u97();
-            this.i = u97Var3;
-            u97Var3.a(dataRes.weiguan_module);
-        }
-        HotThread hotThread2 = dataRes.hot_thread;
-        if (hotThread2 != null && ListUtils.getCount(hotThread2.thread_list) != 0) {
-            aa7 aa7Var2 = new aa7();
-            this.j = aa7Var2;
-            aa7Var2.a(dataRes.hot_thread);
-            x97 x97Var = new x97();
-            this.k = x97Var;
-            x97Var.o(dataRes.hot_thread);
-            if (dataRes.hot_thread.page != null) {
-                vt4 vt4Var = new vt4();
-                this.o = vt4Var;
-                vt4Var.j(dataRes.hot_thread.page);
-                this.o.b();
-            }
-            dataRes.is_global_block.intValue();
-        }
-        this.q = dataRes.next_topic;
-        if (!ListUtils.isEmpty(dataRes.special_topic)) {
-            this.n = new ArrayList();
-            if (this.f != null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            for (SpecialTopic specialTopic : dataRes.special_topic) {
-                if (!ListUtils.isEmpty(specialTopic.thread_list)) {
-                    if (!TextUtils.isEmpty(specialTopic.title)) {
-                        lw7 lw7Var = new lw7(specialTopic.title);
-                        if (!z) {
-                            lw7Var.b = false;
-                            z = true;
-                        }
-                        this.n.add(lw7Var);
-                    }
-                    int size = specialTopic.thread_list.size();
-                    int i = 0;
-                    while (i < size) {
-                        ThreadInfo threadInfo2 = specialTopic.thread_list.get(i);
-                        i++;
-                        if (i == size) {
-                            z2 = true;
-                        } else {
-                            z2 = false;
-                        }
-                        kw7 kw7Var = new kw7(threadInfo2, z2);
-                        kw7Var.c(i);
-                        this.n.add(kw7Var);
-                    }
-                }
-            }
-        }
-        i();
+        MessageManager.getInstance().sendMessage(netMessage);
     }
 
-    public final ArrayList<xn> i() {
-        InterceptResult invokeV;
+    public void e(long j, String str, String str2, int i, String str3, int i2, String str4, BaijiahaoData baijiahaoData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ca7 ca7Var = this.f;
-            if (ca7Var != null) {
-                this.a.add(ca7Var);
+        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2), str4, baijiahaoData}) == null) && !StringUtils.isNull(str) && !StringUtils.isNull(str2) && !StringUtils.isNull(str3)) {
+            RealTimeRequest realTimeRequest = new RealTimeRequest();
+            realTimeRequest.setTid(j);
+            realTimeRequest.setWeight(str);
+            realTimeRequest.setSource(str2);
+            realTimeRequest.setLocation(i);
+            realTimeRequest.setAbtest_tag(str3);
+            realTimeRequest.setType(i2);
+            realTimeRequest.setPage(str4);
+            if (baijiahaoData != null && i2 != yg.e("2", 0)) {
+                realTimeRequest.setOriUgcNid(baijiahaoData.oriUgcNid);
+                realTimeRequest.setOriUgcTid(baijiahaoData.oriUgcTid);
+                realTimeRequest.setOriUgcType(Integer.toString(baijiahaoData.oriUgcType));
+                realTimeRequest.setOriUgcVid(baijiahaoData.oriUgcVid);
             }
-            if (ListUtils.getCount(this.m) > 0) {
-                this.a.add(this.l);
-                if (this.m.size() > 5) {
-                    this.m = this.m.subList(0, 5);
-                }
-                for (o56 o56Var : this.m) {
-                    this.a.add(o56Var);
-                }
-            }
-            fa7 fa7Var = this.c;
-            if (fa7Var != null && fa7Var.getCount() > 0 && this.p == 1) {
-                this.a.add(this.c);
-            }
-            x97 x97Var = this.k;
-            if (x97Var != null && !ListUtils.isEmpty(x97Var.a)) {
-                this.a.add(this.j);
-                for (int i = 0; i < this.k.a.size(); i++) {
-                    this.a.add((o56) ListUtils.getItem(this.k.a, i));
-                    fa7 fa7Var2 = this.c;
-                    if (fa7Var2 != null && fa7Var2.getCount() > 0 && i == 2 && this.p == 0) {
-                        this.a.add(this.c);
-                    }
-                }
-            }
-            return this.a;
+            d(realTimeRequest);
         }
-        return (ArrayList) invokeV.objValue;
     }
 }

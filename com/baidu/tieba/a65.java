@@ -1,26 +1,21 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.db.DBTableDefine;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import org.json.JSONObject;
-import tbclient.UserTaskInfo;
 /* loaded from: classes3.dex */
 public class a65 {
     public static /* synthetic */ Interceptable $ic;
+    public static a65 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public int d;
-    public int e;
-    public String f;
-    public String g;
+    public HashMap<String, String> a;
+    public HashMap<String, String> b;
+    public HashMap<String, String> c;
 
     public a65() {
         Interceptable interceptable = $ic;
@@ -32,106 +27,96 @@ public class a65 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap<>();
+        this.b = new HashMap<>();
+        this.c = new HashMap<>();
     }
 
-    public String a() {
+    public static synchronized a65 a() {
         InterceptResult invokeV;
+        a65 a65Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (a65.class) {
+                if (d == null) {
+                    d = new a65();
+                }
+                a65Var = d;
+            }
+            return a65Var;
         }
-        return (String) invokeV.objValue;
+        return (a65) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public void h(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        jSONObject.optLong("id");
-        this.a = jSONObject.optString("name");
-        this.b = jSONObject.optString(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
-        this.c = jSONObject.optString("task_icon_url");
-        this.d = jSONObject.optInt("status");
-        jSONObject.optInt("target_num");
-        jSONObject.optInt("curr_num");
-        jSONObject.optInt("task_type");
-        this.e = jSONObject.optInt("weight");
-        this.f = jSONObject.optString("act_type");
-        this.g = jSONObject.optString("target_scheme");
-    }
-
-    public void i(UserTaskInfo userTaskInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, userTaskInfo) != null) || userTaskInfo == null) {
-            return;
+        try {
+            JSONObject optJSONObject = jSONObject.optJSONObject("upload_file_frequency");
+            if (optJSONObject != null) {
+                String optString = optJSONObject.optString("2g");
+                String optString2 = optJSONObject.optString("3g");
+                String optString3 = optJSONObject.optString("4g");
+                String optString4 = optJSONObject.optString("wifi");
+                if (optString != null) {
+                    this.a.put("2g", optString);
+                }
+                if (optString2 != null) {
+                    this.a.put("3g", optString2);
+                }
+                if (optString3 != null) {
+                    this.a.put("4g", optString3);
+                }
+                if (optString4 != null) {
+                    this.a.put("wifi", optString4);
+                }
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("upload_data_num");
+            if (optJSONObject2 != null) {
+                String optString5 = optJSONObject2.optString("2g");
+                String optString6 = optJSONObject2.optString("3g");
+                String optString7 = optJSONObject2.optString("4g");
+                String optString8 = optJSONObject2.optString("wifi");
+                if (optString5 != null) {
+                    this.b.put("2g", optString5);
+                }
+                if (optString6 != null) {
+                    this.b.put("3g", optString6);
+                }
+                if (optString7 != null) {
+                    this.b.put("4g", optString7);
+                }
+                if (optString8 != null) {
+                    this.b.put("wifi", optString8);
+                }
+            }
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("merge_data_frequency");
+            if (optJSONObject3 != null) {
+                String optString9 = optJSONObject3.optString("2g");
+                String optString10 = optJSONObject3.optString("3g");
+                String optString11 = optJSONObject3.optString("4g");
+                String optString12 = optJSONObject3.optString("wifi");
+                if (optString9 != null) {
+                    this.c.put("2g", optString9);
+                }
+                if (optString10 != null) {
+                    this.c.put("3g", optString10);
+                }
+                if (optString11 != null) {
+                    this.c.put("4g", optString11);
+                }
+                if (optString12 != null) {
+                    this.c.put("wifi", optString12);
+                }
+            }
+            jSONObject.optString("is_on");
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
-        userTaskInfo.id.longValue();
-        this.a = userTaskInfo.name;
-        this.b = userTaskInfo.brief;
-        this.c = userTaskInfo.task_icon_url;
-        this.d = userTaskInfo.status.intValue();
-        userTaskInfo.target_num.intValue();
-        userTaskInfo.curr_num.intValue();
-        userTaskInfo.task_type.intValue();
-        this.e = userTaskInfo.weight.intValue();
-        this.f = userTaskInfo.act_type;
-        this.g = userTaskInfo.target_scheme;
     }
 }

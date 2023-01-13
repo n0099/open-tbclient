@@ -172,7 +172,7 @@ public class cv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m261a() {
+    public static String m266a() {
         InterceptResult invokeV;
         NetworkInfo activeNetworkInfo;
         Interceptable interceptable = $ic;
@@ -225,9 +225,9 @@ public class cv {
         JSONObject jSONObject2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, arrayList)) == null) {
-            m270d();
+            m275d();
             synchronized (this.f217a) {
-                m266a();
+                m271a();
                 for (String str : this.f217a.keySet()) {
                     if (!arrayList.contains(str)) {
                         arrayList.add(str);
@@ -269,7 +269,7 @@ public class cv {
                             String str3 = arrayList.get(i2);
                             JSONArray optJSONArray = jSONObject5.optJSONArray(str3);
                             if (optJSONArray == null) {
-                                com.xiaomi.channel.commonutils.logger.b.m99a("no bucket found for " + str3);
+                                com.xiaomi.channel.commonutils.logger.b.m103a("no bucket found for " + str3);
                                 jSONObject = jSONObject5;
                             } else {
                                 cr crVar2 = new cr(str3);
@@ -301,7 +301,7 @@ public class cv {
                                 if (jSONObject4.has("ttl")) {
                                     crVar2.a(jSONObject4.getInt("ttl") * 1000);
                                 }
-                                m265a(crVar2.a());
+                                m270a(crVar2.a());
                             }
                             i2++;
                             jSONObject5 = jSONObject;
@@ -314,7 +314,7 @@ public class cv {
                                 String next = keys.next();
                                 JSONArray optJSONArray2 = optJSONObject.optJSONArray(next);
                                 if (optJSONArray2 == null) {
-                                    com.xiaomi.channel.commonutils.logger.b.m99a("no bucket found for " + next);
+                                    com.xiaomi.channel.commonutils.logger.b.m103a("no bucket found for " + next);
                                 } else {
                                     cr crVar3 = new cr(next);
                                     crVar3.a(j);
@@ -335,7 +335,7 @@ public class cv {
                     }
                 }
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m99a("failed to get bucket " + e.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m103a("failed to get bucket " + e.getMessage());
             }
             for (int i5 = 0; i5 < arrayList.size(); i5++) {
                 cr crVar4 = arrayList2.get(i5);
@@ -343,7 +343,7 @@ public class cv {
                     a(arrayList.get(i5), crVar4);
                 }
             }
-            m269c();
+            m274c();
             return arrayList2;
         }
         return (ArrayList) invokeL.objValue;
@@ -387,10 +387,10 @@ public class cv {
                 if (crVar == null) {
                     cr crVar2 = new cr(str);
                     crVar2.a(604800000L);
-                    crVar2.m254a(str2);
+                    crVar2.m259a(str2);
                     b.put(str, crVar2);
                 } else {
-                    crVar.m254a(str2);
+                    crVar.m259a(str2);
                 }
             }
         }
@@ -411,7 +411,7 @@ public class cv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public cr m262a(String str) {
+    public cr m267a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
@@ -448,7 +448,7 @@ public class cv {
             ArrayList<bi> arrayList3 = new ArrayList();
             arrayList3.add(new bg("type", str));
             if (str.equals("wap")) {
-                arrayList3.add(new bg("conpt", a(bj.m204a(a))));
+                arrayList3.add(new bg("conpt", a(bj.m209a(a))));
             }
             if (z) {
                 arrayList3.add(new bg(GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED, "1"));
@@ -489,14 +489,14 @@ public class cv {
             if (e == null) {
                 return null;
             }
-            com.xiaomi.channel.commonutils.logger.b.m99a("network exception: " + e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m103a("network exception: " + e.getMessage());
             throw e;
         }
         return (String) invokeCommon.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public JSONObject m263a() {
+    public JSONObject m268a() {
         InterceptResult invokeV;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
@@ -506,12 +506,12 @@ public class cv {
                 jSONObject.put("ver", 2);
                 JSONArray jSONArray = new JSONArray();
                 for (cs csVar : this.f217a.values()) {
-                    jSONArray.put(csVar.m258a());
+                    jSONArray.put(csVar.m263a());
                 }
                 jSONObject.put("data", jSONArray);
                 JSONArray jSONArray2 = new JSONArray();
                 for (cr crVar : b.values()) {
-                    jSONArray2.put(crVar.m253a());
+                    jSONArray2.put(crVar.m258a());
                 }
                 jSONObject.put(GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED, jSONArray2);
             }
@@ -521,7 +521,7 @@ public class cv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m264a() {
+    public void m269a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             synchronized (this.f217a) {
@@ -531,7 +531,7 @@ public class cv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m265a(String str) {
+    public void m270a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             this.f219b = str;
@@ -545,7 +545,7 @@ public class cv {
                 throw new IllegalArgumentException("the argument is invalid " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + crVar);
             } else if (this.f214a.a(str)) {
                 synchronized (this.f217a) {
-                    m266a();
+                    m271a();
                     if (this.f217a.containsKey(str)) {
                         this.f217a.get(str).a(crVar);
                     } else {
@@ -559,7 +559,7 @@ public class cv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m266a() {
+    public boolean m271a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -573,7 +573,7 @@ public class cv {
                 if (TextUtils.isEmpty(d2)) {
                     return false;
                 }
-                m268b(d2);
+                m273b(d2);
                 com.xiaomi.channel.commonutils.logger.b.b("loading the new hosts succeed");
                 return true;
             }
@@ -598,12 +598,12 @@ public class cv {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m267b() {
+    public void m272b() {
         ArrayList<String> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             synchronized (this.f217a) {
-                m266a();
+                m271a();
                 arrayList = new ArrayList<>(this.f217a.keySet());
                 for (int size = arrayList.size() - 1; size >= 0; size--) {
                     cs csVar = this.f217a.get(arrayList.get(size));
@@ -622,7 +622,7 @@ public class cv {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m268b(String str) {
+    public void m273b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             synchronized (this.f217a) {
@@ -635,7 +635,7 @@ public class cv {
                 if (optJSONArray != null) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         cs a2 = new cs().a(optJSONArray.getJSONObject(i));
-                        this.f217a.put(a2.m256a(), a2);
+                        this.f217a.put(a2.m261a(), a2);
                     }
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray(GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED);
@@ -647,9 +647,9 @@ public class cv {
                             try {
                                 cr a3 = new cr(optString).a(jSONObject2);
                                 b.put(a3.f207b, a3);
-                                com.xiaomi.channel.commonutils.logger.b.m99a("load local reserved host for " + a3.f207b);
+                                com.xiaomi.channel.commonutils.logger.b.m103a("load local reserved host for " + a3.f207b);
                             } catch (JSONException unused) {
-                                com.xiaomi.channel.commonutils.logger.b.m99a("parse reserved host fail.");
+                                com.xiaomi.channel.commonutils.logger.b.m103a("parse reserved host fail.");
                             }
                         }
                     }
@@ -665,7 +665,7 @@ public class cv {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
             synchronized (this.f217a) {
-                m266a();
+                m271a();
                 csVar = this.f217a.get(str);
             }
             if (csVar == null || (a2 = csVar.a()) == null) {
@@ -695,19 +695,19 @@ public class cv {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public void m269c() {
+    public void m274c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             synchronized (this.f217a) {
                 try {
                     BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(a.openFileOutput(e(), 0)));
-                    String jSONObject = m263a().toString();
+                    String jSONObject = m268a().toString();
                     if (!TextUtils.isEmpty(jSONObject)) {
                         bufferedWriter.write(jSONObject);
                     }
                     bufferedWriter.close();
                 } catch (Exception e) {
-                    com.xiaomi.channel.commonutils.logger.b.m99a("persist bucket failure: " + e.getMessage());
+                    com.xiaomi.channel.commonutils.logger.b.m103a("persist bucket failure: " + e.getMessage());
                 }
             }
         }
@@ -757,7 +757,7 @@ public class cv {
         } catch (Throwable th2) {
             th = th2;
             try {
-                com.xiaomi.channel.commonutils.logger.b.m99a("load host exception " + th.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m103a("load host exception " + th.getMessage());
                 return null;
             } finally {
                 ab.a(bufferedReader);
@@ -766,7 +766,7 @@ public class cv {
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public void m270d() {
+    public void m275d() {
         String next;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
@@ -779,7 +779,7 @@ public class cv {
                         Iterator<String> it = this.f217a.keySet().iterator();
                         while (it.hasNext()) {
                             next = it.next();
-                            if (this.f217a.get(next).m257a().isEmpty()) {
+                            if (this.f217a.get(next).m262a().isEmpty()) {
                                 break;
                             }
                         }

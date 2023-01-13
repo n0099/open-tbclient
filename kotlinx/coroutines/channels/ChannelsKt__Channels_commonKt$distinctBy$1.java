@@ -13,10 +13,11 @@ import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function2;
+/* JADX INFO: Add missing generic type declarations: [E] */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00020\u0004H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", ExifInterface.LONGITUDE_EAST, "K", "Lkotlinx/coroutines/channels/ProducerScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$distinctBy$1", f = "Channels.common.kt", i = {0, 0, 1, 1, 1, 2, 2, 2, 2}, l = {FeatureCodes.BODY_SEG, CyberVideoDownloader.DMDownloadError.Sys101, 1703}, m = "invokeSuspend", n = {"$this$produce", SavedStateHandle.KEYS, "$this$produce", SavedStateHandle.KEYS, "e", "$this$produce", SavedStateHandle.KEYS, "e", "k"}, s = {"L$0", "L$1", "L$0", "L$1", "L$2", "L$0", "L$1", "L$2", "L$4"})
 /* loaded from: classes9.dex */
-public final class ChannelsKt__Channels_commonKt$distinctBy$1 extends SuspendLambda implements Function2<ProducerScope<? super E>, Continuation<? super Unit>, Object> {
+public final class ChannelsKt__Channels_commonKt$distinctBy$1<E> extends SuspendLambda implements Function2<ProducerScope<? super E>, Continuation<? super Unit>, Object> {
     public final /* synthetic */ Function2 $selector;
     public final /* synthetic */ ReceiveChannel $this_distinctBy;
     public Object L$0;
@@ -47,12 +48,15 @@ public final class ChannelsKt__Channels_commonKt$distinctBy$1 extends SuspendLam
         return ((ChannelsKt__Channels_commonKt$distinctBy$1) create(obj, continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
+    /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:15:0x0080 A[RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:16:0x0081  */
     /* JADX WARN: Removed duplicated region for block: B:19:0x0090  */
     /* JADX WARN: Removed duplicated region for block: B:25:0x00b2  */
     /* JADX WARN: Removed duplicated region for block: B:30:0x00d0  */
     /* JADX WARN: Removed duplicated region for block: B:31:0x00d6  */
+    /* JADX WARN: Type inference failed for: r5v13, types: [java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r6v9, types: [java.util.Collection] */
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:28:0x00c5 -> B:29:0x00c7). Please submit an issue!!! */
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:30:0x00d0 -> B:13:0x0072). Please submit an issue!!! */
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -61,15 +65,15 @@ public final class ChannelsKt__Channels_commonKt$distinctBy$1 extends SuspendLam
     */
     public final Object invokeSuspend(Object obj) {
         ProducerScope producerScope;
-        ChannelsKt__Channels_commonKt$distinctBy$1 channelsKt__Channels_commonKt$distinctBy$1;
+        ChannelsKt__Channels_commonKt$distinctBy$1<E> channelsKt__Channels_commonKt$distinctBy$1;
         HashSet hashSet;
-        ChannelIterator it;
+        ChannelIterator<E> it;
         ProducerScope producerScope2;
         HashSet hashSet2;
+        E e;
+        ChannelIterator<E> channelIterator;
         Object obj2;
-        ChannelIterator channelIterator;
-        Object obj3;
-        ChannelsKt__Channels_commonKt$distinctBy$1 channelsKt__Channels_commonKt$distinctBy$12;
+        ChannelsKt__Channels_commonKt$distinctBy$1<E> channelsKt__Channels_commonKt$distinctBy$12;
         ProducerScope producerScope3;
         HashSet hashSet3;
         Object hasNext;
@@ -79,17 +83,17 @@ public final class ChannelsKt__Channels_commonKt$distinctBy$1 extends SuspendLam
             if (i != 1) {
                 if (i != 2) {
                     if (i == 3) {
-                        Object obj4 = this.L$4;
+                        Object obj3 = this.L$4;
                         channelIterator = (ChannelIterator) this.L$3;
                         HashSet hashSet4 = (HashSet) this.L$1;
                         ProducerScope producerScope4 = (ProducerScope) this.L$0;
                         ResultKt.throwOnFailure(obj);
-                        obj = obj4;
-                        obj3 = coroutine_suspended;
+                        obj = obj3;
+                        obj2 = coroutine_suspended;
                         channelsKt__Channels_commonKt$distinctBy$12 = this;
                         hashSet4.add(obj);
                         channelsKt__Channels_commonKt$distinctBy$1 = channelsKt__Channels_commonKt$distinctBy$12;
-                        coroutine_suspended = obj3;
+                        coroutine_suspended = obj2;
                         it = channelIterator;
                         hashSet = hashSet4;
                         producerScope = producerScope4;
@@ -101,15 +105,15 @@ public final class ChannelsKt__Channels_commonKt$distinctBy$1 extends SuspendLam
                         if (hasNext != coroutine_suspended) {
                             return coroutine_suspended;
                         }
-                        Object obj5 = coroutine_suspended;
+                        Object obj4 = coroutine_suspended;
                         channelsKt__Channels_commonKt$distinctBy$12 = channelsKt__Channels_commonKt$distinctBy$1;
                         obj = hasNext;
                         producerScope3 = producerScope;
                         hashSet3 = hashSet;
                         channelIterator = it;
-                        obj3 = obj5;
+                        obj2 = obj4;
                         if (!((Boolean) obj).booleanValue()) {
-                            Object next = channelIterator.next();
+                            E next = channelIterator.next();
                             Function2 function2 = channelsKt__Channels_commonKt$distinctBy$12.$selector;
                             channelsKt__Channels_commonKt$distinctBy$12.L$0 = producerScope3;
                             channelsKt__Channels_commonKt$distinctBy$12.L$1 = hashSet3;
@@ -117,29 +121,29 @@ public final class ChannelsKt__Channels_commonKt$distinctBy$1 extends SuspendLam
                             channelsKt__Channels_commonKt$distinctBy$12.L$3 = channelIterator;
                             channelsKt__Channels_commonKt$distinctBy$12.label = 2;
                             Object invoke = function2.invoke(next, channelsKt__Channels_commonKt$distinctBy$12);
-                            if (invoke == obj3) {
-                                return obj3;
+                            if (invoke == obj2) {
+                                return obj2;
                             }
                             HashSet hashSet5 = hashSet3;
-                            obj2 = next;
+                            e = next;
                             obj = invoke;
                             producerScope2 = producerScope3;
                             hashSet2 = hashSet5;
                             if (hashSet2.contains(obj)) {
                                 channelsKt__Channels_commonKt$distinctBy$12.L$0 = producerScope2;
                                 channelsKt__Channels_commonKt$distinctBy$12.L$1 = hashSet2;
-                                channelsKt__Channels_commonKt$distinctBy$12.L$2 = obj2;
+                                channelsKt__Channels_commonKt$distinctBy$12.L$2 = e;
                                 channelsKt__Channels_commonKt$distinctBy$12.L$3 = channelIterator;
                                 channelsKt__Channels_commonKt$distinctBy$12.L$4 = obj;
                                 channelsKt__Channels_commonKt$distinctBy$12.label = 3;
-                                if (producerScope2.send(obj2, channelsKt__Channels_commonKt$distinctBy$12) == obj3) {
-                                    return obj3;
+                                if (producerScope2.send(e, channelsKt__Channels_commonKt$distinctBy$12) == obj2) {
+                                    return obj2;
                                 }
                                 hashSet4 = hashSet2;
                                 producerScope4 = producerScope2;
                                 hashSet4.add(obj);
                                 channelsKt__Channels_commonKt$distinctBy$1 = channelsKt__Channels_commonKt$distinctBy$12;
-                                coroutine_suspended = obj3;
+                                coroutine_suspended = obj2;
                                 it = channelIterator;
                                 hashSet = hashSet4;
                                 producerScope = producerScope4;
@@ -152,7 +156,7 @@ public final class ChannelsKt__Channels_commonKt$distinctBy$1 extends SuspendLam
                                 }
                             } else {
                                 channelsKt__Channels_commonKt$distinctBy$1 = channelsKt__Channels_commonKt$distinctBy$12;
-                                coroutine_suspended = obj3;
+                                coroutine_suspended = obj2;
                                 it = channelIterator;
                                 hashSet = hashSet2;
                                 producerScope = producerScope2;
@@ -171,13 +175,13 @@ public final class ChannelsKt__Channels_commonKt$distinctBy$1 extends SuspendLam
                         throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                     }
                 } else {
-                    Object obj6 = this.L$2;
+                    ?? r5 = this.L$2;
                     ResultKt.throwOnFailure(obj);
                     producerScope2 = (ProducerScope) this.L$0;
                     hashSet2 = (HashSet) this.L$1;
-                    obj2 = obj6;
+                    e = r5;
                     channelIterator = (ChannelIterator) this.L$3;
-                    obj3 = coroutine_suspended;
+                    obj2 = coroutine_suspended;
                     channelsKt__Channels_commonKt$distinctBy$12 = this;
                     if (hashSet2.contains(obj)) {
                     }
@@ -187,7 +191,7 @@ public final class ChannelsKt__Channels_commonKt$distinctBy$1 extends SuspendLam
                 producerScope3 = (ProducerScope) this.L$0;
                 hashSet3 = (HashSet) this.L$1;
                 channelIterator = (ChannelIterator) this.L$2;
-                obj3 = coroutine_suspended;
+                obj2 = coroutine_suspended;
                 channelsKt__Channels_commonKt$distinctBy$12 = this;
                 if (!((Boolean) obj).booleanValue()) {
                 }

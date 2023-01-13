@@ -12,7 +12,6 @@ import android.util.Base64;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.sofire.MyReceiver;
 import com.baidu.sofire.a.b;
@@ -1657,7 +1656,7 @@ public class U implements Runnable {
                                                     jSONObject3 = jSONObject2;
                                                     apkInfo = new ApkInfo(optInt, next, optString, optString2, str);
                                                     apkInfo.isOnce = i6;
-                                                    apkInfo.priority = jSONObject3.getInt(Config.PRINCIPAL_PART);
+                                                    apkInfo.priority = jSONObject3.getInt("pr");
                                                     if (jSONObject3.optInt("mem") == 1) {
                                                     }
                                                     apkInfo.isMem = z3;
@@ -1737,7 +1736,7 @@ public class U implements Runnable {
                                                                                 jSONObject3 = jSONObject2;
                                                                                 apkInfo = new ApkInfo(optInt, next, optString, optString2, str);
                                                                                 apkInfo.isOnce = i6;
-                                                                                apkInfo.priority = jSONObject3.getInt(Config.PRINCIPAL_PART);
+                                                                                apkInfo.priority = jSONObject3.getInt("pr");
                                                                                 if (jSONObject3.optInt("mem") == 1) {
                                                                                 }
                                                                                 apkInfo.isMem = z3;
@@ -1841,7 +1840,7 @@ public class U implements Runnable {
                                     jSONObject3 = jSONObject2;
                                     apkInfo = new ApkInfo(optInt, next, optString, optString2, str);
                                     apkInfo.isOnce = i6;
-                                    apkInfo.priority = jSONObject3.getInt(Config.PRINCIPAL_PART);
+                                    apkInfo.priority = jSONObject3.getInt("pr");
                                     if (jSONObject3.optInt("mem") == 1) {
                                         z3 = true;
                                     } else {

@@ -1,71 +1,286 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.net.Uri;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.constraintlayout.motion.utils.Easing;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.util.NewUrlSchemaHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.mutiprocess.event.GoodsEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Iterator;
+import org.json.JSONException;
+import org.json.JSONObject;
 @Singleton
 @Service
 /* loaded from: classes3.dex */
-public class bw5 implements lo2 {
+public final class bw5 implements bo1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes3.dex */
+    public static class a implements BdUniDispatchSchemeController.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+
+        public a(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+        }
+
+        @Override // com.baidu.tbadk.BdToken.BdUniDispatchSchemeController.b
+        public void a(HashMap<String, Object> hashMap) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(BdUniDispatchSchemeController.PARAM_URL) instanceof String)) {
+                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.a, null, (String) hashMap.get(BdUniDispatchSchemeController.PARAM_URL), true);
+                tbWebViewActivityConfig.setIsFromSchema(true);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947659401, "Lcom/baidu/tieba/bw5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947659401, "Lcom/baidu/tieba/bw5;");
+                return;
+            }
+        }
+        a = tk1.a;
+        b = NewUrlSchemaHelper.SCHEME;
+    }
 
     public bw5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
+    public static String b(String str, String str2, String str3, String str4, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        String str5;
+        String str6;
+        Object opt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            return TbadkCoreApplication.getInst().getZid(context, null, 0, null);
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, null, str, str2, str3, str4, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder();
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                if (TextUtils.isEmpty(next) || (opt = jSONObject.opt(next)) == null) {
+                    return null;
+                }
+                String obj = opt.toString();
+                sb.append(next + "=" + Uri.encode(obj) + "&");
+            }
+            if (!TextUtils.isEmpty(str4)) {
+                str4 = "/" + str4;
+            }
+            if (TextUtils.equals(str3, "NA")) {
+                str5 = "";
+            } else {
+                str5 = "/" + str3;
+            }
+            if (TextUtils.isEmpty(str2)) {
+                str2 = str5 + str4;
+            }
+            String str7 = b;
+            if (TextUtils.isEmpty(str2)) {
+                if (!TextUtils.isEmpty(str)) {
+                    str7 = str7 + str;
+                }
+            } else {
+                String substring = str2.substring(1, str2.length());
+                if (TextUtils.isEmpty(str)) {
+                    str6 = str7 + substring;
+                } else {
+                    str6 = str7 + str + "/" + substring;
+                }
+                str7 = str6;
+            }
+            StringBuilder sb2 = new StringBuilder(sb.substring(0, sb.length() - 1));
+            String str8 = str7 + "?" + ((Object) sb2);
+            if (a) {
+                Log.i("DefaultInnerSkip", "encodeParams: " + ((Object) sb2));
+            }
+            return str8;
         }
-        return (String) invokeL.objValue;
+        return (String) invokeLLLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.lo2
-    public String a(Context context) {
-        InterceptResult invokeL;
+    public static boolean d(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (!ProcessUtils.isMainProcess()) {
-                return c(context);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+            if (!TextUtils.isEmpty(str) && context != null) {
+                if (!TextUtils.isEmpty(str) && str.contains("tbwebview")) {
+                    Uri parse = Uri.parse(str);
+                    if (BdUniDispatchSchemeController.isUniScheme(parse)) {
+                        BdUniDispatchSchemeController.getInstance().parseWebViewScheme(str, parse, new a(context));
+                    } else {
+                        TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context);
+                        tbWebViewActivityConfig.setUri(parse);
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
+                    }
+                    return true;
+                }
+                if (!TextUtils.isEmpty(str) && str.contains("com.baidu.tieba")) {
+                    Uri parse2 = Uri.parse(str);
+                    if ("miniapp".equals(parse2.getAuthority()) && "/goods".equals(parse2.getPath())) {
+                        ad5.i(new GoodsEvent(parse2.getQueryParameter("goodsList")));
+                        return true;
+                    }
+                }
+                return UtilHelper.dealOneScheme(context, str);
             }
-            return b(context);
+            return false;
         }
-        return (String) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public final String c(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.bo1
+    public cg3 a(Context context, String str, String str2, String str3, String str4, String str5) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, aw5.class, null);
-            if (!callOnMainWithContentProvider.isOk()) {
-                return "";
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, str3, str4, str5})) == null) {
+            if (context == null) {
+                cg3 cg3Var = new cg3();
+                cg3Var.f("Context exception");
+                return cg3Var;
+            } else if (TextUtils.isEmpty(str5)) {
+                return c(str5);
+            } else {
+                if (TextUtils.isEmpty(str3)) {
+                    str3 = "NA";
+                }
+                if ("icashwebview".equals(str4) && !StringUtils.isNull(str5)) {
+                    try {
+                        String optString = new JSONObject(str5).optString("url");
+                        if (!StringUtils.isNull(optString)) {
+                            e(optString);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    cg3 cg3Var2 = new cg3();
+                    cg3Var2.f("invoke failed");
+                    return cg3Var2;
+                }
+                try {
+                    JSONObject jSONObject = new JSONObject(str5);
+                    jSONObject.put("launchMode", Easing.STANDARD_NAME);
+                    String b2 = b(str, str2, str3, str4, jSONObject);
+                    boolean d = d(context, b2);
+                    if (a) {
+                        Log.i("DefaultInnerSkip", "result = " + d + "\n拼接后的uri is: " + b2);
+                    }
+                    if (d) {
+                        return null;
+                    }
+                    cg3 cg3Var3 = new cg3();
+                    cg3Var3.f("invoke failed");
+                    return cg3Var3;
+                } catch (JSONException e2) {
+                    if (a) {
+                        Log.i("DefaultInnerSkip", Log.getStackTraceString(e2));
+                    }
+                    return c(str5);
+                }
             }
-            return callOnMainWithContentProvider.mResult.getString("result", "");
         }
-        return (String) invokeL.objValue;
+        return (cg3) invokeCommon.objValue;
+    }
+
+    public final cg3 c(String str) {
+        InterceptResult invokeL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            cg3 cg3Var = new cg3();
+            cg3Var.k(5L);
+            cg3Var.i(1L);
+            StringBuilder sb = new StringBuilder();
+            sb.append("Error in parameter parsing: from PageTransitionAction:\n called by");
+            if (TextUtils.isEmpty(str)) {
+                str2 = " empty";
+            } else {
+                str2 = "";
+            }
+            sb.append(str2);
+            sb.append(" parameter:");
+            sb.append(str);
+            sb.append("\n");
+            sb.append(" appId:");
+            sb.append(i43.K().getAppId());
+            sb.append("\n");
+            sb.append(" curPage:");
+            sb.append(wp2.U().T());
+            sb.append("\n");
+            cg3Var.f(sb.toString());
+            return cg3Var;
+        }
+        return (cg3) invokeL.objValue;
+    }
+
+    public final void e(String str) {
+        j43 M;
+        e13 y;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || (M = j43.M()) == null || (y = M.y()) == null) {
+            return;
+        }
+        Bundle bundle = new Bundle();
+        bundle.putString("key_param_url", str);
+        y.W(bundle, dw5.class);
     }
 }

@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.ctrl.model.TaskStatus;
+import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,57 +10,98 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public interface uu {
-    public static final a a = a.b;
+public final class uu {
+    public static /* synthetic */ Interceptable $ic;
+    public static final uu a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(String str, String str2, String str3);
-
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static ServiceReference a;
-        public static final /* synthetic */ a b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(265371504, "Lcom/baidu/tieba/uu$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(265371504, "Lcom/baidu/tieba/uu$a;");
-                    return;
-                }
-            }
-            b = new a();
-            a = new ServiceReference("bdptask", "yalog");
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448319245, "Lcom/baidu/tieba/uu;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448319245, "Lcom/baidu/tieba/uu;");
+                return;
             }
         }
+        a = new uu();
+    }
 
-        public final ServiceReference a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return a;
+    public uu() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return (ServiceReference) invokeV.objValue;
         }
+    }
+
+    public static /* synthetic */ JSONObject b(uu uuVar, String str, String str2, String str3, int i, Object obj) {
+        if ((i & 4) != 0) {
+            str3 = null;
+        }
+        return uuVar.a(str, str2, str3);
+    }
+
+    public final JSONObject a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("taskId", str);
+            jSONObject.put(TaskInfo.keyActTaskId, str2);
+            if (str3 != null) {
+                jSONObject.put("phase", str3);
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeLLL.objValue;
+    }
+
+    public final String c(TaskStatus taskStatus) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskStatus)) == null) {
+            if (taskStatus.isFinished()) {
+                return "finish";
+            }
+            if (taskStatus.isRegistered()) {
+                return "guide";
+            }
+            return "doing";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String d(TaskStatus taskStatus) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taskStatus)) == null) {
+            if (taskStatus.isUnRegistered()) {
+                return "y_task_unregister";
+            }
+            if (taskStatus.isFinished()) {
+                return "y_task_done";
+            }
+            if (taskStatus.isRegistered()) {
+                return "y_task_active";
+            }
+            if (taskStatus.isRunning() && taskStatus.isLocalCompleted()) {
+                return "y_task_local_done";
+            }
+            return "y_task_start";
+        }
+        return (String) invokeL.objValue;
     }
 }

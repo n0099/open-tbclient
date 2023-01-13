@@ -15,20 +15,20 @@ import com.baidu.tbadk.core.data.ForumRuleBaseData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.forumRule.model.ForumRuleEditModel;
-import com.baidu.tieba.jp6;
-import com.baidu.tieba.rp6;
+import com.baidu.tieba.ht6;
 import com.baidu.tieba.view.BdTopToast;
+import com.baidu.tieba.zs6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity> implements jp6 {
+public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity> implements zs6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
-    public rp6 b;
+    public ht6 b;
     public ForumRuleEditModel c;
     public String d;
     public String e;
@@ -37,7 +37,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
     public int h;
     public ForumRuleBaseData i;
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.ve5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.kf5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -75,23 +75,23 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         }
     }
 
-    @Override // com.baidu.tieba.jp6
-    public void X0(ForumRuleBaseData forumRuleBaseData, boolean z) {
+    @Override // com.baidu.tieba.zs6
+    public void Y0(ForumRuleBaseData forumRuleBaseData, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, forumRuleBaseData, z) == null) {
             if (TextUtils.isEmpty(this.d)) {
                 BdTopToast bdTopToast = new BdTopToast(this, 2000);
                 bdTopToast.h(false);
-                bdTopToast.g(getString(R.string.obfuscated_res_0x7f0f06b8));
-                bdTopToast.i((ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f09148f));
+                bdTopToast.g(getString(R.string.obfuscated_res_0x7f0f06c0));
+                bdTopToast.i((ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f09149a));
                 return;
             }
             this.c.J(this.d, forumRuleBaseData, z);
         }
     }
 
-    @Override // com.baidu.tieba.jp6
-    public void j1(int i, ForumRuleBaseData forumRuleBaseData, String str) {
+    @Override // com.baidu.tieba.zs6
+    public void k1(int i, ForumRuleBaseData forumRuleBaseData, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048579, this, i, forumRuleBaseData, str) == null) {
             if (ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_FRS.equals(this.f) && forumRuleBaseData == null) {
@@ -114,12 +114,12 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
             BdTopToast bdTopToast = new BdTopToast(this, 2000);
             bdTopToast.h(false);
             bdTopToast.g(str);
-            bdTopToast.i((ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f09148f));
+            bdTopToast.i((ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f09149a));
         }
     }
 
-    @Override // com.baidu.tieba.jp6
-    public void r1(int i, String str, boolean z) {
+    @Override // com.baidu.tieba.zs6
+    public void s1(int i, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
             if (i == 0) {
@@ -129,7 +129,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
                     intent.putExtra("group_name", getString(R.string.save_success));
                     intent.putExtra("from", true);
                 } else {
-                    intent.putExtra("group_name", getString(R.string.obfuscated_res_0x7f0f06bb));
+                    intent.putExtra("group_name", getString(R.string.obfuscated_res_0x7f0f06c3));
                     intent.putExtra("from", false);
                 }
                 setResult(-1, intent);
@@ -139,7 +139,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
             BdTopToast bdTopToast = new BdTopToast(this, 2000);
             bdTopToast.h(false);
             bdTopToast.g(str);
-            bdTopToast.i((ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f09148f));
+            bdTopToast.i((ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f09149a));
         }
     }
 
@@ -148,9 +148,9 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.onChangeSkinType(i);
-            rp6 rp6Var = this.b;
-            if (rp6Var != null) {
-                rp6Var.u(i);
+            ht6 ht6Var = this.b;
+            if (ht6Var != null) {
+                ht6Var.u(i);
             }
         }
     }
@@ -167,9 +167,9 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            v1(bundle);
-            this.a = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d02c4, (ViewGroup) null);
-            this.b = new rp6(getPageContext(), this, this.a, this.d, this.e, this.f, this.g, this.h, this);
+            w1(bundle);
+            this.a = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d02c0, (ViewGroup) null);
+            this.b = new ht6(getPageContext(), this, this.a, this.d, this.e, this.f, this.g, this.h, this);
             this.c = new ForumRuleEditModel(getPageContext(), this, this.d);
             setContentView(this.a);
             setSwipeBackEnabled(false);
@@ -201,7 +201,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         }
     }
 
-    public final void v1(Bundle bundle) {
+    public final void w1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
             Intent intent = getIntent();

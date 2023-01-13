@@ -104,21 +104,21 @@ public final class dw {
                 return (a) invokeL.objValue;
             }
             while (true) {
-                int m184a = bVar.m184a();
-                if (m184a == 0) {
+                int m189a = bVar.m189a();
+                if (m189a == 0) {
                     return this;
                 }
-                if (m184a == 8) {
+                if (m189a == 8) {
                     a(bVar.c());
-                } else if (m184a == 16) {
-                    a(bVar.m190a());
-                } else if (m184a == 24) {
-                    b(bVar.m193b());
-                } else if (m184a == 32) {
-                    b(bVar.m190a());
-                } else if (m184a == 42) {
-                    a(bVar.m187a());
-                } else if (!a(bVar, m184a)) {
+                } else if (m189a == 16) {
+                    a(bVar.m195a());
+                } else if (m189a == 24) {
+                    b(bVar.m198b());
+                } else if (m189a == 32) {
+                    b(bVar.m195a());
+                } else if (m189a == 42) {
+                    a(bVar.m192a());
+                } else if (!a(bVar, m189a)) {
                     return this;
                 }
             }
@@ -151,8 +151,10 @@ public final class dw {
             return (a) invokeZ.objValue;
         }
 
-        @Override // com.xiaomi.push.e
-        public List<String> a() {
+        /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()I */
+        /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
+        /* renamed from: a  reason: collision with other method in class */
+        public List<String> m291a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f259a : (List) invokeV.objValue;
@@ -162,26 +164,28 @@ public final class dw {
         public void a(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
-                if (a()) {
-                    cVar.m241b(1, c());
+                if (m292a()) {
+                    cVar.m246b(1, c());
                 }
-                if (m284c()) {
-                    cVar.m233a(2, b());
+                if (m294c()) {
+                    cVar.m238a(2, m293b());
                 }
-                if (m285d()) {
-                    cVar.m228a(3, d());
+                if (m295d()) {
+                    cVar.m233a(3, d());
                 }
                 if (f()) {
-                    cVar.m233a(4, m286e());
+                    cVar.m238a(4, m296e());
                 }
-                for (String str : a()) {
-                    cVar.m232a(5, str);
+                for (String str : m291a()) {
+                    cVar.m237a(5, str);
                 }
             }
         }
 
-        @Override // com.xiaomi.push.e
-        public boolean a() {
+        /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()I */
+        /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
+        /* renamed from: a  reason: collision with other method in class */
+        public boolean m292a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f260a : invokeV.booleanValue;
@@ -193,20 +197,20 @@ public final class dw {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
                 int i = 0;
-                int b = a() ? c.b(1, c()) + 0 : 0;
-                if (m284c()) {
-                    b += c.a(2, b());
+                int b = m292a() ? c.b(1, c()) + 0 : 0;
+                if (m294c()) {
+                    b += c.a(2, m293b());
                 }
-                if (m285d()) {
+                if (m295d()) {
                     b += c.a(3, d());
                 }
                 if (f()) {
-                    b += c.a(4, m286e());
+                    b += c.a(4, m296e());
                 }
-                for (String str : a()) {
+                for (String str : m291a()) {
                     i += c.a(str);
                 }
-                int size = b + i + (a().size() * 1);
+                int size = b + i + (m291a().size() * 1);
                 this.c = size;
                 return size;
             }
@@ -235,8 +239,9 @@ public final class dw {
             return (a) invokeZ.objValue;
         }
 
-        @Override // com.xiaomi.push.e
-        public boolean b() {
+        /* JADX DEBUG: Possible override for method com.xiaomi.push.e.b()I */
+        /* renamed from: b  reason: collision with other method in class */
+        public boolean m293b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f262c : invokeV.booleanValue;
@@ -249,7 +254,7 @@ public final class dw {
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m284c() {
+        public boolean m294c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f261b : invokeV.booleanValue;
@@ -262,7 +267,7 @@ public final class dw {
         }
 
         /* renamed from: d  reason: collision with other method in class */
-        public boolean m285d() {
+        public boolean m295d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.d : invokeV.booleanValue;
@@ -275,7 +280,7 @@ public final class dw {
         }
 
         /* renamed from: e  reason: collision with other method in class */
-        public boolean m286e() {
+        public boolean m296e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f : invokeV.booleanValue;

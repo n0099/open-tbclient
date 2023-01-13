@@ -13,7 +13,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import kotlinx.coroutines.scheduling.CoroutineScheduler;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class CodedOutputStream {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BUFFER_SIZE = 4096;
@@ -163,7 +163,7 @@ public final class CodedOutputStream {
         return (interceptable == null || (invokeJ = interceptable.invokeJ(65586, null, j)) == null) ? (j >> 63) ^ (j << 1) : invokeJ.longValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class OutOfSpaceException extends IOException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6947486886997889499L;

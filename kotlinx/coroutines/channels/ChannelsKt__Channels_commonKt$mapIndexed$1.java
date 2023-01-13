@@ -11,10 +11,11 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function3;
+/* JADX INFO: Add missing generic type declarations: [R] */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u0004H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", ExifInterface.LONGITUDE_EAST, "R", "Lkotlinx/coroutines/channels/ProducerScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$mapIndexed$1", f = "Channels.common.kt", i = {0, 0, 1, 1, 1, 2, 2, 2}, l = {1423, 1424, 1424}, m = "invokeSuspend", n = {"$this$produce", "index", "$this$produce", "index", "e", "$this$produce", "index", "e"}, s = {"L$0", "I$0", "L$0", "I$0", "L$1", "L$0", "I$0", "L$1"})
 /* loaded from: classes9.dex */
-public final class ChannelsKt__Channels_commonKt$mapIndexed$1 extends SuspendLambda implements Function2<ProducerScope<? super R>, Continuation<? super Unit>, Object> {
+public final class ChannelsKt__Channels_commonKt$mapIndexed$1<R> extends SuspendLambda implements Function2<ProducerScope<? super R>, Continuation<? super Unit>, Object> {
     public final /* synthetic */ ReceiveChannel $this_mapIndexed;
     public final /* synthetic */ Function3 $transform;
     public int I$0;
@@ -56,16 +57,16 @@ public final class ChannelsKt__Channels_commonKt$mapIndexed$1 extends SuspendLam
     */
     public final Object invokeSuspend(Object obj) {
         ProducerScope producerScope;
-        ChannelsKt__Channels_commonKt$mapIndexed$1 channelsKt__Channels_commonKt$mapIndexed$1;
+        ChannelsKt__Channels_commonKt$mapIndexed$1<R> channelsKt__Channels_commonKt$mapIndexed$1;
         ChannelIterator it;
         int i;
-        ChannelsKt__Channels_commonKt$mapIndexed$1 channelsKt__Channels_commonKt$mapIndexed$12;
+        ChannelsKt__Channels_commonKt$mapIndexed$1<R> channelsKt__Channels_commonKt$mapIndexed$12;
         Object obj2;
         int i2;
         ProducerScope producerScope2;
         ChannelIterator channelIterator;
         ProducerScope producerScope3;
-        ChannelsKt__Channels_commonKt$mapIndexed$1 channelsKt__Channels_commonKt$mapIndexed$13;
+        ChannelsKt__Channels_commonKt$mapIndexed$1<R> channelsKt__Channels_commonKt$mapIndexed$13;
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
         int i3 = this.label;
         if (i3 != 0) {
@@ -156,7 +157,7 @@ public final class ChannelsKt__Channels_commonKt$mapIndexed$1 extends SuspendLam
         if (hasNext == coroutine_suspended) {
             return coroutine_suspended;
         }
-        ChannelsKt__Channels_commonKt$mapIndexed$1 channelsKt__Channels_commonKt$mapIndexed$14 = channelsKt__Channels_commonKt$mapIndexed$1;
+        ChannelsKt__Channels_commonKt$mapIndexed$1<R> channelsKt__Channels_commonKt$mapIndexed$14 = channelsKt__Channels_commonKt$mapIndexed$1;
         producerScope2 = producerScope;
         obj = hasNext;
         channelsKt__Channels_commonKt$mapIndexed$13 = channelsKt__Channels_commonKt$mapIndexed$14;

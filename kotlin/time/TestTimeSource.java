@@ -21,26 +21,26 @@ public final class TestTimeSource extends AbstractLongTimeSource {
     }
 
     /* renamed from: overflow-LRDsOJo  reason: not valid java name */
-    private final void m2078overflowLRDsOJo(long j) {
-        throw new IllegalStateException("TestTimeSource will overflow if its reading " + this.reading + "ns is advanced by " + Duration.m2042toStringimpl(j) + IStringUtil.EXTENSION_SEPARATOR);
+    private final void m2142overflowLRDsOJo(long j) {
+        throw new IllegalStateException("TestTimeSource will overflow if its reading " + this.reading + "ns is advanced by " + Duration.m2106toStringimpl(j) + IStringUtil.EXTENSION_SEPARATOR);
     }
 
     /* renamed from: plusAssign-LRDsOJo  reason: not valid java name */
-    public final void m2079plusAssignLRDsOJo(long j) {
+    public final void m2143plusAssignLRDsOJo(long j) {
         long j2;
-        long m2039toLongimpl = Duration.m2039toLongimpl(j, getUnit());
-        if (m2039toLongimpl != Long.MIN_VALUE && m2039toLongimpl != Long.MAX_VALUE) {
+        long m2103toLongimpl = Duration.m2103toLongimpl(j, getUnit());
+        if (m2103toLongimpl != Long.MIN_VALUE && m2103toLongimpl != Long.MAX_VALUE) {
             long j3 = this.reading;
-            j2 = j3 + m2039toLongimpl;
-            if ((m2039toLongimpl ^ j3) >= 0 && (j3 ^ j2) < 0) {
-                m2078overflowLRDsOJo(j);
+            j2 = j3 + m2103toLongimpl;
+            if ((m2103toLongimpl ^ j3) >= 0 && (j3 ^ j2) < 0) {
+                m2142overflowLRDsOJo(j);
             }
         } else {
-            double m2036toDoubleimpl = this.reading + Duration.m2036toDoubleimpl(j, getUnit());
-            if (m2036toDoubleimpl > Long.MAX_VALUE || m2036toDoubleimpl < Long.MIN_VALUE) {
-                m2078overflowLRDsOJo(j);
+            double m2100toDoubleimpl = this.reading + Duration.m2100toDoubleimpl(j, getUnit());
+            if (m2100toDoubleimpl > Long.MAX_VALUE || m2100toDoubleimpl < Long.MIN_VALUE) {
+                m2142overflowLRDsOJo(j);
             }
-            j2 = (long) m2036toDoubleimpl;
+            j2 = (long) m2100toDoubleimpl;
         }
         this.reading = j2;
     }

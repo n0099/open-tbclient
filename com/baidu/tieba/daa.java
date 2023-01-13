@@ -1,93 +1,233 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.eca;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes4.dex */
-public class daa implements eca.a {
+public final class daa implements m8a {
     public static /* synthetic */ Interceptable $ic;
+    public static final m8a g;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public Dialog b;
-    public IPayCallback<CurrencyChargeMessage> c;
-    public d9a d;
-    public eca.b e;
+    public long a;
+    public m8a b;
+    public boolean c;
+    public long d;
+    public long e;
+    public m8a f;
 
-    public daa(Activity activity, Dialog dialog, eca.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback, d9a d9aVar) {
+    /* loaded from: classes4.dex */
+    public static class a implements m8a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.m8a
+        public void request(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947699205, "Lcom/baidu/tieba/daa;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947699205, "Lcom/baidu/tieba/daa;");
+                return;
+            }
+        }
+        g = new a();
+    }
+
+    public daa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, dialog, bVar, iPayCallback, d9aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = activity;
-        this.b = dialog;
-        this.c = iPayCallback;
-        this.d = d9aVar;
-        this.e = bVar;
     }
 
-    @Override // com.baidu.tieba.eca.a
-    public void a(vaa vaaVar) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, vaaVar) == null) {
-            RLog.info("PaySplitOrderViewCallback", "toPayWayDialog amount:" + vaaVar);
-            lba.a(this.b, PayDialogType.PAY_SPLIT_ORDER_DIALOG);
-            eca.b bVar = this.e;
-            IYYPayAmountView.ViewParams viewParams = bVar.f;
-            viewParams.splitOrderPayScene = "1";
-            this.d.t(this.a, vaaVar, bVar.d, bVar.e, viewParams, this.c);
+        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.eca.a
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            RLog.info("PaySplitOrderViewCallback", "toInputNumberDialog");
-            lba.a(this.b, PayDialogType.PAY_SPLIT_ORDER_DIALOG);
-            d9a d9aVar = this.d;
-            Activity activity = this.a;
-            eca.b bVar = this.e;
-            d9aVar.l(activity, bVar.d, bVar.e, bVar.f, this.c);
-        }
-    }
-
-    @Override // com.baidu.tieba.eca.a
-    public void onRefreshViewFail(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
-            PaySplitOrderViewSource paySplitOrderViewSource = this.e.h;
-            if (paySplitOrderViewSource == PaySplitOrderViewSource.SOURCE_FROM_INPUAT_DIALOG) {
-                RLog.info("PaySplitOrderViewCallback", "onRefreshViewFail code:" + i + " failReason:" + str + " source:" + paySplitOrderViewSource + " prepareShowPayWayDialog");
-                lba.a(this.b, PayDialogType.PAY_SPLIT_ORDER_DIALOG);
-                d9a d9aVar = this.d;
-                Activity activity = this.a;
-                eca.b bVar = this.e;
-                d9aVar.t(activity, bVar.a, bVar.d, bVar.e, bVar.f, this.c);
-                return;
+        while (true) {
+            synchronized (this) {
+                long j = this.d;
+                long j2 = this.e;
+                m8a m8aVar = this.f;
+                int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                if (i == 0 && j2 == 0 && m8aVar == null) {
+                    this.c = false;
+                    return;
+                }
+                this.d = 0L;
+                this.e = 0L;
+                this.f = null;
+                long j3 = this.a;
+                if (j3 != Long.MAX_VALUE) {
+                    long j4 = j3 + j;
+                    if (j4 >= 0 && j4 != Long.MAX_VALUE) {
+                        j3 = j4 - j2;
+                        if (j3 >= 0) {
+                            this.a = j3;
+                        } else {
+                            throw new IllegalStateException("more produced than requested");
+                        }
+                    } else {
+                        this.a = Long.MAX_VALUE;
+                        j3 = Long.MAX_VALUE;
+                    }
+                }
+                if (m8aVar != null) {
+                    if (m8aVar == g) {
+                        this.b = null;
+                    } else {
+                        this.b = m8aVar;
+                        m8aVar.request(j3);
+                    }
+                } else {
+                    m8a m8aVar2 = this.b;
+                    if (m8aVar2 != null && i != 0) {
+                        m8aVar2.request(j);
+                    }
+                }
             }
-            RLog.info("PaySplitOrderViewCallback", "onRefreshViewFail code:" + i + " failReason:" + str + " source:" + paySplitOrderViewSource + " interruptePayFlow");
-            lba.b(this.b, PayDialogType.PAY_SPLIT_ORDER_DIALOG);
+        }
+    }
+
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public void b(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            if (j > 0) {
+                synchronized (this) {
+                    if (this.c) {
+                        this.e += j;
+                        return;
+                    }
+                    this.c = true;
+                    try {
+                        long j2 = this.a;
+                        if (j2 != Long.MAX_VALUE) {
+                            long j3 = j2 - j;
+                            if (j3 >= 0) {
+                                this.a = j3;
+                            } else {
+                                throw new IllegalStateException("more items arrived than were requested");
+                            }
+                        }
+                        a();
+                        return;
+                    } catch (Throwable th) {
+                        synchronized (this) {
+                            this.c = false;
+                            throw th;
+                        }
+                    }
+                }
+            }
+            throw new IllegalArgumentException("n > 0 required");
+        }
+    }
+
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    @Override // com.baidu.tieba.m8a
+    public void request(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i >= 0) {
+                if (i == 0) {
+                    return;
+                }
+                synchronized (this) {
+                    if (this.c) {
+                        this.d += j;
+                        return;
+                    }
+                    this.c = true;
+                    try {
+                        long j2 = this.a + j;
+                        if (j2 < 0) {
+                            j2 = Long.MAX_VALUE;
+                        }
+                        this.a = j2;
+                        m8a m8aVar = this.b;
+                        if (m8aVar != null) {
+                            m8aVar.request(j);
+                        }
+                        a();
+                        return;
+                    } catch (Throwable th) {
+                        synchronized (this) {
+                            this.c = false;
+                            throw th;
+                        }
+                    }
+                }
+            }
+            throw new IllegalArgumentException("n >= 0 required");
+        }
+    }
+
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public void c(m8a m8aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m8aVar) == null) {
+            synchronized (this) {
+                if (this.c) {
+                    if (m8aVar == null) {
+                        m8aVar = g;
+                    }
+                    this.f = m8aVar;
+                    return;
+                }
+                this.c = true;
+                try {
+                    this.b = m8aVar;
+                    if (m8aVar != null) {
+                        m8aVar.request(this.a);
+                    }
+                    a();
+                } catch (Throwable th) {
+                    synchronized (this) {
+                        this.c = false;
+                        throw th;
+                    }
+                }
+            }
         }
     }
 }

@@ -1,181 +1,138 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
+import android.os.Environment;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import dalvik.system.DexFile;
-import dalvik.system.PathClassLoader;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedInputStream;
 import java.io.File;
-import java.lang.reflect.Array;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.List;
-@SuppressLint({"BDSoLoader", "UnsafeDynamicallyLoadedCode"})
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.nio.channels.Channels;
 /* loaded from: classes4.dex */
-public class ha2 {
+public class ha2 extends ea2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public File b;
 
-    public static void a(Context context, String str) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, context, str) == null) {
-            Object e = e((PathClassLoader) context.getClassLoader());
-            Field declaredField = e.getClass().getDeclaredField("nativeLibraryDirectories");
-            declaredField.setAccessible(true);
-            File[] fileArr = (File[]) declaredField.get(e);
-            Object newInstance = Array.newInstance(File.class, fileArr.length + 1);
-            Array.set(newInstance, 0, new File(str));
-            for (int i = 1; i < fileArr.length + 1; i++) {
-                Array.set(newInstance, i, fileArr[i - 1]);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947816912, "Lcom/baidu/tieba/ha2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            declaredField.set(e, newInstance);
-        }
-    }
-
-    public static void c(Context context, String str) throws NoSuchFieldException, IllegalAccessException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
-            PathClassLoader pathClassLoader = (PathClassLoader) context.getClassLoader();
-            Field declaredField = pathClassLoader.getClass().getDeclaredField("mLibPaths");
-            declaredField.setAccessible(true);
-            String[] strArr = (String[]) declaredField.get(pathClassLoader);
-            Object newInstance = Array.newInstance(String.class, strArr.length + 1);
-            Array.set(newInstance, 0, str);
-            for (int i = 1; i < strArr.length + 1; i++) {
-                Array.set(newInstance, i, strArr[i - 1]);
-            }
-            declaredField.set(pathClassLoader, newInstance);
-        }
-    }
-
-    @SuppressLint({"ObsoleteSdkInt"})
-    public static void b(Context context, String str) throws IllegalAccessException, NoSuchFieldException, ClassNotFoundException, NoSuchMethodException, InvocationTargetException {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, context, str) != null) || Build.VERSION.SDK_INT < 21) {
-            return;
-        }
-        Object e = e((PathClassLoader) context.getClassLoader());
-        Field declaredField = e.getClass().getDeclaredField("systemNativeLibraryDirectories");
-        declaredField.setAccessible(true);
-        List list = (List) declaredField.get(e);
-        list.add(new File(str));
-        declaredField.set(e, list);
-        Field declaredField2 = e.getClass().getDeclaredField("nativeLibraryDirectories");
-        declaredField2.setAccessible(true);
-        ArrayList arrayList = (ArrayList) declaredField2.get(e);
-        arrayList.add(new File(str));
-        declaredField2.set(e, arrayList);
-        Class<?> cls = Class.forName("dalvik.system.DexPathList$Element");
-        Constructor<?> constructor = cls.getConstructor(File.class, Boolean.TYPE, File.class, DexFile.class);
-        Field declaredField3 = e.getClass().getDeclaredField("nativeLibraryPathElements");
-        declaredField3.setAccessible(true);
-        Object[] objArr = (Object[]) declaredField3.get(e);
-        Object newInstance = Array.newInstance(cls, objArr.length + 1);
-        if (constructor != null) {
-            try {
-                Array.set(newInstance, 0, constructor.newInstance(new File(str), Boolean.TRUE, null, null));
-                for (int i = 1; i < objArr.length + 1; i++) {
-                    Array.set(newInstance, i, objArr[i - 1]);
-                }
-                declaredField3.set(e, newInstance);
-            } catch (IllegalArgumentException unused) {
-                Method declaredMethod = e.getClass().getDeclaredMethod("makePathElements", List.class);
-                declaredMethod.setAccessible(true);
-                Object invoke = declaredMethod.invoke(null, arrayList);
-                Field declaredField4 = e.getClass().getDeclaredField("nativeLibraryPathElements");
-                declaredField4.setAccessible(true);
-                declaredField4.set(e, invoke);
-            } catch (InstantiationException e2) {
-                e2.printStackTrace();
-            } catch (InvocationTargetException e3) {
-                e3.printStackTrace();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947816912, "Lcom/baidu/tieba/ha2;");
+                return;
             }
         }
+        c = tk1.a;
     }
 
-    public static Object d(Object obj, Class cls, String str) throws NoSuchFieldException, IllegalAccessException {
-        InterceptResult invokeLLL;
+    public ha2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, obj, cls, str)) == null) {
-            Field declaredField = cls.getDeclaredField(str);
-            declaredField.setAccessible(true);
-            return declaredField.get(obj);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return invokeLLL.objValue;
+        this.b = o();
     }
 
-    public static Object e(Object obj) throws ClassNotFoundException, NoSuchFieldException, IllegalAccessException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) {
-            return d(obj, Class.forName("dalvik.system.BaseDexClassLoader"), "pathList");
-        }
-        return invokeL.objValue;
-    }
-
-    public static boolean f() {
+    @Override // com.baidu.tieba.ea2
+    public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            try {
-                Class.forName("dalvik.system.BaseDexClassLoader");
-                return true;
-            } catch (ClassNotFoundException unused) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!this.b.exists()) {
+                return null;
             }
+            File file = new File(this.b, "preset_list.json");
+            if (!file.exists()) {
+                return null;
+            }
+            return nk4.E(file);
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public static void g(Context context, String str) {
+    public final File o() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, context, str) == null) {
-            if (f()) {
-                try {
-                    try {
-                        a(context, str);
-                        return;
-                    } catch (Exception unused) {
-                        b(context, str);
-                        return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new File(Environment.getExternalStorageDirectory().getPath(), "baidu/swan_preset/");
+        }
+        return (File) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ea2
+    public boolean e(fa2 fa2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fa2Var)) == null) {
+            if (fa2Var == null || !this.b.exists()) {
+                return false;
+            }
+            File file = this.b;
+            File file2 = new File(file, fa2Var.g + File.separator + fa2Var.q);
+            if (!file2.exists()) {
+                return false;
+            }
+            try {
+                if (!d(Channels.newChannel(new FileInputStream(file2)), fa2Var.m)) {
+                    if (c) {
+                        Log.e("SdCardPresetController", "校验签名失败");
                     }
-                } catch (Exception e) {
+                    return false;
+                }
+                File j = j(fa2Var.h, fa2Var.g, fa2Var.i);
+                if (j == null) {
+                    if (c) {
+                        Log.e("SdCardPresetController", "获取解压路径失败");
+                    }
+                    return false;
+                }
+                return n(new BufferedInputStream(new FileInputStream(file2)), j);
+            } catch (IOException e) {
+                if (c) {
                     e.printStackTrace();
-                    return;
                 }
-            }
-            try {
-                c(context, str);
-            } catch (Exception unused2) {
-            }
-        }
-    }
-
-    public static boolean h(String str, String str2, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65543, null, str, str2, z)) == null) {
-            if (!z) {
-                try {
-                    System.loadLibrary(str);
-                    return true;
-                } catch (Throwable unused) {
-                }
-            }
-            try {
-                System.load(str2 + File.separator + "lib" + str + ".so");
-                return true;
-            } catch (Throwable unused2) {
                 return false;
             }
         }
-        return invokeLLZ.booleanValue;
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ea2
+    public String f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (!this.b.exists()) {
+                return null;
+            }
+            File file = this.b;
+            File file2 = new File(file, str + File.separator + "app_info.json");
+            if (!file2.exists()) {
+                return null;
+            }
+            return nk4.E(file2);
+        }
+        return (String) invokeL.objValue;
     }
 }

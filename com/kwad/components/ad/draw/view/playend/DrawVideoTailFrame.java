@@ -123,21 +123,21 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
     private void E(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0436, this);
-            this.cu = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912b2);
-            this.cv = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910f2);
-            this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910f7);
-            this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f0910f9);
-            this.cy = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f0910fa);
-            this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f0910f6);
-            this.cA = (TextView) findViewById(R.id.obfuscated_res_0x7f0910f1);
-            DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f0910f5);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0435, this);
+            this.cu = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912bd);
+            this.cv = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910fd);
+            this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f091102);
+            this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f091104);
+            this.cy = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091105);
+            this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f091101);
+            this.cA = (TextView) findViewById(R.id.obfuscated_res_0x7f0910fc);
+            DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f091100);
             this.cB = drawDownloadProgressBar;
             drawDownloadProgressBar.setTextSize(15);
-            this.cC = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09114d);
-            this.cD = (TextView) findViewById(R.id.obfuscated_res_0x7f09114c);
-            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f091150);
-            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09113e);
+            this.cC = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091158);
+            this.cD = (TextView) findViewById(R.id.obfuscated_res_0x7f091157);
+            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f09115b);
+            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091149);
         }
     }
 
@@ -285,7 +285,7 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0594a(getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.cB ? 1 : 2).aj(view2 == this.cB).a(new a.b(this) { // from class: com.kwad.components.ad.draw.view.playend.DrawVideoTailFrame.2
+            com.kwad.components.core.c.a.a.a(new a.C0593a(getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.cB ? 1 : 2).aj(view2 == this.cB).a(new a.b(this) { // from class: com.kwad.components.ad.draw.view.playend.DrawVideoTailFrame.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DrawVideoTailFrame cF;

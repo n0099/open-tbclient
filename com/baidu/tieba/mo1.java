@@ -1,12 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import org.json.JSONArray;
+import com.baidu.tieba.k32;
+import com.baidu.webkit.sdk.VideoPlayerFactory;
 /* loaded from: classes5.dex */
 public interface mo1 {
-    long a(Context context);
+    int a();
 
-    void b(Context context, String str, xi3<String> xi3Var);
+    VideoPlayerFactory b();
 
-    void c(Context context, JSONArray jSONArray, xi3<String> xi3Var);
+    int c();
+
+    void d(boolean z);
+
+    boolean e();
+
+    boolean f();
+
+    void g(int i);
+
+    void h(k32.c cVar);
 }

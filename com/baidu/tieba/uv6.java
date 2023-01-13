@@ -1,59 +1,67 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import android.content.Context;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.frs.itemtab.card.CardItemGameCodeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class uv6 {
+public class uv6 extends cx<bw6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final CardItemGameCodeLayout f;
 
-    public static void a(wp5 wp5Var, ForumData forumData, List<xn> list, boolean z, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public uv6(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{wp5Var, forumData, list, Boolean.valueOf(z), Integer.valueOf(i)}) != null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        eq5 eq5Var = new eq5(wp5Var, 5);
-        eq5Var.G(list);
-        if (forumData != null) {
-            eq5Var.w(forumData.getId());
-            eq5Var.v(forumData.getFirst_class());
-            eq5Var.E(forumData.getSecond_class());
-        }
-        AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-        if (currentAccountObj != null) {
-            eq5Var.B(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
-        }
-        eq5Var.A(z);
-        eq5Var.C(i);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016515, eq5Var));
-    }
-
-    public static void b(wp5 wp5Var, FrsViewData frsViewData, List<xn> list, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLI(65537, null, wp5Var, frsViewData, list, i) == null) && frsViewData != null) {
-            a(wp5Var, frsViewData.getForum(), list, false, i);
-        }
-    }
-
-    public static void c(ds8 ds8Var, List<xn> list, List<xn> list2) {
-        int[] iArr;
-        int indexOf;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65538, null, ds8Var, list, list2) == null) && ds8Var != null && ListUtils.getCount(list) > 0 && ListUtils.getCount(list2) > 0) {
-            for (int i : ds8.f) {
-                xn xnVar = (xn) ListUtils.getItem(list, i);
-                if (xnVar != null && (indexOf = list2.indexOf(xnVar)) >= 0) {
-                    ds8Var.a(i, indexOf);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.f = new CardItemGameCodeLayout(context);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ux
+    /* renamed from: s */
+    public void a(bw6 bw6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bw6Var) == null) {
+            this.f.setData(bw6Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.cx
+    public View k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.vx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.f.onChangeSkinType(tbPageContext, i);
         }
     }
 }

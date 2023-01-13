@@ -1,7 +1,13 @@
 package com.baidu.tieba;
-
-import com.baidu.tbadk.album.MediaFileInfo;
 /* loaded from: classes6.dex */
 public interface s79 {
-    void a(int i, MediaFileInfo mediaFileInfo);
+    void E0(String str);
+
+    void I0(String str);
+
+    void b0();
+
+    void q0(String str, String str2);
+
+    void showErrorView();
 }

@@ -1,47 +1,53 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.model.response.TaskResponseData;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.atomData.AlbumFloatActivityConfig;
+import com.baidu.tbadk.core.atomData.AtListActivityConfig;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.mainentrance.searchsuggestlist.viewholder.SearchSuggestRankingViewHolder;
-import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.xo7;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class so7 extends kn<xo7, SearchSuggestRankingViewHolder> {
+public class so7 extends b75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
+    public String a;
+    public String b;
+    public String c;
+    public boolean d;
+    public boolean e;
 
     /* loaded from: classes6.dex */
-    public class a implements ho {
+    public class a implements a75 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
+        public final /* synthetic */ ro7 a;
         public final /* synthetic */ so7 b;
 
-        public a(so7 so7Var, Context context) {
+        public a(so7 so7Var, ro7 ro7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {so7Var, context};
+                Object[] objArr = {so7Var, ro7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,120 +58,252 @@ public class so7 extends kn<xo7, SearchSuggestRankingViewHolder> {
                 }
             }
             this.b = so7Var;
-            this.a = context;
+            this.a = ro7Var;
         }
 
-        @Override // com.baidu.tieba.ho
-        public void b(View view2, xn xnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            xo7 xo7Var;
-            xo7.a b;
+        @Override // com.baidu.tieba.a75
+        public void A(z65 z65Var) {
+            ro7 ro7Var;
+            int size;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, xnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(xnVar instanceof xo7) || (b = (xo7Var = (xo7) xnVar).b()) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, z65Var) != null) || (ro7Var = this.a) == null || ro7Var.b() == null || z65Var == null) {
                 return;
             }
-            HashMap hashMap = new HashMap();
-            hashMap.put(TiebaStatic.Params.TAB_ID, b.d() + "");
-            hashMap.put("sort_type", b.c() + "");
-            hashMap.put("rank_type", b.b() + "");
-            hashMap.put("rank_code", b.a() + "");
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a, "ItemRecommendList", hashMap)));
-            this.b.u(xo7Var);
+            int i = z65Var.a;
+            if (i != 4) {
+                if (i != 32) {
+                    if (i != 36) {
+                        if (i != 7) {
+                            if (i != 8) {
+                                if (i != 10) {
+                                    if (i != 11) {
+                                        switch (i) {
+                                            case 14:
+                                                AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(this.a.getContext().getPageActivity(), this.a.v().toJsonString(), true, true);
+                                                if (!StringUtils.isNull(this.b.b, true)) {
+                                                    albumFloatActivityConfig.getIntent().putExtra("forum_id", this.b.b);
+                                                }
+                                                albumFloatActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
+                                                if (x85.a().b() == 1) {
+                                                    albumFloatActivityConfig.setRequestFrom(2);
+                                                    if (this.a.v() != null) {
+                                                        this.a.v().setMaxImagesAllowed(1);
+                                                    }
+                                                } else if (this.a.v() != null) {
+                                                    this.a.v().setMaxImagesAllowed(9);
+                                                }
+                                                zi.z(this.a.getContext().getPageActivity(), this.a.getContext().getPageActivity().getCurrentFocus());
+                                                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumFloatActivityConfig));
+                                                return;
+                                            case 15:
+                                                int intValue = ((Integer) z65Var.c).intValue();
+                                                if (this.a.v() != null && this.a.v().getChosedFiles() != null && (size = this.a.v().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
+                                                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.a.getContext().getPageActivity(), 12012, this.a.v(), intValue)));
+                                                    return;
+                                                }
+                                                return;
+                                            case 16:
+                                                if (this.b.d) {
+                                                    zi.P(TbadkCoreApplication.getInst().getContext(), R.string.over_limit_tip);
+                                                }
+                                                if (!this.b.j(this.a.getContext(), 11025)) {
+                                                    return;
+                                                }
+                                                AtListActivityConfig atListActivityConfig = new AtListActivityConfig(this.a.getContext().getPageActivity(), 12004, true);
+                                                if (this.a.u() != null) {
+                                                    atListActivityConfig.setSelectedAtList(this.a.u().t());
+                                                }
+                                                atListActivityConfig.setFromTid(this.b.c);
+                                                atListActivityConfig.setFromFid(this.b.b);
+                                                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, atListActivityConfig));
+                                                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_AT_PANEL_SHOW);
+                                                statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+                                                statisticItem.addParam("tid", this.b.c);
+                                                statisticItem.addParam("fid", this.b.b);
+                                                TiebaStatic.log(statisticItem);
+                                                return;
+                                            default:
+                                                return;
+                                        }
+                                    }
+                                    this.a.m0(null);
+                                    return;
+                                }
+                                Object obj = z65Var.c;
+                                if (obj instanceof VoiceData.VoiceModel) {
+                                    this.a.m0((VoiceData.VoiceModel) obj);
+                                    this.a.w(true, null);
+                                    return;
+                                }
+                                return;
+                            } else if (!this.b.j(this.a.getContext(), 11001)) {
+                                return;
+                            } else {
+                                this.a.G(null, null);
+                                return;
+                            }
+                        }
+                        zi.P(TbadkCoreApplication.getInst().getContext(), R.string.over_limit_tip);
+                        this.b.d = true;
+                        return;
+                    } else if (!this.b.j(this.a.getContext(), 11040)) {
+                        return;
+                    } else {
+                        this.a.S();
+                        return;
+                    }
+                }
+                this.a.b().C(new z65(1, 11, null));
+                return;
+            }
+            this.a.e0(z65Var.c.toString());
+            Object obj2 = z65Var.c;
+            if (obj2 instanceof SpanGroupManager) {
+                this.a.j0((SpanGroupManager) obj2);
+            }
+            this.b.d = false;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public so7(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public so7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        this.mType = bdUniqueId;
-        setOnAdapterItemClickListener(new a(this, context));
+        this.d = false;
     }
 
-    public final void t(StatisticItem statisticItem, xo7 xo7Var) {
+    public void l(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, statisticItem, xo7Var) == null) {
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("obj_name", xo7Var.c());
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.c = str;
         }
     }
 
-    public final void u(xo7 xo7Var) {
+    public void k(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, xo7Var) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_RANKING_CLICK);
-            t(statisticItem, xo7Var);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            this.a = str;
+            this.b = str2;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: v */
-    public SearchSuggestRankingViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.b75
+    public d75 b(Context context) {
         InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            return new SearchSuggestRankingViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07d1, viewGroup, false));
-        }
-        return (SearchSuggestRankingViewHolder) invokeL.objValue;
-    }
-
-    public final void y(xo7 xo7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, xo7Var) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_RANKING_SHOW);
-            t(statisticItem, xo7Var);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.kn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, xo7 xo7Var, SearchSuggestRankingViewHolder searchSuggestRankingViewHolder) {
-        w(i, view2, viewGroup, xo7Var, searchSuggestRankingViewHolder);
-        return view2;
-    }
-
-    public View w(int i, View view2, ViewGroup viewGroup, xo7 xo7Var, SearchSuggestRankingViewHolder searchSuggestRankingViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xo7Var, searchSuggestRankingViewHolder})) == null) {
-            if (xo7Var == null) {
-                return view2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            EditorTools editorTools = new EditorTools(context);
+            editorTools.setBarMaxLauCount(5);
+            if (this.e) {
+                i = 2;
+            } else {
+                i = 3;
             }
-            x(searchSuggestRankingViewHolder);
-            WebPManager.setMaskDrawable(searchSuggestRankingViewHolder.c, R.drawable.obfuscated_res_0x7f080abc, null);
-            no7.a(searchSuggestRankingViewHolder.b, xo7Var.f(), xo7Var.a());
-            y(xo7Var);
-            return view2;
+            editorTools.setBarLauncherType(i);
+            editorTools.setBackgroundColorId(0);
+            editorTools.setBarBackgroundColorId(R.color.CAM_X0207);
+            editorTools.setDeskBackgroundColorId(R.color.CAM_X0207);
+            editorTools.F(false);
+            editorTools.setMoreButtonAtEnd(true);
+            editorTools.setHideBigEmotion(this.e);
+            return new ro7(editorTools);
         }
-        return (View) invokeCommon.objValue;
+        return (d75) invokeL.objValue;
     }
 
-    public final void x(SearchSuggestRankingViewHolder searchSuggestRankingViewHolder) {
+    @Override // com.baidu.tieba.b75
+    public void c(d75 d75Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, searchSuggestRankingViewHolder) == null) {
-            rw4 d = rw4.d(searchSuggestRankingViewHolder.b);
-            d.v(R.color.CAM_X0105);
-            d.z(R.dimen.T_X06);
-            SkinManager.setBackgroundResource(searchSuggestRankingViewHolder.a, R.drawable.addresslist_item_bg);
-            rw4.d(searchSuggestRankingViewHolder.d).f(R.color.CAM_X0203);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d75Var) != null) || !(d75Var instanceof ro7)) {
+            return;
         }
+        EditorTools b = d75Var.b();
+        a aVar = new a(this, (ro7) d75Var);
+        b.setActionListener(5, aVar);
+        b.setActionListener(4, aVar);
+        b.setActionListener(7, aVar);
+        b.setActionListener(16, aVar);
+        b.setActionListener(14, aVar);
+        b.setActionListener(15, aVar);
+        b.setActionListener(8, aVar);
+        b.setActionListener(10, aVar);
+        b.setActionListener(11, aVar);
+        b.setActionListener(36, aVar);
+        b.setActionListener(32, aVar);
+    }
+
+    @Override // com.baidu.tieba.b75
+    public void d(d75 d75Var) {
+        int i;
+        CustomResponsedMessage runTask;
+        k75 k75Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d75Var) == null) {
+            EditorTools b = d75Var.b();
+            if (bz8.a() && gw8.a(this.a, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, b.getContext()), k75.class)) != null && (k75Var = (k75) runTask.getData()) != null) {
+                k75Var.l = 2;
+                b.d(k75Var);
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(5);
+            b.h(arrayList);
+            k75 p = b.p(5);
+            if (p != null) {
+                p.e(!this.e);
+                p.f(!this.e);
+                if (this.e) {
+                    i = 1;
+                } else {
+                    i = 3;
+                }
+                p.l = i;
+            }
+            m75 m75Var = new m75(b.getContext(), 4);
+            m75Var.i = false;
+            b.d(m75Var);
+            if (!this.e) {
+                b.d(new v75(b.getContext(), 1));
+                CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>(2001339, b.getContext()), k75.class);
+                if (runTask2 != null && runTask2.getData() != null) {
+                    k75 k75Var2 = (k75) runTask2.getData();
+                    k75Var2.l = 6;
+                    b.d(k75Var2);
+                }
+                b.d(new d95(b.getContext(), false, true, 12004));
+                CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(new CustomMessage<>(2001342, b.getContext()), k75.class);
+                if (runTask3 != null && runTask3.getData() != null) {
+                    k75 k75Var3 = (k75) runTask3.getData();
+                    k75Var3.l = 7;
+                    b.d(k75Var3);
+                }
+                b.d(new t75(b.getContext(), 5));
+            } else {
+                b.d(new d95(b.getContext(), false, false, 12004));
+            }
+            b.f();
+        }
+    }
+
+    public final boolean j(TbPageContext<?> tbPageContext, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, tbPageContext, i)) == null) {
+            if (yc5.k()) {
+                return true;
+            }
+            TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, i)));
+            return false;
+        }
+        return invokeLI.booleanValue;
     }
 }

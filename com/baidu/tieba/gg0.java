@@ -1,180 +1,224 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
 import android.opengl.GLES20;
-import android.opengl.GLUtils;
-import android.opengl.Matrix;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.minivideo.effect.core.Rotation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.faceunity.gles.GeneratedTexture;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.FloatBuffer;
+import java.util.List;
 /* loaded from: classes4.dex */
 public class gg0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final float[] a;
-    public static final float[] b;
     public transient /* synthetic */ FieldHolder $fh;
+    public int[] a;
+    public int[] b;
+    public final FloatBuffer c;
+    public final FloatBuffer d;
+    public final FloatBuffer e;
+    public int f;
+    public int g;
+    public int h;
+    public float[] i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947792825, "Lcom/baidu/tieba/gg0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947792825, "Lcom/baidu/tieba/gg0;");
+    public gg0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new float[]{-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f};
-        float[] fArr = new float[16];
-        b = fArr;
-        Matrix.setIdentityM(fArr, 0);
+        this.i = new float[]{0.0f, 0.0f, 0.0f, 0.0f};
+        FloatBuffer asFloatBuffer = ByteBuffer.allocateDirect(lg0.a.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
+        this.c = asFloatBuffer;
+        asFloatBuffer.put(lg0.a).position(0);
+        FloatBuffer asFloatBuffer2 = ByteBuffer.allocateDirect(ng0.a.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
+        this.d = asFloatBuffer2;
+        asFloatBuffer2.put(ng0.a).position(0);
+        float[] b = ng0.b(Rotation.NORMAL, false, true);
+        FloatBuffer asFloatBuffer3 = ByteBuffer.allocateDirect(b.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
+        this.e = asFloatBuffer3;
+        asFloatBuffer3.put(b).position(0);
     }
 
-    public static void a(String str) {
+    public final boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            int glGetError = GLES20.glGetError();
-            if (glGetError == 1281) {
-                Log.d("zmy", "---> GL_INVALID_VALUE : glError 0x" + Integer.toHexString(glGetError));
-            } else if (glGetError != 0) {
-                String str2 = str + ": glError 0x" + Integer.toHexString(glGetError);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int[] iArr = this.a;
+            if (iArr != null && this.h < iArr.length) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int[] iArr = this.b;
+            if (iArr != null) {
+                GLES20.glDeleteTextures(iArr.length, iArr, 0);
+                this.b = null;
+            }
+            int[] iArr2 = this.a;
+            if (iArr2 != null) {
+                GLES20.glDeleteFramebuffers(iArr2.length, iArr2, 0);
+                this.a = null;
             }
         }
     }
 
-    public static int b() {
-        InterceptResult invokeV;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            int[] iArr = new int[1];
-            GLES20.glGenTextures(1, iArr, 0);
-            int i = iArr[0];
-            GLES20.glBindTexture(3553, i);
-            GLES20.glTexParameterf(3553, 10241, 9728.0f);
-            GLES20.glTexParameterf(3553, 10240, 9729.0f);
-            GLES20.glTexParameteri(3553, 10242, 33071);
-            GLES20.glTexParameteri(3553, 10243, 33071);
-            return i;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.h = 0;
         }
-        return invokeV.intValue;
     }
 
-    public static int c() {
-        InterceptResult invokeV;
+    public void c(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            int[] iArr = new int[1];
-            GLES20.glGenTextures(1, iArr, 0);
-            int i = iArr[0];
-            GLES20.glBindTexture(3553, i);
-            GLES20.glTexParameterf(3553, 10241, 9985.0f);
-            GLES20.glTexParameterf(3553, 10240, 9729.0f);
-            GLES20.glTexParameteri(3553, 10242, 33071);
-            GLES20.glTexParameteri(3553, 10243, 33071);
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            int[] iArr = new int[1];
-            GLES20.glGenTextures(1, iArr, 0);
-            int i = iArr[0];
-            GLES20.glBindTexture(36197, i);
-            GLES20.glTexParameterf(36197, 10241, 9728.0f);
-            GLES20.glTexParameterf(36197, 10240, 9729.0f);
-            GLES20.glTexParameteri(36197, 10242, 33071);
-            GLES20.glTexParameteri(36197, 10243, 33071);
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public static int e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            int[] iArr = new int[1];
-            int f = f(str, 35633);
-            if (f != 0) {
-                int f2 = f(str2, 35632);
-                if (f2 != 0) {
-                    int glCreateProgram = GLES20.glCreateProgram();
-                    a("glCreateProgram");
-                    GLES20.glAttachShader(glCreateProgram, f);
-                    a("glAttachShader");
-                    GLES20.glAttachShader(glCreateProgram, f2);
-                    a("glAttachShader");
-                    GLES20.glLinkProgram(glCreateProgram);
-                    GLES20.glGetProgramiv(glCreateProgram, 35714, iArr, 0);
-                    if (iArr[0] > 0) {
-                        GLES20.glDeleteShader(f);
-                        GLES20.glDeleteShader(f2);
-                        return glCreateProgram;
-                    }
-                    GLES20.glDeleteProgram(glCreateProgram);
-                    throw new RuntimeException("gl Load Program Linking Failed");
+        if ((interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) && i != 0 && i2 != 0) {
+            if (this.f != i || this.g != i2) {
+                if (this.a != null) {
+                    b();
                 }
-                throw new RuntimeException("gl Load Program Fragment Shader Failed");
+                this.f = i;
+                this.g = i2;
+                d(2);
             }
-            throw new RuntimeException("gl Load Program Vertex Shader Failed");
         }
-        return invokeLL.intValue;
     }
 
-    public static int f(String str, int i) {
-        InterceptResult invokeLI;
+    public final void d(int i) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i)) == null) {
-            int[] iArr = new int[1];
-            int glCreateShader = GLES20.glCreateShader(i);
-            a("glCreateShader type=" + i + " source : " + str + "\n");
-            GLES20.glShaderSource(glCreateShader, str);
-            GLES20.glCompileShader(glCreateShader);
-            GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
-            if (iArr[0] == 0) {
-                Log.d("Load Shader Failed", "Compilation\n" + GLES20.glGetShaderInfoLog(glCreateShader));
-                GLES20.glDeleteShader(glCreateShader);
-                return 0;
-            }
-            return glCreateShader;
-        }
-        return invokeLI.intValue;
-    }
-
-    public static int g(Bitmap bitmap, int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{bitmap, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            int[] iArr = new int[1];
-            if (i == -1) {
-                GLES20.glGenTextures(1, iArr, 0);
-                GLES20.glBindTexture(3553, iArr[0]);
-                GLES20.glTexParameterf(3553, 10240, 9729.0f);
-                GLES20.glTexParameterf(3553, 10241, 9729.0f);
-                GLES20.glTexParameterf(3553, 10242, 33071.0f);
-                GLES20.glTexParameterf(3553, 10243, 33071.0f);
-                GLUtils.texImage2D(3553, 0, bitmap, 0);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            int[] iArr = this.a;
+            if (iArr != null) {
+                i2 = i + iArr.length;
             } else {
-                GLES20.glBindTexture(3553, i);
-                GLUtils.texSubImage2D(3553, 0, 0, 0, bitmap);
-                iArr[0] = i;
+                i2 = i;
             }
-            if (z) {
-                bitmap.recycle();
+            int[] iArr2 = new int[i2];
+            int[] iArr3 = new int[i2];
+            for (int i3 = 0; i3 < i2; i3++) {
+                int[] iArr4 = this.a;
+                if (iArr4 != null && iArr4.length > i3) {
+                    iArr2[i3] = iArr4[i3];
+                }
+                int[] iArr5 = this.b;
+                if (iArr5 != null && iArr5.length > i3) {
+                    iArr3[i3] = iArr5[i3];
+                }
+                if (iArr3[i3] == 0) {
+                    GLES20.glGenFramebuffers(1, iArr2, i3);
+                    GLES20.glGenTextures(1, iArr3, i3);
+                    GLES20.glBindTexture(3553, iArr3[i3]);
+                    GLES20.glTexImage2D(3553, 0, GeneratedTexture.FORMAT, this.f, this.g, 0, GeneratedTexture.FORMAT, 5121, null);
+                    GLES20.glTexParameterf(3553, 10240, 9729.0f);
+                    GLES20.glTexParameterf(3553, 10241, 9729.0f);
+                    GLES20.glTexParameterf(3553, 10242, 33071.0f);
+                    GLES20.glTexParameterf(3553, 10243, 33071.0f);
+                    GLES20.glBindFramebuffer(36160, iArr2[i3]);
+                    GLES20.glFramebufferTexture2D(36160, 36064, 3553, iArr3[i3], 0);
+                    GLES20.glBindTexture(3553, 0);
+                    GLES20.glBindFramebuffer(36160, 0);
+                }
             }
-            return iArr[0];
+            this.a = iArr2;
+            this.b = iArr3;
         }
-        return invokeCommon.intValue;
+    }
+
+    public int e(int i, fg0 fg0Var) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, fg0Var)) == null) {
+            if (fg0Var == null) {
+                return i;
+            }
+            try {
+                if (a()) {
+                    d(2);
+                }
+                fg0Var.s();
+                GLES20.glBindFramebuffer(36160, this.a[this.h]);
+                GLES20.glViewport(0, 0, this.f, this.g);
+                GLES20.glClearColor(this.i[0], this.i[1], this.i[2], this.i[3]);
+                GLES20.glClear(16640);
+                fg0Var.p(i, this.c, this.e);
+                GLES20.glBindFramebuffer(36160, 0);
+                i = this.b[this.h];
+                this.h++;
+                return i;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return i;
+            }
+        }
+        return invokeIL.intValue;
+    }
+
+    public int f(int i, List<fg0> list) {
+        InterceptResult invokeIL;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, list)) == null) {
+            if (list != null) {
+                int size = list.size();
+                if (size == 0) {
+                    return i;
+                }
+                if (this.a.length - this.h <= size) {
+                    d(size);
+                }
+                int i3 = this.h;
+                while (true) {
+                    i2 = this.h;
+                    if (i3 >= i2 + size) {
+                        break;
+                    }
+                    fg0 fg0Var = list.get(i3 - i2);
+                    fg0Var.s();
+                    GLES20.glBindFramebuffer(36160, this.a[i3]);
+                    GLES20.glViewport(0, 0, this.f, this.g);
+                    float[] fArr = this.i;
+                    GLES20.glClearColor(fArr[0], fArr[1], fArr[2], fArr[3]);
+                    GLES20.glClear(16640);
+                    fg0Var.p(i, this.c, this.e);
+                    GLES20.glBindFramebuffer(36160, 0);
+                    i = this.b[i3];
+                    i3++;
+                }
+                this.h = i2 + size;
+            }
+            return i;
+        }
+        return invokeIL.intValue;
+    }
+
+    public void h(float f, float f2, float f3, float f4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            float[] fArr = this.i;
+            fArr[0] = f;
+            fArr[1] = f2;
+            fArr[2] = f3;
+            fArr[3] = f4;
+        }
     }
 }

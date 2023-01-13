@@ -2,6 +2,7 @@ package com.baidu.rtc.logreport;
 
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -81,8 +82,8 @@ public class RTCBitrateTracker {
                 if (str.indexOf("Kbps") != -1) {
                     return (int) (Integer.parseInt(str.substring(0, str.indexOf("Kbps"))) * 1000.0d);
                 }
-                if (str.indexOf("bps") != -1) {
-                    return Integer.parseInt(str.substring(0, str.indexOf("bps")));
+                if (str.indexOf(MultiRatePlayUrlHelper.BPS) != -1) {
+                    return Integer.parseInt(str.substring(0, str.indexOf(MultiRatePlayUrlHelper.BPS)));
                 }
                 Log.e("BRTC", "illegal input num");
                 return -1;

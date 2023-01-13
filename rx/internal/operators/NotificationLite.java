@@ -1,7 +1,7 @@
 package rx.internal.operators;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.d3a;
+import com.baidu.tieba.l8a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -126,22 +126,22 @@ public final class NotificationLite {
         return invokeV.objValue;
     }
 
-    public static <T> boolean a(d3a<? super T> d3aVar, Object obj) {
+    public static <T> boolean a(l8a<? super T> l8aVar, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, d3aVar, obj)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, l8aVar, obj)) == null) {
             if (obj == a) {
-                d3aVar.onCompleted();
+                l8aVar.onCompleted();
                 return true;
             } else if (obj == b) {
-                d3aVar.onNext(null);
+                l8aVar.onNext(null);
                 return false;
             } else if (obj != null) {
                 if (obj.getClass() == OnErrorSentinel.class) {
-                    d3aVar.onError(((OnErrorSentinel) obj).e);
+                    l8aVar.onError(((OnErrorSentinel) obj).e);
                     return true;
                 }
-                d3aVar.onNext(obj);
+                l8aVar.onNext(obj);
                 return false;
             } else {
                 throw new IllegalArgumentException("The lite notification can not be null");

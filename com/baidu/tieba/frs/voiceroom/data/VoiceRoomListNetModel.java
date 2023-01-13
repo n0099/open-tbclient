@@ -7,16 +7,16 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
-import com.baidu.tieba.px6;
-import com.baidu.tieba.qx6;
-import com.baidu.tieba.td5;
+import com.baidu.tieba.ie5;
+import com.baidu.tieba.n17;
+import com.baidu.tieba.o17;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class VoiceRoomListNetModel extends NetAutoModel<px6, qx6, BaseFragment> {
+public class VoiceRoomListNetModel extends NetAutoModel<n17, o17, BaseFragment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,7 +55,7 @@ public class VoiceRoomListNetModel extends NetAutoModel<px6, qx6, BaseFragment> 
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
-                super((TbPageContext) objArr[0], (td5) objArr[1]);
+                super((TbPageContext) objArr[0], (ie5) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -84,19 +84,19 @@ public class VoiceRoomListNetModel extends NetAutoModel<px6, qx6, BaseFragment> 
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<qx6> getResponseDataClass() {
+    public Class<o17> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return qx6.class;
+            return o17.class;
         }
         return (Class) invokeV.objValue;
     }
 
-    public void j0(px6 px6Var) {
+    public void j0(n17 n17Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, px6Var) == null) {
-            this.c = px6Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, n17Var) == null) {
+            this.c = n17Var;
         }
     }
 }

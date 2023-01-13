@@ -1,5 +1,41 @@
 package com.baidu.tieba;
+
+import com.baidu.tbadk.data.QmFilterItem;
+import com.baidu.tieba.external.sticker.data.QmStickerItem;
 /* loaded from: classes7.dex */
 public interface za6 {
-    void a(String str, String str2, String str3);
+
+    /* loaded from: classes7.dex */
+    public interface a {
+        void onProgress(long j);
+    }
+
+    /* loaded from: classes7.dex */
+    public interface b {
+        boolean a(String str);
+
+        boolean b();
+    }
+
+    boolean a(QmFilterItem qmFilterItem);
+
+    boolean b(QmStickerItem qmStickerItem);
+
+    boolean c();
+
+    boolean d();
+
+    w46 e();
+
+    t46 f();
+
+    boolean onDestroy();
+
+    boolean onPause();
+
+    boolean onResume();
+
+    boolean startRecord();
+
+    boolean stopRecord();
 }

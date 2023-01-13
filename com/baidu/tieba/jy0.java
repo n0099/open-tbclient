@@ -1,95 +1,61 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideo;
 import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class jy0 {
+public class jy0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(qy0 mpdModel, JSONArray clarityUrlList) {
-        ArrayList<my0> a;
-        int i;
-        boolean z;
-        my0 my0Var;
-        ArrayList<Object> d;
-        ArrayList<my0> a2;
+    public static int a(BdVideoSeries bdVideoSeries) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, mpdModel, clarityUrlList) == null) {
-            Intrinsics.checkNotNullParameter(mpdModel, "mpdModel");
-            Intrinsics.checkNotNullParameter(clarityUrlList, "clarityUrlList");
-            oy0 a3 = mpdModel.a();
-            if (a3 != null && (a = a3.a()) != null) {
-                oy0 a4 = mpdModel.a();
-                if (a4 != null && (a2 = a4.a()) != null) {
-                    i = a2.size();
-                } else {
-                    i = 0;
-                }
-                if (i > 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (!z) {
-                    a = null;
-                }
-                if (a != null && (my0Var = a.get(0)) != null && (d = my0Var.d()) != null) {
-                    int length = clarityUrlList.length();
-                    for (int i2 = 0; i2 < length; i2++) {
-                        Object obj = clarityUrlList.get(i2);
-                        if (!(obj instanceof JSONObject)) {
-                            obj = null;
-                        }
-                        JSONObject jSONObject = (JSONObject) obj;
-                        if (jSONObject != null) {
-                            Object obj2 = d.get(0);
-                            if (!(obj2 instanceof py0)) {
-                                obj2 = null;
-                            }
-                            py0 py0Var = (py0) obj2;
-                            if (py0Var != null) {
-                                jSONObject.put("interact_url", py0Var.a());
-                            }
-                        }
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bdVideoSeries)) == null) {
+            if (bdVideoSeries != null && bdVideoSeries.getSelectedVideo() != null) {
+                return wz0.c(bdVideoSeries.getSelectedVideo().getTotalLength());
             }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void b(@Nullable BdVideoSeries bdVideoSeries, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(65537, null, bdVideoSeries, i, i2) == null) && bdVideoSeries != null && bdVideoSeries.getSelectedVideo() != null) {
+            bdVideoSeries.setPositionMs(i);
+            bdVideoSeries.setDurationMs(i2);
+            BdVideo selectedVideo = bdVideoSeries.getSelectedVideo();
+            selectedVideo.setCurrentLength((i / 1000) + "");
+            BdVideo selectedVideo2 = bdVideoSeries.getSelectedVideo();
+            selectedVideo2.setTotalLength((i2 / 1000) + "");
         }
     }
 
-    public static final void b(qy0 mpdModel, JSONObject mpdJson) {
-        JSONArray optJSONArray;
-        JSONArray optJSONArray2;
+    @NonNull
+    public static String c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, mpdModel, mpdJson) == null) {
-            Intrinsics.checkNotNullParameter(mpdModel, "mpdModel");
-            Intrinsics.checkNotNullParameter(mpdJson, "mpdJson");
-            JSONObject optJSONObject = mpdJson.optJSONObject(BdVideoSeries.RESOURCE_TYPE_INTERACT);
-            if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("adaptation_set")) != null) {
-                ArrayList arrayList = new ArrayList();
-                int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-                    if (optJSONObject2 != null && (optJSONArray2 = optJSONObject2.optJSONArray("representation_list")) != null) {
-                        ArrayList arrayList2 = new ArrayList();
-                        int length2 = optJSONArray2.length();
-                        for (int i2 = 0; i2 < length2; i2++) {
-                            JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i2);
-                            if (optJSONObject3 != null) {
-                                arrayList2.add(new py0(optJSONObject3.optString("url")));
-                            }
-                        }
-                        arrayList.add(new my0(arrayList2, optJSONObject2.optString("type"), null, null, null, null, 60, null));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    int d = wz0.d(str, -1);
+                    if (d < 0) {
+                        return "";
                     }
+                    return wz0.b(d, false);
+                } catch (Exception e) {
+                    a01.k("toTimeString(" + str + SmallTailInfo.EMOTION_SUFFIX, e);
                 }
-                mpdModel.c(new oy0(arrayList));
             }
+            return "";
         }
+        return (String) invokeL.objValue;
     }
 }

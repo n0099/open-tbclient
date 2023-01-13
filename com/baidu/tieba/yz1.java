@@ -1,70 +1,75 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
+import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
 import androidx.core.view.InputDeviceCompat;
-import com.airbnb.lottie.LottieAnimationView;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.tieba.ma3;
+import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
+import com.baidu.tieba.k8a;
+import com.baidu.tieba.zz1;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class yz1 extends rz1<LottieAnimationView, zz1> {
+public abstract class yz1<V extends View, M extends zz1> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean h;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public z02 a;
+    @Nullable
+    public V b;
     @NonNull
-    public String i;
+    public M c;
+    @Nullable
+    public M d;
+    @Nullable
+    public SwanAppComponentContainerView e;
+    @Nullable
+    public q8a f;
+    public int g;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rz1
-    /* renamed from: Y */
-    public void R(@NonNull LottieAnimationView lottieAnimationView, @NonNull zz1 zz1Var) {
+    public void A(@NonNull V v) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, lottieAnimationView, zz1Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, v) == null) {
+        }
+    }
+
+    @NonNull
+    public abstract V v(@NonNull Context context);
+
+    public void x(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
         }
     }
 
     /* loaded from: classes7.dex */
-    public class a implements Animator.AnimatorListener {
+    public class a extends q8a<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zz1 a;
-        public final /* synthetic */ JSONObject b;
-        public final /* synthetic */ LottieAnimationView c;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ yz1 f;
 
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-            }
-        }
-
-        public a(yz1 yz1Var, zz1 zz1Var, JSONObject jSONObject, LottieAnimationView lottieAnimationView) {
+        public a(yz1 yz1Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yz1Var, zz1Var, jSONObject, lottieAnimationView};
+                Object[] objArr = {yz1Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -74,176 +79,616 @@ public final class yz1 extends rz1<LottieAnimationView, zz1> {
                     return;
                 }
             }
-            this.a = zz1Var;
-            this.b = jSONObject;
-            this.c = lottieAnimationView;
+            this.f = yz1Var;
+            this.e = str;
         }
 
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
+        /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: com.baidu.tieba.yz1 */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: com.baidu.tieba.yz1 */
+        /* JADX WARN: Multi-variable type inference failed */
+        @Override // com.baidu.tieba.l8a
+        public void onCompleted() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                zz1 zz1Var = this.a;
-                lj3.d(zz1Var.c, zz1Var.b, "animateview", "ended", this.b);
-                e12.i("Component-AnimationView", "progress: " + this.c.getProgress());
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                yz1 yz1Var = this.f;
+                yz1Var.b = yz1Var.v(yz1Var.a.getContext());
+                yz1 yz1Var2 = this.f;
+                yz1Var2.A(yz1Var2.b);
+                this.f.e.setTargetView(this.f.b, 0);
+                yz1 yz1Var3 = this.f;
+                yz1Var3.C(yz1Var3.b, this.f.c, new b12(true));
+                if (yz1.h) {
+                    Log.d("Component-Base", this.e + " insert delayed（view）: success");
+                }
             }
         }
 
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
+        @Override // com.baidu.tieba.l8a
+        @SuppressLint({"BDThrowableCheck"})
+        public void onError(Throwable th) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-                e12.i("Component-AnimationView", "onAnimationRepeat ");
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                j12.o("Component-Base", this.e + " insert delayed（view）: fail");
+                if (yz1.h && th != null && TextUtils.equals(th.getMessage(), "save subscriber and return subscriber: nolinear !")) {
+                    throw new RuntimeException("save subscriber and return subscriber: nolinear !");
+                }
+                this.f.B();
+            }
+        }
+
+        @Override // com.baidu.tieba.l8a
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+                j12.o("Component-Base", this.e + " success should call onCompleted");
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yz1(@Nullable Context context, @NonNull zz1 zz1Var, @NonNull String str) {
-        super(context, zz1Var);
+    /* loaded from: classes7.dex */
+    public class b implements k8a.a<Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ yz1 b;
+
+        public b(yz1 yz1Var, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yz1Var, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = yz1Var;
+            this.a = j;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.k8a.a, com.baidu.tieba.y8a
+        public void call(q8a<? super Object> q8aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, q8aVar) == null) {
+                if (yz1.h) {
+                    Log.d("Component-Base", "insert delayed => save thread: " + Thread.currentThread().getName());
+                }
+                if (this.a != Thread.currentThread().getId()) {
+                    c12.a("Component-Base", "save subscriber and return subscriber: nolinear !");
+                }
+                this.b.f = q8aVar;
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c extends pj3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean j;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(yz1 yz1Var, String str, String str2, String str3, boolean z) {
+            super(str, str2, str3);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yz1Var, str, str2, str3, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.j = z;
+        }
+
+        @Override // com.baidu.tieba.pj3, android.view.View.OnTouchListener
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+                if (this.j && super.onTouch(view2, motionEvent)) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948347353, "Lcom/baidu/tieba/yz1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948347353, "Lcom/baidu/tieba/yz1;");
+                return;
+            }
+        }
+        h = tk1.a;
+    }
+
+    public final void E() {
+        q8a q8aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (q8aVar = this.f) != null && !q8aVar.isUnsubscribed()) {
+            this.f.unsubscribe();
+        }
+    }
+
+    @NonNull
+    public final M l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return j(this.c);
+        }
+        return (M) invokeV.objValue;
+    }
+
+    @Nullable
+    public final SwanAppComponentContainerView m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.e;
+        }
+        return (SwanAppComponentContainerView) invokeV.objValue;
+    }
+
+    @NonNull
+    public final M n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.c;
+        }
+        return (M) invokeV.objValue;
+    }
+
+    @Nullable
+    public final M p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.d;
+        }
+        return (M) invokeV.objValue;
+    }
+
+    @Nullable
+    public final V q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.b;
+        }
+        return (V) invokeV.objValue;
+    }
+
+    public final boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            if (this.d != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @CallSuper
+    public void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+            if (h) {
+                Log.d("Component-Base", o() + " onDestroy");
+            }
+            E();
+        }
+    }
+
+    @CallSuper
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+            E();
+        }
+    }
+
+    public yz1(@Nullable Context context, @NonNull M m) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, zz1Var, str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context, m};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (sz1) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.i = str;
-    }
-
-    public static void Z(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("json", str);
-                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, str2);
-            } catch (Exception e) {
-                if (tz1.h) {
-                    e.printStackTrace();
-                }
-            }
-            String jSONObject2 = jSONObject.toString();
-            if (tz1.h && TextUtils.isEmpty(jSONObject2)) {
-                Log.d("Component-AnimationView", "reportLottieAnimationCrash: empty");
-                return;
-            }
-            if (tz1.h) {
-                Log.d("Component-AnimationView", "reportLottieAnimationCrash: " + jSONObject2);
-            }
-            ma3.b bVar = new ma3.b(10009);
-            bVar.i(jSONObject2);
-            bVar.h(e43.g0());
-            bVar.m();
+        M j = j(m);
+        this.c = j;
+        z02 c2 = w02.c(j);
+        this.a = c2;
+        if (c2 == null) {
+            j12.c("Component-Base", o() + " context is null !");
+        } else if (context != null) {
+            c2.c(context);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tz1
     @NonNull
-    /* renamed from: T */
-    public LottieAnimationView v(@NonNull Context context) {
+    public final yz1 g(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            this.g = i | this.g;
+            return this;
+        }
+        return (yz1) invokeI.objValue;
+    }
+
+    public final boolean h(@NonNull z02 z02Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
-            return new LottieAnimationView(context);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, z02Var)) == null) {
+            boolean b2 = z02Var.a().b(this);
+            x(b2);
+            return b2;
         }
-        return (LottieAnimationView) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rz1
-    /* renamed from: V */
-    public void O(@NonNull LottieAnimationView lottieAnimationView, @NonNull zz1 zz1Var, @NonNull w02 w02Var) {
+    public final boolean s(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, lottieAnimationView, zz1Var, w02Var) == null) {
-            super.C(lottieAnimationView, zz1Var, w02Var);
-            W(lottieAnimationView, zz1Var);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rz1
-    /* renamed from: X */
-    public void Q(@NonNull LottieAnimationView lottieAnimationView, @NonNull zz1 zz1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, lottieAnimationView, zz1Var) == null) {
-            if (tz1.h) {
-                Log.d("Component-AnimationView", "renderBackground");
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
+            if ((this.g & i) == i) {
+                return true;
             }
-            lottieAnimationView.setColorFilter(new PorterDuffColorFilter(zz1Var.k, PorterDuff.Mode.ADD));
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    @NonNull
+    public SwanAppComponentContainerView u(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, context)) == null) {
+            return new SwanAppComponentContainerView(context);
+        }
+        return (SwanAppComponentContainerView) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.tieba.yz1<V extends android.view.View, M extends com.baidu.tieba.zz1> */
+    /* JADX WARN: Multi-variable type inference failed */
+    @NonNull
+    @UiThread
+    public /* bridge */ /* synthetic */ a02 update(@NonNull b02 b02Var) {
+        return update((yz1<V, M>) ((zz1) b02Var));
+    }
+
+    @SuppressLint({"ClickableViewAccessibility"})
+    public void r(@NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull M m) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048593, this, swanAppComponentContainerView, m) == null) {
+            swanAppComponentContainerView.setOnTouchListener(new c(this, m.c, m.b, m.a, m.g));
         }
     }
 
-    public final void S(@NonNull LottieAnimationView lottieAnimationView, @NonNull zz1 zz1Var) {
+    @NonNull
+    @UiThread
+    public final a02 B() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, lottieAnimationView, zz1Var) == null) {
-            JSONObject jSONObject = new JSONObject();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String o = o();
+            if (h) {
+                Log.i("Component-Base", "=====================" + o + " start remove=====================");
+            }
+            z02 z02Var = this.a;
+            if (z02Var == null) {
+                c12.a("Component-Base", o + " remove with a null component context!");
+                return new a02(202, "component context is null");
+            } else if (this.e == null) {
+                j12.c("Component-Base", o + " remove must after insert");
+                return new a02(202, "component remove must after insert");
+            } else if (!z02Var.a().e(this)) {
+                String str = o + " remove fail";
+                j12.c("Component-Base", str);
+                return new a02(1001, str);
+            } else {
+                z();
+                if (h) {
+                    Log.d("Component-Base", o + " remove: success");
+                }
+                return new a02(0, "success");
+            }
+        }
+        return (a02) invokeV.objValue;
+    }
+
+    @CallSuper
+    public void C(@NonNull V v, @NonNull M m, @NonNull b12 b12Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, v, m, b12Var) == null) {
+            D(m, b12Var);
+        }
+    }
+
+    @SuppressLint({"ClickableViewAccessibility"})
+    public final void D(@NonNull M m, @NonNull b12 b12Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, m, b12Var) == null) {
+            if (this.e == null) {
+                c12.a("Component-Base", "renderContainerView with a null container view");
+                return;
+            }
+            if (b12Var.a(1)) {
+                this.e.setHidden(m.f);
+            }
+            if (b12Var.a(2)) {
+                r(this.e, m);
+            }
+        }
+    }
+
+    @NonNull
+    @CallSuper
+    public b12 k(@NonNull M m, @NonNull M m2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, m, m2)) == null) {
+            b12 b12Var = new b12();
+            pu2 pu2Var = m2.h;
+            if (pu2Var != null && pu2Var.b(m.h)) {
+                b12Var.b(3);
+            }
+            if (m.f != m2.f) {
+                b12Var.b(1);
+            }
+            if (m.g != m2.g) {
+                b12Var.b(2);
+            }
+            return b12Var;
+        }
+        return (b12) invokeLL.objValue;
+    }
+
+    @NonNull
+    public final a02 i(M m) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, m)) == null) {
+            if (m == null) {
+                return new a02(202, "model is null");
+            }
+            if (TextUtils.isEmpty(m.c)) {
+                return new a02(202, "slave id is empty");
+            }
+            if (!m.isValid()) {
+                return new a02(202, "model is invalid");
+            }
+            return new a02(0, "model is valid");
+        }
+        return (a02) invokeL.objValue;
+    }
+
+    @NonNull
+    @UiThread
+    public final a02 insert() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            String o = o();
+            a02 i = i(this.c);
+            if (!i.a()) {
+                j12.c("Component-Base", o + " insert with a invalid model => " + i.b);
+                return i;
+            }
+            if (h) {
+                Log.i("Component-Base", "=====================" + o + " start insert=====================");
+            }
+            z02 z02Var = this.a;
+            if (z02Var == null) {
+                j12.c("Component-Base", o + " insert with a null component context!");
+                return new a02(202, "component context is null");
+            }
+            Context context = z02Var.getContext();
+            if (this.e != null || this.b != null) {
+                j12.o("Component-Base", o + " repeat insert");
+            }
+            V v = v(this.a.getContext());
+            this.b = v;
+            A(v);
+            SwanAppComponentContainerView u = u(context);
+            this.e = u;
+            u.setTargetView(this.b);
+            C(this.b, this.c, new b12(true));
+            if (h(this.a)) {
+                if (h) {
+                    Log.d("Component-Base", o + " insert: success");
+                }
+                return new a02(0, "success");
+            }
+            j12.c("Component-Base", o + " insert: attach fail");
+            return new a02(1001, "attach fail");
+        }
+        return (a02) invokeV.objValue;
+    }
+
+    @Nullable
+    @UiThread
+    public final q8a w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            String o = o();
+            a02 i = i(this.c);
+            if (!i.a()) {
+                j12.c("Component-Base", o + " insert delayed with a invalid model => " + i.b);
+                return null;
+            }
+            if (h) {
+                Log.i("Component-Base", "=====================" + o + " start insertDelayed=====================");
+            }
+            if (this.a == null) {
+                c12.a("Component-Base", o + " insert delayed with a null component context!");
+                return null;
+            }
+            if (this.e != null) {
+                j12.o("Component-Base", o + " repeat insert delayed: container view repeat");
+            }
+            q8a q8aVar = this.f;
+            if (q8aVar != null && !q8aVar.isUnsubscribed()) {
+                this.f.unsubscribe();
+                this.f = null;
+                j12.o("Component-Base", o + " insert delayed repeat: subscriber repeat");
+            }
+            this.e = u(this.a.getContext());
+            D(this.c, new b12(true));
+            if (h(this.a)) {
+                if (h) {
+                    Log.d("Component-Base", o + " insert delayed（container view）: success");
+                }
+                k8a.a(new b(this, Thread.currentThread().getId())).u(new a(this, o));
+                return this.f;
+            }
+            j12.c("Component-Base", o + " insert delayed: attach fail");
+            return null;
+        }
+        return (q8a) invokeV.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:13:0x0023  */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0027  */
+    @NonNull
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final M j(@NonNull M m) {
+        InterceptResult invokeL;
+        zz1 zz1Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, m)) == null) {
             try {
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, zz1Var.c);
-                jSONObject.put("vtype", "ended");
-                jSONObject2.putOpt("animationViewId", zz1Var.b);
-                jSONObject.put("data", jSONObject2.toString());
-            } catch (JSONException e) {
-                if (tz1.h) {
-                    e.printStackTrace();
+                zz1Var = (zz1) m.clone();
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+                c12.b("Component-Base", "model must implement cloneable", e);
+                zz1Var = null;
+                if (zz1Var == null) {
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                c12.b("Component-Base", "clone model fail ！", e2);
+                zz1Var = null;
+                if (zz1Var == null) {
                 }
             }
-            lottieAnimationView.addAnimatorListener(new a(this, zz1Var, jSONObject, lottieAnimationView));
+            if (zz1Var == null) {
+                c12.a("Component-Base", "clone model fail ！");
+                return m;
+            }
+            return (M) zz1Var;
         }
+        return (M) invokeL.objValue;
     }
 
-    public final void W(@NonNull LottieAnimationView lottieAnimationView, @NonNull zz1 zz1Var) {
+    @NonNull
+    public final String o() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048585, this, lottieAnimationView, zz1Var) != null) || !t()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            a02 i = i(this.c);
+            if (i.a()) {
+                return this.c.d();
+            }
+            return "【illegal component#" + i.b + "】";
         }
-        if (tz1.h) {
-            Log.d("Component-AnimationView", "renderAction");
-        }
-        String str = zz1Var.w;
-        if (TextUtils.equals(str, "play")) {
-            lottieAnimationView.resumeAnimation();
-        } else if (TextUtils.equals(str, "pause")) {
-            lottieAnimationView.pauseAnimation();
-        } else if (TextUtils.equals(str, "stop")) {
-            lottieAnimationView.cancelAnimation();
-            lottieAnimationView.setProgress(0.0f);
-        }
+        return (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tz1
-    /* renamed from: U */
-    public void A(@NonNull LottieAnimationView lottieAnimationView) {
+    @NonNull
+    @UiThread
+    public final a02 update(@NonNull M m) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, lottieAnimationView) == null) {
-            super.A(lottieAnimationView);
-            try {
-                zz1 zz1Var = (zz1) n();
-                lottieAnimationView.loop(zz1Var.u);
-                lottieAnimationView.enableMergePathsForKitKatAndAbove(true);
-                lottieAnimationView.setImageAssetDelegate(new xz1(zz1Var.t));
-                lottieAnimationView.setAnimationFromJson(this.i, zz1Var.b);
-                if (zz1Var.v) {
-                    lottieAnimationView.playAnimation();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, m)) == null) {
+            String o = o();
+            a02 i = i(m);
+            if (!i.a()) {
+                j12.c("Component-Base", o + " update with a invalid model => " + i.b);
+                return i;
+            }
+            if (h) {
+                Log.i("Component-Base", "=====================" + o + " start update=====================");
+            }
+            M m2 = this.c;
+            if (m2 == m) {
+                String str = o + " update with the same model";
+                c12.a("Component-Base", str);
+                return new a02(202, str);
+            } else if (!TextUtils.equals(m2.b, m.b)) {
+                String str2 = o + " update with different id: " + this.c.b + StringUtil.ARRAY_ELEMENT_SEPARATOR + m.b;
+                c12.a("Component-Base", str2);
+                return new a02(202, str2);
+            } else if (!TextUtils.equals(this.c.c, m.c)) {
+                String str3 = o + " update with different slave id: " + this.c.c + StringUtil.ARRAY_ELEMENT_SEPARATOR + m.c;
+                c12.a("Component-Base", str3);
+                return new a02(202, str3);
+            } else if (this.b != null && this.e != null) {
+                if (this.a == null) {
+                    c12.a("Component-Base", o + " update with a null component context!");
+                    return new a02(202, "component context is null");
                 }
-                if (!zz1Var.u) {
-                    S(lottieAnimationView, zz1Var);
+                M m3 = this.c;
+                this.d = m3;
+                b12 k = k(m3, m);
+                M j = j(m);
+                this.c = j;
+                C(this.b, j, k);
+                boolean f = this.a.a().f(this, k);
+                this.d = null;
+                if (!f) {
+                    String str4 = o + " update component fail";
+                    j12.c("Component-Base", str4);
+                    return new a02(1001, str4);
                 }
-            } catch (Exception unused) {
-                Z(this.i, e43.g0());
+                if (h) {
+                    Log.d("Component-Base", o + " component update: success");
+                }
+                return new a02(0, "success");
+            } else {
+                String str5 = o + " update must after insert succeeded";
+                c12.a("Component-Base", str5);
+                return new a02(202, str5);
             }
         }
+        return (a02) invokeL.objValue;
     }
 }

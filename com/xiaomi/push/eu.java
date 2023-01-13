@@ -31,7 +31,7 @@ public final class eu {
         void a(boolean z);
 
         /* renamed from: a  reason: collision with other method in class */
-        boolean m331a();
+        boolean mo389a();
     }
 
     static {
@@ -58,7 +58,7 @@ public final class eu {
                 if (f350a == null) {
                     return;
                 }
-                com.xiaomi.channel.commonutils.logger.b.m99a("[Alarm] stop alarm.");
+                com.xiaomi.channel.commonutils.logger.b.m103a("[Alarm] stop alarm.");
                 f350a.a();
             }
         }
@@ -107,7 +107,7 @@ public final class eu {
                             } catch (Exception e) {
                                 e = e;
                                 i = i2;
-                                com.xiaomi.channel.commonutils.logger.b.m99a("check service err : " + e.getMessage());
+                                com.xiaomi.channel.commonutils.logger.b.m103a("check service err : " + e.getMessage());
                                 if (i != 0) {
                                 }
                                 int i3 = Build.VERSION.SDK_INT;
@@ -120,7 +120,7 @@ public final class eu {
                 } catch (Exception e2) {
                     e = e2;
                 }
-                if (i != 0 && v.m700a(applicationContext)) {
+                if (i != 0 && v.m764a(applicationContext)) {
                     throw new RuntimeException("Should export service: " + f351a + " with permission android.permission.BIND_JOB_SERVICE in AndroidManifest.xml file");
                 }
                 int i32 = Build.VERSION.SDK_INT;
@@ -155,17 +155,17 @@ public final class eu {
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
             synchronized (eu.class) {
                 if (f350a == null) {
-                    com.xiaomi.channel.commonutils.logger.b.m99a("timer is not initialized");
+                    com.xiaomi.channel.commonutils.logger.b.m103a("timer is not initialized");
                     return;
                 }
-                com.xiaomi.channel.commonutils.logger.b.m99a("[Alarm] register alarm. (" + z + SmallTailInfo.EMOTION_SUFFIX);
+                com.xiaomi.channel.commonutils.logger.b.m103a("[Alarm] register alarm. (" + z + SmallTailInfo.EMOTION_SUFFIX);
                 f350a.a(z);
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized boolean m330a() {
+    public static synchronized boolean m388a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
@@ -173,7 +173,7 @@ public final class eu {
                 if (f350a == null) {
                     return false;
                 }
-                return f350a.m331a();
+                return f350a.mo389a();
             }
         }
         return invokeV.booleanValue;

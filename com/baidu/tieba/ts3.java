@@ -1,15 +1,8 @@
 package com.baidu.tieba;
+
+import android.net.Uri;
+import com.baidu.swan.game.ad.jsbridge.CommandType;
 /* loaded from: classes6.dex */
 public interface ts3 {
-    void onCompletion();
-
-    boolean onError();
-
-    void onPause();
-
-    void onPrepared();
-
-    void onResume();
-
-    void onStart();
+    void b(CommandType commandType, Uri uri);
 }

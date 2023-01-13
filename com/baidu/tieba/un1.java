@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface un1 {
-    boolean a();
+    String c();
+
+    boolean d();
 }

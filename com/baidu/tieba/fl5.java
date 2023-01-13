@@ -1,13 +1,11 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.MutableContextWrapper;
-import android.webkit.JsPromptResult;
-import android.webkit.WebView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tbadk.core.hybrid.BridgeWebView;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,169 +13,297 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.util.List;
+import java.util.regex.Matcher;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.Regex;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes4.dex */
-public class fl5 {
+public final class fl5 {
     public static /* synthetic */ Interceptable $ic;
-    public static fl5 b;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, el5> a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947767994, "Lcom/baidu/tieba/fl5;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947767994, "Lcom/baidu/tieba/fl5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947767994, "Lcom/baidu/tieba/fl5;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947767994, "Lcom/baidu/tieba/fl5;");
-        }
+        a = new a(null);
     }
 
     /* loaded from: classes4.dex */
-    public class a implements at8 {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ys8 a;
-        public final /* synthetic */ WebView b;
 
-        public a(fl5 fl5Var, ys8 ys8Var, WebView webView) {
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fl5Var, ys8Var, webView};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = ys8Var;
-            this.b = webView;
         }
 
-        @Override // com.baidu.tieba.at8
-        public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
-            InterceptResult invokeLL;
+        public final String a(String str, int i, String str2) {
+            InterceptResult invokeLIL;
+            boolean z;
+            boolean z2;
+            int i2;
+            String str3;
+            int i3;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
-                ys8 ys8Var = this.a;
-                if (ys8Var != null) {
-                    return ys8Var.b(this.b, str, jsPromptResult);
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, str, i, str2)) == null) {
+                String str4 = str;
+                String str5 = "";
+                if (str4 == null || i <= 0) {
+                    return "";
                 }
-                return false;
+                int d = d(str);
+                if (d <= i) {
+                    return str4;
+                }
+                int b = ti6.b(str);
+                if (b == 0) {
+                    String cutChineseAndEnglishWithEmoji = StringHelper.cutChineseAndEnglishWithEmoji(str, i, str2);
+                    Intrinsics.checkNotNullExpressionValue(cutChineseAndEnglishWithEmoji, "cutChineseAndEnglishWithEmoji(string, length, end)");
+                    return cutChineseAndEnglishWithEmoji;
+                }
+                Object[] array = new Regex("#\\([a-zA-Z0-9_~！\\-\\u4E00-\\u9FA5]+\\)").split(str4, 0).toArray(new String[0]);
+                if (array != null) {
+                    String[] strArr = (String[]) array;
+                    if (strArr.length == 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    int i4 = 2;
+                    if (z) {
+                        if (i < 2) {
+                            if (str2 == null) {
+                                return "";
+                            }
+                            return str2;
+                        }
+                        return str4;
+                    }
+                    String[] b2 = b(str4, strArr, b);
+                    int length = b2.length;
+                    int i5 = 0;
+                    int i6 = 0;
+                    int i7 = 0;
+                    int i8 = 0;
+                    while (i5 < length) {
+                        String str6 = b2[i5];
+                        Intrinsics.checkNotNull(str6);
+                        if (StringsKt__StringsJVMKt.startsWith$default(str6, "2", false, i4, null)) {
+                            if (str6 != null) {
+                                String substring = str6.substring(1);
+                                Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.String).substring(startIndex)");
+                                b2[i5] = substring;
+                                i8 = -1;
+                                i6 += 2;
+                                if (i6 > i) {
+                                    break;
+                                }
+                            } else {
+                                throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
+                            }
+                        } else if (str6 != null) {
+                            String substring2 = str6.substring(1);
+                            Intrinsics.checkNotNullExpressionValue(substring2, "(this as java.lang.String).substring(startIndex)");
+                            b2[i5] = substring2;
+                            String str7 = b2[i5];
+                            Intrinsics.checkNotNull(str7);
+                            int length2 = str7.length();
+                            i8 = 0;
+                            while (i8 < length2) {
+                                if (yi.isChinese(str7.charAt(i8))) {
+                                    i3 = 2;
+                                } else {
+                                    i3 = 1;
+                                }
+                                i6 += i3;
+                                if (i6 > i) {
+                                    break;
+                                }
+                                i8++;
+                            }
+                        } else {
+                            throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
+                        }
+                        if (i6 > i) {
+                            break;
+                        }
+                        i5++;
+                        i7 = i6;
+                        i4 = 2;
+                    }
+                    if (i7 + i8 + 1 <= d) {
+                        StringBuilder sb = new StringBuilder();
+                        if (i5 > 0) {
+                            int i9 = 0;
+                            while (true) {
+                                int i10 = i9 + 1;
+                                sb.append(b2[i9]);
+                                if (i10 >= i5) {
+                                    break;
+                                }
+                                i9 = i10;
+                            }
+                        }
+                        if (i5 < length && (str3 = b2[i5]) != null) {
+                            str5 = str3;
+                        }
+                        if (str5.length() > 0) {
+                            z2 = true;
+                        } else {
+                            z2 = false;
+                        }
+                        if (z2 && (i2 = i8 + 1) > 0 && i2 < str5.length()) {
+                            String substring3 = str5.substring(0, str5.offsetByCodePoints(0, str5.codePointCount(0, i2)));
+                            Intrinsics.checkNotNullExpressionValue(substring3, "(this as java.lang.Strin…ing(startIndex, endIndex)");
+                            sb.append(substring3);
+                        }
+                        if (!Intrinsics.areEqual(str4, sb.toString())) {
+                            str4 = Intrinsics.stringPlus(sb.toString(), str2);
+                        }
+                        Intrinsics.checkNotNullExpressionValue(str4, "{\n                val re…          }\n            }");
+                    }
+                    return str4;
+                }
+                throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T>");
             }
-            return invokeLL.booleanValue;
+            return (String) invokeLIL.objValue;
         }
-    }
 
-    public fl5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashMap<>();
-    }
-
-    public static fl5 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (fl5.class) {
-                    if (b == null) {
-                        b = new fl5();
+        public final String[] b(String str, String[] strArr, int i) {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, strArr, i)) == null) {
+                String[] strArr2 = new String[strArr.length + i];
+                Matcher matcher = ti6.a.matcher(str);
+                int i2 = 0;
+                int i3 = 0;
+                while (matcher.find()) {
+                    if (i2 < strArr.length) {
+                        strArr2[i3] = Intrinsics.stringPlus("1", strArr[i2]);
+                        i3++;
+                        i2++;
+                    }
+                    String group = matcher.group();
+                    if (MessageManager.getInstance().findTask(2004608) != null) {
+                        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2004608, Boolean.TYPE, group);
+                        if (runTask != null && runTask.getData() != null) {
+                            Object data = runTask.getData();
+                            Intrinsics.checkNotNull(data);
+                            if (((Boolean) data).booleanValue()) {
+                                strArr2[i3] = Intrinsics.stringPlus("2", group);
+                                i3++;
+                            }
+                        }
+                        strArr2[i3] = Intrinsics.stringPlus("1", group);
+                        i3++;
                     }
                 }
-            }
-            return b;
-        }
-        return (fl5) invokeV.objValue;
-    }
-
-    public el5 a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
-            if (this.a.size() >= 8) {
-                e();
-            }
-            el5 el5Var = new el5();
-            BridgeWebView bridgeWebView = new BridgeWebView(new MutableContextWrapper(context));
-            bridgeWebView.setBackgroundColor(R.color.transparent);
-            gl5.b(bridgeWebView);
-            ys8 ys8Var = new ys8();
-            ys8Var.a(new CommonTbJsBridge(context, bridgeWebView));
-            zp4 zp4Var = new zp4();
-            zp4Var.b(new a(this, ys8Var, bridgeWebView));
-            bridgeWebView.setWebChromeClient(zp4Var);
-            el5Var.a = bridgeWebView;
-            el5Var.b = str;
-            el5Var.c = 0;
-            this.a.put(str, el5Var);
-            return el5Var;
-        }
-        return (el5) invokeLL.objValue;
-    }
-
-    public el5 c(Activity activity, String str) {
-        InterceptResult invokeLL;
-        WebView webView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str)) == null) {
-            el5 el5Var = this.a.get(str);
-            if (el5Var != null && (webView = el5Var.a) != null) {
-                ((MutableContextWrapper) webView.getContext()).setBaseContext(activity);
-                this.a.remove(str);
-                return el5Var;
-            }
-            return null;
-        }
-        return (el5) invokeLL.objValue;
-    }
-
-    public boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return this.a.containsKey(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            long j = 0;
-            String str = null;
-            for (String str2 : this.a.keySet()) {
-                el5 el5Var = this.a.get(str2);
-                if (el5Var != null) {
-                    if (el5Var.d < j) {
-                        str = el5Var.b;
-                    }
-                    j = el5Var.d;
+                if (i2 < strArr.length) {
+                    strArr2[i3] = Intrinsics.stringPlus("1", strArr[i2]);
                 }
+                return strArr2;
             }
-            if (str != null) {
-                this.a.remove(str);
+            return (String[]) invokeLLI.objValue;
+        }
+
+        /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [('@' char), (wrap: java.lang.Object : ?: CAST (java.lang.Object) (wrap: java.lang.String : 0x002e: INVOKE  (r0v7 java.lang.String A[REMOVE]) = (r0v6 com.baidu.tbadk.data.AtSelectData) type: VIRTUAL call: com.baidu.tbadk.data.AtSelectData.getNameShow():java.lang.String)), (wrap: char : ?: SGET   com.google.android.exoplayer2.text.webvtt.WebvttCueParser.CHAR_SPACE char)] */
+        public final int c(List<? extends AtSelectData> atInfoList) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, atInfoList)) == null) {
+                Intrinsics.checkNotNullParameter(atInfoList, "atInfoList");
+                int i = 0;
+                if (ListUtils.isEmpty(atInfoList)) {
+                    return 0;
+                }
+                for (AtSelectData atSelectData : atInfoList) {
+                    if (atSelectData != null) {
+                        StringBuilder sb = new StringBuilder();
+                        sb.append('@');
+                        sb.append((Object) atSelectData.getNameShow());
+                        sb.append(WebvttCueParser.CHAR_SPACE);
+                        i += d(sb.toString());
+                    }
+                }
+                return i;
             }
+            return invokeL.intValue;
+        }
+
+        public final int d(String str) {
+            InterceptResult invokeL;
+            int chineseAndEnglishLength;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+                int i = 0;
+                if (str == null) {
+                    return 0;
+                }
+                Matcher matcher = ti6.a.matcher(str);
+                int i2 = 0;
+                while (matcher.find()) {
+                    String group = matcher.group();
+                    if (MessageManager.getInstance().findTask(2004608) != null) {
+                        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2004608, Boolean.TYPE, group);
+                        if (runTask != null && runTask.getData() != null) {
+                            Object data = runTask.getData();
+                            Intrinsics.checkNotNull(data);
+                            if (((Boolean) data).booleanValue()) {
+                                chineseAndEnglishLength = 2;
+                                i2 += chineseAndEnglishLength;
+                            }
+                        }
+                        chineseAndEnglishLength = StringHelper.getChineseAndEnglishLength(group);
+                        i2 += chineseAndEnglishLength;
+                    }
+                }
+                Object[] array = new Regex("#\\([a-zA-Z0-9_~！\\-\\u4E00-\\u9FA5]+\\)").split(str, 0).toArray(new String[0]);
+                if (array != null) {
+                    String[] strArr = (String[]) array;
+                    int length = strArr.length;
+                    if (length > 0) {
+                        while (true) {
+                            int i3 = i + 1;
+                            i2 += StringHelper.getChineseAndEnglishLength(strArr[i]);
+                            if (i3 >= length) {
+                                break;
+                            }
+                            i = i3;
+                        }
+                    }
+                    return i2;
+                }
+                throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T>");
+            }
+            return invokeL.intValue;
         }
     }
 }

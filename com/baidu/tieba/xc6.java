@@ -1,20 +1,19 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.WindowManager;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.cd6;
+import com.baidu.tieba.danmu.layout.retainer.AkTopRetainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class xc6 {
+public final class xc6 extends tc6 {
     public static /* synthetic */ Interceptable $ic;
-    public static xc6 a;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public xc6() {
+        super(new AkTopRetainer(0.0f, 0.5f, 1, null), new ad6());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -22,43 +21,12 @@ public class xc6 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((cd6) objArr[0], (cd6.a) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static xc6 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (xc6.class) {
-                    if (a == null) {
-                        a = new xc6();
-                    }
-                }
-            }
-            return a;
-        }
-        return (xc6) invokeV.objValue;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a = null;
-        }
-    }
-
-    public void c(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i) == null) {
-            if (context != null) {
-                WindowManager windowManager = (WindowManager) context.getSystemService("window");
                 return;
             }
-            throw new IllegalArgumentException("context cannot be null");
         }
     }
 }

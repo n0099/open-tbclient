@@ -1,46 +1,37 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.yd2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.StringReader;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Set;
 /* loaded from: classes7.dex */
-public final class zd2 implements yd2 {
+public class zd2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final yd2.b a;
+    public final Set<String> a;
+    public final Map<String, a<Boolean>> b;
+    public final Map<String, a<b>> c;
+    public a<Exception> d;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public static class a<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zd2 a;
+        public Set<cj3<T>> a;
 
-        public a(zd2 zd2Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zd2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -50,274 +41,196 @@ public final class zd2 implements yd2 {
                     return;
                 }
             }
-            this.a = zd2Var;
+            this.a = new HashSet();
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public void b() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.f();
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.clear();
+            }
+        }
+
+        public void a(T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
+                for (cj3<T> cj3Var : this.a) {
+                    cj3Var.a(t);
+                }
+            }
+        }
+
+        public void c(cj3<T> cj3Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cj3Var) == null) && cj3Var != null) {
+                this.a.add(cj3Var);
             }
         }
     }
 
-    public zd2(yd2.b bVar) {
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final long a;
+        public final long b;
+
+        public b(long j, long j2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = j;
+            this.b = j2;
+            int i3 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
+        }
+
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.b > 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948356033, "Lcom/baidu/tieba/zd2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948356033, "Lcom/baidu/tieba/zd2;");
+                return;
+            }
+        }
+        boolean z = tk1.a;
+    }
+
+    public HashSet<String> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new HashSet<>(this.a);
+        }
+        return (HashSet) invokeV.objValue;
+    }
+
+    public zd2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = bVar == null ? new yd2.b() : bVar;
+        this.a = new HashSet();
+        this.b = new HashMap();
+        this.c = new HashMap();
+        this.d = new a<>();
     }
 
-    public zd2 b(@Nullable String str) {
+    public static <T> a<T> i(Map<String, a<T>> map, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, map, str)) == null) {
+            a<T> aVar = map.get(str);
+            if (aVar == null) {
+                a<T> aVar2 = new a<>();
+                map.put(str, aVar2);
+                return aVar2;
+            }
+            return aVar;
+        }
+        return (a) invokeLL.objValue;
+    }
+
+    public void c(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
+            a i = i(this.b, str);
+            i.a(Boolean.valueOf(z));
+            i.b();
+        }
+    }
+
+    public void d(String str, b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, bVar) == null) {
+            if (bVar == null || bVar.a()) {
+                i(this.c, str).a(bVar);
+            }
+        }
+    }
+
+    public zd2 h(String str, cj3<Boolean> cj3Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, cj3Var)) == null) {
+            g(this.b, str, cj3Var);
+            return this;
+        }
+        return (zd2) invokeLL.objValue;
+    }
+
+    public void b(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+            this.d.a(exc);
+            this.d.b();
+        }
+    }
+
+    public zd2 e(cj3<Exception> cj3Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (e() && !TextUtils.isEmpty(str) && !d(this.a.a.get(str))) {
-                xd2 query = xd2.query(str);
-                if (d(query)) {
-                    this.a.a.put(query.a(), query);
-                }
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cj3Var)) == null) {
+            this.d.c(cj3Var);
             return this;
         }
         return (zd2) invokeL.objValue;
     }
 
-    public static boolean d(yd2.a aVar) {
+    public zd2 f(String... strArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, aVar)) == null) {
-            if (aVar != null && aVar.isValid()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static zd2 m(yd2.b bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bVar)) == null) {
-            return new zd2(bVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, strArr)) == null) {
+            this.a.addAll(Arrays.asList(strArr));
+            return this;
         }
         return (zd2) invokeL.objValue;
     }
 
-    public zd2 i(int i) {
-        InterceptResult invokeI;
-        yd2.b bVar;
-        int i2;
+    public final <T> zd2 g(Map<String, a<T>> map, String str, cj3<T> cj3Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            if (e() && i != (i2 = (bVar = this.a).d) && (i2 == 0 || i2 == bVar.c)) {
-                this.a.d = i;
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, map, str, cj3Var)) == null) {
+            f(str);
+            i(map, str).c(cj3Var);
             return this;
         }
-        return (zd2) invokeI.objValue;
-    }
-
-    public zd2 n(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            if (e()) {
-                this.a.c = i;
-            }
-            return this;
-        }
-        return (zd2) invokeI.objValue;
-    }
-
-    public static zd2 l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return m(null);
-        }
-        return (zd2) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            yd2.b bVar = this.a;
-            int i = bVar.d;
-            if (i == 0) {
-                return bVar.c;
-            }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this.a) {
-                z = this.a.b;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public yd2.b k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a;
-        }
-        return (yd2.b) invokeV.objValue;
-    }
-
-    public final void f() {
-        String str;
-        yd2.a value;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this.a) {
-                if (!e()) {
-                    return;
-                }
-                this.a.b = false;
-                gb3 gb3Var = new gb3();
-                gb3Var.a = "swan";
-                gb3Var.c = "NA";
-                int c = c();
-                gb3Var.b = String.valueOf(c);
-                JSONArray jSONArray = new JSONArray();
-                for (Map.Entry<String, yd2.a> entry : this.a.a.entrySet()) {
-                    if (!TextUtils.isEmpty(entry.getKey()) && (value = entry.getValue()) != null && value.isValid()) {
-                        jSONArray.put(value.b());
-                    }
-                }
-                gb3Var.a("purged_list", jSONArray);
-                if (7 == c) {
-                    gb3Var.a("history_list", h());
-                    gb3Var.a("disk_size", g());
-                }
-                if (yd2.m0) {
-                    JSONObject f = gb3Var.f();
-                    if (f == null) {
-                        str = StringUtil.NULL_STRING;
-                    } else {
-                        try {
-                            str = f.toString(4);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            str = "" + gb3Var;
-                        }
-                    }
-                    BufferedReader bufferedReader = new BufferedReader(new StringReader(str));
-                    while (true) {
-                        try {
-                            try {
-                                String readLine = bufferedReader.readLine();
-                                if (readLine == null) {
-                                    break;
-                                }
-                                Log.i("PurgerStatistic", "report event => " + readLine);
-                            } catch (IOException e2) {
-                                e2.printStackTrace();
-                            }
-                        } finally {
-                            ik4.d(bufferedReader);
-                        }
-                    }
-                }
-                xa3.x("1377", gb3Var);
-            }
-        }
-    }
-
-    @NonNull
-    public final JSONObject g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            int a2 = sh3.a();
-            int i = mb3.i();
-            int b = mb3.b();
-            int k = mb3.k();
-            try {
-                jSONObject.put("device", a2);
-                jSONObject.put("swan_pkg", i);
-                jSONObject.put("app_pkg", b);
-                jSONObject.put("app_third", k);
-            } catch (JSONException e) {
-                if (yd2.m0) {
-                    e.printStackTrace();
-                    Log.i("PurgerStatistic", "queryDiskSize: e=" + e);
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    @NonNull
-    public final JSONArray h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            try {
-                Cursor m = hb2.m();
-                int count = m.getCount();
-                while (m.moveToNext()) {
-                    String string = m.getString(m.getColumnIndex("app_id"));
-                    long j = m.getLong(m.getColumnIndex("visit_time"));
-                    if (!TextUtils.isEmpty(string)) {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put(IntentConfig.PKG_ID, string);
-                        jSONObject.put("last_launch_time", j);
-                        jSONArray.put(jSONObject);
-                    }
-                }
-                if (yd2.m0) {
-                    Log.i("PurgerStatistic", "queryHisList: cursor=" + count + " items=" + jSONArray.length());
-                }
-                if (m != null) {
-                    m.close();
-                }
-            } catch (JSONException e) {
-                if (yd2.m0) {
-                    e.printStackTrace();
-                    Log.i("PurgerStatistic", "queryHisList: e=" + e);
-                }
-            }
-            return jSONArray;
-        }
-        return (JSONArray) invokeV.objValue;
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (yd2.m0) {
-                Log.i("PurgerStatistic", "performReport: " + this.a);
-            }
-            if (e()) {
-                ExecutorUtilsExt.postOnElastic(new a(this), "PurgerStatistic", 3);
-            }
-        }
+        return (zd2) invokeLLL.objValue;
     }
 }

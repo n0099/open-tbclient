@@ -48,7 +48,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicLongArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class Gson {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEFAULT_COMPLEX_MAP_KEYS = false;
@@ -83,7 +83,7 @@ public final class Gson {
     public final int timeStyle;
     public final Map<TypeToken<?>, TypeAdapter<?>> typeTokenCache;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class FutureTypeAdapter<T> extends TypeAdapter<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

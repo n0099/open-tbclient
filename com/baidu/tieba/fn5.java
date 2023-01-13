@@ -1,28 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.rq5;
+import com.baidu.tbadk.core.data.MediaData;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class fn5 {
+public class fn5 extends kn5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rq5 a;
-    public vm5 b;
-    public TbPageContext c;
+    public ConstrainImageLayout.c e;
 
     /* loaded from: classes4.dex */
-    public class a implements rq5.i {
+    public class a implements ConstrainImageLayout.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fn5 a;
 
         public a(fn5 fn5Var) {
             Interceptable interceptable = $ic;
@@ -36,85 +32,63 @@ public class fn5 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = fn5Var;
         }
 
-        @Override // com.baidu.tieba.rq5.i
-        public void a(JSONArray jSONArray) {
+        @Override // com.baidu.tbadk.widget.layout.ConstrainImageLayout.c
+        public void a(TbImageView tbImageView, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
-                String JsonArrayToString = StringHelper.JsonArrayToString(jSONArray);
-                if (this.a.b != null) {
-                    this.a.b.g(JsonArrayToString);
-                    this.a.b.e();
+            if (interceptable == null || interceptable.invokeLII(1048576, this, tbImageView, i, i2) == null) {
+                tbImageView.setRadiusById(R.string.J_X05);
+                tbImageView.s();
+                tbImageView.setDrawCorner(true);
+                tbImageView.setConrers(0);
+                if (i2 == 1) {
+                    tbImageView.setConrers(15);
+                } else if (i2 > 1) {
+                    if (i == 0) {
+                        tbImageView.setConrers(5);
+                    } else if (i == i2 - 1) {
+                        tbImageView.setConrers(10);
+                    }
                 }
             }
         }
     }
 
-    public fn5(TbPageContext tbPageContext, vm5 vm5Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fn5(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, vm5Var};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = vm5Var;
-        this.c = tbPageContext;
+        this.e = new a(this);
     }
 
-    public void b() {
+    @Override // com.baidu.tieba.kn5, com.baidu.tieba.hn5
+    public int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2) {
+        InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            rq5 rq5Var = this.a;
-            if (rq5Var != null) {
-                rq5Var.w();
-                this.a.x();
-                this.a = null;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, constrainImageLayout, list, i, i2)) == null) {
+            if (list.size() < this.b) {
+                list.size();
             }
-            this.b = null;
-            this.c = null;
+            constrainImageLayout.setTbImageViewConfiguration(this.e);
+            return super.a(constrainImageLayout, list, i, i2);
         }
-    }
-
-    public void c(int i) {
-        vm5 vm5Var;
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (vm5Var = this.b) != null && vm5Var.b() != null && this.c != null) {
-            qq5 qq5Var = new qq5(this.b.b().f(), this.b.b().e(), this.b.b().d());
-            qq5Var.i(this.b.b().b(), this.b.b().c());
-            qq5Var.h(this.b.b().a());
-            qq5Var.j(this.b.b().j());
-            UserData i2 = this.b.b().i();
-            TbPageContext tbPageContext = this.c;
-            this.a = new rq5(tbPageContext, tbPageContext.getPageActivity().getWindow().getDecorView(), qq5Var, i2);
-            rt4 rt4Var = new rt4();
-            rt4Var.j(this.b.b().h());
-            this.a.H(new String[]{this.c.getString(R.string.delete_thread_reason_1), this.c.getString(R.string.delete_thread_reason_2), this.c.getString(R.string.delete_thread_reason_3), this.c.getString(R.string.delete_thread_reason_4), this.c.getString(R.string.delete_thread_reason_5)});
-            this.a.G(rt4Var);
-            this.a.I(new a(this));
-            if (i != 2 && i != 1) {
-                if (i == 3) {
-                    str = "6";
-                } else {
-                    str = "0";
-                }
-            } else {
-                str = "5";
-            }
-            this.a.J(str);
-        }
+        return invokeLLII.intValue;
     }
 }

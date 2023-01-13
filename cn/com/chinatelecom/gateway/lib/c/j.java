@@ -78,6 +78,16 @@ public class j {
         return invokeL.intValue;
     }
 
+    public static /* synthetic */ ConnectivityManager a(j jVar, ConnectivityManager connectivityManager) {
+        jVar.c = null;
+        return null;
+    }
+
+    public static /* synthetic */ boolean a(j jVar, boolean z) {
+        jVar.b = true;
+        return true;
+    }
+
     public static String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

@@ -165,11 +165,11 @@ public final class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public int m184a() {
+    public int m189a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (m195b()) {
+            if (m200b()) {
                 this.d = 0;
                 return 0;
             }
@@ -203,14 +203,14 @@ public final class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public long m185a() {
+    public long m190a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? m196c() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? m201c() : invokeV.longValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public a m186a() {
+    public a m191a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -218,7 +218,7 @@ public final class b {
             int i = this.a;
             int i2 = this.c;
             if (d > i - i2 || d <= 0) {
-                return a.a(m192a(d));
+                return a.a(m197a(d));
             }
             a a = a.a(this.f151a, i2, d);
             this.c += d;
@@ -228,13 +228,13 @@ public final class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m187a() {
+    public String m192a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             int d = d();
             if (d > this.a - this.c || d <= 0) {
-                return new String(m192a(d), "UTF-8");
+                return new String(m197a(d), "UTF-8");
             }
             String str = new String(this.f151a, this.c, d, "UTF-8");
             this.c += d;
@@ -244,21 +244,21 @@ public final class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m188a() {
-        int m184a;
+    public void m193a() {
+        int m189a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             do {
-                m184a = m184a();
-                if (m184a == 0) {
+                m189a = m189a();
+                if (m189a == 0) {
                     return;
                 }
-            } while (m191a(m184a));
+            } while (m196a(m189a));
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m189a(int i) {
+    public void m194a(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && this.d != i) {
             throw d.e();
@@ -275,37 +275,37 @@ public final class b {
             int a = a(d);
             this.g++;
             eVar.a(this);
-            m189a(0);
+            m194a(0);
             this.g--;
             b(a);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m190a() {
+    public boolean m195a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? d() != 0 : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m191a(int i) {
+    public boolean m196a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
             int a = f.a(i);
             if (a == 0) {
-                m193b();
+                m198b();
                 return true;
             } else if (a == 1) {
-                m197d();
+                m202d();
                 return true;
             } else if (a == 2) {
                 c(d());
                 return true;
             } else if (a == 3) {
-                m188a();
-                m189a(f.a(f.b(i), 4));
+                m193a();
+                m194a(f.a(f.b(i), 4));
                 return true;
             } else if (a != 4) {
                 if (a == 5) {
@@ -321,7 +321,7 @@ public final class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m192a(int i) {
+    public byte[] m197a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeI = interceptable.invokeI(1048587, this, i)) != null) {
@@ -398,17 +398,17 @@ public final class b {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public int m193b() {
+    public int m198b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? d() : invokeV.intValue;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public long m194b() {
+    public long m199b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? m196c() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? m201c() : invokeV.longValue;
     }
 
     public void b(int i) {
@@ -420,7 +420,7 @@ public final class b {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m195b() {
+    public boolean m200b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.c == this.a && !a(false) : invokeV.booleanValue;
@@ -433,7 +433,7 @@ public final class b {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public long m196c() {
+    public long m201c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
@@ -529,7 +529,7 @@ public final class b {
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public long m197d() {
+    public long m202d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {

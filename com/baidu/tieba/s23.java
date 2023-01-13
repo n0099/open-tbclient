@@ -1,57 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import com.baidu.swan.apps.res.ui.FullScreenFloatView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class s23 implements t23 {
+public class s23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
 
-    public s23(int i, int i2) {
+    public static FullScreenFloatView a(Context context, ViewGroup viewGroup, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, context, viewGroup, i)) == null) {
+            if (context != null && viewGroup != null) {
+                FullScreenFloatView b = b(context, i);
+                viewGroup.addView(b);
+                return b;
             }
+            return null;
         }
-        this.a = i;
-        this.b = i2;
+        return (FullScreenFloatView) invokeLLI.objValue;
     }
 
-    @Override // com.baidu.tieba.t23
-    public int a() {
-        InterceptResult invokeV;
+    public static FullScreenFloatView b(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (this.b - this.a) + 1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.t23
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i >= 0 && i < a()) {
-                return Integer.valueOf(this.a + i);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            if (context == null) {
+                return null;
             }
-            return 0;
+            int i2 = R.layout.obfuscated_res_0x7f0d00a7;
+            if (i != 1 && i == 2) {
+                i2 = R.layout.obfuscated_res_0x7f0d00a8;
+            }
+            return (FullScreenFloatView) LayoutInflater.from(context.getApplicationContext()).inflate(i2, (ViewGroup) null);
         }
-        return invokeI.objValue;
+        return (FullScreenFloatView) invokeLI.objValue;
     }
 }

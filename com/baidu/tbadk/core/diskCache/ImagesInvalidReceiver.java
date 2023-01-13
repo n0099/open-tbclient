@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.tieba.bh;
+import com.baidu.tieba.ch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,7 +34,7 @@ public class ImagesInvalidReceiver extends BroadcastReceiver {
         if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
             Intent intent = new Intent(BdBaseApplication.getInst().getContext(), ImagesInvalidReceiver.class);
             intent.putExtra("success", z);
-            bh.a(BdBaseApplication.getInst().getContext(), intent);
+            ch.a(BdBaseApplication.getInst().getContext(), intent);
         }
     }
 

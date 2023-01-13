@@ -113,11 +113,11 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
             this.mContext = context;
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0433, this);
-            this.cp = (ImageView) findViewById(R.id.obfuscated_res_0x7f091112);
-            this.cq = (TextView) findViewById(R.id.obfuscated_res_0x7f091108);
-            this.cr = (TextView) findViewById(R.id.obfuscated_res_0x7f091114);
-            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09113d);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0432, this);
+            this.cp = (ImageView) findViewById(R.id.obfuscated_res_0x7f09111d);
+            this.cq = (TextView) findViewById(R.id.obfuscated_res_0x7f091113);
+            this.cr = (TextView) findViewById(R.id.obfuscated_res_0x7f09111f);
+            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091148);
         }
     }
 
@@ -179,7 +179,7 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             if (view2 != this.cp) {
-                com.kwad.components.core.c.a.a.a(new a.C0594a(getContext()).L(this.mAdTemplate).a(new a.b(this) { // from class: com.kwad.components.ad.draw.view.playcard.DrawCardH5.1
+                com.kwad.components.core.c.a.a.a(new a.C0593a(getContext()).L(this.mAdTemplate).a(new a.b(this) { // from class: com.kwad.components.ad.draw.view.playcard.DrawCardH5.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ DrawCardH5 cs;

@@ -132,16 +132,14 @@ public class Suppliers {
                     this.val$instance = t;
                 }
 
-                /* JADX WARN: Type inference failed for: r0v2, types: [T, java.lang.Object] */
-                /* JADX WARN: Type inference failed for: r1v0, types: [T, java.lang.Object] */
                 @Override // com.facebook.common.internal.Supplier
                 public T get() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        return this.val$instance;
+                        return (T) this.val$instance;
                     }
-                    return invokeV.objValue;
+                    return (T) invokeV.objValue;
                 }
             };
         }

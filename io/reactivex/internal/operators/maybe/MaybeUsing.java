@@ -20,7 +20,7 @@ import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class MaybeUsing<T, D> extends Maybe<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public final class MaybeUsing<T, D> extends Maybe<T> {
     public final Callable<? extends D> resourceSupplier;
     public final Function<? super D, ? extends MaybeSource<? extends T>> sourceSupplier;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class UsingObserver<T, D> extends AtomicReference<Object> implements MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -674404550052917487L;

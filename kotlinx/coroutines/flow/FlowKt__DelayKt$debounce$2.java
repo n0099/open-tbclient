@@ -18,10 +18,11 @@ import kotlinx.coroutines.channels.ProduceKt;
 import kotlinx.coroutines.channels.ReceiveChannel;
 import kotlinx.coroutines.flow.internal.NullSurrogateKt;
 import kotlinx.coroutines.selects.SelectBuilderImpl;
+/* JADX INFO: Add missing generic type declarations: [T] */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0016\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u00020\u00032\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0005H\u008a@¢\u0006\u0004\b\u0006\u0010\u0007"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "Lkotlinx/coroutines/CoroutineScope;", "downstream", "Lkotlinx/coroutines/flow/FlowCollector;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__DelayKt$debounce$2", f = "Delay.kt", i = {0, 0, 0, 0}, l = {Constants.METHOD_IM_SEND_MCAST_MSG}, m = "invokeSuspend", n = {"$this$scopedFlow", "downstream", SavedStateHandle.VALUES, "lastValue"}, s = {"L$0", "L$1", "L$2", "L$3"})
 /* loaded from: classes9.dex */
-public final class FlowKt__DelayKt$debounce$2 extends SuspendLambda implements Function3<CoroutineScope, FlowCollector<? super T>, Continuation<? super Unit>, Object> {
+public final class FlowKt__DelayKt$debounce$2<T> extends SuspendLambda implements Function3<CoroutineScope, FlowCollector<? super T>, Continuation<? super Unit>, Object> {
     public final /* synthetic */ Flow $this_debounce;
     public final /* synthetic */ long $timeoutMillis;
     public Object L$0;
@@ -71,14 +72,14 @@ public final class FlowKt__DelayKt$debounce$2 extends SuspendLambda implements F
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final Object invokeSuspend(Object obj) {
-        FlowKt__DelayKt$debounce$2 flowKt__DelayKt$debounce$2;
+        FlowKt__DelayKt$debounce$2<T> flowKt__DelayKt$debounce$2;
         CoroutineScope coroutineScope;
         ReceiveChannel receiveChannel;
         Ref.ObjectRef objectRef;
         FlowCollector flowCollector;
         Object obj2;
         SelectBuilderImpl selectBuilderImpl;
-        FlowKt__DelayKt$debounce$2 flowKt__DelayKt$debounce$22;
+        FlowKt__DelayKt$debounce$2<T> flowKt__DelayKt$debounce$22;
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
         int i = this.label;
         int i2 = 1;
@@ -109,7 +110,7 @@ public final class FlowKt__DelayKt$debounce$2 extends SuspendLambda implements F
                     }
                     selectBuilderImpl2.invoke(receiveChannel.getOnReceiveOrNull(), new FlowKt__DelayKt$debounce$2$invokeSuspend$$inlined$select$lambda$1(null, flowKt__DelayKt$debounce$2, receiveChannel, objectRef, flowCollector));
                     T t = objectRef.element;
-                    if (t != 0) {
+                    if (t != null) {
                         selectBuilderImpl = selectBuilderImpl2;
                         flowKt__DelayKt$debounce$22 = flowKt__DelayKt$debounce$2;
                         selectBuilderImpl.onTimeout(flowKt__DelayKt$debounce$2.$timeoutMillis, new FlowKt__DelayKt$debounce$2$invokeSuspend$$inlined$select$lambda$2(t, null, selectBuilderImpl2, flowKt__DelayKt$debounce$2, receiveChannel, objectRef, flowCollector));

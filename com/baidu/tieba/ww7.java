@@ -1,130 +1,76 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tieba.dc;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import tbclient.GetVipInfo.DataRes;
+import tbclient.GetVipInfo.VipBasicList;
+import tbclient.GetVipInfo.VipSpecialItem;
 /* loaded from: classes6.dex */
 public class ww7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<String> a;
+    public jw7 b;
+    public LinkedHashMap<String, mw7> c;
 
-    public static Bitmap a(String str) {
-        InterceptResult invokeL;
+    public ww7(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            Bitmap bitmap = null;
-            try {
-                File file = new File(str);
-                if (file.exists()) {
-                    if (c(file)) {
-                        in inVar = dc.a.b().get(str);
-                        if (inVar != null) {
-                            bitmap = inVar.p();
-                        }
-                    } else {
-                        BitmapFactory.Options options = new BitmapFactory.Options();
-                        options.inJustDecodeBounds = true;
-                        BitmapFactory.decodeFile(str, options);
-                        bitmap = BitmapHelper.loadResizedBitmap(str, options.outWidth, options.outHeight);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dataRes};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        if (dataRes == null) {
+            return;
+        }
+        String str = dataRes.grade_intro_title;
+        String str2 = dataRes.grade_intro_link;
+        new vw7(dataRes);
+        new xw7(dataRes.special_list);
+        new ow7(dataRes.cooperate_list);
+        new sw7(dataRes.theme_list);
+        new kw7(dataRes.banner_list);
+        new ax7(dataRes.task_list);
+        new zw7(dataRes.rank, dataRes.user);
+        new qw7(dataRes.daily_list);
+        jw7 jw7Var = new jw7();
+        this.b = jw7Var;
+        jw7Var.a(dataRes);
+        List<VipBasicList> list = dataRes.basic_list;
+        if (list != null && list.size() > 0) {
+            this.c = new LinkedHashMap<>();
+            for (VipBasicList vipBasicList : dataRes.basic_list) {
+                List<VipSpecialItem> list2 = vipBasicList.item;
+                if (list2 != null && list2.size() > 0) {
+                    mw7 mw7Var = new mw7(vipBasicList);
+                    if (mw7Var.c != 3 || mw7Var.a().size() >= 2) {
+                        this.c.put(mw7Var.d, mw7Var);
                     }
                 }
-            } catch (OutOfMemoryError unused) {
             }
-            return bitmap;
         }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public static boolean c(File file) {
-        InterceptResult invokeL;
-        FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
-            FileInputStream fileInputStream2 = null;
-            boolean z = false;
-            try {
-                try {
-                    try {
-                        fileInputStream = new FileInputStream(file);
-                    } catch (Throwable th) {
-                        th = th;
-                    }
-                } catch (FileNotFoundException e) {
-                    e = e;
-                } catch (IOException e2) {
-                    e = e2;
+        List<String> list3 = dataRes.card_order;
+        if (list3 != null && list3.size() > 0) {
+            this.a = new ArrayList<>();
+            for (String str3 : dataRes.card_order) {
+                if (!StringUtils.isNull(str3)) {
+                    this.a.add(str3);
                 }
-            } catch (Exception e3) {
-                e3.printStackTrace();
             }
-            try {
-                byte[] bArr = new byte[7];
-                if (fileInputStream.read(bArr, 0, 6) == 6) {
-                    z = yi.D(bArr);
-                }
-                fileInputStream.close();
-            } catch (FileNotFoundException e4) {
-                e = e4;
-                fileInputStream2 = fileInputStream;
-                e.printStackTrace();
-                if (fileInputStream2 != null) {
-                    fileInputStream2.close();
-                }
-                return z;
-            } catch (IOException e5) {
-                e = e5;
-                fileInputStream2 = fileInputStream;
-                e.printStackTrace();
-                if (fileInputStream2 != null) {
-                    fileInputStream2.close();
-                }
-                return z;
-            } catch (Throwable th2) {
-                th = th2;
-                fileInputStream2 = fileInputStream;
-                if (fileInputStream2 != null) {
-                    try {
-                        fileInputStream2.close();
-                    } catch (Exception e6) {
-                        e6.printStackTrace();
-                    }
-                }
-                throw th;
-            }
-            if (0 != 0) {
-                fileInputStream2.close();
-            }
-            return z;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static Bitmap b(ImageFileInfo imageFileInfo) {
-        InterceptResult invokeL;
-        Bitmap f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imageFileInfo)) == null) {
-            p95 p95Var = new p95();
-            in c = p95Var.c(imageFileInfo, true);
-            if (c != null) {
-                f = c.p();
-            } else {
-                f = p95Var.f(imageFileInfo, true);
-            }
-            if (f == null) {
-                return a(imageFileInfo.getFilePath());
-            }
-            return f;
-        }
-        return (Bitmap) invokeL.objValue;
     }
 }

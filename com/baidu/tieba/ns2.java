@@ -1,122 +1,48 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sina.weibo.sdk.utils.ResourceManager;
-import java.io.InputStream;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class ns2 implements ls2 {
+public final class ns2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948012956, "Lcom/baidu/tieba/ns2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948012956, "Lcom/baidu/tieba/ns2;");
-                return;
-            }
+    public static int d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            return 0;
         }
-        a = ok1.a;
+        return invokeL.intValue;
     }
 
-    public ns2() {
+    public static void a(Context context, Drawable drawable, PorterDuff.Mode mode, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if ((interceptable == null || interceptable.invokeLLLI(65536, null, context, drawable, mode, i) == null) && context != null && drawable != null) {
+            int d = d(context);
+            if (i >= 0 && i < 255) {
+                d = Color.argb((Color.alpha(d) * i) / 255, Color.red(d), Color.green(d), Color.blue(d));
             }
+            drawable.setColorFilter(d, mode);
         }
     }
 
-    @Override // com.baidu.tieba.ls2
-    @SuppressLint({"BDThrowableCheck"})
-    public Bitmap decode(Context context, Uri uri) throws Exception {
-        InterceptResult invokeLL;
-        Bitmap bitmap;
-        Resources resourcesForApplication;
+    public static void b(Context context, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, uri)) == null) {
-            String uri2 = uri.toString();
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inPreferredConfig = Bitmap.Config.RGB_565;
-            if (uri2.startsWith("android.resource://")) {
-                String authority = uri.getAuthority();
-                if (context.getPackageName().equals(authority)) {
-                    resourcesForApplication = context.getResources();
-                } else {
-                    resourcesForApplication = context.getPackageManager().getResourcesForApplication(authority);
-                }
-                List<String> pathSegments = uri.getPathSegments();
-                int size = pathSegments.size();
-                int i = 0;
-                if (size == 2 && pathSegments.get(0).equals(ResourceManager.DRAWABLE)) {
-                    i = resourcesForApplication.getIdentifier(pathSegments.get(1), ResourceManager.DRAWABLE, authority);
-                } else if (size == 1 && TextUtils.isDigitsOnly(pathSegments.get(0))) {
-                    try {
-                        i = Integer.parseInt(pathSegments.get(0));
-                    } catch (NumberFormatException e) {
-                        e.printStackTrace();
-                    }
-                }
-                bitmap = BitmapFactory.decodeResource(context.getResources(), i, options);
-            } else {
-                InputStream inputStream = null;
-                if (uri2.startsWith("file:///android_asset/")) {
-                    bitmap = BitmapFactory.decodeStream(context.getAssets().open(uri2.substring(22)), null, options);
-                } else if (uri2.startsWith("file://")) {
-                    bitmap = BitmapFactory.decodeFile(uri2.substring(7), options);
-                } else {
-                    try {
-                        InputStream openInputStream = context.getContentResolver().openInputStream(uri);
-                        try {
-                            Bitmap decodeStream = BitmapFactory.decodeStream(openInputStream, null, options);
-                            ik4.d(openInputStream);
-                            bitmap = decodeStream;
-                        } catch (Throwable th) {
-                            th = th;
-                            inputStream = openInputStream;
-                            ik4.d(inputStream);
-                            throw th;
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                    }
-                }
-            }
-            if (bitmap == null) {
-                if (!a) {
-                    e12.k("SkiaImageDecoder", "bitmap is null");
-                } else {
-                    throw new RuntimeException("Skia image region decoder returned null bitmap - image format may not be supported");
-                }
-            }
-            return bitmap;
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, drawable) == null) {
+            c(context, drawable, 255);
         }
-        return (Bitmap) invokeLL.objValue;
+    }
+
+    public static void c(Context context, Drawable drawable, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65538, null, context, drawable, i) == null) {
+            a(context, drawable, PorterDuff.Mode.SRC_ATOP, i);
+        }
     }
 }

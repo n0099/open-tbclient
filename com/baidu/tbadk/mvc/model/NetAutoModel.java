@@ -2,14 +2,14 @@ package com.baidu.tbadk.mvc.model;
 
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.NetModel;
-import com.baidu.tieba.td5;
-import com.baidu.tieba.ud5;
+import com.baidu.tieba.ie5;
+import com.baidu.tieba.je5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public abstract class NetAutoModel<T extends td5, D extends ud5, ActivityType> extends NetModel<T, D, ActivityType> {
+public abstract class NetAutoModel<T extends ie5, D extends je5, ActivityType> extends NetModel<T, D, ActivityType> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,7 +26,7 @@ public abstract class NetAutoModel<T extends td5, D extends ud5, ActivityType> e
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (td5) objArr2[1], (NetModel.NetModelType) objArr2[2]);
+                super((TbPageContext) objArr2[0], (ie5) objArr2[1], (NetModel.NetModelType) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

@@ -1,26 +1,50 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.graphics.drawable.Drawable;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.live.interfaces.service.AppInfoService;
+import com.baidu.searchbox.live.interfaces.service.LiveFontSizeService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.JvmStatic;
 /* loaded from: classes6.dex */
-public class vc0 {
+public final class vc0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static boolean b;
-    public static String c;
-    public static ArrayList<String> d;
+    public static final LiveFontSizeService a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @JvmStatic
+    @JvmOverloads
+    public static final int c(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65539, null, f)) == null) ? e(f, 0, 0, 6, null) : invokeF.intValue;
+    }
+
+    @JvmStatic
+    @JvmOverloads
+    public static final void f(View view2, float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            j(view2, f, f2, 0, 0, 12, null);
+        }
+    }
+
+    @JvmStatic
+    @JvmOverloads
+    public static final void h(TextView textView, int i, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{textView, Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            k(textView, i, f, 0, 0, 12, null);
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -35,204 +59,142 @@ public class vc0 {
                 return;
             }
         }
-        AppInfoService appInfoService = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
-        if (appInfoService != null) {
-            l(appInfoService.isDebug());
-        }
-        a = vc0.class.getName();
-        b = false;
-        c = null;
-        d = new ArrayList<>();
+        a = (LiveFontSizeService) ServiceManager.getService(LiveFontSizeService.Companion.getSERVICE_REFERENCE());
     }
 
-    public vc0() {
+    @JvmStatic
+    @JvmOverloads
+    public static final Drawable a(Drawable drawable, int i, int i2) {
+        InterceptResult invokeLII;
+        Drawable scaledDrawable;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, drawable, i, i2)) == null) {
+            LiveFontSizeService liveFontSizeService = a;
+            if (liveFontSizeService != null && (scaledDrawable = liveFontSizeService.getScaledDrawable(drawable, i, i2)) != null) {
+                return scaledDrawable;
             }
+            return drawable;
         }
+        return (Drawable) invokeLII.objValue;
     }
 
-    public static boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return b;
+    public static /* synthetic */ Drawable b(Drawable drawable, int i, int i2, int i3, Object obj) {
+        if ((i3 & 2) != 0) {
+            i = 0;
         }
-        return invokeV.booleanValue;
+        if ((i3 & 4) != 0) {
+            i2 = 2;
+        }
+        return a(drawable, i, i2);
     }
 
-    public static String a(boolean z, String str, String str2, String str3) {
+    public static /* synthetic */ int e(float f, int i, int i2, int i3, Object obj) {
+        if ((i3 & 2) != 0) {
+            i = 0;
+        }
+        if ((i3 & 4) != 0) {
+            i2 = 2;
+        }
+        return d(f, i, i2);
+    }
+
+    @JvmStatic
+    @JvmOverloads
+    public static final int d(float f, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), str, str2, str3})) == null) {
-            if (!i()) {
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            LiveFontSizeService liveFontSizeService = a;
+            if (liveFontSizeService != null) {
+                return liveFontSizeService.getScaledSize(f, i, i2);
             }
-            String str4 = c;
-            if (str4 != null && !str3.startsWith(str4)) {
-                return null;
-            }
-            if (z && !j(str)) {
-                return null;
-            }
-            StringBuffer stringBuffer = new StringBuffer(100);
-            stringBuffer.append(str);
-            stringBuffer.append(":");
-            stringBuffer.append(str2);
-            stringBuffer.append(":");
-            stringBuffer.append(str3);
-            return stringBuffer.toString();
+            return (int) f;
         }
-        return (String) invokeCommon.objValue;
+        return invokeCommon.intValue;
     }
 
-    public static void b(String str, String str2, String str3) {
-        String a2;
+    @JvmStatic
+    @JvmOverloads
+    public static final void g(View view2, float f, float f2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) && (a2 = a(true, str, str2, str3)) != null) {
-            Log.d(a, a2);
-        }
-    }
-
-    public static void f(String str, String str2, String str3) {
-        String a2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65543, null, str, str2, str3) == null) && (a2 = a(false, str, str2, str3)) != null) {
-            Log.e(a, a2);
-        }
-    }
-
-    public static void h(String str, String str2, String str3) {
-        String a2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65545, null, str, str2, str3) == null) && (a2 = a(true, str, str2, str3)) != null) {
-            Log.i(a, a2);
-        }
-    }
-
-    public static void m(String str, String str2, String str3) {
-        String a2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65550, null, str, str2, str3) == null) && (a2 = a(true, str, str2, str3)) != null) {
-            Log.v(a, a2);
-        }
-    }
-
-    public static void n(String str, String str2, String str3) {
-        String a2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65551, null, str, str2, str3) == null) && (a2 = a(false, str, str2, str3)) != null) {
-            Log.w(a, a2);
-        }
-    }
-
-    public static int c(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th)) == null) {
-            if (i() && th != null) {
-                Log.e(a, th.getMessage(), th);
-                return k(0, th.getMessage());
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            return k(0, str);
-        }
-        return invokeL.intValue;
-    }
-
-    public static int e(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, th)) == null) {
-            return k(0, th.getMessage());
-        }
-        return invokeL.intValue;
-    }
-
-    public static int g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            return k(2, str);
-        }
-        return invokeL.intValue;
-    }
-
-    public static void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65549, null, z) == null) {
-            b = z;
-        }
-    }
-
-    public static boolean j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            boolean z = false;
-            if (d.size() == 0) {
-                return false;
-            }
-            Iterator<String> it = d.iterator();
-            while (it.hasNext()) {
-                if (str.startsWith(it.next())) {
-                    z = true;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            LiveFontSizeService liveFontSizeService = a;
+            if (liveFontSizeService == null) {
+                if (view2.getLayoutParams() == null) {
+                    view2.setLayoutParams(new ViewGroup.LayoutParams((int) f, (int) f2));
+                    return;
                 }
+                ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+                layoutParams.width = (int) f;
+                layoutParams.height = (int) f2;
+                view2.setLayoutParams(layoutParams);
+                return;
             }
-            return z;
+            liveFontSizeService.setScaledSize(view2, f, f2, i, i2);
         }
-        return invokeL.booleanValue;
     }
 
-    public static int k(int i, String str) {
-        InterceptResult invokeIL;
+    @JvmStatic
+    @JvmOverloads
+    public static final void i(TextView textView, int i, float f, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65548, null, i, str)) == null) {
-            if (!i()) {
-                return -1;
-            }
-            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-            if (stackTrace.length < 5) {
-                return -1;
-            }
-            StackTraceElement stackTraceElement = stackTrace[4];
-            String methodName = stackTraceElement.getMethodName();
-            String className = stackTraceElement.getClassName();
-            if (i > 1 && !j(className)) {
-                return -1;
-            }
-            if (i == 0) {
-                f(className, methodName, str);
-                return 0;
-            } else if (i == 1) {
-                n(className, methodName, str);
-                return 0;
-            } else if (i == 2) {
-                h(className, methodName, str);
-                return 0;
-            } else if (i == 3) {
-                b(className, methodName, str);
-                return 0;
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{textView, Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            LiveFontSizeService liveFontSizeService = a;
+            if (liveFontSizeService == null) {
+                textView.setTextSize(i, f);
             } else {
-                m(className, methodName, str);
-                return 0;
+                liveFontSizeService.setScaledSize(textView, i, f, i2, i3);
             }
         }
-        return invokeIL.intValue;
+    }
+
+    public static /* synthetic */ void j(View view2, float f, float f2, int i, int i2, int i3, Object obj) {
+        if ((i3 & 4) != 0) {
+            i = 0;
+        }
+        if ((i3 & 8) != 0) {
+            i2 = 2;
+        }
+        g(view2, f, f2, i, i2);
+    }
+
+    public static /* synthetic */ void k(TextView textView, int i, float f, int i2, int i3, int i4, Object obj) {
+        if ((i4 & 4) != 0) {
+            i2 = 0;
+        }
+        if ((i4 & 8) != 0) {
+            i3 = 2;
+        }
+        i(textView, i, f, i2, i3);
+    }
+
+    @JvmStatic
+    @JvmOverloads
+    public static final void l(View view2, float f, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{view2, Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            LiveFontSizeService liveFontSizeService = a;
+            if (liveFontSizeService == null) {
+                if (view2.getLayoutParams() == null) {
+                    view2.setLayoutParams(new ViewGroup.LayoutParams((int) f, -2));
+                    return;
+                }
+                ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+                layoutParams.width = (int) f;
+                view2.setLayoutParams(layoutParams);
+                return;
+            }
+            liveFontSizeService.setScaledWidth(view2, f, i, i2);
+        }
+    }
+
+    public static /* synthetic */ void m(View view2, float f, int i, int i2, int i3, Object obj) {
+        if ((i3 & 2) != 0) {
+            i = 0;
+        }
+        if ((i3 & 4) != 0) {
+            i2 = 2;
+        }
+        l(view2, f, i, i2);
     }
 }

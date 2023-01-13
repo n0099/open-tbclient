@@ -5,10 +5,10 @@ import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.hh7;
-import com.baidu.tieba.ih7;
 import com.baidu.tieba.imMessageCenter.chatgroup.data.ChatGroupInfo;
-import com.baidu.tieba.xg;
+import com.baidu.tieba.vk7;
+import com.baidu.tieba.wk7;
+import com.baidu.tieba.yg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,15 +51,15 @@ public class ChatGroupListResponseMessage extends JsonHttpResponsedMessage {
             if (jSONObject == null) {
                 return;
             }
-            int e = xg.e(jSONObject.optString("error_code"), -1);
+            int e = yg.e(jSONObject.optString("error_code"), -1);
             if (e == 0) {
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject != null) {
                     JSONObject optJSONObject2 = optJSONObject.optJSONObject(SpeedStatsUtils.UBC_VALUE_BANNER);
                     if (optJSONObject2 != null) {
-                        ih7 ih7Var = new ih7();
-                        ih7Var.c(optJSONObject2);
-                        this.mList.add(ih7Var);
+                        wk7 wk7Var = new wk7();
+                        wk7Var.f(optJSONObject2);
+                        this.mList.add(wk7Var);
                     }
                     JSONArray optJSONArray = optJSONObject.optJSONArray("list");
                     if (optJSONArray != null) {
@@ -75,9 +75,9 @@ public class ChatGroupListResponseMessage extends JsonHttpResponsedMessage {
                     }
                     JSONObject optJSONObject4 = optJSONObject.optJSONObject("footer");
                     if (optJSONObject4 != null) {
-                        hh7 hh7Var = new hh7();
-                        hh7Var.c(optJSONObject4);
-                        this.mList.add(hh7Var);
+                        vk7 vk7Var = new vk7();
+                        vk7Var.c(optJSONObject4);
+                        this.mList.add(vk7Var);
                         return;
                     }
                     return;

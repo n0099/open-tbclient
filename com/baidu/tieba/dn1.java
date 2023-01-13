@@ -1,23 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.util.BaiduIdentityManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class dn1 implements qp1 {
+public class dn1 implements op1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.qp1
-    public String getAppName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? BaiduIdentityManager.VALUE_OSNAME : (String) invokeV.objValue;
-    }
 
     public dn1() {
         Interceptable interceptable = $ic;
@@ -33,33 +24,11 @@ public class dn1 implements qp1 {
         }
     }
 
-    @Override // com.baidu.tieba.qp1
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.op1
+    public void b(j43 j43Var, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ko3.e().d();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, j43Var, jSONObject) == null) {
+            sw2.e().b(j43Var, jSONObject);
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qp1
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return ko3.e().b();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qp1
-    public String getSchemeHeader() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return ko3.e().f();
-        }
-        return (String) invokeV.objValue;
     }
 }

@@ -29,7 +29,7 @@ public class dy {
     public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? Base64.encodeToString(bp.m215a(str), 2) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? Base64.encodeToString(bp.m220a(str), 2) : (String) invokeL.objValue;
     }
 
     public static String a(HashMap<String, String> hashMap) {

@@ -1,373 +1,151 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
-import android.util.SparseArray;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.open.activity.AssistActivity;
-import com.yy.open.activity.BridgeActivity;
-import org.json.JSONObject;
+import com.fun.ad.sdk.ChannelNativeAds;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunNativeAd;
+import com.fun.ad.sdk.internal.api.BaseFunNativeAd;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.qq.e.ads.nativ.MediaView;
+import com.qq.e.ads.nativ.NativeUnifiedADData;
+import com.qq.e.ads.nativ.widget.NativeAdContainer;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public final class pz9 {
+public class pz9 extends BaseFunNativeAd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<c> a;
-    public Handler b;
-    public Context c;
-    public String d;
-    public tz9 e;
+    public final NativeUnifiedADData b;
+    public final ChannelNativeAds c;
+    public final MediaView d;
+    public final gz9 e;
 
-    public final void h(int i, Intent intent, mz9 mz9Var, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), intent, mz9Var, Long.valueOf(j)}) == null) {
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ mz9 b;
-        public final /* synthetic */ Intent c;
-        public final /* synthetic */ long d;
-        public final /* synthetic */ pz9 e;
-
-        public a(pz9 pz9Var, int i, mz9 mz9Var, Intent intent, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pz9Var, Integer.valueOf(i), mz9Var, intent, Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = pz9Var;
-            this.a = i;
-            this.b = mz9Var;
-            this.c = intent;
-            this.d = j;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            String str;
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    if (this.a == 0) {
-                        this.b.onCancel();
-                        return;
-                    }
-                    String stringExtra = this.c.getStringExtra("resjson");
-                    this.e.e.a(stringExtra);
-                    JSONObject jSONObject = new JSONObject(stringExtra);
-                    if (jSONObject.has("resCode") && jSONObject.has("resMsg")) {
-                        String optString = jSONObject.optString("resMsg");
-                        int optInt = jSONObject.optInt("resCode");
-                        if (optInt != 1000006 && optInt != 1290001) {
-                            optInt = this.a;
-                            this.e.f(this.c, this.b, this.d, optInt, optString);
-                            return;
-                        }
-                        Log.e("chenqiang", "resCode:" + optInt);
-                        this.e.f(this.c, this.b, this.d, optInt, optString);
-                        return;
-                    }
-                    Log.e("chenqiang", "please update yy new version！");
-                    if (jSONObject.has("openid") && jSONObject.has("access_code")) {
-                        i = this.a;
-                        str = "success";
-                    } else {
-                        str = "handleAuthLoginResult--default error!";
-                        i = 444222199;
-                    }
-                    this.e.f(this.c, this.b, this.d, i, str);
-                } catch (Exception unused) {
-                    this.b.onError(new nz9(444222105, sz9.h(444222105)));
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mz9 a;
-        public final /* synthetic */ nz9 b;
-
-        public b(pz9 pz9Var, mz9 mz9Var, nz9 nz9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pz9Var, mz9Var, nz9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mz9Var;
-            this.b = nz9Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.onError(this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public final class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public mz9 a;
-        public long b;
-
-        public c(pz9 pz9Var, mz9 mz9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pz9Var, mz9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mz9Var;
-            this.b = System.currentTimeMillis();
-        }
-    }
-
-    public pz9(Context context, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pz9(NativeUnifiedADData nativeUnifiedADData, MediaView mediaView, String str, Ssp.Pid pid, gz9 gz9Var) {
+        super(str, pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {nativeUnifiedADData, mediaView, str, pid, gz9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = tz9.b();
-        this.c = context;
-        this.d = str;
-        this.a = new SparseArray<>();
-        this.b = new Handler(Looper.getMainLooper());
+        this.b = nativeUnifiedADData;
+        this.d = mediaView;
+        this.c = ChannelNativeAds.createGdt(nativeUnifiedADData);
+        this.e = gz9Var;
     }
 
-    public final void c(Activity activity, String str, mz9 mz9Var) {
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public ChannelNativeAds getChannelNativeAds() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, mz9Var) == null) {
-            if (rz9.d(activity, BridgeActivity.class) && rz9.d(activity, AssistActivity.class)) {
-                int a2 = sz9.a(activity);
-                if (a2 != 0) {
-                    try {
-                        this.a.put(62345, new c(this, mz9Var));
-                        String c2 = sz9.c(this.c, this.d, str, true);
-                        Intent intent = new Intent(activity, AssistActivity.class);
-                        intent.putExtra("type", "type_web");
-                        intent.putExtra("url", c2);
-                        activity.startActivityForResult(intent, 62345);
-                        return;
-                    } catch (Exception unused) {
-                        g(new nz9(a2), mz9Var);
-                        return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (ChannelNativeAds) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public String getDescription() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b.getDesc() : (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public String getIconUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b.getIconUrl() : (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public List<String> getImageUrls() {
+        InterceptResult invokeV;
+        String imgUrl;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<String> imgList = this.b.getImgList();
+            if (imgList == null) {
+                imgList = new ArrayList<>();
+            }
+            if (imgList.isEmpty() && (imgUrl = this.b.getImgUrl()) != null) {
+                imgList.add(imgUrl);
+            }
+            return imgList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public FunNativeAd.InteractionType getInteractionType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.b.isAppAd()) {
+                int appStatus = this.b.getAppStatus();
+                if (appStatus != 0) {
+                    if (appStatus != 1) {
+                        if (appStatus != 2 && appStatus != 4) {
+                            if (appStatus != 8) {
+                                if (appStatus != 16) {
+                                    return FunNativeAd.InteractionType.TYPE_UNKNOW;
+                                }
+                            }
+                        }
                     }
+                    return FunNativeAd.InteractionType.TYPE_BROWSE;
                 }
-                Intent e = sz9.e(activity);
-                this.a.put(62345, new c(this, mz9Var));
-                Bundle d = sz9.d(activity, this.d);
-                e.putExtra("action", "action_login");
-                e.putExtra("bundle", d);
-                i(activity, e, 62345);
+                return FunNativeAd.InteractionType.TYPE_DOWNLOAD;
+            }
+            return FunNativeAd.InteractionType.TYPE_BROWSE;
+        }
+        return (FunNativeAd.InteractionType) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public String getTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b.getTitle() : (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public View getVideoView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (View) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BaseFunNativeAd
+    public void showInternal(Context context, ViewGroup viewGroup, List<View> list, List<View> list2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048583, this, context, viewGroup, list, list2, funAdInteractionListener) == null) {
+            if (viewGroup instanceof NativeAdContainer) {
+                this.e.o(this.b, this.mSid, (NativeAdContainer) viewGroup, this.d, list, funAdInteractionListener, this.c.getGdtADStatusChangeListener());
                 return;
             }
-            g(new nz9(3), mz9Var);
-        }
-    }
-
-    public final boolean d(int i, int i2, Intent intent, mz9 mz9Var) {
-        InterceptResult invokeCommon;
-        long currentTimeMillis;
-        mz9 mz9Var2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent, mz9Var})) == null) {
-            if (i != 62345 && i != 62347) {
-                return false;
+            LogPrinter.e("adContainer must derive from com.qq.e.ads.nativ.widgetNativeAdContainer", new Object[0]);
+            if (FunAdSdk.isLogEnabled()) {
+                throw new IllegalArgumentException("adContainer must derive from com.qq.e.ads.nativ.widgetNativeAdContainer");
             }
-            c cVar = this.a.get(i);
-            if (cVar != null) {
-                currentTimeMillis = cVar.b;
-                mz9Var2 = cVar.a;
-                this.a.remove(i);
-            } else {
-                currentTimeMillis = System.currentTimeMillis();
-                mz9Var2 = mz9Var;
-            }
-            if (i == 62345) {
-                e(i2, intent, mz9Var2, currentTimeMillis);
-                return true;
-            } else if (i != 62347) {
-                return false;
-            } else {
-                h(i2, intent, mz9Var2, currentTimeMillis);
-                return true;
-            }
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final void e(int i, Intent intent, mz9 mz9Var, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), intent, mz9Var, Long.valueOf(j)}) == null) {
-            this.b.postDelayed(new a(this, i, mz9Var, intent, j), 10L);
-        }
-    }
-
-    public final void f(Intent intent, mz9 mz9Var, long j, int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{intent, mz9Var, Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            switch (i) {
-                case 1000006:
-                    mz9Var.onError(new nz9(1000006, str));
-                    return;
-                case 1290001:
-                    mz9Var.onError(new nz9(1290001, str));
-                    return;
-                case 444111001:
-                    try {
-                        String stringExtra = intent.getStringExtra("resjson");
-                        this.e.a(stringExtra);
-                        JSONObject jSONObject = new JSONObject(stringExtra);
-                        jSONObject.optString("openid");
-                        jSONObject.optString("uid");
-                        jSONObject.optString("access_code");
-                        mz9Var.onComplete(jSONObject);
-                        return;
-                    } catch (Exception unused) {
-                        mz9Var.onError(new nz9(444222105, sz9.h(444222105)));
-                        return;
-                    }
-                case 444111002:
-                    mz9Var.onCancel();
-                    return;
-                case 444111003:
-                    try {
-                        JSONObject jSONObject2 = new JSONObject(intent.getStringExtra("resjson"));
-                        if ("1".equals(jSONObject2.optString("appType"))) {
-                            jSONObject2.optString("uid");
-                        } else {
-                            jSONObject2.optString("openid");
-                        }
-                        mz9Var.onComplete(jSONObject2);
-                        return;
-                    } catch (Exception unused2) {
-                        mz9Var.onError(new nz9(444222105, sz9.h(444222105)));
-                        return;
-                    }
-                case 444222000:
-                    mz9Var.onError(new nz9(444222000, str));
-                    return;
-                case 444222001:
-                    mz9Var.onError(new nz9(444222001, str));
-                    return;
-                case 444222002:
-                    mz9Var.onError(new nz9(444222002, str));
-                    return;
-                case 444222003:
-                    mz9Var.onError(new nz9(444222003, str));
-                    return;
-                case 444222104:
-                    mz9Var.onError(new nz9(444222104, str));
-                    return;
-                case 444222105:
-                    mz9Var.onError(new nz9(444222105, str));
-                    return;
-                case 444222106:
-                    try {
-                        new JSONObject(intent.getStringExtra("resjson"));
-                        mz9Var.onError(new nz9(444222106, str));
-                        return;
-                    } catch (Exception unused3) {
-                        mz9Var.onError(new nz9(444222105, sz9.h(444222105)));
-                        return;
-                    }
-                case 444222108:
-                    try {
-                        mz9Var.onComplete(new JSONObject(intent.getStringExtra("resjson")));
-                        return;
-                    } catch (Exception unused4) {
-                        mz9Var.onError(new nz9(444222105, sz9.h(444222105)));
-                        return;
-                    }
-                case 444222110:
-                    try {
-                        new JSONObject(intent.getStringExtra("resjson"));
-                        mz9Var.onError(new nz9(444222110, str));
-                        return;
-                    } catch (Exception unused5) {
-                        mz9Var.onError(new nz9(444222105, sz9.h(444222105)));
-                        return;
-                    }
-                default:
-                    Log.e("chenqiang", "default  error");
-                    mz9Var.onError(new nz9(i, sz9.h(i)));
-                    return;
-            }
-        }
-    }
-
-    public final void g(nz9 nz9Var, mz9 mz9Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, nz9Var, mz9Var) == null) && mz9Var != null) {
-            this.b.postDelayed(new b(this, mz9Var, nz9Var), 50L);
-        }
-    }
-
-    public final void i(Activity activity, Intent intent, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048582, this, activity, intent, i) == null) {
-            intent.putExtra("request_code", i);
-            Intent intent2 = new Intent(activity.getApplicationContext(), BridgeActivity.class);
-            intent2.putExtra(IntentData.KEY, intent);
-            activity.startActivityForResult(intent2, i);
         }
     }
 }

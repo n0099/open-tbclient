@@ -12,8 +12,9 @@ import com.baidu.searchbox.logsystem.basic.Loki;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.b50;
-import com.baidu.tieba.ry4;
+import com.baidu.tbadk.switchs.LooperBlockSwitch;
+import com.baidu.tieba.cz4;
+import com.baidu.tieba.g50;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -74,7 +75,7 @@ public class MainTabLoadFinishTask extends LaunchTask {
                 return "";
             }
             String str2 = split[1];
-            if (StringUtils.isNull(str2) || (b = new b50("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(str2)) == null) {
+            if (StringUtils.isNull(str2) || (b = new g50("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(str2)) == null) {
                 return "";
             }
             try {
@@ -90,7 +91,9 @@ public class MainTabLoadFinishTask extends LaunchTask {
     private void initMainTab() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
+            if (!LooperBlockSwitch.getIsOn()) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
+            }
             Loki.startTrack();
             Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler(this) { // from class: com.baidu.searchbox.task.async.homeready.MainTabLoadFinishTask.1
                 public static /* synthetic */ Interceptable $ic;
@@ -122,7 +125,7 @@ public class MainTabLoadFinishTask extends LaunchTask {
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                         try {
                             if (Build.VERSION.SDK_INT >= 17) {
-                                ry4.l().z("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
+                                cz4.l().z("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
                                 return false;
                             }
                             return false;
@@ -136,10 +139,10 @@ public class MainTabLoadFinishTask extends LaunchTask {
             });
             try {
                 String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst().getContext());
-                String r = ry4.l().r("key_last_cached_oid", "");
+                String r = cz4.l().r("key_last_cached_oid", "");
                 if (StringUtils.isNull(r) || !r.equals(lastCachedOid)) {
-                    ry4.l().z("key_last_cached_oid", lastCachedOid);
-                    ry4.l().z("key_last_cached_real_oid", getRealOaid(lastCachedOid));
+                    cz4.l().z("key_last_cached_oid", lastCachedOid);
+                    cz4.l().z("key_last_cached_real_oid", getRealOaid(lastCachedOid));
                 }
             } catch (Exception e) {
                 e.printStackTrace();

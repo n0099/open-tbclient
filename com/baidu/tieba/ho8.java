@@ -1,607 +1,542 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.data.BlockPopInfoData;
-import com.baidu.tbadk.core.data.SignData;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes4.dex */
 public class ho8 {
     public static /* synthetic */ Interceptable $ic;
+    public static ho8 b;
+    public static List<c> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int A;
-    public ArrayList<io8> B;
-    public ArrayList<io8> C;
-    public ArrayList<io8> D;
-    public HashMap<String, io8> E;
-    public fo8 F;
-    public int G;
-    public ko8 H;
-    public po8 I;
-    public BlockPopInfoData J;
     public int a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public int i;
-    public String j;
-    public int k;
-    public boolean l;
-    public int m;
-    public int n;
-    public int o;
-    public int p;
-    public String q;
-    public String r;
-    public String s;
-    public String t;
-    public int u;
-    public String v;
-    public String w;
-    public int x;
-    public boolean y;
-    public int z;
 
     /* loaded from: classes4.dex */
-    public class a implements Comparator<io8> {
+    public static class c extends BdAsyncTask<DownloadData, DownloadData, Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public DownloadData a;
+        public tk6 b;
+        public boolean c;
+        public NetWork d;
+        public Handler e;
 
-        public a(ho8 ho8Var) {
+        /* loaded from: classes4.dex */
+        public class a extends Handler {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ c a;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            public a(c cVar, Looper looper) {
+                super(looper);
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar, looper};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        super((Looper) newInitContext.callArgs[0]);
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = cVar;
+            }
+
+            @Override // android.os.Handler
+            public void handleMessage(Message message) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                    super.handleMessage(message);
+                    if (message.what == 900002 && message.arg2 > 0 && this.a.a != null) {
+                        this.a.a.setLength(message.arg1);
+                        this.a.a.setSize(message.arg2);
+                        this.a.a.setStatus(1);
+                        if (this.a.a.getCallback() != null) {
+                            this.a.a.getCallback().onFileUpdateProgress(this.a.a);
+                        }
+                        if (this.a.b != null) {
+                            this.a.b.f(this.a.a);
+                        }
+                    }
+                }
+            }
+        }
+
+        public c(DownloadData downloadData, tk6 tk6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ho8Var};
+                Object[] objArr = {downloadData, tk6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = new NetWork();
+            this.e = new a(this, Looper.getMainLooper());
+            this.a = downloadData;
+            this.b = tk6Var;
+        }
+
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                NetWork netWork = this.d;
+                if (netWork != null) {
+                    netWork.setCancel();
+                }
+                cancel(true);
+            }
+        }
+
+        public DownloadData g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.a;
+            }
+            return (DownloadData) invokeV.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: f */
+        public Integer doInBackground(DownloadData... downloadDataArr) {
+            InterceptResult invokeL;
+            FileInputStream fileInputStream;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadDataArr)) == null) {
+                FileInputStream fileInputStream2 = null;
+                if (downloadDataArr[0] == null) {
+                    return null;
+                }
+                if (downloadDataArr[0].getCallback() != null && !downloadDataArr[0].getCallback().onPreDownload(downloadDataArr[0])) {
+                    return 0;
+                }
+                File file = new File(downloadDataArr[0].getPath());
+                if (file.exists()) {
+                    file.delete();
+                }
+                if (!file.exists()) {
+                    this.d.setUrl(downloadDataArr[0].getUrl());
+                    NetWork netWork = this.d;
+                    if (netWork.downloadFile(downloadDataArr[0].getId() + "_" + downloadDataArr[0].getName() + ".tmp", this.e, TbConfig.NET_MSG_GETLENTH, 3, 3000)) {
+                        File GetFile = FileHelper.GetFile(downloadDataArr[0].getId() + "_" + downloadDataArr[0].getName() + ".tmp");
+                        if (GetFile == null) {
+                            GetFile = FileHelper.GetFileInCache(downloadDataArr[0].getId() + "_" + downloadDataArr[0].getName() + ".tmp");
+                        }
+                        if (GetFile != null) {
+                            try {
+                                try {
+                                    String parent = GetFile.getParent();
+                                    String parent2 = file.getParent();
+                                    if (parent.equals(parent2)) {
+                                        GetFile.renameTo(new File(parent2, file.getName()));
+                                    } else {
+                                        ui.f(GetFile, file);
+                                        ui.n(GetFile);
+                                    }
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                    return 7;
+                                }
+                            } catch (IOException unused) {
+                                ui.n(file);
+                                ui.n(GetFile);
+                                return 7;
+                            }
+                        } else {
+                            return 1;
+                        }
+                    } else {
+                        return 3;
+                    }
+                }
+                try {
+                    if (!yi.isEmpty(downloadDataArr[0].getCheck())) {
+                        try {
+                            fileInputStream = new FileInputStream(downloadDataArr[0].getPath());
+                        } catch (FileNotFoundException e2) {
+                            e = e2;
+                        }
+                        try {
+                            if (!gj.b(fileInputStream).equalsIgnoreCase(downloadDataArr[0].getCheck())) {
+                                ui.n(new File(downloadDataArr[0].getPath()));
+                                try {
+                                    fileInputStream.close();
+                                } catch (IOException e3) {
+                                    BdLog.d(e3.getMessage());
+                                }
+                                return 4;
+                            }
+                            try {
+                                fileInputStream.close();
+                            } catch (IOException e4) {
+                                BdLog.d(e4.getMessage());
+                            }
+                        } catch (FileNotFoundException e5) {
+                            e = e5;
+                            fileInputStream2 = fileInputStream;
+                            BdLog.d(e.getMessage());
+                            if (fileInputStream2 != null) {
+                                try {
+                                    fileInputStream2.close();
+                                } catch (IOException e6) {
+                                    BdLog.d(e6.getMessage());
+                                }
+                            }
+                            return 6;
+                        } catch (Throwable th) {
+                            th = th;
+                            fileInputStream2 = fileInputStream;
+                            if (fileInputStream2 != null) {
+                                try {
+                                    fileInputStream2.close();
+                                } catch (IOException e7) {
+                                    BdLog.d(e7.getMessage());
+                                }
+                            }
+                            throw th;
+                        }
+                    }
+                    if (downloadDataArr[0].getCallback() == null || downloadDataArr[0].getCallback().onFileDownloaded(downloadDataArr[0])) {
+                        return 0;
+                    }
+                    return 2;
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+            } else {
+                return (Integer) invokeL.objValue;
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onCancelled() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                super.onCancelled();
+                this.d.setCancel();
+                if (this.c) {
+                    this.a.setStatus(6);
+                } else {
+                    this.a.setStatus(4);
+                }
+                this.a.setStatusMsg(null);
+                if (this.a.getCallback() != null) {
+                    this.a.getCallback().onFileUpdateProgress(this.a);
                 }
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(io8 io8Var, io8 io8Var2) {
-            InterceptResult invokeLL;
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Integer num) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, io8Var, io8Var2)) == null) {
-                return io8Var2.i() - io8Var.i();
+            if (interceptable == null || interceptable.invokeL(1048581, this, num) == null) {
+                super.onPostExecute((c) num);
+                if (num == null) {
+                    return;
+                }
+                if (num.intValue() == 0) {
+                    this.a.setStatus(0);
+                    if (this.a.getCallback() != null) {
+                        this.a.getCallback().onFileUpdateProgress(this.a);
+                    }
+                    if (this.a.getCallback() != null) {
+                        this.a.getCallback().onFileDownloadSucceed(this.a);
+                    }
+                    tk6 tk6Var = this.b;
+                    if (tk6Var != null) {
+                        tk6Var.c(this.a);
+                    }
+                } else {
+                    String str = null;
+                    int intValue = num.intValue();
+                    if (intValue != 1) {
+                        if (intValue != 2) {
+                            if (intValue != 3) {
+                                if (intValue != 4) {
+                                    if (intValue != 6) {
+                                        if (intValue == 7) {
+                                            str = TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail);
+                                        }
+                                    } else {
+                                        str = TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail);
+                                    }
+                                } else {
+                                    str = TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail);
+                                }
+                            } else {
+                                str = TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail_net);
+                            }
+                        } else {
+                            str = TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail);
+                        }
+                    } else {
+                        str = TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail);
+                    }
+                    this.a.setStatusMsg(str);
+                    this.a.setErrorCode(num.intValue());
+                    this.a.setStatus(2);
+                    if (this.a.getCallback() != null) {
+                        this.a.getCallback().onFileUpdateProgress(this.a);
+                    }
+                    if (this.a.getCallback() != null) {
+                        this.a.getCallback().onFileDownloadFailed(this.a, num.intValue(), str);
+                    }
+                    tk6 tk6Var2 = this.b;
+                    if (tk6Var2 != null) {
+                        tk6Var2.b(this.a);
+                    }
+                }
+                ho8.c.remove(this);
             }
-            return invokeLL.intValue;
         }
+    }
+
+    /* loaded from: classes4.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ DownloadData a;
+        public final /* synthetic */ tk6 b;
+        public final /* synthetic */ ho8 c;
+
+        public a(ho8 ho8Var, DownloadData downloadData, tk6 tk6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ho8Var, downloadData, tk6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = ho8Var;
+            this.a = downloadData;
+            this.b = tk6Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (ho8.c.size() >= this.c.a) {
+                    this.a.setStatus(2);
+                    this.a.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail_over_max));
+                    if (this.a.getCallback() != null) {
+                        this.a.getCallback().onFileUpdateProgress(this.a);
+                    }
+                    tk6 tk6Var = this.b;
+                    if (tk6Var != null) {
+                        tk6Var.b(this.a);
+                        return;
+                    }
+                    return;
+                }
+                this.c.g(this.a, this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ boolean b;
+
+        public b(ho8 ho8Var, String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ho8Var, str, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Iterator it = ho8.c.iterator();
+                while (it.hasNext()) {
+                    c cVar = (c) it.next();
+                    if (cVar.g().getUrl().equals(this.a)) {
+                        cVar.c = this.b;
+                        cVar.g().setStatus(4);
+                        if (this.b) {
+                            cVar.g().setStatus(6);
+                            if (cVar.b != null) {
+                                cVar.b.e(cVar.g());
+                            }
+                        } else if (cVar.b != null) {
+                            cVar.b.d(cVar.g());
+                        }
+                        if (cVar.g().getCallback() != null) {
+                            cVar.g().getCallback().onFileUpdateProgress(cVar.g());
+                        }
+                        it.remove();
+                        cVar.e();
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947830552, "Lcom/baidu/tieba/ho8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947830552, "Lcom/baidu/tieba/ho8;");
+                return;
+            }
+        }
+        b = new ho8();
+        c = new LinkedList();
     }
 
     public ho8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = "0";
-        this.B = new ArrayList<>();
-        this.C = new ArrayList<>();
-        this.D = new ArrayList<>();
-        this.E = new HashMap<>();
-        this.F = new fo8();
-        this.H = new ko8();
-        this.I = new po8();
+        this.a = 5;
     }
 
-    public boolean A() {
+    public static ho8 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.y;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return b;
         }
-        return invokeV.booleanValue;
+        return (ho8) invokeV.objValue;
     }
 
-    public boolean B() {
+    public void d(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
+            bh.a().post(new b(this, str, z));
+        }
+    }
+
+    public void h(DownloadData downloadData, tk6 tk6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, downloadData, tk6Var) == null) {
+            bh.a().post(new a(this, downloadData, tk6Var));
+        }
+    }
+
+    public List<DownloadData> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.l;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean C() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ko8 ko8Var = this.H;
-            if (ko8Var == null) {
-                return false;
+            LinkedList linkedList = new LinkedList();
+            for (c cVar : c) {
+                linkedList.add(cVar.g());
             }
-            return !StringUtils.isNull(ko8Var.a);
+            return linkedList;
         }
-        return invokeV.booleanValue;
+        return (List) invokeV.objValue;
     }
 
-    public final void b() {
+    public final void g(DownloadData downloadData, tk6 tk6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.l) {
-                if (this.p + this.n <= 0) {
-                    this.y = true;
-                } else {
-                    this.y = false;
-                }
-            } else if (this.p <= 0) {
-                this.y = true;
-            } else {
-                this.y = false;
-            }
-        }
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.H.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.H.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public BlockPopInfoData f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.J;
-        }
-        return (BlockPopInfoData) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.v;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.w;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public fo8 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.F;
-        }
-        return (fo8) invokeV.objValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.A;
-        }
-        return invokeV.intValue;
-    }
-
-    public ArrayList<io8> k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.B;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            if (!StringUtils.isNull(this.b) && this.b.equals("1")) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return this.i;
-        }
-        return invokeV.intValue;
-    }
-
-    public String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return this.j;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return this.x;
-        }
-        return invokeV.intValue;
-    }
-
-    public ArrayList<io8> r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            return this.C;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public int s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return this.z;
-        }
-        return invokeV.intValue;
-    }
-
-    public String t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public ArrayList<io8> x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            return this.D;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public String y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            return this.I.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
-            return this.I.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void D(mo8 mo8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, mo8Var) == null) {
-            this.z = 0;
-            this.A = 0;
-            ArrayList<no8> d = mo8Var.d();
-            int size = d.size();
-            for (int i = 0; i < size; i++) {
-                no8 no8Var = d.get(i);
-                io8 io8Var = this.E.get(no8Var.c() + "");
-                if (io8Var != null) {
-                    if (no8Var.e() != 0) {
-                        this.z++;
-                        io8Var.r(1);
-                        io8Var.o(no8Var.d());
-                        io8Var.q(no8Var.a());
-                        io8Var.u(true);
-                        io8Var.s(false);
-                        io8Var.t(false);
-                        c(io8Var);
-                    } else {
-                        this.A++;
-                        io8Var.u(false);
-                        io8Var.s(true);
-                        io8Var.t(false);
-                        io8Var.p(no8Var.b().b());
-                    }
-                }
-            }
-            b();
-            a(true);
-        }
-    }
-
-    public final void c(io8 io8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, io8Var) == null) {
-            if (io8Var.i() >= this.a) {
-                this.o++;
-                this.p--;
-            } else {
-                this.m++;
-                this.n--;
-            }
-            this.E.remove(String.valueOf(io8Var.c()));
-            this.D.remove(io8Var);
-            if (io8Var.h() + io8Var.e() >= io8Var.g()) {
-                io8Var.w(io8Var.i() + 1);
-                io8Var.v(true);
-                if (io8Var.i() == this.a) {
-                    this.o++;
-                    this.m--;
-                }
-            }
-            this.C.add(io8Var);
-            TbadkApplication.getInst().addSignedForum(io8Var.d(), io8Var.e(), -1);
-        }
-    }
-
-    public void E(SignData signData) {
-        io8 io8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, signData) != null) || signData == null || (io8Var = this.E.get(signData.forumId)) == null) {
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, downloadData, tk6Var) != null) || downloadData == null) {
             return;
         }
-        io8Var.r(1);
-        io8Var.o(signData.count_sign_num);
-        io8Var.q(signData.sign_bonus_point);
-        io8Var.u(true);
-        io8Var.s(false);
-        io8Var.t(false);
-        c(io8Var);
-        b();
-        a(true);
-    }
-
-    public void F(JSONObject jSONObject) throws Exception {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, jSONObject) != null) || jSONObject == null) {
+        if (!FileHelper.checkSD()) {
+            downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail_no_sd));
+            downloadData.setStatus(2);
+        }
+        if (downloadData.getStatus() == 2) {
+            if (downloadData.getCallback() != null) {
+                downloadData.getCallback().onFileUpdateProgress(downloadData);
+            }
+            if (tk6Var != null) {
+                tk6Var.b(downloadData);
+                return;
+            }
             return;
         }
-        this.F.c(jSONObject.optJSONObject("error"));
-        this.a = jSONObject.optInt("level", 7);
-        this.b = jSONObject.optString("sign_new");
-        this.c = jSONObject.optString("title");
-        this.d = jSONObject.optString("text_pre");
-        this.e = jSONObject.optString(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR);
-        this.f = jSONObject.optString("text_mid");
-        this.g = jSONObject.optString("text_suf");
-        this.h = jSONObject.optString("num_notice");
-        this.i = jSONObject.optInt("show_dialog");
-        this.j = jSONObject.optString("sign_notice");
-        this.k = jSONObject.optInt("valid", 0);
-        this.G = jSONObject.optInt("sign_max_num", 50);
-        this.u = jSONObject.optInt("can_use", 0);
-        this.w = jSONObject.optString("content");
-        this.v = jSONObject.optString("button_content");
-        JSONObject optJSONObject = jSONObject.optJSONObject("anti_info");
-        if (optJSONObject != null) {
-            BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
-            this.J = blockPopInfoData;
-            blockPopInfoData.block_info = optJSONObject.optString("block_content");
-            this.J.ahead_info = optJSONObject.optString("block_confirm");
-            this.J.ahead_url = optJSONObject.optString("block_dealurl");
-            this.J.ok_info = optJSONObject.optString("block_cancel");
-            this.J.appeal_status = optJSONObject.optInt("appeal_status");
-            this.J.appeal_msg = optJSONObject.optString("appeal_msg");
-        }
-        if (this.u == 1) {
-            this.l = true;
-        } else {
-            this.l = false;
-        }
-        this.r = this.a + this.c;
-        this.q = "1-" + (this.a - 1) + TbadkApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f1211);
-        oo8.o = this.G;
-        JSONArray optJSONArray = jSONObject.optJSONArray("forum_info");
-        if (optJSONArray != null) {
-            int min = Math.min(optJSONArray.length(), oo8.o);
-            for (int i = 0; i < min; i++) {
-                JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                if (jSONObject2 != null) {
-                    io8 io8Var = new io8();
-                    io8Var.n(jSONObject2);
-                    if (io8Var.f() == 0) {
-                        if (this.k == 0) {
-                            if (this.l) {
-                                io8Var.s(true);
-                            } else if (io8Var.i() > this.a) {
-                                io8Var.s(true);
-                            }
-                        }
-                        if (io8Var.i() >= this.a) {
-                            this.p++;
-                        } else {
-                            this.n++;
-                        }
-                        this.D.add(io8Var);
-                        this.E.put(io8Var.c() + "", io8Var);
-                    } else {
-                        if (io8Var.i() >= this.a) {
-                            this.o++;
-                        } else {
-                            this.m++;
-                        }
-                        this.C.add(io8Var);
-                        TbadkApplication.getInst().addSignedForum(io8Var.d(), io8Var.e(), -1);
-                    }
-                    this.B.add(io8Var);
-                    Collections.sort(this.B, new a(this));
-                }
+        for (int i = 0; i < c.size(); i++) {
+            DownloadData g = c.get(i).g();
+            if (g != null && g.getUrl().equals(downloadData.getUrl()) && g.getId().equals(downloadData.getId())) {
+                return;
             }
         }
-        JSONObject optJSONObject2 = jSONObject.optJSONObject("advert");
-        if (this.H == null) {
-            this.H = new ko8();
+        downloadData.setStatus(5);
+        if (downloadData.getCallback() != null) {
+            downloadData.getCallback().onFileUpdateProgress(downloadData);
         }
-        this.H.a(optJSONObject2);
-        JSONObject optJSONObject3 = jSONObject.optJSONObject("wefan");
-        if (this.I == null) {
-            this.I = new po8();
+        if (tk6Var != null) {
+            tk6Var.a(downloadData);
         }
-        this.I.a(optJSONObject3);
-        a(false);
-    }
-
-    public final void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            if (z) {
-                ArrayList arrayList = new ArrayList();
-                Iterator<io8> it = this.B.iterator();
-                while (it.hasNext()) {
-                    io8 next = it.next();
-                    if (next instanceof go8) {
-                        arrayList.add(next);
-                    }
-                }
-                this.B.removeAll(arrayList);
-            }
-            int i = this.p;
-            int i2 = this.o;
-            if (i + i2 > 0) {
-                if (i2 > 0) {
-                    this.t = TbadkApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f1227, Integer.valueOf(this.o), Integer.valueOf(this.p));
-                } else {
-                    this.t = TbadkApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f1221, Integer.valueOf(this.p + this.o));
-                }
-                if (this.B.size() > 0) {
-                    this.B.add(0, new go8(this.r, this.t));
-                }
-            }
-            int i3 = this.n;
-            int i4 = this.m;
-            if (i3 + i4 > 0) {
-                if (i4 > 0) {
-                    this.s = TbadkApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f1227, Integer.valueOf(this.m), Integer.valueOf(this.n));
-                } else {
-                    this.s = TbadkApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f1221, Integer.valueOf(this.n + this.m));
-                }
-                if (this.p + this.o > 0) {
-                    if (this.B.size() > this.p + this.o + 1) {
-                        this.B.add(this.p + this.o + 1, new go8(this.q, this.s));
-                    }
-                } else if (this.B.size() > 0) {
-                    this.B.add(0, new go8(this.q, this.s));
-                }
-            }
-            if (this.B.size() <= 0) {
-                this.x = 3;
-            } else if (this.l) {
-                if (this.k == 1 && this.D.size() > 0) {
-                    this.x = 0;
-                } else {
-                    this.x = 2;
-                }
-            } else if (this.k == 1 && this.p > 0) {
-                this.x = 0;
-            } else {
-                int i5 = this.p;
-                int i6 = this.o;
-                if (i5 + i6 > 0) {
-                    this.x = 2;
-                } else if (i5 + i6 <= 0) {
-                    this.x = 3;
-                }
-            }
-        }
+        c cVar = new c(downloadData, tk6Var);
+        c.add(cVar);
+        cVar.execute(downloadData);
     }
 }

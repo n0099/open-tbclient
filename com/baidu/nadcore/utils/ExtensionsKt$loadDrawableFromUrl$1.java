@@ -60,7 +60,7 @@ public final class ExtensionsKt$loadDrawableFromUrl$1 extends Lambda implements 
         return Unit.INSTANCE;
     }
 
-    @Override // kotlin.jvm.functions.Function0
+    /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final void invoke2() {
         Interceptable interceptable = $ic;

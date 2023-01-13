@@ -1,94 +1,106 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.core.view.ViewCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.live.LiveFeedPageSdk;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.JvmStatic;
 /* loaded from: classes5.dex */
-public class mb0 {
+public final class mb0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ConcurrentHashMap<String, List<lb0>> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final View a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
 
-    public mb0(View view2) {
+    @JvmStatic
+    @JvmOverloads
+    public static final lb0 a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? c(null, str, 1, null) : (lb0) invokeL.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947966766, "Lcom/baidu/tieba/mb0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947966766, "Lcom/baidu/tieba/mb0;");
                 return;
             }
         }
-        this.a = view2;
+        a = new ConcurrentHashMap<>();
     }
 
-    public boolean c(int i) {
-        InterceptResult invokeI;
+    @JvmStatic
+    @JvmOverloads
+    public static final lb0 b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (this.e != i) {
-                this.e = i;
-                e();
-                return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            LiveFeedPageSdk.liveLog("LiveFeedPlayerPool", "getPlayer pageId= " + str2 + WebvttCueParser.CHAR_SPACE + a.size());
+            List<lb0> list = a.get(str2);
+            if (list == null) {
+                list = new ArrayList<>();
             }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public boolean d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (this.d != i) {
-                this.d = i;
-                e();
-                return true;
+            if (!list.isEmpty() && list.size() >= 2) {
+                lb0 lb0Var = list.get(0);
+                Collections.swap(list, 0, 1);
+                if (lb0Var.isPlaying()) {
+                    lb0Var.detachFromContainer();
+                    lb0Var.stop();
+                }
+                LiveFeedPageSdk.liveLog("LiveFeedPlayerPool", "getPlayer " + lb0Var);
+                return lb0Var;
             }
-            return false;
+            lb0 lb0Var2 = new lb0(new nb0(str, 0, null, null, 14, null));
+            list.add(lb0Var2);
+            a.put(str2, list);
+            return lb0Var2;
         }
-        return invokeI.booleanValue;
+        return (lb0) invokeLL.objValue;
     }
 
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+    public static /* synthetic */ lb0 c(String str, String str2, int i, Object obj) {
+        if ((i & 1) != 0) {
+            str = "";
         }
-        return invokeV.intValue;
+        return b(str, str2);
     }
 
-    public void b() {
+    @JvmStatic
+    public static final void d(String str) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = this.a.getTop();
-            this.c = this.a.getLeft();
-            e();
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            View view2 = this.a;
-            ViewCompat.offsetTopAndBottom(view2, this.d - (view2.getTop() - this.b));
-            View view3 = this.a;
-            ViewCompat.offsetLeftAndRight(view3, this.e - (view3.getLeft() - this.c));
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            LiveFeedPageSdk.liveLog("LiveFeedPlayerPool", "release playerMap= " + a.size());
+            List<lb0> list = a.get(str);
+            if (list != null && !list.isEmpty()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                return;
+            }
+            for (lb0 lb0Var : list) {
+                lb0Var.detachFromContainer();
+                lb0Var.release();
+            }
+            list.clear();
+            a.remove(str);
         }
     }
 }

@@ -11,16 +11,17 @@ import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoAd;
 import com.baidu.platform.comapi.map.MapController;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.a31;
-import com.baidu.tieba.e11;
-import com.baidu.tieba.f11;
-import com.baidu.tieba.fj0;
-import com.baidu.tieba.p01;
-import com.baidu.tieba.t21;
-import com.baidu.tieba.u21;
-import com.baidu.tieba.w21;
+import com.baidu.tieba.b31;
+import com.baidu.tieba.d31;
+import com.baidu.tieba.f31;
+import com.baidu.tieba.j11;
+import com.baidu.tieba.k11;
+import com.baidu.tieba.kj0;
+import com.baidu.tieba.u01;
 import com.baidu.tieba.y21;
+import com.baidu.tieba.z21;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +34,7 @@ import java.net.URLEncoder;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class ClogBuilder extends e11 {
+public class ClogBuilder extends j11 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final JSONObject c;
@@ -271,15 +272,15 @@ public class ClogBuilder extends e11 {
             DISCARD = new LogType("DISCARD", 2, "5");
             FAIL = new LogType("FAIL", 3, "6");
             CLOSE = new LogType("CLOSE", 4, "7");
-            FREE_SHOW = new LogType("FREE_SHOW", 5, TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY);
-            FREE_CLICK = new LogType("FREE_CLICK", 6, "102");
+            FREE_SHOW = new LogType("FREE_SHOW", 5, "103");
+            FREE_CLICK = new LogType("FREE_CLICK", 6, WorkPostNotifyFlutterData.FAIL_POST);
             VIDEO_LP_BT = new LogType("VIDEO_LP_BT", 7, "12");
-            VIDEO_LP_PV = new LogType("VIDEO_LP_PV", 8, TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY);
+            VIDEO_LP_PV = new LogType("VIDEO_LP_PV", 8, "103");
             VIDEO_LP_VIDEO_HIDE = new LogType("VIDEO_LP_VIDEO_HIDE", 9, "131");
             CHAN_MORE = new LogType("CHAN_MORE", 10, "22");
             DEEP_LINK = new LogType("DEEP_LINK", 11, "706");
             VISIBLE_SHOW = new LogType("VISIBLE_SHOW", 12, "203");
-            VIDEO_LP_TAIL_CLICK = new LogType("VIDEO_LP_TAIL_CLICK", 13, "102");
+            VIDEO_LP_TAIL_CLICK = new LogType("VIDEO_LP_TAIL_CLICK", 13, WorkPostNotifyFlutterData.FAIL_POST);
             DOWNLOAD_START = new LogType("DOWNLOAD_START", 14, "701");
             DOWNLOAD_PAUSE = new LogType("DOWNLOAD_PAUSE", 15, "702");
             DOWNLOAD_CONTINUE = new LogType("DOWNLOAD_CONTINUE", 16, "703");
@@ -299,8 +300,8 @@ public class ClogBuilder extends e11 {
             DAZZLE_IN = new LogType("DAZZLE_IN", 30, PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_LINK_ITEM_CLICK);
             DAZZLE_OUT = new LogType("DAZZLE_OUT", 31, PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_AMOUNT_ITEM_CLICK);
             DAZZLE_TRANS_SLIDING_COUNT = new LogType("DAZZLE_TRANS_SLIDING_COUNT", 32, PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_CLOSE_BTN_CLICK);
-            DAZZLE_CLICK = new LogType("DAZZLE_CLICK", 33, "102");
-            DAZZLE_CARD_SHOW = new LogType("DAZZLE_CARD_SHOW", 34, TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY);
+            DAZZLE_CLICK = new LogType("DAZZLE_CLICK", 33, WorkPostNotifyFlutterData.FAIL_POST);
+            DAZZLE_CARD_SHOW = new LogType("DAZZLE_CARD_SHOW", 34, "103");
             PLAY_ZERO_SEC = new LogType("PLAY_ZERO_SEC", 35, PayUVEventType.THIRD_PAY_WAY_DIALOG_CHANNEL_CLICK);
             VIDEO_START = new LogType("VIDEO_START", 36, PayUVEventType.PAY_SPLIT_ORDER_PAGE_SHOW);
             VIDEO_PAUSE = new LogType("VIDEO_PAUSE", 37, PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK);
@@ -310,13 +311,13 @@ public class ClogBuilder extends e11 {
             CHECK = new LogType("CHECK", 41, TbEnum.SystemMessage.EVENT_ID_PLUGIN_CONFIG_SYNC);
             TOP_VIEW_SPEED_STATE = new LogType("TOP_VIEW_SPEED_STATE", 42, "801");
             NAVIDEO_POP_CLOSE = new LogType("NAVIDEO_POP_CLOSE", 43, "8");
-            INTERACTION_PRAISE = new LogType("INTERACTION_PRAISE", 44, TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP);
+            INTERACTION_PRAISE = new LogType("INTERACTION_PRAISE", 44, "107");
             INTERACTION_SHARE = new LogType("INTERACTION_SHARE", 45, "108");
-            INTERACTION_COMMENT = new LogType("INTERACTION_COMMENT", 46, TbEnum.SystemMessage.EVENT_ID_INVITE_GROUP);
+            INTERACTION_COMMENT = new LogType("INTERACTION_COMMENT", 46, "109");
             SKIP = new LogType("SKIP", 47, "11");
             STOCK = new LogType("STOCK", 48, "13");
             GESTURE_MATCH_SUCCESS = new LogType("GESTURE_MATCH_SUCCESS", 49, "9");
-            GESTURE_MATCH_FAILURE = new LogType("GESTURE_MATCH_FAILURE", 50, TbEnum.SystemMessage.EVENT_ID_GROUP_UPGRADE);
+            GESTURE_MATCH_FAILURE = new LogType("GESTURE_MATCH_FAILURE", 50, "104");
             INTERACTION_FOLLOW = new LogType("INTERACTION_FOLLOW", 51, TbEnum.SystemMessage.EVENT_ID_COMMON);
             AD_NOTIFICATION_NOTIFY_FAILED = new LogType("AD_NOTIFICATION_NOTIFY_FAILED", 52, "111");
             LOTTIE_LONG_PRESS = new LogType("LOTTIE_LONG_PRESS", 53, "112");
@@ -506,7 +507,7 @@ public class ClogBuilder extends e11 {
                 return;
             }
         }
-        this.c = p01.c(null);
+        this.c = u01.c(null);
         d("origin_time", String.valueOf(System.currentTimeMillis()));
     }
 
@@ -700,14 +701,14 @@ public class ClogBuilder extends e11 {
         return (ClogBuilder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.c11, com.baidu.tieba.f11
+    @Override // com.baidu.tieba.h11, com.baidu.tieba.k11
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             g();
-            fj0 fj0Var = (fj0) ServiceManager.getService(fj0.a);
-            if (fj0Var != null) {
-                A(fj0Var.a(this.c.optString("extra_param")));
+            kj0 kj0Var = (kj0) ServiceManager.getService(kj0.a);
+            if (kj0Var != null) {
+                A(kj0Var.a(this.c.optString("extra_param")));
             }
         }
     }
@@ -722,7 +723,7 @@ public class ClogBuilder extends e11 {
         return (JSONObject) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.e11, com.baidu.tieba.f11
+    @Override // com.baidu.tieba.j11, com.baidu.tieba.k11
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -735,8 +736,8 @@ public class ClogBuilder extends e11 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.c11, com.baidu.tieba.f11
-    public <T extends f11> T b(String str, String str2) {
+    @Override // com.baidu.tieba.h11, com.baidu.tieba.k11
+    public <T extends k11> T b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
@@ -746,15 +747,15 @@ public class ClogBuilder extends e11 {
         return (T) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.c11
-    public <T extends f11> T d(String str, Object obj) {
+    @Override // com.baidu.tieba.h11
+    public <T extends k11> T d(String str, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, obj)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return this;
             }
-            p01.f(this.c, str, obj);
+            u01.f(this.c, str, obj);
             return this;
         }
         return (T) invokeLL.objValue;
@@ -762,24 +763,24 @@ public class ClogBuilder extends e11 {
 
     public final void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !u21.a) {
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !z21.a) {
             return;
         }
-        a31 a31Var = (a31) t21.a().a(a31.class);
-        if (a31Var != null) {
-            a31Var.a(h());
+        f31 f31Var = (f31) y21.a().a(f31.class);
+        if (f31Var != null) {
+            f31Var.a(h());
         }
-        w21 w21Var = (w21) t21.a().a(w21.class);
-        if (w21Var != null) {
-            w21Var.a(h());
+        b31 b31Var = (b31) y21.a().a(b31.class);
+        if (b31Var != null) {
+            b31Var.a(h());
         }
-        y21 y21Var = (y21) t21.a().a(y21.class);
-        if (y21Var != null) {
-            y21Var.a(h());
+        d31 d31Var = (d31) y21.a().a(d31.class);
+        if (d31Var != null) {
+            d31Var.a(h());
         }
     }
 
-    @Override // com.baidu.tieba.e11, com.baidu.tieba.c11, com.baidu.tieba.f11
+    @Override // com.baidu.tieba.j11, com.baidu.tieba.h11, com.baidu.tieba.k11
     @NonNull
     public String toString() {
         InterceptResult invokeV;

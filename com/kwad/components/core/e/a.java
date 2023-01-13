@@ -22,7 +22,7 @@ public final class a {
 
     /* renamed from: com.kwad.components.core.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static final class C0597a {
+    public static final class C0596a {
         public static /* synthetic */ Interceptable $ic;
         public static final a Ez;
         public transient /* synthetic */ FieldHolder $fh;
@@ -168,7 +168,7 @@ public final class a {
     public static a ng() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? C0597a.Ez : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? C0596a.Ez : (a) invokeV.objValue;
     }
 
     public final void init(Context context) {

@@ -1,83 +1,116 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 /* loaded from: classes4.dex */
-public class ge2 extends fe2 {
+public class ge2 implements np2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public ContentValues d;
+    public Queue<he2> c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ge2(@NonNull ContentValues contentValues) {
-        super("lifecycle", null);
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ge2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-778642697, "Lcom/baidu/tieba/ge2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-778642697, "Lcom/baidu/tieba/ge2$b;");
+                    return;
+                }
+            }
+            a = new ge2(null);
+        }
+    }
+
+    public ge2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {contentValues};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Map) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = contentValues;
+        this.c = new ConcurrentLinkedQueue();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ge2(@Nullable Map<String, String> map) {
-        super("lifecycle", map);
+    public static ge2 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {map};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Map) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (ge2) invokeV.objValue;
+    }
+
+    public synchronized void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                this.c.clear();
             }
         }
     }
 
-    @Override // com.baidu.tieba.fe2, com.baidu.tieba.ee2
-    public void m(Map<String, Object> map) {
+    public /* synthetic */ ge2(a aVar) {
+        this();
+    }
+
+    public synchronized void c(@NonNull he2 he2Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            map.put("cuid", ln2.h0().i(ln2.c()));
-            map.put("mtjCuid", ln2.h0().i(ln2.c()));
-            ContentValues contentValues = this.d;
-            if (contentValues != null) {
-                for (String str : contentValues.keySet()) {
-                    Object obj = this.d.get(str);
-                    if (!(obj instanceof Number) && !(obj instanceof Boolean)) {
-                        map.put(str, String.valueOf(obj));
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, he2Var, str) == null) {
+            synchronized (this) {
+                while (this.c.size() > 0) {
+                    he2 peek = this.c.peek();
+                    if (peek == null) {
+                        this.c.remove();
+                    } else if (peek.a()) {
+                        break;
                     } else {
-                        map.put(str, obj);
+                        this.c.remove();
                     }
                 }
-                return;
-            }
-            for (Map.Entry<String, String> entry : this.c.entrySet()) {
-                map.put(entry.getKey(), entry.getValue());
+                int size = this.c.size();
+                if (size == 0) {
+                    this.c.offer(he2Var);
+                    di3.g0(he2Var);
+                } else {
+                    he2 peek2 = this.c.peek();
+                    this.c.offer(he2Var);
+                    if (size == 1 && peek2 != null && peek2.b(str)) {
+                        di3.g0(he2Var);
+                    } else {
+                        di3.q().post(he2Var);
+                    }
+                }
             }
         }
     }

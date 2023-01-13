@@ -1,9 +1,35 @@
 package com.baidu.tieba;
 
-import java.io.File;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface yr2 {
-    void a(File file);
+public class yr2 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static float b;
+    public static float c;
+    public static boolean d;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(String str);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948339696, "Lcom/baidu/tieba/yr2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948339696, "Lcom/baidu/tieba/yr2;");
+                return;
+            }
+        }
+        a = tk1.a;
+        b = 2.5f;
+        c = 100.0f;
+        d = true;
+    }
 }

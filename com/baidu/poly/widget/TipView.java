@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yb1;
+import com.baidu.tieba.dc1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -51,7 +51,7 @@ public class TipView extends LinearLayout {
             setOrientation(1);
             setGravity(17);
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0927, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0922c8);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0922f2);
             this.b = (TextView) findViewById(R.id.tip_text_view);
         }
     }
@@ -136,7 +136,7 @@ public class TipView extends LinearLayout {
                 layoutParams.width = dimensionPixelOffset;
                 layoutParams.height = dimensionPixelOffset;
             }
-            yb1.b().a(this.a, str);
+            dc1.b().a(this.a, str);
             this.b.setText(str2);
         }
     }

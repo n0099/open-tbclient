@@ -1,5 +1,6 @@
 package com.baidu.android.imsdk.chatmessage;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
@@ -151,6 +152,7 @@ public interface IChatRoomEnterListener extends IMListener {
         public String content;
         public String ext;
         public String msgId;
+        public String msgKey;
         public String msgType;
         public String nickName;
         public String url;
@@ -173,7 +175,7 @@ public interface IChatRoomEnterListener extends IMListener {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "ReMsgInfo{bdUk='" + this.bdUk + "', msgType='" + this.msgType + "', nickName='" + this.nickName + "', url='" + this.url + "', ext='" + this.ext + "', content='" + this.content + "'}";
+                return "ReMsgInfo{bdUk='" + this.bdUk + "', msgType='" + this.msgType + "', nickName='" + this.nickName + "', url='" + this.url + "', ext='" + this.ext + "', content='" + this.content + "', msgId='" + this.msgId + "', msgKey='" + this.msgKey + "'}";
             }
             return (String) invokeV.objValue;
         }
@@ -213,6 +215,44 @@ public interface IChatRoomEnterListener extends IMListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 return "RoomInfo{appId=" + this.appId + ", roomType=" + this.roomType + ", roomName='" + this.roomName + "', roomImage='" + this.roomImage + "', roomNotice='" + this.roomNotice + "', userCount=" + this.userCount + ", state=" + this.state + ", chatMcastId=" + this.chatMcastId + ", resourceId='" + this.resourceId + "', ext='" + this.ext + "'}";
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public static class TaskInfo {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long originMsgId;
+        public String originMsgKey;
+        public String taskErrorMsg;
+        public String taskId;
+        public int taskProgress;
+        public int taskResult;
+        public int taskState;
+        public int taskType;
+
+        public TaskInfo() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @NonNull
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return "TaskInfo{taskId='" + this.taskId + "', taskType='" + this.taskType + "', taskState='" + this.taskState + "', taskResult='" + this.taskResult + "', taskErrorMsg='" + this.taskErrorMsg + "', originMsgId='" + this.originMsgId + "', originMsgKey='" + this.originMsgKey + "', taskProgress='" + this.taskProgress + "'}";
             }
             return (String) invokeV.objValue;
         }

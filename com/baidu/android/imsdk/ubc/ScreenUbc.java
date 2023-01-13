@@ -3,14 +3,13 @@ package com.baidu.android.imsdk.ubc;
 import android.content.Context;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.account.AccountManager;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.retrieve.RetrieveReportRequest;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.searchbox.logsystem.basic.upload.Constant;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.p70;
+import com.baidu.tieba.u70;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -133,8 +132,8 @@ public class ScreenUbc {
                 jSONObject.put("end_time", String.valueOf(methodInfo.endTime));
                 if (methodInfo.eventList != null && methodInfo.eventList.length() > 0) {
                     JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put(Constants.EXTRA_EVENT_LIST, methodInfo.eventList);
-                    jSONObject.put("ext", jSONObject2);
+                    jSONObject2.put("event_list", methodInfo.eventList);
+                    jSONObject.put("ext", jSONObject2.toString());
                 }
             } catch (JSONException e) {
                 LogUtils.e(TAG, "generateExt:", e);
@@ -166,7 +165,7 @@ public class ScreenUbc {
             if (jSONObject.length() > 0) {
                 jSONArray.put(jSONObject);
             }
-            p70.d().f(jSONArray, UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+            u70.d().f(jSONArray, UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
         }
     }
 }

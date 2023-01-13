@@ -17,13 +17,13 @@ import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.internal.util.HalfSerializer;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ObservableMergeWithCompletable<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CompletableSource other;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class MergeWithObserver<T> extends AtomicInteger implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4592979584110982903L;
@@ -35,7 +35,7 @@ public final class ObservableMergeWithCompletable<T> extends AbstractObservableW
         public volatile boolean otherDone;
         public final OtherObserver otherObserver;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public static final class OtherObserver extends AtomicReference<Disposable> implements CompletableObserver {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -2935427570954647017L;

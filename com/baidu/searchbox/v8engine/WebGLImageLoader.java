@@ -12,7 +12,7 @@ import com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy;
 import com.baidu.searchbox.v8engine.util.BitmapReferenceMap;
 import com.baidu.searchbox.v8engine.util.DeviceInfo;
 import com.baidu.smallgame.sdk.Log;
-import com.baidu.tieba.zh1;
+import com.baidu.tieba.ei1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -543,7 +543,7 @@ public class WebGLImageLoader {
             ImageBitmapBean imageBitmapBean = null;
             if (obj instanceof String) {
                 String str2 = (String) obj;
-                if (zh1.b(str2)) {
+                if (ei1.b(str2)) {
                     decodeStream = BitmapFactory.decodeFile(str2, options);
                     if (decodeStream == null) {
                         decodeStream = BitmapFactory.decodeFile(str2);

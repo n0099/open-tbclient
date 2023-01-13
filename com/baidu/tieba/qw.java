@@ -1,36 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
 public final class qw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448315463, "Lcom/baidu/tieba/qw;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448315463, "Lcom/baidu/tieba/qw;");
-        }
-    }
-
-    public static int a(float f) {
-        InterceptResult invokeF;
+    public static Object a(Class cls, Object obj, String str, Class[] clsArr, Object[] objArr, Object obj2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
-            return Math.round(f * zv.a().getResources().getDisplayMetrics().density);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{cls, obj, str, clsArr, objArr, obj2})) == null) {
+            try {
+                Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
+                declaredMethod.setAccessible(true);
+                return declaredMethod.invoke(obj, objArr);
+            } catch (Throwable th) {
+                Log.e("BdReflectUtils", th.getMessage(), th);
+                return obj2;
+            }
         }
-        return invokeF.intValue;
+        return invokeCommon.objValue;
     }
 }

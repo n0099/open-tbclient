@@ -1,33 +1,55 @@
 package com.baidu.tieba;
 
+import android.util.DisplayMetrics;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class mt {
     public static /* synthetic */ Interceptable $ic;
+    public static final DisplayMetrics a;
+    public static final float b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            return b(bArr, 0, bArr.length);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448311526, "Lcom/baidu/tieba/mt;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448311526, "Lcom/baidu/tieba/mt;");
+                return;
+            }
         }
-        return (byte[]) invokeL.objValue;
+        DisplayMetrics displayMetrics = mr.c.h().getAppContext().getResources().getDisplayMetrics();
+        a = displayMetrics;
+        b = displayMetrics.density;
     }
 
-    public static byte[] b(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
+    public static int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, bArr, i, i2)) == null) {
-            if (bArr != null && bArr.length != 0) {
-                byte[] bArr2 = new byte[i2];
-                System.arraycopy(bArr, i, bArr2, 0, i2);
-                return bArr2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            int identifier = mr.c.h().getAppContext().getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
+            int i = 0;
+            if (identifier > 0) {
+                try {
+                    i = mr.c.h().getAppContext().getResources().getDimensionPixelSize(identifier);
+                } catch (Exception unused) {
+                }
             }
-            return new byte[0];
+            if (i == 0) {
+                return (int) (b * 25.0f);
+            }
+            return i;
         }
-        return (byte[]) invokeLII.objValue;
+        return invokeV.intValue;
     }
 }

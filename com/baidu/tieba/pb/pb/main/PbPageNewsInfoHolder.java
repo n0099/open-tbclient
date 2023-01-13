@@ -17,11 +17,11 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tq4;
-import com.baidu.tieba.w38;
-import com.baidu.tieba.x9;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.yt4;
+import com.baidu.tieba.dr4;
+import com.baidu.tieba.ju4;
+import com.baidu.tieba.m88;
+import com.baidu.tieba.y9;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -44,18 +44,18 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
     public ImageView l;
     public TextView m;
     public View n;
-    public yt4 o;
-    public yt4 p;
-    public yt4 q;
+    public ju4 o;
+    public ju4 p;
+    public ju4 q;
     public TbPageContext r;
     public int s;
-    public w38 t;
+    public m88 t;
     public b u;
     public View.OnClickListener v;
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(w38 w38Var);
+        void a(m88 m88Var);
     }
 
     /* loaded from: classes5.dex */
@@ -85,7 +85,7 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !ViewHelper.checkUpIsLogin(this.a.r.getPageActivity()) || !yi.F()) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !ViewHelper.checkUpIsLogin(this.a.r.getPageActivity()) || !zi.F()) {
                 return;
             }
             if (this.a.u != null) {
@@ -94,17 +94,17 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
             PbPageNewsInfoHolder pbPageNewsInfoHolder = this.a;
             if (view2 == pbPageNewsInfoHolder.c) {
                 if (pbPageNewsInfoHolder.o != null && !TextUtils.isEmpty(this.a.o.a)) {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) x9.a(this.a.r.getPageActivity()), new String[]{this.a.o.a});
+                    UrlManager.getInstance().dealOneLink((TbPageContext) y9.a(this.a.r.getPageActivity()), new String[]{this.a.o.a});
                     TiebaStatic.log(new StatisticItem("c11410").param("obj_source", this.a.o.a));
                 }
             } else if (view2 == pbPageNewsInfoHolder.h) {
                 BdLog.e("link: " + this.a.p.a);
                 if (this.a.p != null && !TextUtils.isEmpty(this.a.p.a)) {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) x9.a(this.a.r.getPageActivity()), new String[]{this.a.p.a});
+                    UrlManager.getInstance().dealOneLink((TbPageContext) y9.a(this.a.r.getPageActivity()), new String[]{this.a.p.a});
                     TiebaStatic.log(new StatisticItem("c11409").param("obj_source", this.a.p.a));
                 }
             } else if (view2 == pbPageNewsInfoHolder.k && pbPageNewsInfoHolder.q != null && !TextUtils.isEmpty(this.a.q.a)) {
-                UrlManager.getInstance().dealOneLink((TbPageContext) x9.a(this.a.r.getPageActivity()), new String[]{this.a.q.a});
+                UrlManager.getInstance().dealOneLink((TbPageContext) y9.a(this.a.r.getPageActivity()), new String[]{this.a.q.a});
                 TiebaStatic.log(new StatisticItem("c11408").param("obj_source", this.a.q.a));
             }
         }
@@ -132,27 +132,27 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
         this.v = new a(this);
         this.r = tbPageContext;
         this.u = bVar;
-        this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091905);
-        this.b = view2.findViewById(R.id.obfuscated_res_0x7f0918e5);
-        this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091933);
+        this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091914);
+        this.b = view2.findViewById(R.id.obfuscated_res_0x7f0918f4);
+        this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091942);
         this.d = (TbImageView) view2.findViewById(R.id.top_code_img);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092351);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09237d);
         this.f = (TextView) view2.findViewById(R.id.top_code_detail_summary_text);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09234e);
-        this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09174a);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09237a);
+        this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09175a);
         this.i = (ImageView) view2.findViewById(R.id.news_info_img);
         this.j = (TextView) view2.findViewById(R.id.news_info_text);
-        this.k = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090caa);
-        this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090cab);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090cac);
-        this.n = view2.findViewById(R.id.obfuscated_res_0x7f091904);
+        this.k = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090cb7);
+        this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090cb8);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090cb9);
+        this.n = view2.findViewById(R.id.obfuscated_res_0x7f091913);
         i(this.v);
     }
 
     public void h(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.s != i) {
-            tq4 layoutMode = this.r.getLayoutMode();
+            dr4 layoutMode = this.r.getLayoutMode();
             boolean z = true;
             if (i != 1) {
                 z = false;
@@ -172,44 +172,44 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void g(w38 w38Var) {
+    public void g(m88 m88Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, w38Var) != null) || w38Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, m88Var) != null) || m88Var == null) {
             return;
         }
-        this.t = w38Var;
-        yt4 yt4Var = w38Var.W0;
-        this.o = yt4Var;
-        this.p = w38Var.X0;
-        this.q = w38Var.Y0;
-        if (yt4Var != null) {
-            this.d.K(yt4Var.d, 10, false);
+        this.t = m88Var;
+        ju4 ju4Var = m88Var.Y0;
+        this.o = ju4Var;
+        this.p = m88Var.Z0;
+        this.q = m88Var.a1;
+        if (ju4Var != null) {
+            this.d.K(ju4Var.d, 10, false);
             this.f.setText(this.o.b);
             this.g.setText(this.o.e);
             this.e.setText(this.o.f);
-            SkinManager.setBackgroundResource(this.e, R.drawable.obfuscated_res_0x7f081133);
-            SkinManager.setViewTextColor(this.e, (int) R.drawable.obfuscated_res_0x7f080eb4);
+            SkinManager.setBackgroundResource(this.e, R.drawable.obfuscated_res_0x7f081148);
+            SkinManager.setViewTextColor(this.e, (int) R.drawable.obfuscated_res_0x7f080ec5);
         } else {
             this.c.setVisibility(8);
         }
-        yt4 yt4Var2 = this.p;
-        if (yt4Var2 != null) {
-            this.j.setText(yt4Var2.b);
+        ju4 ju4Var2 = this.p;
+        if (ju4Var2 != null) {
+            this.j.setText(ju4Var2.b);
             SkinManager.setBackgroundResource(this.i, R.drawable.icon_frs_news);
         } else {
             this.h.setVisibility(8);
             this.j.setVisibility(8);
             this.i.setVisibility(8);
         }
-        yt4 yt4Var3 = this.q;
-        if (yt4Var3 != null) {
-            this.m.setText(yt4Var3.b);
+        ju4 ju4Var3 = this.q;
+        if (ju4Var3 != null) {
+            this.m.setText(ju4Var3.b);
             SkinManager.setBackgroundResource(this.l, R.drawable.icon_frs_game);
         } else {
             this.k.setVisibility(8);
             this.m.setVisibility(8);
             this.m.setVisibility(8);
         }
-        this.a.setTag(w38Var);
+        this.a.setTag(m88Var);
     }
 }

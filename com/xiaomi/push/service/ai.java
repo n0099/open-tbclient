@@ -60,7 +60,7 @@ public final class ai extends bx.a {
             iiVar.c(ht.g.f529a);
             iiVar.a(bd.a());
             iiVar.a(new HashMap());
-            iiVar.m491a().put(Config.GAID, a2);
+            iiVar.m554a().put(Config.GAID, a2);
             byte[] a3 = it.a(ah.a(this.a.getPackageName(), this.f911a.d, iiVar, hj.i));
             XMPushService xMPushService = this.a;
             xMPushService.a(xMPushService.getPackageName(), a3, true);

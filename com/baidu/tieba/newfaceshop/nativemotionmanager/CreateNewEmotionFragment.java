@@ -12,9 +12,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kx7;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.zw7;
+import com.baidu.tieba.a28;
+import com.baidu.tieba.p18;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import java.util.HashMap;
 public class CreateNewEmotionFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kx7 a;
+    public a28 a;
     public CustomMessageListener b;
 
     /* loaded from: classes5.dex */
@@ -71,7 +71,7 @@ public class CreateNewEmotionFragment extends BaseFragment {
                         }
                     } else if (hashMap.get("upload_result") != null && (hashMap.get("upload_result") instanceof Boolean)) {
                         if (((Boolean) hashMap.get("upload_result")).booleanValue()) {
-                            BdToast.b(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getText(R.string.obfuscated_res_0x7f0f0617)).i();
+                            BdToast.b(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getText(R.string.obfuscated_res_0x7f0f061f)).k();
                             if (this.a.a != null) {
                                 this.a.a.i();
                             }
@@ -79,9 +79,9 @@ public class CreateNewEmotionFragment extends BaseFragment {
                         } else if (this.a.a != null) {
                             String str = (String) hashMap.get("upload_msg");
                             if (!TextUtils.isEmpty(str)) {
-                                yi.N(this.a.getActivity(), str);
+                                zi.N(this.a.getActivity(), str);
                             } else {
-                                yi.N(this.a.getActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0577));
+                                zi.N(this.a.getActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f057f));
                             }
                             this.a.a.l();
                         }
@@ -111,31 +111,10 @@ public class CreateNewEmotionFragment extends BaseFragment {
         this.b = new a(this, 2921040);
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.onDestroy();
-            kx7 kx7Var = this.a;
-            if (kx7Var != null) {
-                kx7Var.h();
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onResume();
-            y1();
-        }
-    }
-
-    public final int z1() {
+    public final int E1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             Bundle arguments = getArguments();
             if (arguments == null) {
                 return 0;
@@ -145,15 +124,50 @@ public class CreateNewEmotionFragment extends BaseFragment {
         return invokeV.intValue;
     }
 
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onDestroy();
+            a28 a28Var = this.a;
+            if (a28Var != null) {
+                a28Var.h();
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onResume();
+            D1();
+        }
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            kx7 kx7Var = this.a;
-            if (kx7Var != null) {
-                kx7Var.g(i);
+            a28 a28Var = this.a;
+            if (a28Var != null) {
+                a28Var.g(i);
             }
+        }
+    }
+
+    public final void D1() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a == null) {
+            return;
+        }
+        if (p18.l().r()) {
+            this.a.j();
+        } else if (p18.l().k() == null) {
+            this.a.i();
+        } else {
+            this.a.m(getString(R.string.obfuscated_res_0x7f0f0578));
         }
     }
 
@@ -161,26 +175,12 @@ public class CreateNewEmotionFragment extends BaseFragment {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layoutInflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
             registerListener(this.b);
-            kx7 kx7Var = new kx7(getPageContext(), z1());
-            this.a = kx7Var;
-            return kx7Var.f();
+            a28 a28Var = new a28(getPageContext(), E1());
+            this.a = a28Var;
+            return a28Var.f();
         }
         return (View) invokeLLL.objValue;
-    }
-
-    public final void y1() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.a == null) {
-            return;
-        }
-        if (zw7.l().r()) {
-            this.a.j();
-        } else if (zw7.l().k() == null) {
-            this.a.i();
-        } else {
-            this.a.m(getString(R.string.obfuscated_res_0x7f0f0570));
-        }
     }
 }

@@ -1,5 +1,8 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class zw3 extends kw3 {
+public class zw3 extends pw3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,12 +31,12 @@ public class zw3 extends kw3 {
                 return;
             }
         }
-        c = ok1.a;
+        c = tk1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public zw3() {
-        super("getSid");
+        super("GetSwanGameDuration");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,23 +52,55 @@ public class zw3 extends kw3 {
         }
     }
 
-    @Override // com.baidu.tieba.kw3
-    public ew1 a(JSONObject jSONObject, ih2 ih2Var) {
+    public static boolean b(Long l, Long l2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ih2Var)) == null) {
-            String k = ln2.g0().k();
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("sid", k);
-            } catch (JSONException e) {
-                if (c) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, l, l2)) == null) {
+            if (l.longValue() / 86400000 == l2.longValue() / 86400000) {
+                return true;
             }
-            ih2Var.a(jSONObject2);
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.pw3
+    public jw1 a(@NonNull JSONObject jSONObject, @NonNull nh2 nh2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, nh2Var)) == null) {
+            if (jSONObject == null) {
+                nh2Var.onFail(202, "params may be error");
+                return null;
+            }
+            if (c) {
+                Log.e("GetSwanGameDuration", "params is " + jSONObject.toString());
+            }
+            String optString = jSONObject.optString("swanGameId");
+            if (TextUtils.isEmpty(optString)) {
+                nh2Var.onFail(202, "params may be error");
+            } else {
+                rc3 a = xc3.a();
+                if (!b(Long.valueOf(a.getLong(optString + "_LastPause", 0L)), Long.valueOf(System.currentTimeMillis()))) {
+                    rc3 a2 = xc3.a();
+                    a2.putLong(optString + "_Duration", 0L);
+                }
+                rc3 a3 = xc3.a();
+                long j = a3.getLong(optString + "_Duration", 0L);
+                JSONObject jSONObject2 = new JSONObject();
+                JSONObject jSONObject3 = new JSONObject();
+                try {
+                    jSONObject3.put("swanGameDuration", j);
+                    jSONObject2.put("data", jSONObject3);
+                } catch (JSONException e) {
+                    if (c) {
+                        e.printStackTrace();
+                    }
+                }
+                nh2Var.a(jSONObject2);
+            }
             return null;
         }
-        return (ew1) invokeLL.objValue;
+        return (jw1) invokeLL.objValue;
     }
 }

@@ -12,10 +12,11 @@ import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.channels.ChannelIterator;
 import kotlinx.coroutines.channels.ProducerScope;
 import kotlinx.coroutines.channels.ReceiveChannel;
+/* JADX INFO: Add missing generic type declarations: [T] */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0003H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "Lkotlinx/coroutines/channels/ProducerScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "kotlinx.coroutines.reactive.ConvertKt$asPublisher$1", f = "Convert.kt", i = {0, 1, 1}, l = {22, 23}, m = "invokeSuspend", n = {"$this$publish", "$this$publish", "t"}, s = {"L$0", "L$0", "L$1"})
 /* loaded from: classes9.dex */
-public final class ConvertKt$asPublisher$1 extends SuspendLambda implements Function2<ProducerScope<? super T>, Continuation<? super Unit>, Object> {
+public final class ConvertKt$asPublisher$1<T> extends SuspendLambda implements Function2<ProducerScope<? super T>, Continuation<? super Unit>, Object> {
     public final /* synthetic */ ReceiveChannel $this_asPublisher;
     public Object L$0;
     public Object L$1;
@@ -54,7 +55,7 @@ public final class ConvertKt$asPublisher$1 extends SuspendLambda implements Func
     public final Object invokeSuspend(Object obj) {
         ProducerScope producerScope;
         ChannelIterator it;
-        ConvertKt$asPublisher$1 convertKt$asPublisher$1;
+        ConvertKt$asPublisher$1<T> convertKt$asPublisher$1;
         Object hasNext;
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
         int i = this.label;
@@ -71,7 +72,7 @@ public final class ConvertKt$asPublisher$1 extends SuspendLambda implements Func
                 it = (ChannelIterator) this.L$1;
                 ProducerScope producerScope2 = (ProducerScope) this.L$0;
                 ResultKt.throwOnFailure(obj);
-                ConvertKt$asPublisher$1 convertKt$asPublisher$12 = this;
+                ConvertKt$asPublisher$1<T> convertKt$asPublisher$12 = this;
                 if (!((Boolean) obj).booleanValue()) {
                     Object next = it.next();
                     convertKt$asPublisher$12.L$0 = producerScope2;
@@ -90,7 +91,7 @@ public final class ConvertKt$asPublisher$1 extends SuspendLambda implements Func
                     if (hasNext != coroutine_suspended) {
                         return coroutine_suspended;
                     }
-                    ConvertKt$asPublisher$1 convertKt$asPublisher$13 = convertKt$asPublisher$1;
+                    ConvertKt$asPublisher$1<T> convertKt$asPublisher$13 = convertKt$asPublisher$1;
                     producerScope2 = producerScope;
                     obj = hasNext;
                     convertKt$asPublisher$12 = convertKt$asPublisher$13;

@@ -70,7 +70,8 @@ public final class WebHistoryItemImpl extends WebHistoryItem implements Cloneabl
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.webkit.sdk.WebHistoryItem
-    public final WebHistoryItem clone() {
+    /* renamed from: clone */
+    public final WebHistoryItem mo76clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

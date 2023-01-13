@@ -1,5 +1,6 @@
 package com.opensource.svgaplayer;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,6 +13,7 @@ import java.io.InputStream;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.io.CloseableKt;
+import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "run"}, k = 3, mv = {1, 1, 13}, pn = "", xi = 0, xs = "")
 /* loaded from: classes8.dex */
@@ -66,8 +68,52 @@ public final class SVGAParser$decodeFromInputStream$1 implements Runnable {
                         if (r != null) {
                             MovieEntity decode = MovieEntity.ADAPTER.decode(r);
                             Intrinsics.checkExpressionValueIsNotNull(decode, "MovieEntity.ADAPTER.decode(it)");
-                            SVGAVideoEntity sVGAVideoEntity = new SVGAVideoEntity(decode, new File(this.c));
-                            sVGAVideoEntity.i(new SVGAParser$decodeFromInputStream$1$$special$$inlined$let$lambda$2(sVGAVideoEntity, this));
+                            final SVGAVideoEntity sVGAVideoEntity = new SVGAVideoEntity(decode, new File(this.c));
+                            sVGAVideoEntity.i(new Function0<Unit>(sVGAVideoEntity, this) { // from class: com.opensource.svgaplayer.SVGAParser$decodeFromInputStream$1$$special$$inlined$let$lambda$2
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+                                public final /* synthetic */ SVGAVideoEntity $videoItem;
+                                public final /* synthetic */ SVGAParser$decodeFromInputStream$1 this$0;
+
+                                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                                {
+                                    super(0);
+                                    Interceptable interceptable2 = $ic;
+                                    if (interceptable2 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {sVGAVideoEntity, this};
+                                        interceptable2.invokeUnInit(65536, newInitContext);
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
+                                            super(((Integer) newInitContext.callArgs[0]).intValue());
+                                            newInitContext.thisArg = this;
+                                            interceptable2.invokeInitBody(65536, newInitContext);
+                                            return;
+                                        }
+                                    }
+                                    this.$videoItem = sVGAVideoEntity;
+                                    this.this$0 = this;
+                                }
+
+                                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                                @Override // kotlin.jvm.functions.Function0
+                                public /* bridge */ /* synthetic */ Unit invoke() {
+                                    invoke2();
+                                    return Unit.INSTANCE;
+                                }
+
+                                /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
+                                /* renamed from: invoke  reason: avoid collision after fix types in other method */
+                                public final void invoke2() {
+                                    Interceptable interceptable2 = $ic;
+                                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                                        SVGAParser$decodeFromInputStream$1 sVGAParser$decodeFromInputStream$1 = this.this$0;
+                                        sVGAParser$decodeFromInputStream$1.a.s(this.$videoItem, sVGAParser$decodeFromInputStream$1.d);
+                                    }
+                                }
+                            });
                         }
                     } else {
                         j = this.a.j(this.c);

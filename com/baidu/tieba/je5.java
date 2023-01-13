@@ -1,20 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.newFriends.RequestPassFriendMessage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.squareup.wire.Message;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class je5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface je5 extends ce5 {
+    void initByJson(JSONObject jSONObject);
 
-    public static void a(long j, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65536, null, j, str) == null) {
-            RequestPassFriendMessage requestPassFriendMessage = new RequestPassFriendMessage();
-            requestPassFriendMessage.setFriendId(j, str);
-            MessageManager.getInstance().sendMessage(requestPassFriendMessage);
-        }
-    }
+    void initByProtobuf(Message message);
 }

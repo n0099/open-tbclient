@@ -1,52 +1,112 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.webkit.CookieManager;
-import android.webkit.CookieSyncManager;
-import android.webkit.WebView;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.quickWebView.data.QuickWebViewBridgeData;
-import com.baidu.tieba.quickWebView.message.QuickWebViewHttpReqMsg;
-import com.baidu.tieba.quickWebView.message.QuickWebViewHttpResMsg;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.VideoEasterEggActivityConfig;
+import com.baidu.tbadk.coreExtra.data.PersonChangeData;
+import com.baidu.tbadk.img.ImageUploadResult;
+import com.baidu.tieba.im.model.BlackListModel;
+import com.baidu.tieba.personPolymeric.event.PersonPolymericEventController;
+import com.baidu.tieba.personPolymeric.mode.PersonPolymericModel;
+import com.baidu.tieba.rd8;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.view.NavigationBarCoverTip;
+import com.baidu.tieba.wh8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.Profile.NicknameInfo;
 /* loaded from: classes6.dex */
-public class xh8 {
+public class xh8 extends vh8 implements zi8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WebView a;
-    public BdUniqueId b;
-    public ys8 c;
-    public HashSet<String> d;
-    public HashMap<String, String> e;
-    public HashMap<String, String> f;
-    public boolean g;
+    public final BaseFragmentActivity b;
+    public BaseFragment c;
+    public TbPageContext d;
+    public final View e;
+    public final BdUniqueId f;
+    public long g;
     public String h;
-    public HttpMessageListener i;
+    public wh8 i;
+    public final PersonPolymericModel j;
+    public final uh8 k;
+    public final BlackListModel l;
+    public bi8 m;
+    public sa6 n;
+    public PersonPolymericEventController o;
+    public yh8 p;
+    public int q;
+    public boolean r;
+    public final wh8.e s;
+    public CustomMessageListener t;
+
+    public zh8 n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return null;
+        }
+        return (zh8) invokeV.objValue;
+    }
 
     /* loaded from: classes6.dex */
-    public class a extends HttpMessageListener {
+    public class a implements wh8.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xh8 a;
+
+        public a(xh8 xh8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xh8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xh8Var;
+        }
+
+        @Override // com.baidu.tieba.wh8.e
+        public void a(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.a();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ xh8 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(xh8 xh8Var, int i) {
+        public b(xh8 xh8Var, int i) {
             super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -68,222 +128,324 @@ public class xh8 {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            String str;
-            String str2;
-            boolean z;
-            String str3;
-            String str4;
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof QuickWebViewHttpResMsg)) {
-                return;
-            }
-            QuickWebViewHttpResMsg quickWebViewHttpResMsg = (QuickWebViewHttpResMsg) httpResponsedMessage;
-            int i = 0;
-            String str5 = null;
-            if (!(quickWebViewHttpResMsg.getOrginalMessage() instanceof QuickWebViewHttpReqMsg)) {
-                str = "";
-                str2 = null;
-                z = false;
-            } else {
-                QuickWebViewHttpReqMsg quickWebViewHttpReqMsg = (QuickWebViewHttpReqMsg) quickWebViewHttpResMsg.getOrginalMessage();
-                z = quickWebViewHttpReqMsg.isFromRequestByNative;
-                if (StringUtils.isNull(quickWebViewHttpReqMsg.url)) {
-                    str = "";
-                    str2 = null;
-                } else {
-                    String str6 = quickWebViewHttpReqMsg.url;
-                    long j = quickWebViewHttpReqMsg.begin;
-                    str = quickWebViewHttpReqMsg.module;
-                    String str7 = quickWebViewHttpReqMsg.jsCallbackMethod;
-                    if (TextUtils.isEmpty(str7) && !z) {
-                        str7 = (String) this.a.e.remove(str6);
-                        i = 1;
-                    }
-                    this.a.d.remove(str6);
-                    str5 = str7;
-                    str2 = str6;
-                }
-            }
-            if (quickWebViewHttpResMsg.isSuccess() && !TextUtils.isEmpty(quickWebViewHttpResMsg.getResult())) {
-                str4 = quickWebViewHttpResMsg.getResult();
-                str3 = BasicPushStatus.SUCCESS_CODE;
-            } else {
-                str3 = quickWebViewHttpResMsg.getError() + "";
-                str4 = "\"\"";
-            }
-            String s = yh8.q().s(str);
-            if (s == null) {
-                s = "0.0.0.0";
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append("{");
-            sb.append("\"status\":");
-            sb.append("\"");
-            sb.append(str3);
-            sb.append("\"");
-            sb.append(",");
-            sb.append("\"data\":");
-            sb.append(str4);
-            sb.append(",");
-            sb.append("\"cache_version\":");
-            sb.append("\"");
-            sb.append(s);
-            sb.append("\"");
-            sb.append(",");
-            sb.append("\"cache\":");
-            sb.append("\"");
-            sb.append(i);
-            sb.append("\"");
-            sb.append("}");
-            if (z) {
-                LinkedHashMap linkedHashMap = new LinkedHashMap();
-                linkedHashMap.put("result", sb.toString());
-                linkedHashMap.put("NotificationKey", str2);
-                this.a.c.h(this.a.a, "RequestByNativeToH5", linkedHashMap);
-            } else if (StringUtils.isNull(str5)) {
-                this.a.f.put(str2, sb.toString());
-            } else {
-                this.a.k(str5, sb.toString());
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                this.a.b();
             }
         }
     }
 
-    public xh8(WebView webView) {
+    /* loaded from: classes6.dex */
+    public class c implements rd8.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xh8 a;
+
+        public c(xh8 xh8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xh8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xh8Var;
+        }
+
+        @Override // com.baidu.tieba.rd8.c
+        public void a(int i, String str, ImageUploadResult imageUploadResult) {
+            ImageUploadResult.PicDetailedInfo picDetailedInfo;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, imageUploadResult) == null) && i == 0 && imageUploadResult != null) {
+                String str2 = null;
+                ImageUploadResult.picInfo picinfo = imageUploadResult.picInfo;
+                if (picinfo != null && (picDetailedInfo = picinfo.bigPic) != null) {
+                    str2 = picDetailedInfo.picUrl;
+                }
+                ai8.a(str2, this.a.q());
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xh8(BaseFragment baseFragment, View view2, BdUniqueId bdUniqueId, long j, boolean z, boolean z2, String str) {
+        super(z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {webView};
+            Object[] objArr = {baseFragment, view2, bdUniqueId, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2), str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Boolean) newInitContext.callArgs[0]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new HashSet<>();
-        this.e = new HashMap<>();
-        this.f = new HashMap<>();
-        this.g = false;
-        this.i = new a(this, CmdConfigHttp.CMD_WEB_HTTP_PROXY);
-        this.a = webView;
-        this.h = webView.getSettings().getUserAgentString();
-        BdUniqueId gen = BdUniqueId.gen();
-        this.b = gen;
-        this.i.setTag(gen);
-        this.i.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.i);
-    }
-
-    public void l(ys8 ys8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ys8Var) == null) {
-            this.c = ys8Var;
+        this.q = 3;
+        this.r = false;
+        this.s = new a(this);
+        this.t = new b(this, 2921424);
+        this.c = baseFragment;
+        BaseFragmentActivity baseFragmentActivity = baseFragment.getBaseFragmentActivity();
+        this.b = baseFragmentActivity;
+        this.e = view2;
+        this.f = bdUniqueId;
+        this.g = j;
+        this.h = str;
+        this.d = baseFragmentActivity.getPageContext();
+        MessageManager.getInstance().registerListener(this.t);
+        this.k = new uh8(this.c.getPageContext(), bdUniqueId);
+        wh8 wh8Var = new wh8(this.c.getPageContext(), view2, z);
+        this.i = wh8Var;
+        wh8Var.s(this.s);
+        this.o = new PersonPolymericEventController(this.d, this);
+        PersonPolymericModel personPolymericModel = new PersonPolymericModel(this.b, bdUniqueId, z);
+        this.j = personPolymericModel;
+        personPolymericModel.X(new ri8(z));
+        this.j.V(this);
+        this.j.W(this.k);
+        this.l = new BlackListModel(this.b.getPageContext(), bdUniqueId);
+        if (StringUtils.isNull(this.h)) {
+            bi8 bi8Var = new bi8(this.c, this, this.f, this.g, z);
+            this.m = bi8Var;
+            bi8Var.j(TbadkCoreApplication.getInst().getSkinType());
+            this.m.i(this.o);
         }
+        this.p = new yh8(this.d, this.k, this.l, bdUniqueId);
+        a();
     }
 
-    public void j(QuickWebViewBridgeData quickWebViewBridgeData, String str, boolean z) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048579, this, quickWebViewBridgeData, str, z) == null) {
-            g(quickWebViewBridgeData, str, z);
-        }
-    }
-
-    public final void g(QuickWebViewBridgeData quickWebViewBridgeData, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(1048576, this, quickWebViewBridgeData, str, z) == null) && !this.g && quickWebViewBridgeData != null && !StringUtils.isNull(quickWebViewBridgeData.url) && !StringUtils.isNull(quickWebViewBridgeData.type)) {
-            String remove = this.f.remove(quickWebViewBridgeData.url);
-            if (!StringUtils.isNull(remove) && str != null) {
-                k(str, remove);
-            } else if (!StringUtils.isNull(remove) && z) {
-                LinkedHashMap linkedHashMap = new LinkedHashMap();
-                linkedHashMap.put("result", remove);
-                linkedHashMap.put("NotificationKey", quickWebViewBridgeData.url);
-                this.c.h(this.a, "RequestByNativeToH5", linkedHashMap);
-            } else if (this.d.contains(quickWebViewBridgeData.url) && !z) {
-                if (!TextUtils.isEmpty(str)) {
-                    this.e.put(quickWebViewBridgeData.url, str);
-                }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (!TbadkCoreApplication.isLogin() && this.a) {
+                this.i.z();
+            } else if (BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+                rg8.d().m(System.currentTimeMillis());
+                this.i.v(false, -1);
+                this.i.A(true);
+                this.j.T(this.g);
+                this.j.S(this.g, this.h);
             } else {
-                QuickWebViewHttpReqMsg quickWebViewHttpReqMsg = new QuickWebViewHttpReqMsg();
-                quickWebViewHttpReqMsg.url = quickWebViewBridgeData.url;
-                quickWebViewHttpReqMsg.module = quickWebViewBridgeData.module;
-                quickWebViewHttpReqMsg.begin = quickWebViewBridgeData.begin;
-                quickWebViewHttpReqMsg.jsCallbackMethod = str;
-                quickWebViewHttpReqMsg.setTag(this.b);
-                quickWebViewHttpReqMsg.isFromRequestByNative = z;
-                CookieSyncManager.createInstance(this.a.getContext());
-                String cookie = CookieManager.getInstance().getCookie("tieba.baidu.com");
-                if (!TextUtils.isEmpty(cookie)) {
-                    HashMap<String, String> headers = quickWebViewHttpReqMsg.getHeaders();
-                    if (headers != null) {
-                        String str2 = headers.get("Cookie");
-                        if (!TextUtils.isEmpty(str2)) {
-                            if (str2.endsWith(";")) {
-                                cookie = str2 + cookie;
-                            } else {
-                                cookie = str2 + ";" + cookie;
-                            }
-                        }
-                        quickWebViewHttpReqMsg.addHeader("Cookie", cookie);
-                    } else {
-                        quickWebViewHttpReqMsg.addHeader("Cookie", cookie);
-                    }
-                }
-                quickWebViewHttpReqMsg.setUserAgent(this.h);
-                quickWebViewHttpReqMsg.addCookie("cache_version", yh8.q().s(quickWebViewBridgeData.module));
-                TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_WEB_HTTP_PROXY, quickWebViewBridgeData.url);
-                tbHttpMessageTask.setResponsedClass(QuickWebViewHttpResMsg.class);
-                tbHttpMessageTask.setIsNeedAddCommenParam(false);
-                tbHttpMessageTask.setIsUseCurrentBDUSS(false);
-                tbHttpMessageTask.setPriority(4);
-                if (quickWebViewBridgeData.type.toLowerCase().equals("post")) {
-                    Map<String, String> map = quickWebViewBridgeData.data;
-                    if (map != null && !map.isEmpty()) {
-                        for (Map.Entry<String, String> entry : quickWebViewBridgeData.data.entrySet()) {
-                            quickWebViewHttpReqMsg.addParam(entry.getKey(), entry.getValue());
-                        }
-                    }
-                    tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
-                } else {
-                    tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
-                }
-                MessageManager.getInstance().sendMessage(quickWebViewHttpReqMsg, tbHttpMessageTask);
-                this.d.add(quickWebViewBridgeData.url);
+                this.i.m();
+                this.i.r(8);
+                this.i.w(this.c.getString(R.string.obfuscated_res_0x7f0f0cd1), true);
             }
         }
     }
 
-    public void h() {
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.g = true;
-            MessageManager.getInstance().unRegisterListener(this.b);
-            MessageManager.getInstance().removeMessage(this.b);
-            this.d.clear();
-            this.d = null;
-            this.e.clear();
-            this.e = null;
-            this.f.clear();
-            this.f = null;
+            if (!TbadkCoreApplication.isLogin() && this.a) {
+                this.i.z();
+            } else if (BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+                this.j.S(this.g, this.h);
+            } else {
+                this.i.m();
+                zi.Q(this.d.getContext(), this.d.getString(R.string.data_load_error));
+                ArrayList arrayList = new ArrayList();
+                ki8 ki8Var = new ki8();
+                ki8Var.a = this.a;
+                arrayList.add(ki8Var);
+                this.i.l();
+                this.i.u(arrayList);
+                this.i.x();
+            }
         }
     }
 
-    public void i(QuickWebViewBridgeData quickWebViewBridgeData, String str) {
+    @Override // com.baidu.tieba.zi8
+    public void d(ci8 ci8Var) {
+        NicknameInfo nicknameInfo;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, quickWebViewBridgeData, str) == null) {
-            g(quickWebViewBridgeData, str, false);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ci8Var) == null) {
+            if (ci8Var != null && ci8Var.j() != null && !StringUtils.isNull(this.h)) {
+                this.g = ci8Var.j().getUserIdLong();
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921443, Long.valueOf(this.g)));
+                if (this.g == yg.g(TbadkCoreApplication.getCurrentAccount(), 0L)) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                this.a = z;
+            }
+            this.i.m();
+            yh8 yh8Var = this.p;
+            if (yh8Var != null) {
+                yh8Var.h(ci8Var);
+            }
+            if (ci8Var != null) {
+                this.i.j(ci8Var);
+            }
+            bi8 bi8Var = this.m;
+            if (bi8Var != null) {
+                bi8Var.n(ci8Var);
+            } else {
+                bi8 bi8Var2 = new bi8(this.c, this, this.f, this.g, this.a);
+                this.m = bi8Var2;
+                bi8Var2.j(TbadkCoreApplication.getInst().getSkinType());
+                this.m.i(this.o);
+                this.m.n(ci8Var);
+            }
+            if (this.r && ci8Var != null && (nicknameInfo = ci8Var.A) != null && nicknameInfo.left_days != null && ci8Var.j() != null) {
+                PersonChangeData personChangeData = new PersonChangeData();
+                personChangeData.setMem(ci8Var.j().getIsMem());
+                personChangeData.setNickNameLeftDays(ci8Var.A.left_days.intValue());
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921061, personChangeData));
+            }
         }
     }
 
-    public final void k(String str, String str2) {
-        WebView webView;
+    public void i() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) && (webView = this.a) != null) {
-            webView.loadUrl("javascript:window." + str + "('" + str2 + "')");
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            new rd8().a(TbConfig.PERSON_USER_PIC_TEMP_FILE, new c(this));
+        }
+    }
+
+    public wh8 k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.i;
+        }
+        return (wh8) invokeV.objValue;
+    }
+
+    public yh8 l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.p;
+        }
+        return (yh8) invokeV.objValue;
+    }
+
+    public sh8 m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.m;
+        }
+        return (sh8) invokeV.objValue;
+    }
+
+    public PersonPolymericModel p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.j;
+        }
+        return (PersonPolymericModel) invokeV.objValue;
+    }
+
+    public List<yn> q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (this.j.R() == null) {
+                return null;
+            }
+            return this.j.R().k();
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.t);
+            bi8 bi8Var = this.m;
+            if (bi8Var != null) {
+                bi8Var.k();
+            }
+            PersonPolymericModel personPolymericModel = this.j;
+            if (personPolymericModel != null) {
+                personPolymericModel.destroy();
+            }
+        }
+    }
+
+    public void u() {
+        bi8 bi8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && (bi8Var = this.m) != null) {
+            bi8Var.m();
+        }
+    }
+
+    public boolean j(PostWriteCallBackData postWriteCallBackData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, postWriteCallBackData)) == null) {
+            if (postWriteCallBackData == null || postWriteCallBackData.getVideoEasterEggData() == null || yi.isEmpty(postWriteCallBackData.getVideoEasterEggData().getVideoUrl())) {
+                return false;
+            }
+            if (!cz4.l().i(cz4.p(postWriteCallBackData.getVideoEasterEggData().getActivityID()), true)) {
+                return false;
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoEasterEggActivityConfig(this.b).createNormalConfig("from_person", postWriteCallBackData.getVideoEasterEggData())));
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public ci8 o(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
+            if (z) {
+                this.r = z;
+                if (BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+                    this.j.S(this.g, this.h);
+                }
+            }
+            return this.j.R();
+        }
+        return (ci8) invokeZ.objValue;
+    }
+
+    public void r(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048588, this, i) != null) || this.q == i) {
+            return;
+        }
+        bi8 bi8Var = this.m;
+        if (bi8Var != null) {
+            bi8Var.j(i);
+        }
+        this.q = i;
+    }
+
+    public void t(boolean z) {
+        bi8 bi8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048590, this, z) == null) && (bi8Var = this.m) != null) {
+            bi8Var.l(z);
+        }
+    }
+
+    public void v(PostWriteCallBackData postWriteCallBackData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, postWriteCallBackData) == null) {
+            if (this.n == null) {
+                this.n = new sa6(this.b.getPageContext(), (NavigationBarCoverTip) this.b.findViewById(R.id.obfuscated_res_0x7f09170f));
+            }
+            this.n.l(postWriteCallBackData);
         }
     }
 }

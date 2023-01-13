@@ -8,7 +8,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.logsystem.exceptionhandler.api.ExceptionHandler;
-import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,6 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
@@ -24,8 +25,9 @@ public class BdLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "BaiduLog";
     public static String LogFilter_classNameStartsWith;
+    public static boolean enableExceptionLog;
     public static ArrayList<String> logPackage;
-    public static dj permissionUtil;
+    public static ej permissionUtil;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -162,22 +164,22 @@ public class BdLog {
 
     public static void setClassNameStartWithLogFilter(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65559, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65560, null, str) == null) {
             LogFilter_classNameStartsWith = str;
         }
     }
 
-    public static void setPermissionUtil(dj djVar) {
+    public static void setPermissionUtil(ej ejVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65560, null, djVar) == null) {
-            permissionUtil = djVar;
+        if (interceptable == null || interceptable.invokeL(65561, null, ejVar) == null) {
+            permissionUtil = ejVar;
         }
     }
 
     public static int v(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, str)) == null) {
             return printLog(4, str);
         }
         return invokeL.intValue;
@@ -186,7 +188,7 @@ public class BdLog {
     public static int w(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, str)) == null) {
             return printLog(1, str);
         }
         return invokeL.intValue;
@@ -253,7 +255,7 @@ public class BdLog {
     public static void v(String str, String str2, String str3) {
         String createMsg;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65562, null, str, str2, str3) == null) && (createMsg = createMsg(true, str, str2, str3)) != null) {
+        if ((interceptable == null || interceptable.invokeLLL(65563, null, str, str2, str3) == null) && (createMsg = createMsg(true, str, str2, str3)) != null) {
             Log.v(LOG_TAG, createMsg);
         }
     }
@@ -261,7 +263,7 @@ public class BdLog {
     public static void w(String str, String str2, String str3) {
         String createMsg;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65564, null, str, str2, str3) == null) && (createMsg = createMsg(false, str, str2, str3)) != null) {
+        if ((interceptable == null || interceptable.invokeLLL(65565, null, str, str2, str3) == null) && (createMsg = createMsg(false, str, str2, str3)) != null) {
             Log.w(LOG_TAG, createMsg);
         }
     }
@@ -282,6 +284,14 @@ public class BdLog {
             return e(th, null, null, null, z);
         }
         return invokeLZ.intValue;
+    }
+
+    public static void printExceptionLog(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65557, null, str, str2) == null) && enableExceptionLog) {
+            PrintStream printStream = System.out;
+            printStream.println(str + ":" + str2);
+        }
     }
 
     public static int detailException(String str, Throwable th, String str2, String str3, Map<String, String> map, boolean z) {
@@ -355,7 +365,7 @@ public class BdLog {
     public static int printLog(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65557, null, i, str)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65558, null, i, str)) == null) {
             if (!isDebugMode()) {
                 return -1;
             }
@@ -391,7 +401,7 @@ public class BdLog {
 
     public static void reportException(Exception exc, String str, String str2, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65558, null, exc, str, str2, map) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65559, null, exc, str, str2, map) == null) {
             new a(exc, str, str2, map).execute(new Void[0]);
         }
     }

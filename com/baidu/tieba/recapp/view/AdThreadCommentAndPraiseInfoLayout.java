@@ -32,14 +32,14 @@ import com.baidu.tbadk.switchs.PraiseSwitch;
 import com.baidu.tbadk.switchs.ShareSwitch;
 import com.baidu.tbadk.switchs.WindowGreySwitch;
 import com.baidu.tieba.R;
+import com.baidu.tieba.e11;
 import com.baidu.tieba.imMessageCenter.mention.FeedData;
-import com.baidu.tieba.j45;
-import com.baidu.tieba.oi;
-import com.baidu.tieba.qi;
+import com.baidu.tieba.lo8;
+import com.baidu.tieba.pi;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.t45;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
-import com.baidu.tieba.uj8;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.z01;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,7 +58,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     public int u0;
     public int v0;
     public int w0;
-    public uj8 x0;
+    public lo8 x0;
 
     static {
         InterceptResult invokeClinit;
@@ -88,7 +88,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void v(View view2) {
+    public void w(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, view2) == null) {
         }
@@ -116,13 +116,13 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         this.u0 = 0;
         this.v0 = R.drawable.selector_comment_and_prise_item_text_color;
         this.w0 = R.drawable.selector_comment_and_prise_item_text_color;
-        f0();
+        g0();
     }
 
-    public final int d0(String str) {
+    public final int e0(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             int i = 0;
             if (TextUtils.isEmpty(str)) {
                 return 0;
@@ -148,16 +148,16 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         return invokeL.intValue;
     }
 
-    public final void g0(int i) {
+    public final void h0(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             if (i == 1) {
-                i0(this.x0.getThreadData(), "nozan", 0);
-                j0(this.x0.getThreadData(), "1", "2");
+                j0(this.x0.getThreadData(), "nozan", 0);
+                k0(this.x0.getThreadData(), "1", "2");
                 return;
             }
-            i0(this.x0.getThreadData(), FeedData.TYPE_ZAN, 0);
-            j0(this.x0.getThreadData(), "1", "1");
+            j0(this.x0.getThreadData(), FeedData.TYPE_ZAN, 0);
+            k0(this.x0.getThreadData(), "1", "1");
         }
     }
 
@@ -184,14 +184,14 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         this.u0 = 0;
         this.v0 = R.drawable.selector_comment_and_prise_item_text_color;
         this.w0 = R.drawable.selector_comment_and_prise_item_text_color;
-        f0();
+        g0();
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void D(ThreadData threadData) {
+    public void E(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) == null) {
-            super.D(threadData);
+            super.E(threadData);
             if (this.t0 == 1) {
                 this.b.setText(StringHelper.cutChineseAndEnglishWithSuffix(threadData.getForum_name(), 12, ""));
             }
@@ -231,11 +231,11 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         }
     }
 
-    public void setShareData(uj8 uj8Var) {
+    public void setShareData(lo8 lo8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, uj8Var) == null) {
-            this.x0 = uj8Var;
-            setData(uj8Var.getThreadData());
+        if (interceptable == null || interceptable.invokeL(1048594, this, lo8Var) == null) {
+            this.x0 = lo8Var;
+            setData(lo8Var.getThreadData());
         }
     }
 
@@ -253,12 +253,12 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         }
     }
 
-    public final String e0(String str, String str2) {
+    public final String f0(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
             try {
-                return new JSONObject(new String(qi.d(str))).getString(str2);
+                return new JSONObject(new String(ri.d(str))).getString(str2);
             } catch (Exception e) {
                 e.printStackTrace();
                 return "";
@@ -268,13 +268,13 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void B(View view2) {
-        uj8 uj8Var;
+    public void C(View view2) {
+        lo8 lo8Var;
         Uri parse;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.D != null && this.E != null && (uj8Var = this.x0) != null) {
-            i0(uj8Var.getThreadData(), "share", 0);
-            j0(this.x0.getThreadData(), "2", "1");
+        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.D != null && this.E != null && (lo8Var = this.x0) != null) {
+            j0(lo8Var.getThreadData(), "share", 0);
+            k0(this.x0.getThreadData(), "2", "1");
             if (!ShareSwitch.isOn() && !ViewHelper.checkUpIsLogin(this.E)) {
                 return;
             }
@@ -325,22 +325,22 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
                         ShareItem shareItem2 = this.a;
-                        shareItem2.x = j45.u(shareItem2.x, shareItem2.O, UtilHelper.isVideoThread(shareItem2.Q));
-                        oi.a(this.a.x);
-                        yi.Q(this.b.E, view3.getResources().getString(R.string.copy_pb_url_success));
+                        shareItem2.x = t45.t(shareItem2.x, shareItem2.O, UtilHelper.isVideoThread(shareItem2.R));
+                        pi.a(this.a.x);
+                        zi.Q(this.b.E, view3.getResources().getString(R.string.copy_pb_url_success));
                     }
                 }
             });
-            shareDialogConfig.setHideMode(d0(shareItem.x));
+            shareDialogConfig.setHideMode(e0(shareItem.x));
             MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
         }
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentWeightLayout, com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void F() {
+    public void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.F();
+            super.G();
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             if (layoutParams instanceof RelativeLayout.LayoutParams) {
                 RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
@@ -370,20 +370,20 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
 
     public void disableClick() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.l.setClickable(false);
             this.i.setClickable(false);
         }
     }
 
-    public final void f0() {
+    public final void g0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            y0 = yi.g(this.E, R.dimen.tbds44);
+            y0 = zi.g(this.E, R.dimen.tbds44);
             setManageVisible(false);
             setSelectVisible(false);
             setShowFlag(11);
-            h0();
+            i0();
         }
     }
 
@@ -391,7 +391,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     public View getCommentContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.i;
         }
         return (View) invokeV.objValue;
@@ -409,7 +409,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         }
     }
 
-    public final void h0() {
+    public final void i0() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.e != null) {
             View.OnClickListener onClickListener = new View.OnClickListener(this) { // from class: com.baidu.tieba.recapp.view.AdThreadCommentAndPraiseInfoLayout.1
@@ -451,7 +451,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                                 data.hasAgree = false;
                                 data.diffAgreeNum--;
                                 data.agreeNum--;
-                                this.a.e.X();
+                                this.a.e.b0();
                             }
                             i = 1;
                         } else {
@@ -461,7 +461,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                                 data.diffAgreeNum += 2;
                                 data.agreeNum++;
                                 data.disAgreeNum--;
-                                this.a.e.Y(true);
+                                this.a.e.c0(true);
                             }
                         }
                     } else {
@@ -470,10 +470,10 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                             data.hasAgree = true;
                             data.diffAgreeNum++;
                             data.agreeNum++;
-                            this.a.e.Y(true);
+                            this.a.e.c0(true);
                         }
                     }
-                    this.a.g0(i);
+                    this.a.h0(i);
                     if (WindowGreySwitch.getIsOnNew()) {
                         return;
                     }
@@ -518,24 +518,24 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                             data.hasAgree = false;
                             data.diffAgreeNum++;
                             data.disAgreeNum--;
-                            this.a.e.X();
-                            this.a.g0(i);
+                            this.a.e.b0();
+                            this.a.h0(i);
                         }
                         data.agreeType = 5;
                         data.hasAgree = true;
                         data.diffAgreeNum -= 2;
                         data.agreeNum--;
                         data.disAgreeNum++;
-                        this.a.e.Y(false);
+                        this.a.e.c0(false);
                     } else {
                         data.agreeType = 5;
                         data.hasAgree = true;
                         data.diffAgreeNum--;
                         data.disAgreeNum++;
-                        this.a.e.Y(false);
+                        this.a.e.c0(false);
                     }
                     i = 0;
-                    this.a.g0(i);
+                    this.a.h0(i);
                 }
             };
             this.e.getImgAgree().setOnClickListener(onClickListener);
@@ -545,7 +545,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         }
     }
 
-    public final void i0(AdvertAppInfo advertAppInfo, String str, int i) {
+    public final void j0(AdvertAppInfo advertAppInfo, String str, int i) {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048587, this, advertAppInfo, str, i) == null) {
@@ -562,11 +562,11 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                 i = -1;
             }
             q.w(String.valueOf(i)).v(advertAppInfo.j).j(str).p(advertAppInfo.g);
-            z01.b(clogBuilder);
+            e11.b(clogBuilder);
         }
     }
 
-    public final void j0(AdvertAppInfo advertAppInfo, String str, String str2) {
+    public final void k0(AdvertAppInfo advertAppInfo, String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(1048588, this, advertAppInfo, str, str2) == null) && advertAppInfo != null) {
             String str3 = advertAppInfo.g;
@@ -616,7 +616,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                     }
                     return (Void) invokeL.objValue;
                 }
-            }.execute(z0, e0(str3, "cpid"), e0(str3, "idea_id"));
+            }.execute(z0, f0(str3, "cpid"), f0(str3, "idea_id"));
         }
     }
 
@@ -646,7 +646,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
             super.updatePraiseNum(threadData);
             AgreeView agreeView = this.e;
             if (agreeView != null) {
-                agreeView.N(TbadkCoreApplication.getInst().getSkinType());
+                agreeView.P(TbadkCoreApplication.getInst().getSkinType());
             }
             if (this.u0 != 1) {
             }

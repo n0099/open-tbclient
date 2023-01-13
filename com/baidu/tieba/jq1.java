@@ -1,19 +1,27 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.tieba.lq1;
+import androidx.annotation.NonNull;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public interface jq1<T extends lq1> extends mq1<T> {
-    void E();
+public interface jq1 {
+    void a(@NonNull Object obj, String str, String str2);
 
-    void F(ViewGroup viewGroup);
+    void b(@NonNull Object obj);
 
-    void G(View view2);
+    Object beginFlow(String str);
 
-    void P(boolean z);
+    void c(@NonNull Object obj);
 
-    void V();
+    void d(String str, Map<String, String> map);
 
-    void g0(String str, String str2);
+    boolean e();
+
+    void f(String str, JSONObject jSONObject);
+
+    void g(@NonNull Object obj, String str, String str2, long j);
+
+    void h(@NonNull Object obj, String str);
+
+    void i(String str, String str2);
 }

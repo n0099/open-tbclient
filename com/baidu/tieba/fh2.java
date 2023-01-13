@@ -1,30 +1,35 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.SwanAppActivity;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class fh2 {
+public final class fh2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public String a;
+    @NonNull
+    public String b;
 
-    public static dh2 a(SwanAppActivity swanAppActivity, e43 e43Var) {
-        InterceptResult invokeLL;
+    public fh2(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, swanAppActivity, e43Var)) == null) {
-            if (e43Var == null || !e43Var.I()) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            int k = e43Var.k();
-            if (k != 0) {
-                if (k != 1) {
-                    return null;
-                }
-                return mn2.i().n(swanAppActivity, e43Var.b);
-            }
-            return new gh2(swanAppActivity, e43Var.b);
         }
-        return (dh2) invokeLL.objValue;
+        this.a = str;
+        this.b = str2;
     }
 }

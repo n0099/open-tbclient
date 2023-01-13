@@ -1,27 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.advert.sdk.data.AdLoadState;
 /* loaded from: classes6.dex */
-public class wu5 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile vu5 a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface wu5 {
+    public static final boolean a;
 
-    public static synchronized vu5 a() {
-        InterceptResult invokeV;
-        vu5 vu5Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (wu5.class) {
-                if (a == null) {
-                    a = new vu5();
-                }
-                vu5Var = a;
-            }
-            return vu5Var;
+    void a();
+
+    boolean b();
+
+    String c();
+
+    AdLoadState d();
+
+    void destroy();
+
+    void e(up4 up4Var);
+
+    String f();
+
+    void show();
+
+    static {
+        boolean z;
+        if (!TbadkCoreApplication.getInst().isDebugMode() && !fr4.h()) {
+            z = false;
+        } else {
+            z = true;
         }
-        return (vu5) invokeV.objValue;
+        a = z;
     }
 }

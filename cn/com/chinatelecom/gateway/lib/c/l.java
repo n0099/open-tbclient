@@ -46,7 +46,7 @@ public final class l extends ConnectivityManager.NetworkCallback {
             j jVar = this.a;
             j = jVar.g;
             jVar.f = currentTimeMillis - j;
-            this.a.b = true;
+            j.a(this.a, true);
             mVar = this.a.e;
             if (mVar != null) {
                 mVar2 = this.a.e;
@@ -58,7 +58,7 @@ public final class l extends ConnectivityManager.NetworkCallback {
                 try {
                     connectivityManager2 = this.a.c;
                     connectivityManager2.unregisterNetworkCallback(this);
-                    this.a.c = null;
+                    j.a(this.a, (ConnectivityManager) null);
                 } catch (Throwable th) {
                     str = j.a;
                     CtAuth.warn(str, "switchToMobileForAboveL", th);

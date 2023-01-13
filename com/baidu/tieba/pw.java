@@ -1,20 +1,15 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.content.Context;
-import android.os.Process;
-import android.text.TextUtils;
+import android.os.Environment;
+import android.os.StatFs;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebViewFactory;
-import java.util.List;
 /* loaded from: classes5.dex */
 public final class pw {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,48 +27,29 @@ public final class pw {
         }
     }
 
-    public static ActivityManager.RunningAppProcessInfo a(Context context) {
-        InterceptResult invokeL;
+    public static float a() {
+        InterceptResult invokeV;
+        long j;
+        StatFs statFs;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            int myPid = Process.myPid();
-            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
-            if (runningAppProcesses != null && !runningAppProcesses.isEmpty()) {
-                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                    if (runningAppProcessInfo != null && runningAppProcessInfo.pid == myPid) {
-                        return runningAppProcessInfo;
-                    }
-                }
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            long j2 = 0;
+            try {
+                statFs = new StatFs(Environment.getDataDirectory().getPath());
+                j = statFs.getBlockSize();
+            } catch (Exception e) {
+                e = e;
+                j = 0;
             }
-            return null;
-        }
-        return (ActivityManager.RunningAppProcessInfo) invokeL.objValue;
-    }
-
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        ActivityManager.RunningAppProcessInfo a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (TextUtils.isEmpty(a) && (a2 = a(context)) != null) {
-                a = a2.processName;
+            try {
+                j2 = statFs.getAvailableBlocks();
+            } catch (Exception e2) {
+                e = e2;
+                e.printStackTrace();
+                return ((float) (j2 * j)) / 1024.0f;
             }
-            return a;
+            return ((float) (j2 * j)) / 1024.0f;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            String b = b(context);
-            if (b != null && b.equals(WebViewFactory.CHROMIUM_HOST_APP)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        return invokeV.floatValue;
     }
 }

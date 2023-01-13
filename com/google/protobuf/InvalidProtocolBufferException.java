@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.WireInput;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class InvalidProtocolBufferException extends IOException {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -1616151763072450476L;

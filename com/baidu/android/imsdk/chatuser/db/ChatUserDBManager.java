@@ -16,6 +16,7 @@ import com.baidu.android.imsdk.chatuser.ChatUser;
 import com.baidu.android.imsdk.chatuser.ChatUserManagerImpl;
 import com.baidu.android.imsdk.chatuser.IGetUserIdentityListener;
 import com.baidu.android.imsdk.chatuser.IpInfo;
+import com.baidu.android.imsdk.db.CursorWrapper;
 import com.baidu.android.imsdk.db.DBBase;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
@@ -282,31 +283,31 @@ public class ChatUserDBManager extends DBBase {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, cursor)) == null) {
-            long j = cursor.getLong(cursor.getColumnIndex("uid"));
-            long j2 = cursor.getLong(cursor.getColumnIndex("buid"));
-            String string = cursor.getString(cursor.getColumnIndex("username"));
-            String string2 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_HEAD_URL));
-            String string3 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_TINY_URL));
-            String string4 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_USER_DETAIL));
-            long j3 = cursor.getLong(cursor.getColumnIndex("phone"));
-            int i = cursor.getInt(cursor.getColumnIndex("sex"));
-            int i2 = cursor.getInt(cursor.getColumnIndex("account_type"));
-            int i3 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_EXSIT));
-            int i4 = cursor.getInt(cursor.getColumnIndex("disturb"));
-            int i5 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_BLACKLIST));
-            String string5 = cursor.getString(cursor.getColumnIndex("v_portrait"));
-            String string6 = cursor.getString(cursor.getColumnIndex("vip_id"));
-            String string7 = cursor.getString(cursor.getColumnIndex("identity"));
-            long j4 = cursor.getLong(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME));
-            int i6 = cursor.getInt(cursor.getColumnIndex("shield"));
-            long j5 = cursor.getLong(cursor.getColumnIndex("shield_time"));
-            int i7 = cursor.getInt(cursor.getColumnIndex("marktop"));
-            long j6 = cursor.getLong(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_MARKTOP_TIME));
-            int i8 = cursor.getInt(cursor.getColumnIndex("subscribe_status"));
-            int i9 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_PHONE_RELATION));
-            int i10 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_HAS_SPECIAL_IDENTITY));
-            String string8 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_SPECIAL_IDENTITY));
-            String string9 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_USER_EXT));
+            long j = CursorWrapper.getLong(cursor, "uid");
+            long j2 = CursorWrapper.getLong(cursor, "buid");
+            String string = CursorWrapper.getString(cursor, "username");
+            String string2 = CursorWrapper.getString(cursor, TableDefine.UserInfoColumns.COLUMN_HEAD_URL);
+            String string3 = CursorWrapper.getString(cursor, TableDefine.UserInfoColumns.COLUMN_TINY_URL);
+            String string4 = CursorWrapper.getString(cursor, TableDefine.UserInfoColumns.COLUMN_USER_DETAIL);
+            long j3 = CursorWrapper.getLong(cursor, "phone");
+            int i = CursorWrapper.getInt(cursor, "sex");
+            int i2 = CursorWrapper.getInt(cursor, "account_type");
+            int i3 = CursorWrapper.getInt(cursor, TableDefine.UserInfoColumns.COLUMN_IP_EXSIT);
+            int i4 = CursorWrapper.getInt(cursor, "disturb");
+            int i5 = CursorWrapper.getInt(cursor, TableDefine.UserInfoColumns.COLUMN_BLACKLIST);
+            String string5 = CursorWrapper.getString(cursor, "v_portrait");
+            String string6 = CursorWrapper.getString(cursor, "vip_id");
+            String string7 = CursorWrapper.getString(cursor, "identity");
+            long j4 = CursorWrapper.getLong(cursor, TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME);
+            int i6 = CursorWrapper.getInt(cursor, "shield");
+            long j5 = CursorWrapper.getLong(cursor, "shield_time");
+            int i7 = CursorWrapper.getInt(cursor, "marktop");
+            long j6 = CursorWrapper.getLong(cursor, TableDefine.UserInfoColumns.COLUMN_MARKTOP_TIME);
+            int i8 = CursorWrapper.getInt(cursor, "subscribe_status");
+            int i9 = CursorWrapper.getInt(cursor, TableDefine.UserInfoColumns.COLUMN_PHONE_RELATION);
+            int i10 = CursorWrapper.getInt(cursor, TableDefine.UserInfoColumns.COLUMN_HAS_SPECIAL_IDENTITY);
+            String string8 = CursorWrapper.getString(cursor, TableDefine.UserInfoColumns.COLUMN_SPECIAL_IDENTITY);
+            String string9 = CursorWrapper.getString(cursor, TableDefine.UserInfoColumns.COLUMN_USER_EXT);
             ChatUser chatUser = new ChatUser(j, j2, string, string2);
             chatUser.setVPortrait(string5);
             chatUser.setVipId(string6);
@@ -324,12 +325,12 @@ public class ChatUserDBManager extends DBBase {
             if (i3 == 0) {
                 IpInfo ipInfo = new IpInfo();
                 ipInfo.setUid(j);
-                String string10 = cursor.getString(cursor.getColumnIndex("ip"));
-                String string11 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_ISP));
-                String string12 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_COUNTRY));
-                String string13 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_PROVINCE));
-                String string14 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_CITY));
-                String string15 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_COUNTY));
+                String string10 = CursorWrapper.getString(cursor, "ip");
+                String string11 = CursorWrapper.getString(cursor, TableDefine.UserInfoColumns.COLUMN_IP_ISP);
+                String string12 = CursorWrapper.getString(cursor, TableDefine.UserInfoColumns.COLUMN_IP_COUNTRY);
+                String string13 = CursorWrapper.getString(cursor, TableDefine.UserInfoColumns.COLUMN_IP_PROVINCE);
+                String string14 = CursorWrapper.getString(cursor, TableDefine.UserInfoColumns.COLUMN_IP_CITY);
+                String string15 = CursorWrapper.getString(cursor, TableDefine.UserInfoColumns.COLUMN_IP_COUNTY);
                 ipInfo.setCity(string14);
                 ipInfo.setProv(string13);
                 ipInfo.setIp(string10);
@@ -503,16 +504,16 @@ public class ChatUserDBManager extends DBBase {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65548, this, chatSession, cursor, z)) == null) {
-            chatSession.setContacter(cursor.getLong(cursor.getColumnIndex("uid")));
-            chatSession.setNickName(cursor.getString(cursor.getColumnIndex("username")));
-            chatSession.setIconUrl(cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_HEAD_URL)));
-            chatSession.setCertification(cursor.getString(cursor.getColumnIndex("identity")));
-            chatSession.setVipId(cursor.getString(cursor.getColumnIndex("vip_id")));
-            chatSession.setVPortrait(cursor.getString(cursor.getColumnIndex("v_portrait")));
+            chatSession.setContacter(CursorWrapper.getLong(cursor, "uid"));
+            chatSession.setNickName(CursorWrapper.getString(cursor, "username"));
+            chatSession.setIconUrl(CursorWrapper.getString(cursor, TableDefine.UserInfoColumns.COLUMN_HEAD_URL));
+            chatSession.setCertification(CursorWrapper.getString(cursor, "identity"));
+            chatSession.setVipId(CursorWrapper.getString(cursor, "vip_id"));
+            chatSession.setVPortrait(CursorWrapper.getString(cursor, "v_portrait"));
             chatSession.setChatType(0);
             if (z) {
-                chatSession.setShield(cursor.getInt(cursor.getColumnIndex("shield")));
-                chatSession.setShieldTime(cursor.getLong(cursor.getColumnIndex("shield_time")));
+                chatSession.setShield(CursorWrapper.getInt(cursor, "shield"));
+                chatSession.setShieldTime(CursorWrapper.getLong(cursor, "shield_time"));
             }
             return chatSession;
         }
@@ -812,16 +813,16 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x00ae, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x00aa, code lost:
         if (r0 != null) goto L28;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x00b0, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x00ac, code lost:
         r0.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x00be, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x00ba, code lost:
         if (r0 == null) goto L29;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x00c2, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x00be, code lost:
         return r11;
      */
     /*
@@ -852,7 +853,7 @@ public class ChatUserDBManager extends DBBase {
                         if (!cursor.moveToNext()) {
                             break;
                         }
-                        arrayList.add(Long.valueOf(cursor.getLong(cursor.getColumnIndex("buid"))));
+                        arrayList.add(Long.valueOf(CursorWrapper.getLong(cursor, "buid")));
                     }
                 } catch (Exception e) {
                     LogUtils.e(TAG, "getChatUser:", e);
@@ -864,16 +865,16 @@ public class ChatUserDBManager extends DBBase {
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x0087 */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x0124, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x0120, code lost:
         if (r4 != null) goto L39;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:42:0x0126, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x0122, code lost:
         r4.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:51:0x013f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x013b, code lost:
         if (r4 != null) goto L39;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:54:0x0143, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:54:0x013f, code lost:
         return;
      */
     /* JADX WARN: Multi-variable type inference failed */
@@ -926,7 +927,7 @@ public class ChatUserDBManager extends DBBase {
                                 if (!cursor.moveToNext()) {
                                     break;
                                 }
-                                long j = cursor.getLong(cursor.getColumnIndex("uid"));
+                                long j = CursorWrapper.getLong(cursor, "uid");
                                 ChatSession chatSession = new ChatSession();
                                 int i2 = 0;
                                 while (true) {

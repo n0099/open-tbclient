@@ -1,16 +1,39 @@
 package com.baidu.tieba;
 
+import android.graphics.Path;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import rx.internal.operators.CachedObservable$ReplayProducer;
-/* loaded from: classes6.dex */
-public final class y3a<T> extends i5a implements d3a<T> {
+/* loaded from: classes7.dex */
+public final class y3a {
     public static /* synthetic */ Interceptable $ic;
+    public static final Path a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void c(CachedObservable$ReplayProducer<T> cachedObservable$ReplayProducer);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948280610, "Lcom/baidu/tieba/y3a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948280610, "Lcom/baidu/tieba/y3a;");
+                return;
+            }
+        }
+        a = new Path();
+    }
 
-    public abstract void d();
-
-    public abstract void e(CachedObservable$ReplayProducer<T> cachedObservable$ReplayProducer);
+    public static final Path a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a;
+        }
+        return (Path) invokeV.objValue;
+    }
 }

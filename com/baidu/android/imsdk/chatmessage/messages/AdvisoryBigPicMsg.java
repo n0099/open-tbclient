@@ -5,7 +5,6 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -252,7 +251,7 @@ public class AdvisoryBigPicMsg extends NormalMsg {
                     this.mDesc = jSONObject.optString("desc");
                     this.mUrl = jSONObject.optString("url");
                     this.mThumbUrl = jSONObject.optString("thumbnail");
-                    this.mWidth = jSONObject.optInt(Config.DEVICE_WIDTH, 0);
+                    this.mWidth = jSONObject.optInt("w", 0);
                     this.mHeight = jSONObject.optInt("h", 0);
                     if (new JSONObject(this.mBusinessExt).optInt("isHide", 0) == 1) {
                         z = true;

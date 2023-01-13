@@ -174,6 +174,7 @@ public class IMUserLoginByTokenMsg extends Message {
     @Override // com.baidu.android.imsdk.request.Message
     public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i, str) == null) {
             LogUtils.d(this.TAG, "handleLoginMsg errCode: " + i + " msg:" + str);
@@ -186,6 +187,7 @@ public class IMUserLoginByTokenMsg extends Message {
                     sRetrytimes = 0;
                     LogUtils.d(this.TAG, "Logined");
                     jSONObject.optString("logid", "-1");
+                    AccountManagerImpl.getInstance(this.mContext).setLoginId(jSONObject.optLong(Constants.EXTRA_LOGIN_ID));
                     long optLong = jSONObject.optLong("uk", -1L);
                     long optLong2 = jSONObject.optJSONArray(Constants.KEY_TRIGGER_ID).optLong(0);
                     int optInt = jSONObject.optInt("authority", -1);
@@ -208,11 +210,20 @@ public class IMUserLoginByTokenMsg extends Message {
                             if (jSONObject2 != null && jSONObject2.optInt("id", -1) == 501101) {
                                 AccountManagerImpl accountManagerImpl = AccountManagerImpl.getInstance(this.mContext);
                                 if (jSONObject2.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 0) == 1) {
+                                    z2 = true;
+                                } else {
+                                    z2 = false;
+                                }
+                                accountManagerImpl.setScreenStatis(z2);
+                            }
+                            if (jSONObject2 != null && jSONObject2.optInt("id", -1) == 501102) {
+                                AccountManagerImpl accountManagerImpl2 = AccountManagerImpl.getInstance(this.mContext);
+                                if (jSONObject2.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 0) == 1) {
                                     z = true;
                                 } else {
                                     z = false;
                                 }
-                                accountManagerImpl.setScreenStatis(z);
+                                accountManagerImpl2.setLogoutUpload(z);
                             }
                         }
                     }

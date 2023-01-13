@@ -9,7 +9,7 @@ public final class UShortArrayKt {
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: ushortArrayOf-rL5Bavg  reason: not valid java name */
-    public static final short[] m1054ushortArrayOfrL5Bavg(short... sArr) {
+    public static final short[] m1118ushortArrayOfrL5Bavg(short... sArr) {
         return sArr;
     }
 
@@ -19,8 +19,8 @@ public final class UShortArrayKt {
     public static final short[] UShortArray(int i, Function1<? super Integer, UShort> function1) {
         short[] sArr = new short[i];
         for (int i2 = 0; i2 < i; i2++) {
-            sArr[i2] = function1.invoke(Integer.valueOf(i2)).m1035unboximpl();
+            sArr[i2] = function1.invoke(Integer.valueOf(i2)).m1099unboximpl();
         }
-        return UShortArray.m1038constructorimpl(sArr);
+        return UShortArray.m1102constructorimpl(sArr);
     }
 }

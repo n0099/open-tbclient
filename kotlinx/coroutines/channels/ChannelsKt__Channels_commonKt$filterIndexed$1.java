@@ -11,10 +11,11 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function3;
+/* JADX INFO: Add missing generic type declarations: [E] */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0003H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", ExifInterface.LONGITUDE_EAST, "Lkotlinx/coroutines/channels/ProducerScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$filterIndexed$1", f = "Channels.common.kt", i = {0, 0, 1, 1, 1, 2, 2, 2}, l = {774, 775, 775}, m = "invokeSuspend", n = {"$this$produce", "index", "$this$produce", "index", "e", "$this$produce", "index", "e"}, s = {"L$0", "I$0", "L$0", "I$0", "L$1", "L$0", "I$0", "L$1"})
 /* loaded from: classes9.dex */
-public final class ChannelsKt__Channels_commonKt$filterIndexed$1 extends SuspendLambda implements Function2<ProducerScope<? super E>, Continuation<? super Unit>, Object> {
+public final class ChannelsKt__Channels_commonKt$filterIndexed$1<E> extends SuspendLambda implements Function2<ProducerScope<? super E>, Continuation<? super Unit>, Object> {
     public final /* synthetic */ Function3 $predicate;
     public final /* synthetic */ ReceiveChannel $this_filterIndexed;
     public int I$0;
@@ -44,6 +45,8 @@ public final class ChannelsKt__Channels_commonKt$filterIndexed$1 extends Suspend
         return ((ChannelsKt__Channels_commonKt$filterIndexed$1) create(obj, continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r5v11, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:16:0x006e A[RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:17:0x006f  */
     /* JADX WARN: Removed duplicated region for block: B:20:0x007e  */
@@ -56,12 +59,12 @@ public final class ChannelsKt__Channels_commonKt$filterIndexed$1 extends Suspend
     */
     public final Object invokeSuspend(Object obj) {
         ProducerScope producerScope;
-        ChannelIterator it;
+        ChannelIterator<E> it;
         int i;
-        ChannelIterator channelIterator;
+        ChannelIterator<E> channelIterator;
         Object obj2;
-        ChannelsKt__Channels_commonKt$filterIndexed$1 channelsKt__Channels_commonKt$filterIndexed$1;
-        ChannelsKt__Channels_commonKt$filterIndexed$1 channelsKt__Channels_commonKt$filterIndexed$12;
+        ChannelsKt__Channels_commonKt$filterIndexed$1<E> channelsKt__Channels_commonKt$filterIndexed$1;
+        ChannelsKt__Channels_commonKt$filterIndexed$1<E> channelsKt__Channels_commonKt$filterIndexed$12;
         ProducerScope producerScope2;
         int i2;
         Object hasNext;
@@ -83,17 +86,17 @@ public final class ChannelsKt__Channels_commonKt$filterIndexed$1 extends Suspend
                     int i4 = this.I$0;
                     ResultKt.throwOnFailure(obj);
                     ProducerScope producerScope3 = (ProducerScope) this.L$0;
-                    Object obj4 = obj3;
+                    E e = obj3;
                     channelIterator = (ChannelIterator) this.L$2;
                     obj2 = coroutine_suspended;
                     channelsKt__Channels_commonKt$filterIndexed$1 = this;
                     if (((Boolean) obj).booleanValue()) {
                         channelsKt__Channels_commonKt$filterIndexed$1.L$0 = producerScope3;
                         channelsKt__Channels_commonKt$filterIndexed$1.I$0 = i4;
-                        channelsKt__Channels_commonKt$filterIndexed$1.L$1 = obj4;
+                        channelsKt__Channels_commonKt$filterIndexed$1.L$1 = e;
                         channelsKt__Channels_commonKt$filterIndexed$1.L$2 = channelIterator;
                         channelsKt__Channels_commonKt$filterIndexed$1.label = 3;
-                        if (producerScope3.send(obj4, channelsKt__Channels_commonKt$filterIndexed$1) == obj2) {
+                        if (producerScope3.send(e, channelsKt__Channels_commonKt$filterIndexed$1) == obj2) {
                             return obj2;
                         }
                     }
@@ -110,15 +113,15 @@ public final class ChannelsKt__Channels_commonKt$filterIndexed$1 extends Suspend
                     if (hasNext == coroutine_suspended) {
                         return coroutine_suspended;
                     }
-                    Object obj5 = coroutine_suspended;
+                    Object obj4 = coroutine_suspended;
                     channelsKt__Channels_commonKt$filterIndexed$1 = channelsKt__Channels_commonKt$filterIndexed$12;
                     obj = hasNext;
                     producerScope2 = producerScope;
                     i2 = i;
                     channelIterator = it;
-                    obj2 = obj5;
+                    obj2 = obj4;
                     if (!((Boolean) obj).booleanValue()) {
-                        Object next = channelIterator.next();
+                        E next = channelIterator.next();
                         Function3 function3 = channelsKt__Channels_commonKt$filterIndexed$1.$predicate;
                         Integer boxInt = Boxing.boxInt(i2);
                         i4 = i2 + 1;
@@ -132,7 +135,7 @@ public final class ChannelsKt__Channels_commonKt$filterIndexed$1 extends Suspend
                             return obj2;
                         }
                         ProducerScope producerScope4 = producerScope2;
-                        obj4 = next;
+                        e = next;
                         obj = invoke;
                         producerScope3 = producerScope4;
                         if (((Boolean) obj).booleanValue()) {

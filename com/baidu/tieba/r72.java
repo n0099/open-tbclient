@@ -1,12 +1,15 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.os.Bundle;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hp2;
-import com.baidu.tieba.i43;
-import com.baidu.tieba.nd4;
+import com.baidu.swan.apps.core.pms.PMSDownloadType;
+import com.baidu.swan.apps.core.pms.PkgDownloadError;
+import com.baidu.swan.pms.model.PMSException;
+import com.baidu.tieba.f72;
+import com.baidu.tieba.k8a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,22 +17,35 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public final class r72 extends o72 implements nd4, xi3<i43.a> {
+public abstract class r72 extends n72 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean j;
     public transient /* synthetic */ FieldHolder $fh;
+    public q8a<? super gd4> c;
+    public q8a<? super ed4> d;
+    public rh4 e;
+    public cj3<Exception> f;
+    public ac4<gd4> g;
+    public ac4<ed4> h;
+    public q8a<hd4> i;
+
+    public abstract int U();
+
+    public abstract PMSDownloadType V();
+
+    public abstract String W();
+
+    public abstract String X();
+
+    public abstract cg3 b0(ed4 ed4Var);
+
+    public abstract cg3 c0(gd4 gd4Var);
 
     /* loaded from: classes6.dex */
-    public interface e {
-        void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, nd4.a aVar);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements e {
+    public class a extends xb4<gd4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ r72 a;
@@ -52,17 +68,107 @@ public final class r72 extends o72 implements nd4, xi3<i43.a> {
             this.a = r72Var;
         }
 
-        @Override // com.baidu.tieba.r72.e
-        public void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, nd4.a aVar) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ac4
+        /* renamed from: l */
+        public String d(gd4 gd4Var) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
-                this.a.z(str, map, map2, aVar);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, gd4Var)) == null) {
+                return this.a.X();
+            }
+            return (String) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xb4, com.baidu.tieba.ac4
+        /* renamed from: q */
+        public void c(gd4 gd4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048585, this, gd4Var) == null) {
+                super.c(gd4Var);
+                j12.k("UpdateCoreCallback", "onDownloadStart");
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xb4, com.baidu.tieba.ac4
+        /* renamed from: r */
+        public void f(gd4 gd4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048586, this, gd4Var) == null) {
+                super.f(gd4Var);
+                if (r72.j) {
+                    Log.i("UpdateCoreCallback", "framework onDownloading");
+                }
+                this.a.g0(gd4Var);
+            }
+        }
+
+        @Override // com.baidu.tieba.cc4
+        @NonNull
+        public Bundle m(@NonNull Bundle bundle, Set<String> set) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, bundle, set)) == null) {
+                return this.a.m(bundle, set);
+            }
+            return (Bundle) invokeLL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xb4, com.baidu.tieba.ac4
+        /* renamed from: o */
+        public void e(gd4 gd4Var, dd4 dd4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048583, this, gd4Var, dd4Var) == null) {
+                super.e(gd4Var, dd4Var);
+                j12.k("UpdateCoreCallback", "onDownloadError:" + dd4Var);
+                this.a.e.l(gd4Var);
+                cg3 cg3Var = new cg3();
+                cg3Var.k(13L);
+                cg3Var.i(dd4Var.a);
+                cg3Var.d("Framework包下载失败");
+                cg3Var.f(dd4Var.toString());
+                if (this.a.c != null) {
+                    this.a.c.onError(new PkgDownloadError(gd4Var, cg3Var));
+                }
+                f72.c().a(gd4Var, this.a.V(), cg3Var);
+                nk4.k(gd4Var.a);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xb4, com.baidu.tieba.ac4
+        /* renamed from: p */
+        public void i(gd4 gd4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, gd4Var) == null) {
+                super.i(gd4Var);
+                j12.k("UpdateCoreCallback", "onFileDownloaded: " + gd4Var.i);
+                cg3 c0 = this.a.c0(gd4Var);
+                if (c0 == null) {
+                    this.a.e.m(gd4Var);
+                    if (this.a.c != null) {
+                        this.a.c.onNext(gd4Var);
+                        this.a.c.onCompleted();
+                    }
+                    gc4.i().m(gd4Var);
+                    f72.c().b(gd4Var, this.a.V());
+                    ki3.a();
+                    return;
+                }
+                this.a.e.l(gd4Var);
+                if (this.a.c != null) {
+                    this.a.c.onError(new PkgDownloadError(gd4Var, c0));
+                }
+                f72.c().a(gd4Var, this.a.V(), c0);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements e {
+    public class b extends xb4<ed4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ r72 a;
@@ -85,28 +191,117 @@ public final class r72 extends o72 implements nd4, xi3<i43.a> {
             this.a = r72Var;
         }
 
-        @Override // com.baidu.tieba.r72.e
-        public void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, nd4.a aVar) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ac4
+        /* renamed from: l */
+        public String d(ed4 ed4Var) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
-                this.a.b(str, map, map2, jSONObject, aVar);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, ed4Var)) == null) {
+                return this.a.W();
+            }
+            return (String) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xb4, com.baidu.tieba.ac4
+        /* renamed from: q */
+        public void c(ed4 ed4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048585, this, ed4Var) == null) {
+                super.c(ed4Var);
+                j12.k("UpdateCoreCallback", "onDownloadStart");
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xb4, com.baidu.tieba.ac4
+        /* renamed from: r */
+        public void f(ed4 ed4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048586, this, ed4Var) == null) {
+                super.f(ed4Var);
+                if (r72.j) {
+                    Log.i("UpdateCoreCallback", "extension onDownloading");
+                }
+                this.a.f0(ed4Var);
+            }
+        }
+
+        @Override // com.baidu.tieba.cc4
+        @NonNull
+        public Bundle m(@NonNull Bundle bundle, Set<String> set) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, bundle, set)) == null) {
+                return this.a.m(bundle, set);
+            }
+            return (Bundle) invokeLL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xb4, com.baidu.tieba.ac4
+        /* renamed from: o */
+        public void e(ed4 ed4Var, dd4 dd4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048583, this, ed4Var, dd4Var) == null) {
+                super.e(ed4Var, dd4Var);
+                j12.k("UpdateCoreCallback", "onDownloadError:" + dd4Var);
+                this.a.e.l(ed4Var);
+                cg3 cg3Var = new cg3();
+                cg3Var.k(14L);
+                cg3Var.i(dd4Var.a);
+                cg3Var.d("Extension下载失败");
+                cg3Var.f(dd4Var.toString());
+                if (this.a.d != null) {
+                    this.a.d.onError(new PkgDownloadError(ed4Var, cg3Var));
+                }
+                f72.c().a(ed4Var, this.a.V(), cg3Var);
+                nk4.k(ed4Var.a);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xb4, com.baidu.tieba.ac4
+        /* renamed from: p */
+        public void i(ed4 ed4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ed4Var) == null) {
+                super.i(ed4Var);
+                j12.k("UpdateCoreCallback", "onFileDownloaded: " + ed4Var.i);
+                cg3 b0 = this.a.b0(ed4Var);
+                if (b0 == null) {
+                    this.a.e.m(ed4Var);
+                    if (this.a.d != null) {
+                        this.a.d.onNext(ed4Var);
+                        this.a.d.onCompleted();
+                    }
+                    gc4.i().m(ed4Var);
+                    f72.c().b(ed4Var, this.a.V());
+                    return;
+                }
+                this.a.e.l(ed4Var);
+                if (this.a.d != null) {
+                    this.a.d.onError(new PkgDownloadError(ed4Var, b0));
+                }
+                f72.c().a(ed4Var, this.a.V(), b0);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c implements nd4.a {
+    public class c implements f72.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
+        public final /* synthetic */ gd4 a;
         public final /* synthetic */ r72 b;
 
-        public c(r72 r72Var, String str) {
+        public c(r72 r72Var, gd4 gd4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {r72Var, str};
+                Object[] objArr = {r72Var, gd4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -117,63 +312,46 @@ public final class r72 extends o72 implements nd4, xi3<i43.a> {
                 }
             }
             this.b = r72Var;
-            this.a = str;
+            this.a = gd4Var;
         }
 
-        @Override // com.baidu.tieba.nd4.a
-        public void b(String str, String str2, JSONObject jSONObject) {
+        @Override // com.baidu.tieba.f72.c
+        public void b(PMSDownloadType pMSDownloadType, cg3 cg3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLLL(1048576, this, str, str2, jSONObject) != null) {
-                return;
-            }
-            this.b.P(this.a, "pms_http_with_ipc_action_stat_record", new hp2.a().z("pms_http_with_ipc_key_url", str).z("pms_http_with_ipc_key_response", str2).z("pms_http_with_ipc_key_stat_record", jSONObject.toString()));
-        }
-
-        @Override // com.baidu.tieba.nd4.a
-        public void c(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
-                this.b.P(this.a, "pms_http_with_ipc_action_success", new hp2.a().z("pms_http_with_ipc_key_response", str).w("pms_http_with_ipc_key_status_code", i));
-            }
-        }
-
-        @Override // com.baidu.tieba.nd4.a
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                r72 r72Var = this.b;
-                String str = this.a;
-                r72Var.Q(str, "http: " + exc);
-                if (r72.b) {
-                    exc.printStackTrace();
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSDownloadType, cg3Var) == null) {
+                this.b.e.l(this.a);
+                if (this.b.c != null) {
+                    this.b.c.onError(new PkgDownloadError(this.a, cg3Var));
                 }
             }
         }
 
-        @Override // com.baidu.tieba.nd4.a
-        public void onStart() {
+        @Override // com.baidu.tieba.f72.c
+        public void a(PMSDownloadType pMSDownloadType) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.b.P(this.a, "pms_http_with_ipc_action_on_start", null);
+            if (interceptable == null || interceptable.invokeL(1048576, this, pMSDownloadType) == null) {
+                this.b.e.m(this.a);
+                if (this.b.c != null) {
+                    this.b.c.onNext(this.a);
+                    this.b.c.onCompleted();
+                }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class d implements Runnable {
+    public class d implements f72.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ hp2.a c;
-        public final /* synthetic */ r72 d;
+        public final /* synthetic */ ed4 a;
+        public final /* synthetic */ r72 b;
 
-        public d(r72 r72Var, String str, String str2, hp2.a aVar) {
+        public d(r72 r72Var, ed4 ed4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {r72Var, str, str2, aVar};
+                Object[] objArr = {r72Var, ed4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -183,33 +361,153 @@ public final class r72 extends o72 implements nd4, xi3<i43.a> {
                     return;
                 }
             }
-            this.d = r72Var;
-            this.a = str;
-            this.b = str2;
-            this.c = aVar;
+            this.b = r72Var;
+            this.a = ed4Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.f72.c
+        public void b(PMSDownloadType pMSDownloadType, cg3 cg3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!q03.K(this.a, "pms_http_with_ipc")) {
-                    if (!r72.b) {
-                        return;
-                    }
-                    this.d.T("callbackIpcSession", "return by topic pms_http_with_ipc");
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSDownloadType, cg3Var) == null) {
+                this.b.e.l(this.a);
+                if (this.b.d != null) {
+                    this.b.d.onError(new PkgDownloadError(this.a, cg3Var));
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.f72.c
+        public void a(PMSDownloadType pMSDownloadType) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, pMSDownloadType) == null) {
+                this.b.e.m(this.a);
+                if (this.b.d != null) {
+                    this.b.d.onNext(this.a);
+                    this.b.d.onCompleted();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements k8a.a<gd4> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ r72 a;
+
+        public e(r72 r72Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r72Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                p03 z = q03.a0(this.a).z("pms_http_with_ipc_key_action", this.b);
-                hp2.a aVar = this.c;
-                if (aVar != null) {
-                    z.s(aVar.D());
+            }
+            this.a = r72Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.k8a.a, com.baidu.tieba.y8a
+        public void call(q8a<? super gd4> q8aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, q8aVar) != null) {
+                return;
+            }
+            this.a.c = q8aVar;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class f implements k8a.a<ed4> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ r72 a;
+
+        public f(r72 r72Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r72Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                if (r72.b) {
-                    r72 r72Var = this.d;
-                    r72Var.T("callbackIpcSession", "ipcSession= " + z);
+            }
+            this.a = r72Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.k8a.a, com.baidu.tieba.y8a
+        public void call(q8a<? super ed4> q8aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, q8aVar) != null) {
+                return;
+            }
+            this.a.d = q8aVar;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class g extends q8a<hd4> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ r72 e;
+
+        public g(r72 r72Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r72Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                z.call();
+            }
+            this.e = r72Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.l8a
+        /* renamed from: g */
+        public void onNext(hd4 hd4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, hd4Var) == null) {
+                j12.k("UpdateCoreCallback", "单个包下载、业务层处理完成：" + hd4Var.i);
+            }
+        }
+
+        @Override // com.baidu.tieba.l8a
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+                j12.l("UpdateCoreCallback", "OnError", th);
+                this.e.d0(new Exception("UpdateCoreCallback failed by Download error = ", th));
+            }
+        }
+
+        @Override // com.baidu.tieba.l8a
+        public void onCompleted() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                j12.k("UpdateCoreCallback", "包下载完成");
+                this.e.e0();
             }
         }
     }
@@ -227,151 +525,174 @@ public final class r72 extends o72 implements nd4, xi3<i43.a> {
                 return;
             }
         }
-        b = ok1.a;
+        j = tk1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r72(l43 l43Var) {
-        super(l43Var);
+    @Override // com.baidu.tieba.ec4
+    public void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.E();
+            if (j) {
+                Log.e("UpdateCoreCallback", "onFetchSuccess:");
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ec4
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.F();
+            j12.k("UpdateCoreCallback", "onNoPackage:");
+            e0();
+        }
+    }
+
+    public final q8a<hd4> Y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.i == null) {
+                this.i = new g(this);
+            }
+            return this.i;
+        }
+        return (q8a) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ec4
+    public ac4<ed4> r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            if (this.h == null) {
+                this.h = new b(this);
+            }
+            return this.h;
+        }
+        return (ac4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ec4
+    public ac4<gd4> s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            if (this.g == null) {
+                this.g = new a(this);
+            }
+            return this.g;
+        }
+        return (ac4) invokeV.objValue;
+    }
+
+    public r72(cj3<Exception> cj3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {l43Var};
+            Object[] objArr = {cj3Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d43) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        b43 b43Var = new b43();
-        b43Var.f(this, "event_messenger_call");
-        u(b43Var);
+        this.f = cj3Var;
     }
 
-    public final void O(String str, @NonNull i43.a aVar, @NonNull e eVar) {
+    @Override // com.baidu.tieba.ec4
+    public void G(rh4 rh4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, aVar, eVar) == null) {
-            if (b) {
-                T("buildRequestForIpc", "session=" + str + " msg=" + aVar + " adapter=" + eVar);
-            }
-            if (!q03.K(str, "pms_http_with_ipc")) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, rh4Var) == null) {
+            super.G(rh4Var);
+            if (rh4Var == null) {
                 return;
             }
-            String n = aVar.n("pms_http_with_ipc_key_url");
-            Map<String, String> I = o72.I(aVar.f("pms_http_with_ipc_key_url_param_map"));
-            Map<String, String> I2 = o72.I(aVar.f("pms_http_with_ipc_key_header_param_map"));
-            String n2 = aVar.n("pms_http_with_ipc_keyjson_body");
-            JSONObject jSONObject = null;
-            try {
-                if (!TextUtils.isEmpty(n2)) {
-                    jSONObject = new JSONObject(n2);
-                }
-            } catch (JSONException e2) {
-                if (b) {
-                    e2.printStackTrace();
-                }
-            }
-            try {
-                eVar.a(n, I, I2, jSONObject, new c(this, str));
-            } catch (Exception e3) {
-                Q(str, "catch: " + e3);
-                if (b) {
-                    e3.printStackTrace();
-                }
+            this.e = rh4Var;
+            if (!rh4Var.k()) {
+                Z();
             }
         }
     }
 
-    public final void P(String str, String str2, hp2.a aVar) {
+    public void a0(Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, aVar) == null) {
-            if (b) {
-                T("callbackIpcSession", "session=" + str + " action=" + str2 + " msg=" + aVar);
+        if (interceptable == null || interceptable.invokeL(1048586, this, exc) == null) {
+            j12.l("UpdateCoreCallback", "notifyFinalCallback", exc);
+            cj3<Exception> cj3Var = this.f;
+            if (cj3Var != null) {
+                cj3Var.a(exc);
             }
-            if (TextUtils.isEmpty(str)) {
+            this.f = null;
+        }
+    }
+
+    public void d0(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, exc) == null) {
+            j12.k("UpdateCoreCallback", "onUpdateFailed setLatestUpdateTime = 0");
+            kh4.d(U(), 0L);
+            go3.a(0L);
+            a0(new Exception("UpdateCoreCallback onUpdateFailed: cause by = ", exc));
+        }
+    }
+
+    public final void f0(ed4 ed4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, ed4Var) == null) {
+            f72.c().d(ed4Var, new d(this, ed4Var));
+        }
+    }
+
+    public final void g0(gd4 gd4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, gd4Var) == null) {
+            f72.c().d(gd4Var, new c(this, gd4Var));
+        }
+    }
+
+    @Override // com.baidu.tieba.ec4
+    public void C(dd4 dd4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, dd4Var) == null) {
+            super.C(dd4Var);
+            j12.k("UpdateCoreCallback", "onFetchError: " + dd4Var.toString());
+            if (dd4Var.a == 1010) {
+                e0();
                 return;
             }
-            yh3.e0(new d(this, str, str2, aVar));
+            d0(new PMSException("UpdateCoreCallback failed by fetch error = " + dd4Var, dd4Var));
         }
     }
 
-    public final void Q(String str, String str2) {
+    public final void Z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            P(str, "pms_http_with_ipc_action_fail", new hp2.a().z("pms_http_with_ipc_key_error", str2));
-        }
-    }
-
-    public final void T(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
-            S(str + ": " + str2);
-        }
-    }
-
-    public final void R(i43.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            if (b) {
-                T("handleIpcMsg", "msg=" + aVar);
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (this.e.e()) {
+                arrayList.add(k8a.a(new e(this)));
             }
-            if (aVar != null && q03.J(aVar.D(), "pms_http_with_ipc")) {
-                String n = aVar.n("ipc_session_id");
-                if (b) {
-                    T("handleIpcMsg", "session=" + n);
-                }
-                if (TextUtils.isEmpty(n)) {
-                    return;
-                }
-                String n2 = aVar.n("pms_http_with_ipc_key_action");
-                if (b) {
-                    T("handleIpcMsg", "action=" + n2);
-                }
-                if (TextUtils.isEmpty(n2)) {
-                    Q(n, "empty action");
-                    return;
-                }
-                char c2 = 65535;
-                int hashCode = n2.hashCode();
-                if (hashCode != 646251642) {
-                    if (hashCode == 1779116731 && n2.equals("pms_http_with_ipc_action_build_json_post_request")) {
-                        c2 = 1;
-                    }
-                } else if (n2.equals("pms_http_with_ipc_action_build_get_request")) {
-                    c2 = 0;
-                }
-                if (c2 != 0) {
-                    if (c2 != 1) {
-                        Q(n, "no such action:" + n2);
-                        return;
-                    }
-                    O(n, aVar, new b(this));
-                    return;
-                }
-                O(n, aVar, new a(this));
+            if (this.e.d()) {
+                arrayList.add(k8a.a(new f(this)));
+            }
+            if (!arrayList.isEmpty()) {
+                k8a.i(arrayList).u(Y());
             }
         }
     }
 
-    public final void S(String str) {
+    public void e0() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && b) {
-            Log.i("PmsHttpForService", str);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xi3
-    /* renamed from: U */
-    public void a(i43.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            R(aVar);
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            j12.k("UpdateCoreCallback", "onUpdateSuccess setLatestUpdateTime = " + currentTimeMillis);
+            kh4.d(U(), currentTimeMillis);
+            a0(null);
         }
     }
 }

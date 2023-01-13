@@ -1,21 +1,14 @@
 package com.baidu.tieba;
 
+import com.baidu.lcp.sdk.client.bean.BLCPRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.Socket;
 /* loaded from: classes6.dex */
-public class u80 {
+public class u80 extends BLCPRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Boolean a;
-    public Boolean b;
-    public Socket c;
-    public InputStream d;
-    public OutputStream e;
 
     public u80() {
         Interceptable interceptable = $ic;
@@ -30,11 +23,7 @@ public class u80 {
                 return;
             }
         }
-        Boolean bool = Boolean.FALSE;
-        this.a = bool;
-        this.b = bool;
         this.c = null;
-        this.d = null;
-        this.e = null;
+        this.e = BLCPRequest.SendTimeoutSecond.TIMEOUT_120s;
     }
 }

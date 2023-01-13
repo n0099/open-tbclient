@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import androidx.annotation.AnyThread;
-import androidx.annotation.NonNull;
+import android.app.Activity;
+import android.app.Application;
+import android.os.Bundle;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,230 +13,171 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
-public class xp2 implements vp2 {
+public class xp2 implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
+    public static volatile xp2 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final boolean b;
-    public long c;
-    public volatile boolean d;
-    @NonNull
-    public final List<vp2> e;
-    public final Runnable f;
-    public final Runnable g;
+    public boolean a;
+    public int b;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xp2 a;
-
-        public a(xp2 xp2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xp2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xp2Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.d();
-            }
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityCreated(Activity activity, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xp2 a;
-
-        public b(xp2 xp2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xp2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xp2Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.e();
-            }
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityDestroyed(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static final xp2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-281788368, "Lcom/baidu/tieba/xp2$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-281788368, "Lcom/baidu/tieba/xp2$c;");
-                    return;
-                }
-            }
-            a = new xp2(null);
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityPaused(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
         }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, bundle) == null) {
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948307983, "Lcom/baidu/tieba/xp2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948307983, "Lcom/baidu/tieba/xp2;");
+                return;
+            }
+        }
+        c = tk1.a;
     }
 
     public xp2() {
-        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        long millis = TimeUnit.SECONDS.toMillis(cq2.b.a());
-        this.a = millis;
-        if (millis >= 0 && cq2.b.e()) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.b = z;
-        this.c = 0L;
-        this.d = false;
-        this.f = new a(this);
-        this.g = new b(this);
-        this.e = new ArrayList();
-        if (cq2.b.e()) {
-            if (cq2.b.d()) {
-                this.e.add(new yp2());
-            }
-            if (cq2.b.b()) {
-                this.e.add(new zp2());
-            }
-            if (cq2.b.c()) {
-                this.e.add(new wp2());
-            }
-        }
+        this.a = false;
     }
 
-    public /* synthetic */ xp2(a aVar) {
-        this();
-    }
-
-    public static vp2 c() {
+    public static xp2 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return c.a;
-        }
-        return (vp2) invokeV.objValue;
-    }
-
-    public final void d() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - this.c;
-            if (this.b && !this.d && ProcessUtils.isSwanProcess() && vh3.C(true)) {
-                z = true;
-            } else {
-                z = false;
-            }
-            e12.i("SwanBackStageManager", "performPause: shouldPerform=" + z + " for " + currentTimeMillis + "/" + this.a);
-            if (z) {
-                for (vp2 vp2Var : this.e) {
-                    e12.i("SwanBackStageManager", "performPause for strategy=" + vp2Var);
-                    vp2Var.onPause();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (xp2.class) {
+                    if (d == null) {
+                        d = new xp2();
+                    }
                 }
-                this.d = true;
             }
+            return d;
         }
+        return (xp2) invokeV.objValue;
     }
 
-    public final void e() {
-        boolean z;
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.b && this.d) {
-                z = true;
-            } else {
-                z = false;
+            if (c) {
+                Log.d("SwanAppLifecycle", "registerSelf for lifecycle");
             }
-            e12.i("SwanBackStageManager", "performResume: shouldPerform=" + z);
-            for (vp2 vp2Var : this.e) {
-                e12.i("SwanBackStageManager", "performResume for strategy=" + vp2Var);
-                vp2Var.onResume();
-            }
-            this.d = false;
+            qn2.c().registerActivityLifecycleCallbacks(this);
         }
     }
 
-    @Override // com.baidu.tieba.vp2
-    @AnyThread
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            e12.i("SwanBackStageManager", "onPause: enable=" + this.b + " delay=" + this.a);
-            if (this.b) {
-                this.c = System.currentTimeMillis();
-                Handler M = d43.M();
-                M.removeCallbacks(this.f);
-                M.removeCallbacks(this.g);
-                M.postDelayed(this.f, this.a);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.vp2
-    @AnyThread
-    public void onResume() {
+    public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            e12.i("SwanBackStageManager", "onResume: enable=" + this.b);
-            if (this.b) {
-                Handler M = d43.M();
-                M.removeCallbacks(this.f);
-                M.removeCallbacks(this.g);
-                yh3.e0(this.g);
+            if (c) {
+                Log.d("SwanAppLifecycle", "un registerSelf for lifecycle");
+            }
+            qn2.c().unregisterActivityLifecycleCallbacks(this);
+        }
+    }
+
+    public void d(boolean z) {
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (z2 = this.a) != z) {
+            if (z2) {
+                this.a = false;
+                lq2.a().e(null);
+                return;
+            }
+            this.a = true;
+            lq2.a().d(null);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityResumed(Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, activity) == null) && !this.a) {
+            this.a = true;
+            lq2.a().d(activity);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStarted(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, activity) == null) {
+            int i = this.b + 1;
+            this.b = i;
+            if (i == 1 && !this.a) {
+                if (c) {
+                    Log.d("SwanAppLifecycle", "onBackgroundToForeground");
+                }
+                this.a = true;
+                lq2.a().d(activity);
+            }
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStopped(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, activity) == null) {
+            int i = this.b - 1;
+            this.b = i;
+            if (i == 0 && this.a) {
+                if (c) {
+                    Log.d("SwanAppLifecycle", "onForegroundToBackground");
+                }
+                this.a = false;
+                lq2.a().e(activity);
             }
         }
     }

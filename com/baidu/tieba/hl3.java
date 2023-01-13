@@ -1,46 +1,27 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppPhoneLoginDialog;
-import com.baidu.tieba.il3;
-import com.baidu.tieba.ml3;
-import com.baidu.tieba.qk3;
-import com.baidu.tieba.xm3;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public interface hl3 {
-    String a(Context context);
+public class hl3 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile gl3 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String b(Context context);
-
-    void c(Context context, Bundle bundle, qk1 qk1Var);
-
-    fl3 d(Context context);
-
-    void e(Activity activity, String str, String str2, gl3 gl3Var);
-
-    void f(Context context, xm3.d dVar);
-
-    boolean g(Context context);
-
-    String getBduss(Context context);
-
-    void h(sk1 sk1Var);
-
-    void i(Context context, il3.d dVar);
-
-    void j(Context context, SwanAppPhoneLoginDialog.g gVar, String str);
-
-    String k(Context context);
-
-    void l(Activity activity, String str, String str2, gl3 gl3Var);
-
-    void m(Activity activity, String str, mm3 mm3Var);
-
-    void n(String str, ArrayList<String> arrayList, ml3.c cVar);
-
-    void o(qk3.a aVar, String str, List<String> list);
+    public static synchronized gl3 a() {
+        InterceptResult invokeV;
+        gl3 gl3Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (hl3.class) {
+                if (a == null) {
+                    a = new gl3();
+                }
+                gl3Var = a;
+            }
+            return gl3Var;
+        }
+        return (gl3) invokeV.objValue;
+    }
 }

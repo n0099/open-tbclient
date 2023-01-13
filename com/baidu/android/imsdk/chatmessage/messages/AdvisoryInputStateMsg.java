@@ -3,7 +3,6 @@ package com.baidu.android.imsdk.chatmessage.messages;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -98,7 +97,7 @@ public class AdvisoryInputStateMsg extends NormalMsg {
                 return;
             }
         }
-        setMsgType(IMConstants.IM_MSG_TYPE_INPUT_STATE);
+        setMsgType(2018);
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg

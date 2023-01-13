@@ -1,15 +1,16 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class sw0 implements tw0 {
+public abstract class sw0 extends rw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final uw0 f;
+
+    public abstract void V(uw0 uw0Var);
 
     public sw0() {
         Interceptable interceptable = $ic;
@@ -21,18 +22,18 @@ public class sw0 implements tw0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.f = new uw0();
     }
 
-    @Override // com.baidu.tieba.tw0
-    @NonNull
-    public mw0 create(@NonNull String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.rw0
+    public void F(zw0 zw0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return new rw0();
+        if (interceptable == null || interceptable.invokeL(1048576, this, zw0Var) == null) {
+            this.f.a(zw0Var);
+            V(this.f);
         }
-        return (mw0) invokeL.objValue;
     }
 }

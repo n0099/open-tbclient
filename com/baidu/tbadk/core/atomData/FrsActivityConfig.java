@@ -17,15 +17,15 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.aj8;
-import com.baidu.tieba.ek5;
-import com.baidu.tieba.en8;
+import com.baidu.tieba.e07;
 import com.baidu.tieba.frs.mc.FrsNetModel;
-import com.baidu.tieba.kw6;
+import com.baidu.tieba.rn8;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
-import com.baidu.tieba.xg;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.vk5;
+import com.baidu.tieba.vr8;
+import com.baidu.tieba.yg;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -92,10 +92,14 @@ public class FrsActivityConfig extends IntentConfig {
     public static final String KEY_FPS_FRS_FROM = "BaToFrs";
     public static final String KEY_FPS_FRS_PAGE = "frs";
     public static final String KEY_FPS_FRS_TYPE = "tran";
+    public static final String KEY_JUMP_TAB_ID = "key_jump_tab_id";
     public static final String KEY_REFRESH = "refresh_all";
+    public static final String LOCATE_ROOM_ID = "locate_roomid";
     public static final String NAME = "name";
     public static final int READ_CHAT = 1;
     public static final int READ_REPLYORAT = 0;
+    public static final String ROOM_ID = "room_id";
+    public static final String TOAST_DATA = "toast_data";
     public static final String YUELAOU_LOCATE = "yuelaou_locate";
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId mPageId;
@@ -123,7 +127,7 @@ public class FrsActivityConfig extends IntentConfig {
         BdUniqueId gen = BdUniqueId.gen();
         this.mPageId = gen;
         intent.putExtra(FRS_PAGE_ID, gen);
-        en8.b("frs");
+        vr8.b("frs");
     }
 
     public FrsActivityConfig createBackSpecialCfg(String str, String str2, boolean z, boolean z2) {
@@ -238,27 +242,27 @@ public class FrsActivityConfig extends IntentConfig {
                 i2 = 6;
             }
             if (UbsABTestHelper.isFrsNewAreaTabSortTestA() && FrsTabTestHelper.HAVE_NOT_RECORD_SORT != FrsTabTestHelper.getFrsNewAreaTabSort()) {
-                frsRequestData.S(kw6.d(FrsTabTestHelper.getFrsNewAreaTabSort()));
+                frsRequestData.S(e07.d(FrsTabTestHelper.getFrsNewAreaTabSort()));
             }
-            frsRequestData.setSortType(kw6.d(i2));
+            frsRequestData.setSortType(e07.d(i2));
             if (i2 == 5) {
                 frsRequestData.V(1);
             } else {
                 frsRequestData.V(0);
             }
-            frsRequestData.G("forum_name", xi.getUrlEncode(stringExtra));
+            frsRequestData.G("forum_name", yi.getUrlEncode(stringExtra));
             frsRequestData.G("client_type", "2");
             frsRequestData.setPn(1);
             frsRequestData.setCallFrom(intExtra);
-            kw6.e(i2, frsRequestData);
+            e07.e(i2, frsRequestData);
             frsRequestData.d0("2");
             frsRequestData.e0("-2");
             frsRequestData.X(stringExtra);
             frsRequestData.l0(1);
             frsRequestData.P(0);
-            frsRequestData.k0(yi.l(TbadkCoreApplication.getInst()));
-            frsRequestData.j0(yi.j(TbadkCoreApplication.getInst()));
-            frsRequestData.i0(yi.i(TbadkCoreApplication.getInst()));
+            frsRequestData.k0(zi.l(TbadkCoreApplication.getInst()));
+            frsRequestData.j0(zi.j(TbadkCoreApplication.getInst()));
+            frsRequestData.i0(zi.i(TbadkCoreApplication.getInst()));
             if (TbImageHelper.getInstance().isShowBigImage()) {
                 i = 2;
             } else {
@@ -270,18 +274,18 @@ public class FrsActivityConfig extends IntentConfig {
             }
             frsRequestData.Z(null);
             frsRequestData.m0(stringExtra3);
-            frsRequestData.Y(xg.g(ek5.a(), 0L));
+            frsRequestData.Y(yg.g(vk5.a(), 0L));
             frsRequestData.setStType(stringExtra2);
             frsRequestData.U(1);
             frsRequestData.setNeedCache(true);
             frsRequestData.setUpdateType(3);
             frsRequestData.T(longExtra);
-            kw6.e(i2, frsRequestData);
+            e07.e(i2, frsRequestData);
             frsRequestData.b0(1);
             frsRequestData.setPushTid(intent.getStringExtra(MainTabActivityConfig.PUSH_TID));
-            if (ThreadData.isRecAppLoaded.get() && aj8.l().b() != null) {
-                int d = aj8.l().b().d(stringExtra, false);
-                int e = aj8.l().b().e(stringExtra, false);
+            if (ThreadData.isRecAppLoaded.get() && rn8.l().b() != null) {
+                int d = rn8.l().b().d(stringExtra, false);
+                int e = rn8.l().b().e(stringExtra, false);
                 if (frsRequestData.L() == 1) {
                     d++;
                 } else if (frsRequestData.L() == 2) {
@@ -345,10 +349,18 @@ public class FrsActivityConfig extends IntentConfig {
         }
     }
 
+    public void setGroupListLocateRoomId(long j) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(1048588, this, j) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(LOCATE_ROOM_ID, j);
+        }
+    }
+
     public void setIsShowImGroupList(int i) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeI(1048589, this, i) == null) && (intent = getIntent()) != null) {
             boolean z = true;
             if (i != 1) {
                 z = false;
@@ -357,18 +369,41 @@ public class FrsActivityConfig extends IntentConfig {
         }
     }
 
+    public void setJumpTabId(int i) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048590, this, i) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(KEY_JUMP_TAB_ID, i);
+        }
+    }
+
     public void setPushTid(String str) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048589, this, str) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048591, this, str) == null) && (intent = getIntent()) != null) {
             intent.putExtra(MainTabActivityConfig.PUSH_TID, str);
+        }
+    }
+
+    public void setRoomId(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
+            getIntent().putExtra(LOCATE_ROOM_ID, j);
+        }
+    }
+
+    public void setToastData(String str) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048593, this, str) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(TOAST_DATA, str);
         }
     }
 
     public void setUri(Uri uri) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, uri) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048594, this, uri) == null) && (intent = getIntent()) != null) {
             intent.putExtra(IntentConfig.KEY_URI, uri);
         }
     }

@@ -43,8 +43,8 @@ public final class d extends a {
         if (com.kwad.components.ad.reward.kwai.b.h(this.mAdInfo)) {
             com.kwad.components.ad.reward.a.c cVar = new com.kwad.components.ad.reward.a.c();
             a(cVar);
-            ViewStub viewStub = (ViewStub) viewGroup.findViewById(R.id.obfuscated_res_0x7f09122f);
-            a(new com.kwad.components.ad.reward.presenter.platdetail.actionbar.e((ViewGroup) (viewStub != null ? viewStub.inflate() : viewGroup.findViewById(R.id.obfuscated_res_0x7f091242)), new m.a(this, cVar) { // from class: com.kwad.components.ad.reward.presenter.d.1
+            ViewStub viewStub = (ViewStub) viewGroup.findViewById(R.id.obfuscated_res_0x7f09123a);
+            a(new com.kwad.components.ad.reward.presenter.platdetail.actionbar.e((ViewGroup) (viewStub != null ? viewStub.inflate() : viewGroup.findViewById(R.id.obfuscated_res_0x7f09124d)), new m.a(this, cVar) { // from class: com.kwad.components.ad.reward.presenter.d.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ com.kwad.components.ad.reward.a.c pB;
@@ -78,8 +78,8 @@ public final class d extends a {
                 }
             }));
         } else if (com.kwad.sdk.core.response.a.a.bF(adInfo)) {
-            ViewStub viewStub2 = (ViewStub) viewGroup.findViewById(R.id.obfuscated_res_0x7f0911fd);
-            a(new com.kwad.components.ad.reward.presenter.platdetail.actionbar.d((ViewGroup) (viewStub2 != null ? viewStub2.inflate() : viewGroup.findViewById(R.id.obfuscated_res_0x7f091217))));
+            ViewStub viewStub2 = (ViewStub) viewGroup.findViewById(R.id.obfuscated_res_0x7f091208);
+            a(new com.kwad.components.ad.reward.presenter.platdetail.actionbar.d((ViewGroup) (viewStub2 != null ? viewStub2.inflate() : viewGroup.findViewById(R.id.obfuscated_res_0x7f091222))));
         }
     }
 

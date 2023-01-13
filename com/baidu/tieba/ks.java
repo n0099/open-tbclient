@@ -1,7 +1,20 @@
 package com.baidu.tieba;
 
-import java.util.Map;
+import android.app.Activity;
+import android.content.Context;
 /* loaded from: classes5.dex */
 public interface ks {
-    Map<String, Object> a();
+    Activity a();
+
+    void b(Activity activity);
+
+    boolean c();
+
+    Context getAppContext();
+
+    String getAppVersion();
+
+    ls getEnv();
+
+    String getSdkVersion();
 }

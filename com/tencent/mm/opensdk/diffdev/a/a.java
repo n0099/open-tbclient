@@ -42,6 +42,11 @@ public final class a implements IDiffDevOAuth {
         this.e = new b(this);
     }
 
+    public static /* synthetic */ d c(a aVar) {
+        aVar.d = null;
+        return null;
+    }
+
     @Override // com.tencent.mm.opensdk.diffdev.IDiffDevOAuth
     public final void addListener(OAuthListener oAuthListener) {
         Interceptable interceptable = $ic;

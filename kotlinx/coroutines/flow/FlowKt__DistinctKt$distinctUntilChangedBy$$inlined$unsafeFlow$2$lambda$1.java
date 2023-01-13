@@ -11,9 +11,10 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.jvm.internal.InlineMarker;
 import kotlin.jvm.internal.Ref;
 import kotlinx.coroutines.flow.internal.NullSurrogateKt;
+/* JADX INFO: Add missing generic type declarations: [T] */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0013\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004*\u0001\u0000\b\n\u0018\u00002\u00020\u0001J\u001b\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00028\u0000H\u0096@ø\u0001\u0000¢\u0006\u0004\b\u0004\u0010\u0005\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0006¸\u0006\u0007"}, d2 = {"kotlinx/coroutines/flow/FlowKt__CollectKt$collect$3", "Lkotlinx/coroutines/flow/FlowCollector;", "value", "", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx-coroutines-core", "kotlinx/coroutines/flow/FlowKt__DistinctKt$$special$$inlined$collect$2"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes9.dex */
-public final class FlowKt__DistinctKt$distinctUntilChangedBy$$inlined$unsafeFlow$2$lambda$1 implements FlowCollector<T> {
+public final class FlowKt__DistinctKt$distinctUntilChangedBy$$inlined$unsafeFlow$2$lambda$1<T> implements FlowCollector<T> {
     public final /* synthetic */ Ref.ObjectRef $previousKey$inlined;
     public final /* synthetic */ FlowCollector $this_unsafeFlow$inlined;
     public final /* synthetic */ FlowKt__DistinctKt$distinctUntilChangedBy$$inlined$unsafeFlow$2 this$0;
@@ -51,7 +52,6 @@ public final class FlowKt__DistinctKt$distinctUntilChangedBy$$inlined$unsafeFlow
 
     /* JADX WARN: Removed duplicated region for block: B:10:0x0023  */
     /* JADX WARN: Removed duplicated region for block: B:14:0x003f  */
-    /* JADX WARN: Type inference failed for: r7v4, types: [T, java.lang.Object] */
     @Override // kotlinx.coroutines.flow.FlowCollector
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -80,16 +80,16 @@ public final class FlowKt__DistinctKt$distinctUntilChangedBy$$inlined$unsafeFlow
                     }
                 } else {
                     ResultKt.throwOnFailure(obj2);
-                    ?? invoke = this.this$0.$keySelector$inlined.invoke(obj);
-                    T t = this.$previousKey$inlined.element;
-                    if (t == NullSurrogateKt.NULL || !((Boolean) this.this$0.$areEquivalent$inlined.invoke(t, invoke)).booleanValue()) {
-                        this.$previousKey$inlined.element = invoke;
+                    T t = (T) this.this$0.$keySelector$inlined.invoke(obj);
+                    T t2 = this.$previousKey$inlined.element;
+                    if (t2 == NullSurrogateKt.NULL || !((Boolean) this.this$0.$areEquivalent$inlined.invoke(t2, t)).booleanValue()) {
+                        this.$previousKey$inlined.element = t;
                         FlowCollector flowCollector = this.$this_unsafeFlow$inlined;
                         anonymousClass1.L$0 = this;
                         anonymousClass1.L$1 = obj;
                         anonymousClass1.L$2 = anonymousClass1;
                         anonymousClass1.L$3 = obj;
-                        anonymousClass1.L$4 = invoke;
+                        anonymousClass1.L$4 = t;
                         anonymousClass1.label = 1;
                         if (flowCollector.emit(obj, anonymousClass1) == coroutine_suspended) {
                             return coroutine_suspended;
@@ -108,15 +108,14 @@ public final class FlowKt__DistinctKt$distinctUntilChangedBy$$inlined$unsafeFlow
         return Unit.INSTANCE;
     }
 
-    /* JADX WARN: Type inference failed for: r0v5, types: [T, java.lang.Object] */
     public Object emit$$forInline(Object obj, Continuation continuation) {
         InlineMarker.mark(4);
         new AnonymousClass1(continuation);
         InlineMarker.mark(5);
-        ?? invoke = this.this$0.$keySelector$inlined.invoke(obj);
-        T t = this.$previousKey$inlined.element;
-        if (t == NullSurrogateKt.NULL || !((Boolean) this.this$0.$areEquivalent$inlined.invoke(t, invoke)).booleanValue()) {
-            this.$previousKey$inlined.element = invoke;
+        T t = (T) this.this$0.$keySelector$inlined.invoke(obj);
+        T t2 = this.$previousKey$inlined.element;
+        if (t2 == NullSurrogateKt.NULL || !((Boolean) this.this$0.$areEquivalent$inlined.invoke(t2, t)).booleanValue()) {
+            this.$previousKey$inlined.element = t;
             FlowCollector flowCollector = this.$this_unsafeFlow$inlined;
             InlineMarker.mark(0);
             Object emit = flowCollector.emit(obj, continuation);

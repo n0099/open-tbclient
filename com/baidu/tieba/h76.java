@@ -1,41 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.data.QmFilterItem;
-import com.baidu.tieba.external.sticker.data.QmStickerItem;
+import android.webkit.JsPromptResult;
+import android.webkit.WebView;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import java.util.HashMap;
 /* loaded from: classes4.dex */
 public interface h76 {
+    public static final ServiceReference a = new ServiceReference("Frames", "JsPromptBridge");
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void onProgress(long j);
-    }
+    void a(WebView webView, String str, HashMap<String, Object> hashMap);
 
-    /* loaded from: classes4.dex */
-    public interface b {
-        boolean a(String str);
+    boolean b(WebView webView, String str, JsPromptResult jsPromptResult);
 
-        boolean b();
-    }
-
-    boolean a(QmFilterItem qmFilterItem);
-
-    boolean b(QmStickerItem qmStickerItem);
-
-    boolean c();
-
-    boolean d();
-
-    c46 e();
-
-    z36 f();
-
-    boolean onDestroy();
-
-    boolean onPause();
-
-    boolean onResume();
-
-    boolean startRecord();
-
-    boolean stopRecord();
+    void c(j76 j76Var, Object obj);
 }

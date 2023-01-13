@@ -1,27 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.graphics.drawable.Drawable;
+import com.baidu.tieba.fo8;
+import com.baidu.tieba.video.VideoItemModel;
 /* loaded from: classes4.dex */
-public class gn8 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile fn8 a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface gn8 {
+    void onDestroy();
 
-    public static synchronized fn8 a() {
-        InterceptResult invokeV;
-        fn8 fn8Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (gn8.class) {
-                if (a == null) {
-                    a = new fn8();
-                }
-                fn8Var = a;
-            }
-            return fn8Var;
-        }
-        return (fn8) invokeV.objValue;
-    }
+    void onPause();
+
+    void onPrimary(boolean z);
+
+    void onUserVisibleHint(boolean z);
+
+    void onViewClick();
+
+    void onViewDoubleClick();
+
+    void onViewDragToRight();
+
+    void setDrawables(Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4, Drawable drawable5, Drawable drawable6);
+
+    void setPageChangeHandler(fo8.a aVar, int i);
+
+    void updateTiebaData(int i, VideoItemModel videoItemModel);
 }

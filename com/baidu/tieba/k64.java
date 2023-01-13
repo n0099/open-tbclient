@@ -1,126 +1,394 @@
 package com.baidu.tieba;
 
+import android.webkit.JavascriptInterface;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.JsFunction;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.locks.ReentrantLock;
+import java.util.Arrays;
+import java.util.Iterator;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.StringCompanionObject;
+import kotlin.text.Charsets;
+import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes5.dex */
-public class k64 {
+public final class k64 extends EventTargetImpl {
     public static /* synthetic */ Interceptable $ic;
-    public static final ReentrantLock c;
-    public static volatile k64 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<m64> a;
-    public n64 b;
+    public final String a;
+    public DatagramSocket b;
+    public int c;
+    public o64 d;
+    public e64 e;
+    public ArrayList<JsFunction> f;
+    public ArrayList<JsFunction> g;
+    public ArrayList<JsFunction> h;
+    public ArrayList<JsFunction> i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947865024, "Lcom/baidu/tieba/k64;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947865024, "Lcom/baidu/tieba/k64;");
-                return;
-            }
-        }
-        c = new ReentrantLock();
-    }
-
-    public k64() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k64(JSRuntime jsRuntime) {
+        super(jsRuntime);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jsRuntime};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((JSRuntime) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList(3);
+        Intrinsics.checkNotNullParameter(jsRuntime, "jsRuntime");
+        this.a = "%s:fail %s";
+        this.d = new o64();
+        this.e = new e64();
+        this.f = new ArrayList<>();
+        this.g = new ArrayList<>();
+        this.h = new ArrayList<>();
+        this.i = new ArrayList<>();
     }
 
-    public static k64 a() {
+    public final void G(g64 g64Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, g64Var) != null) || n64.c.c(this)) {
+            return;
+        }
+        try {
+            if (!this.d.a().offer(new f64(new DatagramPacket(g64Var.b(), g64Var.d(), g64Var.c(), InetAddress.getByName(g64Var.a()), g64Var.e()), this))) {
+                D("send", "send queue is full");
+                return;
+            }
+            if (!this.d.b()) {
+                this.d.c(true);
+                this.d.start();
+            }
+            if (!this.e.a()) {
+                this.e.b(true);
+                this.e.c(this);
+                E();
+                this.e.start();
+            }
+        } catch (Throwable unused) {
+        }
+    }
+
+    public final void z(DatagramPacket dp) {
+        String str;
+        byte[] address;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, dp) == null) {
+            Intrinsics.checkNotNullParameter(dp, "dp");
+            try {
+                byte[] bArr = new byte[dp.getLength()];
+                System.arraycopy(dp.getData(), dp.getOffset(), bArr, 0, dp.getLength());
+                InetAddress address2 = dp.getAddress();
+                if (address2 != null && (address = address2.getAddress()) != null && address.length == 4) {
+                    str = "IPv4";
+                } else {
+                    str = "IPv6";
+                }
+                Iterator<JsFunction> it = this.f.iterator();
+                while (it.hasNext()) {
+                    String inetAddress = dp.getAddress().toString();
+                    Intrinsics.checkNotNullExpressionValue(inetAddress, "dp.address.toString()");
+                    it.next().call(new i64(bArr, new j64(inetAddress, dp.getLength(), dp.getPort(), str)));
+                }
+            } catch (Throwable unused) {
+                Iterator<JsFunction> it2 = this.h.iterator();
+                while (it2.hasNext()) {
+                    y(it2.next(), "onMessage", "receive failed");
+                }
+            }
+        }
+    }
+
+    public final int A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (k64.class) {
-                    if (d == null) {
-                        d = new k64();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            for (int i = 49152; i <= 65535; i++) {
+                try {
+                    this.b = new DatagramSocket(i);
+                    x(i);
+                    return i;
+                } catch (Throwable unused) {
+                }
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public final DatagramSocket C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (DatagramSocket) invokeV.objValue;
+    }
+
+    public final void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            Iterator<JsFunction> it = this.g.iterator();
+            while (it.hasNext()) {
+                it.next().call();
+            }
+        }
+    }
+
+    public final void D(String method, String error) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, method, error) == null) {
+            Intrinsics.checkNotNullParameter(method, "method");
+            Intrinsics.checkNotNullParameter(error, "error");
+            Iterator<JsFunction> it = this.h.iterator();
+            while (it.hasNext()) {
+                y(it.next(), method, error);
+            }
+        }
+    }
+
+    public final qw1 F(JsObject jsObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jsObject)) == null) {
+            qw1 F = qw1.F(jsObject);
+            if (F == null) {
+                return new qw1();
+            }
+            return F;
+        }
+        return (qw1) invokeL.objValue;
+    }
+
+    @JavascriptInterface
+    public final int bind(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            if (i != -1 && !n64.c.d(i)) {
+                try {
+                    this.b = new DatagramSocket(i);
+                    x(i);
+                    return i;
+                } catch (Throwable unused) {
+                    return B();
+                }
+            }
+            return B();
+        }
+        return invokeI.intValue;
+    }
+
+    @JavascriptInterface
+    public final void offCloseCallback(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, jsObject) == null) {
+            Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            this.i.remove(ry3.e(qw1.F(jsObject)).a);
+        }
+    }
+
+    @JavascriptInterface
+    public final void offErrorCallback(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, jsObject) == null) {
+            Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            this.h.remove(ry3.e(qw1.F(jsObject)).a);
+        }
+    }
+
+    @JavascriptInterface
+    public final void offListeningCallback(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, jsObject) == null) {
+            Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            this.g.remove(ry3.e(qw1.F(jsObject)).a);
+        }
+    }
+
+    @JavascriptInterface
+    public final void offMessageCallback(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, jsObject) == null) {
+            Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            this.f.remove(ry3.e(qw1.F(jsObject)).a);
+        }
+    }
+
+    @JavascriptInterface
+    public final void onCloseCallback(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, jsObject) == null) {
+            Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            qw1 F = F(jsObject);
+            if (F != null) {
+                this.i.add(ry3.e(F).a);
+            }
+        }
+    }
+
+    @JavascriptInterface
+    public final void onErrorCallback(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, jsObject) == null) {
+            Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            qw1 F = F(jsObject);
+            if (F != null) {
+                this.h.add(ry3.e(F).a);
+            }
+        }
+    }
+
+    @JavascriptInterface
+    public final void onListeningCallback(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, jsObject) == null) {
+            Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            this.g.add(ry3.e(qw1.F(jsObject)).a);
+        }
+    }
+
+    @JavascriptInterface
+    public final void onMessageCallback(JsObject jsObject) {
+        qw1 F;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, jsObject) == null) {
+            Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            if (!n64.c.c(this) && (F = F(jsObject)) != null) {
+                this.f.add(ry3.e(F).a);
+            }
+        }
+    }
+
+    public final void x(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            n64.c.a(i);
+            this.c = i;
+        }
+    }
+
+    @JavascriptInterface
+    public final void close() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            try {
+                DatagramSocket datagramSocket = this.b;
+                if (datagramSocket != null) {
+                    datagramSocket.close();
+                }
+                this.d.c(false);
+                this.d.interrupt();
+                this.e.b(false);
+                this.e.interrupt();
+                n64.c.e(this);
+                Iterator<JsFunction> it = this.i.iterator();
+                while (it.hasNext()) {
+                    it.next().call("success");
+                }
+            } catch (Throwable unused) {
+                D("close", "close failed");
+            }
+        }
+    }
+
+    @JavascriptInterface
+    public final void send(JsObject jsObject) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, jsObject) == null) {
+            Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            qw1 F = qw1.F(jsObject);
+            g64 g64Var = new g64();
+            String C = F.C("address", "");
+            Intrinsics.checkNotNullExpressionValue(C, "jsObjectMap.optString(PARAM_ADDRESS, \"\")");
+            g64Var.f(C);
+            String B = F.B("message");
+            boolean z2 = false;
+            if (B != null && B.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                byte[] buffer = F.s("message").buffer();
+                if (buffer != null) {
+                    g64Var.h(F.r(CloudStabilityUBCUtils.KEY_LENGTH, buffer.length));
+                    g64Var.i(F.q("offset"));
+                    g64Var.g(buffer);
+                }
+            } else {
+                Charset charset = Charsets.UTF_8;
+                if (B != null) {
+                    byte[] bytes = B.getBytes(charset);
+                    Intrinsics.checkNotNullExpressionValue(bytes, "(this as java.lang.String).getBytes(charset)");
+                    g64Var.g(bytes);
+                    Charset charset2 = Charsets.UTF_8;
+                    if (B != null) {
+                        byte[] bytes2 = B.getBytes(charset2);
+                        Intrinsics.checkNotNullExpressionValue(bytes2, "(this as java.lang.String).getBytes(charset)");
+                        g64Var.h(bytes2.length);
+                    } else {
+                        throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
                     }
-                }
-            }
-            return d;
-        }
-        return (k64) invokeV.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = null;
-            this.a.clear();
-        }
-    }
-
-    public final void c(m64 m64Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m64Var) == null) {
-            c.lock();
-            try {
-                if (this.b != null) {
-                    this.b.a(m64Var);
                 } else {
-                    this.a.add(m64Var);
+                    throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
                 }
-            } finally {
-                c.unlock();
+            }
+            g64Var.j(F.r(ClientCookie.PORT_ATTR, -1));
+            if (g64Var.e() == -1) {
+                D("send", "port is empty");
+                return;
+            }
+            if (g64Var.a().length() == 0) {
+                z2 = true;
+            }
+            if (z2) {
+                D("send", "address is empty");
+            } else {
+                G(g64Var);
             }
         }
     }
 
-    public void f(n64 n64Var) {
+    public final void y(JsFunction jsFunction, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, n64Var) == null) {
-            this.b = n64Var;
-            e();
-        }
-    }
-
-    public void d(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
-            e12.i("SwanGameBundleUpdateManager", String.format("sendJSMessage : eventType = %s; hasUpdate = %s", str, Boolean.valueOf(z)));
-            m64 m64Var = new m64(str);
-            m64Var.hasUpdate = z;
-            c(m64Var);
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !this.a.isEmpty() && this.b != null) {
-            c.lock();
-            try {
-                for (m64 m64Var : this.a) {
-                    this.b.a(m64Var);
-                }
-                this.a.clear();
-            } finally {
-                c.unlock();
+        if (interceptable == null || interceptable.invokeLLL(1048595, this, jsFunction, str, str2) == null) {
+            StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
+            String format = String.format(this.a, Arrays.copyOf(new Object[]{str, str2}, 2));
+            Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
+            if (jsFunction != null) {
+                jsFunction.call(new h64(format));
             }
         }
     }

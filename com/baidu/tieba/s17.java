@@ -1,161 +1,50 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class s17 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public BdTypeRecyclerView b;
-    public LinkedList<kn> c;
-    public x17 d;
-    public u17 e;
-    public v17 f;
-    public w17 g;
+    public final String a;
+    public final String b;
+    public final String c;
+    public final int d;
+    public final int e;
+    public final double f;
 
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public s17(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+    public s17(String str, String str2, String str3, int i, int i2, double d) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
+            Object[] objArr = {str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = bdTypeRecyclerView;
-        this.c = new LinkedList<>();
-        b();
+        this.a = str;
+        this.b = str2;
+        this.d = i;
+        this.c = str3;
+        this.e = i2;
+        this.f = d;
     }
 
-    public List<xn> a() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            BdTypeRecyclerView bdTypeRecyclerView = this.b;
-            if (bdTypeRecyclerView != null) {
-                return bdTypeRecyclerView.getData();
-            }
-            return null;
+            return "FunAdCacheInfo{adType='" + this.a + "', platform='" + this.b + "', pid='" + this.c + "', adHashCode=" + this.d + ", count=" + this.e + ", basePrice=" + this.f + '}';
         }
-        return (List) invokeV.objValue;
-    }
-
-    public void c() {
-        BdTypeRecyclerView bdTypeRecyclerView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (bdTypeRecyclerView = this.b) != null) {
-            bdTypeRecyclerView.getListAdapter().notifyDataSetChanged();
-        }
-    }
-
-    public void e() {
-        u17 u17Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (u17Var = this.e) != null) {
-            u17Var.onPause();
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.d = new x17(this.a, w56.A0);
-            this.e = new u17(this.a, x56.U);
-            this.f = new v17(this.a, w56.J0);
-            this.g = new w17(this.a, w56.H0);
-            this.d.y(this.b);
-            this.e.A(this.b);
-            this.f.x(this.b);
-            this.g.z(this.b);
-            this.c.add(this.d);
-            this.c.add(this.e);
-            this.c.add(this.f);
-            this.c.add(this.g);
-            this.b.a(this.c);
-        }
-    }
-
-    public void f(List<xn> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.b.setData(list);
-        }
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            x17 x17Var = this.d;
-            if (x17Var != null) {
-                x17Var.w(i);
-            }
-            u17 u17Var = this.e;
-            if (u17Var != null) {
-                u17Var.y(i);
-            }
-            v17 v17Var = this.f;
-            if (v17Var != null) {
-                v17Var.v(i);
-            }
-            w17 w17Var = this.g;
-            if (w17Var != null) {
-                w17Var.x(i);
-            }
-        }
-    }
-
-    public void h(NEGFeedBackView.b bVar) {
-        w17 w17Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) && (w17Var = this.g) != null) {
-            w17Var.w(bVar);
-        }
-    }
-
-    public void i(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
-            x17 x17Var = this.d;
-            if (x17Var != null) {
-                x17Var.x(bdUniqueId);
-            }
-            u17 u17Var = this.e;
-            if (u17Var != null) {
-                u17Var.z(bdUniqueId);
-            }
-            v17 v17Var = this.f;
-            if (v17Var != null) {
-                v17Var.w(bdUniqueId);
-            }
-            w17 w17Var = this.g;
-            if (w17Var != null) {
-                w17Var.y(bdUniqueId);
-            }
-        }
+        return (String) invokeV.objValue;
     }
 }

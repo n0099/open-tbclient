@@ -91,13 +91,21 @@ public final class k extends v implements View.OnClickListener {
         return (Animator) invokeCommon.objValue;
     }
 
+    public static /* synthetic */ Animator a(k kVar, View view2) {
+        return o(view2);
+    }
+
+    public static /* synthetic */ Animator a(k kVar, View view2, long j, float f) {
+        return a(view2, 100L, 8.0f);
+    }
+
     private void a(com.kwad.components.ad.reward.model.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, aVar) == null) {
             this.vp.setText(aVar.getTitle());
             this.iu.setText(aVar.gJ());
             String eL = aVar.eL();
-            Drawable drawable = this.nC.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c70);
+            Drawable drawable = this.nC.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c80);
             KSImageLoader.loadCircleIcon(this.nC, eL, drawable);
             String aj = com.kwad.components.ad.c.b.aj();
             if (!ax.dT(aj)) {
@@ -157,7 +165,7 @@ public final class k extends v implements View.OnClickListener {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         k kVar = this.vw;
-                        kVar.vv = k.a(kVar.vr, 100L, 8.0f);
+                        kVar.vv = k.a(kVar, kVar.vr, 100L, 8.0f);
                         this.vw.vv.addListener(new AnimatorListenerAdapter(this) { // from class: com.kwad.components.ad.reward.k.k.1.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
@@ -229,7 +237,8 @@ public final class k extends v implements View.OnClickListener {
                 public final void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        k.o(this.vw.vs).start();
+                        k kVar = this.vw;
+                        k.a(kVar, kVar.vs).start();
                     }
                 }
             }, 2000L);
@@ -242,17 +251,17 @@ public final class k extends v implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || (viewGroup = this.pV) == null) {
             return;
         }
-        this.vr = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09121f);
-        this.vo = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091228);
-        this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091227);
-        this.vp = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091229);
-        this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091222);
-        this.vq = this.pV.findViewById(R.id.obfuscated_res_0x7f091220);
-        this.vs = this.pV.findViewById(R.id.obfuscated_res_0x7f091223);
-        this.vt.add((ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091224));
-        this.vt.add((ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091225));
-        this.vt.add((ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091226));
-        this.vu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091221);
+        this.vr = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09122a);
+        this.vo = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091233);
+        this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091232);
+        this.vp = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091234);
+        this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09122d);
+        this.vq = this.pV.findViewById(R.id.obfuscated_res_0x7f09122b);
+        this.vs = this.pV.findViewById(R.id.obfuscated_res_0x7f09122e);
+        this.vt.add((ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f09122f));
+        this.vt.add((ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091230));
+        this.vt.add((ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091231));
+        this.vu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09122c);
         this.pV.setOnClickListener(this);
         this.vq.setOnClickListener(this);
     }
@@ -299,7 +308,7 @@ public final class k extends v implements View.OnClickListener {
     public final void f(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) {
-            super.a(viewGroup, R.id.obfuscated_res_0x7f09122c, R.id.obfuscated_res_0x7f09122b);
+            super.a(viewGroup, R.id.obfuscated_res_0x7f091237, R.id.obfuscated_res_0x7f091236);
             initView();
         }
     }

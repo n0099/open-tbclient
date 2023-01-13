@@ -1,21 +1,25 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class uu3 implements xu3 {
+public class uu3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ru3 a;
+    public volatile HashMap<String, List<cv3>> a;
 
-    public uu3(ru3 ru3Var) {
+    public uu3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ru3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,27 +29,117 @@ public class uu3 implements xu3 {
                 return;
             }
         }
-        this.a = ru3Var;
+        this.a = new HashMap<>();
     }
 
-    @Override // com.baidu.tieba.xu3
-    public void a(yu3 yu3Var) {
+    public synchronized void a(String str, cv3 cv3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, yu3Var) == null) {
-            setResult(yu3Var);
-        }
-    }
-
-    private void setResult(yu3 yu3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, yu3Var) == null) {
-            this.a.d.clear();
-            if (yu3Var != null) {
-                this.a.d.putString("functionType", yu3Var.a());
-                this.a.d.putString("resultData", yu3Var.b());
-                this.a.d.putInt(com.alipay.sdk.util.j.a, yu3Var.c());
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, cv3Var) == null) {
+            synchronized (this) {
+                if (e(str, cv3Var)) {
+                    return;
+                }
+                List<cv3> c = c(str);
+                if (!c.contains(cv3Var)) {
+                    c.add(cv3Var);
+                }
+                if (!this.a.containsKey(str)) {
+                    this.a.put(str, c);
+                }
             }
-            this.a.c();
         }
+    }
+
+    public synchronized void b(String str, dv3 dv3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, dv3Var) == null) {
+            synchronized (this) {
+                for (cv3 cv3Var : new ArrayList(c(str))) {
+                    if (cv3Var != null) {
+                        cv3Var.a(dv3Var);
+                    }
+                }
+            }
+        }
+    }
+
+    public synchronized void g(String str, cv3 cv3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, cv3Var) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                if (cv3Var == null) {
+                    this.a.remove(str);
+                    return;
+                }
+                List<cv3> c = c(str);
+                if (c.contains(cv3Var)) {
+                    c.remove(cv3Var);
+                    if (c.isEmpty()) {
+                        this.a.remove(str);
+                    }
+                }
+            }
+        }
+    }
+
+    public final List<cv3> c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new ArrayList();
+            }
+            List<cv3> list = this.a.get(str);
+            if (list == null) {
+                return new ArrayList();
+            }
+            return list;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public synchronized boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            synchronized (this) {
+                boolean z = false;
+                if (TextUtils.isEmpty(str)) {
+                    return false;
+                }
+                List<cv3> list = this.a.get(str);
+                if (list != null) {
+                    if (!list.isEmpty()) {
+                        z = true;
+                    }
+                }
+                return z;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            synchronized (this) {
+                g(str, null);
+            }
+        }
+    }
+
+    public final boolean e(String str, cv3 cv3Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, cv3Var)) == null) {
+            if (!TextUtils.isEmpty(str) && cv3Var != null) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 }

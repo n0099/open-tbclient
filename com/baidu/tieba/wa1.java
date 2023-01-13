@@ -1,42 +1,78 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.payment.PaymentManager;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.nps.pm.provider.BundleOpProvider;
+import com.baidu.nps.utils.ContextHolder;
+import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class wa1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Bundle bundle) {
+    public static ta1 a(Uri uri) {
+        InterceptResult invokeL;
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, bundle) == null) {
-            if (bundle == null) {
-                PaymentManager.i(3, "闪付返回信息为空");
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, uri)) == null) {
+            ta1 ta1Var = new ta1();
+            if (uri != null) {
+                String queryParameter = uri.getQueryParameter("downloaded_size");
+                long j2 = 0;
+                if (!TextUtils.isEmpty(queryParameter)) {
+                    j = Long.valueOf(queryParameter).longValue();
+                } else {
+                    j = 0;
+                }
+                String queryParameter2 = uri.getQueryParameter(PackageTable.TOTAL_SIZE);
+                if (!TextUtils.isEmpty(queryParameter2)) {
+                    j2 = Long.valueOf(queryParameter2).longValue();
+                }
+                ta1Var.a = j;
+                ta1Var.b = j2;
             }
-            String string = bundle.getString("statusCode");
-            try {
-                PaymentManager.i(Integer.parseInt(string), bundle.getString("payInfo"));
-            } catch (NumberFormatException e) {
-                PaymentManager.i(3, e.getMessage());
-            }
+            return ta1Var;
         }
+        return (ta1) invokeL.objValue;
     }
 
-    public static void b(Bundle bundle) {
+    public static Uri b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, bundle) == null) {
-            ua1.a().g(bundle);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).build();
         }
+        return (Uri) invokeV.objValue;
     }
 
-    public static void c() {
+    public static Uri c(String str, long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && ProcessUtils.isMainProcess()) {
-            ua1.a().h("");
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).path(str).appendQueryParameter("downloaded_size", String.valueOf(j)).appendQueryParameter(PackageTable.TOTAL_SIZE, String.valueOf(j2)).build();
         }
+        return (Uri) invokeCommon.objValue;
+    }
+
+    public static Uri d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).path(str).build();
+        }
+        return (Uri) invokeL.objValue;
+    }
+
+    public static Uri e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).path(str).build();
+        }
+        return (Uri) invokeL.objValue;
     }
 }

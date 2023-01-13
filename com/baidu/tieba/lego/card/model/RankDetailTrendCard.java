@@ -4,8 +4,9 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.tieba.gm7;
+import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
 import com.baidu.tieba.lego.card.exception.CardParseException;
+import com.baidu.tieba.vq7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,15 +49,15 @@ public class RankDetailTrendCard extends BaseCardInfo {
                 return;
             }
         }
-        this.rank = jSONObject.optInt("rank");
+        this.rank = jSONObject.optInt(MultiRatePlayUrlHelper.RANK);
         this.ratio = jSONObject.optDouble(MapBundleKey.OfflineMapKey.OFFLINE_RATION, 1.0d);
         this.picUrl = jSONObject.optString("picUrl");
         this.iconUrl = jSONObject.optString("iconUrl", "");
         this.picTrendType = jSONObject.optInt("picTrendType");
         this.picTrendUrl = jSONObject.optString("picTrendUrl");
         this.trendText = jSONObject.optString("trendText");
-        this.trendColor = gm7.b(jSONObject.optString("trendColor", ""));
-        this.trendColorN = gm7.b(jSONObject.optString("trendColorN", ""));
+        this.trendColor = vq7.b(jSONObject.optString("trendColor", ""));
+        this.trendColorN = vq7.b(jSONObject.optString("trendColorN", ""));
         this.postUrl = jSONObject.optString("postUrl");
         this.isDone = jSONObject.optInt("isDone") == 1;
         this.btnText = jSONObject.optString("btnText");

@@ -21,7 +21,12 @@ import kotlinx.coroutines.flow.internal.NullSurrogateKt;
 public final /* synthetic */ class FlowKt__DistinctKt {
     @ExperimentalCoroutinesApi
     public static final <T> Flow<T> distinctUntilChanged(Flow<? extends T> flow) {
-        return FlowKt.distinctUntilChangedBy(flow, FlowKt__DistinctKt$distinctUntilChanged$1.INSTANCE);
+        return FlowKt.distinctUntilChangedBy(flow, new Function1<T, T>() { // from class: kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChanged$1
+            @Override // kotlin.jvm.functions.Function1
+            public final T invoke(T t) {
+                return t;
+            }
+        });
     }
 
     @FlowPreview
@@ -127,11 +132,10 @@ public final /* synthetic */ class FlowKt__DistinctKt {
                 }
             }
 
-            /* JADX WARN: Type inference failed for: r1v0, types: [kotlinx.coroutines.internal.Symbol, T] */
             @Override // kotlinx.coroutines.flow.Flow
             public Object collect(FlowCollector flowCollector, Continuation continuation) {
                 Ref.ObjectRef objectRef = new Ref.ObjectRef();
-                objectRef.element = NullSurrogateKt.NULL;
+                objectRef.element = (T) NullSurrogateKt.NULL;
                 Object collect = Flow.this.collect(new AnonymousClass2(flowCollector, objectRef, this), continuation);
                 if (collect == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
                     return collect;
@@ -186,7 +190,6 @@ public final /* synthetic */ class FlowKt__DistinctKt {
 
                 /* JADX WARN: Removed duplicated region for block: B:10:0x0023  */
                 /* JADX WARN: Removed duplicated region for block: B:14:0x003f  */
-                /* JADX WARN: Type inference failed for: r7v4, types: [T, java.lang.Object] */
                 @Override // kotlinx.coroutines.flow.FlowCollector
                 /*
                     Code decompiled incorrectly, please refer to instructions dump.
@@ -215,16 +218,16 @@ public final /* synthetic */ class FlowKt__DistinctKt {
                                 }
                             } else {
                                 ResultKt.throwOnFailure(obj2);
-                                ?? invoke = function1.invoke(obj);
-                                T t = this.$previousKey$inlined.element;
-                                if (t == NullSurrogateKt.NULL || !Boxing.boxBoolean(Intrinsics.areEqual(t, (Object) invoke)).booleanValue()) {
-                                    this.$previousKey$inlined.element = invoke;
+                                T t = (T) function1.invoke(obj);
+                                T t2 = this.$previousKey$inlined.element;
+                                if (t2 == NullSurrogateKt.NULL || !Boxing.boxBoolean(Intrinsics.areEqual(t2, t)).booleanValue()) {
+                                    this.$previousKey$inlined.element = t;
                                     FlowCollector flowCollector = this.$this_unsafeFlow$inlined;
                                     anonymousClass1.L$0 = this;
                                     anonymousClass1.L$1 = obj;
                                     anonymousClass1.L$2 = anonymousClass1;
                                     anonymousClass1.L$3 = obj;
-                                    anonymousClass1.L$4 = invoke;
+                                    anonymousClass1.L$4 = t;
                                     anonymousClass1.label = 1;
                                     if (flowCollector.emit(obj, anonymousClass1) == coroutine_suspended) {
                                         return coroutine_suspended;
@@ -244,11 +247,10 @@ public final /* synthetic */ class FlowKt__DistinctKt {
                 }
             }
 
-            /* JADX WARN: Type inference failed for: r1v0, types: [kotlinx.coroutines.internal.Symbol, T] */
             @Override // kotlinx.coroutines.flow.Flow
             public Object collect(FlowCollector flowCollector, Continuation continuation) {
                 Ref.ObjectRef objectRef = new Ref.ObjectRef();
-                objectRef.element = NullSurrogateKt.NULL;
+                objectRef.element = (T) NullSurrogateKt.NULL;
                 Object collect = Flow.this.collect(new AnonymousClass2(flowCollector, objectRef, this), continuation);
                 if (collect == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
                     return collect;

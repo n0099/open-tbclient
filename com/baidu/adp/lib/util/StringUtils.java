@@ -30,14 +30,14 @@ public class StringUtils {
     public static boolean isNULL(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) ? str == null : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) ? str == null : invokeL.booleanValue;
     }
 
     @NonNull
     public static String tryFixDefaultValue(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, str)) == null) ? str == null ? "" : str : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65554, null, str)) == null) ? str == null ? "" : str : (String) invokeL.objValue;
     }
 
     static {
@@ -92,7 +92,7 @@ public class StringUtils {
     public static Date handleDate(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
             return handleDate(str, "yyyy-MM-dd HH:mm");
         }
         return (Date) invokeL.objValue;
@@ -101,7 +101,7 @@ public class StringUtils {
     public static boolean isJSONArray(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
@@ -122,7 +122,7 @@ public class StringUtils {
     public static boolean isNotNull(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
             return !isNull(str);
         }
         return invokeL.booleanValue;
@@ -131,7 +131,7 @@ public class StringUtils {
     public static boolean isNull(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
             if (str != null && str.trim().length() != 0) {
                 return false;
             }
@@ -143,7 +143,7 @@ public class StringUtils {
     public static boolean isValidPassWord(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) {
             if (!TextUtils.isEmpty(str) && !str.contains(" ")) {
                 return str.matches(PASSWORD_PREFIX);
             }
@@ -167,10 +167,22 @@ public class StringUtils {
         return (String) invokeLL.objValue;
     }
 
+    public static boolean equalsIgnoreNull(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            if (isNull(str) && isNull(str2)) {
+                return true;
+            }
+            return str.equals(str2);
+        }
+        return invokeLL.booleanValue;
+    }
+
     public static Date handleDate(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) {
             if (str2 == null) {
                 str2 = "yyyy-MM-dd HH:mm";
             }
@@ -188,7 +200,7 @@ public class StringUtils {
     public static long getyyyyMMddHHTimeForNow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             Calendar calendar = Calendar.getInstance();
             return (calendar.get(1) * 1000000) + 0 + ((calendar.get(2) + 1) * 10000) + (calendar.get(5) * 100) + calendar.get(11);
         }
@@ -198,7 +210,7 @@ public class StringUtils {
     public static boolean isChinese(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Character.valueOf(c)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Character.valueOf(c)})) == null) {
             if (Pattern.compile("[一-龥]").matcher(String.valueOf(c)).find()) {
                 return true;
             }
@@ -210,7 +222,7 @@ public class StringUtils {
     public static final String string(Object... objArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, objArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, objArr)) == null) {
             if (objArr != null) {
                 StringBuffer stringBuffer = new StringBuffer();
                 for (Object obj : objArr) {
@@ -232,7 +244,7 @@ public class StringUtils {
     public static String unitFormat(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65554, null, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65555, null, i)) == null) {
             if (i >= 0 && i < 10) {
                 return "0" + Integer.toString(i);
             }
@@ -245,7 +257,7 @@ public class StringUtils {
         InterceptResult invokeLZ;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65549, null, str, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65550, null, str, z)) == null) {
             if (str != null && str.trim().length() != 0) {
                 z2 = false;
             } else {
@@ -262,7 +274,7 @@ public class StringUtils {
     public static String translateSecondsToString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65552, null, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65553, null, i)) == null) {
             if (i <= 0) {
                 return BdPlayerProgressView.DEFAULT_TIME_TEXT;
             }

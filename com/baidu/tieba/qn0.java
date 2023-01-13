@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-/* loaded from: classes5.dex */
-public interface qn0 {
-    void a();
+import android.app.Activity;
+/* loaded from: classes6.dex */
+public interface qn0 extends sn0 {
+    Activity a();
 
-    void b(Bitmap bitmap);
+    Activity c();
 }

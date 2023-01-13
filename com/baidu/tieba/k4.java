@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
+import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,11 +11,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class k4 extends e4 {
+public class k4 extends f4 {
     public static /* synthetic */ Interceptable $ic;
     public static final long e;
+    public static final long f;
+    public static final long g;
+    public static final long h;
+    public static final long i;
+    public static final long j;
+    public static final long k;
+    public static long l;
     public transient /* synthetic */ FieldHolder $fh;
-    public float d;
+    public final m3 d;
 
     static {
         InterceptResult invokeClinit;
@@ -28,62 +37,101 @@ public class k4 extends e4 {
                 return;
             }
         }
-        e = e4.d("shininess");
-        e4.d("alphaTest");
-    }
-
-    @Override // com.baidu.tieba.e4
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (super.hashCode() * 977) + u7.b(this.d);
-        }
-        return invokeV.intValue;
+        e = f4.d("diffuseColor");
+        f = f4.d("specularColor");
+        g = f4.d("ambientColor");
+        h = f4.d("emissiveColor");
+        i = f4.d("reflectionColor");
+        j = f4.d("ambientLightColor");
+        long d = f4.d("fogColor");
+        k = d;
+        l = d | g | e | f | h | i | j;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k4(long j, float f) {
-        super(j);
+    public k4(long j2) {
+        super(j2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Float.valueOf(f)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Long) newInitContext.callArgs[0]).longValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = f;
+        this.d = new m3();
+        if (f(j2)) {
+            return;
+        }
+        throw new GdxRuntimeException("Invalid type specified");
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public k4(long j2, m3 m3Var) {
+        this(j2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j2), m3Var};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                this(((Long) newInitContext.callArgs[0]).longValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        if (m3Var != null) {
+            this.d.e(m3Var);
+        }
+    }
+
+    public static final boolean f(long j2) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j2)) == null) {
+            if ((j2 & l) != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeJ.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     /* renamed from: e */
-    public int compareTo(e4 e4Var) {
+    public int compareTo(f4 f4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e4Var)) == null) {
-            long j = this.a;
-            long j2 = e4Var.a;
-            if (j != j2) {
-                return (int) (j - j2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f4Var)) == null) {
+            long j2 = this.a;
+            long j3 = f4Var.a;
+            if (j2 != j3) {
+                return (int) (j2 - j3);
             }
-            float f = ((k4) e4Var).d;
-            if (com.badlogic.gdx.math.d.e(this.d, f)) {
-                return 0;
-            }
-            if (this.d < f) {
-                return -1;
-            }
-            return 1;
+            return ((k4) f4Var).d.g() - this.d.g();
         }
         return invokeL.intValue;
+    }
+
+    @Override // com.baidu.tieba.f4
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return (super.hashCode() * CyberPlayerManager.DP_MSG_INFO_CACHE_DURATION) + this.d.g();
+        }
+        return invokeV.intValue;
     }
 }

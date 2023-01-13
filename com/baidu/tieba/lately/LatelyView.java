@@ -16,12 +16,12 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tbadk.data.VisitedForumData;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ab5;
 import com.baidu.tieba.adapter.SelectForumItemAdapter;
 import com.baidu.tieba.enterForum.data.RecentlyVisitedForumData;
-import com.baidu.tieba.ka5;
-import com.baidu.tieba.kc6;
-import com.baidu.tieba.la5;
-import com.baidu.tieba.op5;
+import com.baidu.tieba.iq5;
+import com.baidu.tieba.sf6;
+import com.baidu.tieba.za5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,17 +31,17 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes5.dex */
-public class LatelyView extends FrameLayout implements op5<String> {
+public class LatelyView extends FrameLayout implements iq5<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public RecyclerView b;
     public SelectForumItemAdapter c;
     public LinearLayoutManager d;
-    public ka5 e;
-    public la5 f;
+    public za5 e;
+    public ab5 f;
 
-    @Override // com.baidu.tieba.op5
+    @Override // com.baidu.tieba.iq5
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -146,7 +146,7 @@ public class LatelyView extends FrameLayout implements op5<String> {
         f();
     }
 
-    @Override // com.baidu.tieba.op5
+    @Override // com.baidu.tieba.iq5
     public void a() {
         int skinType;
         Interceptable interceptable = $ic;
@@ -154,22 +154,22 @@ public class LatelyView extends FrameLayout implements op5<String> {
             return;
         }
         this.a = skinType;
-        ka5 ka5Var = this.e;
-        if (ka5Var != null) {
-            ka5Var.onChangeSkinType();
+        za5 za5Var = this.e;
+        if (za5Var != null) {
+            za5Var.onChangeSkinType();
         }
-        la5 la5Var = this.f;
-        if (la5Var != null) {
-            la5Var.onChangeSkinType();
+        ab5 ab5Var = this.f;
+        if (ab5Var != null) {
+            ab5Var.onChangeSkinType();
         }
         this.c.notifyDataSetChanged();
     }
 
     public void d() {
-        ka5 ka5Var;
+        za5 za5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (ka5Var = this.e) != null) {
-            ka5Var.dettachView(this);
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (za5Var = this.e) != null) {
+            za5Var.dettachView(this);
             this.e = null;
         }
     }
@@ -177,9 +177,9 @@ public class LatelyView extends FrameLayout implements op5<String> {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            la5 la5Var = this.f;
-            if (la5Var != null) {
-                la5Var.dettachView(this);
+            ab5 ab5Var = this.f;
+            if (ab5Var != null) {
+                ab5Var.dettachView(this);
                 this.f = null;
             }
             this.b.setVisibility(0);
@@ -190,26 +190,26 @@ public class LatelyView extends FrameLayout implements op5<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            la5 la5Var = this.f;
-            if (la5Var != null) {
-                return la5Var.isViewAttached();
+            ab5 ab5Var = this.f;
+            if (ab5Var != null) {
+                return ab5Var.isViewAttached();
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.op5
+    @Override // com.baidu.tieba.iq5
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return getContext().getString(R.string.obfuscated_res_0x7f0f0093);
+            return getContext().getString(R.string.obfuscated_res_0x7f0f0095);
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.op5
+    @Override // com.baidu.tieba.iq5
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -220,8 +220,8 @@ public class LatelyView extends FrameLayout implements op5<String> {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07da, (ViewGroup) this, true);
-            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091eff);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07d7, (ViewGroup) this, true);
+            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091f1e);
             SelectForumItemAdapter selectForumItemAdapter = new SelectForumItemAdapter(this);
             this.c = selectForumItemAdapter;
             selectForumItemAdapter.k(1);
@@ -233,12 +233,12 @@ public class LatelyView extends FrameLayout implements op5<String> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.op5
+    @Override // com.baidu.tieba.iq5
     /* renamed from: h */
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            RecentlyVisitedForumData j = kc6.n().j();
+            RecentlyVisitedForumData j = sf6.n().j();
             if (j == null) {
                 i(false, false);
                 return;
@@ -287,7 +287,7 @@ public class LatelyView extends FrameLayout implements op5<String> {
             return;
         }
         if (this.f == null) {
-            this.f = new la5(getContext(), new a(this));
+            this.f = new ab5(getContext(), new a(this));
         }
         this.f.k(getResources().getDimensionPixelSize(R.dimen.tbds380));
         this.f.attachView(this, z);
@@ -297,7 +297,7 @@ public class LatelyView extends FrameLayout implements op5<String> {
             this.f.h(R.drawable.new_pic_emotion_01);
             this.f.e();
         }
-        this.f.o(getContext().getString(R.string.obfuscated_res_0x7f0f008f));
+        this.f.o(getContext().getString(R.string.obfuscated_res_0x7f0f0091));
         this.b.setVisibility(8);
     }
 }

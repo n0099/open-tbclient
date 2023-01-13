@@ -1,164 +1,262 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.ByteBuffer;
+import java.nio.channels.Channels;
+import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
+import java.nio.charset.Charset;
 /* loaded from: classes5.dex */
-public final class mn2 {
+public class mn2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Inject(force = false)
-    public static pp2 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return new d24();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947978360, "Lcom/baidu/tieba/mn2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947978360, "Lcom/baidu/tieba/mn2;");
+                return;
+            }
         }
-        return (pp2) invokeV.objValue;
+        a = tk1.a;
     }
 
-    @Inject(force = false)
-    public static ub2 b() {
-        InterceptResult invokeV;
+    /* JADX WARN: Removed duplicated region for block: B:53:0x00bd A[Catch: all -> 0x00f4, TryCatch #2 {, blocks: (B:6:0x0007, B:8:0x0012, B:10:0x0016, B:13:0x001f, B:23:0x0078, B:24:0x007b, B:51:0x00b5, B:53:0x00bd, B:54:0x00d9, B:27:0x0080, B:28:0x0086, B:59:0x00e2, B:60:0x00e5, B:64:0x00f3, B:63:0x00ea, B:46:0x00a6, B:47:0x00a9, B:50:0x00ae), top: B:74:0x0007, inners: #0, #5, #7 }] */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x00e2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @SuppressLint({"SwanDebugLog"})
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static synchronized String a(String str) {
+        InterceptResult invokeL;
+        BufferedReader bufferedReader;
+        String str2;
+        String stackTraceString;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new nz3();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            synchronized (mn2.class) {
+                long currentTimeMillis = System.currentTimeMillis();
+                FileLock fileLock = null;
+                if (TextUtils.isEmpty(str) && a) {
+                    Log.w("SwanAppFile", "path name is empty");
+                    return null;
+                }
+                StringBuffer stringBuffer = new StringBuffer();
+                try {
+                    FileChannel channel = new RandomAccessFile(str, "rw").getChannel();
+                    FileLock lock = channel.lock(0L, Long.MAX_VALUE, true);
+                    try {
+                        bufferedReader = new BufferedReader(Channels.newReader(channel, Charset.defaultCharset().name()));
+                        while (true) {
+                            try {
+                                String readLine = bufferedReader.readLine();
+                                if (readLine == null) {
+                                    break;
+                                }
+                                stringBuffer.append(readLine);
+                            } catch (IOException e) {
+                                e = e;
+                                fileLock = lock;
+                                try {
+                                    Log.e("SwanAppFile", Log.getStackTraceString(e));
+                                    if (fileLock != null) {
+                                        try {
+                                            fileLock.release();
+                                        } catch (IOException e2) {
+                                            str2 = "SwanAppFile";
+                                            stackTraceString = Log.getStackTraceString(e2);
+                                            Log.e(str2, stackTraceString);
+                                            long currentTimeMillis2 = System.currentTimeMillis();
+                                            if (a) {
+                                            }
+                                            return stringBuffer.toString();
+                                        }
+                                    }
+                                    nk4.d(bufferedReader);
+                                    long currentTimeMillis22 = System.currentTimeMillis();
+                                    if (a) {
+                                    }
+                                    return stringBuffer.toString();
+                                } catch (Throwable th) {
+                                    th = th;
+                                    if (fileLock != null) {
+                                        try {
+                                            fileLock.release();
+                                        } catch (IOException e3) {
+                                            Log.e("SwanAppFile", Log.getStackTraceString(e3));
+                                            throw th;
+                                        }
+                                    }
+                                    nk4.d(bufferedReader);
+                                    throw th;
+                                }
+                            } catch (Throwable th2) {
+                                th = th2;
+                                fileLock = lock;
+                                if (fileLock != null) {
+                                }
+                                nk4.d(bufferedReader);
+                                throw th;
+                            }
+                        }
+                        if (a) {
+                            Log.d("SwanAppFile", "Read file: " + stringBuffer.toString());
+                        }
+                        if (lock != null) {
+                            try {
+                                lock.release();
+                            } catch (IOException e4) {
+                                str2 = "SwanAppFile";
+                                stackTraceString = Log.getStackTraceString(e4);
+                                Log.e(str2, stackTraceString);
+                                long currentTimeMillis222 = System.currentTimeMillis();
+                                if (a) {
+                                }
+                                return stringBuffer.toString();
+                            }
+                        }
+                        nk4.d(bufferedReader);
+                    } catch (IOException e5) {
+                        e = e5;
+                        bufferedReader = null;
+                    } catch (Throwable th3) {
+                        th = th3;
+                        bufferedReader = null;
+                    }
+                } catch (IOException e6) {
+                    e = e6;
+                    bufferedReader = null;
+                } catch (Throwable th4) {
+                    th = th4;
+                    bufferedReader = null;
+                }
+                long currentTimeMillis2222 = System.currentTimeMillis();
+                if (a) {
+                    Log.d("SwanAppFile", "Read file done: cost time = " + (currentTimeMillis2222 - currentTimeMillis) + "ms");
+                }
+                return stringBuffer.toString();
+            }
         }
-        return (ub2) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
-    @Inject(force = false)
-    public static il1 c() {
-        InterceptResult invokeV;
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00c2 A[Catch: all -> 0x00f5, TRY_LEAVE, TryCatch #2 {, blocks: (B:6:0x0007, B:8:0x0012, B:10:0x0016, B:28:0x007d, B:32:0x008b, B:49:0x00ba, B:51:0x00c2, B:31:0x0082, B:56:0x00e3, B:60:0x00f1, B:61:0x00f4, B:59:0x00e8, B:44:0x00a9, B:48:0x00b7, B:47:0x00ae), top: B:73:0x0007, inners: #1, #4, #6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x00e3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @SuppressLint({"SwanDebugLog"})
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static synchronized boolean b(String str, String str2, boolean z) {
+        InterceptResult invokeLLZ;
+        FileChannel fileChannel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return p64.a();
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, str, str2, z)) == null) {
+            synchronized (mn2.class) {
+                long currentTimeMillis = System.currentTimeMillis();
+                boolean z2 = false;
+                if (TextUtils.isEmpty(str) && a) {
+                    Log.w("SwanAppFile", "path name is null");
+                    return false;
+                }
+                FileLock fileLock = null;
+                try {
+                    File file = new File(str);
+                    File file2 = new File(file.getParent());
+                    if (!file2.exists()) {
+                        file2.mkdirs();
+                    }
+                    if (!file.exists()) {
+                        file.createNewFile();
+                    }
+                    FileChannel channel = new FileOutputStream(file, z).getChannel();
+                    try {
+                        fileLock = channel.lock();
+                        if (TextUtils.isEmpty(str2)) {
+                            str2 = "";
+                        }
+                        channel.write(ByteBuffer.wrap(str2.getBytes()));
+                        z2 = true;
+                        if (a) {
+                            Log.d("SwanAppFile", "Write file：" + str2);
+                        }
+                        if (fileLock != null) {
+                            try {
+                                fileLock.release();
+                            } catch (IOException e) {
+                                Log.e("SwanAppFile", Log.getStackTraceString(e));
+                            }
+                        }
+                        nk4.d(channel);
+                    } catch (IOException e2) {
+                        fileChannel = channel;
+                        e = e2;
+                        try {
+                            Log.e("SwanAppFile", Log.getStackTraceString(e));
+                            if (fileLock != null) {
+                                try {
+                                    fileLock.release();
+                                } catch (IOException e3) {
+                                    Log.e("SwanAppFile", Log.getStackTraceString(e3));
+                                }
+                            }
+                            nk4.d(fileChannel);
+                            long currentTimeMillis2 = System.currentTimeMillis();
+                            if (a) {
+                            }
+                            return z2;
+                        } catch (Throwable th) {
+                            th = th;
+                            if (fileLock != null) {
+                                try {
+                                    fileLock.release();
+                                } catch (IOException e4) {
+                                    Log.e("SwanAppFile", Log.getStackTraceString(e4));
+                                }
+                            }
+                            nk4.d(fileChannel);
+                            throw th;
+                        }
+                    } catch (Throwable th2) {
+                        fileChannel = channel;
+                        th = th2;
+                        if (fileLock != null) {
+                        }
+                        nk4.d(fileChannel);
+                        throw th;
+                    }
+                } catch (IOException e5) {
+                    e = e5;
+                    fileChannel = null;
+                } catch (Throwable th3) {
+                    th = th3;
+                    fileChannel = null;
+                }
+                long currentTimeMillis22 = System.currentTimeMillis();
+                if (a) {
+                    Log.d("SwanAppFile", "Write file done: cost time =" + (currentTimeMillis22 - currentTimeMillis) + "ms");
+                }
+                return z2;
+            }
         }
-        return (il1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static jl1 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return f14.a();
-        }
-        return (jl1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static kl1 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return new g14();
-        }
-        return (kl1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static ll1 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return new h14();
-        }
-        return (ll1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static ml1 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return new i14();
-        }
-        return (ml1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static nl1 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return new yy3();
-        }
-        return (nl1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static ol1 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return d04.a();
-        }
-        return (ol1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static pl1 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return x44.a();
-        }
-        return (pl1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static ql1 k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return new x64();
-        }
-        return (ql1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static rl1 l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return k14.a();
-        }
-        return (rl1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static tl1 m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            return j54.a();
-        }
-        return (tl1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static ul1 n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            return a54.a();
-        }
-        return (ul1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static wl1 o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            return h64.a();
-        }
-        return (wl1) invokeV.objValue;
+        return invokeLLZ.booleanValue;
     }
 }

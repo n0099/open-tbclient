@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class MaterialFadeThrough extends MaterialVisibility<FadeThroughProvider> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DEFAULT_START_SCALE = 0.92f;

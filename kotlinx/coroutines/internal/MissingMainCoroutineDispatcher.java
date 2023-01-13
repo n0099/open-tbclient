@@ -35,8 +35,10 @@ public final class MissingMainCoroutineDispatcher extends MainCoroutineDispatche
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Possible override for method kotlinx.coroutines.CoroutineDispatcher.dispatch(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Runnable;)V */
     @Override // kotlinx.coroutines.CoroutineDispatcher
-    public Void dispatch(CoroutineContext coroutineContext, Runnable runnable) {
+    /* renamed from: dispatch */
+    public Void mo2188dispatch(CoroutineContext coroutineContext, Runnable runnable) {
         missing();
         throw null;
     }
@@ -47,7 +49,7 @@ public final class MissingMainCoroutineDispatcher extends MainCoroutineDispatche
         throw null;
     }
 
-    @Override // kotlinx.coroutines.Delay
+    /* JADX DEBUG: Possible override for method kotlinx.coroutines.Delay.scheduleResumeAfterDelay(JLkotlinx/coroutines/CancellableContinuation;)V */
     public Void scheduleResumeAfterDelay(long j, CancellableContinuation<? super Unit> cancellableContinuation) {
         missing();
         throw null;
@@ -81,7 +83,8 @@ public final class MissingMainCoroutineDispatcher extends MainCoroutineDispatche
     }
 
     @Override // kotlinx.coroutines.Delay
-    public /* bridge */ /* synthetic */ void scheduleResumeAfterDelay(long j, CancellableContinuation cancellableContinuation) {
+    /* renamed from: scheduleResumeAfterDelay  reason: collision with other method in class */
+    public /* bridge */ /* synthetic */ void mo2189scheduleResumeAfterDelay(long j, CancellableContinuation cancellableContinuation) {
         scheduleResumeAfterDelay(j, (CancellableContinuation<? super Unit>) cancellableContinuation);
     }
 

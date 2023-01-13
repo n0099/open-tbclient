@@ -151,7 +151,7 @@ public class CardLiveLottieView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.layout_ala_live_card_lottie, this);
-            this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091d41);
+            this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091d60);
             this.f = (LinearLayout) inflate.findViewById(R.id.ala_live_watch_container);
             this.c = (TextView) inflate.findViewById(R.id.ala_live_watch_number);
             this.d = (ImageView) inflate.findViewById(R.id.ala_live_watch_icon);

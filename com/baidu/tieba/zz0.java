@@ -1,43 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Process;
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.nadcore.player.remote.BDRemotePlayerService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
+import java.io.File;
 /* loaded from: classes7.dex */
 public class zz0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@Nullable String str, boolean z, int i, Map<String, String> map, CyberPlayerManager.InstallListener installListener, @Nullable CyberPlayerManager.GetNetHandleListener getNetHandleListener) {
-        Class<BDRemotePlayerService> cls;
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i), map, installListener, getNetHandleListener}) != null) || CyberPlayerManager.isCoreLoaded(i)) {
-            return;
-        }
-        Context b = rr0.b();
-        wj0.c("DumediaUtils", "initCyber, pid = " + Process.myPid());
-        try {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                str = zi0.a().g();
+                return false;
             }
-            String str2 = str;
-            if (z) {
-                cls = BDRemotePlayerService.class;
-            } else {
-                cls = null;
-            }
-            CyberPlayerManager.install(b, str2, (String) null, i, cls, map, installListener);
-            if (getNetHandleListener != null) {
-                CyberPlayerManager.setNetHandleListener(getNetHandleListener);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+            return new File(str).exists();
         }
+        return invokeL.booleanValue;
     }
 }

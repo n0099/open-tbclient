@@ -93,7 +93,7 @@ public class cj {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public Object m248a() {
+        public Object mo253a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -103,7 +103,7 @@ public class cj {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public String m249a() {
+        public String m254a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f193a : (String) invokeV.objValue;
@@ -114,7 +114,7 @@ public class cj {
             if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
                 a aVar = this.f192a;
                 if (aVar != null) {
-                    aVar.a(context, m248a());
+                    aVar.a(context, mo253a());
                 }
                 b(context);
             }
@@ -146,7 +146,7 @@ public class cj {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m250a() {
+        public boolean m255a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f191a == null || TextUtils.isEmpty(this.b) || this.f194a == null : invokeV.booleanValue;
@@ -457,7 +457,7 @@ public class cj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m247a(String str) {
+    public String m252a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? a(str).a() : (String) invokeL.objValue;
@@ -472,12 +472,12 @@ public class cj {
         if (this.f187a == null) {
             throw new IllegalStateException("should exec init method first!");
         }
-        String m249a = aVar.m249a();
+        String m254a = aVar.m254a();
         synchronized (this.f189a) {
-            chVar = this.f189a.get(m249a);
+            chVar = this.f189a.get(m254a);
             if (chVar == null) {
-                chVar = this.f187a.a(this.f186a, m249a);
-                this.f189a.put(m249a, chVar);
+                chVar = this.f187a.a(this.f186a, m254a);
+                this.f189a.put(m254a, chVar);
             }
         }
         if (this.f190a.isShutdown()) {
@@ -511,13 +511,13 @@ public class cj {
             Iterator<a> it = arrayList.iterator();
             while (it.hasNext()) {
                 a next = it.next();
-                if (next.m250a()) {
-                    next.a(a(next.m249a()), this.f186a);
+                if (next.m255a()) {
+                    next.a(a(next.m254a()), this.f186a);
                 }
-                ArrayList arrayList2 = (ArrayList) hashMap.get(next.m249a());
+                ArrayList arrayList2 = (ArrayList) hashMap.get(next.m254a());
                 if (arrayList2 == null) {
                     arrayList2 = new ArrayList();
-                    hashMap.put(next.m249a(), arrayList2);
+                    hashMap.put(next.m254a(), arrayList2);
                 }
                 arrayList2.add(next);
             }
@@ -541,12 +541,12 @@ public class cj {
         if (this.f187a == null) {
             throw new IllegalStateException("should exec init method first!");
         }
-        String m249a = aVar.m249a();
+        String m254a = aVar.m254a();
         synchronized (this.f189a) {
-            chVar = this.f189a.get(m249a);
+            chVar = this.f189a.get(m254a);
             if (chVar == null) {
-                chVar = this.f187a.a(this.f186a, m249a);
-                this.f189a.put(m249a, chVar);
+                chVar = this.f187a.a(this.f186a, m254a);
+                this.f189a.put(m254a, chVar);
             }
         }
         if (this.f190a.isShutdown()) {

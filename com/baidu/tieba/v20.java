@@ -1,163 +1,81 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
 import android.content.Context;
-import android.os.Bundle;
-import android.os.Process;
-import android.text.TextUtils;
+import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.tieba.s20;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class v20 extends s20 {
+public final class v20 {
     public static /* synthetic */ Interceptable $ic;
+    public static v20 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public s20 c;
-    public boolean d;
 
-    public v20(boolean z) {
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "0.8.36" : (String) invokeV.objValue;
+    }
+
+    public v20() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = z;
     }
 
-    @Override // com.baidu.tieba.s20
-    public void a(String str, Bundle bundle, s20.c<String> cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, bundle, cVar) == null) {
-            this.c.a(str, bundle, cVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.s20
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c.d();
-        }
-    }
-
-    @Override // com.baidu.tieba.s20
-    public boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.c.e(str) : invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.s20
-    public void f(s20.b bVar) {
-        s20 w20Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            if (this.d ? j() : i()) {
-                w20Var = new u20();
-            } else {
-                w20Var = new w20(this.d ? ".helios.ipc.default" : ".helios.ipc.isolate");
-            }
-            this.c = w20Var;
-            w20Var.b(this.a);
-            this.c.c(bVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.s20
-    public s20.d g(String str, Bundle bundle) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, bundle)) == null) ? this.c.g(str, bundle) : (s20.d) invokeLL.objValue;
-    }
-
-    public final String h() {
+    public static v20 b() {
         InterceptResult invokeV;
-        BufferedReader bufferedReader;
-        Throwable th;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            try {
-                bufferedReader = new BufferedReader(new FileReader(new File(ProcessUtils.CMD_LINE_NAME)));
-                try {
-                    String readLine = bufferedReader.readLine();
-                    if (!TextUtils.isEmpty(readLine)) {
-                        c50.b(bufferedReader);
-                        return readLine;
-                    }
-                } catch (IOException unused) {
-                } catch (Throwable th2) {
-                    th = th2;
-                    c50.b(bufferedReader);
-                    throw th;
-                }
-            } catch (IOException unused2) {
-                bufferedReader = null;
-            } catch (Throwable th3) {
-                bufferedReader = null;
-                th = th3;
-            }
-            c50.b(bufferedReader);
-            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) this.a.c.getSystemService("activity")).getRunningAppProcesses();
-            if (runningAppProcesses != null) {
-                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                    if (runningAppProcessInfo.pid == Process.myPid()) {
-                        return runningAppProcessInfo.processName;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (v20.class) {
+                    if (a == null) {
+                        a = new v20();
                     }
                 }
-                return null;
             }
-            return null;
+            return a;
         }
-        return (String) invokeV.objValue;
+        return (v20) invokeV.objValue;
     }
 
-    public final boolean i() {
-        InterceptResult invokeV;
+    public void c(Context context, w20<n50> w20Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            String h = h();
-            return h != null && h.contains(":helios");
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, w20Var) == null) {
+            d(context, w20Var, Looper.getMainLooper());
         }
-        return invokeV.booleanValue;
     }
 
-    public final boolean j() {
-        InterceptResult invokeV;
+    public void e(Context context, w20<List<o50>> w20Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            String h = h();
-            if (h == null) {
-                return true;
-            }
-            Context context = this.a.c;
-            String str = context.getApplicationInfo().processName;
-            if (TextUtils.isEmpty(str)) {
-                str = context.getPackageName();
-            }
-            if (h.startsWith(str)) {
-                return h.length() == str.length() || h.charAt(str.length()) != ':';
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, w20Var) == null) {
+            f(context, w20Var, Looper.getMainLooper());
         }
-        return invokeV.booleanValue;
+    }
+
+    public void d(Context context, w20<n50> w20Var, Looper looper) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, w20Var, looper) == null) {
+            u20.f(context).l(w20Var, looper);
+        }
+    }
+
+    public void f(Context context, w20<List<o50>> w20Var, Looper looper) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, context, w20Var, looper) == null) {
+            u20.f(context).p(w20Var, looper);
+        }
     }
 }

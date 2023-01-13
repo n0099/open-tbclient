@@ -1,111 +1,122 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.MessageDigest;
 /* loaded from: classes6.dex */
-public class xj1 implements yj1 {
+public final class xj1 {
     public static /* synthetic */ Interceptable $ic;
-    public static xj1 c;
+    public static final String[] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public yj1 a;
-    public boolean b;
 
-    public xj1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948302186, "Lcom/baidu/tieba/xj1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948302186, "Lcom/baidu/tieba/xj1;");
                 return;
             }
         }
-        this.a = null;
-        this.b = false;
+        a = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
     }
 
-    public static xj1 b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:4:0x0004 */
+    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: byte */
+    /* JADX DEBUG: Multi-variable search result rejected for r4v1, resolved type: int */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r4v5, types: [int] */
+    public static String a(byte b) {
+        InterceptResult invokeB;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (xj1.class) {
-                    if (c == null) {
-                        c = new xj1();
-                    }
-                }
+        if (interceptable == null || (invokeB = interceptable.invokeB(65537, null, b)) == null) {
+            if (b < 0) {
+                b += 256;
             }
-            return c;
+            return a[b / 16] + a[b % 16];
         }
-        return (xj1) invokeV.objValue;
+        return (String) invokeB.objValue;
     }
 
-    @Override // com.baidu.tieba.yj1
-    public String a() {
-        InterceptResult invokeV;
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            yj1 yj1Var = this.a;
-            if (yj1Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            String str2 = "";
+            try {
+                if (TextUtils.isEmpty(str)) {
+                    return "";
+                }
+                String str3 = new String(str);
+                try {
+                    return c(MessageDigest.getInstance("MD5").digest(str3.getBytes()));
+                } catch (Throwable th) {
+                    th = th;
+                    str2 = str3;
+                    tj1.d(th);
+                    return str2;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return (String) invokeL.objValue;
+        }
+    }
+
+    public static String c(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            StringBuffer stringBuffer = new StringBuffer();
+            for (byte b : bArr) {
+                stringBuffer.append(a(b));
+            }
+            return stringBuffer.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
+            if (bArr == null || bArr.length <= 0) {
+                return "";
+            }
+            try {
+                return c(MessageDigest.getInstance("MD5").digest(bArr));
+            } catch (Throwable th) {
+                tj1.d(th);
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static byte[] e(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
+            if (bArr == null || bArr.length <= 0) {
                 return null;
             }
             try {
-                return yj1Var.a();
-            } catch (Throwable unused) {
+                return MessageDigest.getInstance("MD5").digest(bArr);
+            } catch (Throwable th) {
+                tj1.d(th);
                 return null;
             }
         }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0044 A[Catch: all -> 0x0049, TRY_LEAVE, TryCatch #0 {all -> 0x0049, blocks: (B:4:0x0004, B:7:0x0009, B:23:0x0040, B:25:0x0044, B:17:0x0024, B:18:0x0029, B:19:0x002c, B:20:0x0032, B:21:0x0038), top: B:31:0x0004 }] */
-    /* JADX WARN: Removed duplicated region for block: B:33:? A[RETURN, SYNTHETIC] */
-    @Override // com.baidu.tieba.yj1
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void a(Context context, zj1 zj1Var) {
-        yj1 yj1Var;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, zj1Var) != null) {
-            return;
-        }
-        try {
-            if (this.b) {
-                return;
-            }
-            this.b = true;
-            int ordinal = com.baidu.sso.s.a.a(Build.MANUFACTURER).ordinal();
-            if (ordinal == 0) {
-                yj1Var = null;
-            } else if (ordinal == 1) {
-                yj1Var = new bk1();
-            } else if (ordinal == 2) {
-                yj1Var = new jk1();
-            } else if (ordinal == 3) {
-                yj1Var = new hk1();
-            } else if (ordinal != 4) {
-                if (this.a == null) {
-                    this.a.a(context, zj1Var);
-                    return;
-                }
-                return;
-            } else {
-                yj1Var = new dk1();
-            }
-            this.a = yj1Var;
-            if (this.a == null) {
-            }
-        } catch (Throwable unused) {
-        }
+        return (byte[]) invokeL.objValue;
     }
 }

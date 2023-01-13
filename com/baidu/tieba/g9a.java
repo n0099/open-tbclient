@@ -1,19 +1,16 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import java.util.List;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import rx.internal.operators.CachedObservable$ReplayProducer;
 /* loaded from: classes4.dex */
-public interface g9a {
-    void a(Activity activity, vaa vaaVar, List<PayWayInfo> list, String str, PaySplitOrderViewSource paySplitOrderViewSource, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
+public final class g9a<T> extends qaa implements l8a<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    xaa b();
+    public abstract void c(CachedObservable$ReplayProducer<T> cachedObservable$ReplayProducer);
 
-    void c(xaa xaaVar);
+    public abstract void d();
 
-    void release();
+    public abstract void e(CachedObservable$ReplayProducer<T> cachedObservable$ReplayProducer);
 }

@@ -449,9 +449,9 @@ public class Matrix4 implements Serializable {
             getTranslation(tmpUp);
             matrix4.getTranslation(right);
             float f2 = 1.0f - f;
-            setToScaling(tmpVec.m21scl(f).add(tmpForward.m21scl(f2)));
+            setToScaling(tmpVec.m22scl(f).add(tmpForward.m22scl(f2)));
             rotate(quat.slerp(quat2, f2));
-            setTranslation(tmpUp.m21scl(f).add(right.m21scl(f2)));
+            setTranslation(tmpUp.m22scl(f).add(right.m22scl(f2)));
             return this;
         }
         return (Matrix4) invokeLF.objValue;
@@ -461,9 +461,9 @@ public class Matrix4 implements Serializable {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048627, this, vector3, vector32)) == null) {
-            l_vez.set(vector3).m20nor();
-            l_vex.set(vector3).crs(vector32).m20nor();
-            l_vey.set(l_vex).crs(l_vez).m20nor();
+            l_vez.set(vector3).m21nor();
+            l_vex.set(vector3).crs(vector32).m21nor();
+            l_vey.set(l_vex).crs(l_vez).m21nor();
             idt();
             float[] fArr = this.val;
             Vector3 vector33 = l_vex;
@@ -499,13 +499,13 @@ public class Matrix4 implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, matrix4Arr)) == null) {
             float length = 1.0f / matrix4Arr.length;
-            tmpVec.set(matrix4Arr[0].getScale(tmpUp).m21scl(length));
+            tmpVec.set(matrix4Arr[0].getScale(tmpUp).m22scl(length));
             quat.set(matrix4Arr[0].getRotation(quat2).exp(length));
-            tmpForward.set(matrix4Arr[0].getTranslation(tmpUp).m21scl(length));
+            tmpForward.set(matrix4Arr[0].getTranslation(tmpUp).m22scl(length));
             for (int i = 1; i < matrix4Arr.length; i++) {
-                tmpVec.add(matrix4Arr[i].getScale(tmpUp).m21scl(length));
+                tmpVec.add(matrix4Arr[i].getScale(tmpUp).m22scl(length));
                 quat.mul(matrix4Arr[i].getRotation(quat2).exp(length));
-                tmpForward.add(matrix4Arr[i].getTranslation(tmpUp).m21scl(length));
+                tmpForward.add(matrix4Arr[i].getTranslation(tmpUp).m22scl(length));
             }
             quat.nor();
             setToScaling(tmpVec);
@@ -520,13 +520,13 @@ public class Matrix4 implements Serializable {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, matrix4Arr, fArr)) == null) {
-            tmpVec.set(matrix4Arr[0].getScale(tmpUp).m21scl(fArr[0]));
+            tmpVec.set(matrix4Arr[0].getScale(tmpUp).m22scl(fArr[0]));
             quat.set(matrix4Arr[0].getRotation(quat2).exp(fArr[0]));
-            tmpForward.set(matrix4Arr[0].getTranslation(tmpUp).m21scl(fArr[0]));
+            tmpForward.set(matrix4Arr[0].getTranslation(tmpUp).m22scl(fArr[0]));
             for (int i = 1; i < matrix4Arr.length; i++) {
-                tmpVec.add(matrix4Arr[i].getScale(tmpUp).m21scl(fArr[i]));
+                tmpVec.add(matrix4Arr[i].getScale(tmpUp).m22scl(fArr[i]));
                 quat.mul(matrix4Arr[i].getRotation(quat2).exp(fArr[i]));
-                tmpForward.add(matrix4Arr[i].getTranslation(tmpUp).m21scl(fArr[i]));
+                tmpForward.add(matrix4Arr[i].getTranslation(tmpUp).m22scl(fArr[i]));
             }
             quat.nor();
             setToScaling(tmpVec);
@@ -1109,9 +1109,9 @@ public class Matrix4 implements Serializable {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048606, this, vector3, vector32)) == null) {
-            l_vez.set(vector3).m20nor();
-            l_vex.set(vector3).crs(vector32).m20nor();
-            l_vey.set(l_vex).crs(l_vez).m20nor();
+            l_vez.set(vector3).m21nor();
+            l_vex.set(vector3).crs(vector32).m21nor();
+            l_vey.set(l_vex).crs(l_vez).m21nor();
             float[] fArr = this.val;
             float f = fArr[0];
             Vector3 vector33 = l_vex;
@@ -1245,10 +1245,10 @@ public class Matrix4 implements Serializable {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048646, this, vector3, vector32, vector33)) == null) {
-            tmpForward.set(vector32).m20nor();
-            right.set(tmpForward).crs(vector33).m20nor();
-            tmpUp.set(right).crs(tmpForward).m20nor();
-            set(right, tmpUp, tmpForward.m21scl(-1.0f), vector3);
+            tmpForward.set(vector32).m21nor();
+            right.set(tmpForward).crs(vector33).m21nor();
+            tmpUp.set(right).crs(tmpForward).m21nor();
+            set(right, tmpUp, tmpForward.m22scl(-1.0f), vector3);
             return this;
         }
         return (Matrix4) invokeLLL.objValue;

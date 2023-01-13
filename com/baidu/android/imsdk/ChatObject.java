@@ -21,6 +21,7 @@ public class ChatObject {
     public long mContacter;
     public Context mContext;
     public long mPaid;
+    public long mTimeInterval;
     public int mType;
 
     public ChatObject(Context context, int i, long j) {
@@ -41,21 +42,22 @@ public class ChatObject {
         this.mPaid = -1L;
         this.mType = -1;
         this.mBusinessType = -1;
+        this.mTimeInterval = 0L;
         this.mContext = context;
         this.mCategory = i;
         this.mContacter = j;
     }
 
-    public ChatObject(Context context, int i, long j, long j2, int i2) {
+    public ChatObject(Context context, int i, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2)};
+            Object[] objArr = {context, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -64,6 +66,32 @@ public class ChatObject {
         this.mPaid = -1L;
         this.mType = -1;
         this.mBusinessType = -1;
+        this.mTimeInterval = 0L;
+        this.mContext = context;
+        this.mCategory = i;
+        this.mContacter = j;
+        this.mTimeInterval = j2;
+    }
+
+    public ChatObject(Context context, int i, long j, long j2, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mPaid = -1L;
+        this.mType = -1;
+        this.mBusinessType = -1;
+        this.mTimeInterval = 0L;
         this.mContext = context;
         this.mCategory = i;
         this.mContacter = j;
@@ -129,10 +157,19 @@ public class ChatObject {
         return invokeV.longValue;
     }
 
-    public String getToken() {
+    public long getTimeInterval() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mTimeInterval;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getToken() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return IMConfigInternal.getInstance().getIMConfig(this.mContext).getToken(this);
         }
         return (String) invokeV.objValue;
@@ -141,7 +178,7 @@ public class ChatObject {
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.mType;
         }
         return invokeV.intValue;
@@ -150,7 +187,7 @@ public class ChatObject {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return ((((((this.mCategory + 31) * 31) + ((int) this.mContacter)) * 31) + ((int) this.mPaid)) * 31) + this.mType;
         }
         return invokeV.intValue;
@@ -159,7 +196,7 @@ public class ChatObject {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return getToken();
         }
         return (String) invokeV.objValue;
@@ -167,14 +204,14 @@ public class ChatObject {
 
     public void setBusinessType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             this.mBusinessType = i;
         }
     }
 
     public void setPaid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
             this.mPaid = j;
         }
     }
@@ -182,7 +219,7 @@ public class ChatObject {
     public ChatObject setType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
             this.mType = i;
             return this;
         }

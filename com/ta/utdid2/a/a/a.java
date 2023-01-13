@@ -37,7 +37,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             try {
-                return new String(b(a(), m88a(str)));
+                return new String(b(a(), m92a(str)));
             } catch (Exception unused) {
                 return null;
             }
@@ -107,7 +107,7 @@ public class a {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m88a(String str) {
+    public static byte[] m92a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {

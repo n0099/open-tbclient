@@ -1,123 +1,111 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.graphics.Rect;
-import android.text.TextPaint;
-import android.text.TextUtils;
-import android.view.TouchDelegate;
-import android.view.View;
-import android.view.ViewParent;
-import com.baidu.tieba.m31;
+import android.provider.Settings;
+import android.view.Window;
+import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.load.engine.GlideException;
 /* loaded from: classes4.dex */
 public class f41 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ float b;
-        public final /* synthetic */ View c;
-        public final /* synthetic */ View d;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947714054, "Lcom/baidu/tieba/f41;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947714054, "Lcom/baidu/tieba/f41;");
+        }
+    }
 
-        public a(Context context, float f, View view2, View view3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, Float.valueOf(f), view2, view3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static int c(int i, int i2, int i3) {
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65539, null, i, i2, i3)) == null) {
+            if (i < i2) {
+                i = i2;
+            }
+            return i > i3 ? i3 : i;
+        }
+        return invokeIII.intValue;
+    }
+
+    public static int a(Activity activity) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
+            if (activity != null) {
+                float f = activity.getWindow().getAttributes().screenBrightness;
+                if (f < 0.0f) {
+                    i = b(activity);
+                } else {
+                    i = (int) (f * 255.0f);
                 }
+                int i2 = a;
+                if (i2 >= 0 && i <= 50) {
+                    return i2;
+                }
+                return i;
             }
-            this.a = context;
-            this.b = f;
-            this.c = view2;
-            this.d = view3;
+            return -1;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Rect rect = new Rect();
-                int a = m31.c.a(this.a, this.b);
-                this.c.getHitRect(rect);
-                rect.left -= a;
-                rect.right += a;
-                rect.top -= a;
-                rect.bottom += a;
-                this.d.setTouchDelegate(new TouchDelegate(rect, this.c));
-            }
-        }
+        return invokeL.intValue;
     }
 
-    public static void a(Context context, View view2, float f) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{context, view2, Float.valueOf(f)}) != null) || view2 == null) {
-            return;
-        }
-        ViewParent parent = view2.getParent();
-        if (!View.class.isInstance(parent)) {
-            return;
-        }
-        View view3 = (View) parent;
-        view3.post(new a(context, f, view2, view3));
-    }
-
-    public static String b(String str, String str2, float f, TextPaint textPaint) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Float.valueOf(f), textPaint})) == null) {
-            if (TextUtils.isEmpty(str2)) {
-                str2 = "";
-            }
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            if (textPaint == null) {
-                textPaint = new TextPaint();
-            }
-            CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, f - textPaint.measureText(GlideException.IndentedAppendable.INDENT + str2), TextUtils.TruncateAt.END);
-            if (!TextUtils.isEmpty(ellipsize)) {
-                return ellipsize.toString() + GlideException.IndentedAppendable.INDENT + str2;
-            }
-            return str2;
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static boolean c(View view2) {
+    public static int b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            if (view2 == null || !view2.isShown()) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                return Settings.System.getInt(context.getContentResolver(), "screen_brightness");
+            } catch (Exception e) {
+                e.printStackTrace();
+                return 0;
             }
-            Rect rect = new Rect();
-            if (!view2.getGlobalVisibleRect(rect)) {
-                return false;
-            }
-            long height = rect.height() * rect.width();
-            long height2 = view2.getHeight() * view2.getWidth();
-            if (height2 <= 0 || height * 100 < height2 * 50) {
-                return false;
-            }
-            return true;
         }
-        return invokeL.booleanValue;
+        return invokeL.intValue;
+    }
+
+    public static void f(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, activity) == null) {
+            e(activity, -1);
+        }
+    }
+
+    public static void d(Activity activity, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, i) == null) && activity != null) {
+            a = c(i, 0, 255);
+            int c = c(i, 50, 255);
+            WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
+            attributes.screenBrightness = Float.valueOf(c).floatValue() * 0.003921569f;
+            activity.getWindow().setAttributes(attributes);
+        }
+    }
+
+    public static void e(Activity activity, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65541, null, activity, i) == null) && activity != null) {
+            Window window = activity.getWindow();
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.screenBrightness = i;
+            window.setAttributes(attributes);
+        }
     }
 }

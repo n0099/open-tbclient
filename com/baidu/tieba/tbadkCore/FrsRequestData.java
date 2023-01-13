@@ -5,16 +5,16 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.util.AdExtParam;
-import com.baidu.tieba.by6;
-import com.baidu.tieba.jk8;
-import com.baidu.tieba.mk8;
-import com.baidu.tieba.qd5;
-import com.baidu.tieba.td5;
-import com.baidu.tieba.ti5;
-import com.baidu.tieba.wj5;
-import com.baidu.tieba.xg;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.yi5;
+import com.baidu.tieba.ap8;
+import com.baidu.tieba.dp8;
+import com.baidu.tieba.fe5;
+import com.baidu.tieba.ie5;
+import com.baidu.tieba.ij5;
+import com.baidu.tieba.nj5;
+import com.baidu.tieba.nk5;
+import com.baidu.tieba.yg;
+import com.baidu.tieba.yi;
+import com.baidu.tieba.z17;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import tbclient.FrsPage.AdParam;
 import tbclient.FrsPage.DataReq;
 import tbclient.FrsPage.FrsPageReqIdl;
 /* loaded from: classes6.dex */
-public class FrsRequestData extends OrmObject implements td5, qd5 {
+public class FrsRequestData extends OrmObject implements ie5, fe5 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CATEGORY_ID_KEY = "categoryid";
     public static final int FRS_SMARTLOAD_TYPE_BY_REFRESH = 1;
@@ -81,7 +81,7 @@ public class FrsRequestData extends OrmObject implements td5, qd5 {
     public int y;
     public int z;
 
-    @Override // com.baidu.tieba.sd5
+    @Override // com.baidu.tieba.he5
     public HashMap<String, Object> B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -91,7 +91,7 @@ public class FrsRequestData extends OrmObject implements td5, qd5 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qd5
+    @Override // com.baidu.tieba.fe5
     public String F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -101,7 +101,7 @@ public class FrsRequestData extends OrmObject implements td5, qd5 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pd5
+    @Override // com.baidu.tieba.ee5
     public String getCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -111,7 +111,7 @@ public class FrsRequestData extends OrmObject implements td5, qd5 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qd5
+    @Override // com.baidu.tieba.fe5
     public boolean isNeedUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -121,7 +121,7 @@ public class FrsRequestData extends OrmObject implements td5, qd5 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.qd5
+    @Override // com.baidu.tieba.fe5
     public boolean t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -159,7 +159,7 @@ public class FrsRequestData extends OrmObject implements td5, qd5 {
         this.L = "";
     }
 
-    @Override // com.baidu.tieba.sd5
+    @Override // com.baidu.tieba.he5
     public HashMap<String, String> E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -336,7 +336,7 @@ public class FrsRequestData extends OrmObject implements td5, qd5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
             this.c = str;
-            this.d = xi.getUrlEncode(str);
+            this.d = yi.getUrlEncode(str);
         }
     }
 
@@ -476,7 +476,7 @@ public class FrsRequestData extends OrmObject implements td5, qd5 {
     public void setPushTid(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048622, this, str) == null) {
-            this.M = xg.g(str, 0L);
+            this.M = yg.g(str, 0L);
         }
     }
 
@@ -501,7 +501,7 @@ public class FrsRequestData extends OrmObject implements td5, qd5 {
         }
     }
 
-    @Override // com.baidu.tieba.vd5
+    @Override // com.baidu.tieba.ke5
     public Object h(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -529,18 +529,18 @@ public class FrsRequestData extends OrmObject implements td5, qd5 {
             builder.yuelaou_locate = this.s;
             builder.sort_type = Integer.valueOf(this.y);
             builder.last_click_tid = Long.valueOf(this.x);
-            builder.app_pos = jk8.e().a();
+            builder.app_pos = ap8.e().a();
             builder.load_type = Integer.valueOf(this.z);
             builder.obj_locate = this.C;
             builder.obj_source = this.D;
             builder.is_selection = Integer.valueOf(this.E);
             builder.call_from = Integer.valueOf(this.F);
             builder.hot_thread_id = Long.valueOf(this.H);
-            String d = by6.e().d("frs_feed");
+            String d = z17.e().d("frs_feed");
             builder.ad_bear_sid = d;
-            builder.ad_bear_context = ti5.g(d, ti5.f());
-            builder.ad_bear_sid_price = Double.valueOf(ti5.i());
-            builder.has_ad_bear = Integer.valueOf(ti5.n(builder.ad_bear_sid) ? 1 : 0);
+            builder.ad_bear_context = ij5.g(d, ij5.f());
+            builder.ad_bear_sid_price = Double.valueOf(ij5.i());
+            builder.has_ad_bear = Integer.valueOf(ij5.n(builder.ad_bear_sid) ? 1 : 0);
             AdParam.Builder builder2 = new AdParam.Builder();
             builder2.refresh_count = Integer.valueOf(this.B);
             builder2.load_count = Integer.valueOf(this.A);
@@ -549,7 +549,7 @@ public class FrsRequestData extends OrmObject implements td5, qd5 {
             builder.ad_param = builder2.build(false);
             builder.is_default_navtab = Integer.valueOf(this.I);
             if (this.z != 1) {
-                str = mk8.f().d("FRS");
+                str = dp8.f().d("FRS");
             }
             builder.ad_context_list = str;
             builder.up_schema = this.J;
@@ -557,9 +557,9 @@ public class FrsRequestData extends OrmObject implements td5, qd5 {
             AdExtParam.a b = AdExtParam.a.b();
             b.e(this.L);
             builder.ad_ext_params = b.a();
-            builder.app_transmit_data = yi5.b();
+            builder.app_transmit_data = nj5.b();
             builder.push_tid = Long.valueOf(this.M);
-            wj5.c(builder, true, false, true);
+            nk5.c(builder, true, false, true);
             FrsPageReqIdl.Builder builder3 = new FrsPageReqIdl.Builder();
             builder3.data = builder.build(false);
             return builder3.build(false);

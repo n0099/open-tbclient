@@ -1,18 +1,68 @@
 package com.baidu.tieba;
 
-import android.app.Application;
+import android.app.Activity;
+import android.os.Bundle;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes6.dex */
-public final class sh0 implements dn0 {
+public final class sh0 implements rn0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.rn0
+    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.rn0
+    public void onActivityDestroyed(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.rn0
+    public void onActivityPaused(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.rn0
+    public void onActivityResumed(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.rn0
+    public void onActivitySaveInstanceState(@NonNull Activity activity, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.rn0
+    public void onActivityStarted(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.rn0
+    public void onActivityStopped(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+        }
+    }
 
     public sh0() {
         Interceptable interceptable = $ic;
@@ -28,25 +78,19 @@ public final class sh0 implements dn0 {
         }
     }
 
-    @Override // com.baidu.tieba.dn0
-    public void b() {
+    @Override // com.baidu.tieba.rn0
+    public void onBackgroundToForeground(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !x31.b()) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
+            gm0.a().a(new nm0(true));
         }
-        qm0.b().request().a(false);
-        gn0.a().request();
     }
 
-    @Override // com.baidu.tieba.dn0
-    public void a(@NonNull Application application) {
+    @Override // com.baidu.tieba.rn0
+    public void onForegroundToBackground(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, application) == null) {
-            qh0.a().b(rh0.e());
-            application.registerActivityLifecycleCallbacks(qh0.a());
-            rh0.e().b(new mh0());
-            rh0.e().h(new nh0());
-            in0.c(rh0.e());
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) {
+            gm0.a().a(new nm0(false));
         }
     }
 }

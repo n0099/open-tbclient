@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.meter.TaskMeterData;
+import com.baidu.bdtask.model.guide.TaskGuideData;
 import com.baidu.bdtask.model.response.TaskResponseData;
 import com.baidu.bdtask.model.ui.TaskUIData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,68 +12,61 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public final class au extends tt<TaskMeterData> {
+public final class au extends vt<TaskGuideData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final vt a;
+    public final xt a;
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TaskMeterData.key : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "guide" : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public au(vt vtVar) {
-        super(vtVar);
+    public au(xt xtVar) {
+        super(xtVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vtVar};
+            Object[] objArr = {xtVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((vt) newInitContext.callArgs[0]);
+                super((xt) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = vtVar;
+        this.a = xtVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tt
+    @Override // com.baidu.tieba.vt
     /* renamed from: c */
-    public TaskMeterData a(String str) {
+    public TaskGuideData a(String str) {
         InterceptResult invokeL;
-        JSONObject jSONObject;
-        int optInt;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             try {
-                jSONObject = new JSONObject(str);
-                optInt = jSONObject.optInt(TaskResponseData.keyUiType);
-            } catch (Exception e) {
-                e = e;
-            }
-            try {
-                tt a = this.a.a(TaskUIData.key);
+                JSONObject jSONObject = new JSONObject(str);
+                int optInt = jSONObject.optInt(TaskResponseData.keyUiType);
+                vt a = this.a.a(TaskUIData.key);
                 String optString = jSONObject.optString(TaskUIData.key);
                 Intrinsics.checkExpressionValueIsNotNull(optString, "guide.optString(TaskUIData.key)");
                 TaskUIData taskUIData = (TaskUIData) a.a(optString);
-                if (taskUIData == null) {
-                    taskUIData = new TaskUIData(null, null, 0, null, null, null, null, null, null, 0, null, null, 4095, null);
+                if (taskUIData != null) {
+                    return new TaskGuideData(optInt, taskUIData);
                 }
-                return new TaskMeterData(optInt, taskUIData);
-            } catch (Exception e2) {
-                e = e2;
+                return new TaskGuideData(0, null, 3, null);
+            } catch (Exception e) {
                 e.printStackTrace();
-                return new TaskMeterData(0, null, 3, null);
+                return new TaskGuideData(0, null, 3, null);
             }
         }
-        return (TaskMeterData) invokeL.objValue;
+        return (TaskGuideData) invokeL.objValue;
     }
 }

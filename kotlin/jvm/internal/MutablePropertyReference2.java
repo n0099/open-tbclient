@@ -31,13 +31,13 @@ public abstract class MutablePropertyReference2 extends MutablePropertyReference
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // kotlin.reflect.KProperty, kotlin.reflect.KProperty0
+    @Override // kotlin.reflect.KProperty
     public KProperty2.Getter getGetter() {
         return ((KMutableProperty2) getReflected()).getGetter();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // kotlin.reflect.KMutableProperty, kotlin.reflect.KMutableProperty0
+    @Override // kotlin.reflect.KMutableProperty
     public KMutableProperty2.Setter getSetter() {
         return ((KMutableProperty2) getReflected()).getSetter();
     }

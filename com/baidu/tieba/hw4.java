@@ -1,46 +1,70 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.text.SpannableStringBuilder;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.dialog.RoundLinearLayout;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.MaxHeightScrollView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import org.json.JSONArray;
 /* loaded from: classes4.dex */
 public class hw4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<DialogStrategiesData> c;
-    public static volatile hw4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public Map<String, List<DialogStrategiesData>> a;
-    public final Set<String> b;
+    public Context a;
+    public RoundLinearLayout b;
+    public LinearLayout c;
+    public LinearLayout d;
+    public EMTextView e;
+    public View f;
+    public TextView g;
+    public View h;
+    public MaxHeightScrollView i;
+    public String j;
+    public SpannableStringBuilder k;
+    public List<? extends gw4> l;
+    public f m;
+    public c n;
+    public d o;
+    public boolean p;
 
     /* loaded from: classes4.dex */
     public interface c {
-        void a(List<DialogStrategiesData> list);
+        void onClick();
     }
 
     /* loaded from: classes4.dex */
-    public class a extends ik5<List<DialogStrategiesData>> {
+    public interface d {
+        void a();
+    }
+
+    /* loaded from: classes4.dex */
+    public interface e {
+        void onClick();
+    }
+
+    /* loaded from: classes4.dex */
+    public interface f {
+        void o0(hw4 hw4Var, int i, View view2);
+    }
+
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ hw4 a;
@@ -63,33 +87,27 @@ public class hw4 {
             this.a = hw4Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ik5
-        /* renamed from: a */
-        public List<DialogStrategiesData> doInBackground() {
-            InterceptResult invokeV;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a.i();
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.n.onClick();
             }
-            return (List) invokeV.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b implements mj5<List<DialogStrategiesData>> {
+    public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ hw4 c;
+        public final /* synthetic */ hw4 a;
 
-        public b(hw4 hw4Var, c cVar, String str) {
+        public b(hw4 hw4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hw4Var, cVar, str};
+                Object[] objArr = {hw4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -99,195 +117,339 @@ public class hw4 {
                     return;
                 }
             }
-            this.c = hw4Var;
-            this.a = cVar;
-            this.b = str;
+            this.a = hw4Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.mj5
-        /* renamed from: a */
-        public void onReturnDataInUI(List<DialogStrategiesData> list) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, list) != null) {
-                return;
-            }
-            this.c.k(list);
-            if (this.a != null) {
-                List<DialogStrategiesData> list2 = (List) this.c.a.get(this.b);
-                c cVar = this.a;
-                if (ListUtils.isEmpty(list2)) {
-                    list2 = hw4.c;
-                }
-                cVar.a(list2);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.n.onClick();
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947838116, "Lcom/baidu/tieba/hw4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947838116, "Lcom/baidu/tieba/hw4;");
-                return;
-            }
-        }
-        c = Collections.emptyList();
-    }
-
-    public hw4() {
+    public hw4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new LinkedHashSet();
+        this.p = false;
+        if (context == null) {
+            return;
+        }
+        this.a = context;
+        h();
     }
 
-    public static hw4 f() {
-        InterceptResult invokeV;
+    public void k(List<? extends gw4> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (d == null) {
-                synchronized (hw4.class) {
-                    if (d == null) {
-                        d = new hw4();
+        if ((interceptable != null && interceptable.invokeL(1048586, this, list) != null) || list == null) {
+            return;
+        }
+        this.l = list;
+        this.c.removeAllViews();
+        for (int i = 0; i < list.size(); i++) {
+            gw4 gw4Var = list.get(i);
+            if (gw4Var != null) {
+                this.c.addView(gw4Var.getView());
+            }
+        }
+    }
+
+    public void m(int i) {
+        MaxHeightScrollView maxHeightScrollView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && (maxHeightScrollView = this.i) != null) {
+            maxHeightScrollView.setMaxHeight(i);
+            this.i.setVerticalScrollBarEnabled(true);
+        }
+    }
+
+    public void n(c cVar) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, cVar) == null) {
+            this.n = cVar;
+            if (cVar != null && (textView = this.g) != null) {
+                textView.setOnClickListener(new a(this));
+            }
+        }
+    }
+
+    public void o(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, dVar) == null) {
+            this.o = dVar;
+        }
+    }
+
+    public void p(f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, fVar) == null) {
+            this.m = fVar;
+        }
+    }
+
+    public void q(SpannableStringBuilder spannableStringBuilder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, spannableStringBuilder) == null) {
+            this.k = spannableStringBuilder;
+        }
+    }
+
+    public void s(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            this.j = str;
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0045  */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0047  */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x004f  */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x0051  */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x005e  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0065  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void b(List<? extends gw4> list) {
+        boolean z;
+        boolean z2;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || list == null) {
+            return;
+        }
+        i();
+        this.l = list;
+        this.c.removeAllViews();
+        this.d.removeAllViews();
+        boolean z3 = true;
+        if (list.size() < 2) {
+            z = false;
+        } else {
+            if (((dw4) list.get(0)).f() != -1) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (((dw4) list.get(1)).f() == -2) {
+                z2 = true;
+                View view2 = this.f;
+                if (!z) {
+                    i = 0;
+                } else {
+                    i = 8;
+                }
+                view2.setVisibility(i);
+                if (z) {
+                    i2 = 0;
+                } else if (z2) {
+                    i2 = 4;
+                } else {
+                    i2 = 3;
+                }
+                if (list.size() - i2 <= 4) {
+                    z3 = false;
+                }
+                for (int i3 = 0; i3 < list.size(); i3++) {
+                    dw4 dw4Var = (dw4) list.get(i3);
+                    dw4Var.k(z3);
+                    dw4Var.e();
+                    if (dw4Var != null) {
+                        if (i3 < i2) {
+                            this.c.addView(dw4Var.getView());
+                        } else {
+                            this.d.addView(dw4Var.getView());
+                        }
                     }
                 }
             }
-            return d;
         }
-        return (hw4) invokeV.objValue;
+        z2 = false;
+        View view22 = this.f;
+        if (!z) {
+        }
+        view22.setVisibility(i);
+        if (z) {
+        }
+        if (list.size() - i2 <= 4) {
+        }
+        while (i3 < list.size()) {
+        }
     }
 
-    public static String g() {
+    public View c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return "key_yun_dialog_strategies@" + TbadkCoreApplication.getCurrentAccount();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            r();
+            if (this.n != null) {
+                this.g.setOnClickListener(new b(this));
+            }
+            j();
+            return this.b;
         }
-        return (String) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    @NonNull
-    public void e(@NonNull String str, c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) {
-            if (this.a == null) {
-                this.a = new LinkedHashMap();
-            }
-            List<DialogStrategiesData> list = this.a.get(str);
-            if (list == null && this.a.isEmpty()) {
-                mk5.b(new a(this), new b(this, cVar, str));
-            } else if (cVar != null) {
-                if (ListUtils.isEmpty(list)) {
-                    list = c;
-                }
-                cVar.a(list);
-            }
-        }
-    }
-
-    public final void h(Map<String, List<DialogStrategiesData>> map, List<DialogStrategiesData> list, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, list, str) != null) || map == null) {
-            return;
-        }
-        for (DialogStrategiesData dialogStrategiesData : list) {
-            if (map.containsKey(str)) {
-                if (dialogStrategiesData.getDialogTime().contains(str)) {
-                    map.get(str).add(dialogStrategiesData);
-                }
-            } else if (dialogStrategiesData.getDialogTime().contains(str)) {
-                ArrayList arrayList = new ArrayList();
-                arrayList.add(dialogStrategiesData);
-                map.put(str, arrayList);
-            }
-        }
-    }
-
-    public final List<DialogStrategiesData> i() {
+    public f d() {
         InterceptResult invokeV;
-        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            df<String> i = kv4.i("tb.dialog_strategies_data", TbadkCoreApplication.getCurrentAccount(), g());
-            if (i != null) {
-                str = i.get(g());
-            } else {
-                str = null;
-            }
-            if (StringUtils.isNull(str)) {
-                return c;
-            }
-            try {
-                return DataExt.toEntityList(new JSONArray(str).toString(), DialogStrategiesData.class);
-            } catch (Exception e) {
-                BdLog.e(e);
-                return c;
-            }
+            return this.m;
+        }
+        return (f) invokeV.objValue;
+    }
+
+    public View e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public ViewGroup f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (ViewGroup) invokeV.objValue;
+    }
+
+    public List<? extends gw4> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.l;
         }
         return (List) invokeV.objValue;
     }
 
-    public void j(JSONArray jSONArray) {
-        df<String> i;
+    public Context getContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONArray) != null) || (i = kv4.i("tb.dialog_strategies_data", TbadkCoreApplication.getCurrentAccount(), g())) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
         }
-        if (jSONArray != null && jSONArray.length() > 0) {
-            mw4.a.a(jSONArray.toString());
-            try {
-                k(DataExt.toEntityList(jSONArray.toString(), DialogStrategiesData.class));
-                return;
-            } catch (Exception e) {
-                BdLog.e(e);
-                return;
-            }
-        }
-        i.remove(g());
-        k(Collections.emptyList());
+        return (Context) invokeV.objValue;
     }
 
-    public final void k(List<DialogStrategiesData> list) {
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            try {
-                if (!ListUtils.isEmpty(list)) {
-                    if (this.a == null) {
-                        this.a = new LinkedHashMap();
-                    }
-                    this.a.clear();
-                    for (DialogStrategiesData dialogStrategiesData : list) {
-                        List<String> dialogTime = dialogStrategiesData.getDialogTime();
-                        if (!ListUtils.isEmpty(dialogTime)) {
-                            this.b.addAll(dialogTime);
-                        }
-                    }
-                    for (String str : this.b) {
-                        h(this.a, list, str);
-                    }
-                    return;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            RoundLinearLayout roundLinearLayout = (RoundLinearLayout) LayoutInflater.from(this.a).inflate(R.layout.popup_dialog_view, (ViewGroup) null);
+            this.b = roundLinearLayout;
+            cx4 d2 = cx4.d(roundLinearLayout);
+            d2.n(R.string.J_X14);
+            d2.f(R.color.CAM_X0204);
+            this.c = (LinearLayout) this.b.findViewById(R.id.content_view);
+            this.e = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f0922ff);
+            View findViewById = this.b.findViewById(R.id.title_divide_line);
+            this.f = findViewById;
+            findViewById.setVisibility(8);
+            this.h = this.b.findViewById(R.id.dialog_header);
+            this.l = new ArrayList();
+            this.g = (TextView) this.b.findViewById(R.id.dialog_bottom_cancel_button);
+            this.i = (MaxHeightScrollView) this.b.findViewById(R.id.max_height_scroll_view);
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            d dVar = this.o;
+            if (dVar != null) {
+                dVar.a();
+            }
+            if (this.p) {
+                EMTextView eMTextView = this.e;
+                if (eMTextView != null) {
+                    eMTextView.setText(this.k);
                 }
-                if (this.a != null) {
-                    this.a.clear();
+                SkinManager.setBackgroundColor(this.f, R.color.CAM_X0203);
+            } else {
+                SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0109);
+                SkinManager.setBackgroundColor(this.f, R.color.CAM_X0204);
+            }
+            SkinManager.setBackgroundColor(this.e, R.color.CAM_X0206);
+            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
+            SkinManager.setViewTextColorSelector(this.g, R.color.CAM_X0107);
+            cx4 d2 = cx4.d(this.b);
+            d2.n(R.string.J_X14);
+            d2.f(R.color.CAM_X0204);
+            List<? extends gw4> list = this.l;
+            if (list != null) {
+                for (gw4 gw4Var : list) {
+                    gw4Var.a();
                 }
-                this.b.clear();
-            } catch (Exception e) {
-                BdLog.e(e);
+            }
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.p = true;
+            RoundLinearLayout roundLinearLayout = (RoundLinearLayout) LayoutInflater.from(this.a).inflate(R.layout.popup_dialog_view_horizal, (ViewGroup) null);
+            this.b = roundLinearLayout;
+            cx4 d2 = cx4.d(roundLinearLayout);
+            d2.n(R.string.J_X14);
+            d2.f(R.color.CAM_X0204);
+            this.c = (LinearLayout) this.b.findViewById(R.id.content_view);
+            this.d = (LinearLayout) this.b.findViewById(R.id.content_view_second);
+            this.e = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f0922ff);
+            View findViewById = this.b.findViewById(R.id.title_divide_line);
+            this.f = findViewById;
+            findViewById.setVisibility(8);
+            this.h = this.b.findViewById(R.id.dialog_header);
+            this.l = new ArrayList();
+            this.g = (TextView) this.b.findViewById(R.id.dialog_bottom_cancel_button);
+            int l = (zi.l(this.a) - (dw4.q * 4)) / 2;
+            ((LinearLayout.LayoutParams) this.c.getLayoutParams()).leftMargin = l;
+            ((LinearLayout.LayoutParams) this.c.getLayoutParams()).rightMargin = l;
+            ((FrameLayout.LayoutParams) this.d.getLayoutParams()).leftMargin = l;
+            ((FrameLayout.LayoutParams) this.d.getLayoutParams()).rightMargin = l;
+        }
+    }
+
+    public void l(List<? extends gw4> list, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048587, this, list, z) == null) {
+            if (z) {
+                b(list);
+            } else {
+                k(list);
+            }
+        }
+    }
+
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            if (!StringUtils.isNull(this.j)) {
+                this.e.setVisibility(0);
+                this.e.setText(this.j);
+            } else if (this.k != null) {
+                this.e.setVisibility(0);
+                this.e.setText(this.k);
             }
         }
     }

@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,10 +9,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ac extends bc {
+public class ac extends cc {
     public static /* synthetic */ Interceptable $ic;
-    public static ac c;
+    public static ac d;
     public transient /* synthetic */ FieldHolder $fh;
+    public dc c;
 
     static {
         InterceptResult invokeClinit;
@@ -41,39 +43,34 @@ public class ac extends bc {
                 return;
             }
         }
-        this.a = new cc(20000, 10000, 5000);
+        this.c = null;
+        this.a = new dc(28000, TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000);
+        this.c = new dc(TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000, 5000);
         this.b = 3;
     }
 
-    public static ac c() {
+    public static ac d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
+            if (d == null) {
                 synchronized (ac.class) {
-                    if (c == null) {
-                        c = new ac();
+                    if (d == null) {
+                        d = new ac();
                     }
                 }
             }
-            return c;
+            return d;
         }
         return (ac) invokeV.objValue;
     }
 
-    public void d(int i, int i2, int i3) {
+    public dc c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
-            if (i < 3000) {
-                i = 3000;
-            }
-            if (i2 < 3000) {
-                i2 = 3000;
-            }
-            if (i3 < 3000) {
-                i3 = 3000;
-            }
-            this.a = new cc(i, i2, i3);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
+        return (dc) invokeV.objValue;
     }
 }

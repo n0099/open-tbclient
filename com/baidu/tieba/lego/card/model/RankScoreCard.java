@@ -4,8 +4,9 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.tieba.gm7;
+import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
 import com.baidu.tieba.lego.card.exception.CardParseException;
+import com.baidu.tieba.vq7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,17 +51,17 @@ public class RankScoreCard extends BaseCardInfo {
                 return;
             }
         }
-        this.rank = jSONObject.optInt("rank");
+        this.rank = jSONObject.optInt(MultiRatePlayUrlHelper.RANK);
         this.desc = jSONObject.optString("desc");
         this.desc2 = jSONObject.optString("desc2");
-        this.d2Color = gm7.b(jSONObject.optString("d2Color", ""));
-        this.d2ColorN = gm7.b(jSONObject.optString("d2ColorN", ""));
+        this.d2Color = vq7.b(jSONObject.optString("d2Color", ""));
+        this.d2ColorN = vq7.b(jSONObject.optString("d2ColorN", ""));
         this.d2Scheme = jSONObject.optString("d2Scheme");
         this.ratio = jSONObject.optDouble(MapBundleKey.OfflineMapKey.OFFLINE_RATION);
         this.picUrl = jSONObject.optString("picUrl");
         this.subTitle = jSONObject.optString("subTitle");
-        this.sColor = gm7.b(jSONObject.optString("sColor", ""));
-        this.sColorNight = gm7.b(jSONObject.optString("sColorN", ""));
+        this.sColor = vq7.b(jSONObject.optString("sColor", ""));
+        this.sColorNight = vq7.b(jSONObject.optString("sColorN", ""));
         this.postUrl = jSONObject.optString("postUrl");
         this.isDone = jSONObject.optInt("isDone") == 1;
         this.btnText = jSONObject.optString("btnText");

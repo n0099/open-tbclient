@@ -1,21 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+import tbclient.WorldCupInfo;
 /* loaded from: classes5.dex */
-public abstract class o65 {
+public class o65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract q65 b(Context context);
-
-    public abstract void c(q65 q65Var);
-
-    public abstract void d(q65 q65Var);
+    public String a;
 
     public o65() {
         Interceptable interceptable = $ic;
@@ -31,15 +28,35 @@ public abstract class o65 {
         }
     }
 
-    public q65 a(Context context) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            q65 b = b(context);
-            d(b);
-            c(b);
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (q65) invokeL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public void b(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optString("avatar_teamflag_url");
+    }
+
+    public void c(WorldCupInfo worldCupInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, worldCupInfo) != null) || worldCupInfo == null) {
+            return;
+        }
+        this.a = worldCupInfo.avatar_teamflag_url;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.a = str;
+        }
     }
 }

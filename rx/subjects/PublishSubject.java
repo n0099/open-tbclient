@@ -1,14 +1,14 @@
 package rx.subjects;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c3a;
-import com.baidu.tieba.d3a;
-import com.baidu.tieba.e3a;
-import com.baidu.tieba.i3a;
-import com.baidu.tieba.j3a;
-import com.baidu.tieba.o3a;
-import com.baidu.tieba.u7a;
-import com.baidu.tieba.x3a;
+import com.baidu.tieba.cda;
+import com.baidu.tieba.f9a;
+import com.baidu.tieba.k8a;
+import com.baidu.tieba.l8a;
+import com.baidu.tieba.m8a;
+import com.baidu.tieba.q8a;
+import com.baidu.tieba.r8a;
+import com.baidu.tieba.w8a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,26 +21,26 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes9.dex */
-public final class PublishSubject<T> extends u7a<T, T> {
+public final class PublishSubject<T> extends cda<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final PublishSubjectState<T> b;
 
     /* loaded from: classes9.dex */
-    public static final class PublishSubjectProducer<T> extends AtomicLong implements e3a, j3a, d3a<T> {
+    public static final class PublishSubjectProducer<T> extends AtomicLong implements m8a, r8a, l8a<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6451806817170721536L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final i3a<? super T> actual;
+        public final q8a<? super T> actual;
         public final PublishSubjectState<T> parent;
         public long produced;
 
-        public PublishSubjectProducer(PublishSubjectState<T> publishSubjectState, i3a<? super T> i3aVar) {
+        public PublishSubjectProducer(PublishSubjectState<T> publishSubjectState, q8a<? super T> q8aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {publishSubjectState, i3aVar};
+                Object[] objArr = {publishSubjectState, q8aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -51,10 +51,10 @@ public final class PublishSubject<T> extends u7a<T, T> {
                 }
             }
             this.parent = publishSubjectState;
-            this.actual = i3aVar;
+            this.actual = q8aVar;
         }
 
-        @Override // com.baidu.tieba.j3a
+        @Override // com.baidu.tieba.r8a
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public final class PublishSubject<T> extends u7a<T, T> {
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.d3a
+        @Override // com.baidu.tieba.l8a
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && get() != Long.MIN_VALUE) {
@@ -75,7 +75,7 @@ public final class PublishSubject<T> extends u7a<T, T> {
             }
         }
 
-        @Override // com.baidu.tieba.j3a
+        @Override // com.baidu.tieba.r8a
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && getAndSet(Long.MIN_VALUE) != Long.MIN_VALUE) {
@@ -83,7 +83,7 @@ public final class PublishSubject<T> extends u7a<T, T> {
             }
         }
 
-        @Override // com.baidu.tieba.d3a
+        @Override // com.baidu.tieba.l8a
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) && get() != Long.MIN_VALUE) {
@@ -91,21 +91,21 @@ public final class PublishSubject<T> extends u7a<T, T> {
             }
         }
 
-        @Override // com.baidu.tieba.e3a
+        @Override // com.baidu.tieba.m8a
         public void request(long j) {
             long j2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && x3a.h(j)) {
+            if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && f9a.h(j)) {
                 do {
                     j2 = get();
                     if (j2 == Long.MIN_VALUE) {
                         return;
                     }
-                } while (!compareAndSet(j2, x3a.a(j2, j)));
+                } while (!compareAndSet(j2, f9a.a(j2, j)));
             }
         }
 
-        @Override // com.baidu.tieba.d3a
+        @Override // com.baidu.tieba.l8a
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
@@ -125,7 +125,7 @@ public final class PublishSubject<T> extends u7a<T, T> {
     }
 
     /* loaded from: classes9.dex */
-    public static final class PublishSubjectState<T> extends AtomicReference<PublishSubjectProducer<T>[]> implements c3a.a<T>, d3a<T> {
+    public static final class PublishSubjectState<T> extends AtomicReference<PublishSubjectProducer<T>[]> implements k8a.a<T>, l8a<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final PublishSubjectProducer[] EMPTY;
         public static final PublishSubjectProducer[] TERMINATED;
@@ -166,7 +166,7 @@ public final class PublishSubject<T> extends u7a<T, T> {
             lazySet(EMPTY);
         }
 
-        @Override // com.baidu.tieba.d3a
+        @Override // com.baidu.tieba.l8a
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -197,12 +197,12 @@ public final class PublishSubject<T> extends u7a<T, T> {
             return invokeL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.c3a.a, com.baidu.tieba.q3a
+        @Override // com.baidu.tieba.k8a.a, com.baidu.tieba.y8a
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((i3a) ((i3a) obj));
+            call((q8a) ((q8a) obj));
         }
 
-        @Override // com.baidu.tieba.d3a
+        @Override // com.baidu.tieba.l8a
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
@@ -212,12 +212,12 @@ public final class PublishSubject<T> extends u7a<T, T> {
             }
         }
 
-        public void call(i3a<? super T> i3aVar) {
+        public void call(q8a<? super T> q8aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3aVar) == null) {
-                PublishSubjectProducer<T> publishSubjectProducer = new PublishSubjectProducer<>(this, i3aVar);
-                i3aVar.b(publishSubjectProducer);
-                i3aVar.f(publishSubjectProducer);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q8aVar) == null) {
+                PublishSubjectProducer<T> publishSubjectProducer = new PublishSubjectProducer<>(this, q8aVar);
+                q8aVar.b(publishSubjectProducer);
+                q8aVar.f(publishSubjectProducer);
                 if (add(publishSubjectProducer)) {
                     if (publishSubjectProducer.isUnsubscribed()) {
                         remove(publishSubjectProducer);
@@ -227,14 +227,14 @@ public final class PublishSubject<T> extends u7a<T, T> {
                 }
                 Throwable th = this.error;
                 if (th != null) {
-                    i3aVar.onError(th);
+                    q8aVar.onError(th);
                 } else {
-                    i3aVar.onCompleted();
+                    q8aVar.onCompleted();
                 }
             }
         }
 
-        @Override // com.baidu.tieba.d3a
+        @Override // com.baidu.tieba.l8a
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, th) == null) {
@@ -250,7 +250,7 @@ public final class PublishSubject<T> extends u7a<T, T> {
                         arrayList.add(th2);
                     }
                 }
-                o3a.d(arrayList);
+                w8a.d(arrayList);
             }
         }
 
@@ -306,7 +306,7 @@ public final class PublishSubject<T> extends u7a<T, T> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((c3a.a) newInitContext.callArgs[0]);
+                super((k8a.a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -324,7 +324,7 @@ public final class PublishSubject<T> extends u7a<T, T> {
         return (PublishSubject) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.d3a
+    @Override // com.baidu.tieba.l8a
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -332,7 +332,7 @@ public final class PublishSubject<T> extends u7a<T, T> {
         }
     }
 
-    @Override // com.baidu.tieba.d3a
+    @Override // com.baidu.tieba.l8a
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -340,7 +340,7 @@ public final class PublishSubject<T> extends u7a<T, T> {
         }
     }
 
-    @Override // com.baidu.tieba.d3a
+    @Override // com.baidu.tieba.l8a
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {

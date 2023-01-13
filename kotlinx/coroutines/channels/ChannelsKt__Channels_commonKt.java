@@ -20,10 +20,12 @@ import java.util.Set;
 import java.util.concurrent.CancellationException;
 import kotlin.Deprecated;
 import kotlin.DeprecationLevel;
+import kotlin.ExceptionsKt__ExceptionsKt;
 import kotlin.Metadata;
 import kotlin.Pair;
 import kotlin.PublishedApi;
 import kotlin.ResultKt;
+import kotlin.TuplesKt;
 import kotlin.TypeCastException;
 import kotlin.Unit;
 import kotlin.collections.IndexedValue;
@@ -9838,7 +9840,20 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
     public static final <E, R> ReceiveChannel<Pair<E, R>> zip(ReceiveChannel<? extends E> receiveChannel, ReceiveChannel<? extends R> receiveChannel2) {
         ReceiveChannel<Pair<E, R>> zip$default;
-        zip$default = zip$default(receiveChannel, receiveChannel2, null, ChannelsKt__Channels_commonKt$zip$1.INSTANCE, 2, null);
+        zip$default = zip$default(receiveChannel, receiveChannel2, null, new Function2<E, R, Pair<? extends E, ? extends R>>() { // from class: kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$zip$1
+            /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
+            /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.lang.Object */
+            /* JADX WARN: Multi-variable type inference failed */
+            @Override // kotlin.jvm.functions.Function2
+            public /* bridge */ /* synthetic */ Object invoke(Object obj, Object obj2) {
+                return invoke((ChannelsKt__Channels_commonKt$zip$1<E, R>) obj, obj2);
+            }
+
+            @Override // kotlin.jvm.functions.Function2
+            public final Pair<E, R> invoke(E e, R r) {
+                return TuplesKt.to(e, r);
+            }
+        }, 2, null);
         return zip$default;
     }
 
@@ -10730,13 +10745,63 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
-    public static final Function1<Throwable, Unit> consumes(ReceiveChannel<?> receiveChannel) {
-        return new ChannelsKt__Channels_commonKt$consumes$1(receiveChannel);
+    public static final Function1<Throwable, Unit> consumes(final ReceiveChannel<?> receiveChannel) {
+        return new Function1<Throwable, Unit>() { // from class: kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$consumes$1
+            {
+                super(1);
+            }
+
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function1
+            public /* bridge */ /* synthetic */ Unit invoke(Throwable th) {
+                invoke2(th);
+                return Unit.INSTANCE;
+            }
+
+            /* renamed from: invoke  reason: avoid collision after fix types in other method */
+            public final void invoke2(Throwable th) {
+                ChannelsKt.cancelConsumed(ReceiveChannel.this, th);
+            }
+        };
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
-    public static final Function1<Throwable, Unit> consumesAll(ReceiveChannel<?>... receiveChannelArr) {
-        return new ChannelsKt__Channels_commonKt$consumesAll$1(receiveChannelArr);
+    public static final Function1<Throwable, Unit> consumesAll(final ReceiveChannel<?>... receiveChannelArr) {
+        return new Function1<Throwable, Unit>() { // from class: kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$consumesAll$1
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(1);
+            }
+
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function1
+            public /* bridge */ /* synthetic */ Unit invoke(Throwable th) {
+                invoke2(th);
+                return Unit.INSTANCE;
+            }
+
+            /* renamed from: invoke  reason: avoid collision after fix types in other method */
+            public final void invoke2(Throwable th) {
+                Throwable th2 = null;
+                for (ReceiveChannel receiveChannel : receiveChannelArr) {
+                    try {
+                        ChannelsKt.cancelConsumed(receiveChannel, th);
+                    } catch (Throwable th3) {
+                        if (th2 == null) {
+                            th2 = th3;
+                        } else {
+                            ExceptionsKt__ExceptionsKt.addSuppressed(th2, th3);
+                        }
+                    }
+                }
+                if (th2 == null) {
+                    return;
+                }
+                throw th2;
+            }
+        };
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")

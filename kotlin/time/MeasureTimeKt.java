@@ -17,14 +17,14 @@ public final class MeasureTimeKt {
         Intrinsics.checkNotNullParameter(block, "block");
         TimeMark markNow = TimeSource.Monotonic.INSTANCE.markNow();
         block.invoke();
-        return markNow.mo1983elapsedNowUwyO8pc();
+        return markNow.mo2047elapsedNowUwyO8pc();
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalTime
     public static final <T> TimedValue<T> measureTimedValue(Function0<? extends T> block) {
         Intrinsics.checkNotNullParameter(block, "block");
-        return new TimedValue<>(block.invoke(), TimeSource.Monotonic.INSTANCE.markNow().mo1983elapsedNowUwyO8pc(), null);
+        return new TimedValue<>(block.invoke(), TimeSource.Monotonic.INSTANCE.markNow().mo2047elapsedNowUwyO8pc(), null);
     }
 
     @SinceKotlin(version = "1.3")
@@ -34,7 +34,7 @@ public final class MeasureTimeKt {
         Intrinsics.checkNotNullParameter(block, "block");
         TimeMark markNow = measureTime.markNow();
         block.invoke();
-        return markNow.mo1983elapsedNowUwyO8pc();
+        return markNow.mo2047elapsedNowUwyO8pc();
     }
 
     @SinceKotlin(version = "1.3")
@@ -42,6 +42,6 @@ public final class MeasureTimeKt {
     public static final <T> TimedValue<T> measureTimedValue(TimeSource measureTimedValue, Function0<? extends T> block) {
         Intrinsics.checkNotNullParameter(measureTimedValue, "$this$measureTimedValue");
         Intrinsics.checkNotNullParameter(block, "block");
-        return new TimedValue<>(block.invoke(), measureTimedValue.markNow().mo1983elapsedNowUwyO8pc(), null);
+        return new TimedValue<>(block.invoke(), measureTimedValue.markNow().mo2047elapsedNowUwyO8pc(), null);
     }
 }

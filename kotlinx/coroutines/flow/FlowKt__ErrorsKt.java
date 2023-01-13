@@ -32,7 +32,7 @@ public final /* synthetic */ class FlowKt__ErrorsKt {
 
     @ExperimentalCoroutinesApi
     /* renamed from: catch */
-    public static final <T> Flow<T> m2113catch(Flow<? extends T> flow, Function3<? super FlowCollector<? super T>, ? super Throwable, ? super Continuation<? super Unit>, ? extends Object> function3) {
+    public static final <T> Flow<T> m2177catch(Flow<? extends T> flow, Function3<? super FlowCollector<? super T>, ? super Throwable, ? super Continuation<? super Unit>, ? extends Object> function3) {
         return new FlowKt__ErrorsKt$catch$$inlined$unsafeFlow$1(flow, function3);
     }
 
@@ -103,7 +103,7 @@ public final /* synthetic */ class FlowKt__ErrorsKt {
                     Ref.ObjectRef objectRef2 = new Ref.ObjectRef();
                     objectRef2.element = null;
                     try {
-                        FlowCollector<? super Object> flowKt__ErrorsKt$catchImpl$$inlined$collect$1 = new FlowKt__ErrorsKt$catchImpl$$inlined$collect$1(flowCollector, objectRef2);
+                        FlowCollector<? super Object> flowKt__ErrorsKt$catchImpl$$inlined$collect$1 = new FlowKt__ErrorsKt$catchImpl$$inlined$collect$1<>(flowCollector, objectRef2);
                         flowKt__ErrorsKt$catchImpl$1.L$0 = flow;
                         flowKt__ErrorsKt$catchImpl$1.L$1 = flowCollector;
                         flowKt__ErrorsKt$catchImpl$1.L$2 = objectRef2;
@@ -135,7 +135,7 @@ public final /* synthetic */ class FlowKt__ErrorsKt {
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Use catch { e -> if (predicate(e)) emitAll(fallback) else throw e }", replaceWith = @ReplaceWith(expression = "catch { e -> if (predicate(e)) emitAll(fallback) else throw e }", imports = {}))
     public static final <T> Flow<T> onErrorCollect(Flow<? extends T> flow, Flow<? extends T> flow2, Function1<? super Throwable, Boolean> function1) {
-        return FlowKt.m2108catch(flow, new FlowKt__ErrorsKt$onErrorCollect$2(function1, flow2, null));
+        return FlowKt.m2172catch(flow, new FlowKt__ErrorsKt$onErrorCollect$2(function1, flow2, null));
     }
 
     @Deprecated(level = DeprecationLevel.HIDDEN, message = "binary compatibility with retries: Int preview version")
@@ -155,7 +155,19 @@ public final /* synthetic */ class FlowKt__ErrorsKt {
 
     public static /* synthetic */ Flow onErrorCollect$default(Flow flow, Flow flow2, Function1 function1, int i, Object obj) {
         if ((i & 2) != 0) {
-            function1 = FlowKt__ErrorsKt$onErrorCollect$1.INSTANCE;
+            function1 = new Function1<Throwable, Boolean>() { // from class: kotlinx.coroutines.flow.FlowKt__ErrorsKt$onErrorCollect$1
+                /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                @Override // kotlin.jvm.functions.Function1
+                public /* bridge */ /* synthetic */ Boolean invoke(Throwable th) {
+                    return Boolean.valueOf(invoke2(th));
+                }
+
+                /* renamed from: invoke  reason: avoid collision after fix types in other method */
+                public final boolean invoke2(Throwable th) {
+                    return true;
+                }
+            };
         }
         return FlowKt.onErrorCollect(flow, flow2, function1);
     }
@@ -166,7 +178,19 @@ public final /* synthetic */ class FlowKt__ErrorsKt {
             i = Integer.MAX_VALUE;
         }
         if ((i2 & 2) != 0) {
-            function1 = FlowKt__ErrorsKt$retry$4.INSTANCE;
+            function1 = new Function1<Throwable, Boolean>() { // from class: kotlinx.coroutines.flow.FlowKt__ErrorsKt$retry$4
+                /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                @Override // kotlin.jvm.functions.Function1
+                public /* bridge */ /* synthetic */ Boolean invoke(Throwable th) {
+                    return Boolean.valueOf(invoke2(th));
+                }
+
+                /* renamed from: invoke  reason: avoid collision after fix types in other method */
+                public final boolean invoke2(Throwable th) {
+                    return true;
+                }
+            };
         }
         retry = retry(flow, i, function1);
         return retry;

@@ -1,77 +1,60 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class k52 {
+public abstract class k52<T, R> implements o52<T, R> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized j52 a(@NonNull String str) {
-        InterceptResult invokeL;
-        j52 o52Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            synchronized (k52.class) {
-                char c = 65535;
-                switch (str.hashCode()) {
-                    case 48:
-                        if (str.equals("0")) {
-                            c = 0;
-                            break;
-                        }
-                        break;
-                    case 49:
-                        if (str.equals("1")) {
-                            c = 1;
-                            break;
-                        }
-                        break;
-                    case 50:
-                        if (str.equals("2")) {
-                            c = 2;
-                            break;
-                        }
-                        break;
-                    case 51:
-                        if (str.equals("3")) {
-                            c = 3;
-                            break;
-                        }
-                        break;
-                    case 52:
-                        if (str.equals("4")) {
-                            c = 4;
-                            break;
-                        }
-                        break;
-                }
-                if (c != 0) {
-                    if (c != 1) {
-                        if (c != 2) {
-                            if (c != 3) {
-                                if (c != 4) {
-                                    o52Var = new i52();
-                                } else {
-                                    o52Var = new m52();
-                                }
-                            } else {
-                                o52Var = new l52();
-                            }
-                        } else {
-                            o52Var = new n52();
-                        }
-                    } else {
-                        o52Var = new h52();
-                    }
-                } else {
-                    o52Var = new o52();
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947864001, "Lcom/baidu/tieba/k52;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return o52Var;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947864001, "Lcom/baidu/tieba/k52;");
+                return;
+            }
         }
-        return (j52) invokeL.objValue;
+        a = j43.v;
+    }
+
+    public k52() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        r32 o;
+        pq1 o3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            s32 V = wp2.U().V();
+            if (V == null || (o = V.o()) == null || (o3 = o.o3()) == null) {
+                return false;
+            }
+            return o3.i0();
+        }
+        return invokeV.booleanValue;
     }
 }

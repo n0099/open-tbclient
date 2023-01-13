@@ -1,23 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.coreExtra.relationship.GetContactListRequestMessage;
-import com.baidu.tbadk.coreExtra.relationship.GetContactListResponsedMessage;
+import com.baidu.tieba.ad.AbsDataRecorder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class dt5 implements CustomMessageTask.CustomRunnable<String> {
+public class dt5 extends AbsDataRecorder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public dt5() {
+        super(AbsDataRecorder.Scene.FRS_HOT);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -25,34 +20,11 @@ public class dt5 implements CustomMessageTask.CustomRunnable<String> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((AbsDataRecorder.Scene) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof GetContactListRequestMessage)) {
-                List<a45> e = gt5.f().e();
-                if (e != null) {
-                    Iterator<a45> it = e.iterator();
-                    while (it.hasNext()) {
-                        a45 next = it.next();
-                        if ((xi.isEmpty(next.e()) && xi.isEmpty(next.f())) || next.h() == 1) {
-                            it.remove();
-                        }
-                    }
-                }
-                GetContactListResponsedMessage getContactListResponsedMessage = new GetContactListResponsedMessage();
-                getContactListResponsedMessage.setContacts(e);
-                return getContactListResponsedMessage;
-            }
-            return null;
-        }
-        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

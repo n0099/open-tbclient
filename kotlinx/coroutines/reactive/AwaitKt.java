@@ -2,7 +2,6 @@ package kotlinx.coroutines.reactive;
 
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.IMConstants;
-import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import java.util.NoSuchElementException;
 import kotlin.Metadata;
 import kotlin.Result;
@@ -15,7 +14,6 @@ import kotlin.coroutines.jvm.internal.DebugProbesKt;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.jvm.internal.Lambda;
 import kotlinx.coroutines.CancellableContinuation;
 import kotlinx.coroutines.CancellableContinuationImpl;
 import kotlinx.coroutines.reactive.AwaitKt;
@@ -124,32 +122,6 @@ public final class AwaitKt {
             public Subscription subscription;
             public T value;
 
-            @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0016\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\u0010\u0003\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u00022\b\u0010\u0003\u001a\u0004\u0018\u00010\u0004H\n¢\u0006\u0002\b\u0005¨\u0006\u0006"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, AdvanceSetting.NETWORK_TYPE, "", "invoke", "kotlinx/coroutines/reactive/AwaitKt$awaitOne$2$1$onSubscribe$1"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
-            /* renamed from: kotlinx.coroutines.reactive.AwaitKt$awaitOne$$inlined$suspendCancellableCoroutine$lambda$1$1  reason: invalid class name */
-            /* loaded from: classes9.dex */
-            public static final class AnonymousClass1 extends Lambda implements Function1<Throwable, Unit> {
-                public final /* synthetic */ Subscription $sub;
-
-                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                public AnonymousClass1(Subscription subscription) {
-                    super(1);
-                    this.$sub = subscription;
-                }
-
-                /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-                @Override // kotlin.jvm.functions.Function1
-                public /* bridge */ /* synthetic */ Unit invoke(Throwable th) {
-                    invoke2(th);
-                    return Unit.INSTANCE;
-                }
-
-                /* renamed from: invoke  reason: avoid collision after fix types in other method */
-                public final void invoke2(Throwable th) {
-                    this.$sub.cancel();
-                }
-            }
-
             @Override // org.reactivestreams.Subscriber
             public void onComplete() {
                 if (this.seenValue) {
@@ -157,18 +129,18 @@ public final class AwaitKt {
                         CancellableContinuation cancellableContinuation = CancellableContinuation.this;
                         T t2 = this.value;
                         Result.Companion companion = Result.Companion;
-                        cancellableContinuation.resumeWith(Result.m708constructorimpl(t2));
+                        cancellableContinuation.resumeWith(Result.m772constructorimpl(t2));
                     }
                 } else if (mode == Mode.FIRST_OR_DEFAULT) {
                     CancellableContinuation cancellableContinuation2 = CancellableContinuation.this;
                     Object obj = t;
                     Result.Companion companion2 = Result.Companion;
-                    cancellableContinuation2.resumeWith(Result.m708constructorimpl(obj));
+                    cancellableContinuation2.resumeWith(Result.m772constructorimpl(obj));
                 } else if (CancellableContinuation.this.isActive()) {
                     CancellableContinuation cancellableContinuation3 = CancellableContinuation.this;
                     NoSuchElementException noSuchElementException = new NoSuchElementException("No value received via onNext for " + mode);
                     Result.Companion companion3 = Result.Companion;
-                    cancellableContinuation3.resumeWith(Result.m708constructorimpl(ResultKt.createFailure(noSuchElementException)));
+                    cancellableContinuation3.resumeWith(Result.m772constructorimpl(ResultKt.createFailure(noSuchElementException)));
                 }
             }
 
@@ -176,14 +148,31 @@ public final class AwaitKt {
             public void onError(Throwable th) {
                 CancellableContinuation cancellableContinuation = CancellableContinuation.this;
                 Result.Companion companion = Result.Companion;
-                cancellableContinuation.resumeWith(Result.m708constructorimpl(ResultKt.createFailure(th)));
+                cancellableContinuation.resumeWith(Result.m772constructorimpl(ResultKt.createFailure(th)));
             }
 
             @Override // org.reactivestreams.Subscriber
-            public void onSubscribe(Subscription subscription) {
+            public void onSubscribe(final Subscription subscription) {
                 long j;
                 this.subscription = subscription;
-                CancellableContinuation.this.invokeOnCancellation(new AnonymousClass1(subscription));
+                CancellableContinuation.this.invokeOnCancellation(new Function1<Throwable, Unit>() { // from class: kotlinx.coroutines.reactive.AwaitKt$awaitOne$$inlined$suspendCancellableCoroutine$lambda$1.1
+                    {
+                        super(1);
+                    }
+
+                    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                    @Override // kotlin.jvm.functions.Function1
+                    public /* bridge */ /* synthetic */ Unit invoke(Throwable th) {
+                        invoke2(th);
+                        return Unit.INSTANCE;
+                    }
+
+                    /* renamed from: invoke  reason: avoid collision after fix types in other method */
+                    public final void invoke2(Throwable th) {
+                        Subscription.this.cancel();
+                    }
+                });
                 if (mode == Mode.FIRST) {
                     j = 1;
                 } else {
@@ -207,7 +196,7 @@ public final class AwaitKt {
                                 CancellableContinuation cancellableContinuation = CancellableContinuation.this;
                                 IllegalArgumentException illegalArgumentException = new IllegalArgumentException("More than one onNext value for " + mode);
                                 Result.Companion companion = Result.Companion;
-                                cancellableContinuation.resumeWith(Result.m708constructorimpl(ResultKt.createFailure(illegalArgumentException)));
+                                cancellableContinuation.resumeWith(Result.m772constructorimpl(ResultKt.createFailure(illegalArgumentException)));
                                 return;
                             }
                             return;
@@ -224,7 +213,7 @@ public final class AwaitKt {
                     subscription2.cancel();
                     CancellableContinuation cancellableContinuation2 = CancellableContinuation.this;
                     Result.Companion companion2 = Result.Companion;
-                    cancellableContinuation2.resumeWith(Result.m708constructorimpl(t2));
+                    cancellableContinuation2.resumeWith(Result.m772constructorimpl(t2));
                 }
             }
         });

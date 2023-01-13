@@ -1970,7 +1970,7 @@ public class DBVersionManager {
                             ContentValues contentValues = new ContentValues();
                             contentValues.put("disturb", (Integer) 1);
                             while (cursor.moveToNext()) {
-                                long j = cursor.getLong(cursor.getColumnIndex("group_id"));
+                                long j = CursorWrapper.getLong(cursor, "group_id");
                                 if (j > 0) {
                                     sQLiteDatabase.update(TableDefine.DB_TABLE_CHAT_SESSION, contentValues, "contacter = ? ", new String[]{String.valueOf(j)});
                                 }
@@ -2103,7 +2103,7 @@ public class DBVersionManager {
                         ContentValues contentValues = new ContentValues();
                         contentValues.put("is_stranger", (Integer) 1);
                         while (cursor != null && cursor.moveToNext()) {
-                            sQLiteDatabase.update(TableDefine.DB_TABLE_CHAT_SESSION, contentValues, "category = ? AND contacter = ? AND is_stranger != ?", new String[]{String.valueOf(0), String.valueOf(cursor.getLong(cursor.getColumnIndex("uid"))), String.valueOf(1)});
+                            sQLiteDatabase.update(TableDefine.DB_TABLE_CHAT_SESSION, contentValues, "category = ? AND contacter = ? AND is_stranger != ?", new String[]{String.valueOf(0), String.valueOf(CursorWrapper.getLong(cursor, "uid")), String.valueOf(1)});
                         }
                         if (!this.this$0.checkColumnExists(sQLiteDatabase, TableDefine.DB_TABLE_PA_SUBSCRIBE, TableDefine.PaSubscribeColumns.COLUMN_PA_BDUID)) {
                             sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN pa_bduid LONG ");
@@ -2449,7 +2449,7 @@ public class DBVersionManager {
                             ContentValues contentValues = new ContentValues();
                             contentValues.put("is_stranger", (Integer) 1);
                             while (cursor != null && cursor.moveToNext()) {
-                                sQLiteDatabase.update(TableDefine.DB_TABLE_CHAT_SESSION, contentValues, "category = ? AND contacter = ? AND is_stranger != ?", new String[]{String.valueOf(0), String.valueOf(cursor.getLong(cursor.getColumnIndex("uid"))), String.valueOf(1)});
+                                sQLiteDatabase.update(TableDefine.DB_TABLE_CHAT_SESSION, contentValues, "category = ? AND contacter = ? AND is_stranger != ?", new String[]{String.valueOf(0), String.valueOf(CursorWrapper.getLong(cursor, "uid")), String.valueOf(1)});
                             }
                         }
                         if (!this.this$0.checkColumnExists(sQLiteDatabase, TableDefine.DB_TABLE_PA_SUBSCRIBE, TableDefine.PaSubscribeColumns.COLUMN_PA_BDUID)) {
@@ -2880,7 +2880,7 @@ public class DBVersionManager {
     }
 
     /* loaded from: classes.dex */
-    public class Version75And76Handler implements VersionHandler {
+    public class Version77And78Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBVersionManager this$0;
@@ -2892,7 +2892,7 @@ public class DBVersionManager {
             }
         }
 
-        public Version75And76Handler(DBVersionManager dBVersionManager) {
+        public Version77And78Handler(DBVersionManager dBVersionManager) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2926,7 +2926,7 @@ public class DBVersionManager {
                             return;
                         }
                     } catch (Exception e) {
-                        LogUtils.e(DBVersionManager.TAG, "onUpgrade:75->76", e);
+                        LogUtils.e(DBVersionManager.TAG, "onUpgrade:77->78", e);
                         if (!sQLiteDatabase.inTransaction()) {
                             return;
                         }
@@ -3413,8 +3413,8 @@ public class DBVersionManager {
                 new Version74And75Handler(this).onUpgrade(sQLiteDatabase, i, i2);
                 i = 75;
             }
-            if (i <= 75 && i2 >= 76) {
-                new Version75And76Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+            if (i <= 77 && i2 >= 78) {
+                new Version77And78Handler(this).onUpgrade(sQLiteDatabase, i, i2);
             }
             Cursor cursor = null;
             try {

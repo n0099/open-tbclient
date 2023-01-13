@@ -2,28 +2,28 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import com.baidu.bdhttpdns.BDHttpDns;
-import com.baidu.bdhttpdns.HttpDnsClient;
+import com.baidu.bdhttpdns.BDHttpDnsResult;
 import com.baidu.tieba.fp;
+import com.baidu.tieba.hp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class gp implements HttpDnsClient.b {
+public class gp implements fp.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final fp a;
+    public final BDHttpDns.e a;
     public final BDHttpDns b;
-    public final BDHttpDns.CachePolicy c;
-    public final HttpDnsClient d;
+    public final hp c;
 
-    public gp(Context context) {
+    public gp(Context context, BDHttpDns.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {context, eVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,44 +33,54 @@ public class gp implements HttpDnsClient.b {
                 return;
             }
         }
+        this.a = eVar;
         BDHttpDns h = BDHttpDns.h(context);
         this.b = h;
-        this.a = h.e();
-        this.c = this.b.c();
-        this.d = this.b.f();
+        this.c = h.d();
     }
 
-    @Override // com.baidu.bdhttpdns.HttpDnsClient.b
-    public void a(int i, HttpDnsClient.RequestParamType requestParamType, Map<String, HttpDnsClient.e> map, String str) {
+    @Override // com.baidu.tieba.fp.a
+    public void a(int i, ArrayList<String> arrayList, ArrayList<String> arrayList2, long j, String str) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), requestParamType, map, str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), arrayList, arrayList2, Long.valueOf(j), str}) == null) {
             if (i != -1) {
                 if (i != 0) {
-                    hp.a("Internal error: async httpdns resolve completion get error ret(%d)", Integer.valueOf(i));
+                    jp.a("Internal error: async dns resolve completion get error ret(%d)", Integer.valueOf(i));
+                    return;
+                }
+                Object[] objArr = new Object[4];
+                objArr[0] = str;
+                String str3 = null;
+                if (arrayList != null) {
+                    str2 = arrayList.toString();
                 } else {
-                    for (Map.Entry<String, HttpDnsClient.e> entry : map.entrySet()) {
-                        String key = entry.getKey();
-                        HttpDnsClient.e value = entry.getValue();
-                        if (value != null) {
-                            fp.a aVar = new fp.a();
-                            aVar.i(value.c());
-                            aVar.h(System.currentTimeMillis() / 1000);
-                            aVar.f(value.a());
-                            aVar.g(value.b());
-                            this.a.e(key, aVar);
-                        } else if (this.c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
-                            this.a.d(key);
-                        }
-                    }
+                    str2 = null;
                 }
-            } else if (requestParamType.equals(HttpDnsClient.RequestParamType.DNLIST_HOSTS) && this.c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
-                for (String str2 : str.split(",")) {
-                    this.a.d(str2);
+                objArr[1] = str2;
+                if (arrayList2 != null) {
+                    str3 = arrayList2.toString();
                 }
+                objArr[2] = str3;
+                objArr[3] = BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS.toString();
+                jp.a("Async resolve successful, host(%s) ipv4List(%s) ipv6List(%s) resolveType(%s)", objArr);
+                hp.a aVar = new hp.a();
+                aVar.i(60L);
+                aVar.h(System.currentTimeMillis() / 1000);
+                aVar.f(arrayList);
+                aVar.g(arrayList2);
+                this.c.e(str, aVar);
+                BDHttpDns.e eVar = this.a;
+                if (eVar != null) {
+                    eVar.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, arrayList, arrayList2));
+                    return;
+                }
+                return;
             }
-            if (this.b.g() > 0 && !this.d.C()) {
-                this.d.M(true);
-                hp.a("preResolve has finished", new Object[0]);
+            jp.a("Async resolve failed, host(%s), dns resolve failed", str);
+            BDHttpDns.e eVar2 = this.a;
+            if (eVar2 != null) {
+                eVar2.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_NONE, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveErrorDnsResolve, arrayList, arrayList2));
             }
         }
     }

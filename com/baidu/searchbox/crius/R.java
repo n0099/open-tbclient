@@ -152,7 +152,7 @@ public final class R {
     /* loaded from: classes2.dex */
     public static final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int crius = 0x7f080486;
+        public static final int crius = 0x7f080494;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -174,33 +174,33 @@ public final class R {
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int absolute = 0x7f090028;
-        public static final int auto = 0x7f090309;
-        public static final int baseline = 0x7f090360;
-        public static final int benchmarkSelect = 0x7f09038d;
-        public static final int btn = 0x7f090432;
-        public static final int center = 0x7f0905ed;
-        public static final int column = 0x7f0906a3;
-        public static final int column_reverse = 0x7f0906a4;
-        public static final int flex = 0x7f090a1f;
-        public static final int flex_end = 0x7f090a20;
-        public static final int flex_start = 0x7f090a21;
-        public static final int hidden = 0x7f090dec;
-        public static final int inherit = 0x7f090fb6;
-        public static final int ltr = 0x7f091502;
-        public static final int no_wrap = 0x7f091787;
-        public static final int none = 0x7f09178a;
-        public static final int relative = 0x7f091c84;
-        public static final int root = 0x7f091d2a;
-        public static final int row = 0x7f091d50;
-        public static final int row_reverse = 0x7f091d52;
-        public static final int rtl = 0x7f091d53;
-        public static final int scroll = 0x7f091e88;
-        public static final int space_around = 0x7f091fe6;
-        public static final int space_between = 0x7f091fe7;
-        public static final int stretch = 0x7f092056;
-        public static final int text = 0x7f0921ce;
-        public static final int visible = 0x7f0926ce;
-        public static final int wrap = 0x7f09276e;
+        public static final int auto = 0x7f090303;
+        public static final int baseline = 0x7f09035a;
+        public static final int benchmarkSelect = 0x7f090387;
+        public static final int btn = 0x7f09042d;
+        public static final int center = 0x7f0905e1;
+        public static final int column = 0x7f0906a1;
+        public static final int column_reverse = 0x7f0906a2;
+        public static final int flex = 0x7f090a26;
+        public static final int flex_end = 0x7f090a27;
+        public static final int flex_start = 0x7f090a28;
+        public static final int hidden = 0x7f090df9;
+        public static final int inherit = 0x7f090fc4;
+        public static final int ltr = 0x7f09150d;
+        public static final int no_wrap = 0x7f091797;
+        public static final int none = 0x7f09179a;
+        public static final int relative = 0x7f091c94;
+        public static final int root = 0x7f091d49;
+        public static final int row = 0x7f091d6f;
+        public static final int row_reverse = 0x7f091d71;
+        public static final int rtl = 0x7f091d72;
+        public static final int scroll = 0x7f091ea7;
+        public static final int space_around = 0x7f092008;
+        public static final int space_between = 0x7f092009;
+        public static final int stretch = 0x7f092083;
+        public static final int text = 0x7f092200;
+        public static final int visible = 0x7f0926fe;
+        public static final int wrap = 0x7f09279e;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -224,8 +224,8 @@ public final class R {
         public static final int activity_benchmark = 0x7f0d002d;
         public static final int activity_crius = 0x7f0d0032;
         public static final int activity_crius_flatten = 0x7f0d0033;
-        public static final int benchmark_flatten_layout = 0x7f0d0159;
-        public static final int benchmark_layout = 0x7f0d015a;
+        public static final int benchmark_flatten_layout = 0x7f0d0158;
+        public static final int benchmark_layout = 0x7f0d0159;
         public transient /* synthetic */ FieldHolder $fh;
 
         public layout() {
@@ -247,13 +247,13 @@ public final class R {
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int app_name = 0x7f0f029e;
-        public static final int bm_child_6_text = 0x7f0f0331;
-        public static final int child_1_text = 0x7f0f03ce;
-        public static final int child_2_text = 0x7f0f03cf;
-        public static final int child_3_text = 0x7f0f03d0;
-        public static final int child_4_text = 0x7f0f03d1;
-        public static final int child_5_text = 0x7f0f03d2;
-        public static final int run_benchmark = 0x7f0f10a4;
+        public static final int bm_child_6_text = 0x7f0f0335;
+        public static final int child_1_text = 0x7f0f03d4;
+        public static final int child_2_text = 0x7f0f03d5;
+        public static final int child_3_text = 0x7f0f03d6;
+        public static final int child_4_text = 0x7f0f03d7;
+        public static final int child_5_text = 0x7f0f03d8;
+        public static final int run_benchmark = 0x7f0f10b6;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {

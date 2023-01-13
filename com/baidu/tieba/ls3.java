@@ -1,44 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
 /* loaded from: classes5.dex */
-public class ls3 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public DownloadState a;
-    public String b;
-    public int c;
+public interface ls3 {
+    void a(DownloadInfo downloadInfo);
 
-    public ls3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = DownloadState.NOT_START;
-        this.c = Integer.parseInt("0");
-    }
+    void b();
 
-    public static ls3 a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            ls3 ls3Var = new ls3();
-            ls3Var.b = str2;
-            return ls3Var;
-        }
-        return (ls3) invokeLL.objValue;
-    }
+    DownloadInfo c(String str);
+
+    void close();
+
+    void delete(DownloadInfo downloadInfo);
 }

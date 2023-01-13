@@ -1,68 +1,249 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
-public class sd3 extends b63 {
+public final class sd3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile sd3 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<cj3<Exception>> a;
+    public ArrayList<cj3<Exception>> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sd3(b53 b53Var) {
-        super(b53Var, "/swanAPI/stopAccelerometer");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {b53Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+
+        public a(sd3 sd3Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sd3Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                j12.k("PresetSwanCoreUpdater", "onPresetCheck start.");
+                rd3.s(this.a);
+                j12.k("PresetSwanCoreUpdater", "onPresetCheck end.");
             }
         }
     }
 
-    @Override // com.baidu.tieba.b63
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e43 e43Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, e43Var)) == null) {
-            if (e43Var == null) {
-                e12.c("accelerometer", "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                if (b63.b) {
-                    Log.d("SwanAppAction", "stopAccelerometer --- illegal swanApp");
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ sd3 b;
+
+        public b(sd3 sd3Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sd3Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return false;
-            } else if (context == null) {
-                e12.c("accelerometer", "none context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                if (b63.b) {
-                    Log.d("SwanAppAction", "stopAccelerometer --- illegal context");
-                }
-                return false;
-            } else {
-                e12.i("accelerometer", "stop listen accelerometer");
-                qd3.a().g();
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                return true;
+            }
+            this.b = sd3Var;
+            this.a = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                j12.k("PresetSwanCoreUpdater", "onPresetUpdate start.");
+                sd3 sd3Var = this.b;
+                int i = this.a;
+                sd3Var.c(i, rd3.t(i));
+                j12.k("PresetSwanCoreUpdater", "onPresetUpdate end.");
             }
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cj3 a;
+        public final /* synthetic */ Exception b;
+
+        public c(sd3 sd3Var, cj3 cj3Var, Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sd3Var, cj3Var, exc};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cj3Var;
+            this.b = exc;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a(this.b);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948147527, "Lcom/baidu/tieba/sd3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948147527, "Lcom/baidu/tieba/sd3;");
+                return;
+            }
+        }
+        boolean z = tk1.a;
+    }
+
+    public sd3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList<>();
+        this.b = new ArrayList<>();
+    }
+
+    public static sd3 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
+                synchronized (sd3.class) {
+                    if (c == null) {
+                        c = new sd3();
+                    }
+                }
+            }
+            return c;
+        }
+        return (sd3) invokeV.objValue;
+    }
+
+    public final void c(int i, Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, exc) == null) {
+            synchronized (sd3.class) {
+                try {
+                    if (i == 0) {
+                        Iterator<cj3<Exception>> it = this.a.iterator();
+                        while (it.hasNext()) {
+                            d(it.next(), exc);
+                        }
+                        this.a.clear();
+                    } else if (i == 1) {
+                        Iterator<cj3<Exception>> it2 = this.b.iterator();
+                        while (it2.hasNext()) {
+                            d(it2.next(), exc);
+                        }
+                        this.b.clear();
+                    }
+                } catch (Throwable th) {
+                    throw th;
+                }
+            }
+        }
+    }
+
+    public final void d(cj3<Exception> cj3Var, Exception exc) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cj3Var, exc) == null) && cj3Var != null) {
+            di3.e0(new c(this, cj3Var, exc));
+        }
+    }
+
+    public void e(cj3<Exception> cj3Var, int i) {
+        ArrayList<cj3<Exception>> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, cj3Var, i) == null) {
+            j12.k("PresetSwanCoreUpdater", "updateSwanCoreAsync start.");
+            synchronized (sd3.class) {
+                boolean q = rd3.q(i);
+                j12.k("PresetSwanCoreUpdater", "updateSwanCoreAsync isNeedUpdateStatus = " + q);
+                if (!q && i == 0 && !rd3.r(i)) {
+                    rd3.w(true, i);
+                    new Thread(new a(this, i), "onPresetCheck").start();
+                }
+                if (!q) {
+                    d(cj3Var, null);
+                    return;
+                }
+                if (i == 1) {
+                    arrayList = this.b;
+                } else {
+                    arrayList = this.a;
+                }
+                if (arrayList.isEmpty()) {
+                    new Thread(new b(this, i), "updateSwanCoreAsync").start();
+                }
+                arrayList.add(cj3Var);
+                j12.k("PresetSwanCoreUpdater", "updateSwanCoreAsync end.");
+            }
+        }
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            synchronized (sd3.class) {
+                c(i, rd3.t(i));
+            }
+        }
     }
 }

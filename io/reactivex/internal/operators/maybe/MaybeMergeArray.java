@@ -26,13 +26,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class MaybeMergeArray<T> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MaybeSource<? extends T>[] sources;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface SimpleQueueWithConsumerIndex<T> extends SimpleQueue<T> {
         int consumerIndex();
 
@@ -47,7 +47,7 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
         int producerIndex();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class ClqSimpleQueue<T> extends ConcurrentLinkedQueue<T> implements SimpleQueueWithConsumerIndex<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4025173261791142821L;
@@ -136,7 +136,7 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class MergeMaybeObserver<T> extends BasicIntQueueSubscription<T> implements MaybeObserver<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -660395290758764731L;
@@ -411,7 +411,7 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class MpscFillOnceSimpleQueue<T> extends AtomicReferenceArray<T> implements SimpleQueueWithConsumerIndex<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7969063454040569579L;

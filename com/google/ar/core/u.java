@@ -3,17 +3,17 @@ package com.google.ar.core;
 import android.os.Bundle;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.wx9;
+import com.baidu.tieba.e3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.ArCoreApk;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class u extends com.google.a.b.a.a.a.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ wx9 a;
+    public final /* synthetic */ e3a a;
 
     @Override // com.google.a.b.a.a.a.d
     public final void a() {
@@ -29,12 +29,12 @@ public final class u extends com.google.a.b.a.a.a.e {
         }
     }
 
-    public u(wx9 wx9Var) {
+    public u(e3a e3aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wx9Var};
+            Object[] objArr = {e3aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,7 +44,7 @@ public final class u extends com.google.a.b.a.a.a.e {
                 return;
             }
         }
-        this.a = wx9Var;
+        this.a = e3aVar;
     }
 
     @Override // com.google.a.b.a.a.a.d

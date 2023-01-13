@@ -1,38 +1,96 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.k8a;
+import com.baidu.tieba.o8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.IYYPayResultView;
-import tv.athena.revenue.payui.view.IYYPayWayView;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
+import java.util.NoSuchElementException;
 /* loaded from: classes7.dex */
-public class z9a implements IYYPayResultView.a {
+public final class z9a<T> implements o8a.c<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public IYYPayResultView b;
-    public AbsViewEventHandler c;
-    public Dialog d;
-    public d9a e;
-    public IPayCallback<CurrencyChargeMessage> f;
-    public IYYPayResultView.c g;
+    public final k8a.a<T> a;
 
-    public z9a(Activity activity, IYYPayResultView iYYPayResultView, AbsViewEventHandler absViewEventHandler, Dialog dialog, d9a d9aVar, IPayCallback<CurrencyChargeMessage> iPayCallback, IYYPayResultView.c cVar) {
+    /* loaded from: classes7.dex */
+    public static final class a<T> extends q8a<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final p8a<? super T> e;
+        public T f;
+        public int g;
+
+        public a(p8a<? super T> p8aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p8aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = p8aVar;
+        }
+
+        @Override // com.baidu.tieba.l8a
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                if (this.g == 2) {
+                    rca.j(th);
+                    return;
+                }
+                this.f = null;
+                this.e.b(th);
+            }
+        }
+
+        @Override // com.baidu.tieba.l8a
+        public void onNext(T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+                int i = this.g;
+                if (i == 0) {
+                    this.g = 1;
+                    this.f = t;
+                } else if (i == 1) {
+                    this.g = 2;
+                    this.e.b(new IndexOutOfBoundsException("The upstream produced more than one value"));
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.l8a
+        public void onCompleted() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int i = this.g;
+                if (i == 0) {
+                    this.e.b(new NoSuchElementException());
+                } else if (i == 1) {
+                    this.g = 2;
+                    T t = this.f;
+                    this.f = null;
+                    this.e.c(t);
+                }
+            }
+        }
+    }
+
+    public z9a(k8a.a<T> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, iYYPayResultView, absViewEventHandler, dialog, d9aVar, iPayCallback, cVar};
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,50 +100,20 @@ public class z9a implements IYYPayResultView.a {
                 return;
             }
         }
-        RLog.info("PayResultViewCallback", "create PayResultViewCallback payCallback:" + iPayCallback);
-        this.a = activity;
-        this.b = iYYPayResultView;
-        this.c = absViewEventHandler;
-        this.d = dialog;
-        this.e = d9aVar;
-        this.f = iPayCallback;
-        this.g = cVar;
+        this.a = aVar;
     }
 
-    @Override // tv.athena.revenue.payui.view.IYYPayResultView.a
-    public void a(vaa vaaVar) {
+    public void call(p8a<? super T> p8aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, vaaVar) == null) {
-            IYYPayResultView.c cVar = this.g;
-            if (cVar != null && cVar.j != null) {
-                lba.a(this.d, PayDialogType.PAY_AMOUNT_DIALOG);
-                IYYPayWayView.b bVar = this.g.j;
-                bVar.c = vaaVar;
-                bVar.k = "2";
-                this.e.b(this.a, bVar, this.f);
-                return;
-            }
-            RLog.error("PayResultViewCallback", "toPayWayDialog error payResultViewParams:" + this.g, new Object[0]);
-            lba.b(this.d, PayDialogType.PAY_RESULT_DIALOG);
+        if (interceptable == null || interceptable.invokeL(1048576, this, p8aVar) == null) {
+            a aVar = new a(p8aVar);
+            p8aVar.a(aVar);
+            this.a.call(aVar);
         }
     }
 
-    @Override // tv.athena.revenue.payui.view.IYYPayResultView.a
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            RLog.info("PayResultViewCallback", "onBtnConfirm");
-            lba.b(this.d, PayDialogType.PAY_RESULT_DIALOG);
-        }
-    }
-
-    @Override // tv.athena.revenue.payui.view.IYYPayResultView.a
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e.p(this.a, this.b, this.c);
-        }
-        return invokeV.booleanValue;
+    @Override // com.baidu.tieba.o8a.c, com.baidu.tieba.y8a
+    public /* bridge */ /* synthetic */ void call(Object obj) {
+        call((p8a) ((p8a) obj));
     }
 }

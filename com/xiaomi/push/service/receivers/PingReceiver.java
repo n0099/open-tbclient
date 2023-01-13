@@ -37,11 +37,11 @@ public class PingReceiver extends BroadcastReceiver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
             b.c(intent.getPackage() + " is the package name");
-            if (XMPushService.m594e()) {
+            if (XMPushService.m658e()) {
                 return;
             }
             if (!bk.p.equals(intent.getAction())) {
-                b.m99a("cancel the old ping timer");
+                b.m103a("cancel the old ping timer");
                 eu.a();
             } else if (TextUtils.equals(context.getPackageName(), intent.getPackage())) {
                 b.c("Ping XMChannelService on timer");

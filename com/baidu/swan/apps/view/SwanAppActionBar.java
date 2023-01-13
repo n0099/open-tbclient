@@ -17,8 +17,8 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nk1;
-import com.baidu.tieba.vh3;
+import com.baidu.tieba.ai3;
+import com.baidu.tieba.sk1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -220,7 +220,7 @@ public class SwanAppActionBar extends RelativeLayout {
             }
             this.r.setVisibility(8);
             this.q.setVisibility(8);
-            ((RelativeLayout.LayoutParams) this.n.getLayoutParams()).setMargins(0, 0, vh3.f(getContext(), 4.6f), 0);
+            ((RelativeLayout.LayoutParams) this.n.getLayoutParams()).setMargins(0, 0, ai3.f(getContext(), 4.6f), 0);
         }
     }
 
@@ -564,18 +564,18 @@ public class SwanAppActionBar extends RelativeLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0091, this);
-            this.a = findViewById(R.id.obfuscated_res_0x7f092310);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091362);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0090, this);
+            this.a = findViewById(R.id.obfuscated_res_0x7f09233b);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09136d);
             this.b = textView;
             textView.setCompoundDrawables(c(R.drawable.obfuscated_res_0x7f080102), null, null, null);
             this.b.setTextColor(AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f060a63));
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09136b);
-            this.d = findViewById(R.id.obfuscated_res_0x7f09230e);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091363);
-            this.f = findViewById(R.id.obfuscated_res_0x7f09230b);
-            this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0901ac);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092300);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091376);
+            this.d = findViewById(R.id.obfuscated_res_0x7f092339);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09136e);
+            this.f = findViewById(R.id.obfuscated_res_0x7f092336);
+            this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0901a5);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09232b);
             float f = this.k;
             if (f != -1.0f) {
                 float f2 = this.l;
@@ -586,11 +586,11 @@ public class SwanAppActionBar extends RelativeLayout {
                     }
                 }
             }
-            this.n = findViewById(R.id.obfuscated_res_0x7f092318);
-            this.o = (ImageView) findViewById(R.id.obfuscated_res_0x7f09231a);
-            this.p = (ImageView) findViewById(R.id.obfuscated_res_0x7f09231c);
-            this.q = findViewById(R.id.obfuscated_res_0x7f09231b);
-            this.r = (ImageView) findViewById(R.id.obfuscated_res_0x7f092319);
+            this.n = findViewById(R.id.obfuscated_res_0x7f092343);
+            this.o = (ImageView) findViewById(R.id.obfuscated_res_0x7f092345);
+            this.p = (ImageView) findViewById(R.id.obfuscated_res_0x7f092347);
+            this.q = findViewById(R.id.obfuscated_res_0x7f092346);
+            this.r = (ImageView) findViewById(R.id.obfuscated_res_0x7f092344);
             setTitle(this.i);
             setTitleColor(-16777216);
             setRightMenuImageSrc(R.drawable.obfuscated_res_0x7f08011b);
@@ -603,7 +603,7 @@ public class SwanAppActionBar extends RelativeLayout {
         if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) != null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, nk1.SwanAppActionBar, 0, 0);
+        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, sk1.SwanAppActionBar, 0, 0);
         try {
             this.i = obtainStyledAttributes.getString(0);
             this.j = obtainStyledAttributes.getColor(1, -16777216);

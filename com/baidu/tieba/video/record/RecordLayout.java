@@ -8,7 +8,7 @@ import android.view.ViewConfiguration;
 import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,9 +27,9 @@ public class RecordLayout extends RelativeLayout {
 
     /* loaded from: classes6.dex */
     public interface a {
-        void q1();
+        void r1();
 
-        void y0();
+        void z0();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -102,7 +102,7 @@ public class RecordLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.c = ViewConfiguration.getMaximumFlingVelocity();
             this.b = ViewConfiguration.getMinimumFlingVelocity();
-            this.d = yi.g(getContext(), R.dimen.obfuscated_res_0x7f07024d);
+            this.d = zi.g(getContext(), R.dimen.obfuscated_res_0x7f07024d);
         }
     }
 
@@ -123,15 +123,15 @@ public class RecordLayout extends RelativeLayout {
                     int rawX = (int) (motionEvent.getRawX() - this.e);
                     if (Math.abs(xVelocity) > this.b && Math.abs(rawX) > this.d) {
                         if (rawX > 0) {
-                            this.f.q1();
+                            this.f.r1();
                         } else {
-                            this.f.y0();
+                            this.f.z0();
                         }
-                    } else if (Math.abs(rawX) > yi.l(getContext()) * 0.5d) {
+                    } else if (Math.abs(rawX) > zi.l(getContext()) * 0.5d) {
                         if (rawX > 0) {
-                            this.f.q1();
+                            this.f.r1();
                         } else {
-                            this.f.q1();
+                            this.f.r1();
                         }
                     }
                     this.a.clear();

@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
-import java.util.concurrent.TimeUnit;
+import com.baidu.swan.pms.model.PMSAppInfo;
 /* loaded from: classes6.dex */
-public interface s72 extends nd4 {
-    public static final long l0 = TimeUnit.SECONDS.toMillis(15);
+public interface s72 {
+    void a(cg3 cg3Var, boolean z);
+
+    void b(PMSAppInfo pMSAppInfo);
 }

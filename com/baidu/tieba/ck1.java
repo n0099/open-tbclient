@@ -1,39 +1,25 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
-import android.text.TextUtils;
+import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sso.p.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 /* loaded from: classes4.dex */
-public class ck1 {
+public class ck1 implements dk1 {
     public static /* synthetic */ Interceptable $ic;
+    public static ck1 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public com.baidu.sso.p.a a;
-    public Context b;
-    public String c;
-    public String d;
-    public zj1 e;
-    public ServiceConnection f;
+    public dk1 a;
+    public boolean b;
 
-    public ck1(Context context) {
+    public ck1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,77 +30,82 @@ public class ck1 {
             }
         }
         this.a = null;
-        this.c = null;
-        this.d = null;
-        this.f = new ek1(this);
-        this.b = context;
+        this.b = false;
     }
 
-    public void b() {
+    public static ck1 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Intent intent = new Intent();
-            intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
-            intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-            this.b.bindService(intent, this.f, 1);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (ck1.class) {
+                    if (c == null) {
+                        c = new ck1();
+                    }
+                }
+            }
+            return c;
         }
+        return (ck1) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0055 A[Catch: NoSuchAlgorithmException -> 0x006f, all -> 0x007e, LOOP:0: B:24:0x0053->B:25:0x0055, LOOP_END, TryCatch #1 {NoSuchAlgorithmException -> 0x006f, blocks: (B:23:0x0045, B:25:0x0055, B:26:0x006b), top: B:45:0x0045 }] */
+    @Override // com.baidu.tieba.dk1
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            dk1 dk1Var = this.a;
+            if (dk1Var == null) {
+                return null;
+            }
+            try {
+                return dk1Var.a();
+            } catch (Throwable unused) {
+                return null;
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:25:0x0044 A[Catch: all -> 0x0049, TRY_LEAVE, TryCatch #0 {all -> 0x0049, blocks: (B:4:0x0004, B:7:0x0009, B:23:0x0040, B:25:0x0044, B:17:0x0024, B:18:0x0029, B:19:0x002c, B:20:0x0032, B:21:0x0038), top: B:31:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:33:? A[RETURN, SYNTHETIC] */
+    @Override // com.baidu.tieba.dk1
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public String a(String str) {
-        InterceptResult invokeL;
-        Signature[] signatureArr;
-        PackageInfo packageInfo;
+    public void a(Context context, ek1 ek1Var) {
+        dk1 dk1Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (this.a != null) {
-                String str2 = null;
-                try {
-                    if (TextUtils.isEmpty(this.c)) {
-                        this.c = this.b.getPackageName();
-                    }
-                    if (TextUtils.isEmpty(this.d)) {
-                        try {
-                            packageInfo = this.b.getPackageManager().getPackageInfo(this.c, 64);
-                        } catch (PackageManager.NameNotFoundException unused) {
-                        }
-                        if (packageInfo != null) {
-                            signatureArr = packageInfo.signatures;
-                            if (signatureArr != null && signatureArr.length > 0) {
-                                try {
-                                    byte[] digest = MessageDigest.getInstance("SHA1").digest(signatureArr[0].toByteArray());
-                                    StringBuilder sb = new StringBuilder();
-                                    for (byte b : digest) {
-                                        sb.append(Integer.toHexString((b & 255) | 256).substring(1, 3));
-                                    }
-                                    str2 = sb.toString();
-                                } catch (NoSuchAlgorithmException unused2) {
-                                }
-                            }
-                            this.d = str2;
-                        }
-                        signatureArr = null;
-                        if (signatureArr != null) {
-                            byte[] digest2 = MessageDigest.getInstance("SHA1").digest(signatureArr[0].toByteArray());
-                            StringBuilder sb2 = new StringBuilder();
-                            while (r3 < r4) {
-                            }
-                            str2 = sb2.toString();
-                        }
-                        this.d = str2;
-                    }
-                    str2 = ((a.AbstractBinderC0189a.C0190a) this.a).a(this.c, this.d, str);
-                } catch (Throwable unused3) {
-                }
-                if (!TextUtils.isEmpty(str2)) {
-                    return str2;
-                }
-            }
-            return "";
+        if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ek1Var) != null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        try {
+            if (this.b) {
+                return;
+            }
+            this.b = true;
+            int ordinal = com.baidu.sso.s.a.a(Build.MANUFACTURER).ordinal();
+            if (ordinal == 0) {
+                dk1Var = null;
+            } else if (ordinal == 1) {
+                dk1Var = new gk1();
+            } else if (ordinal == 2) {
+                dk1Var = new ok1();
+            } else if (ordinal == 3) {
+                dk1Var = new mk1();
+            } else if (ordinal != 4) {
+                if (this.a == null) {
+                    this.a.a(context, ek1Var);
+                    return;
+                }
+                return;
+            } else {
+                dk1Var = new ik1();
+            }
+            this.a = dk1Var;
+            if (this.a == null) {
+            }
+        } catch (Throwable unused) {
+        }
     }
 }

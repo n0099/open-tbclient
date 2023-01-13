@@ -1,36 +1,25 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmName;
-@JvmName(name = "InteractiveABConfig")
-/* loaded from: classes4.dex */
-public final class is0 {
+@Autowired
+/* loaded from: classes5.dex */
+public class is0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final boolean a() {
+    @NonNull
+    @Inject(force = false)
+    public static xv0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (js0.a() != 1) {
-                return true;
-            }
-            return false;
+            return qw0.a();
         }
-        return invokeV.booleanValue;
-    }
-
-    public static final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (js0.a() != 0 && js0.a() != 2) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
+        return (xv0) invokeV.objValue;
     }
 }

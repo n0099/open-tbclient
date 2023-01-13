@@ -1,14 +1,10 @@
 package com.baidu.tieba.im.model;
 
 import android.text.TextUtils;
-import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.im.data.ValidateItemData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.pd7;
-import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -61,16 +57,12 @@ public class ValidateModel {
                     }
                     validateItemData.setUserName(optJSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME));
                     validateItemData.setPortrait(optJSONObject.optString("portrait"));
-                    String optString = optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_ID);
-                    validateItemData.setGroupId(optString);
-                    setGroupName(validateItemData, optString);
+                    validateItemData.setGroupId(optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_ID));
                     validateItemData.setUserId(optJSONObject.optString("userId"));
                     validateItemData.setExt(groupNewsPojo.getExt());
                     return validateItemData;
                 }
-                ValidateItemData validateItemData2 = (ValidateItemData) OrmObject.objectWithJsonStr(content, ValidateItemData.class);
-                setGroupName(validateItemData2, validateItemData2.getGroupId());
-                return validateItemData2;
+                return (ValidateItemData) OrmObject.objectWithJsonStr(content, ValidateItemData.class);
             } catch (JSONException e) {
                 e.printStackTrace();
                 return null;
@@ -97,22 +89,5 @@ public class ValidateModel {
             return linkedList2;
         }
         return (List) invokeL.objValue;
-    }
-
-    public static void setGroupName(ValidateItemData validateItemData, String str) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, validateItemData, str) == null) {
-            if (BdBaseApplication.getInst().isDebugMode() && !yi.E()) {
-                return;
-            }
-            ImMessageCenterPojo i = pd7.o().i(str, 1);
-            if (i != null) {
-                str2 = i.getGroup_name();
-            } else {
-                str2 = "";
-            }
-            validateItemData.setGroupName(str2);
-        }
     }
 }

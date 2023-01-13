@@ -108,7 +108,7 @@ public final class DispatchQueue {
         if (interceptable == null || interceptable.invokeL(1048580, this, runnable) == null) {
             MainCoroutineDispatcher immediate = Dispatchers.getMain().getImmediate();
             if (immediate.isDispatchNeeded(EmptyCoroutineContext.INSTANCE)) {
-                immediate.dispatch(EmptyCoroutineContext.INSTANCE, new Runnable(this, runnable) { // from class: androidx.lifecycle.DispatchQueue$runOrEnqueue$$inlined$with$lambda$1
+                immediate.mo2188dispatch(EmptyCoroutineContext.INSTANCE, new Runnable(this, runnable) { // from class: androidx.lifecycle.DispatchQueue$runOrEnqueue$$inlined$with$lambda$1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ Runnable $runnable$inlined;

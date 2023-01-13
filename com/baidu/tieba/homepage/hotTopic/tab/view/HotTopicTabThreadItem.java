@@ -22,10 +22,10 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a37;
-import com.baidu.tieba.lq4;
-import com.baidu.tieba.vr4;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.fs4;
+import com.baidu.tieba.vq4;
+import com.baidu.tieba.y67;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -44,8 +44,8 @@ public class HotTopicTabThreadItem extends RelativeLayout {
     public TextView h;
     public TextView i;
     public View j;
-    public a37 k;
-    public lq4<a37> l;
+    public y67 k;
+    public vq4<y67> l;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -78,7 +78,7 @@ public class HotTopicTabThreadItem extends RelativeLayout {
                 if (this.a.l != null) {
                     this.a.l.c(view2, this.a.k, this.a.k.a, this.a.k.a);
                 }
-                ThreadCardUtils.jumpToPB((vr4) this.a.k.f, view2.getContext(), 2, false, true);
+                ThreadCardUtils.jumpToPB((fs4) this.a.k.f, view2.getContext(), 2, false, true);
             }
         }
     }
@@ -151,65 +151,65 @@ public class HotTopicTabThreadItem extends RelativeLayout {
         e();
     }
 
-    public void setOnItemCoverListener(lq4<a37> lq4Var) {
+    public void setOnItemCoverListener(vq4<y67> vq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, lq4Var) == null) {
-            this.l = lq4Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, vq4Var) == null) {
+            this.l = vq4Var;
         }
     }
 
-    public void c(a37 a37Var) {
-        a37 a37Var2;
+    public void c(y67 y67Var) {
+        y67 y67Var2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, a37Var) == null) && a37Var != null) {
-            this.k = a37Var;
-            if (TextUtils.isEmpty(a37Var.d)) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, y67Var) == null) && y67Var != null) {
+            this.k = y67Var;
+            if (TextUtils.isEmpty(y67Var.d)) {
                 this.b.setVisibility(8);
                 this.c.setVisibility(8);
                 this.d.setVisibility(8);
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.i.getLayoutParams();
                 layoutParams.addRule(8, 0);
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0922da);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f092305);
                 this.i.setLayoutParams(layoutParams);
             } else {
-                this.b.K(a37Var.d, 10, false);
+                this.b.K(y67Var.d, 10, false);
                 this.b.setVisibility(0);
                 RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.i.getLayoutParams();
                 layoutParams2.addRule(8, R.id.obfuscated_res_0x7f090745);
                 layoutParams2.addRule(3, 0);
                 this.i.setLayoutParams(layoutParams2);
-                if (a37Var.e > 0) {
+                if (y67Var.e > 0) {
                     this.d.setVisibility(0);
                     this.c.setVisibility(0);
-                    this.f.setText(StringUtils.translateSecondsToString(a37Var.e));
+                    this.f.setText(StringUtils.translateSecondsToString(y67Var.e));
                 } else {
                     this.d.setVisibility(8);
                     this.c.setVisibility(8);
                 }
             }
-            this.h.setText(a37Var.b);
-            int i = a37Var.c;
+            this.h.setText(y67Var.b);
+            int i = y67Var.c;
             if (i < 1000) {
                 i = 1000;
             }
             String numberUniformFormatExtraWithRoundInt = StringHelper.numberUniformFormatExtraWithRoundInt(i);
             TextView textView = this.i;
-            textView.setText(textView.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f08f1, numberUniformFormatExtraWithRoundInt));
-            this.g.setText(String.valueOf(a37Var.a));
+            textView.setText(textView.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0909, numberUniformFormatExtraWithRoundInt));
+            this.g.setText(String.valueOf(y67Var.a));
             d();
-            lq4<a37> lq4Var = this.l;
-            if (lq4Var != null && (a37Var2 = this.k) != null) {
-                int i2 = a37Var2.a;
-                lq4Var.d(this, a37Var2, i2, i2);
+            vq4<y67> vq4Var = this.l;
+            if (vq4Var != null && (y67Var2 = this.k) != null) {
+                int i2 = y67Var2.a;
+                vq4Var.d(this, y67Var2, i2, i2);
             }
         }
     }
 
     public final void d() {
-        a37 a37Var;
+        y67 y67Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (a37Var = this.k) != null) {
-            int indexTextColorRes = TagTextHelper.getIndexTextColorRes(a37Var.a);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (y67Var = this.k) != null) {
+            int indexTextColorRes = TagTextHelper.getIndexTextColorRes(y67Var.a);
             Drawable background = this.i.getBackground();
             DrawableCompat.setTint(background, SkinManager.getColor(indexTextColorRes));
             background.setAlpha(40);
@@ -224,19 +224,19 @@ public class HotTopicTabThreadItem extends RelativeLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03c4, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03c5, (ViewGroup) this, true);
             this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090745);
             this.c = findViewById(R.id.obfuscated_res_0x7f090744);
-            this.d = findViewById(R.id.obfuscated_res_0x7f0925b9);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0925b7);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0925b8);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090fae);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0922da);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0920f9);
+            this.d = findViewById(R.id.obfuscated_res_0x7f0925e9);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0925e7);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0925e8);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090fbb);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092305);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092126);
             this.b.setPlaceHolder(2);
-            this.b.setRadius(yi.g(getContext(), R.dimen.tbds10));
+            this.b.setRadius(zi.g(getContext(), R.dimen.tbds10));
             this.b.setConrers(15);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091d2b);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091d4a);
             this.j = findViewById;
             findViewById.setOnClickListener(new a(this));
         }

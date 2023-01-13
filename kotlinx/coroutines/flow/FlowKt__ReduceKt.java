@@ -206,7 +206,7 @@ public final /* synthetic */ class FlowKt__ReduceKt {
                     Ref.ObjectRef objectRef2 = new Ref.ObjectRef();
                     objectRef2.element = (T) NullSurrogateKt.NULL;
                     try {
-                        FlowCollector<? super Object> flowKt__ReduceKt$first$$inlined$collect$2 = new FlowKt__ReduceKt$first$$inlined$collect$2(function2, objectRef2);
+                        FlowCollector<? super Object> flowKt__ReduceKt$first$$inlined$collect$2 = new FlowKt__ReduceKt$first$$inlined$collect$2<>(function2, objectRef2);
                         flowKt__ReduceKt$first$3.L$0 = flow;
                         flowKt__ReduceKt$first$3.L$1 = function2;
                         flowKt__ReduceKt$first$3.L$2 = objectRef2;
@@ -272,7 +272,7 @@ public final /* synthetic */ class FlowKt__ReduceKt {
                     Ref.ObjectRef objectRef2 = new Ref.ObjectRef();
                     objectRef2.element = null;
                     try {
-                        FlowCollector<? super Object> flowKt__ReduceKt$firstOrNull$$inlined$collect$2 = new FlowKt__ReduceKt$firstOrNull$$inlined$collect$2(function2, objectRef2);
+                        FlowCollector<? super Object> flowKt__ReduceKt$firstOrNull$$inlined$collect$2 = new FlowKt__ReduceKt$firstOrNull$$inlined$collect$2<>(function2, objectRef2);
                         flowKt__ReduceKt$firstOrNull$3.L$0 = flow;
                         flowKt__ReduceKt$firstOrNull$3.L$1 = function2;
                         flowKt__ReduceKt$firstOrNull$3.L$2 = objectRef2;
@@ -333,7 +333,7 @@ public final /* synthetic */ class FlowKt__ReduceKt {
                     ResultKt.throwOnFailure(obj);
                     Ref.ObjectRef objectRef2 = new Ref.ObjectRef();
                     objectRef2.element = NullSurrogateKt.NULL;
-                    FlowCollector<? super Object> flowKt__ReduceKt$reduce$$inlined$collect$1 = new FlowKt__ReduceKt$reduce$$inlined$collect$1(objectRef2, function3);
+                    FlowCollector<? super Object> flowKt__ReduceKt$reduce$$inlined$collect$1 = new FlowKt__ReduceKt$reduce$$inlined$collect$1<>(objectRef2, function3);
                     flowKt__ReduceKt$reduce$1.L$0 = flow;
                     flowKt__ReduceKt$reduce$1.L$1 = function3;
                     flowKt__ReduceKt$reduce$1.L$2 = objectRef2;
@@ -464,7 +464,7 @@ public final /* synthetic */ class FlowKt__ReduceKt {
                         @Override // kotlinx.coroutines.flow.FlowCollector
                         public Object emit(Object obj2, Continuation continuation2) {
                             Ref.ObjectRef objectRef3 = Ref.ObjectRef.this;
-                            if (objectRef3.element == 0) {
+                            if (objectRef3.element == null) {
                                 objectRef3.element = obj2;
                                 return Unit.INSTANCE;
                             }
@@ -527,7 +527,7 @@ public final /* synthetic */ class FlowKt__ReduceKt {
                     ResultKt.throwOnFailure(obj);
                     Ref.ObjectRef objectRef2 = new Ref.ObjectRef();
                     objectRef2.element = r;
-                    FlowCollector<? super Object> flowKt__ReduceKt$fold$$inlined$collect$1 = new FlowKt__ReduceKt$fold$$inlined$collect$1(objectRef2, function3);
+                    FlowCollector<? super Object> flowKt__ReduceKt$fold$$inlined$collect$1 = new FlowKt__ReduceKt$fold$$inlined$collect$1<>(objectRef2, function3);
                     flowKt__ReduceKt$fold$1.L$0 = flow;
                     flowKt__ReduceKt$fold$1.L$1 = r;
                     flowKt__ReduceKt$fold$1.L$2 = function3;

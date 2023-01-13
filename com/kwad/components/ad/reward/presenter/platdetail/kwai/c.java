@@ -106,11 +106,16 @@ public final class c extends com.kwad.components.ad.reward.presenter.a implement
             public final void bV() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.sh.sf = true;
+                    c.a(this.sh, true);
                     this.sh.hE();
                 }
             }
         };
+    }
+
+    public static /* synthetic */ boolean a(c cVar, boolean z) {
+        cVar.sf = true;
+        return true;
     }
 
     private void bQ() {
@@ -199,15 +204,15 @@ public final class c extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.sd = (ImageView) findViewById(R.id.obfuscated_res_0x7f091129);
-            this.se = (TextView) findViewById(R.id.obfuscated_res_0x7f0912a0);
+            this.sd = (ImageView) findViewById(R.id.obfuscated_res_0x7f091134);
+            this.se = (TextView) findViewById(R.id.obfuscated_res_0x7f0912ab);
             if (TextUtils.isEmpty(com.kwad.components.ad.reward.kwai.b.fW())) {
                 if (com.kwad.components.ad.reward.kwai.b.fV() == 0) {
                     imageView = this.sd;
-                    i = R.drawable.obfuscated_res_0x7f080ca6;
+                    i = R.drawable.obfuscated_res_0x7f080cb6;
                 } else {
                     imageView = this.sd;
-                    i = R.drawable.obfuscated_res_0x7f080d02;
+                    i = R.drawable.obfuscated_res_0x7f080d12;
                 }
                 imageView.setImageResource(i);
                 this.se.setVisibility(8);

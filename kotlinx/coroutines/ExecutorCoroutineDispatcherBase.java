@@ -68,7 +68,8 @@ public abstract class ExecutorCoroutineDispatcherBase extends ExecutorCoroutineD
     }
 
     @Override // kotlinx.coroutines.CoroutineDispatcher
-    public void dispatch(CoroutineContext coroutineContext, Runnable runnable) {
+    /* renamed from: dispatch */
+    public void mo2188dispatch(CoroutineContext coroutineContext, Runnable runnable) {
         Runnable runnable2;
         try {
             Executor executor = getExecutor();
@@ -101,7 +102,8 @@ public abstract class ExecutorCoroutineDispatcherBase extends ExecutorCoroutineD
     }
 
     @Override // kotlinx.coroutines.Delay
-    public void scheduleResumeAfterDelay(long j, CancellableContinuation<? super Unit> cancellableContinuation) {
+    /* renamed from: scheduleResumeAfterDelay */
+    public void mo2189scheduleResumeAfterDelay(long j, CancellableContinuation<? super Unit> cancellableContinuation) {
         ScheduledFuture<?> scheduledFuture;
         if (this.removesFutureOnCancellation) {
             scheduledFuture = scheduleBlock(new ResumeUndispatchedRunnable(this, cancellableContinuation), j, TimeUnit.MILLISECONDS);
@@ -111,7 +113,7 @@ public abstract class ExecutorCoroutineDispatcherBase extends ExecutorCoroutineD
         if (scheduledFuture != null) {
             JobKt.cancelFutureOnCancellation(cancellableContinuation, scheduledFuture);
         } else {
-            DefaultExecutor.INSTANCE.scheduleResumeAfterDelay(j, cancellableContinuation);
+            DefaultExecutor.INSTANCE.mo2189scheduleResumeAfterDelay(j, cancellableContinuation);
         }
     }
 

@@ -2,30 +2,25 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.CardUserInfoLayout;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.card.view.BjhArticleLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.bz;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class dx extends ax<vr4> implements y69 {
+public class dx extends cx<fs4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CardUserInfoLayout f;
-    public int g;
-    public vr4 h;
-    public b i;
-
-    /* loaded from: classes4.dex */
-    public interface b {
-        void a(vr4 vr4Var, View view2);
-    }
+    public BjhArticleLayout f;
+    public fs4 g;
+    public View.OnClickListener h;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -55,13 +50,48 @@ public class dx extends ax<vr4> implements y69 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.i != null) {
-                    this.a.i.a(this.a.h, view2);
-                }
-                if (this.a.h() != null) {
-                    this.a.h().a(view2, this.a.h);
+                dx dxVar = this.a;
+                dxVar.v(dxVar.a.k(), this.a.g);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements bz.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dx a;
+
+        public b(dx dxVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dxVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = dxVar;
+        }
+
+        @Override // com.baidu.tieba.bz.b
+        public boolean a(bz.a aVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+                if (this.a.g != null && this.a.g.getThreadData() != null) {
+                    l86.a(this.a.g.getThreadData().getId());
+                    l86.l(this.a.f.getTitle(), this.a.g.getThreadData().getId(), R.color.CAM_X0101, R.color.CAM_X0109);
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
         }
     }
 
@@ -83,161 +113,85 @@ public class dx extends ax<vr4> implements y69 {
                 return;
             }
         }
-        this.g = 34053;
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().c instanceof CardUserInfoLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().c.getParent() == null) {
-            this.f = (CardUserInfoLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().c;
-        } else {
-            this.f = new CardUserInfoLayout(context);
-        }
-        this.f.setShowFlag(this.g);
-        this.f.setUserAfterClickListener(new a(this));
+        this.h = new a(this);
+        BjhArticleLayout bjhArticleLayout = new BjhArticleLayout(context);
+        this.f = bjhArticleLayout;
+        bjhArticleLayout.setJumpToPbListener(this.h);
     }
 
-    public void A(boolean z) {
-        CardUserInfoLayout cardUserInfoLayout;
+    @Override // com.baidu.tieba.cx
+    public void p(z86<fs4> z86Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (cardUserInfoLayout = this.f) != null && cardUserInfoLayout.getUserName() != null) {
-            this.f.getUserName().setClickable(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.ax
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            int i2 = i | this.g;
-            this.g = i2;
-            y(i2);
-        }
-    }
-
-    @Override // com.baidu.tieba.ax
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            int i2 = (~i) & this.g;
-            this.g = i2;
-            y(i2);
+        if (interceptable == null || interceptable.invokeL(1048580, this, z86Var) == null) {
+            super.p(z86Var);
+            this.f.setSubClickListener(z86Var);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sx
-    /* renamed from: u */
-    public void a(vr4 vr4Var) {
+    @Override // com.baidu.tieba.ux
+    /* renamed from: w */
+    public void a(fs4 fs4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, vr4Var) == null) {
-            this.h = vr4Var;
-            this.f.setData(vr4Var.getThreadData());
+        if (interceptable == null || interceptable.invokeL(1048582, this, fs4Var) == null) {
+            this.g = fs4Var;
+            this.f.a(fs4Var);
         }
     }
 
-    public void v(boolean z) {
-        CardUserInfoLayout cardUserInfoLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048588, this, z) == null) && (cardUserInfoLayout = this.f) != null && cardUserInfoLayout.getAvatar() != null) {
-            this.f.getAvatar().setClickable(z);
-        }
-    }
-
-    public void w(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, bVar) == null) {
-            this.i = bVar;
-        }
-    }
-
-    public void x(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, bdUniqueId) == null) {
-            this.f.setPageUniqueId(bdUniqueId);
-        }
-    }
-
-    public void y(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.f.setShowFlag(this.g);
-        }
-    }
-
-    public void z(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, tbPageContext) == null) {
-            this.f.setPageContext(tbPageContext);
-        }
-    }
-
-    @Override // com.baidu.tieba.y69
-    public void b() {
-        CardUserInfoLayout cardUserInfoLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (cardUserInfoLayout = this.f) != null) {
-            cardUserInfoLayout.startVirtualAnimation();
-        }
-    }
-
-    @Override // com.baidu.tieba.y69
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            vr4 vr4Var = this.h;
-            if (vr4Var != null && vr4Var.getThreadData() != null && this.h.getThreadData().getCustomFigure() != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.y69
-    public void d() {
-        CardUserInfoLayout cardUserInfoLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (cardUserInfoLayout = this.f) != null) {
-            cardUserInfoLayout.recoverVirtualAnimation();
-        }
-    }
-
-    @Override // com.baidu.tieba.y69
-    public void e() {
-        CardUserInfoLayout cardUserInfoLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (cardUserInfoLayout = this.f) != null) {
-            if (cardUserInfoLayout.isHasPlayVirtualImage()) {
-                this.f.recoverVirtualImageAnimate();
-                this.f.setHasPlayVirtualImage(false);
-            }
-            this.f.recoverVirtualAnimation();
-        }
-    }
-
-    @Override // com.baidu.tieba.ax
+    @Override // com.baidu.tieba.cx
     public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.f;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.y69
-    public void play() {
-        CardUserInfoLayout cardUserInfoLayout;
+    @Override // com.baidu.tieba.cx
+    public void l() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (cardUserInfoLayout = this.f) != null && cardUserInfoLayout.isVirtualImage() && !this.f.isHasPlayVirtualImage()) {
-            this.f.setHasPlayVirtualImage(true);
-            this.f.startVirtualImageAnimate();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.l();
+            m(1, new b(this));
         }
     }
 
-    @Override // com.baidu.tieba.tx
+    @Override // com.baidu.tieba.vx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, tbPageContext, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
             this.f.onChangeSkinType(tbPageContext, i);
+        }
+    }
+
+    public final void v(View view2, yn ynVar) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, view2, ynVar) == null) {
+            fs4 fs4Var = this.g;
+            if ((!(fs4Var instanceof j96) && !(fs4Var instanceof ThreadData)) || !(view2.getTag() instanceof ThreadCardViewHolder)) {
+                return;
+            }
+            ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
+            if (ynVar instanceof j96) {
+                j96 j96Var = (j96) this.g;
+                j96Var.f = 1;
+                Context context = view2.getContext();
+                if (j96Var.a.isFromHomPage) {
+                    i = 2;
+                } else {
+                    i = 1;
+                }
+                ThreadCardUtils.jumpToPB((fs4) j96Var, context, i, false);
+                threadCardViewHolder.a().p(new bz.a(1));
+            } else if (ynVar instanceof ThreadData) {
+                ThreadData threadData = (ThreadData) this.g;
+                threadData.objType = 1;
+                ThreadCardUtils.jumpToPB((fs4) threadData, view2.getContext(), 3, false);
+                threadCardViewHolder.a().p(new bz.a(1));
+            }
         }
     }
 }

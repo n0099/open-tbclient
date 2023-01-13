@@ -1,11 +1,11 @@
 package com.baidu.tieba.advert.sdk.stretagy;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ah;
-import com.baidu.tieba.bu5;
-import com.baidu.tieba.vi;
-import com.baidu.tieba.xx4;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.bh;
+import com.baidu.tieba.iy4;
+import com.baidu.tieba.vu5;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,16 +41,16 @@ public class SplashNativePolicy {
     public final boolean loadResult;
     public int plgAdType;
 
-    @xx4
+    @iy4
     private native void nativeInitSplashPolicy(String str, String str2, int i, int i2, int i3, int i4, int i5);
 
-    @xx4
+    @iy4
     private native void nativeReleaseSplash();
 
-    @xx4
+    @iy4
     private native void nativeUpdateSplashConfig(int i, int i2, int i3, int i4, int i5);
 
-    @xx4
+    @iy4
     private native void onNativeSplashEvent(int i, int i2);
 
     /* loaded from: classes3.dex */
@@ -83,15 +83,15 @@ public class SplashNativePolicy {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 switch (this.a) {
                     case 128:
-                        bu5.d().l(true);
+                        vu5.d().l(true);
                         return;
                     case 129:
-                        bu5.d().l(false);
+                        vu5.d().l(false);
                         return;
                     case 130:
                     case 132:
                     case 133:
-                        bu5.d().b();
+                        vu5.d().b();
                         return;
                     case 131:
                     default:
@@ -115,12 +115,12 @@ public class SplashNativePolicy {
             }
         }
         this.plgAdType = 0;
-        this.loadResult = vi.d().h("splash_policy", 1);
+        this.loadResult = wi.d().h("splash_policy", 1);
         PrintStream printStream = System.out;
         printStream.println("SplashPolicy loadResult: " + this.loadResult);
     }
 
-    @xx4
+    @iy4
     public void eventCallback(int i) {
         int i2;
         Interceptable interceptable = $ic;
@@ -129,11 +129,11 @@ public class SplashNativePolicy {
             printStream.println("SplashPolicy eventCallback=>" + i);
             if (i != 128 && i != 129) {
                 if (i == 131) {
-                    bu5.d().i(-1);
+                    vu5.d().i(-1);
                 } else if (i == 132) {
-                    bu5.d().i(-2);
+                    vu5.d().i(-2);
                 } else if (i == 130) {
-                    bu5.d().i(-3);
+                    vu5.d().i(-3);
                 }
             } else {
                 int i3 = this.plgAdType;
@@ -144,27 +144,27 @@ public class SplashNativePolicy {
                 } else {
                     i2 = 3;
                 }
-                bu5.d().i(i2);
+                vu5.d().i(i2);
             }
-            if (yi.E()) {
+            if (zi.E()) {
                 switch (i) {
                     case 128:
-                        bu5.d().l(true);
+                        vu5.d().l(true);
                         return;
                     case 129:
-                        bu5.d().l(false);
+                        vu5.d().l(false);
                         return;
                     case 130:
                     case 132:
                     case 133:
-                        bu5.d().b();
+                        vu5.d().b();
                         return;
                     case 131:
                     default:
                         return;
                 }
             }
-            ah.a().postAtFrontOfQueue(new a(this, i));
+            bh.a().postAtFrontOfQueue(new a(this, i));
         }
     }
 

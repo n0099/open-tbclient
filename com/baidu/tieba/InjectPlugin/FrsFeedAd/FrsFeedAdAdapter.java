@@ -6,31 +6,31 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.aq5;
-import com.baidu.tieba.qp5;
-import com.baidu.tieba.sp5;
-import com.baidu.tieba.vp5;
-import com.baidu.tieba.wp5;
-import com.baidu.tieba.xi8;
+import com.baidu.tieba.kq5;
+import com.baidu.tieba.mq5;
+import com.baidu.tieba.on8;
+import com.baidu.tieba.pq5;
+import com.baidu.tieba.qq5;
+import com.baidu.tieba.uq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class FrsFeedAdAdapter extends aq5 {
+public class FrsFeedAdAdapter extends uq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xi8 mRecAppContext;
+    public on8 mRecAppContext;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsFeedAdAdapter(xi8 xi8Var, BdUniqueId bdUniqueId) {
-        super(xi8Var.p().getPageActivity(), bdUniqueId);
+    public FrsFeedAdAdapter(on8 on8Var, BdUniqueId bdUniqueId) {
+        super(on8Var.p().getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xi8Var, bdUniqueId};
+            Object[] objArr = {on8Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,65 +42,65 @@ public class FrsFeedAdAdapter extends aq5 {
                 return;
             }
         }
-        this.mRecAppContext = xi8Var;
+        this.mRecAppContext = on8Var;
     }
 
-    @Override // com.baidu.tieba.aq5, com.baidu.tieba.kn
+    @Override // com.baidu.tieba.uq5, com.baidu.tieba.ln
     public View getView(int i, View view2, ViewGroup viewGroup, Object obj) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, obj})) == null) {
-            if (!(obj instanceof qp5)) {
+            if (!(obj instanceof kq5)) {
                 return null;
             }
-            qp5 qp5Var = (qp5) obj;
-            vp5 T0 = ((wp5) this.mRecAppContext).T0(1);
-            if (!(T0 instanceof sp5)) {
+            kq5 kq5Var = (kq5) obj;
+            pq5 Y0 = ((qq5) this.mRecAppContext).Y0(1);
+            if (!(Y0 instanceof mq5)) {
                 return null;
             }
-            return ((sp5) T0).m(i, view2, viewGroup, qp5Var.a());
+            return ((mq5) Y0).m(i, view2, viewGroup, kq5Var.a());
         }
         return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.kn
+    @Override // com.baidu.tieba.ln
     public TypeAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, obj)) == null) {
-            if (qp5.g(getType()) == -1 || !(obj instanceof qp5)) {
+            if (kq5.g(getType()) == -1 || !(obj instanceof kq5)) {
                 return null;
             }
-            vp5 T0 = ((wp5) this.mRecAppContext).T0(1);
-            if (!(T0 instanceof sp5)) {
+            pq5 Y0 = ((qq5) this.mRecAppContext).Y0(1);
+            if (!(Y0 instanceof mq5)) {
                 return null;
             }
-            return ((sp5) T0).g(viewGroup, ((qp5) obj).a());
+            return ((mq5) Y0).g(viewGroup, ((kq5) obj).a());
         }
         return (TypeAdapter.ViewHolder) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.kn
+    @Override // com.baidu.tieba.ln
     public void onFillViewHolder(int i, ViewGroup viewGroup, TypeAdapter.ViewHolder viewHolder, Object obj) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), viewGroup, viewHolder, obj}) != null) || !(obj instanceof qp5)) {
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), viewGroup, viewHolder, obj}) != null) || !(obj instanceof kq5)) {
             return;
         }
-        vp5 T0 = ((wp5) this.mRecAppContext).T0(1);
-        if (!(T0 instanceof sp5)) {
+        pq5 Y0 = ((qq5) this.mRecAppContext).Y0(1);
+        if (!(Y0 instanceof mq5)) {
             return;
         }
-        ((sp5) T0).n(i, viewGroup, viewHolder, ((qp5) obj).a());
+        ((mq5) Y0).n(i, viewGroup, viewHolder, ((kq5) obj).a());
     }
 
     public void setTab(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            vp5 T0 = ((wp5) this.mRecAppContext).T0(1);
-            if (!(T0 instanceof sp5)) {
+            pq5 Y0 = ((qq5) this.mRecAppContext).Y0(1);
+            if (!(Y0 instanceof mq5)) {
                 return;
             }
-            ((sp5) T0).p(str);
+            ((mq5) Y0).p(str);
         }
     }
 }

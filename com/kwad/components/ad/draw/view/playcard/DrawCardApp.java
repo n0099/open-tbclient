@@ -126,16 +126,16 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
     private void E(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0432, this);
-            this.cd = (ImageView) findViewById(R.id.obfuscated_res_0x7f091109);
-            this.ce = (ImageView) findViewById(R.id.obfuscated_res_0x7f09110e);
-            this.cf = (TextView) findViewById(R.id.obfuscated_res_0x7f09110f);
-            this.cg = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091111);
-            this.ch = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091110);
-            this.ci = (TextView) findViewById(R.id.obfuscated_res_0x7f09110d);
-            this.cj = (TextView) findViewById(R.id.obfuscated_res_0x7f09110b);
-            this.ck = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091115);
-            DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f09110c);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0431, this);
+            this.cd = (ImageView) findViewById(R.id.obfuscated_res_0x7f091114);
+            this.ce = (ImageView) findViewById(R.id.obfuscated_res_0x7f091119);
+            this.cf = (TextView) findViewById(R.id.obfuscated_res_0x7f09111a);
+            this.cg = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09111c);
+            this.ch = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f09111b);
+            this.ci = (TextView) findViewById(R.id.obfuscated_res_0x7f091118);
+            this.cj = (TextView) findViewById(R.id.obfuscated_res_0x7f091116);
+            this.ck = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091120);
+            DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f091117);
             this.cl = drawDownloadProgressBar;
             drawDownloadProgressBar.setTextSize(16);
             this.mHeight = com.kwad.sdk.b.kwai.a.a(context, 156.0f);
@@ -303,7 +303,7 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             if (view2 != this.cd) {
-                com.kwad.components.core.c.a.a.a(new a.C0594a(getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(view2 == this.cl).ae(view2 == this.cl ? 1 : 2).a(new a.b(this) { // from class: com.kwad.components.ad.draw.view.playcard.DrawCardApp.2
+                com.kwad.components.core.c.a.a.a(new a.C0593a(getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(view2 == this.cl).ae(view2 == this.cl ? 1 : 2).a(new a.b(this) { // from class: com.kwad.components.ad.draw.view.playcard.DrawCardApp.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

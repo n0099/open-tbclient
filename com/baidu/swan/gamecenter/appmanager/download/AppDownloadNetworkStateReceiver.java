@@ -7,12 +7,12 @@ import android.os.Bundle;
 import android.util.Log;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.tieba.d43;
-import com.baidu.tieba.dv3;
-import com.baidu.tieba.ok1;
-import com.baidu.tieba.ov3;
-import com.baidu.tieba.rv3;
-import com.baidu.tieba.z03;
+import com.baidu.tieba.e13;
+import com.baidu.tieba.i43;
+import com.baidu.tieba.iv3;
+import com.baidu.tieba.tk1;
+import com.baidu.tieba.tv3;
+import com.baidu.tieba.wv3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +40,7 @@ public class AppDownloadNetworkStateReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        DEBUG = ok1.a;
+        DEBUG = tk1.a;
     }
 
     public AppDownloadNetworkStateReceiver() {
@@ -64,25 +64,25 @@ public class AppDownloadNetworkStateReceiver extends BroadcastReceiver {
             if (DEBUG) {
                 Log.d("NetworkBroadcast", "——> onReceive: ");
             }
-            if (SwanAppNetworkUtils.NetType.WIFI == SwanAppNetworkUtils.f() && ov3.a().b()) {
+            if (SwanAppNetworkUtils.NetType.WIFI == SwanAppNetworkUtils.f() && tv3.a().b()) {
                 if (ProcessUtils.isMainProcess()) {
-                    dv3.n().D();
+                    iv3.n().D();
                     return;
                 }
-                z03 y = d43.K().y();
+                e13 y = i43.K().y();
                 if (y != null) {
                     Bundle bundle = new Bundle();
                     bundle.putString(KEY_OPERATION, "resumeAllDownload");
-                    y.W(bundle, rv3.class);
+                    y.W(bundle, wv3.class);
                 }
             } else if (ProcessUtils.isMainProcess()) {
-                dv3.n().u();
+                iv3.n().u();
             } else {
-                z03 y2 = d43.K().y();
+                e13 y2 = i43.K().y();
                 if (y2 != null) {
                     Bundle bundle2 = new Bundle();
                     bundle2.putString(KEY_OPERATION, "pauseAllDownload");
-                    y2.W(bundle2, rv3.class);
+                    y2.W(bundle2, wv3.class);
                 }
             }
         }

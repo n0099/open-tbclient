@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eh7;
-import com.baidu.tieba.rw4;
-import com.baidu.tieba.wg7;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.cx4;
+import com.baidu.tieba.kk7;
+import com.baidu.tieba.sk7;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
     public TbImageView d;
     public View e;
-    public eh7 f;
+    public sk7 f;
     public String g;
     public String h;
 
@@ -89,7 +89,7 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        i = yi.l(TbadkCoreApplication.getInst()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) * 2);
+        i = zi.l(TbadkCoreApplication.getInst()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) * 2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -110,19 +110,19 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d42);
-        this.e = view2.findViewById(R.id.obfuscated_res_0x7f090d44);
+        this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d4f);
+        this.e = view2.findViewById(R.id.obfuscated_res_0x7f090d51);
     }
 
     @Override // com.baidu.tieba.imMessageCenter.chatgroup.chatbox.adapter.BaseItemViewHolder
-    public void d(@NonNull wg7 wg7Var, @NonNull TbPageContext tbPageContext, int i2) {
+    public void d(@NonNull kk7 kk7Var, @NonNull TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, wg7Var, tbPageContext, i2) == null) {
-            if (wg7Var instanceof eh7) {
-                eh7 eh7Var = (eh7) wg7Var;
-                this.f = eh7Var;
-                this.g = eh7Var.c();
-                this.h = this.f.d();
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, kk7Var, tbPageContext, i2) == null) {
+            if (kk7Var instanceof sk7) {
+                sk7 sk7Var = (sk7) kk7Var;
+                this.f = sk7Var;
+                this.g = sk7Var.b();
+                this.h = this.f.c();
                 this.d.setOnClickListener(new a(this, tbPageContext));
             }
             n();
@@ -136,7 +136,7 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             super.f(i2);
             if (TextUtils.isEmpty(this.g) && (tbImageView = this.d) != null) {
-                SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f0805e3, i2);
+                SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f0805f5, i2);
             }
             if (!TextUtils.isEmpty(this.g) && this.d != null) {
                 o(i2);
@@ -152,8 +152,8 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
                 return;
             }
             this.e.setVisibility(0);
-            rw4.d(this.e).f(R.color.CAM_X0503);
-            rw4.d(this.e).n(R.string.J_X06);
+            cx4.d(this.e).f(R.color.CAM_X0503);
+            cx4.d(this.e).n(R.string.J_X06);
         }
     }
 
@@ -162,7 +162,7 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CHAT_GROUP_BOTTOM_BANNER_CLICKED);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("fid", this.f.b());
+            statisticItem.param("fid", this.f.a());
             TiebaStatic.log(statisticItem);
         }
     }
@@ -200,7 +200,7 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
                 o(skinType);
                 return;
             }
-            SkinManager.setImageResource(this.d, R.drawable.obfuscated_res_0x7f0805e3, skinType);
+            SkinManager.setImageResource(this.d, R.drawable.obfuscated_res_0x7f0805f5, skinType);
         }
     }
 }

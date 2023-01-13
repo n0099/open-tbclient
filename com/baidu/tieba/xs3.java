@@ -1,29 +1,9 @@
 package com.baidu.tieba;
+
+import android.view.View;
 /* loaded from: classes6.dex */
 public interface xs3 {
-    long a();
+    void d(String str, String str2);
 
-    void b(boolean z);
-
-    boolean c();
-
-    boolean d();
-
-    String e();
-
-    long f();
-
-    String g();
-
-    long h();
-
-    Long i();
-
-    boolean j();
-
-    boolean k();
-
-    String l();
-
-    String m();
+    void f(View view2);
 }

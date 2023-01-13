@@ -1,104 +1,96 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
-import tbclient.SearchSug.DataRes;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public class mo7 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile mo7 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdTypeRecyclerView a;
-    public final List<kn> b;
-    public oo7 c;
-    public ro7 d;
-    public po7 e;
-    public qo7 f;
-    public so7 g;
+    public Map<String, String> a;
+    public ArrayList<String> b;
 
-    public mo7(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
+    public mo7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = new ArrayList();
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        a(context, bdTypeRecyclerView);
-    }
-
-    public final void a(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, bdTypeRecyclerView) == null) {
-            this.c = new oo7(context, to7.c);
-            this.d = new ro7(context, wo7.l);
-            this.e = new po7(context, uo7.g);
-            this.f = new qo7(context, vo7.g);
-            this.g = new so7(context, xo7.e);
-            this.b.add(this.c);
-            this.b.add(this.d);
-            this.b.add(this.e);
-            this.b.add(this.f);
-            this.b.add(this.g);
-            this.a = bdTypeRecyclerView;
-            bdTypeRecyclerView.a(this.b);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            oo7 oo7Var = this.c;
-            if (oo7Var != null) {
-                oo7Var.notifyDataSetChanged();
-            }
-            ro7 ro7Var = this.d;
-            if (ro7Var != null) {
-                ro7Var.notifyDataSetChanged();
-            }
-            po7 po7Var = this.e;
-            if (po7Var != null) {
-                po7Var.notifyDataSetChanged();
-            }
-            qo7 qo7Var = this.f;
-            if (qo7Var != null) {
-                qo7Var.notifyDataSetChanged();
-            }
-            so7 so7Var = this.g;
-            if (so7Var != null) {
-                so7Var.notifyDataSetChanged();
             }
         }
     }
 
-    public void c(DataRes dataRes, String str) {
+    public static mo7 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, dataRes, str) != null) || this.a == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (mo7.class) {
+                    if (c == null) {
+                        c = new mo7();
+                    }
+                }
+            }
+            return c;
         }
-        List<xn> a = yo7.a(dataRes, str);
-        if (!ListUtils.isEmpty(a)) {
-            this.a.setData(a);
+        return (mo7) invokeV.objValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Map<String, String> map = this.a;
+            if (map != null) {
+                map.clear();
+                this.a = null;
+            }
+            ArrayList<String> arrayList = this.b;
+            if (arrayList != null) {
+                arrayList.clear();
+                this.b = null;
+            }
+        }
+    }
+
+    public Map<String, String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public ArrayList<String> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public void e(Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
+            this.a = map;
+        }
+    }
+
+    public void f(ArrayList<String> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
+            this.b = arrayList;
         }
     }
 }

@@ -71,7 +71,8 @@ public final class jo extends jp {
     }
 
     @Override // com.xiaomi.push.jp
-    public void a(byte[] bArr, int i, int i2) {
+    /* renamed from: a */
+    public void mo629a(byte[] bArr, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048580, this, bArr, i, i2) == null) {
             throw new UnsupportedOperationException("No writing allowed!");
@@ -79,7 +80,8 @@ public final class jo extends jp {
     }
 
     @Override // com.xiaomi.push.jp
-    public byte[] a() {
+    /* renamed from: a  reason: collision with other method in class */
+    public byte[] mo630a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f839a : (byte[]) invokeV.objValue;
@@ -92,7 +94,6 @@ public final class jo extends jp {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b - this.a : invokeV.intValue;
     }
 
-    @Override // com.xiaomi.push.jp
     public void b(byte[] bArr, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048583, this, bArr, i, i2) == null) {

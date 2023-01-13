@@ -13,13 +13,13 @@ import io.reactivex.exceptions.CompositeException;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Function;
 import io.reactivex.internal.disposables.DisposableHelper;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ObservableOnErrorReturn<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Function<? super Throwable, ? extends T> valueSupplier;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class OnErrorReturnObserver<T> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

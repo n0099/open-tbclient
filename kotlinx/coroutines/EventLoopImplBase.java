@@ -319,7 +319,8 @@ public abstract class EventLoopImplBase extends EventLoopImplPlatform implements
     }
 
     @Override // kotlinx.coroutines.CoroutineDispatcher
-    public final void dispatch(CoroutineContext coroutineContext, Runnable runnable) {
+    /* renamed from: dispatch */
+    public final void mo2188dispatch(CoroutineContext coroutineContext, Runnable runnable) {
         enqueue(runnable);
     }
 
@@ -360,7 +361,8 @@ public abstract class EventLoopImplBase extends EventLoopImplPlatform implements
     }
 
     @Override // kotlinx.coroutines.Delay
-    public void scheduleResumeAfterDelay(long j, CancellableContinuation<? super Unit> cancellableContinuation) {
+    /* renamed from: scheduleResumeAfterDelay */
+    public void mo2189scheduleResumeAfterDelay(long j, CancellableContinuation<? super Unit> cancellableContinuation) {
         long nanoTime;
         long delayToNanos = EventLoop_commonKt.delayToNanos(j);
         if (delayToNanos < 4611686018427387903L) {

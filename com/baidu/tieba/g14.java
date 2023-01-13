@@ -1,61 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tieba.ox3;
-import com.baidu.tieba.tw2;
+import android.app.Activity;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes4.dex */
-public class g14 implements kl1 {
+public class g14 implements x14 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes4.dex */
-    public class a implements ox3.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tw2.k a;
-
-        public a(g14 g14Var, tw2.k kVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g14Var, kVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = kVar;
-        }
-
-        @Override // com.baidu.tieba.ox3.d
-        public void onFail(String str) {
-            tw2.k kVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (kVar = this.a) != null) {
-                kVar.onFail(str);
-            }
-        }
-
-        @Override // com.baidu.tieba.ox3.d
-        public void onSuccess() {
-            tw2.k kVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (kVar = this.a) != null) {
-                kVar.onSuccess();
-            }
-        }
-    }
 
     public g14() {
         Interceptable interceptable = $ic;
@@ -71,11 +25,11 @@ public class g14 implements kl1 {
         }
     }
 
-    @Override // com.baidu.tieba.kl1
-    public void a(String str, tw2.k kVar) {
+    @Override // com.baidu.tieba.x14
+    public void a(@NonNull Activity activity, w04 w04Var, a24 a24Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, kVar) == null) {
-            rx3.o().j(str, new a(this, kVar));
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, w04Var, a24Var) == null) {
+            a24Var.a();
         }
     }
 }

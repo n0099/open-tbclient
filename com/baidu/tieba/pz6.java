@@ -1,300 +1,613 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.homepage.concern.adapter.ConcernEmotionTipAdapter;
-import com.baidu.tieba.homepage.concern.adapter.ConcernTipAdapter;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tieba.frs.FrsAllThreadFragment;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.ad.FrsADFragment;
+import com.baidu.tieba.frs.commontab.FrsCommonTabFragment;
+import com.baidu.tieba.frs.good.FrsGoodFragment;
+import com.baidu.tieba.frs.h5.FrsTabWebFragment;
+import com.baidu.tieba.frs.itemtab.FrsItemTabFragment;
+import com.baidu.tieba.frs.mc.FrsNewAreaFragment;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import tbclient.FrsTabInfo;
 /* loaded from: classes5.dex */
 public class pz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public uz6 A;
-    public m07 B;
-    public xz6 C;
-    public j07 D;
-    public yz6 E;
-    public k07 F;
-    public ConcernEmotionTipAdapter G;
-    public u07 H;
-    public ArrayList<kn> I;
-    public List<xn> J;
-    public List<kn> a;
-    public BdTypeRecyclerView b;
-    public TbPageContext<?> c;
-    public ConcernTipAdapter d;
-    public ConcernEmotionTipAdapter e;
-    public vz6 f;
-    public tz6 g;
-    public p07 h;
-    public ArrayList<l07> i;
-    public r07 j;
-    public r07 k;
-    public d07 l;
-    public q07 m;
-    public f07 n;
-    public o07 o;
-    public c07 p;
-    public b07 q;
-    public a07 r;
-    public zz6 s;
-    public s07 t;
-    public e07 u;
-    public g07 v;
-    public h07 w;
-    public n07 x;
-    public i07 y;
-    public t07 z;
 
-    public pz6(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdTypeRecyclerView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes5.dex */
+    public static class a extends fb5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FrsFragment c;
+        public final /* synthetic */ FrsTabInfo d;
+        public final /* synthetic */ FrsViewData e;
+        public final /* synthetic */ int f;
+
+        @Override // com.baidu.tieba.fb5
+        public TbFragmentTabIndicator c(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                return null;
             }
+            return (TbFragmentTabIndicator) invokeL.objValue;
         }
-        this.i = new ArrayList<>();
-        this.a = new ArrayList();
-        this.b = bdTypeRecyclerView;
-        this.c = (TbPageContext) x9.a(context);
-        b(context);
-        i(bdTypeRecyclerView);
-        bdTypeRecyclerView.a(this.a);
-    }
 
-    public List<xn> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.J;
+        @Override // com.baidu.tieba.fb5
+        public boolean d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
         }
-        return (List) invokeV.objValue;
-    }
 
-    public void d() {
-        BdTypeRecyclerView bdTypeRecyclerView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (bdTypeRecyclerView = this.b) != null) {
-            bdTypeRecyclerView.getListAdapter().notifyDataSetChanged();
-        }
-    }
-
-    public final void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            for (int i = 0; i < o56.O.size(); i++) {
-                for (int i2 = 0; i2 < o56.P.size(); i2++) {
-                    this.i.add(new l07(this.c, o56.Q[i][i2], o56.O.get(i), o56.P.get(i2)));
+        public a(FrsFragment frsFragment, FrsTabInfo frsTabInfo, FrsViewData frsViewData, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {frsFragment, frsTabInfo, frsViewData, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            this.j = new r07(this.c, ThreadData.TYPE_VIDEO, o56.D);
-            this.k = new r07(this.c, ThreadData.TYPE_VIDEO_WITH_FORUM_HEADER, o56.E);
-            this.l = new d07(this.c, ThreadData.TYPE_FAKE_VIDEO, o56.D);
-            this.m = new q07(this.c, w56.A0);
-            this.n = new f07(this.c, w56.B0);
-            this.u = new e07(this.c, w56.I0);
-            this.v = new g07(this.c, w56.J0);
-            this.o = new o07(this.c, w56.H0);
-            this.p = new c07(this.c, w56.C0);
-            this.q = new b07(this.c, w56.D0);
-            this.r = new a07(this.c, w56.E0);
-            this.t = new s07(this.c, x56.U);
-            this.C = new xz6(this.c, r56.O0);
-            this.s = new zz6(this.c, w56.F0);
-            this.B = new m07(this.c, nu4.e);
-            this.w = new h07(this.c, w56.K0);
-            this.x = new n07(this.c, w56.L0);
-            this.y = new i07(this.c, w56.M0);
-            this.z = new t07(this.c, ThreadData.TYPE_CONTENT_VOICE_ROOM);
-            this.a.addAll(this.i);
-            this.a.add(this.j);
-            this.a.add(this.k);
-            this.a.add(this.l);
-            this.a.add(this.m);
-            this.a.add(this.n);
-            this.a.add(this.u);
-            this.a.add(this.v);
-            this.a.add(this.o);
-            this.a.add(this.p);
-            this.a.add(this.q);
-            this.a.add(this.r);
-            this.a.add(this.t);
-            this.a.add(this.s);
-            this.a.add(this.B);
-            this.a.add(this.w);
-            this.a.add(this.x);
-            this.a.add(this.y);
-            this.a.add(this.z);
-            this.d = new ConcernTipAdapter(this.c.getContext());
-            this.e = new ConcernEmotionTipAdapter(this.c.getContext());
-            this.f = new vz6(this.c, v56.O0);
-            this.A = new uz6(this.c, x07.b);
-            this.g = new tz6(this.c, v56.P0);
-            this.h = new p07(this.c, w56.r0);
-            this.D = new j07(this.c, w56.s0);
-            this.E = new yz6(this.c, w56.t0);
-            this.F = new k07(this.c, w56.u0);
-            this.G = new ConcernEmotionTipAdapter(this.c.getContext(), y07.f);
-            this.H = new u07(this.c, w56.x0, (byte) 4);
-            this.a.add(this.d);
-            this.a.add(this.e);
-            this.a.add(this.f);
-            this.a.add(this.A);
-            this.a.add(this.g);
-            this.a.add(this.h);
-            this.a.add(this.D);
-            this.a.add(this.E);
-            this.a.add(this.F);
-            this.a.add(this.C);
-            this.a.add(this.G);
-            this.a.add(this.H);
-            g("page_concern");
-            c();
+            this.c = frsFragment;
+            this.d = frsTabInfo;
+            this.e = frsViewData;
+            this.f = i;
         }
-    }
 
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (!ThreadData.isRecAppLoaded.get()) {
-                AdvertAppInfo.v.set(false);
-                return;
+        @Override // com.baidu.tieba.fb5
+        public gb5 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                FrsAllThreadFragment frsAllThreadFragment = new FrsAllThreadFragment();
+                FrsFragment frsFragment = this.c;
+                if (frsFragment != null && frsFragment.u1() != null) {
+                    frsAllThreadFragment.E1(this.c.u1().Z());
+                    this.c.O4(a27.e(this.d, this.e.showAdsense.intValue()));
+                }
+                Bundle bundle = new Bundle();
+                FrsFragment frsFragment2 = this.c;
+                if (frsFragment2 != null) {
+                    bundle.putString("forum_id", frsFragment2.l());
+                }
+                bundle.putInt(TiebaStatic.Params.TAB_ID, this.f);
+                bundle.putBoolean("isAdded", false);
+                frsAllThreadFragment.setArguments(bundle);
+                gb5 gb5Var = new gb5();
+                gb5Var.a = frsAllThreadFragment;
+                gb5Var.e = 1;
+                gb5Var.i = gb5.k;
+                return gb5Var;
             }
-            this.I = new ArrayList<>();
-            kn<?, ?> g = aj8.l().g(this.c, AdvertAppInfo.y, "CONCERN");
-            kn<?, ?> g2 = aj8.l().g(this.c, AdvertAppInfo.z, "CONCERN");
-            kn<?, ?> g3 = aj8.l().g(this.c, AdvertAppInfo.A, "CONCERN");
-            kn<?, ?> g4 = aj8.l().g(this.c, AdvertAppInfo.B, "CONCERN");
-            kn<?, ?> g5 = aj8.l().g(this.c, AdvertAppInfo.C, "CONCERN");
-            kn<?, ?> g6 = aj8.l().g(this.c, AdvertAppInfo.E, "CONCERN");
-            kn<?, ?> g7 = aj8.l().g(this.c, AdvertAppInfo.D, "CONCERN");
-            this.I.add(g);
-            this.I.add(g2);
-            this.I.add(g3);
-            this.I.add(g4);
-            this.I.add(g5);
-            this.I.add(g6);
-            this.I.add(g7);
-            this.a.addAll(this.I);
-            AdvertAppInfo.v.set(true);
+            return (gb5) invokeV.objValue;
         }
     }
 
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            d();
-        }
-    }
+    /* loaded from: classes5.dex */
+    public static class b extends fb5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FrsTabInfo c;
+        public final /* synthetic */ FrsViewData d;
+        public final /* synthetic */ FrsFragment e;
+        public final /* synthetic */ int f;
 
-    public final void g(String str) {
-        List<kn> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || (list = this.a) == null) {
-            return;
-        }
-        for (kn knVar : list) {
-            if (knVar instanceof hr5) {
-                ((hr5) knVar).g(str);
+        @Override // com.baidu.tieba.fb5
+        public TbFragmentTabIndicator c(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                return null;
             }
+            return (TbFragmentTabIndicator) invokeL.objValue;
         }
-    }
 
-    public void j(List<xn> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
-            this.J = list;
-            this.b.setData(list);
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || fm7.e(this.J)) {
-            return;
-        }
-        Iterator<kn> it = this.I.iterator();
-        while (it.hasNext()) {
-            kn next = it.next();
-            if (next instanceof ri8) {
-                ((ri8) next).onDestroy();
+        @Override // com.baidu.tieba.fb5
+        public boolean d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return true;
             }
+            return invokeV.booleanValue;
+        }
+
+        public b(FrsTabInfo frsTabInfo, FrsViewData frsViewData, FrsFragment frsFragment, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {frsTabInfo, frsViewData, frsFragment, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = frsTabInfo;
+            this.d = frsViewData;
+            this.e = frsFragment;
+            this.f = i;
+        }
+
+        @Override // com.baidu.tieba.fb5
+        public gb5 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                FrsGoodFragment frsGoodFragment = new FrsGoodFragment();
+                Bundle bundle = new Bundle();
+                bundle.putBoolean(FrsActivityConfig.FLAG_SHOW_AD, a27.e(this.c, this.d.showAdsense.intValue()));
+                bundle.putString("name", this.e.e());
+                bundle.putString("from", this.e.v3());
+                bundle.putBoolean("back_special", false);
+                bundle.putBoolean(FrsActivityConfig.GOOD, true);
+                bundle.putLong("TibaStatic.StartTime", System.currentTimeMillis());
+                bundle.putString("forum_id", this.e.l());
+                bundle.putBoolean("isAdded", false);
+                frsGoodFragment.setArguments(bundle);
+                gb5 gb5Var = new gb5();
+                gb5Var.a = frsGoodFragment;
+                gb5Var.e = this.f;
+                gb5Var.i = gb5.k;
+                return gb5Var;
+            }
+            return (gb5) invokeV.objValue;
         }
     }
 
-    public void h(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
-            Iterator<l07> it = this.i.iterator();
-            while (it.hasNext()) {
-                it.next().a = bdUniqueId;
+    /* loaded from: classes5.dex */
+    public static class c extends fb5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FrsTabInfo c;
+        public final /* synthetic */ FrsViewData d;
+        public final /* synthetic */ FrsFragment e;
+        public final /* synthetic */ int f;
+
+        @Override // com.baidu.tieba.fb5
+        public TbFragmentTabIndicator c(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                return null;
             }
-            this.f.a = bdUniqueId;
-            this.g.a = bdUniqueId;
-            this.h.a = bdUniqueId;
-            this.F.a = bdUniqueId;
-            this.D.a = bdUniqueId;
-            this.E.a = bdUniqueId;
-            this.C.a = bdUniqueId;
-            this.s.a = bdUniqueId;
-            this.B.a = bdUniqueId;
-            this.H.b = bdUniqueId;
-            this.z.a = bdUniqueId;
-            this.A.u(bdUniqueId);
+            return (TbFragmentTabIndicator) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.fb5
+        public boolean d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public c(FrsTabInfo frsTabInfo, FrsViewData frsViewData, FrsFragment frsFragment, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {frsTabInfo, frsViewData, frsFragment, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = frsTabInfo;
+            this.d = frsViewData;
+            this.e = frsFragment;
+            this.f = i;
+        }
+
+        @Override // com.baidu.tieba.fb5
+        public gb5 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                FrsNewAreaFragment frsNewAreaFragment = new FrsNewAreaFragment();
+                Bundle bundle = new Bundle();
+                bundle.putBoolean(FrsActivityConfig.FLAG_SHOW_AD, a27.e(this.c, this.d.showAdsense.intValue()));
+                bundle.putString("name", this.e.e());
+                bundle.putString("from", this.e.v3());
+                bundle.putBoolean("back_special", false);
+                bundle.putLong("TibaStatic.StartTime", System.currentTimeMillis());
+                bundle.putString("forum_id", this.e.l());
+                bundle.putBoolean("isAdded", false);
+                frsNewAreaFragment.setArguments(bundle);
+                gb5 gb5Var = new gb5();
+                gb5Var.a = frsNewAreaFragment;
+                gb5Var.e = this.f;
+                gb5Var.i = gb5.k;
+                return gb5Var;
+            }
+            return (gb5) invokeV.objValue;
         }
     }
 
-    public final void i(Cdo cdo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cdo) == null) {
-            Iterator<l07> it = this.i.iterator();
-            while (it.hasNext()) {
-                it.next().H(cdo);
+    /* loaded from: classes5.dex */
+    public static class d extends fb5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FrsFragment c;
+
+        @Override // com.baidu.tieba.fb5
+        public TbFragmentTabIndicator c(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                return null;
             }
-            this.j.C(cdo);
-            this.k.C(cdo);
-            this.l.x(cdo);
-            this.m.x(cdo);
-            this.n.y(cdo);
-            this.u.x(cdo);
-            this.v.x(cdo);
-            this.o.x(cdo);
-            this.B.v(cdo);
-            this.w.u(cdo);
-            this.x.v(cdo);
-            this.y.u(cdo);
-            this.z.x(cdo);
-            this.p.x(cdo);
-            this.q.x(cdo);
-            this.r.x(cdo);
-            this.t.A(cdo);
-            this.s.y(cdo);
-            this.C.y(cdo);
-            this.E.x(cdo);
-            this.D.y(cdo);
-            this.F.y(cdo);
-            this.H.u(cdo);
+            return (TbFragmentTabIndicator) invokeL.objValue;
         }
+
+        @Override // com.baidu.tieba.fb5
+        public boolean d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public d(FrsFragment frsFragment) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {frsFragment};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = frsFragment;
+        }
+
+        @Override // com.baidu.tieba.fb5
+        public gb5 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                FrsADFragment frsADFragment = new FrsADFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("name", this.c.e());
+                bundle.putString("from", this.c.v3());
+                bundle.putString("forum_id", this.c.l());
+                bundle.putBoolean("isAdded", false);
+                frsADFragment.setArguments(bundle);
+                gb5 gb5Var = new gb5();
+                gb5Var.a = frsADFragment;
+                gb5Var.e = 90;
+                gb5Var.i = gb5.k;
+                return gb5Var;
+            }
+            return (gb5) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class e extends fb5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FrsTabInfo c;
+        public final /* synthetic */ FrsViewData d;
+        public final /* synthetic */ FrsFragment e;
+        public final /* synthetic */ int f;
+
+        @Override // com.baidu.tieba.fb5
+        public TbFragmentTabIndicator c(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                return null;
+            }
+            return (TbFragmentTabIndicator) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.fb5
+        public boolean d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public e(FrsTabInfo frsTabInfo, FrsViewData frsViewData, FrsFragment frsFragment, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {frsTabInfo, frsViewData, frsFragment, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = frsTabInfo;
+            this.d = frsViewData;
+            this.e = frsFragment;
+            this.f = i;
+        }
+
+        @Override // com.baidu.tieba.fb5
+        public gb5 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                FrsCommonTabFragment frsCommonTabFragment = new FrsCommonTabFragment();
+                Bundle bundle = new Bundle();
+                bundle.putBoolean(FrsActivityConfig.FLAG_SHOW_AD, a27.e(this.c, this.d.showAdsense.intValue()));
+                bundle.putString("name", this.e.e());
+                bundle.putString("from", this.e.v3());
+                bundle.putString("forum_id", this.e.l());
+                bundle.putInt(TiebaStatic.Params.TAB_ID, this.f);
+                bundle.putInt("tab_type", this.c.tab_type.intValue());
+                bundle.putString("tab_name", this.c.tab_name);
+                bundle.putInt("is_general_tab", this.c.is_general_tab.intValue());
+                bundle.putBoolean("can_auto_play_video", this.d.isFrsVideoAutoPlay);
+                boolean z = true;
+                if (this.d.needLog != 1) {
+                    z = false;
+                }
+                bundle.putBoolean("need_log", z);
+                bundle.putBoolean("is_brand_forum", this.d.isBrandForum);
+                bundle.putSerializable("view_data", this.d);
+                bundle.putBoolean("isAdded", false);
+                frsCommonTabFragment.setArguments(bundle);
+                gb5 gb5Var = new gb5();
+                gb5Var.a = frsCommonTabFragment;
+                gb5Var.e = this.f;
+                gb5Var.i = gb5.k;
+                return gb5Var;
+            }
+            return (gb5) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class f extends fb5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FrsTabInfo c;
+        public final /* synthetic */ FrsViewData d;
+        public final /* synthetic */ FrsFragment e;
+        public final /* synthetic */ int f;
+
+        @Override // com.baidu.tieba.fb5
+        public TbFragmentTabIndicator c(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                return null;
+            }
+            return (TbFragmentTabIndicator) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.fb5
+        public boolean d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public f(FrsTabInfo frsTabInfo, FrsViewData frsViewData, FrsFragment frsFragment, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {frsTabInfo, frsViewData, frsFragment, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = frsTabInfo;
+            this.d = frsViewData;
+            this.e = frsFragment;
+            this.f = i;
+        }
+
+        @Override // com.baidu.tieba.fb5
+        public gb5 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                FrsTabWebFragment frsTabWebFragment = new FrsTabWebFragment();
+                Bundle bundle = new Bundle();
+                bundle.putBoolean(FrsActivityConfig.FLAG_SHOW_AD, a27.e(this.c, this.d.showAdsense.intValue()));
+                bundle.putString("name", this.e.e());
+                bundle.putString("from", this.e.v3());
+                bundle.putString("forum_id", this.e.l());
+                bundle.putInt(TiebaStatic.Params.TAB_ID, this.f);
+                bundle.putInt("tab_type", this.c.tab_type.intValue());
+                bundle.putString("tab_name", this.c.tab_name);
+                bundle.putString("tab_url", this.c.tab_url);
+                bundle.putInt("is_general_tab", this.c.is_general_tab.intValue());
+                bundle.putBoolean("can_auto_play_video", this.d.isFrsVideoAutoPlay);
+                boolean z = true;
+                if (this.d.needLog != 1) {
+                    z = false;
+                }
+                bundle.putBoolean("need_log", z);
+                bundle.putBoolean("is_brand_forum", this.d.isBrandForum);
+                bundle.putSerializable("view_data", this.d);
+                bundle.putBoolean("isAdded", false);
+                frsTabWebFragment.setArguments(bundle);
+                gb5 gb5Var = new gb5();
+                gb5Var.a = frsTabWebFragment;
+                gb5Var.e = this.f;
+                gb5Var.i = gb5.k;
+                return gb5Var;
+            }
+            return (gb5) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class g extends fb5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FrsFragment c;
+        public final /* synthetic */ int d;
+        public final /* synthetic */ FrsTabInfo e;
+        public final /* synthetic */ FrsViewData f;
+        public final /* synthetic */ String g;
+
+        @Override // com.baidu.tieba.fb5
+        public TbFragmentTabIndicator c(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                return null;
+            }
+            return (TbFragmentTabIndicator) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.fb5
+        public boolean d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public g(FrsFragment frsFragment, int i, FrsTabInfo frsTabInfo, FrsViewData frsViewData, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {frsFragment, Integer.valueOf(i), frsTabInfo, frsViewData, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = frsFragment;
+            this.d = i;
+            this.e = frsTabInfo;
+            this.f = frsViewData;
+            this.g = str;
+        }
+
+        @Override // com.baidu.tieba.fb5
+        public gb5 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                FrsItemTabFragment frsItemTabFragment = new FrsItemTabFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("name", this.c.e());
+                bundle.putString("from", this.c.v3());
+                bundle.putString("forum_id", this.c.l());
+                bundle.putInt(TiebaStatic.Params.TAB_ID, this.d);
+                bundle.putInt("tab_type", this.e.tab_type.intValue());
+                bundle.putString("tab_name", this.e.tab_name);
+                bundle.putString("tab_code", this.e.tab_code);
+                boolean z = true;
+                if (this.f.needLog != 1) {
+                    z = false;
+                }
+                bundle.putBoolean("need_log", z);
+                bundle.putString("theme_color", this.g);
+                bundle.putBoolean("isAdded", false);
+                bundle.putInt(FrsActivityConfig.FRS_CALL_FROM_BY_ITEM_POSITION, this.c.x3());
+                frsItemTabFragment.setArguments(bundle);
+                frsItemTabFragment.H1(this.c.getUniqueId());
+                gb5 gb5Var = new gb5();
+                gb5Var.a = frsItemTabFragment;
+                gb5Var.e = this.d;
+                gb5Var.i = gb5.k;
+                return gb5Var;
+            }
+            return (gb5) invokeV.objValue;
+        }
+    }
+
+    public static fb5 a(@NonNull FrsTabInfo frsTabInfo, @NonNull FrsFragment frsFragment, @NonNull FrsViewData frsViewData, String str) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, frsTabInfo, frsFragment, frsViewData, str)) == null) {
+            int intValue = frsTabInfo.tab_id.intValue();
+            if (intValue == 1) {
+                return new a(frsFragment, frsTabInfo, frsViewData, intValue);
+            }
+            if (intValue == 301) {
+                return new b(frsTabInfo, frsViewData, frsFragment, intValue);
+            }
+            if (intValue == 503) {
+                return new c(frsTabInfo, frsViewData, frsFragment, intValue);
+            }
+            if (intValue == 90) {
+                return new d(frsFragment);
+            }
+            if (frsTabInfo.tab_type.intValue() != 91 && intValue != 89 && intValue != 504 && frsTabInfo.tab_type.intValue() != 15 && frsTabInfo.tab_type.intValue() != 16 && frsTabInfo.tab_type.intValue() != 3 && frsTabInfo.tab_type.intValue() != 100) {
+                if (frsTabInfo.is_general_tab.intValue() == 1 && frsTabInfo.tab_type.intValue() == 102) {
+                    return new f(frsTabInfo, frsViewData, frsFragment, intValue);
+                }
+                if (intValue == 506) {
+                    return new g(frsFragment, intValue, frsTabInfo, frsViewData, str);
+                }
+                return null;
+            }
+            return new e(frsTabInfo, frsViewData, frsFragment, intValue);
+        }
+        return (fb5) invokeLLLL.objValue;
     }
 }

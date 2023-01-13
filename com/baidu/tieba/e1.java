@@ -1,7 +1,15 @@
 package com.baidu.tieba;
 /* loaded from: classes4.dex */
 public interface e1 {
-    g2 a(k3 k3Var);
+    void a(String str, String str2, Throwable th);
 
-    f2 f(k3 k3Var);
+    void b(String str, String str2, Throwable th);
+
+    void debug(String str, String str2);
+
+    void error(String str, String str2);
+
+    void error(String str, String str2, Throwable th);
+
+    void log(String str, String str2);
 }

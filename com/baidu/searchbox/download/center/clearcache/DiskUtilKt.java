@@ -2,10 +2,14 @@ package com.baidu.searchbox.download.center.clearcache;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.Build;
+import android.system.Os;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.StorageUtils;
 import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
@@ -30,6 +34,7 @@ import kotlin.Unit;
 import kotlin.collections.MapsKt__MapsKt;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u00006\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0010$\n\u0002\b\u0006\n\u0002\u0010\b\n\u0002\b\u0003\u001aA\u0010\b\u001a\u00020\u00072\f\u0010\u0002\u001a\b\u0012\u0004\u0012\u00020\u00010\u00002\u000e\u0010\u0003\u001a\n\u0012\u0004\u0012\u00020\u0001\u0018\u00010\u00002\u0014\u0010\u0006\u001a\u0010\u0012\u0004\u0012\u00020\u0001\u0012\u0004\u0012\u00020\u0005\u0018\u00010\u0004¢\u0006\u0004\b\b\u0010\t\u001a\u0019\u0010\f\u001a\u00020\u00052\b\u0010\u000b\u001a\u0004\u0018\u00010\nH\u0007¢\u0006\u0004\b\f\u0010\r\u001a\u0013\u0010\u000e\u001a\b\u0012\u0004\u0012\u00020\u00010\u0000¢\u0006\u0004\b\u000e\u0010\u000f\u001a\u0013\u0010\u0010\u001a\b\u0012\u0004\u0012\u00020\u00010\u0000¢\u0006\u0004\b\u0010\u0010\u000f\"%\u0010\u0012\u001a\u000e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020\n0\u00118\u0006@\u0006¢\u0006\f\n\u0004\b\u0012\u0010\u0013\u001a\u0004\b\u0014\u0010\u0015\"\u0016\u0010\u0016\u001a\u00020\n8\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0016\u0010\u0017\"\u0016\u0010\u0019\u001a\u00020\u00188\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0019\u0010\u001a¨\u0006\u001b"}, d2 = {"", "Ljava/io/File;", "fileList", "excludeFileList", "Lkotlin/Function1;", "", "predicate", "", "calculateFileListSize", "(Ljava/util/List;Ljava/util/List;Lkotlin/Function1;)J", "", "monitorType", "cleanCacheMonitorUBC", "(Ljava/lang/String;)V", "getAppFileList", "()Ljava/util/List;", "getUserAssetFileList", "", "DIR_BUSINESS_MAP", "Ljava/util/Map;", "getDIR_BUSINESS_MAP", "()Ljava/util/Map;", "UBC_CLEAN_CACHE_MONITOR", "Ljava/lang/String;", "", "UBC_EXCEPTION_FILE_MAX", "I", "lib-clearcache-base_release"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
@@ -136,12 +141,132 @@ public final class DiskUtilKt {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            long totalExternalMemorySize = StorageUtils.getTotalExternalMemorySize();
+                            final long totalExternalMemorySize = StorageUtils.getTotalExternalMemorySize();
                             long availableExternalMemorySize = StorageUtils.getAvailableExternalMemorySize();
-                            JSONArray jSONArray = new JSONArray();
-                            JSONObject jSONObject = new JSONObject();
-                            long calculateFileListSize = DiskUtilKt.calculateFileListSize(DiskUtilKt.getAppFileList(), DiskUtilKt.getUserAssetFileList(), new DiskUtilKt$cleanCacheMonitorUBC$1$baidu$1(jSONArray, totalExternalMemorySize, jSONObject));
-                            long calculateFileListSize2 = DiskUtilKt.calculateFileListSize(DiskUtilKt.getUserAssetFileList(), null, new DiskUtilKt$cleanCacheMonitorUBC$1$userAssets$1(jSONObject));
+                            final JSONArray jSONArray = new JSONArray();
+                            final JSONObject jSONObject = new JSONObject();
+                            long calculateFileListSize = DiskUtilKt.calculateFileListSize(DiskUtilKt.getAppFileList(), DiskUtilKt.getUserAssetFileList(), new Function1<File, Unit>(jSONArray, totalExternalMemorySize, jSONObject) { // from class: com.baidu.searchbox.download.center.clearcache.DiskUtilKt$cleanCacheMonitorUBC$1$baidu$1
+                                public static /* synthetic */ Interceptable $ic;
+                                public final /* synthetic */ JSONArray $exceptionFiles;
+                                public final /* synthetic */ JSONObject $extList;
+                                public transient /* synthetic */ FieldHolder $fh;
+                                public final /* synthetic */ long $total;
+
+                                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                                {
+                                    super(1);
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {jSONArray, Long.valueOf(totalExternalMemorySize), jSONObject};
+                                        interceptable3.invokeUnInit(65536, newInitContext);
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
+                                            super(((Integer) newInitContext.callArgs[0]).intValue());
+                                            newInitContext.thisArg = this;
+                                            interceptable3.invokeInitBody(65536, newInitContext);
+                                            return;
+                                        }
+                                    }
+                                    this.$exceptionFiles = jSONArray;
+                                    this.$total = totalExternalMemorySize;
+                                    this.$extList = jSONObject;
+                                }
+
+                                /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                                @Override // kotlin.jvm.functions.Function1
+                                public /* bridge */ /* synthetic */ Unit invoke(File file) {
+                                    invoke2(file);
+                                    return Unit.INSTANCE;
+                                }
+
+                                /* renamed from: invoke  reason: avoid collision after fix types in other method */
+                                public final void invoke2(File it) {
+                                    long j;
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, it) == null) {
+                                        Intrinsics.checkNotNullParameter(it, "it");
+                                        if (this.$exceptionFiles.length() < 10 && it.length() >= this.$total) {
+                                            JSONObject jSONObject2 = new JSONObject();
+                                            jSONObject2.put("path", it.getAbsolutePath());
+                                            jSONObject2.put(CloudStabilityUBCUtils.KEY_LENGTH, it.length());
+                                            jSONObject2.put("lastModified", it.lastModified());
+                                            if (Build.VERSION.SDK_INT >= 21) {
+                                                j = Os.lstat(it.getAbsolutePath()).st_atime;
+                                            } else {
+                                                j = 0;
+                                            }
+                                            jSONObject2.put("lastAccessTime", j);
+                                            this.$exceptionFiles.put(jSONObject2);
+                                        }
+                                        String filePath = it.getAbsolutePath();
+                                        for (Map.Entry<String, String> entry : DiskUtilKt.getDIR_BUSINESS_MAP().entrySet()) {
+                                            String value = entry.getValue();
+                                            Intrinsics.checkNotNullExpressionValue(filePath, "filePath");
+                                            if (StringsKt__StringsKt.contains$default((CharSequence) filePath, (CharSequence) entry.getKey(), false, 2, (Object) null)) {
+                                                JSONObject jSONObject3 = this.$extList;
+                                                jSONObject3.put(value, jSONObject3.optLong(value) + it.length());
+                                                return;
+                                            }
+                                        }
+                                    }
+                                }
+                            });
+                            long calculateFileListSize2 = DiskUtilKt.calculateFileListSize(DiskUtilKt.getUserAssetFileList(), null, new Function1<File, Unit>(jSONObject) { // from class: com.baidu.searchbox.download.center.clearcache.DiskUtilKt$cleanCacheMonitorUBC$1$userAssets$1
+                                public static /* synthetic */ Interceptable $ic;
+                                public final /* synthetic */ JSONObject $extList;
+                                public transient /* synthetic */ FieldHolder $fh;
+
+                                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                                {
+                                    super(1);
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {jSONObject};
+                                        interceptable3.invokeUnInit(65536, newInitContext);
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
+                                            super(((Integer) newInitContext.callArgs[0]).intValue());
+                                            newInitContext.thisArg = this;
+                                            interceptable3.invokeInitBody(65536, newInitContext);
+                                            return;
+                                        }
+                                    }
+                                    this.$extList = jSONObject;
+                                }
+
+                                /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                                @Override // kotlin.jvm.functions.Function1
+                                public /* bridge */ /* synthetic */ Unit invoke(File file) {
+                                    invoke2(file);
+                                    return Unit.INSTANCE;
+                                }
+
+                                /* renamed from: invoke  reason: avoid collision after fix types in other method */
+                                public final void invoke2(File it) {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, it) == null) {
+                                        Intrinsics.checkNotNullParameter(it, "it");
+                                        String filePath = it.getAbsolutePath();
+                                        for (Map.Entry<String, String> entry : DiskUtilKt.getDIR_BUSINESS_MAP().entrySet()) {
+                                            String value = entry.getValue();
+                                            Intrinsics.checkNotNullExpressionValue(filePath, "filePath");
+                                            if (StringsKt__StringsKt.contains$default((CharSequence) filePath, (CharSequence) entry.getKey(), false, 2, (Object) null)) {
+                                                JSONObject jSONObject2 = this.$extList;
+                                                jSONObject2.put(value, jSONObject2.optLong(value) + it.length());
+                                                return;
+                                            }
+                                        }
+                                    }
+                                }
+                            });
                             JSONObject jSONObject2 = new JSONObject();
                             JSONObject jSONObject3 = new JSONObject();
                             jSONObject3.put(PackageTable.TOTAL_SIZE, totalExternalMemorySize);

@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ma4;
+import com.baidu.tieba.ra4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ public class MainMenuView extends BaseMenuView {
     public MenuContentAdapter j;
     public RecyclerView k;
     public MenuContentAdapter l;
-    public List<List<ma4>> m;
+    public List<List<ra4>> m;
     public View n;
     public boolean o;
 
@@ -160,7 +160,7 @@ public class MainMenuView extends BaseMenuView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<List<ma4>> list = this.m;
+            List<List<ra4>> list = this.m;
             if (list != null && list.size() > 1) {
                 return true;
             }
@@ -226,7 +226,7 @@ public class MainMenuView extends BaseMenuView {
         }
     }
 
-    public final void g(List<List<ma4>> list, boolean z, int i) {
+    public final void g(List<List<ra4>> list, boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{list, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             this.m = list;
@@ -239,7 +239,7 @@ public class MainMenuView extends BaseMenuView {
         }
     }
 
-    public void update(List<List<ma4>> list, View view2, boolean z, int i) {
+    public void update(List<List<ra4>> list, View view2, boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{list, view2, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             setMode();

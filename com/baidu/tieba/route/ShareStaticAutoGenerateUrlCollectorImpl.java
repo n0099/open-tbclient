@@ -53,6 +53,7 @@ public final class ShareStaticAutoGenerateUrlCollectorImpl implements ICmdRouter
             hashMap.put("1003473", "com.baidu.tieba.sharesdk.ShareStatic");
             hashMap.put("2016567", "com.baidu.tieba.sharesdk.ShareStatic");
             hashMap.put("1003542", "com.baidu.tieba.sharesdk.ShareStatic");
+            hashMap.put("1003559", "com.baidu.tieba.sharesdk.ShareStatic");
             return hashMap;
         }
         return (Map) invokeV.objValue;

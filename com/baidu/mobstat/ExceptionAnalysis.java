@@ -197,7 +197,7 @@ public class ExceptionAnalysis {
                     jSONObject2.put(Config.SEQUENCE_INDEX, 0);
                     JSONObject jSONObject3 = new JSONObject();
                     jSONObject3.put(Config.HEADER_PART, jSONObject2);
-                    jSONObject3.put(Config.PRINCIPAL_PART, new JSONArray());
+                    jSONObject3.put("pr", new JSONArray());
                     jSONObject3.put(Config.EVENT_PART, new JSONArray());
                     jSONObject3.put(Config.EXCEPTION_PART, jSONArray);
                     jSONObject3.put(Config.TRACE_PART, a());

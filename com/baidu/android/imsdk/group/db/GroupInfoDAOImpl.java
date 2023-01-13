@@ -10,6 +10,7 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.chatmessage.ChatSession;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.conversation.ConversationManagerImpl;
+import com.baidu.android.imsdk.db.CursorWrapper;
 import com.baidu.android.imsdk.db.DBGroupTableManager;
 import com.baidu.android.imsdk.db.DBOperation;
 import com.baidu.android.imsdk.db.DBOperationFactory;
@@ -67,35 +68,35 @@ public class GroupInfoDAOImpl {
                 if (cursor == null) {
                     return null;
                 }
-                String string = cursor.getString(cursor.getColumnIndex("group_id"));
-                String string2 = cursor.getString(cursor.getColumnIndex("group_name"));
-                int i = cursor.getInt(cursor.getColumnIndex("group_type"));
-                int i2 = cursor.getInt(cursor.getColumnIndex("state"));
-                long j = cursor.getLong(cursor.getColumnIndex("create_time"));
-                long j2 = cursor.getLong(cursor.getColumnIndex("bduid"));
-                long j3 = cursor.getLong(cursor.getColumnIndex("uk"));
-                int i3 = cursor.getInt(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_USER_NUM));
-                long j4 = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_USER_MEMBER_VERSION));
-                int i4 = cursor.getInt(cursor.getColumnIndex("disturb"));
-                int i5 = cursor.getInt(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF));
-                String string3 = cursor.getString(cursor.getColumnIndex("description"));
-                int i6 = cursor.getInt(cursor.getColumnIndex("marktop"));
-                long j5 = cursor.getLong(cursor.getColumnIndex("marktoptime"));
-                String string4 = cursor.getString(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_NOTICE));
-                int i7 = cursor.getInt(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_SIZE));
-                int i8 = cursor.getInt(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_VERIFY));
-                String string5 = cursor.getString(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_DESC));
-                long j6 = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_USER_MEMBER_LOCAL_VERSION));
-                long j7 = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_INFO_LOCAL_VERSION));
-                long j8 = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_INFO_VERSION));
-                int i9 = cursor.getInt(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_ADMIN_SIZE_LIMIT));
-                int i10 = cursor.getInt(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_SUB_TYPE));
-                String string6 = cursor.getString(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_SETTING_INFO));
-                String string7 = cursor.getString(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HOMEPAGE));
-                int i11 = cursor.getInt(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_AUDIT_STATE));
-                int i12 = cursor.getInt(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HAS_NOTICE));
-                String string8 = cursor.getString(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_NOTICE_EXT));
-                String string9 = cursor.getString(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_WELCOME_JSON_TEXT));
+                String string = CursorWrapper.getString(cursor, "group_id");
+                String string2 = CursorWrapper.getString(cursor, "group_name");
+                int i = CursorWrapper.getInt(cursor, "group_type");
+                int i2 = CursorWrapper.getInt(cursor, "state");
+                long j = CursorWrapper.getLong(cursor, "create_time");
+                long j2 = CursorWrapper.getLong(cursor, "bduid");
+                long j3 = CursorWrapper.getLong(cursor, "uk");
+                int i3 = CursorWrapper.getInt(cursor, DBTableDefine.GroupInfoColumns.COLUMN_USER_NUM);
+                long j4 = CursorWrapper.getLong(cursor, DBTableDefine.GroupInfoColumns.COLUMN_USER_MEMBER_VERSION);
+                int i4 = CursorWrapper.getInt(cursor, "disturb");
+                int i5 = CursorWrapper.getInt(cursor, DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
+                String string3 = CursorWrapper.getString(cursor, "description");
+                int i6 = CursorWrapper.getInt(cursor, "marktop");
+                long j5 = CursorWrapper.getLong(cursor, "marktoptime");
+                String string4 = CursorWrapper.getString(cursor, DBTableDefine.GroupInfoColumns.COLUMN_GROUP_NOTICE);
+                int i7 = CursorWrapper.getInt(cursor, DBTableDefine.GroupInfoColumns.COLUMN_GROUP_SIZE);
+                int i8 = CursorWrapper.getInt(cursor, DBTableDefine.GroupInfoColumns.COLUMN_GROUP_VERIFY);
+                String string5 = CursorWrapper.getString(cursor, DBTableDefine.GroupInfoColumns.COLUMN_GROUP_DESC);
+                long j6 = CursorWrapper.getLong(cursor, DBTableDefine.GroupInfoColumns.COLUMN_USER_MEMBER_LOCAL_VERSION);
+                long j7 = CursorWrapper.getLong(cursor, DBTableDefine.GroupInfoColumns.COLUMN_GROUP_INFO_LOCAL_VERSION);
+                long j8 = CursorWrapper.getLong(cursor, DBTableDefine.GroupInfoColumns.COLUMN_GROUP_INFO_VERSION);
+                int i9 = CursorWrapper.getInt(cursor, DBTableDefine.GroupInfoColumns.COLUMN_GROUP_ADMIN_SIZE_LIMIT);
+                int i10 = CursorWrapper.getInt(cursor, DBTableDefine.GroupInfoColumns.COLUMN_GROUP_SUB_TYPE);
+                String string6 = CursorWrapper.getString(cursor, DBTableDefine.GroupInfoColumns.COLUMN_GROUP_SETTING_INFO);
+                String string7 = CursorWrapper.getString(cursor, DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HOMEPAGE);
+                int i11 = CursorWrapper.getInt(cursor, DBTableDefine.GroupInfoColumns.COLUMN_GROUP_AUDIT_STATE);
+                int i12 = CursorWrapper.getInt(cursor, DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HAS_NOTICE);
+                String string8 = CursorWrapper.getString(cursor, DBTableDefine.GroupInfoColumns.COLUMN_GROUP_NOTICE_EXT);
+                String string9 = CursorWrapper.getString(cursor, DBTableDefine.GroupInfoColumns.COLUMN_GROUP_WELCOME_JSON_TEXT);
                 GroupInfo groupInfo = new GroupInfo(string);
                 groupInfo.setGroupName(string2);
                 groupInfo.setType(i);
@@ -157,18 +158,18 @@ public class GroupInfoDAOImpl {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cursor)) == null) {
-                String string = cursor.getString(cursor.getColumnIndex("group_id"));
-                long j = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupMemberColumns.COLUMN_JOIN_TIME));
-                int i = cursor.getInt(cursor.getColumnIndex("role"));
-                String string2 = cursor.getString(cursor.getColumnIndex("name"));
-                String string3 = cursor.getString(cursor.getColumnIndex("nickname"));
-                long j2 = cursor.getLong(cursor.getColumnIndex("bduid"));
-                long j3 = cursor.getLong(cursor.getColumnIndex("uk"));
-                int i2 = cursor.getInt(cursor.getColumnIndex("status"));
-                String string4 = cursor.getString(cursor.getColumnIndex("avatar"));
-                String string5 = cursor.getString(cursor.getColumnIndex(DBTableDefine.GroupMemberColumns.COLUMN_AVATAR_EXT));
-                String string6 = cursor.getString(cursor.getColumnIndex(DBTableDefine.GroupMemberColumns.COLUMN_ROLE_DISPLAY_NAME));
-                String string7 = cursor.getString(cursor.getColumnIndex(DBTableDefine.GroupMemberColumns.COLUMN_ROLE_DECORATION));
+                String string = CursorWrapper.getString(cursor, "group_id");
+                long j = CursorWrapper.getLong(cursor, DBTableDefine.GroupMemberColumns.COLUMN_JOIN_TIME);
+                int i = CursorWrapper.getInt(cursor, "role");
+                String string2 = CursorWrapper.getString(cursor, "name");
+                String string3 = CursorWrapper.getString(cursor, "nickname");
+                long j2 = CursorWrapper.getLong(cursor, "bduid");
+                long j3 = CursorWrapper.getLong(cursor, "uk");
+                int i2 = CursorWrapper.getInt(cursor, "status");
+                String string4 = CursorWrapper.getString(cursor, "avatar");
+                String string5 = CursorWrapper.getString(cursor, DBTableDefine.GroupMemberColumns.COLUMN_AVATAR_EXT);
+                String string6 = CursorWrapper.getString(cursor, DBTableDefine.GroupMemberColumns.COLUMN_ROLE_DISPLAY_NAME);
+                String string7 = CursorWrapper.getString(cursor, DBTableDefine.GroupMemberColumns.COLUMN_ROLE_DECORATION);
                 GroupMember groupMember = new GroupMember(string, j3, string2, j2, i, j);
                 groupMember.setValid(i2);
                 groupMember.setNickName(string3);
@@ -266,7 +267,7 @@ public class GroupInfoDAOImpl {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor)) == null) {
-                            return cursor.getString(cursor.getColumnIndex("group_id"));
+                            return CursorWrapper.getString(cursor, "group_id");
                         }
                         return (String) invokeL.objValue;
                     }
@@ -471,7 +472,7 @@ public class GroupInfoDAOImpl {
                         InterceptResult invokeL2;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor)) == null) {
-                            return cursor.getString(cursor.getColumnIndex("group_id"));
+                            return CursorWrapper.getString(cursor, "group_id");
                         }
                         return (String) invokeL2.objValue;
                     }
@@ -614,7 +615,7 @@ public class GroupInfoDAOImpl {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, cursor)) == null) {
-                        return Long.valueOf(cursor.getLong(cursor.getColumnIndex("bduid")));
+                        return Long.valueOf(CursorWrapper.getLong(cursor, "bduid"));
                     }
                     return (Long) invokeL.objValue;
                 }
@@ -736,7 +737,7 @@ public class GroupInfoDAOImpl {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor)) == null) {
-                            return cursor.getString(cursor.getColumnIndex("group_id"));
+                            return CursorWrapper.getString(cursor, "group_id");
                         }
                         return (String) invokeL.objValue;
                     }
@@ -780,17 +781,17 @@ public class GroupInfoDAOImpl {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, cursor)) == null) {
-                        String string = cursor.getString(cursor.getColumnIndex("group_id"));
-                        long j = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupMemberColumns.COLUMN_JOIN_TIME));
-                        int i = cursor.getInt(cursor.getColumnIndex("role"));
-                        String string2 = cursor.getString(cursor.getColumnIndex("name"));
-                        String string3 = cursor.getString(cursor.getColumnIndex("nickname"));
-                        long j2 = cursor.getLong(cursor.getColumnIndex("bduid"));
-                        long j3 = cursor.getLong(cursor.getColumnIndex("uk"));
-                        int i2 = cursor.getInt(cursor.getColumnIndex("status"));
-                        String string4 = cursor.getString(cursor.getColumnIndex("avatar"));
-                        String string5 = cursor.getString(cursor.getColumnIndex(DBTableDefine.GroupMemberColumns.COLUMN_ROLE_DISPLAY_NAME));
-                        String string6 = cursor.getString(cursor.getColumnIndex(DBTableDefine.GroupMemberColumns.COLUMN_ROLE_DECORATION));
+                        String string = CursorWrapper.getString(cursor, "group_id");
+                        long j = CursorWrapper.getLong(cursor, DBTableDefine.GroupMemberColumns.COLUMN_JOIN_TIME);
+                        int i = CursorWrapper.getInt(cursor, "role");
+                        String string2 = CursorWrapper.getString(cursor, "name");
+                        String string3 = CursorWrapper.getString(cursor, "nickname");
+                        long j2 = CursorWrapper.getLong(cursor, "bduid");
+                        long j3 = CursorWrapper.getLong(cursor, "uk");
+                        int i2 = CursorWrapper.getInt(cursor, "status");
+                        String string4 = CursorWrapper.getString(cursor, "avatar");
+                        String string5 = CursorWrapper.getString(cursor, DBTableDefine.GroupMemberColumns.COLUMN_ROLE_DISPLAY_NAME);
+                        String string6 = CursorWrapper.getString(cursor, DBTableDefine.GroupMemberColumns.COLUMN_ROLE_DECORATION);
                         GroupMember groupMember = new GroupMember(string, j3, string2, j2, i, j);
                         groupMember.setValid(i2);
                         groupMember.setNickName(string3);
@@ -895,7 +896,7 @@ public class GroupInfoDAOImpl {
                         InterceptResult invokeL2;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor)) == null) {
-                            return cursor.getString(cursor.getColumnIndex("group_id"));
+                            return CursorWrapper.getString(cursor, "group_id");
                         }
                         return (String) invokeL2.objValue;
                     }
@@ -1000,7 +1001,7 @@ public class GroupInfoDAOImpl {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor)) == null) {
-                        return cursor.getString(cursor.getColumnIndex("group_id"));
+                        return CursorWrapper.getString(cursor, "group_id");
                     }
                     return (String) invokeL.objValue;
                 }
@@ -1221,7 +1222,7 @@ public class GroupInfoDAOImpl {
                             InterceptResult invokeL;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor)) == null) {
-                                return cursor.getString(cursor.getColumnIndex("nickname"));
+                                return CursorWrapper.getString(cursor, "nickname");
                             }
                             return (String) invokeL.objValue;
                         }

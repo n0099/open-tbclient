@@ -278,7 +278,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     }
 
     /* renamed from: do  reason: not valid java name */
-    private j m30do() {
+    private j m32do() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65555, this)) == null) {
@@ -688,11 +688,11 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
                     }
                 };
                 this.np.p(getContext());
-                j m30do = m30do();
+                j m32do = m32do();
                 this.nx.z(this.nw);
                 configSyncStatus(dm());
                 this.np.E(u());
-                this.np.b(m30do);
+                this.np.b(m32do);
                 a(this.np, this.mv);
                 com.baidu.ar.face.attributes.a aVar2 = new com.baidu.ar.face.attributes.a(r());
                 this.nA = aVar2;

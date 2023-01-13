@@ -1,34 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class sb2 {
+public class sb2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public String basePath;
+    @V8JavascriptField
+    public Object config;
+    @V8JavascriptField
+    public String viewMode;
 
-    public static mb2 a(tb2 tb2Var, jc2 jc2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        InterceptResult invokeLLL;
+    public sb2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, tb2Var, jc2Var, v8ThreadDelegatePolicy)) == null) {
-            ub2 a = ln2.B0().a(tb2Var);
-            mb2 a2 = a.a(tb2Var.a(), jc2Var, v8ThreadDelegatePolicy);
-            a2.I0(a.getUserAgent());
-            return a2;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (mb2) invokeLLL.objValue;
-    }
-
-    public static mb2 b(tb2 tb2Var, jc2 jc2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, tb2Var, jc2Var, v8ThreadDelegatePolicy)) == null) {
-            mb2 a = a(tb2Var, jc2Var, v8ThreadDelegatePolicy);
-            a.q0();
-            return a;
-        }
-        return (mb2) invokeLLL.objValue;
     }
 }

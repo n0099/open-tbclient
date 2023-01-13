@@ -1,36 +1,30 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONException;
 /* loaded from: classes6.dex */
 public class tf9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-        }
-    }
-
-    public static void a(eg9 eg9Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, eg9Var) == null) && eg9Var != null && !eg9Var.y()) {
-            JSONArray n = eg9Var.n();
-            int length = n.length();
-            boolean B = eg9Var.B();
-            for (int i = 0; i < length; i++) {
-                try {
-                    if (B != ze9.o().e(n.getJSONObject(i).getString("id"))) {
-                        Log.w("UBCDebug", " data is " + B + "  content " + eg9Var.u().toString());
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948179426, "Lcom/baidu/tieba/tf9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948179426, "Lcom/baidu/tieba/tf9;");
+                return;
             }
         }
+        a = TbConfig.VIRTUAL_IMAGE_MAIN_URL;
     }
 }

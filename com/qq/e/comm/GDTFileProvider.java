@@ -16,7 +16,6 @@ import android.webkit.MimeTypeMap;
 import androidx.core.content.FileProvider;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -362,7 +361,7 @@ public class GDTFileProvider extends ContentProvider {
             File a2 = this.a.a(uri);
             if ("r".equals(str)) {
                 i = LaunchTaskConstants.OTHER_PROCESS;
-            } else if (!Config.DEVICE_WIDTH.equals(str) && !"wt".equals(str)) {
+            } else if (!"w".equals(str) && !"wt".equals(str)) {
                 if ("wa".equals(str)) {
                     i = 704643072;
                 } else if ("rw".equals(str)) {

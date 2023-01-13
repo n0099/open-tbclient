@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
+import com.baidu.tieba.cz4;
 import com.baidu.tieba.debugtool.annotation.Modify;
-import com.baidu.tieba.ry4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +33,7 @@ public class FixNpsAnrSwitch extends BaseNormalSwitch {
         }
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.kf
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.lf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class FixNpsAnrSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (type > 1) {
-                type = ry4.l().m(KEY_SWITCH, 0);
+                type = cz4.l().m(KEY_SWITCH, 0);
             }
             if (type != 1) {
                 return false;

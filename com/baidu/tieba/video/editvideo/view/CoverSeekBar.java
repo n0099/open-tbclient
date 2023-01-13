@@ -23,7 +23,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.video.editvideo.scale.ScalableType;
 import com.baidu.tieba.video.editvideo.scale.ScalableVideoView;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -64,12 +64,12 @@ public class CoverSeekBar extends FrameLayout {
 
         /* renamed from: com.baidu.tieba.video.editvideo.view.CoverSeekBar$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0461a implements MediaPlayer.OnInfoListener {
+        public class C0457a implements MediaPlayer.OnInfoListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0461a(a aVar) {
+            public C0457a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,7 +127,7 @@ public class CoverSeekBar extends FrameLayout {
                 mediaPlayer.setVolume(0.0f, 0.0f);
                 if (Build.VERSION.SDK_INT >= 17) {
                     this.a.c.i();
-                    mediaPlayer.setOnInfoListener(new C0461a(this));
+                    mediaPlayer.setOnInfoListener(new C0457a(this));
                     return;
                 }
                 this.a.c.h(0);
@@ -329,7 +329,7 @@ public class CoverSeekBar extends FrameLayout {
         }
         this.a = 10;
         this.l = new b(this);
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04b5, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04b4, this);
         g();
     }
 
@@ -360,10 +360,10 @@ public class CoverSeekBar extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.i = ViewConfiguration.get(getContext()).getScaledTouchSlop();
-            this.d = yi.l(getContext()) / 10;
-            this.e = yi.g(getContext(), R.dimen.obfuscated_res_0x7f070237);
+            this.d = zi.l(getContext()) / 10;
+            this.e = zi.g(getContext(), R.dimen.obfuscated_res_0x7f070237);
             this.g = new LinearLayout.LayoutParams(this.d, this.e);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090f3d);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090f49);
             this.c = (ScalableVideoView) findViewById(R.id.obfuscated_res_0x7f09074f);
             this.c.setLayoutParams(new FrameLayout.LayoutParams(this.d, this.e));
         }

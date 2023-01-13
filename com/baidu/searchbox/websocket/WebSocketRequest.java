@@ -254,7 +254,7 @@ public final class WebSocketRequest {
                     }
                 }
                 if (params.has(WebSocketRequest.PARAM_KEY_PROTOCOLS)) {
-                    Ref.ObjectRef objectRef = new Ref.ObjectRef();
+                    final Ref.ObjectRef objectRef = new Ref.ObjectRef();
                     ?? jSONArray = params.getJSONArray(WebSocketRequest.PARAM_KEY_PROTOCOLS);
                     objectRef.element = jSONArray;
                     if (((JSONArray) jSONArray).length() == 0) {
@@ -262,7 +262,48 @@ public final class WebSocketRequest {
                         objectRef.element = jSONArray2;
                         ((JSONArray) jSONArray2).put("");
                     }
-                    builder.setProtocols(SequencesKt___SequencesKt.toMutableList(SequencesKt___SequencesKt.map(CollectionsKt___CollectionsKt.asSequence(RangesKt___RangesKt.until(0, ((JSONArray) objectRef.element).length())), new WebSocketRequest$Companion$fromJSON$1$2(objectRef))));
+                    builder.setProtocols(SequencesKt___SequencesKt.toMutableList(SequencesKt___SequencesKt.map(CollectionsKt___CollectionsKt.asSequence(RangesKt___RangesKt.until(0, ((JSONArray) objectRef.element).length())), new Function1<Integer, String>(objectRef) { // from class: com.baidu.searchbox.websocket.WebSocketRequest$Companion$fromJSON$1$2
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ Ref.ObjectRef $protocolsArray;
+
+                        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                        {
+                            super(1);
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {objectRef};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
+                                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.$protocolsArray = objectRef;
+                        }
+
+                        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                        @Override // kotlin.jvm.functions.Function1
+                        public /* bridge */ /* synthetic */ String invoke(Integer num) {
+                            return invoke(num.intValue());
+                        }
+
+                        public final String invoke(int i) {
+                            InterceptResult invokeI;
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                                return ((JSONArray) this.$protocolsArray.element).getString(i);
+                            }
+                            return (String) invokeI.objValue;
+                        }
+                    })));
                 }
                 return builder.build();
             }

@@ -8,14 +8,14 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.d35;
-import com.baidu.tieba.m89;
-import com.baidu.tieba.n89;
-import com.baidu.tieba.o89;
-import com.baidu.tieba.p89;
+import com.baidu.tieba.n35;
+import com.baidu.tieba.od9;
+import com.baidu.tieba.pd9;
+import com.baidu.tieba.qd9;
+import com.baidu.tieba.rd9;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.xg;
+import com.baidu.tieba.yg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public NewWriteModel a;
     public NewVcodeView b;
-    public n89 c;
+    public pd9 c;
     public WriteData d;
     public int e;
     public NewWriteModel.d f;
@@ -72,9 +72,9 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
             }
 
             @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
-            public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, d35 d35Var, WriteData writeData, AntiData antiData) {
+            public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, n35 n35Var, WriteData writeData, AntiData antiData) {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, d35Var, writeData, antiData}) == null) && postWriteCallBackData != null && !z) {
+                if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, n35Var, writeData, antiData}) == null) && postWriteCallBackData != null && !z) {
                     if (postWriteCallBackData.getErrorCode() == 220015) {
                         Intent intent = new Intent();
                         Bundle bundle = new Bundle();
@@ -90,17 +90,17 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                         intent2.putExtras(bundle2);
                         this.a.setResult(0, intent2);
                         this.a.finish();
-                    } else if (d35Var != null && writeData != null) {
-                        this.a.e = xg.e("4", 0);
+                    } else if (n35Var != null && writeData != null) {
+                        this.a.e = yg.e("4", 0);
                         this.a.c.d();
                         this.a.c.onDestroy();
                         this.a.d = writeData;
-                        this.a.d.setVcodeMD5(d35Var.b());
-                        this.a.d.setVcodeUrl(d35Var.c());
-                        this.a.d.setVcodeExtra(d35Var.a());
+                        this.a.d.setVcodeMD5(n35Var.b());
+                        this.a.d.setVcodeUrl(n35Var.c());
+                        this.a.d.setVcodeExtra(n35Var.a());
                         this.a.a.setWriteData(this.a.d);
                         NewVcodeActivity newVcodeActivity = this.a;
-                        newVcodeActivity.c = newVcodeActivity.F1();
+                        newVcodeActivity.c = newVcodeActivity.G1();
                         this.a.c.e(true, postWriteCallBackData.getErrorString());
                         this.a.b.setPresenter(this.a.c);
                         this.a.c.a(this.a.g);
@@ -149,22 +149,22 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
         }
     }
 
-    public final n89 F1() {
+    public final pd9 G1() {
         InterceptResult invokeV;
-        n89 o89Var;
+        pd9 qd9Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.e == xg.e("5", 0)) {
-                o89Var = new m89(this.b, this.a);
-            } else if (this.e == xg.e("4", 0)) {
-                o89Var = new p89(this.b, this.a);
+            if (this.e == yg.e("5", 0)) {
+                qd9Var = new od9(this.b, this.a);
+            } else if (this.e == yg.e("4", 0)) {
+                qd9Var = new rd9(this.b, this.a);
             } else {
-                o89Var = new o89(this.b, this.a);
+                qd9Var = new qd9(this.b, this.a);
             }
-            o89Var.c(this.f);
-            return o89Var;
+            qd9Var.c(this.f);
+            return qd9Var;
         }
-        return (n89) invokeV.objValue;
+        return (pd9) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
@@ -214,9 +214,9 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                 }
                 newWriteModel2.f0(z);
             }
-            n89 F1 = F1();
-            this.c = F1;
-            this.b.setPresenter(F1);
+            pd9 G1 = G1();
+            this.c = G1;
+            this.b.setPresenter(G1);
             this.c.a(this.g);
         }
     }

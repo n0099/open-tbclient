@@ -2,9 +2,11 @@ package com.baidu.tieba.imMessageCenter.chatgroup.grouppage;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,16 +18,18 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.GroupInfoActivityConfig;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.dimen.TbDimenManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bb5;
-import com.baidu.tieba.kj5;
+import com.baidu.tieba.bk5;
+import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.inputTool.GroupInputViewController;
+import com.baidu.tieba.pb5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
@@ -36,6 +40,7 @@ public class GroupChatActivity extends BaseFragmentActivity {
     public int a;
     public View b;
     public String c;
+    public GroupChatFragment d;
 
     public GroupChatActivity() {
         Interceptable interceptable = $ic;
@@ -53,23 +58,51 @@ public class GroupChatActivity extends BaseFragmentActivity {
         this.a = -1;
     }
 
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
+    public Resources getResources() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Resources resources = super.getResources();
+            if (resources != null) {
+                TbDimenManager tbDimenManager = TbDimenManager.getInstance();
+                tbDimenManager.setDensity(resources.getDisplayMetrics(), tbDimenManager.getDefaultDensity(), tbDimenManager.getDefaultDensityDpi());
+            }
+            return resources;
+        }
+        return (Resources) invokeV.objValue;
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921771));
         }
     }
 
-    public static void L0(@NonNull Context context, long j, int i, String str) {
+    public static void N0(@NonNull Context context, long j, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            bb5.b().h(context, "SCENE_GROUP_CHAT", Collections.singletonList(Long.valueOf(j)));
+            pb5.b().h(context, "SCENE_GROUP_CHAT", Collections.singletonList(Long.valueOf(j)));
             Intent intent = new Intent(context, GroupChatActivity.class);
             intent.putExtra("roomId", j);
-            intent.putExtra(GroupInfoActivityConfig.REQUEST_CODE, i);
+            intent.putExtra("requestCode", i);
             intent.putExtra(IntentConfig.BACK_SCHEME, str);
+            context.startActivity(intent);
+        }
+    }
+
+    public static void P0(@NonNull Context context, long j, int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i), str, str2}) == null) {
+            pb5.b().h(context, "SCENE_GROUP_CHAT", Collections.singletonList(Long.valueOf(j)));
+            Intent intent = new Intent(context, GroupChatActivity.class);
+            intent.putExtra("roomId", j);
+            intent.putExtra("requestCode", i);
+            intent.putExtra("source", str);
+            intent.putExtra(IntentConfig.BACK_SCHEME, str2);
             context.startActivity(intent);
         }
     }
@@ -81,6 +114,7 @@ public class GroupChatActivity extends BaseFragmentActivity {
             super.finish();
             if (!TextUtils.isEmpty(this.c)) {
                 UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{Uri.decode(this.c)});
+                this.c = "";
             } else if (TbadkCoreApplication.getInst().getMainActivity() == null) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(2)));
             }
@@ -90,7 +124,7 @@ public class GroupChatActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
             for (Fragment fragment : getSupportFragmentManager().getFragments()) {
                 if (fragment instanceof BaseFragment) {
@@ -103,11 +137,11 @@ public class GroupChatActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || this.a == i) {
+        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || this.a == i) {
             return;
         }
         this.a = i;
-        SkinManager.setBackgroundColor(this.b, R.color.CAM_X0208);
+        SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
         for (Fragment fragment : getSupportFragmentManager().getFragments()) {
             if (fragment instanceof BaseFragment) {
                 ((BaseFragment) fragment).onChangeSkinType(i);
@@ -118,17 +152,17 @@ public class GroupChatActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0039);
-            this.b = findViewById(R.id.obfuscated_res_0x7f090b05);
+            this.b = findViewById(R.id.obfuscated_res_0x7f090b0c);
             if (bundle == null) {
-                GroupChatFragment groupChatFragment = new GroupChatFragment();
+                this.d = new GroupChatFragment();
                 Intent intent = getIntent();
                 if (intent != null) {
-                    groupChatFragment.setArguments(intent.getExtras());
+                    this.d.setArguments(intent.getExtras());
                 }
-                kj5.a(getSupportFragmentManager(), R.id.obfuscated_res_0x7f090b05, groupChatFragment);
+                bk5.a(getSupportFragmentManager(), R.id.obfuscated_res_0x7f090b0c, this.d);
             }
             if (getIntent() != null) {
                 this.c = getIntent().getStringExtra(IntentConfig.BACK_SCHEME);
@@ -136,10 +170,35 @@ public class GroupChatActivity extends BaseFragmentActivity {
         }
     }
 
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
+        GroupChatFragment groupChatFragment;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, keyEvent)) == null) {
+            for (Fragment fragment : getSupportFragmentManager().getFragments()) {
+                if ((fragment instanceof BaseFragment) && ((BaseFragment) fragment).onKeyDown(i, keyEvent)) {
+                    return true;
+                }
+            }
+            if (i == 4 && (groupChatFragment = this.d) != null && groupChatFragment.U1() != null && this.d.Z1() != null) {
+                if (this.d.Z1().X() != null && this.d.Z1().X().h()) {
+                    this.d.Z1().X().n(null);
+                    return true;
+                } else if (this.d.U1().B() && this.d.Z1().Y() == GroupInputViewController.SourceType.ONE) {
+                    this.d.Z1().k0();
+                    return true;
+                }
+            }
+            return super.onKeyDown(i, keyEvent);
+        }
+        return invokeIL.booleanValue;
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048581, this, i, strArr, iArr) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048583, this, i, strArr, iArr) == null) {
             for (Fragment fragment : getSupportFragmentManager().getFragments()) {
                 if (fragment instanceof BaseFragment) {
                     fragment.onRequestPermissionsResult(i, strArr, iArr);

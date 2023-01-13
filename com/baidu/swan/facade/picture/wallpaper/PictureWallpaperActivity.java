@@ -16,10 +16,10 @@ import com.baidu.swan.apps.res.widget.loadingview.LoadingView;
 import com.baidu.swan.facade.picture.widget.PictureCropView;
 import com.baidu.swan.facade.picture.widget.PictureView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vh3;
-import com.baidu.tieba.w33;
-import com.baidu.tieba.yg3;
-import com.baidu.tieba.yh3;
+import com.baidu.tieba.ai3;
+import com.baidu.tieba.b43;
+import com.baidu.tieba.dh3;
+import com.baidu.tieba.di3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -188,9 +188,9 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.b.n.setVisibility(8);
                 if (this.a) {
-                    w33.f(this.b.getApplicationContext(), R.string.obfuscated_res_0x7f0f12e9).v();
+                    b43.f(this.b.getApplicationContext(), R.string.obfuscated_res_0x7f0f1300).v();
                 } else {
-                    w33.f(this.b.getApplicationContext(), R.string.obfuscated_res_0x7f0f12e8).v();
+                    b43.f(this.b.getApplicationContext(), R.string.obfuscated_res_0x7f0f12ff).v();
                 }
                 this.b.finish();
             }
@@ -219,7 +219,7 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (pictureCropView = this.m) != null && pictureCropView.f()) {
             this.n.setVisibility(0);
-            yg3.k(new b(this, pictureCropView), "set-wallpaper");
+            dh3.k(new b(this, pictureCropView), "set-wallpaper");
         }
     }
 
@@ -240,7 +240,7 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
         PictureCropView pictureCropView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (pictureCropView = this.m) != null && z) {
-            findViewById(R.id.obfuscated_res_0x7f091a8d).setEnabled(pictureCropView.f());
+            findViewById(R.id.obfuscated_res_0x7f091a9a).setEnabled(pictureCropView.f());
         }
     }
 
@@ -248,7 +248,7 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
     public final void L(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            yh3.e0(new c(this, z));
+            di3.e0(new c(this, z));
         }
     }
 
@@ -257,23 +257,23 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f091a8c) {
+            if (id == R.id.obfuscated_res_0x7f091a99) {
                 onBackPressed();
-            } else if (id == R.id.obfuscated_res_0x7f091a8d) {
+            } else if (id == R.id.obfuscated_res_0x7f091a9a) {
                 K();
             }
         }
     }
 
-    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.uh4, android.app.Activity
+    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.zh4, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
-            int c0 = yh3.c0(this);
+            int c0 = di3.c0(this);
             super.onCreate(bundle);
-            yh3.g(this, c0);
-            setContentView(R.layout.obfuscated_res_0x7f0d0844);
-            vh3.a(this);
+            di3.g(this, c0);
+            setContentView(R.layout.obfuscated_res_0x7f0d0842);
+            ai3.a(this);
             F(getIntent());
             G();
         }
@@ -299,12 +299,12 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
     public final void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.m = (PictureCropView) findViewById(R.id.obfuscated_res_0x7f091a8b);
-            LoadingView loadingView = (LoadingView) findViewById(R.id.obfuscated_res_0x7f091a89);
+            this.m = (PictureCropView) findViewById(R.id.obfuscated_res_0x7f091a98);
+            LoadingView loadingView = (LoadingView) findViewById(R.id.obfuscated_res_0x7f091a96);
             this.n = loadingView;
-            loadingView.setMsg(R.string.obfuscated_res_0x7f0f12e6);
-            findViewById(R.id.obfuscated_res_0x7f091a8c).setOnClickListener(this);
-            findViewById(R.id.obfuscated_res_0x7f091a8d).setOnClickListener(this);
+            loadingView.setMsg(R.string.obfuscated_res_0x7f0f12fd);
+            findViewById(R.id.obfuscated_res_0x7f091a99).setOnClickListener(this);
+            findViewById(R.id.obfuscated_res_0x7f091a9a).setOnClickListener(this);
             this.m.post(new a(this));
         }
     }

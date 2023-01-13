@@ -1,8 +1,6 @@
 package com.baidu.card.view;
 
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -18,7 +16,6 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.abtest.helper.HomeGroupUbsUIHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
@@ -31,8 +28,8 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.SingleLineEllipsizeTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.uu4;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.fv4;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -179,7 +176,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
             this.i = (TextView) findViewById(R.id.thread_extend_info);
             this.b.setShowOval(true);
             this.b.setAutoChangeStyle(true);
-            this.b.setStrokeWith(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            this.b.setStrokeWith(zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
             this.b.setStrokeColorResId(R.color.CAM_X0401);
             this.b.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.c.setOnClickListener(this);
@@ -190,53 +187,6 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_H_X005);
             this.c.setPadding(0, UtilHelper.getDimenPixelSize(R.dimen.M_H_X006) - dimenPixelSize, 0, 0);
             f();
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, view2) != null) || StringUtils.isNull(this.j)) {
-            return;
-        }
-        ThreadData threadData = this.m;
-        if (threadData != null && threadData.isFromHomPage) {
-            TbSingleton.getInstance().saveHomeRecommendItemClickTime();
-        }
-        FrsActivityConfig createNormalCfg = new FrsActivityConfig(getContext()).createNormalCfg(this.j, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
-        createNormalCfg.setCallFrom(14);
-        Intent intent = createNormalCfg.getIntent();
-        if (UbsABTestHelper.isEnterFrsNoAnmi()) {
-            intent.putExtra("transition_type", 0);
-        } else {
-            ThreadData threadData2 = this.m;
-            if (threadData2 != null && threadData2.getForumData() != null && this.m.getForumData().h() != null) {
-                Rect rect = new Rect();
-                this.b.getGlobalVisibleRect(rect);
-                Rect rect2 = new Rect();
-                this.c.getGlobalVisibleRect(rect2);
-                intent.putExtra("transition_type", 2);
-                intent.putExtra("info_forum_image_rect", rect);
-                intent.putExtra("info_forum_image_url", this.b.getUrl());
-                intent.putExtra("info_forum_name_rect", rect2);
-                intent.putExtra("info_forum_name_text", this.j);
-                uu4 forumData = this.m.getForumData();
-                intent.putExtra("info_forum_head_background_color", forumData.g());
-                if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                    if (forumData.h().night != null && forumData.h().night.pattern_image != null) {
-                        intent.putExtra("info_forum_head_background_vector", forumData.h().night.pattern_image);
-                    }
-                } else if (forumData.h().day != null && forumData.h().day.pattern_image != null) {
-                    intent.putExtra("info_forum_head_background_vector", forumData.h().day.pattern_image);
-                }
-            } else {
-                intent.putExtra("transition_type", 0);
-            }
-        }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg));
-        View.OnClickListener onClickListener = this.k;
-        if (onClickListener != null) {
-            onClickListener.onClick(view2);
         }
     }
 
@@ -257,6 +207,26 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
         }
     }
 
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, view2) != null) || StringUtils.isNull(this.j)) {
+            return;
+        }
+        ThreadData threadData = this.m;
+        if (threadData != null && threadData.isFromHomPage) {
+            TbSingleton.getInstance().saveHomeRecommendItemClickTime();
+        }
+        FrsActivityConfig createNormalCfg = new FrsActivityConfig(getContext()).createNormalCfg(this.j, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
+        createNormalCfg.setCallFrom(14);
+        createNormalCfg.getIntent().putExtra("transition_type", 0);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg));
+        View.OnClickListener onClickListener = this.k;
+        if (onClickListener != null) {
+            onClickListener.onClick(view2);
+        }
+    }
+
     public void f() {
         int skinType;
         Interceptable interceptable = $ic;
@@ -265,10 +235,10 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
         }
         this.l = skinType;
         Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_ba16, SkinManager.getColor(R.color.CAM_X0105), null);
-        int g = yi.g(getContext(), R.dimen.tbds42);
+        int g = zi.g(getContext(), R.dimen.tbds42);
         pureDrawable.setBounds(0, 0, g, g);
         this.c.setCompoundDrawables(null, null, pureDrawable, null);
-        this.c.setCompoundDrawablePadding(yi.g(getContext(), R.dimen.M_W_X002));
+        this.c.setCompoundDrawablePadding(zi.g(getContext(), R.dimen.M_W_X002));
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
         SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0109);
@@ -308,7 +278,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (threadData = this.m) != null) {
             int indexTextColorRes = TagTextHelper.getIndexTextColorRes(threadData.position + 1);
-            this.g.setCompoundDrawablePadding(yi.g(getContext(), R.dimen.M_W_X002));
+            this.g.setCompoundDrawablePadding(zi.g(getContext(), R.dimen.M_W_X002));
             int color = SkinManager.getColor(indexTextColorRes);
             ThreadData threadData2 = this.m;
             if (threadData2.isFromLowFlowsPage) {
@@ -324,7 +294,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
             } else {
                 mutate = SkinManager.getDrawable(R.drawable.icon_pure_topic_hot).mutate();
             }
-            int g = yi.g(getContext(), R.dimen.tbds42);
+            int g = zi.g(getContext(), R.dimen.tbds42);
             if (mutate == null) {
                 return;
             }
@@ -367,7 +337,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
                     }
                     textView2.setText(str2);
                     h();
-                    uu4 forumData = threadData.getForumData();
+                    fv4 forumData = threadData.getForumData();
                     this.b.setPlaceHolder(1);
                     this.b.setVisibility(0);
                     this.b.K(forumData.a(), 10, false);
@@ -457,7 +427,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
             this.c.setText(String.format(getContext().getString(R.string.chosen_pb_original_bar), this.j));
             this.b.K(str2, 10, false);
             this.e.setText(String.format(getContext().getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtra(i)));
-            this.d.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0439), StringHelper.numberUniformFormatExtra(i2)));
+            this.d.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f043f), StringHelper.numberUniformFormatExtra(i2)));
             HomeGroupUbsUIHelper.handleHeadSegmentTitleView(this.c);
         }
     }

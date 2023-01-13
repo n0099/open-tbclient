@@ -7,8 +7,8 @@ import android.os.IBinder;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
-import com.baidu.tieba.is3;
-import com.baidu.tieba.zr3;
+import com.baidu.tieba.es3;
+import com.baidu.tieba.ns3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ public class AdDownloadService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a mBinder;
-    public is3 mDownloadManager;
+    public ns3 mDownloadManager;
 
     /* loaded from: classes3.dex */
     public class a extends Binder {
@@ -106,7 +106,7 @@ public class AdDownloadService extends Service {
     public void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.mDownloadManager = zr3.m(AppRuntime.getAppContext(), null);
+            this.mDownloadManager = es3.m(AppRuntime.getAppContext(), null);
             super.onCreate();
         }
     }
@@ -115,9 +115,9 @@ public class AdDownloadService extends Service {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            is3 is3Var = this.mDownloadManager;
-            if (is3Var != null) {
-                is3Var.destroy();
+            ns3 ns3Var = this.mDownloadManager;
+            if (ns3Var != null) {
+                ns3Var.destroy();
                 this.mDownloadManager = null;
             }
             super.onDestroy();

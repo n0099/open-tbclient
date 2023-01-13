@@ -1,121 +1,284 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.res.Resources;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.res.ui.FullScreenFloatView;
-import com.baidu.swan.games.inspector.SwanInspectorEndpoint;
-import com.baidu.tieba.i33;
-import com.baidu.tieba.u04;
+import android.graphics.Point;
+import android.util.Log;
+import android.view.MotionEvent;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.v8engine.event.EventTarget;
+import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class t04 {
+public final class t04 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static v04[] b;
+    public static Point c;
+    public static float d;
+    public static float e;
+    public static boolean f;
+    public static int g;
+    public static long h;
     public transient /* synthetic */ FieldHolder $fh;
-    public FullScreenFloatView a;
 
-    /* loaded from: classes6.dex */
-    public class a implements FullScreenFloatView.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ t04 b;
-
-        @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.c
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948127377, "Lcom/baidu/tieba/t04;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948127377, "Lcom/baidu/tieba/t04;");
+                return;
             }
         }
+        a = tk1.a;
+        c = new Point();
+        d = 1.0f;
+        e = 1.0f;
+        f = false;
+    }
 
-        public a(t04 t04Var, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t04Var, activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return h;
+        }
+        return invokeV.longValue;
+    }
+
+    public static int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return g;
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
+            g = 0;
+        }
+    }
+
+    public static float d(MotionEvent motionEvent, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, motionEvent, i)) == null) {
+            return z64.b(motionEvent.getX(i) * d);
+        }
+        return invokeLI.floatValue;
+    }
+
+    public static float e(MotionEvent motionEvent, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, motionEvent, i)) == null) {
+            return z64.b(motionEvent.getY(i) * e);
+        }
+        return invokeLI.floatValue;
+    }
+
+    public static void l(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65548, null, i, i2) == null) {
+            Point point = c;
+            point.x = i;
+            point.y = i2;
+        }
+    }
+
+    public static boolean f(EventTarget eventTarget) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, eventTarget)) == null) {
+            if (eventTarget == null) {
+                return false;
+            }
+            return eventTarget.hasEventListener("touchstart", "touchmove", "touchcancel", "touchend");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
+            f = z;
+        }
+    }
+
+    public static void h(MotionEvent motionEvent, u04 u04Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65544, null, motionEvent, u04Var, z) == null) {
+            try {
+                if (!z) {
+                    int actionIndex = motionEvent.getActionIndex();
+                    u04Var.changedTouches = r1;
+                    v04[] v04VarArr = {new v04()};
+                    u04Var.changedTouches[0].identifier = motionEvent.getPointerId(actionIndex);
+                    u04Var.changedTouches[0].clientX = d(motionEvent, actionIndex);
+                    u04Var.changedTouches[0].clientY = e(motionEvent, actionIndex);
                     return;
                 }
-            }
-            this.b = t04Var;
-            this.a = activity;
-        }
-
-        @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.c
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.b.d(this.a);
+                int pointerCount = motionEvent.getPointerCount();
+                if (b == null || b.length != pointerCount) {
+                    b = new v04[pointerCount];
+                }
+                ArrayList arrayList = new ArrayList();
+                for (int i = 0; i < pointerCount; i++) {
+                    v04 v04Var = new v04();
+                    v04Var.identifier = motionEvent.getPointerId(i);
+                    v04Var.clientX = d(motionEvent, i);
+                    v04Var.clientY = e(motionEvent, i);
+                    if (!v04Var.equals(b[i])) {
+                        arrayList.add(v04Var);
+                    }
+                    b[i] = v04Var;
+                }
+                if (arrayList.size() != 0) {
+                    v04[] v04VarArr2 = new v04[arrayList.size()];
+                    u04Var.changedTouches = v04VarArr2;
+                    arrayList.toArray(v04VarArr2);
+                }
+            } catch (Exception e2) {
+                if (a) {
+                    e2.printStackTrace();
+                }
             }
         }
     }
 
-    public t04() {
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x0026, code lost:
+        if (r8.getActionIndex() != r3) goto L23;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void i(MotionEvent motionEvent, u04 u04Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65545, null, motionEvent, u04Var) == null) {
+            try {
+                int pointerCount = motionEvent.getPointerCount();
+                ArrayList arrayList = new ArrayList();
+                int i = 0;
+                while (i < pointerCount) {
+                    int actionMasked = motionEvent.getActionMasked();
+                    boolean z = true;
+                    if (actionMasked != 6 && actionMasked != 1 && actionMasked != 3) {
+                        z = false;
+                    }
+                    int pointerId = motionEvent.getPointerId(i);
+                    v04 v04Var = new v04();
+                    v04Var.identifier = pointerId;
+                    v04Var.clientX = d(motionEvent, i);
+                    v04Var.clientY = e(motionEvent, i);
+                    arrayList.add(v04Var);
+                    i++;
+                }
+                u04Var.touches = new v04[arrayList.size()];
+                if (!arrayList.isEmpty()) {
+                    arrayList.toArray(u04Var.touches);
+                }
+            } catch (Exception e2) {
+                if (a) {
+                    e2.printStackTrace();
+                }
             }
         }
     }
 
-    public void c(u04.c cVar, Activity activity) {
-        s04 s04Var;
-        y34 y34Var;
+    public static JSEvent j(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, activity) == null) && activity != null && this.a == null) {
-            if (cVar != null && (y34Var = cVar.c) != null) {
-                s04Var = y34Var.f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, motionEvent)) == null) {
+            u04 u04Var = new u04();
+            int actionMasked = motionEvent.getActionMasked();
+            String str = "touchend";
+            if (actionMasked != 0) {
+                if (actionMasked != 1) {
+                    if (actionMasked != 2) {
+                        if (actionMasked != 3) {
+                            if (actionMasked != 5) {
+                                if (actionMasked != 6) {
+                                    str = "toucherror";
+                                } else {
+                                    h(motionEvent, u04Var, false);
+                                }
+                            } else {
+                                h(motionEvent, u04Var, false);
+                            }
+                        } else {
+                            h(motionEvent, u04Var, false);
+                            str = "touchcancel";
+                        }
+                    } else {
+                        h(motionEvent, u04Var, true);
+                        str = "touchmove";
+                    }
+                } else {
+                    h(motionEvent, u04Var, false);
+                }
+                u04Var.timeStamp = motionEvent.getEventTime();
+                i(motionEvent, u04Var);
+                JSEvent jSEvent = new JSEvent(str);
+                jSEvent.data = u04Var;
+                if (!"touchmove".equals(str) && u04Var.changedTouches == null) {
+                    return null;
+                }
+            }
+            h(motionEvent, u04Var, false);
+            int i = g + 1;
+            g = i;
+            g = Math.min(i, 1000);
+            h = System.currentTimeMillis();
+            str = "touchstart";
+            u04Var.timeStamp = motionEvent.getEventTime();
+            i(motionEvent, u04Var);
+            JSEvent jSEvent2 = new JSEvent(str);
+            jSEvent2.data = u04Var;
+            return !"touchmove".equals(str) ? jSEvent2 : jSEvent2;
+        }
+        return (JSEvent) invokeL.objValue;
+    }
+
+    public static void m(int i, int i2) {
+        float f2;
+        int i3;
+        int i4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65549, null, i, i2) == null) {
+            float f3 = 1.0f;
+            if (i != 0 && (i4 = c.x) != 0) {
+                f2 = i4 / i;
             } else {
-                s04Var = null;
+                f2 = 1.0f;
             }
-            if (s04.f(s04Var).b()) {
-                b(activity);
+            d = f2;
+            if (i2 != 0 && (i3 = c.y) != 0) {
+                f3 = i3 / i2;
             }
-        }
-    }
-
-    public final void b(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            FullScreenFloatView a2 = n23.a(activity, (ViewGroup) activity.findViewById(16908290), 2);
-            this.a = a2;
-            a2.setFloatButtonText(activity.getString(R.string.obfuscated_res_0x7f0f0178));
-            this.a.setFloatImageBackground(R.drawable.obfuscated_res_0x7f08015d);
-            this.a.setAutoAttachEnable(false);
-            this.a.setDragImageListener(new a(this, activity));
-            this.a.setVisibility(0);
-        }
-    }
-
-    public final void d(Activity activity) {
-        e43 M;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) && (M = e43.M()) != null && M.Y() != null) {
-            Resources resources = activity.getResources();
-            String u = SwanInspectorEndpoint.v().u(resources);
-            i33.a aVar = new i33.a(activity);
-            aVar.V(resources.getString(R.string.obfuscated_res_0x7f0f01de));
-            aVar.x(u);
-            aVar.n(new mj3());
-            aVar.m(false);
-            aVar.O(R.string.obfuscated_res_0x7f0f01a5, null);
-            aVar.X();
+            e = f3;
+            if (a) {
+                Log.i("SwanGameTouchHelper", String.format("setSurfaceViewCurrentSize:%f,%f", Float.valueOf(d), Float.valueOf(e)));
+            }
         }
     }
 }

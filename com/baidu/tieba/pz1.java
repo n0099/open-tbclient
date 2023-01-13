@@ -1,15 +1,16 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.Typeface;
-import android.text.SpannableStringBuilder;
+import android.text.Editable;
+import android.text.InputFilter;
 import android.text.TextUtils;
 import android.util.Log;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.GravityCompat;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.swan.apps.component.components.textarea.SwanEditText;
 import com.baidu.tieba.qz1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class pz1<V extends TextView, M extends qz1> extends rz1<V, M> {
+public abstract class pz1<V extends SwanEditText, M extends qz1> extends uz1<V, M> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,7 +35,7 @@ public abstract class pz1<V extends TextView, M extends qz1> extends rz1<V, M> {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (sz1) objArr2[1]);
+                super((Context) objArr2[0], (vz1) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -42,176 +43,182 @@ public abstract class pz1<V extends TextView, M extends qz1> extends rz1<V, M> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rz1
-    /* renamed from: T */
-    public void O(@NonNull V v, @NonNull M m, @NonNull w02 w02Var) {
+    public void f0(@NonNull V v, @NonNull M m) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, v, m, w02Var) == null) {
-            super.C(v, m, w02Var);
-            if (w02Var.a(6)) {
-                U(v, m);
+        if (interceptable == null || interceptable.invokeLL(1048588, this, v, m) == null) {
+            if (yz1.h) {
+                Log.d("Component-EditText", "renderSelection");
             }
-            if (w02Var.a(4)) {
-                V(v, m);
+            Editable text = v.getText();
+            int i2 = 0;
+            if (text != null) {
+                i2 = text.length();
+            }
+            int i3 = m.H;
+            if (i3 <= i2 && (i = m.G) >= 0 && i <= i3) {
+                v.setSelection(i, i3);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rz1, com.baidu.tieba.tz1
+    @Override // com.baidu.tieba.wz1
+    /* renamed from: b0 */
+    public void Q(@NonNull V v, @NonNull M m) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v, m) == null) {
+            if (yz1.h) {
+                Log.d("Component-EditText", "renderBackground");
+            }
+            v.setBackgroundColor(0);
+        }
+    }
+
+    public void d0(@NonNull V v, @NonNull M m) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, v, m) == null) {
+            if (yz1.h) {
+                Log.d("Component-EditText", "renderCursor");
+            }
+            Editable text = v.getText();
+            int i = 0;
+            if (text != null) {
+                i = text.length();
+            }
+            int i2 = m.F;
+            if (i2 <= i && i2 >= 0) {
+                v.setSelection(i2);
+            }
+        }
+    }
+
+    public final void e0(@NonNull V v, @NonNull M m) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, v, m) == null) {
+            if (yz1.h) {
+                Log.d("Component-EditText", "renderMaxLength");
+            }
+            if (m.D >= 0) {
+                v.setFilters(new InputFilter[]{new InputFilter.LengthFilter(m.D)});
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.uz1, com.baidu.tieba.wz1, com.baidu.tieba.yz1
     @NonNull
-    /* renamed from: S */
-    public w02 k(@NonNull M m, @NonNull M m2) {
+    /* renamed from: Z */
+    public b12 k(@NonNull M m, @NonNull M m2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, m, m2)) == null) {
-            w02 k = super.k(m, m2);
-            if (!TextUtils.equals(m.t, m2.t)) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, m, m2)) == null) {
+            b12 k = super.k(m, m2);
+            if (q() != 0 && !TextUtils.equals(((SwanEditText) q()).getText().toString(), m2.t)) {
                 k.b(6);
+            }
+            if (m.D != m2.D) {
+                k.b(10);
+            }
+            if (m.F != m2.F) {
+                k.b(11);
+            }
+            if (m.G != m2.G || m.H != m2.H) {
+                k.b(12);
+            }
+            if (!TextUtils.equals(m.I, m2.I)) {
+                k.b(13);
             }
             return k;
         }
-        return (w02) invokeLL.objValue;
+        return (b12) invokeLL.objValue;
     }
 
-    public void X(@NonNull V v, @NonNull M m) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.uz1
+    /* renamed from: a0 */
+    public void T(@NonNull V v, @NonNull M m, @NonNull b12 b12Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v, m) == null) {
-            Y(v, m, 48);
-        }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r4v1, resolved type: android.text.SpannableStringBuilder */
-    /* JADX WARN: Multi-variable type inference failed */
-    public void U(@NonNull V v, @NonNull M m) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, v, m) == null) {
-            if (tz1.h) {
-                Log.d("Component-TextView", "renderText");
+        if (interceptable == null || interceptable.invokeLLL(1048583, this, v, m, b12Var) == null) {
+            super.O(v, m, b12Var);
+            if (b12Var.a(11)) {
+                d0(v, m);
             }
-            if (!TextUtils.isEmpty(m.t) && m.x >= 0) {
-                z = true;
-            } else {
-                z = false;
+            if (b12Var.a(12)) {
+                f0(v, m);
             }
-            String str = m.t;
-            if (z) {
-                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-                spannableStringBuilder.setSpan(new oz1(m.x), 0, str.length(), 33);
-                str = spannableStringBuilder;
+            if (b12Var.a(10)) {
+                e0(v, m);
             }
-            v.setIncludeFontPadding(!z);
-            v.setText(str);
+            if (b12Var.a(13)) {
+                c0(v, m);
+            }
         }
     }
 
-    public final void V(@NonNull V v, @NonNull M m) {
+    public boolean c0(@NonNull V v, @NonNull M m) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048582, this, v, m) != null) || m.j == null) {
-            return;
-        }
-        if (tz1.h) {
-            Log.d("Component-TextView", "renderTextStyle");
-        }
-        if (m.v) {
-            v.setTextColor(m.u);
-        }
-        float f = (float) m.w;
-        if (f > 0.0f) {
-            v.setTextSize(1, f);
-        }
-        X(v, m);
-        W(v, m);
-        String str = m.B;
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1039745817) {
-            if (hashCode == -1039592053 && str.equals("nowrap")) {
-                c = 1;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, v, m)) == null) {
+            if (yz1.h) {
+                Log.d("Component-EditText", "renderConfirmType:" + m.I);
             }
-        } else if (str.equals("normal")) {
-            c = 0;
-        }
-        if (c != 0) {
-            if (c == 1) {
-                v.setSingleLine(true);
+            String str = m.I;
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -906336856:
+                    if (str.equals("search")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case SpeedStatsStampTable.AD_LOAD_BEAR_END_STAMP_KEY /* 3304 */:
+                    if (str.equals("go")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 3089282:
+                    if (str.equals("done")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 3377907:
+                    if (str.equals(UnitedSchemeConstants.UNITED_SCHEME_NEXT)) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 3526536:
+                    if (str.equals("send")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
             }
-        } else {
-            v.setSingleLine(false);
-        }
-        if ("ellipsis".equals(m.C)) {
-            v.setEllipsize(TextUtils.TruncateAt.END);
-        }
-    }
-
-    public void W(@NonNull V v, @NonNull M m) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048583, this, v, m) != null) || m.j == null) {
-            return;
-        }
-        if (tz1.h) {
-            Log.d("Component-TextView", "renderTextStyleFontWeight");
-        }
-        String str = m.A;
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1039745817) {
-            if (hashCode == 3029637 && str.equals("bold")) {
-                c = 1;
-            }
-        } else if (str.equals("normal")) {
-            c = 0;
-        }
-        if (c != 0) {
-            if (c != 1) {
-                e12.o("Component-TextView", "invalid font weight : " + m.A);
-                v.setTypeface(Typeface.SANS_SERIF, 0);
-                return;
-            }
-            v.setTypeface(Typeface.SANS_SERIF, 1);
-            return;
-        }
-        v.setTypeface(Typeface.SANS_SERIF, 0);
-    }
-
-    public final void Y(@NonNull V v, @NonNull M m, int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(1048585, this, v, m, i) != null) || m.j == null) {
-            return;
-        }
-        if (tz1.h) {
-            Log.d("Component-TextView", "renderTextStyleTextAlign");
-        }
-        String str = m.z;
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1364013995) {
-            if (hashCode != 3317767) {
-                if (hashCode == 108511772 && str.equals("right")) {
-                    c = 1;
-                }
-            } else if (str.equals("left")) {
-                c = 0;
-            }
-        } else if (str.equals("center")) {
-            c = 2;
-        }
-        if (c != 0) {
-            if (c != 1) {
-                if (c != 2) {
-                    e12.o("Component-TextView", "invalid text align: " + m.z);
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (c != 3) {
+                            if (c != 4) {
+                                return false;
+                            }
+                            v.setImeOptions(6);
+                        } else {
+                            v.setImeOptions(2);
+                        }
+                    } else {
+                        v.setImeOptions(5);
+                    }
                 } else {
-                    i2 = i | 1;
+                    v.setImeOptions(3);
                 }
             } else {
-                i2 = 8388613 | i;
+                v.setImeOptions(4);
             }
-            v.setGravity(i2);
+            return true;
         }
-        i2 = i | GravityCompat.START;
-        v.setGravity(i2);
+        return invokeLL.booleanValue;
     }
 }

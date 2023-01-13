@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,37 +11,34 @@ public class uj7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
+    public static long a(String str) {
         InterceptResult invokeL;
-        int indexOf;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            String urlDecode = xi.getUrlDecode(str);
-            if (urlDecode == null) {
-                return urlDecode;
-            }
-            int lastIndexOf = urlDecode.lastIndexOf("/");
-            if (lastIndexOf == -1 || (indexOf = urlDecode.indexOf(".", lastIndexOf)) == -1) {
-                return null;
-            }
-            return urlDecode.substring(lastIndexOf + 1, indexOf);
+            return cz4.l().n(b(str), 0L);
+        }
+        return invokeL.longValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return "im_mark_top_index_" + TbadkCoreApplication.getCurrentAccount() + "@" + str;
         }
         return (String) invokeL.objValue;
     }
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
+    public static void c(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
+        if (interceptable == null || interceptable.invokeLZ(65538, null, str, z) == null) {
+            String b = b(str);
+            if (z) {
+                cz4.l().y(b, System.currentTimeMillis());
+            } else {
+                cz4.l().E(b);
             }
-            String urlDecode = xi.getUrlDecode(str);
-            if (StringUtils.isNull(urlDecode) || !urlDecode.contains("?t=")) {
-                return false;
-            }
-            return true;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921691, str));
         }
-        return invokeL.booleanValue;
     }
 }

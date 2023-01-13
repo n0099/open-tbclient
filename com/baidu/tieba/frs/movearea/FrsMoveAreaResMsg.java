@@ -38,7 +38,7 @@ public class FrsMoveAreaResMsg extends JsonHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) && jSONObject == null) {
             setError(-1);
-            setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f05d4));
+            setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f05dc));
         }
     }
 }

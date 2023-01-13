@@ -1,13 +1,17 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.extcore.cores.SwanAppCores;
 import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.tieba.ra3;
+import com.baidu.tieba.ud3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,73 +20,59 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class od3 {
+public final class od3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public static String i(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) ? i == 1 ? "aigames_cur_remote_ver_key" : "aiapps_cur_remote_ver_key" : (String) invokeI.objValue;
-    }
-
-    public static String j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) ? i == 1 ? "aigames_cur_remote_ver_name_key" : "aiapps_cur_remote_ver_name_key" : (String) invokeI.objValue;
-    }
 
     /* loaded from: classes5.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ int b;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ int c;
 
-        public a(long j, int i) {
+        public a(int i, long j, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Integer.valueOf(i)};
+                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = j;
-            this.b = i;
+            this.a = i;
+            this.b = j;
+            this.c = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    id3.c().a(this.a, this.b);
-                } catch (Exception e) {
-                    if (od3.a) {
-                        e.printStackTrace();
-                    }
-                }
+                ra3.b bVar = new ra3.b(10014);
+                bVar.k(String.valueOf(this.a));
+                bVar.l(String.valueOf(this.b));
+                bVar.j(String.valueOf(this.c));
+                bVar.m();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class b {
+    public static class b extends ProviderDelegation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public String b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -94,62 +84,52 @@ public class od3 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = 0;
         }
 
-        public static b d() {
-            InterceptResult invokeV;
+        @Nullable
+        public static SwanCoreVersion d(Bundle bundle, int i) {
+            InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                return a(0, "");
-            }
-            return (b) invokeV.objValue;
-        }
-
-        public boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a == 0) {
-                    return true;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, bundle, i)) == null) {
+                if (bundle == null) {
+                    return null;
                 }
-                return false;
+                bundle.setClassLoader(SwanCoreVersion.class.getClassLoader());
+                if (i == 1) {
+                    return (SwanCoreVersion) bundle.getParcelable("aiapps_game_core");
+                }
+                return (SwanCoreVersion) bundle.getParcelable("aiapps_swan_core");
             }
-            return invokeV.booleanValue;
+            return (SwanCoreVersion) invokeLI.objValue;
         }
 
-        public static b a(int i, String str) {
-            InterceptResult invokeIL;
+        public SwanCoreVersion c(int i) {
+            InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
-                b bVar = new b();
-                bVar.a = i;
-                bVar.b = str;
-                return bVar;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                SwanCoreVersion e = od3.e(i);
+                if (!e.isAvailable()) {
+                    sd3.b().f(i);
+                    return od3.e(i);
+                }
+                return e;
             }
-            return (b) invokeIL.objValue;
+            return (SwanCoreVersion) invokeI.objValue;
         }
 
-        public static b b(String str) {
+        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+        public Bundle execCall(Bundle bundle) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-                return a(1, str);
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
+                Bundle bundle2 = new Bundle();
+                bundle2.putParcelable("aiapps_swan_core", c(0));
+                bundle2.putParcelable("aiapps_game_core", c(1));
+                return bundle2;
             }
-            return (b) invokeL.objValue;
-        }
-
-        @NonNull
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return "RemoteCoreUpdateStatus{statusCode=" + this.a + ", message='" + this.b + "'}";
-            }
-            return (String) invokeV.objValue;
+            return (Bundle) invokeL.objValue;
         }
     }
 
@@ -166,144 +146,253 @@ public class od3 {
                 return;
             }
         }
-        a = ok1.a;
+        a = tk1.a;
     }
 
-    public static void b(int i) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
-            l("0", 0L, i);
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            td3.b(0);
+            rd3.b(0);
+            td3.b(1);
+            rd3.b(1);
         }
     }
 
-    public static long e(int i) {
-        InterceptResult invokeI;
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
-            return sc3.a().getLong(i(i), 0L);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return qd3.e();
         }
-        return invokeI.longValue;
+        return invokeV.booleanValue;
     }
 
-    public static String f(int i) {
-        InterceptResult invokeI;
+    public static boolean j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
-            return sc3.a().getString(j(i), "");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return xc3.a().getBoolean("KEY_SWAN_APP_DEBUG_SWAN_CORE_MODE", false);
         }
-        return (String) invokeI.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static File g(int i) {
-        InterceptResult invokeI;
+    public static void b(File file, List<Long> list) {
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
-            return new File(jd3.d(i), "remote");
+        if ((interceptable != null && interceptable.invokeLL(65538, null, file, list) != null) || file == null) {
+            return;
+        }
+        j12.k("SwanAppSwanCoreManager", "deleteOldSwanCores dstFolder: " + file.getPath() + " ignoreVersions: " + Arrays.toString(list.toArray()));
+        if (!file.exists() || (listFiles = file.listFiles()) == null) {
+            return;
+        }
+        for (File file2 : listFiles) {
+            if (a) {
+                Log.d("SwanAppSwanCoreManager", "deleteOldSwanCores versionFolder: " + file2);
+            }
+            if (!k(file2, list)) {
+                if (a) {
+                    Log.d("SwanAppSwanCoreManager", "deleteOldSwanCores deleteFolder: " + file2);
+                }
+                nk4.j(file2);
+            }
+        }
+    }
+
+    public static File d(int i) {
+        InterceptResult invokeI;
+        File b2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            if (i == 1 && (b2 = rn2.g().b()) != null) {
+                return new File(b2, "game_core");
+            }
+            return new File(fn2.g(), "swan_core");
         }
         return (File) invokeI.objValue;
     }
 
-    public static b c(bd4 bd4Var, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bd4Var, i)) == null) {
-            e12.k("RemoteSwanCoreControl", "doRemoteUpdate start. framework: " + bd4Var);
-            if (bd4Var == null) {
-                return b.b("framework is null.");
-            }
-            long j = bd4Var.i;
-            if (j == 0) {
-                return b.b("invalid version code : " + bd4Var.j);
-            } else if (!rh3.a(new File(bd4Var.a), bd4Var.m)) {
-                return b.b("sign failed.");
-            } else {
-                String path = h(j, i).getPath();
-                if (!ik4.U(bd4Var.a, path)) {
-                    return b.b("unzip bundle failed.");
-                }
-                if (i == 0) {
-                    boolean B = ik4.B(bd4Var.a, path);
-                    if (a) {
-                        Log.d("RemoteSwanCoreControl", "isZipFileMatchUnzipResult:" + B + ",path:" + path);
-                    }
-                    if (!B) {
-                        jd3.m(1, i, j);
-                        ik4.M(path);
-                        if (!ik4.U(bd4Var.a, path)) {
-                            return b.b("unzip bundle failed.");
-                        }
-                    }
-                }
-                if (a) {
-                    String b2 = kk4.b(new File(bd4Var.a), false);
-                    if (!TextUtils.isEmpty(b2)) {
-                        sc3.a().putString(id3.d(i), b2);
-                    }
-                }
-                if (ProcessUtils.isMainProcess()) {
-                    jd3.b(g(i), k(e(i), j));
-                }
-                l(bd4Var.j, bd4Var.i, i);
-                e12.k("RemoteSwanCoreControl", "doRemoteUpdate end. version = " + j);
-                return b.d();
-            }
-        }
-        return (b) invokeLI.objValue;
-    }
-
-    public static SwanCoreVersion d(int i) {
+    public static SwanCoreVersion e(int i) {
         InterceptResult invokeI;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            SwanCoreVersion swanCoreVersion = new SwanCoreVersion();
-            swanCoreVersion.swanCoreType = 1;
-            swanCoreVersion.swanCoreVersionCode = e(i);
-            swanCoreVersion.swanCoreVersionName = f(i);
-            swanCoreVersion.swanCorePath = h(swanCoreVersion.swanCoreVersionCode, i).getPath();
-            return swanCoreVersion;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            if (i == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (j() && z) {
+                SwanCoreVersion swanCoreVersion = new SwanCoreVersion();
+                swanCoreVersion.swanCorePath = qd3.c().getPath();
+                swanCoreVersion.swanCoreType = 2;
+                long b2 = qd3.b();
+                swanCoreVersion.swanCoreVersionCode = b2;
+                swanCoreVersion.swanCoreVersionName = yh3.d(b2);
+                boolean isAvailable = swanCoreVersion.isAvailable();
+                if (a) {
+                    Log.d("SwanAppSwanCoreManager", "DebugSwanCoreMode-debugCoreAvailable:" + isAvailable);
+                }
+                if (isAvailable) {
+                    return swanCoreVersion;
+                }
+                q(false);
+            }
+            SwanCoreVersion m = rd3.m(i);
+            SwanCoreVersion d = td3.d(i);
+            if (a) {
+                Log.d("SwanAppSwanCoreManager", "getSwanCoreVersion presetVerName=" + m.swanCoreVersionName + ", presetVerCode=" + m.swanCoreVersionCode + ", remoteVerName=" + d.swanCoreVersionName + ", remoteVerCode=" + d.swanCoreVersionCode);
+            }
+            if (m.swanCoreVersionCode < d.swanCoreVersionCode && d.isAvailable()) {
+                return d;
+            }
+            return m;
         }
         return (SwanCoreVersion) invokeI.objValue;
     }
 
-    public static File h(long j, int i) {
-        InterceptResult invokeCommon;
+    public static long f(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
-            return new File(g(i), String.valueOf(j));
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
+            SwanCoreVersion e = e(i);
+            if (e != null) {
+                return e.swanCoreVersionCode;
+            }
+            return 0L;
         }
-        return (File) invokeCommon.objValue;
+        return invokeI.longValue;
     }
 
-    public static ArrayList<Long> k(long j, long j2) {
-        InterceptResult invokeCommon;
-        SwanCoreVersion swanCoreVersion;
+    public static String h(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            ArrayList<Long> arrayList = new ArrayList<>();
-            if (j != 0) {
-                arrayList.add(Long.valueOf(j));
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
+            return i(null, i);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static void n(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65550, null, i) == null) {
+            o(i, null);
+        }
+    }
+
+    public static void q(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65553, null, z) == null) {
+            xc3.a().putBoolean("KEY_SWAN_APP_DEBUG_SWAN_CORE_MODE", z);
+        }
+    }
+
+    @Nullable
+    public static SwanCoreVersion g(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                return e(i);
             }
-            arrayList.add(Long.valueOf(j2));
-            for (d13 d13Var : f13.k().q()) {
-                SwanAppCores m = d13Var.m();
-                if (d13Var.T() && m != null && (swanCoreVersion = m.getSwanCoreVersion()) != null && !arrayList.contains(Long.valueOf(swanCoreVersion.swanCoreVersionCode))) {
-                    arrayList.add(Long.valueOf(swanCoreVersion.swanCoreVersionCode));
+            y03 c = w03.c(b.class, null);
+            if (a) {
+                Log.d("SwanAppSwanCoreManager", "getSwanCoreVersionIPC:" + ProcessUtils.getCurProcessName() + " swan core: " + b.d(c.a, i));
+            }
+            return b.d(c.a, i);
+        }
+        return (SwanCoreVersion) invokeI.objValue;
+    }
+
+    public static String i(SwanCoreVersion swanCoreVersion, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, swanCoreVersion, i)) == null) {
+            if (swanCoreVersion == null) {
+                swanCoreVersion = e(i);
+            }
+            if (swanCoreVersion.swanCoreVersionCode > 0) {
+                return swanCoreVersion.swanCoreVersionName;
+            }
+            String e = rd3.k(i).e();
+            if (a) {
+                Log.d("SwanAppSwanCoreManager", "getSwanCoreVersionName preset config: " + e);
+            }
+            if (TextUtils.isEmpty(e)) {
+                return "0";
+            }
+            return e;
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    public static void l(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65548, null, i, i2) == null) {
+            if (a) {
+                Log.d("SwanAppSwanCoreManager", "onAppUpgrade oldVersion: " + i + " ,newVersion: " + i2);
+            }
+            if (!"com.baidu.searchbox.smartapp".equals(AppRuntime.getAppContext().getPackageName()) && i == i2) {
+                return;
+            }
+            a();
+            rd3.v(true, 0);
+            rd3.v(true, 1);
+            rd3.w(false, 0);
+            fn2.F(false);
+        }
+    }
+
+    public static boolean k(File file, List<Long> list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, file, list)) == null) {
+            if (list == null) {
+                return false;
+            }
+            String name = file.getName();
+            for (Long l : list) {
+                if (TextUtils.equals(name, String.valueOf(l.longValue()))) {
+                    return true;
                 }
             }
-            if (a) {
-                Log.d("RemoteSwanCoreControl", "SwanCoreVersion usedVersions: " + Arrays.toString(arrayList.toArray()));
-            }
-            return arrayList;
+            return false;
         }
-        return (ArrayList) invokeCommon.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public static void l(String str, long j, int i) {
+    public static void m(int i, int i2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{str, Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            sc3.a().putString(j(i), str);
-            sc3.a().putLong(i(i), j);
-            yg3.k(new a(j, i), "cacheSwanCoreInfo");
+        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+            dh3.k(new a(i2, j, i), "reportZipFileCheckFailed");
+        }
+    }
+
+    public static void p(ud3 ud3Var, int i, cj3<Exception> cj3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65552, null, ud3Var, i, cj3Var) == null) {
+            qf4 qf4Var = new qf4(i);
+            if (i == 0) {
+                tb4.l(qf4Var, new m72(cj3Var));
+                return;
+            }
+            r72 o = rn2.i().o(cj3Var);
+            if (o != null) {
+                tb4.m(qf4Var, new m72(null), o);
+            } else if (cj3Var != null) {
+                cj3Var.a(null);
+            }
+        }
+    }
+
+    public static void o(int i, cj3<Exception> cj3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65551, null, i, cj3Var) == null) {
+            ud3.b b2 = ud3.b.b();
+            b2.c(true);
+            b2.d("openSwanApp");
+            p(b2.a(), i, cj3Var);
         }
     }
 }

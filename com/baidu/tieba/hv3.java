@@ -1,10 +1,10 @@
 package com.baidu.tieba;
 
-import android.content.pm.PackageInfo;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import android.os.Handler;
+import android.os.Message;
+import android.os.SystemClock;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.SapiWebView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,13 +12,83 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.heytap.mcssdk.PushManager;
-import org.json.JSONObject;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public class hv3 extends kw3 {
+public final class hv3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static boolean a;
+    public static long b;
+    public static Handler c;
+    public static long d;
+    public static final Handler.Callback e;
+    public static final hv3 f;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes4.dex */
+    public static final class a implements Handler.Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public static final a a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-734283929, "Lcom/baidu/tieba/hv3$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-734283929, "Lcom/baidu/tieba/hv3$a;");
+                    return;
+                }
+            }
+            a = new a();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.os.Handler.Callback
+        public final boolean handleMessage(Message msg) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, msg)) == null) {
+                Intrinsics.checkNotNullParameter(msg, "msg");
+                if (msg.what == 0 && hv3.f.g() && hv3.a(hv3.f) < SapiWebView.DEFAULT_TIMEOUT_MILLIS) {
+                    long elapsedRealtime = SystemClock.elapsedRealtime();
+                    hv3.b = (hv3.a(hv3.f) + elapsedRealtime) - hv3.c(hv3.f);
+                    hv3 hv3Var = hv3.f;
+                    hv3.d = elapsedRealtime;
+                    Handler b = hv3.b(hv3.f);
+                    if (b != null) {
+                        b.sendEmptyMessageDelayed(0, 1000L);
+                    }
+                    if ((hv3.a(hv3.f) / 1000) % 15 == 0) {
+                        iu3.o.U(hv3.a(hv3.f));
+                        return true;
+                    }
+                    return true;
+                }
+                hv3 hv3Var2 = hv3.f;
+                hv3.d = 0L;
+                hv3.f.i(false);
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -33,12 +103,11 @@ public class hv3 extends kw3 {
                 return;
             }
         }
-        c = ok1.a;
+        f = new hv3();
+        e = a.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public hv3() {
-        super("checkAppInstalled");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,47 +115,91 @@ public class hv3 extends kw3 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.kw3
-    public ew1 a(@NonNull JSONObject jSONObject, @NonNull ih2 ih2Var) {
-        InterceptResult invokeLL;
+    public final long f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ih2Var)) == null) {
-            if (c) {
-                Log.d("checkAppInstalled", "handle: " + jSONObject);
-            }
-            String optString = jSONObject.optString("packageName");
-            if (TextUtils.isEmpty(optString)) {
-                ih2Var.onFail(31010, "package name is empty");
-                return null;
-            }
-            try {
-                PackageInfo packageInfo = AppRuntime.getAppContext().getPackageManager().getPackageInfo(optString, 0);
-                if (c) {
-                    Log.d("checkAppInstalled", "packageInfo: " + packageInfo);
-                }
-                if (packageInfo != null) {
-                    JSONObject jSONObject2 = new JSONObject();
-                    JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put(PushManager.APP_VERSION_NAME, packageInfo.versionName);
-                    jSONObject3.put(PushManager.APP_VERSION_CODE, packageInfo.versionCode);
-                    jSONObject2.put("data", jSONObject3);
-                    ih2Var.a(jSONObject2);
-                } else {
-                    ih2Var.onFail(31016, "no package info");
-                }
-            } catch (Exception unused) {
-                ih2Var.onFail(31011, "app is not installed");
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b;
         }
-        return (ew1) invokeLL.objValue;
+        return invokeV.longValue;
+    }
+
+    public final boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            long j = b;
+            if (j < 30000) {
+                return;
+            }
+            b = j % 30000;
+            iu3.o.M();
+        }
+    }
+
+    public static final /* synthetic */ long a(hv3 hv3Var) {
+        return b;
+    }
+
+    public static final /* synthetic */ Handler b(hv3 hv3Var) {
+        return c;
+    }
+
+    public static final /* synthetic */ long c(hv3 hv3Var) {
+        return d;
+    }
+
+    public final void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            a = z;
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (c == null) {
+                c = new Handler(e);
+            }
+            b = iu3.o.A();
+            a = true;
+            d = SystemClock.elapsedRealtime();
+            Handler handler = c;
+            if (handler != null) {
+                handler.sendEmptyMessageDelayed(0, 1000L);
+            }
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            a = false;
+            Handler handler = c;
+            if (handler != null) {
+                handler.removeCallbacksAndMessages(null);
+            }
+            if (d > 0) {
+                long elapsedRealtime = SystemClock.elapsedRealtime();
+                b = (b + elapsedRealtime) - d;
+                d = elapsedRealtime;
+            }
+            iu3.o.U(b);
+        }
     }
 }

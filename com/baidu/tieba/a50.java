@@ -1,17 +1,25 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.util.Collections;
+import java.util.HashMap;
+import javax.crypto.BadPaddingException;
 /* loaded from: classes3.dex */
-public class a50 {
+public final class a50 {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
-    public static final char[] b;
-    public static final byte[] c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public final int b;
+    public final int c;
 
     static {
         InterceptResult invokeClinit;
@@ -26,47 +34,111 @@ public class a50 {
                 return;
             }
         }
-        a = "0123456789ABCDEF".toCharArray();
-        b = "0123456789abcdef".toCharArray();
-        c = new byte[128];
-        for (int i = 0; i < 10; i++) {
-            byte[] bArr = c;
-            bArr[i + 48] = (byte) i;
-            byte b2 = (byte) (i + 10);
-            bArr[i + 65] = b2;
-            bArr[i + 97] = b2;
-        }
+        Collections.synchronizedMap(new HashMap());
     }
 
-    public static char[] a(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
-        char[] cArr;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, bArr, z)) == null) {
-            if (z) {
-                cArr = a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public a50(int i, int i2) throws InvalidKeyException, InvalidAlgorithmParameterException {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = i;
+        this.b = i2;
+        if (i2 >= 64) {
+            if (i != 1 && i != 2) {
+                if (i == 3) {
+                    this.c = i2;
+                    return;
+                }
+                throw new InvalidKeyException("Invalid padding: " + i);
+            }
+            this.c = i2 - 11;
+            return;
+        }
+        throw new InvalidKeyException("Padded size must be at least 64");
+    }
+
+    public static a50 a(int i, int i2) throws InvalidKeyException, InvalidAlgorithmParameterException {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) {
+            return new a50(i, i2);
+        }
+        return (a50) invokeII.objValue;
+    }
+
+    public byte[] c(byte[] bArr) throws BadPaddingException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
+            if (bArr.length == this.b) {
+                int i = this.a;
+                if (i != 1 && i != 2) {
+                    if (i == 3) {
+                        return bArr;
+                    }
+                    throw new AssertionError();
+                }
+                return d(bArr);
+            }
+            throw new BadPaddingException("Padded length must be " + this.b);
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public final byte[] d(byte[] bArr) throws BadPaddingException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
+            if (bArr[0] == 0) {
+                int i = 2;
+                if (bArr[1] != this.a) {
+                    throw new BadPaddingException("Blocktype mismatch: " + ((int) bArr[1]));
+                }
+                while (true) {
+                    int i2 = i + 1;
+                    int i3 = bArr[i] & 255;
+                    if (i3 == 0) {
+                        int length = bArr.length - i2;
+                        if (length <= this.c) {
+                            byte[] bArr2 = new byte[length];
+                            System.arraycopy(bArr, bArr.length - length, bArr2, 0, length);
+                            return bArr2;
+                        }
+                        throw new BadPaddingException("Padding string too short");
+                    } else if (i2 != bArr.length) {
+                        if (this.a == 1 && i3 != 255) {
+                            throw new BadPaddingException("Padding byte not 0xff: " + i3);
+                        }
+                        i = i2;
+                    } else {
+                        throw new BadPaddingException("Padding string not terminated");
+                    }
+                }
             } else {
-                cArr = b;
+                throw new BadPaddingException("Data must start with zero");
             }
-            char[] cArr2 = new char[bArr.length * 2];
-            int i = 0;
-            for (byte b2 : bArr) {
-                int i2 = i + 1;
-                cArr2[i] = cArr[(b2 & 240) >>> 4];
-                i = i2 + 1;
-                cArr2[i2] = cArr[b2 & 15];
-            }
-            return cArr2;
+        } else {
+            return (byte[]) invokeL.objValue;
         }
-        return (char[]) invokeLZ.objValue;
-    }
-
-    public static String b(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, bArr, z)) == null) {
-            return new String(a(bArr, z));
-        }
-        return (String) invokeLZ.objValue;
     }
 }

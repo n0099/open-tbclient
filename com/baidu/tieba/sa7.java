@@ -1,24 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.LocalViewSize;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.ThreadData;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class sa7 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface sa7 {
+    boolean a();
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            pd7.o();
-            ee7.n();
-            LocalViewSize.getInstance().initial(TbadkCoreApplication.getInst().getContext());
-            wd7.n().o(TbadkCoreApplication.getInst().getContext());
-            fe7.b().c();
-            ae7.i();
-            ie7.k();
-        }
-    }
+    void b();
+
+    void c(BdUniqueId bdUniqueId);
+
+    void destory();
+
+    List<ThreadData> m();
+
+    void refresh();
+
+    void x(String str, String str2, int i);
 }

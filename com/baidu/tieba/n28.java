@@ -1,57 +1,49 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.CompoundButton;
-import android.widget.LinearLayout;
-import android.widget.RadioGroup;
-import android.widget.ScrollView;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.module.pb.BarManageResultListener;
-import com.baidu.tieba.pb.pb.main.view.CustomBlueCheckRadioButton;
-import com.baidu.tieba.tbadkCore.model.ForumManageModel;
+import com.baidu.tbadk.core.view.PbListView;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tieba.newinterest.fragment.BaseInterestedForumFragment;
+import com.baidu.tieba.newinterest.model.InterestedForumModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class n28 implements yb5 {
+public class n28 implements InterestedForumModel.d, a38, View.OnClickListener, InterestedForumModel.c, z28 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public TbPageContext a;
-    @NonNull
-    public ForumManageModel b;
-    @NonNull
-    public final q9 c;
-    public List<CustomBlueCheckRadioButton> d;
-    public Dialog e;
-    public View f;
-    public LinearLayout g;
-    public CompoundButton.OnCheckedChangeListener h;
-    public TextView i;
-    public TextView j;
-    public String k;
-    public ScrollView l;
-    public String m;
-    public String n;
-    public String o;
+    public m28 a;
+    public final BaseInterestedForumFragment b;
+    public final InterestedForumModel c;
+    public final BdTypeRecyclerView d;
+    public PbListView e;
+    public final TBSpecificationBtn f;
+    public final TBSpecificationBtn g;
+    public final TbPageContext<BaseFragmentActivity> h;
+    public boolean i;
+    public r28 j;
+    public final boolean k;
+    public BdListView.p l;
+    public View.OnClickListener m;
 
     /* loaded from: classes5.dex */
-    public class a extends q9 {
+    public class a implements BdListView.p {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ n28 a;
@@ -74,36 +66,17 @@ public class n28 implements yb5 {
             this.a = n28Var;
         }
 
-        @Override // com.baidu.tieba.q9
-        public void c(Object obj) {
-            int i;
+        @Override // com.baidu.adp.widget.ListView.BdListView.p
+        public void onScrollToBottom() {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, obj) != null) || obj == null || this.a.a.getPageActivity().isDestroyed()) {
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.j();
             }
-            int loadDataMode = this.a.b.getLoadDataMode();
-            if (loadDataMode != 2 && loadDataMode != 3 && loadDataMode != 4 && loadDataMode != 5) {
-                if (loadDataMode != 6) {
-                    return;
-                }
-                this.a.m(((ForumManageModel.g) obj).c);
-                return;
-            }
-            ForumManageModel.g gVar = (ForumManageModel.g) obj;
-            if (TextUtils.isEmpty(gVar.b)) {
-                if (gVar.a) {
-                    i = R.string.operation_success;
-                } else {
-                    i = R.string.operation_failed;
-                }
-                gVar.b = this.a.a.getString(i);
-            }
-            BarManageResultListener.d(this.a.b.X(this.a.b.getLoadDataMode(), gVar));
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements CompoundButton.OnCheckedChangeListener {
+    public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ n28 a;
@@ -126,238 +99,273 @@ public class n28 implements yb5 {
             this.a = n28Var;
         }
 
-        @Override // android.widget.CompoundButton.OnCheckedChangeListener
-        public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLZ(1048576, this, compoundButton, z) == null) && z) {
-                this.a.k = (String) compoundButton.getTag();
-                if (this.a.d != null) {
-                    for (CustomBlueCheckRadioButton customBlueCheckRadioButton : this.a.d) {
-                        String str = (String) customBlueCheckRadioButton.getTag();
-                        if (str != null && this.a.k != null && !str.equals(this.a.k)) {
-                            customBlueCheckRadioButton.setChecked(false);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n28 a;
-
-        public c(n28 n28Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n28Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = n28Var;
-        }
-
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (this.a.e instanceof Dialog)) {
-                ch.b(this.a.e, this.a.a);
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
             }
+            this.a.j();
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class d implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n28 a;
-
-        public d(n28 n28Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n28Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = n28Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.b.d0(this.a.m, this.a.n, this.a.o, 2, this.a.k);
-                if (this.a.e instanceof Dialog) {
-                    ch.b(this.a.e, this.a.a);
-                }
-            }
-        }
-    }
-
-    public n28(@NonNull TbPageContext tbPageContext) {
+    public n28(BaseInterestedForumFragment baseInterestedForumFragment, BdTypeRecyclerView bdTypeRecyclerView, TBSpecificationBtn tBSpecificationBtn, TBSpecificationBtn tBSpecificationBtn2, TbPageContext<BaseFragmentActivity> tbPageContext, InterestedForumModel interestedForumModel, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {baseInterestedForumFragment, bdTypeRecyclerView, tBSpecificationBtn, tBSpecificationBtn2, tbPageContext, interestedForumModel, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new a(this);
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = null;
-        this.j = null;
-        this.k = null;
-        this.l = null;
-        this.m = null;
-        this.n = null;
-        this.o = null;
-        this.a = tbPageContext;
-        ForumManageModel forumManageModel = new ForumManageModel(tbPageContext);
-        this.b = forumManageModel;
-        forumManageModel.setLoadDataCallBack(this.c);
+        this.i = false;
+        this.l = new a(this);
+        this.m = new b(this);
+        this.b = baseInterestedForumFragment;
+        this.d = bdTypeRecyclerView;
+        this.c = interestedForumModel;
+        this.h = tbPageContext;
+        this.g = tBSpecificationBtn;
+        this.f = tBSpecificationBtn2;
+        this.k = z;
+        this.a = new m28(tbPageContext.getPageActivity(), this.d);
+        h();
+        i();
     }
 
-    @Override // com.baidu.tieba.yb5
-    public void a(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z) {
-        int i;
+    public void g(List<q28> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, Boolean.valueOf(z)}) != null) || this.b.Z()) {
-            return;
-        }
-        this.m = str;
-        this.n = str2;
-        this.o = str3;
-        if (z) {
-            i = 3;
-        } else {
-            i = 6;
-        }
-        this.b.d0(str, str2, str3, i, null);
-    }
-
-    @Override // com.baidu.tieba.yb5
-    public void b(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, str3, Boolean.valueOf(z)}) != null) || this.b.Z()) {
-            return;
-        }
-        if (z) {
-            i = 5;
-        } else {
-            i = 4;
-        }
-        this.b.d0(str, str2, str3, i, null);
-    }
-
-    public final CustomBlueCheckRadioButton l(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            Activity pageActivity = this.a.getPageActivity();
-            CustomBlueCheckRadioButton customBlueCheckRadioButton = new CustomBlueCheckRadioButton(pageActivity);
-            RadioGroup.LayoutParams layoutParams = new RadioGroup.LayoutParams(-1, yi.g(pageActivity, R.dimen.obfuscated_res_0x7f07019a));
-            customBlueCheckRadioButton.setOnCheckedChangeListener(this.h);
-            customBlueCheckRadioButton.setTag(str);
-            customBlueCheckRadioButton.setText(str2);
-            customBlueCheckRadioButton.setLayoutParams(layoutParams);
-            return customBlueCheckRadioButton;
-        }
-        return (CustomBlueCheckRadioButton) invokeLL.objValue;
-    }
-
-    public final void m(ArrayList<it4> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
-            if (this.f == null) {
-                this.f = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.commit_good, (ViewGroup) null);
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+            this.c.r(list);
+            this.c.m();
+            if (!this.i && !this.k) {
+                this.c.g();
             }
-            if (this.e == null) {
-                Dialog dialog = new Dialog(this.a.getPageActivity());
-                this.e = dialog;
-                dialog.setCanceledOnTouchOutside(true);
-                this.e.setCancelable(true);
-                this.l = (ScrollView) this.f.findViewById(R.id.good_scroll);
-                this.e.setContentView(this.f);
-                WindowManager.LayoutParams attributes = this.e.getWindow().getAttributes();
-                attributes.width = yi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702db);
-                this.e.getWindow().setAttributes(attributes);
-                this.h = new b(this);
-                this.g = (LinearLayout) this.f.findViewById(R.id.good_class_group);
-                TextView textView = (TextView) this.f.findViewById(R.id.dialog_button_cancel);
-                this.j = textView;
-                textView.setOnClickListener(new c(this));
-                TextView textView2 = (TextView) this.f.findViewById(R.id.dialog_button_ok);
-                this.i = textView2;
-                textView2.setOnClickListener(new d(this));
+        }
+    }
+
+    public void k(int i) {
+        m28 m28Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && (m28Var = this.a) != null) {
+            m28Var.g(i);
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.a.b(z);
+        }
+    }
+
+    @Override // com.baidu.tieba.a38
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.a.e()) {
+                this.g.setEnabled(true);
+                this.g.setText(this.d.getResources().getString(R.string.obfuscated_res_0x7f0f1296));
+            } else {
+                this.g.setEnabled(false);
+                this.g.setText(this.d.getResources().getString(R.string.obfuscated_res_0x7f0f09b3));
             }
-            this.g.removeAllViews();
-            this.d = new ArrayList();
-            CustomBlueCheckRadioButton l = l("0", this.a.getString(R.string.thread_good_class));
-            this.d.add(l);
-            l.setChecked(true);
-            this.g.addView(l);
-            if (arrayList != null) {
-                for (int i = 0; i < arrayList.size(); i++) {
-                    it4 it4Var = arrayList.get(i);
-                    if (it4Var != null && !TextUtils.isEmpty(it4Var.b()) && it4Var.a() > 0) {
-                        CustomBlueCheckRadioButton l2 = l(String.valueOf(it4Var.a()), it4Var.b());
-                        this.d.add(l2);
-                        View view2 = new View(this.a.getPageActivity());
-                        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, yi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070198));
-                        SkinManager.setBackgroundColor(view2, R.color.CAM_X0204);
-                        view2.setLayoutParams(layoutParams);
-                        this.g.addView(view2);
-                        this.g.addView(l2);
+            b05 b05Var = new b05();
+            this.f.setTextSize(R.dimen.T_X06);
+            if (!this.a.f()) {
+                this.f.setText(this.h.getString(R.string.obfuscated_res_0x7f0f09b9));
+                b05Var.q(R.color.CAM_X0304);
+                this.f.setConfig(b05Var);
+                return;
+            }
+            this.f.setText(this.h.getString(R.string.obfuscated_res_0x7f0f09bb));
+            b05Var.s(R.color.CAM_X0105);
+            this.f.setConfig(b05Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.newinterest.model.InterestedForumModel.c
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (!this.i) {
+                this.i = true;
+            } else if (UbsABTestHelper.isFirstLoginTestB()) {
+                this.b.getActivity().setResult(-1);
+                this.b.getActivity().finish();
+            } else {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(this.h.getPageActivity()).createNormalCfg(0)));
+            }
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            PbListView pbListView = new PbListView(this.d.getContext());
+            this.e = pbListView;
+            pbListView.a();
+            this.e.r(R.color.CAM_X0601);
+            this.e.A();
+            this.e.H(SkinManager.getColor(R.color.CAM_X0109));
+            this.e.J(R.dimen.tbfontsize33);
+            this.e.D(R.color.CAM_X0110);
+            this.e.E(this.m);
+            this.d.setNextPage(this.e);
+            m();
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.e.G(this.d.getContext().getString(R.string.obfuscated_res_0x7f0f09b5), zi.g(this.d.getContext(), R.dimen.tbds178));
+            this.e.J(R.dimen.tbds36);
+            this.e.D(R.color.CAM_X0109);
+            this.e.g();
+            this.e.E(null);
+            this.e.O(zi.g(this.d.getContext(), R.dimen.tbds217));
+        }
+    }
+
+    @Override // com.baidu.tieba.newinterest.model.InterestedForumModel.d
+    public void c(r28 r28Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, r28Var) == null) {
+            r28 r28Var2 = this.j;
+            if (r28Var2 != null && !ListUtils.isEmpty(r28Var2.a)) {
+                if (r28Var != null) {
+                    this.j.a.addAll(r28Var.a);
+                }
+            } else {
+                this.j = r28Var;
+            }
+            if (r28Var != null && !ListUtils.isEmpty(r28Var.a)) {
+                if (this.d.getVisibility() == 8) {
+                    this.d.setVisibility(0);
+                }
+                this.a.j(r28Var.a);
+                this.b.D1();
+            }
+            if (!this.c.n()) {
+                n();
+            }
+        }
+    }
+
+    public String f(List<yn> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < list.size(); i++) {
+                yn ynVar = list.get(i);
+                if (ynVar instanceof s28) {
+                    s28 s28Var = (s28) ynVar;
+                    if (s28Var.k()) {
+                        if (sb.length() > 0) {
+                            sb.append("|");
+                        }
+                        sb.append(s28Var.c());
                     }
                 }
-                ViewGroup.LayoutParams layoutParams2 = this.l.getLayoutParams();
-                int size = arrayList.size();
-                if (size != 0 && size != 1) {
-                    if (size != 2) {
-                        layoutParams2.height = yi.d(this.a.getPageActivity(), 220.0f);
-                    } else {
-                        layoutParams2.height = yi.d(this.a.getPageActivity(), 186.0f);
-                    }
-                } else {
-                    layoutParams2.height = yi.d(this.a.getPageActivity(), 120.0f);
-                }
-                this.l.setLayoutParams(layoutParams2);
-                this.l.removeAllViews();
-                LinearLayout linearLayout = this.g;
-                if (linearLayout != null && linearLayout.getParent() == null) {
-                    this.l.addView(this.g);
-                }
             }
-            ch.j(this.e, this.a);
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.z28
+    public void d(int i, String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
+            x28.b(str);
+            this.a.a(i, this.j, i2);
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.d.setOnSrollToBottomListener(this.l);
+            this.c.t(this);
+            this.c.s(this);
+            this.a.k(this);
+            this.a.i(this);
+            this.g.setOnClickListener(this);
+            this.f.setOnClickListener(this);
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.e.M();
+            this.e.T();
+            this.e.F(this.d.getContext().getString(R.string.list_loading));
+            this.e.O(zi.g(this.d.getContext(), R.dimen.tbds217));
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.c.n()) {
+            InterestedForumModel interestedForumModel = this.c;
+            if (!interestedForumModel.f) {
+                interestedForumModel.m();
+                m();
+            }
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, view2) == null) {
+            if (view2 == this.g) {
+                List<yn> c = this.a.c();
+                try {
+                    this.c.i(c);
+                    x28.a(2, 1, this.b.C1(), "", f(c));
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+            } else if (view2 != this.f || yj5.a()) {
+            } else {
+                if (this.h.getString(R.string.obfuscated_res_0x7f0f09b9).equals(this.f.getText())) {
+                    l(true);
+                } else if (this.h.getString(R.string.obfuscated_res_0x7f0f09bb).equals(this.f.getText())) {
+                    l(false);
+                }
+                a();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.newinterest.model.InterestedForumModel.d
+    public void onError(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048590, this, i, str) == null) {
+            r28 r28Var = this.j;
+            if (r28Var != null && !ListUtils.isEmpty(r28Var.a)) {
+                PbListView pbListView = this.e;
+                if (pbListView != null) {
+                    pbListView.F(this.d.getContext().getString(R.string.pb_load_more));
+                    this.e.g();
+                    return;
+                }
+                return;
+            }
+            this.b.E1(str);
         }
     }
 }

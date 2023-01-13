@@ -11,9 +11,11 @@ public class a5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public b7<b5<Vector3>> b;
-    public b7<b5<Quaternion>> c;
-    public b7<b5<Vector3>> d;
+    public Vector3 b;
+    public Quaternion c;
+    public Vector3 d;
+    public d5[] e;
+    public a5[] f;
 
     public a5() {
         Interceptable interceptable = $ic;

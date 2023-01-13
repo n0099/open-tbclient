@@ -1,33 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
 /* loaded from: classes6.dex */
 public class tp3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile sp3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Inject(force = false)
-    public static up3 a() {
+    public static synchronized sp3 a() {
         InterceptResult invokeV;
+        sp3 sp3Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return mv5.a();
+            synchronized (tp3.class) {
+                if (a == null) {
+                    a = new sp3();
+                }
+                sp3Var = a;
+            }
+            return sp3Var;
         }
-        return (up3) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static vp3 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new ck3();
-        }
-        return (vp3) invokeV.objValue;
+        return (sp3) invokeV.objValue;
     }
 }

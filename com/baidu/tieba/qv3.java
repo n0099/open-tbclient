@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Intent;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,34 +11,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class qv3 {
+public class qv3 extends pw3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final qv3 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-476621570, "Lcom/baidu/tieba/qv3$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-476621570, "Lcom/baidu/tieba/qv3$a;");
-                    return;
-                }
-            }
-            a = new qv3();
-        }
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public qv3() {
+        super("openSpaceCleanActivity");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,79 +25,48 @@ public class qv3 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static qv3 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
-        }
-        return (qv3) invokeV.objValue;
-    }
-
-    public void a(@NonNull JSONObject jSONObject, @NonNull xv3 xv3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, xv3Var) == null) {
-            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
-            String optString = jSONObject.optString("url");
-            if (!optBoolean) {
-                xv3Var.a(new yv3(31008, "download is not exist"));
-            } else {
-                v04.c().c(optString);
-            }
-        }
-    }
-
-    public void c(@NonNull JSONObject jSONObject, @NonNull xv3 xv3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, xv3Var) == null) {
-            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
-            String optString = jSONObject.optString("url");
-            if (!optBoolean) {
-                xv3Var.a(new yv3(31008, "download is not exist"));
-            } else {
-                v04.c().e(optString);
-            }
-        }
-    }
-
-    public void e(@NonNull JSONObject jSONObject, @NonNull xv3 xv3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, jSONObject, xv3Var) == null) {
-            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
-            String optString = jSONObject.optString("url");
-            if (!optBoolean) {
-                xv3Var.a(new yv3(31008, "download is not exist"));
-            } else {
-                v04.c().f(optString);
-            }
-        }
-    }
-
-    public void d(@NonNull JSONObject jSONObject, @NonNull xv3 xv3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, xv3Var) == null) {
-            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
-            if (!optBoolean) {
-                xv3Var.a(new yv3(31008, "download is not exist"));
                 return;
             }
-            String optString = jSONObject.optString("packageName");
-            String optString2 = jSONObject.optString("apkId");
-            String optString3 = jSONObject.optString("url");
-            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                if (!v04.c().a(optString3, optString, optString2, optBoolean, new sv3(xv3Var))) {
-                    xv3Var.a(new yv3(31006, "is not in main process"));
-                    return;
-                }
-                return;
-            }
-            xv3Var.a(new yv3(31007, "invalid params"));
         }
+    }
+
+    @Override // com.baidu.tieba.pw3
+    public jw1 a(@NonNull JSONObject jSONObject, @NonNull nh2 nh2Var) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, nh2Var)) == null) {
+            if (sh3.m()) {
+                z = b("com.huawei.systemmanager", "com.huawei.systemmanager.appfeature.spacecleaner.SpaceCleanActivity");
+            } else if (sh3.n()) {
+                z = b("com.miui.cleanmaster", "com.miui.optimizecenter.MainActivity");
+            } else if (sh3.o()) {
+                z = b("com.coloros.phonemanager", "com.coloros.phonemanager.clear.ClearActivity");
+            } else if (sh3.r()) {
+                z = b("com.iqoo.secure", "com.iqoo.secure.clean.PhoneCleanActivity2");
+            } else {
+                z = false;
+            }
+            if (!z) {
+                Toast.makeText(qn2.c(), (int) R.string.obfuscated_res_0x7f0f0192, 0).show();
+            }
+            nh2Var.a(null);
+            return null;
+        }
+        return (jw1) invokeLL.objValue;
+    }
+
+    public final boolean b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            Intent intent = new Intent();
+            intent.setClassName(str, str2);
+            return sg3.i(qn2.c(), intent, true, false);
+        }
+        return invokeLL.booleanValue;
     }
 }

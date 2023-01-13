@@ -1,34 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.ActivityManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.TimeUnit;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public class e59 {
+public final class e59 {
     public static /* synthetic */ Interceptable $ic;
-    public static final long a;
-    public static final m09 b;
-    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947685472, "Lcom/baidu/tieba/e59;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947685472, "Lcom/baidu/tieba/e59;");
-                return;
+    public static final int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            try {
+                String e = h59.e();
+                Object systemService = TbadkCoreApplication.getInst().getContext().getSystemService("activity");
+                if (systemService != null) {
+                    for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) systemService).getRunningAppProcesses()) {
+                        if (Intrinsics.areEqual(runningAppProcessInfo.processName, e)) {
+                            return runningAppProcessInfo.pid;
+                        }
+                    }
+                    return -1;
+                }
+                throw new NullPointerException("null cannot be cast to non-null type android.app.ActivityManager");
+            } catch (Exception unused) {
+                return -1;
             }
         }
-        a = TimeUnit.DAYS.toMillis(5L);
-        b = new m09("camera_last_api", 0, "camera_last_api_stamp");
-        c = "Lenovo K520".equals(aj.g());
+        return invokeV.intValue;
     }
 }

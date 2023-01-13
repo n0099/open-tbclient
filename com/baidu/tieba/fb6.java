@@ -1,28 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
-import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import kotlin.Unit;
 /* loaded from: classes4.dex */
-public class fb6 extends ib {
+public final class fb6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public za6 a;
-    public HashMap<String, String> b;
-    public Gson c;
+    public final int a;
+    public final Set<db6> b;
+    public int c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public fb6(int i) {
-        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -32,77 +29,98 @@ public class fb6 extends ib {
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new Gson();
+        this.a = i;
+        this.b = new LinkedHashSet();
     }
 
-    public String a(String str) {
-        InterceptResult invokeL;
+    public final db6 a(int i, int i2) {
+        InterceptResult invokeII;
+        db6 db6Var;
+        Object obj;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str.contains("?")) {
-                str = str.split("[?]")[0];
-            }
-            String replace = str.replace(TbConfig.SERVER_ADDRESS, "");
-            HashMap<String, String> hashMap = this.b;
-            if (hashMap != null) {
-                return hashMap.get(replace);
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void b(za6 za6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, za6Var) == null) {
-            this.a = za6Var;
-        }
-    }
-
-    public void c(HashMap<String, String> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
-            this.b = hashMap;
-        }
-    }
-
-    /* renamed from: process  reason: avoid collision after fix types in other method */
-    public HttpMessage process2(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        InterceptResult invokeLL;
-        String json;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, httpMessage, httpMessageTask)) == null) {
-            String a = a(httpMessageTask.getUrl());
-            if (a != null && this.a != null) {
-                if (httpMessage.getExtra() instanceof NetMessage) {
-                    NetMessage netMessage = (NetMessage) httpMessage.getExtra();
-                    if (netMessage.getSocketMessage() != null) {
-                        json = this.c.toJson(netMessage.getSocketMessage().getData());
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
+            synchronized (this) {
+                Iterator<T> it = this.b.iterator();
+                while (true) {
+                    db6Var = null;
+                    if (it.hasNext()) {
+                        obj = it.next();
+                        db6 db6Var2 = (db6) obj;
+                        if (db6Var2.l() >= i && db6Var2.j() >= i2 && db6Var2.l() - i < 5 && db6Var2.j() - i2 < 5) {
+                            z = true;
+                            continue;
+                        } else {
+                            z = false;
+                            continue;
+                        }
+                        if (z) {
+                            break;
+                        }
                     } else {
-                        json = "";
+                        obj = null;
+                        break;
                     }
-                } else {
-                    json = this.c.toJson(httpMessage.getParams());
                 }
-                this.a.a(httpMessageTask.getUrl(), this.c.toJson(a), this.c.toJson(json));
+                db6 db6Var3 = (db6) obj;
+                if (db6Var3 != null) {
+                    this.b.remove(db6Var3);
+                    this.c -= db6Var3.k();
+                    db6Var = db6Var3;
+                }
             }
-            return httpMessage;
+            return db6Var;
         }
-        return (HttpMessage) invokeLL.objValue;
+        return (db6) invokeII.objValue;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
-    @Override // com.baidu.tieba.kb
-    public /* bridge */ /* synthetic */ HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        HttpMessage httpMessage2 = httpMessage;
-        process2(httpMessage2, httpMessageTask);
-        return httpMessage2;
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                for (db6 db6Var : this.b) {
+                    db6Var.e();
+                }
+                this.b.clear();
+                this.c = 0;
+                Unit unit = Unit.INSTANCE;
+            }
+        }
+    }
+
+    public final boolean c(db6 db6Var) {
+        InterceptResult invokeL;
+        eb6 g;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, db6Var)) == null) {
+            if (db6Var == null) {
+                g = null;
+            } else {
+                g = db6Var.g();
+            }
+            if (g == null) {
+                return true;
+            }
+            if (this.b.contains(db6Var)) {
+                return false;
+            }
+            if (db6Var.k() + this.c > this.a) {
+                BdLog.v("DrawingCache [Release][+] OOM Pool");
+                return false;
+            }
+            synchronized (this) {
+                this.b.add(db6Var);
+                db6Var.f();
+                this.c += db6Var.k();
+                Unit unit = Unit.INSTANCE;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

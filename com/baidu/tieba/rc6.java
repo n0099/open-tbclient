@@ -1,141 +1,108 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.enterForum.hotuserrank.RankListViewController;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class rc6 {
+public final class rc6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public View b;
-    public RankListViewController.RankListViewHolder c;
-    public TextView d;
-    public TextView e;
-    public String f;
-    public int g;
-    public View.OnClickListener h;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rc6 a;
-
-        public a(rc6 rc6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rc6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rc6Var;
+    public static final wb6 a(q0 q0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, q0Var)) == null) {
+            Intrinsics.checkNotNullParameter(q0Var, "<this>");
+            return (wb6) q0Var.d(wb6.class);
         }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (TextUtils.isEmpty(this.a.f)) {
-                    this.a.a.showToast(R.string.load_error_retry);
-                    return;
-                }
-                UrlManager.getInstance().dealOneLink(this.a.a, new String[]{this.a.f});
-                if (this.a.g == 0) {
-                    return;
-                }
-                if (this.a.g == 2) {
-                    StatisticItem statisticItem = new StatisticItem("c13658");
-                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem.param("obj_locate", 2);
-                    TiebaStatic.log(statisticItem);
-                } else if (this.a.g == 1) {
-                    StatisticItem statisticItem2 = new StatisticItem("c13669");
-                    statisticItem2.param("obj_locate", 2);
-                    TiebaStatic.log(statisticItem2);
-                }
-            }
-        }
+        return (wb6) invokeL.objValue;
     }
 
-    public rc6(TbPageContext tbPageContext, View view2) {
+    public static final tb6 b(q0 q0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, q0Var)) == null) {
+            Intrinsics.checkNotNullParameter(q0Var, "<this>");
+            return (tb6) q0Var.d(tb6.class);
+        }
+        return (tb6) invokeL.objValue;
+    }
+
+    public static final long c(q0 q0Var) {
+        InterceptResult invokeL;
+        hb6 a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, q0Var)) == null) {
+            Intrinsics.checkNotNullParameter(q0Var, "<this>");
+            tb6 b = b(q0Var);
+            if (b == null || (a = b.a()) == null) {
+                return 0L;
             }
+            return a.g();
         }
-        this.h = new a(this);
-        this.a = tbPageContext;
-        this.b = view2;
-        RankListViewController.RankListViewHolder rankListViewHolder = new RankListViewController.RankListViewHolder(view2.findViewById(R.id.obfuscated_res_0x7f09259d));
-        this.c = rankListViewHolder;
-        rankListViewHolder.i(1);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ce0);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c08);
-        this.e = textView;
-        textView.setTextSize(0, yi.g(this.a.getPageActivity(), R.dimen.tbfontsize46));
-        this.d.setOnClickListener(this.h);
+        return invokeL.longValue;
     }
 
-    public void d(int i) {
+    public static final sb6 d(q0 q0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.c.f(i);
-            SkinManager.setBackgroundColor(this.c.itemView, R.color.CAM_X0207);
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0302);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, q0Var)) == null) {
+            Intrinsics.checkNotNullParameter(q0Var, "<this>");
+            return (sb6) q0Var.d(sb6.class);
         }
+        return (sb6) invokeL.objValue;
     }
 
-    public void f(int i) {
+    public static final ub6 e(q0 q0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.g = i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, q0Var)) == null) {
+            Intrinsics.checkNotNullParameter(q0Var, "<this>");
+            return (ub6) q0Var.d(ub6.class);
         }
+        return (ub6) invokeL.objValue;
     }
 
-    public void e(uc6 uc6Var) {
-        tc6 tc6Var;
-        MetaData metaData;
+    public static final long f(q0 q0Var) {
+        InterceptResult invokeL;
+        hb6 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uc6Var) == null) {
-            if (uc6Var != null && (tc6Var = uc6Var.c) != null && (metaData = tc6Var.f) != null && !metaData.isMask && TbadkCoreApplication.isLogin()) {
-                this.b.setVisibility(0);
-                this.c.c(uc6Var.c);
-                this.c.e();
-                this.f = uc6Var.e;
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, q0Var)) == null) {
+            Intrinsics.checkNotNullParameter(q0Var, "<this>");
+            tb6 b = b(q0Var);
+            if (b == null || (a = b.a()) == null) {
+                return 0L;
             }
-            this.b.setVisibility(8);
+            return a.j();
         }
+        return invokeL.longValue;
+    }
+
+    public static final boolean g(q0 q0Var, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, q0Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(q0Var, "<this>");
+            if (j - f(q0Var) < 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public static final boolean h(q0 q0Var, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, q0Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(q0Var, "<this>");
+            if (j - f(q0Var) > c(q0Var)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLJ.booleanValue;
     }
 }

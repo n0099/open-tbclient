@@ -42,7 +42,7 @@ public class ci implements gb {
         }
     }
 
-    @Override // com.xiaomi.push.gb, com.xiaomi.push.gj
+    @Override // com.xiaomi.push.gb
     public void a(gn gnVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gnVar) == null) {

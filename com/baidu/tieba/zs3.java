@@ -1,33 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
+import android.view.View;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public interface zs3 {
-    void a(FrameLayout frameLayout);
+    void a(String str, JSONObject jSONObject);
 
-    void d(boolean z);
+    boolean b();
 
-    zs3 e(Context context, @NonNull vr3 vr3Var);
+    boolean c(View view2);
 
-    void g(ts3 ts3Var);
+    boolean d(View view2, tr3 tr3Var);
 
-    int getCurrentPosition();
+    void e();
 
-    int getDuration();
+    boolean f(View view2, tr3 tr3Var);
 
-    void h(vr3 vr3Var);
-
-    boolean isEnd();
-
-    boolean isPlaying();
-
-    void mute(boolean z);
-
-    void pause();
-
-    void resume();
-
-    void stop();
+    boolean removeView(View view2);
 }

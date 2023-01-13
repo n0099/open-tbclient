@@ -4,8 +4,9 @@ import android.content.Context;
 import android.os.Environment;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.exp.ADConfigError;
 import com.baidu.sapi2.ecommerce.activity.AddressEditActivity;
-import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -119,10 +120,10 @@ public class k2 {
                         jSONObject.put("42", q0Var.a("42"));
                         jSONObject.put(PayUVEventType.PAY_WAY_DIALOG_CLOSE_BTN_CLICK, q0Var.b(PayUVEventType.PAY_WAY_DIALOG_CLOSE_BTN_CLICK));
                         jSONObject.put(PayUVEventType.PAY_WAY_FULL_PAGE_CLOSE_BTN_CLICK, q0Var.b(PayUVEventType.PAY_WAY_FULL_PAGE_CLOSE_BTN_CLICK));
-                        jSONObject.put("101", q0Var.a("101"));
-                        jSONObject.put("102", q0Var.a("102"));
-                        jSONObject.put(TbEnum.SystemMessage.EVENT_ID_GROUP_JOIN, q0Var.a(TbEnum.SystemMessage.EVENT_ID_GROUP_JOIN));
-                        jSONObject.put(TbEnum.SystemMessage.EVENT_ID_GROUP_QUIT, q0Var.a(TbEnum.SystemMessage.EVENT_ID_GROUP_QUIT));
+                        jSONObject.put(ADConfigError.REQUEST_HAS_SUCCESS_BEFORE, q0Var.a(ADConfigError.REQUEST_HAS_SUCCESS_BEFORE));
+                        jSONObject.put(WorkPostNotifyFlutterData.FAIL_POST, q0Var.a(WorkPostNotifyFlutterData.FAIL_POST));
+                        jSONObject.put("105", q0Var.a("105"));
+                        jSONObject.put("106", q0Var.a("106"));
                         jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_PAGE_SHOW, l3.b(this.a));
                         jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_CLOSE_BTN_CLICK, l3.a(this.a));
                     }
@@ -180,13 +181,13 @@ public class k2 {
                     if (a.a(f3.N, 1) == 1) {
                         t2 t2Var = new t2();
                         jSONObject.put("98", t2Var.a());
-                        jSONObject.put(TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP, t2Var.b());
+                        jSONObject.put("107", t2Var.b());
                         String d = n0.d();
                         if (!TextUtils.isEmpty(d)) {
                             jSONObject.put("77", d);
                         }
-                        jSONObject.put(TbEnum.SystemMessage.EVENT_ID_GROUP_UPGRADE, n0.c());
-                        jSONObject.put(TbEnum.SystemMessage.EVENT_ID_INVITE_GROUP, l3.c(this.a));
+                        jSONObject.put("104", n0.c());
+                        jSONObject.put("109", l3.c(this.a));
                         j0 j0Var = new j0(this.a);
                         jSONObject.put("82", j0Var.d());
                         String b3 = j0Var.b();

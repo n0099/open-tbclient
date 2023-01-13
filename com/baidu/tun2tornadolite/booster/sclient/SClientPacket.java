@@ -72,7 +72,7 @@ public final class SClientPacket {
         }
 
         /* renamed from: cmd2Str-WZ4Q5Ns  reason: not valid java name */
-        public final String m64cmd2StrWZ4Q5Ns(int i) {
+        public final String m68cmd2StrWZ4Q5Ns(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i != 0 ? i != 1 ? i != 2 ? i != 3 ? HlsPlaylistParser.METHOD_NONE : "CMD_HEART_BEAT" : "CMD_EVENT" : "CMD_IP_PACKET" : "CMD_HAND_SHAKE" : (String) invokeI.objValue;
@@ -94,7 +94,7 @@ public final class SClientPacket {
 
         /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [('%' char), (r6v0 int), ('s' char)] */
         /* renamed from: toBinary-0ky7B_Q  reason: not valid java name */
-        private final String m62toBinary0ky7B_Q(byte b, int i) {
+        private final String m66toBinary0ky7B_Q(byte b, int i) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Byte.valueOf(b), Integer.valueOf(i)})) == null) {
@@ -103,7 +103,7 @@ public final class SClientPacket {
                 sb.append('%');
                 sb.append(i);
                 sb.append('s');
-                String format = String.format(sb.toString(), Arrays.copyOf(new Object[]{UStringsKt.m1980toStringLxnNnR4(b, 2)}, 1));
+                String format = String.format(sb.toString(), Arrays.copyOf(new Object[]{UStringsKt.m2044toStringLxnNnR4(b, 2)}, 1));
                 Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
                 return new Regex(" ").replace(format, "0");
             }
@@ -112,7 +112,7 @@ public final class SClientPacket {
 
         /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [('%' char), (r6v0 int), ('s' char)] */
         /* renamed from: toBinary-qim9Vi0  reason: not valid java name */
-        private final String m63toBinaryqim9Vi0(int i, int i2) {
+        private final String m67toBinaryqim9Vi0(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeII = interceptable.invokeII(65539, this, i, i2)) == null) {
@@ -121,7 +121,7 @@ public final class SClientPacket {
                 sb.append('%');
                 sb.append(i2);
                 sb.append('s');
-                String format = String.format(sb.toString(), Arrays.copyOf(new Object[]{UStringsKt.m1981toStringV7xB4Y4(i, 2)}, 1));
+                String format = String.format(sb.toString(), Arrays.copyOf(new Object[]{UStringsKt.m2045toStringV7xB4Y4(i, 2)}, 1));
                 Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
                 return new Regex(" ").replace(format, "0");
             }
@@ -133,7 +133,7 @@ public final class SClientPacket {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, header)) == null) {
                 Intrinsics.checkNotNullParameter(header, "header");
-                return new SClientPacket(UInt.m802constructorimpl((UByte.m726constructorimpl(header[0]) & 255) >> 4), UInt.m802constructorimpl(UByte.m726constructorimpl(header[0]) & 255 & 15), UInt.m802constructorimpl(UByte.m726constructorimpl(header[1]) & 255), UInt.m802constructorimpl(UInt.m802constructorimpl(UByte.m726constructorimpl(header[3]) & 255) | UInt.m802constructorimpl(UInt.m802constructorimpl(UByte.m726constructorimpl(header[2]) & 255) << 8)), null);
+                return new SClientPacket(UInt.m866constructorimpl((UByte.m790constructorimpl(header[0]) & 255) >> 4), UInt.m866constructorimpl(UByte.m790constructorimpl(header[0]) & 255 & 15), UInt.m866constructorimpl(UByte.m790constructorimpl(header[1]) & 255), UInt.m866constructorimpl(UInt.m866constructorimpl(UByte.m790constructorimpl(header[3]) & 255) | UInt.m866constructorimpl(UInt.m866constructorimpl(UByte.m790constructorimpl(header[2]) & 255) << 8)), null);
             }
             return (SClientPacket) invokeL.objValue;
         }
@@ -164,13 +164,13 @@ public final class SClientPacket {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, buf) == null) {
             Intrinsics.checkNotNullParameter(buf, "buf");
-            int m802constructorimpl = UInt.m802constructorimpl(UInt.m802constructorimpl(m61getVersionpVg5ArA() & 15) << 28);
-            this.header = m802constructorimpl;
-            int m802constructorimpl2 = UInt.m802constructorimpl(m802constructorimpl | UInt.m802constructorimpl(UInt.m802constructorimpl(m60getReservedpVg5ArA() & 15) << 24));
-            this.header = m802constructorimpl2;
-            int m802constructorimpl3 = UInt.m802constructorimpl(m802constructorimpl2 | UInt.m802constructorimpl(UInt.m802constructorimpl(m59getCommandpVg5ArA() & 255) << 16));
-            this.header = m802constructorimpl3;
-            this.header = UInt.m802constructorimpl(m802constructorimpl3 | UInt.m802constructorimpl(UInt.m802constructorimpl(m58getBodyLengthpVg5ArA() & 65535) << 0));
+            int m866constructorimpl = UInt.m866constructorimpl(UInt.m866constructorimpl(m65getVersionpVg5ArA() & 15) << 28);
+            this.header = m866constructorimpl;
+            int m866constructorimpl2 = UInt.m866constructorimpl(m866constructorimpl | UInt.m866constructorimpl(UInt.m866constructorimpl(m64getReservedpVg5ArA() & 15) << 24));
+            this.header = m866constructorimpl2;
+            int m866constructorimpl3 = UInt.m866constructorimpl(m866constructorimpl2 | UInt.m866constructorimpl(UInt.m866constructorimpl(m63getCommandpVg5ArA() & 255) << 16));
+            this.header = m866constructorimpl3;
+            this.header = UInt.m866constructorimpl(m866constructorimpl3 | UInt.m866constructorimpl(UInt.m866constructorimpl(m62getBodyLengthpVg5ArA() & 65535) << 0));
             this.headerBuf = buf;
             ByteBuffer byteBuffer = null;
             if (buf == null) {
@@ -183,26 +183,26 @@ public final class SClientPacket {
                 Intrinsics.throwUninitializedPropertyAccessException("headerBuf");
                 byteBuffer2 = null;
             }
-            byteBuffer2.put((byte) UInt.m802constructorimpl(UInt.m802constructorimpl(this.header >>> 24) & 255));
+            byteBuffer2.put((byte) UInt.m866constructorimpl(UInt.m866constructorimpl(this.header >>> 24) & 255));
             ByteBuffer byteBuffer3 = this.headerBuf;
             if (byteBuffer3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("headerBuf");
                 byteBuffer3 = null;
             }
-            byteBuffer3.put((byte) UInt.m802constructorimpl(UInt.m802constructorimpl(this.header >>> 16) & 255));
+            byteBuffer3.put((byte) UInt.m866constructorimpl(UInt.m866constructorimpl(this.header >>> 16) & 255));
             ByteBuffer byteBuffer4 = this.headerBuf;
             if (byteBuffer4 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("headerBuf");
                 byteBuffer4 = null;
             }
-            byteBuffer4.put((byte) UInt.m802constructorimpl(UInt.m802constructorimpl(this.header >>> 8) & 255));
+            byteBuffer4.put((byte) UInt.m866constructorimpl(UInt.m866constructorimpl(this.header >>> 8) & 255));
             ByteBuffer byteBuffer5 = this.headerBuf;
             if (byteBuffer5 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("headerBuf");
             } else {
                 byteBuffer = byteBuffer5;
             }
-            byteBuffer.put((byte) UInt.m802constructorimpl(UInt.m802constructorimpl(this.header >>> 0) & 255));
+            byteBuffer.put((byte) UInt.m866constructorimpl(UInt.m866constructorimpl(this.header >>> 0) & 255));
         }
     }
 
@@ -221,7 +221,7 @@ public final class SClientPacket {
     }
 
     /* renamed from: getBodyLength-pVg5ArA  reason: not valid java name */
-    public final int m58getBodyLengthpVg5ArA() {
+    public final int m62getBodyLengthpVg5ArA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -231,7 +231,7 @@ public final class SClientPacket {
     }
 
     /* renamed from: getCommand-pVg5ArA  reason: not valid java name */
-    public final int m59getCommandpVg5ArA() {
+    public final int m63getCommandpVg5ArA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -255,7 +255,7 @@ public final class SClientPacket {
     }
 
     /* renamed from: getReserved-pVg5ArA  reason: not valid java name */
-    public final int m60getReservedpVg5ArA() {
+    public final int m64getReservedpVg5ArA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -265,7 +265,7 @@ public final class SClientPacket {
     }
 
     /* renamed from: getVersion-pVg5ArA  reason: not valid java name */
-    public final int m61getVersionpVg5ArA() {
+    public final int m65getVersionpVg5ArA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {

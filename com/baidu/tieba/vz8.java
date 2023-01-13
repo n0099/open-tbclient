@@ -1,83 +1,49 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONException;
+import java.util.Set;
 /* loaded from: classes6.dex */
 public class vz8 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(r9 r9Var, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, r9Var, str)) == null) {
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    sb.append(jSONArray.optJSONObject(i).optString("src"));
-                }
-                return sb.toString();
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return r9Var.getString(R.string.pic_str);
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948258197, "Lcom/baidu/tieba/vz8;")) == null) {
+            return;
         }
-        return (String) invokeLL.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948258197, "Lcom/baidu/tieba/vz8;");
+        }
     }
 
-    public static String b(r9 r9Var, ChatMessage chatMessage) {
-        InterceptResult invokeLL;
-        String content;
-        String string;
+    public static void a(MainTabActivity mainTabActivity, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, r9Var, chatMessage)) == null) {
-            int msgType = chatMessage.getMsgType();
-            if (msgType != 1) {
-                if (msgType != 2) {
-                    if (msgType != 3) {
-                        if (msgType != 30) {
-                            if (msgType != 37) {
-                                if (msgType != 32) {
-                                    if (msgType != 33) {
-                                        content = "";
-                                    } else {
-                                        content = r9Var.getString(R.string.last_msg_forum_share);
-                                    }
-                                } else {
-                                    content = r9Var.getString(R.string.last_msg_thread_share);
-                                }
-                            } else {
-                                content = r9Var.getString(R.string.last_msg_chatroom_share);
-                            }
-                        }
-                    } else {
-                        content = r9Var.getString(R.string.voice_str);
-                    }
-                } else {
-                    content = a(r9Var, chatMessage.getContent());
-                }
-                if (chatMessage == null && chatMessage.getToUserInfo() != null) {
-                    if (TextUtils.equals(chatMessage.getToUserInfo().getUserId(), String.valueOf(TbadkCoreApplication.getCurrentAccountId()))) {
-                        string = r9Var.getString(R.string.private_message_report_person);
-                    } else {
-                        string = r9Var.getString(R.string.private_message_is_report_name);
-                    }
-                    return string + chatMessage.getToUserInfo().getUserName() + r9Var.getString(R.string.private_message_report_content) + content;
-                }
-                return r9Var.getString(R.string.private_message_is_report_name);
-            }
-            content = chatMessage.getContent();
-            if (chatMessage == null) {
-            }
-            return r9Var.getString(R.string.private_message_is_report_name);
+        if ((interceptable != null && interceptable.invokeLL(65537, null, mainTabActivity, intent) != null) || a || mainTabActivity == null || !mainTabActivity.isTaskRoot() || intent == null) {
+            return;
         }
-        return (String) invokeLL.objValue;
+        String action = intent.getAction();
+        Set<String> categories = intent.getCategories();
+        if (action != null && categories != null && TextUtils.equals(action, "android.intent.action.MAIN") && categories.contains("android.intent.category.LAUNCHER")) {
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOST_START).param("obj_param1", 2).param(TiebaStatic.Params.OBJ_PARAM2, TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, TbadkCoreApplication.getInst().getCanShowSplash()));
+            a = true;
+        }
     }
 }

@@ -12,9 +12,10 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.jvm.functions.Function3;
 import kotlin.jvm.internal.Ref;
 import kotlinx.coroutines.flow.internal.NullSurrogateKt;
+/* JADX INFO: Add missing generic type declarations: [T] */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0013\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003*\u0001\u0000\b\n\u0018\u00002\u00020\u0001J\u001b\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00028\u0000H\u0096@ø\u0001\u0000¢\u0006\u0004\b\u0004\u0010\u0005\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0006¸\u0006\u0000"}, d2 = {"kotlinx/coroutines/flow/FlowKt__CollectKt$collect$3", "Lkotlinx/coroutines/flow/FlowCollector;", "value", "", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes9.dex */
-public final class FlowKt__ReduceKt$reduce$$inlined$collect$1 implements FlowCollector<T> {
+public final class FlowKt__ReduceKt$reduce$$inlined$collect$1<T> implements FlowCollector<T> {
     public final /* synthetic */ Ref.ObjectRef $accumulator$inlined;
     public final /* synthetic */ Function3 $operation$inlined;
 
@@ -48,11 +49,6 @@ public final class FlowKt__ReduceKt$reduce$$inlined$collect$1 implements FlowCol
         this.$operation$inlined = function3;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r7v2, resolved type: T */
-    /* JADX DEBUG: Multi-variable search result rejected for r7v7, resolved type: T */
-    /* JADX DEBUG: Multi-variable search result rejected for r7v8, resolved type: T */
-    /* JADX DEBUG: Multi-variable search result rejected for r7v9, resolved type: T */
-    /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:10:0x0023  */
     /* JADX WARN: Removed duplicated region for block: B:14:0x0044  */
     @Override // kotlinx.coroutines.flow.FlowCollector
@@ -63,7 +59,6 @@ public final class FlowKt__ReduceKt$reduce$$inlined$collect$1 implements FlowCol
         AnonymousClass1 anonymousClass1;
         int i;
         Ref.ObjectRef objectRef;
-        T t;
         if (continuation instanceof AnonymousClass1) {
             anonymousClass1 = (AnonymousClass1) continuation;
             int i2 = anonymousClass1.label;
@@ -80,16 +75,15 @@ public final class FlowKt__ReduceKt$reduce$$inlined$collect$1 implements FlowCol
                         FlowKt__ReduceKt$reduce$$inlined$collect$1 flowKt__ReduceKt$reduce$$inlined$collect$1 = (FlowKt__ReduceKt$reduce$$inlined$collect$1) anonymousClass1.L$0;
                         ResultKt.throwOnFailure(obj2);
                         objectRef = (Ref.ObjectRef) anonymousClass1.L$4;
-                        t = obj2;
+                        obj = (T) obj2;
                     } else {
                         throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                     }
                 } else {
                     ResultKt.throwOnFailure(obj2);
                     objectRef = this.$accumulator$inlined;
-                    T t2 = objectRef.element;
-                    t = obj;
-                    if (t2 != NullSurrogateKt.NULL) {
+                    T t = objectRef.element;
+                    if (t != NullSurrogateKt.NULL) {
                         Function3 function3 = this.$operation$inlined;
                         anonymousClass1.L$0 = this;
                         anonymousClass1.L$1 = obj;
@@ -97,14 +91,13 @@ public final class FlowKt__ReduceKt$reduce$$inlined$collect$1 implements FlowCol
                         anonymousClass1.L$3 = obj;
                         anonymousClass1.L$4 = objectRef;
                         anonymousClass1.label = 1;
-                        Object invoke = function3.invoke(t2, obj, anonymousClass1);
-                        t = invoke;
-                        if (invoke == coroutine_suspended) {
+                        obj = (T) function3.invoke(t, obj, anonymousClass1);
+                        if (obj == coroutine_suspended) {
                             return coroutine_suspended;
                         }
                     }
                 }
-                objectRef.element = t;
+                objectRef.element = (T) obj;
                 return Unit.INSTANCE;
             }
         }
@@ -114,7 +107,7 @@ public final class FlowKt__ReduceKt$reduce$$inlined$collect$1 implements FlowCol
         i = anonymousClass1.label;
         if (i == 0) {
         }
-        objectRef.element = t;
+        objectRef.element = (T) obj;
         return Unit.INSTANCE;
     }
 }

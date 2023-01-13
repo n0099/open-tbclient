@@ -5,7 +5,7 @@ import android.hardware.Camera;
 import android.os.Handler;
 import android.os.SystemClock;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.s2a;
+import com.baidu.tieba.a8a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -76,7 +76,7 @@ public class Camera1Session implements CameraSession {
         }
 
         public /* synthetic */ void b(final byte[] bArr) {
-            this.this$0.cameraThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.o1a
+            this.this$0.cameraThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.w6a
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -107,7 +107,7 @@ public class Camera1Session implements CameraSession {
                     Camera1Session.camera1StartTimeMsHistogram.addSample((int) TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - this.this$0.constructionTimeNs));
                     this.this$0.firstFrameReported = true;
                 }
-                VideoFrame videoFrame = new VideoFrame(new NV21Buffer(bArr, this.this$0.captureFormat.width, this.this$0.captureFormat.height, new Runnable() { // from class: com.baidu.tieba.p1a
+                VideoFrame videoFrame = new VideoFrame(new NV21Buffer(bArr, this.this$0.captureFormat.width, this.this$0.captureFormat.height, new Runnable() { // from class: com.baidu.tieba.x6a
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -337,7 +337,7 @@ public class Camera1Session implements CameraSession {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) {
-            int b = s2a.b(this.applicationContext);
+            int b = a8a.b(this.applicationContext);
             if (this.info.facing == 0) {
                 b = 360 - b;
             }
@@ -356,7 +356,7 @@ public class Camera1Session implements CameraSession {
     private void listenForTextureFrames() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65556, this) == null) {
-            this.surfaceTextureHelper.startListening(new VideoSink() { // from class: com.baidu.tieba.q1a
+            this.surfaceTextureHelper.startListening(new VideoSink() { // from class: com.baidu.tieba.y6a
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -474,7 +474,7 @@ public class Camera1Session implements CameraSession {
         if (this.info.facing != 1) {
             z = false;
         }
-        VideoFrame videoFrame2 = new VideoFrame(s2a.a(textureBufferImpl, z, 0), getFrameOrientation(), videoFrame.getTimestampNs());
+        VideoFrame videoFrame2 = new VideoFrame(a8a.a(textureBufferImpl, z, 0), getFrameOrientation(), videoFrame.getTimestampNs());
         this.events.onFrameCaptured(this, videoFrame2);
         videoFrame2.release();
     }

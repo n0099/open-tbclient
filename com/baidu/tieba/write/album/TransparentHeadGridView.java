@@ -9,7 +9,7 @@ import android.view.animation.Interpolator;
 import android.widget.AbsListView;
 import android.widget.GridView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -328,7 +328,7 @@ public class TransparentHeadGridView extends GridView {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.l = context;
             setOnScrollListener(this.p);
-            this.h = (int) (yi.j(context) * 0.22f);
+            this.h = (int) (zi.j(context) * 0.22f);
         }
     }
 

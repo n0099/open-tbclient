@@ -6,12 +6,12 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.lx4;
-import com.baidu.tieba.ox4;
-import com.baidu.tieba.rx4;
-import com.baidu.tieba.vx4;
+import com.baidu.tieba.cy4;
+import com.baidu.tieba.gy4;
+import com.baidu.tieba.hy4;
+import com.baidu.tieba.iy4;
 import com.baidu.tieba.wx4;
-import com.baidu.tieba.xx4;
+import com.baidu.tieba.zx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,20 +23,20 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public abstract class BridgeHandler implements rx4 {
+public abstract class BridgeHandler implements cy4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final vx4 bridge;
+    public final gy4 bridge;
     public final HashMap<String, Method> methods;
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.baidu.tbadk.core.hybrid.BridgeHandler */
     /* JADX WARN: Multi-variable type inference failed */
-    public BridgeHandler(vx4 vx4Var) {
+    public BridgeHandler(gy4 gy4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vx4Var};
+            Object[] objArr = {gy4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,7 +46,7 @@ public abstract class BridgeHandler implements rx4 {
                 return;
             }
         }
-        this.bridge = vx4Var;
+        this.bridge = gy4Var;
         this.methods = new HashMap<>();
         loadMethods(getClass());
         if (!this.methods.isEmpty()) {
@@ -61,13 +61,13 @@ public abstract class BridgeHandler implements rx4 {
         if (interceptable == null || interceptable.invokeL(65537, this, cls) == null) {
             for (Method method : cls.getDeclaredMethods()) {
                 String str = null;
-                xx4 xx4Var = (xx4) method.getAnnotation(xx4.class);
-                if (xx4Var != null) {
-                    String value = xx4Var.value();
+                iy4 iy4Var = (iy4) method.getAnnotation(iy4.class);
+                if (iy4Var != null) {
+                    String value = iy4Var.value();
                     if (!TextUtils.isEmpty(value)) {
                         str = value;
                     }
-                    if (xx4Var.isAsync() && !Void.TYPE.equals(method.getReturnType())) {
+                    if (iy4Var.isAsync() && !Void.TYPE.equals(method.getReturnType())) {
                         throw new IllegalArgumentException("Method with async flag should return void.");
                     }
                     if (TextUtils.isEmpty(str)) {
@@ -89,13 +89,13 @@ public abstract class BridgeHandler implements rx4 {
         if (interceptable == null || interceptable.invokeLLLL(65538, this, str, jSONObject, str2, str3) == null) {
             String optString = jSONObject.optString(WBConstants.SHARE_CALLBACK_ID);
             if (TextUtils.isEmpty(optString)) {
-                ox4.a("method " + str + " not found!");
+                zx4.a("method " + str + " not found!");
                 return;
             }
             HashMap hashMap = new HashMap(4);
             hashMap.put("errNo", str2);
             hashMap.put(StatConstants.KEY_EXT_ERR_MSG, str3);
-            this.bridge.c(wx4.k(optString, hashMap));
+            this.bridge.c(hy4.k(optString, hashMap));
         }
     }
 
@@ -108,24 +108,24 @@ public abstract class BridgeHandler implements rx4 {
         return (Context) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.rx4
+    @Override // com.baidu.tieba.cy4
     public void handle(String str, JSONObject jSONObject, JSONObject jSONObject2) {
         Object invoke;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, jSONObject2) == null) {
             Method method = this.methods.get(str);
             if (method != null) {
-                xx4 xx4Var = (xx4) method.getAnnotation(xx4.class);
+                iy4 iy4Var = (iy4) method.getAnnotation(iy4.class);
                 String optString = jSONObject2.optString(WBConstants.SHARE_CALLBACK_ID);
                 try {
                     Class<?>[] parameterTypes = method.getParameterTypes();
-                    if (!xx4Var.isAsync()) {
+                    if (!iy4Var.isAsync()) {
                         if (parameterTypes.length == 2) {
                             invoke = method.invoke(this, optString, jSONObject);
                         } else if (parameterTypes.length == 1) {
                             invoke = method.invoke(this, jSONObject);
                         } else if (parameterTypes.length == 0) {
-                            ox4.a("native method " + getClass().getSimpleName() + ":" + xx4Var.value() + " ignored all parameters.");
+                            zx4.a("native method " + getClass().getSimpleName() + ":" + iy4Var.value() + " ignored all parameters.");
                             invoke = method.invoke(this, new Object[0]);
                         } else {
                             unknownMethod(str, jSONObject2, "500", "parameters too much!");
@@ -147,7 +147,7 @@ public abstract class BridgeHandler implements rx4 {
                         }
                         return;
                     } else if (parameterTypes.length == 0) {
-                        ox4.a("native method " + getClass().getSimpleName() + ":" + xx4Var.value() + " ignored all parameters.");
+                        zx4.a("native method " + getClass().getSimpleName() + ":" + iy4Var.value() + " ignored all parameters.");
                         method.invoke(this, new Object[0]);
                         if (!TextUtils.isEmpty(optString)) {
                             sendResponseToJS(optString, null);
@@ -159,15 +159,15 @@ public abstract class BridgeHandler implements rx4 {
                         return;
                     }
                 } catch (IllegalAccessException e) {
-                    ox4.a("native method call error:" + e.getMessage());
+                    zx4.a("native method call error:" + e.getMessage());
                     unknownMethod(str, jSONObject2, TbEnum.SystemMessage.EVENT_ID_UPLOAD_STAT, "IllegalAccessException:" + e.getMessage());
                     return;
                 } catch (InvocationTargetException e2) {
-                    ox4.a("native method call error:" + e2.getMessage());
+                    zx4.a("native method call error:" + e2.getMessage());
                     unknownMethod(str, jSONObject2, TbEnum.SystemMessage.EVENT_ID_PLUGIN_CONFIG_SYNC, "InvocationTargetException:" + e2.getMessage());
                     return;
                 } catch (Exception e3) {
-                    ox4.a("native method call error:" + e3.getMessage());
+                    zx4.a("native method call error:" + e3.getMessage());
                     unknownMethod(str, jSONObject2, TbEnum.SystemMessage.EVENT_ID_OFFLINE_DEBUG, "Native call exception:" + e3.getMessage());
                     return;
                 }
@@ -179,14 +179,14 @@ public abstract class BridgeHandler implements rx4 {
     public void sendMessage(Message<?> message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
-            lx4.a(message);
+            wx4.a(message);
         }
     }
 
     public void sendMessageAsync(Message<?> message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, message) == null) {
-            lx4.b(message);
+            wx4.b(message);
         }
     }
 
@@ -194,7 +194,7 @@ public abstract class BridgeHandler implements rx4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, jSONObject) == null) {
             if (TextUtils.isEmpty(str)) {
-                ox4.a("sendResponseToJS got empty callbackId.");
+                zx4.a("sendResponseToJS got empty callbackId.");
                 return;
             }
             HashMap hashMap = new HashMap(4);
@@ -203,7 +203,7 @@ public abstract class BridgeHandler implements rx4 {
             if (jSONObject != null) {
                 hashMap.put("data", jSONObject);
             }
-            this.bridge.c(wx4.k(str, hashMap));
+            this.bridge.c(hy4.k(str, hashMap));
         }
     }
 }

@@ -9,8 +9,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
 import com.baidu.tbadk.coreExtra.data.AccessState;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.k79;
-import com.baidu.tieba.l79;
+import com.baidu.tieba.mc9;
+import com.baidu.tieba.nc9;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -29,8 +29,8 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     public static final String j;
     public static final String k;
     public transient /* synthetic */ FieldHolder $fh;
-    public l79 a;
-    public k79 b;
+    public nc9 a;
+    public mc9 b;
     public NewWriteModel c;
     public AccessState d;
     public WriteData e;
@@ -117,7 +117,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new l79(this);
+            this.a = new nc9(this);
             Intent intent = getIntent();
             if (intent == null) {
                 return;
@@ -138,17 +138,17 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
                     }
                     newWriteModel2.f0(z);
                 }
-                k79 k79Var = new k79(this.a, this.c);
-                this.b = k79Var;
-                this.a.l(k79Var);
-                this.b.h(v1());
+                mc9 mc9Var = new mc9(this.a, this.c);
+                this.b = mc9Var;
+                this.a.l(mc9Var);
+                this.b.h(w1());
                 return;
             }
             finish();
         }
     }
 
-    public String v1() {
+    public String w1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {

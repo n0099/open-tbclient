@@ -1,7 +1,40 @@
 package com.baidu.tieba;
 
-import com.weibo.ssosdk.WeiboSsoSdk;
+import com.baidu.tieba.gz9;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.ChannelNativeAds;
 /* loaded from: classes4.dex */
-public interface hz9 {
-    void handler(WeiboSsoSdk.d dVar);
+public class hz9 implements gz9.e {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ ChannelNativeAds.GdtADStatusChangeListener a;
+
+    public hz9(iz9 iz9Var, ChannelNativeAds.GdtADStatusChangeListener gdtADStatusChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {iz9Var, gdtADStatusChangeListener};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = gdtADStatusChangeListener;
+    }
+
+    @Override // com.baidu.tieba.gz9.e
+    public void onADStatusChanged() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.onADStatusChanged();
+        }
+    }
 }

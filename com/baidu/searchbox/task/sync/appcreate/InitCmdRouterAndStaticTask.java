@@ -4,9 +4,9 @@ import com.baidu.adp.framework.cmdRouter.CmdRouter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ex4;
-import com.baidu.tieba.ry4;
-import com.baidu.tieba.uf5;
+import com.baidu.tieba.cz4;
+import com.baidu.tieba.jg5;
+import com.baidu.tieba.px4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,8 +52,8 @@ public class InitCmdRouterAndStaticTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            ex4.a();
-            uf5.b().u(System.currentTimeMillis() - currentTimeMillis);
+            px4.a();
+            jg5.b().u(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
@@ -62,7 +62,7 @@ public class InitCmdRouterAndStaticTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             boolean z = false;
-            if (ry4.l().m("static_opt_open", 0) > 0) {
+            if (cz4.l().m("static_opt_open", 0) > 0) {
                 z = true;
             }
             if (z) {

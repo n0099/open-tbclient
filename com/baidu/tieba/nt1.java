@@ -1,80 +1,354 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.net.NetRequest;
-import com.baidu.searchbox.v8engine.net.NetRequestParam;
-import com.baidu.searchbox.v8engine.net.NetRequestResult;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.jo2;
+import com.baidu.tieba.o93;
+import com.baidu.tieba.ot1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class nt1 implements NetRequest.RequestInterceptor {
+public class nt1 extends ms1 implements ot1.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public nt1() {
+    @Override // com.baidu.tieba.ms1
+    public String h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "LocationService" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ms1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "GetLocationApi" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements cj3<m93<o93.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ nt1 b;
+
+        /* loaded from: classes5.dex */
+        public class a implements jo2.a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // com.baidu.tieba.jo2.a
+            public void a(i73 i73Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, i73Var) == null) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("data", i73Var.a().toString());
+                    wp2.U().u(new ke2("locationChange", hashMap));
+                }
+            }
+
+            @Override // com.baidu.tieba.jo2.a
+            public void onFailed(int i) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                    pb3.b("startLocationUpdate", 4000, "sdk's errCode is " + i, -1, "");
+                }
+            }
+        }
+
+        public b(nt1 nt1Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nt1Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = nt1Var;
+            this.a = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.cj3
+        /* renamed from: b */
+        public void a(m93<o93.e> m93Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m93Var) == null) {
+                if (!h93.h(m93Var)) {
+                    int b = m93Var.b();
+                    pb3.b("startLocationUpdate", 5000, h93.f(b), b, h93.f(b));
+                    this.b.d(this.a, new jw1(b, h93.f(b)));
+                } else if (!di3.M()) {
+                    pb3.b("startLocationUpdate", 5004, "user no permission", 10005, h93.f(10005));
+                    this.b.d(this.a, new jw1(10005, h93.f(10005)));
+                } else {
+                    this.b.d(this.a, new jw1(0));
+                    qn2.I().f(new a(this));
+                }
             }
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF, IF] complete} */
-    @Override // com.baidu.searchbox.v8engine.net.NetRequest.RequestInterceptor
-    public boolean shouldInterceptRequest(NetRequestResult netRequestResult, NetRequestParam netRequestParam) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, netRequestResult, netRequestParam)) == null) {
-            if (netRequestParam == null) {
+    /* loaded from: classes5.dex */
+    public class a implements cj3<m93<o93.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c a;
+        public final /* synthetic */ nt1 b;
+
+        public a(nt1 nt1Var, c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nt1Var, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = nt1Var;
+            this.a = cVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.cj3
+        /* renamed from: b */
+        public void a(m93<o93.e> m93Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m93Var) == null) {
+                this.b.z(m93Var, this.a, false);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public boolean b;
+        public String c;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public static c b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                c cVar = new c();
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    String optString = jSONObject.optString("type");
+                    cVar.a = optString;
+                    if (TextUtils.isEmpty(optString)) {
+                        cVar.a = "wgs84";
+                    }
+                    cVar.b = jSONObject.optBoolean("altitude");
+                    String optString2 = jSONObject.optString("cb");
+                    cVar.c = optString2;
+                    if (TextUtils.isEmpty(optString2)) {
+                        return null;
+                    }
+                    return cVar;
+                } catch (JSONException e) {
+                    j12.d("GetLocationApi", "# parseFromJSON error", e);
+                    return null;
+                }
+            }
+            return (c) invokeL.objValue;
+        }
+
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if ((TextUtils.equals(this.a, "wgs84") || TextUtils.equals(this.a, "gcj02") || TextUtils.equals(this.a, "bd09ll")) && !TextUtils.isEmpty(this.c)) {
+                    return true;
+                }
                 return false;
             }
-            String url = netRequestParam.getUrl();
-            if (TextUtils.isEmpty(url)) {
-                if (netRequestResult != null) {
-                    netRequestResult.setStatusCodeAndMsg(1001, "illegal url");
-                }
-                return true;
-            }
-            String str = null;
-            JsObject jsObject = netRequestParam.getJsObject();
-            if (jsObject != null) {
-                try {
-                    int propertyIndex = jsObject.getPropertyIndex("__plugin__");
-                    if (propertyIndex > 0) {
-                        str = jsObject.toString(propertyIndex);
-                    }
-                    int c = v43.c("request", url, str);
-                    if (c != 0) {
-                        ew1 Y = st1.Y(c);
-                        netRequestResult.setStatusCodeAndMsg(Y.b, Y.c);
-                        return true;
-                    }
-                } finally {
-                    if (ot1.e() && jsObject != null) {
-                        jsObject.release();
-                    }
-                }
-            }
-            if (ot1.e() && jsObject != null) {
-                jsObject.release();
-            }
-            if (!TextUtils.isEmpty(str)) {
-                netRequestParam.addHeader("X-SWAN-HOSTSIGN", b03.b(c03.h(str)));
-            }
-            netRequestParam.addHeader("Referer", tt1.d());
-            netRequestParam.addHeader("User-Agent", wa4.b().getUserAgent());
-            return false;
+            return invokeV.booleanValue;
         }
-        return invokeLL.booleanValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nt1(@NonNull ks1 ks1Var) {
+        super(ks1Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ks1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((ks1) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public jw1 A(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            q("#startLocationUpdate", false);
+            j43 b0 = j43.b0();
+            if (b0 == null) {
+                pb3.b("startLocationUpdate", 2001, "SwanApp is null", 1001, "SwanApp is null");
+                return new jw1(1001, "SwanApp is null");
+            }
+            Pair<jw1, JSONObject> s = s(str);
+            jw1 jw1Var = (jw1) s.first;
+            if (!jw1Var.isSuccess()) {
+                return jw1Var;
+            }
+            String optString = ((JSONObject) s.second).optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                pb3.b("startLocationUpdate", 1001, "empty cb", 201, "empty cb");
+                j12.c("GetLocationApi", "empty cb");
+                return new jw1(201, "empty cb");
+            }
+            b0.e0().g(getContext(), "mapp_location", new b(this, optString));
+            return jw1.f();
+        }
+        return (jw1) invokeL.objValue;
+    }
+
+    public jw1 y(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            q("#getLocation", false);
+            j43 b0 = j43.b0();
+            if (b0 == null) {
+                pb3.b("getLocation", 2001, "SwanApp is null", 1001, "SwanApp is null");
+                return new jw1(1001, "SwanApp is null");
+            }
+            Pair<jw1, JSONObject> s = s(str);
+            jw1 jw1Var = (jw1) s.first;
+            if (!jw1Var.isSuccess()) {
+                return jw1Var;
+            }
+            c b2 = c.b(((JSONObject) s.second).toString());
+            if (b2 != null && b2.a()) {
+                if (TextUtils.isEmpty(b2.c)) {
+                    pb3.b("getLocation", 1001, "empty cb", 201, "empty cb");
+                    j12.c("GetLocationApi", "empty cb");
+                    return new jw1(201, "empty cb");
+                }
+                b0.e0().g(getContext(), "mapp_location", new a(this, b2));
+                return jw1.f();
+            }
+            pb3.b("getLocation", 1001, "params is invalid", 201, "params is invalid");
+            p("params is invalid", null, true);
+            return new jw1(201, "params is invalid");
+        }
+        return (jw1) invokeL.objValue;
+    }
+
+    public jw1 B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            qn2.I().e();
+            return jw1.f();
+        }
+        return (jw1) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ot1.c
+    public void b(c cVar, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, cVar, i) == null) {
+            j12.c("GetLocationApi", "request location error code : " + i);
+            d(cVar.c, new jw1(1001, String.valueOf(i)));
+        }
+    }
+
+    @Override // com.baidu.tieba.ot1.c
+    public void f(c cVar, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, cVar, str) == null) {
+            d(cVar.c, new jw1(10005, "system deny"));
+        }
+    }
+
+    @Override // com.baidu.tieba.ot1.c
+    public void g(c cVar, i73 i73Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, cVar, i73Var) == null) {
+            d(cVar.c, new jw1(0, "success", i73Var.a()));
+        }
+    }
+
+    public final void z(m93<o93.e> m93Var, c cVar, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, m93Var, cVar, z) == null) {
+            j12.i("GetLocationApi", "authorized result is " + m93Var);
+            if (h93.h(m93Var)) {
+                ot1.d().e(cVar, this, z);
+                return;
+            }
+            int b2 = m93Var.b();
+            pb3.b("getLocation", 5000, h93.f(b2), b2, h93.f(b2));
+            d(cVar.c, new jw1(b2, h93.f(b2)));
+        }
     }
 }

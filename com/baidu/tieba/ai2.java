@@ -1,10 +1,13 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.ActivityChooserModel;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bi2;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.storage.swankv.SwanKV;
+import com.baidu.swan.apps.database.SwanAppDbControl;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,105 +15,297 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import java.util.HashMap;
+import java.io.File;
 /* loaded from: classes3.dex */
-public final class ai2<W extends bi2> {
+public class ai2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, yh2<W>> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947616063, "Lcom/baidu/tieba/ai2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947616063, "Lcom/baidu/tieba/ai2;");
-                return;
-            }
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    public boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return true;
         }
-        b = ok1.a;
+        return invokeL.booleanValue;
+    }
+
+    /* loaded from: classes3.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ai2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-946723519, "Lcom/baidu/tieba/ai2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-946723519, "Lcom/baidu/tieba/ai2$b;");
+                    return;
+                }
+            }
+            a = new ai2(null);
+        }
     }
 
     public ai2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashMap<>();
-    }
-
-    public void a(yh2<W> yh2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, yh2Var) == null) {
-            if (b) {
-                Log.v("CommandDispatcher", yh2Var.b() + " command added to supported command list");
-            }
-            this.a.put(yh2Var.b(), yh2Var);
-        }
-    }
-
-    public void b(@Nullable ZeusPlugin.Command command, @Nullable W w) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, command, w) == null) {
-            if (command != null && !TextUtils.isEmpty(command.what)) {
-                if (w == null) {
-                    if (b) {
-                        Log.e("CommandDispatcher", "inlineWidget is null, haven't dispatched");
-                        return;
-                    }
-                    return;
-                }
-                yh2<W> yh2Var = this.a.get(command.what);
-                if (yh2Var == null) {
-                    if (b) {
-                        Log.e("CommandDispatcher", command.what + " command is not supported, haven't dispatched");
-                        return;
-                    }
-                    return;
-                }
-                if (b) {
-                    Log.d("CommandDispatcher", command.what + " command dispatched");
-                }
-                yh2Var.a(command, w);
-            } else if (b) {
-                Log.e("CommandDispatcher", "command or command.what is null, haven't dispatched");
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public void c(@Nullable ZeusPlugin.Command command) {
+    public static ai2 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
-            if (command != null && !TextUtils.isEmpty(command.what)) {
-                yh2<W> yh2Var = this.a.get(command.what);
-                if (yh2Var == null) {
-                    if (b) {
-                        Log.e("CommandDispatcher", command.what + " command is not supported, haven't mocked");
-                        return;
-                    }
-                    return;
-                }
-                if (b) {
-                    Log.d("CommandDispatcher", command.what + " cached command return value processed");
-                }
-                yh2Var.c(command);
-            } else if (b) {
-                Log.e("CommandDispatcher", "command or command.what is null, haven't mocked");
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
+        return (ai2) invokeV.objValue;
+    }
+
+    public /* synthetic */ ai2(a aVar) {
+        this();
+    }
+
+    public final boolean a(File file, File file2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) {
+            if (file != null && file.exists() && file2 != null) {
+                if (!file2.exists()) {
+                    nk4.l(file2);
+                }
+                String[] list = file.list();
+                if (list != null && list.length != 0) {
+                    for (String str : list) {
+                        if (!TextUtils.isEmpty(str)) {
+                            File file3 = new File(file, str);
+                            if (file3.exists()) {
+                                boolean isFile = file3.isFile();
+                                File file4 = new File(file2, str);
+                                if (file4.exists()) {
+                                    nk4.j(file4);
+                                }
+                                if (isFile) {
+                                    nk4.h(file4);
+                                    nk4.f(file3, file4);
+                                } else if (file3.isDirectory()) {
+                                    nk4.e(file3, file4);
+                                }
+                            }
+                        }
+                    }
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final boolean b(@NonNull File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file)) == null) {
+            if (file.exists() && file.isDirectory()) {
+                File file2 = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/");
+                File file3 = new File(ad3.e());
+                File[] listFiles = file.listFiles();
+                if (listFiles != null && listFiles.length != 0) {
+                    nk4.l(file2);
+                    nk4.l(file3);
+                    File file4 = null;
+                    for (File file5 : listFiles) {
+                        String name = file5.getName();
+                        if (!TextUtils.isEmpty(name)) {
+                            if (name.endsWith(ActivityChooserModel.HISTORY_FILE_EXTENSION)) {
+                                file4 = new File(file2, name);
+                            } else if (name.endsWith(SwanKV.PREFS_SUFFIX)) {
+                                file4 = new File(file3, name);
+                            }
+                            if (file4 != null) {
+                                if (file4.exists()) {
+                                    nk4.L(file4);
+                                }
+                                if (file5.isFile()) {
+                                    nk4.h(file4);
+                                    nk4.f(file5, file4);
+                                } else {
+                                    nk4.e(file5, file4);
+                                }
+                            }
+                        }
+                    }
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean e(String str, File file) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, file)) == null) {
+            if (file != null && file.exists()) {
+                return a(new File(file, bi2.h), bi2.a);
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public boolean g(String str, File file) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, file)) == null) {
+            if (file != null && file.exists()) {
+                return a(new File(file, bi2.i), AppRuntime.getAppContext().getFilesDir());
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public boolean h(String str, File file) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, file)) == null) {
+            if (!TextUtils.isEmpty(str) && file != null && file.exists()) {
+                return b(new File(file, bi2.j));
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public boolean j(String str, File file) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, file)) == null) {
+            if (file != null && file.exists()) {
+                return a(new File(file, bi2.g), bi2.a);
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public boolean f(String str, File file) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, file)) == null) {
+            if (file != null && file.exists()) {
+                boolean a2 = a(new File(file, bi2.k), new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "databases"));
+                SwanAppDbControl.f(AppRuntime.getAppContext()).p();
+                zc4.a().e();
+                qn2.g0().E();
+                return a2;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public boolean i(String str) {
+        InterceptResult invokeL;
+        boolean z;
+        String str2;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            yh2.n().p("installSwanApp start, appKey = " + str);
+            File a2 = bi2.a();
+            if (a2 != null && a2.exists()) {
+                File file = new File(a2, bi2.m);
+                if (!file.exists()) {
+                    yh2.n().p("installSwanApp clone_zipFiles file not exists");
+                    return false;
+                }
+                File a3 = zh2.a(nk4.G(file), a2);
+                if (a3 != null && a3.exists()) {
+                    File file2 = new File(bi2.d);
+                    if (file2.exists()) {
+                        nk4.L(file2);
+                    }
+                    if (!nk4.l(file2)) {
+                        yh2.n().p("installSwanApp root cache dir create fail");
+                        return false;
+                    }
+                    if (nk4.W(a3.getAbsolutePath(), bi2.d) != null) {
+                        z = false;
+                    } else {
+                        z = true;
+                    }
+                    if (z) {
+                        nk4.j(file);
+                        nk4.j(a3);
+                    }
+                    yh2.n().p("unzip file status = " + z);
+                    File file3 = new File(bi2.d);
+                    String[] list = file3.list();
+                    if (list != null && list.length != 0) {
+                        int length = list.length;
+                        int i = 0;
+                        while (true) {
+                            str2 = null;
+                            if (i < length) {
+                                String str4 = list[i];
+                                if (!TextUtils.isEmpty(str4) && str4.startsWith(bi2.e)) {
+                                    str2 = str4.substring(bi2.e.length());
+                                    str3 = str4;
+                                    break;
+                                }
+                                i++;
+                            } else {
+                                str3 = null;
+                                break;
+                            }
+                        }
+                        if (TextUtils.equals(str, str2) && !TextUtils.isEmpty(str3)) {
+                            File file4 = new File(bi2.d, str3);
+                            boolean j = j(str, file4);
+                            boolean e = e(str, file4);
+                            boolean h = h(str, file4);
+                            boolean f = f(str, file4);
+                            boolean d = d(str);
+                            boolean g = g(str, file4);
+                            yh2.n().p("installSwanPkg = " + j + " ; installCore = " + e + " ; installSp = " + h + " ; installDb = " + f + " ; installAbTest = " + d + " ; installDynamicLib = " + g);
+                            return nk4.j(file3);
+                        }
+                        yh2.n().p("installSwanApp install appKey not match zip file appKey");
+                        return false;
+                    }
+                    yh2.n().p("installSwanApp unzip file length invalid");
+                    return false;
+                }
+                yh2.n().p("installSwanApp cloneZip.zip file not exists");
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

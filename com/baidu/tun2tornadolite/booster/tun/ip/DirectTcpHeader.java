@@ -11,6 +11,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.tun2tornadolite.booster.tun.ip.DirectHeader;
 import kotlin.Metadata;
+import kotlin.UByte;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.MutablePropertyReference1Impl;
@@ -99,7 +103,88 @@ public final class DirectTcpHeader extends DirectHeader {
         this.sourcePort$delegate = int16$tun2tornadolite_release(0);
         this.destinationPort$delegate = int16$tun2tornadolite_release(2);
         this.checksum$delegate = int16$tun2tornadolite_release(16);
-        this.headerLength$delegate = field$tun2tornadolite_release(12, new DirectTcpHeader$headerLength$2(this), new DirectTcpHeader$headerLength$3(this));
+        this.headerLength$delegate = field$tun2tornadolite_release(12, new Function1<Integer, Integer>(this) { // from class: com.baidu.tun2tornadolite.booster.tun.ip.DirectTcpHeader$headerLength$2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ DirectTcpHeader this$0;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(1);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr3 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        super(((Integer) newInitContext2.callArgs[0]).intValue());
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            public final Integer invoke(int i3) {
+                InterceptResult invokeI;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i3)) == null) {
+                    return Integer.valueOf(((UByte.m790constructorimpl(this.this$0.getBuffer()[i3]) & 255) >>> 4) * 4);
+                }
+                return (Integer) invokeI.objValue;
+            }
+
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function1
+            public /* bridge */ /* synthetic */ Integer invoke(Integer num) {
+                return invoke(num.intValue());
+            }
+        }, new Function2<Integer, Integer, Unit>(this) { // from class: com.baidu.tun2tornadolite.booster.tun.ip.DirectTcpHeader$headerLength$3
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ DirectTcpHeader this$0;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(2);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr3 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        super(((Integer) newInitContext2.callArgs[0]).intValue());
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function2
+            public /* bridge */ /* synthetic */ Unit invoke(Integer num, Integer num2) {
+                invoke(num.intValue(), num2.intValue());
+                return Unit.INSTANCE;
+            }
+
+            public final void invoke(int i3, int i4) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, i4) == null) {
+                    this.this$0.getBuffer()[i3] = (byte) ((((i4 * 4) >>> 4) << 4) | (((UByte.m790constructorimpl(this.this$0.getBuffer()[i3]) & 255) << 4) >>> 4));
+                }
+            }
+        });
     }
 
     public final int getChecksum() {

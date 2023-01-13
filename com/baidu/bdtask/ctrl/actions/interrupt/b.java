@@ -1,7 +1,7 @@
 package com.baidu.bdtask.ctrl.actions.interrupt;
 
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.tieba.gr;
+import com.baidu.tieba.ir;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public final class b {
         }
     }
 
-    public final Function2<Function1<? super gr, Unit>, Function0<com.baidu.bdtask.ctrl.b>, Function1<Function1<? super gr, Unit>, Function1<gr, Unit>>> a() {
+    public final Function2<Function1<? super ir, Unit>, Function0<com.baidu.bdtask.ctrl.b>, Function1<Function1<? super ir, Unit>, Function1<ir, Unit>>> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

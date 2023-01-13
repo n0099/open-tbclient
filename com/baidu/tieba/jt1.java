@@ -1,47 +1,42 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import android.util.Pair;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.eo2;
-import com.baidu.tieba.it1;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class jt1 {
+public class jt1 extends ct1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile jt1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
 
-    /* loaded from: classes5.dex */
-    public interface c {
-        void b(it1.c cVar, int i);
-
-        void f(it1.c cVar, String str);
-
-        void g(it1.c cVar, d73 d73Var);
+    @Override // com.baidu.tieba.ms1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "TabBarApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes5.dex */
-    public class a implements hz2 {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ it1.c a;
-        public final /* synthetic */ jt1 b;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ boolean c;
+        public final /* synthetic */ jt1 d;
 
-        public a(jt1 jt1Var, it1.c cVar) {
+        public a(jt1 jt1Var, String str, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jt1Var, cVar};
+                Object[] objArr = {jt1Var, str, Boolean.valueOf(z), Boolean.valueOf(z2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -51,146 +46,193 @@ public class jt1 {
                     return;
                 }
             }
-            this.b = jt1Var;
-            this.a = cVar;
+            this.d = jt1Var;
+            this.a = str;
+            this.b = z;
+            this.c = z2;
         }
 
-        @Override // com.baidu.tieba.hz2
-        public void a(String str) {
+        @Override // java.lang.Runnable
+        public void run() {
+            boolean j;
+            String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.b.c(this.a);
-            }
-        }
-
-        @Override // com.baidu.tieba.hz2
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                e12.c("GetLocationHelper", str);
-                kb3.b("getLocation", 5002, "user no permission", 10005, str);
-                this.b.a.f(this.a, str);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements eo2.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ it1.c a;
-        public final /* synthetic */ jt1 b;
-
-        public b(jt1 jt1Var, it1.c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jt1Var, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                vf3 z = jt1.z();
+                if (z == null) {
+                    j12.c("TabBarApi", "tabBarViewController is null");
+                    this.d.d(this.a, new jw1(1001));
                     return;
                 }
-            }
-            this.b = jt1Var;
-            this.a = cVar;
-        }
-
-        @Override // com.baidu.tieba.eo2.a
-        public void a(d73 d73Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, d73Var) == null) {
-                this.b.a.g(this.a, d73Var);
-            }
-        }
-
-        @Override // com.baidu.tieba.eo2.a
-        public void onFailed(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                kb3.b("getLocation", 4000, "sdk's errCode is " + i, 1001, String.valueOf(i));
-                this.b.a.b(this.a, i);
+                if (this.b) {
+                    j = z.r(this.c);
+                } else {
+                    j = z.j(this.c);
+                }
+                if (!j) {
+                    StringBuilder sb = new StringBuilder();
+                    if (this.b) {
+                        str = "open";
+                    } else {
+                        str = "close";
+                    }
+                    sb.append(str);
+                    sb.append("bottom bar fail");
+                    j12.c("TabBarApi", sb.toString());
+                    this.d.d(this.a, new jw1(1001));
+                }
+                this.d.d(this.a, new jw1(0));
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947894722, "Lcom/baidu/tieba/jt1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947894722, "Lcom/baidu/tieba/jt1;");
-                return;
-            }
-        }
-        boolean z = ok1.a;
-    }
-
-    public jt1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jt1(@NonNull ks1 ks1Var) {
+        super(ks1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ks1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ks1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static jt1 d() {
+    public static boolean B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (b == null) {
-                synchronized (jt1.class) {
-                    if (b == null) {
-                        b = new jt1();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            s32 V = wp2.U().V();
+            if (V != null && V.o() != null && V.o().e2()) {
+                return false;
             }
-            return b;
+            return true;
         }
-        return (jt1) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final void c(it1.c cVar) {
+    public static vf3 z() {
+        InterceptResult invokeV;
+        r32 l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            String str = "gcj02";
-            if (!TextUtils.equals(cVar.a, "gcj02")) {
-                if (TextUtils.equals(cVar.a, "bd09ll")) {
-                    str = "bd09ll";
-                } else {
-                    str = "wgs84";
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            s32 V = wp2.U().V();
+            if (V != null && (l = V.l()) != null) {
+                return l.v3();
             }
-            ln2.I().b(str, false, cVar.b, new b(this, cVar));
+            return null;
         }
+        return (vf3) invokeV.objValue;
     }
 
-    public void e(@NonNull it1.c cVar, @NonNull c cVar2, boolean z) {
+    public final jw1 A(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, cVar2, z) == null) {
-            this.a = cVar2;
-            if (yh3.M()) {
-                c(cVar);
-            } else if (z) {
-                kb3.b("getLocation", 1002, "GetLocation does not supported when app is invisible", 10005, "GetLocation does not supported when app is invisible");
-                this.a.f(cVar, "GetLocation does not supported when app is invisible");
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
+            if (B()) {
+                j12.c("TabBarApi", "fail not TabBar page");
+                return new jw1(1001, "fail not TabBar page");
+            }
+            Pair<jw1, JSONObject> s = s(str);
+            jw1 jw1Var = (jw1) s.first;
+            if (!jw1Var.isSuccess()) {
+                return jw1Var;
+            }
+            JSONObject jSONObject = (JSONObject) s.second;
+            String optString = jSONObject.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                j12.c("TabBarApi", "callback is null");
+                return new jw1(1001, "callback is null");
+            }
+            di3.e0(new a(this, optString, z, jSONObject.optBoolean("animation")));
+            return jw1.f();
+        }
+        return (jw1) invokeLZ.objValue;
+    }
+
+    public jw1 C(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#openTabBar", false);
+            return A(str, true);
+        }
+        return (jw1) invokeL.objValue;
+    }
+
+    public jw1 x(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            q("#closeTabBar", false);
+            return A(str, false);
+        }
+        return (jw1) invokeL.objValue;
+    }
+
+    public jw1 D(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#setTabBarItem", false);
+            Pair<jw1, JSONObject> s = s(str);
+            jw1 jw1Var = (jw1) s.first;
+            if (!jw1Var.isSuccess()) {
+                return jw1Var;
+            }
+            JSONObject jSONObject = (JSONObject) s.second;
+            if (B()) {
+                j12.c("TabBarApi", "fail not TabBar page");
+                return new jw1(1001, "fail not TabBar page");
+            }
+            vf3 z = z();
+            if (z == null) {
+                j12.c("TabBarApi", "tabBarViewController is null");
+                return new jw1(1001, "tabBarViewController is null");
+            } else if (!z.x(jSONObject.optInt("index"), jSONObject.optString("text"), jSONObject.optString("iconPath"), jSONObject.optString("selectedIconPath"))) {
+                j12.c("TabBarApi", "set tab bar item fail");
+                return new jw1(1001, "set tab bar item fail");
             } else {
-                gz2.g(d43.K().w(), new String[]{com.kuaishou.weapon.p0.h.g, com.kuaishou.weapon.p0.h.h}, 0, new a(this, cVar));
+                return jw1.f();
             }
         }
+        return (jw1) invokeL.objValue;
+    }
+
+    public jw1 y(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            q("#closeTabBarRedDot", false);
+            Pair<jw1, JSONObject> s = s(str);
+            jw1 jw1Var = (jw1) s.first;
+            if (!jw1Var.isSuccess()) {
+                return jw1Var;
+            }
+            int optInt = ((JSONObject) s.second).optInt("index");
+            if (B()) {
+                j12.c("TabBarApi", "fail not TabBar page");
+                return new jw1(1001, "fail not TabBar page");
+            }
+            vf3 z = z();
+            if (z == null) {
+                j12.c("TabBarApi", "tabBarViewController is null");
+                return new jw1(1001, "tabBarViewController is null");
+            } else if (!z.k(optInt)) {
+                j12.c("TabBarApi", "close red dot fail");
+                return new jw1(1001, "close red dot fail");
+            } else {
+                return jw1.f();
+            }
+        }
+        return (jw1) invokeL.objValue;
     }
 }

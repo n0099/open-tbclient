@@ -5,8 +5,8 @@ import com.baidu.common.config.AppIdentityManager;
 import com.baidu.searchbox.cloudcontrol.CloudControlManager;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.nf1;
-import com.baidu.tieba.vf9;
+import com.baidu.tieba.dl9;
+import com.baidu.tieba.sf1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -62,8 +62,8 @@ public class InitUBCTask extends LaunchTask {
             return;
         }
         AppIdentityManager.getInstance().setAppName("tieba");
-        if (nf1.g()) {
-            vf9.a();
+        if (sf1.g()) {
+            dl9.a();
             CloudControlManager.getInstance().requestCloudControl("0");
         }
     }

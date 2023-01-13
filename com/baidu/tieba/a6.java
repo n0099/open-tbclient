@@ -1,65 +1,94 @@
 package com.baidu.tieba;
 
 import com.badlogic.gdx.utils.BufferUtils;
+import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.FloatBuffer;
-import java.nio.IntBuffer;
 /* loaded from: classes3.dex */
-public class a6 implements b6 {
+public class a6 implements c6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final IntBuffer g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final u3 a;
-    public final FloatBuffer b;
-    public final ByteBuffer c;
-    public final boolean d;
+    public v3 a;
+    public FloatBuffer b;
+    public ByteBuffer c;
+    public boolean d;
     public int e;
-    public int f;
+    public boolean f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448298072, "Lcom/baidu/tieba/a6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448298072, "Lcom/baidu/tieba/a6;");
+    public a6(boolean z, int i, v3 v3Var) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), v3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        g = BufferUtils.d(1);
+        this.f = false;
+        this.e = g1.f.n();
+        ByteBuffer e = BufferUtils.e(v3Var.b * i);
+        e.limit(0);
+        a(e, true, v3Var);
+        if (z) {
+            i2 = 35044;
+        } else {
+            i2 = 35048;
+        }
+        f(i2);
     }
 
-    public final void a() {
+    public void a(Buffer buffer, boolean z, v3 v3Var) {
+        ByteBuffer byteBuffer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            g.clear();
-            f1.g.v(1, g);
-            this.f = g.get();
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{buffer, Boolean.valueOf(z), v3Var}) == null) {
+            if (!this.f) {
+                if (this.d && (byteBuffer = this.c) != null) {
+                    BufferUtils.b(byteBuffer);
+                }
+                this.a = v3Var;
+                if (buffer instanceof ByteBuffer) {
+                    ByteBuffer byteBuffer2 = (ByteBuffer) buffer;
+                    this.c = byteBuffer2;
+                    this.d = z;
+                    int limit = byteBuffer2.limit();
+                    ByteBuffer byteBuffer3 = this.c;
+                    byteBuffer3.limit(byteBuffer3.capacity());
+                    this.b = this.c.asFloatBuffer();
+                    this.c.limit(limit);
+                    this.b.limit(limit / 4);
+                    return;
+                }
+                throw new GdxRuntimeException("Only ByteBuffer is currently supported");
+            }
+            throw new GdxRuntimeException("Cannot change attributes while VBO is bound");
         }
     }
 
-    @Override // com.baidu.tieba.b6
-    public u3 b() {
+    @Override // com.baidu.tieba.c6
+    public v3 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return (u3) invokeV.objValue;
+        return (v3) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.b6
+    @Override // com.baidu.tieba.c6
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -69,33 +98,21 @@ public class a6 implements b6 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.b6, com.baidu.tieba.i7
+    @Override // com.baidu.tieba.c6, com.baidu.tieba.j7
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            o3 o3Var = f1.g;
+            o3 o3Var = g1.f;
             o3Var.E(34962, 0);
             o3Var.b(this.e);
             this.e = 0;
             if (this.d) {
                 BufferUtils.b(this.c);
             }
-            f();
         }
     }
 
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f != -1) {
-            g.clear();
-            g.put(this.f);
-            g.flip();
-            f1.g.A(1, g);
-            this.f = -1;
-        }
-    }
-
-    @Override // com.baidu.tieba.b6
+    @Override // com.baidu.tieba.c6
     public FloatBuffer getBuffer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -105,41 +122,19 @@ public class a6 implements b6 {
         return (FloatBuffer) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.b6
+    @Override // com.baidu.tieba.c6
     public void invalidate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.e = f1.g.n();
-            a();
+            this.e = g1.f.n();
         }
     }
 
-    public a6(boolean z, int i, u3 u3Var) {
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), u3Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if ((interceptable != null && interceptable.invokeI(1048580, this, i) != null) || !this.f) {
+            return;
         }
-        this.f = -1;
-        new m7();
-        this.a = u3Var;
-        ByteBuffer e = BufferUtils.e(u3Var.b * i);
-        this.c = e;
-        FloatBuffer asFloatBuffer = e.asFloatBuffer();
-        this.b = asFloatBuffer;
-        this.d = true;
-        asFloatBuffer.flip();
-        this.c.flip();
-        this.e = f1.f.n();
-        a();
+        throw new GdxRuntimeException("Cannot change usage while VBO is bound");
     }
 }

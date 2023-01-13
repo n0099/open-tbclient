@@ -9,10 +9,10 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gc7;
+import com.baidu.tieba.eg7;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.pd7;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.mh7;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +35,7 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
 
     /* loaded from: classes4.dex */
     public interface a {
-        void a(View view2, gc7 gc7Var, int i);
+        void a(View view2, eg7 eg7Var, int i);
     }
 
     static {
@@ -51,8 +51,8 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
                 return;
             }
         }
-        e = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
-        f = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X007);
+        e = zi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
+        f = zi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X007);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -76,11 +76,11 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
         }
     }
 
-    public boolean b(gc7 gc7Var) {
+    public boolean b(eg7 eg7Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gc7Var)) == null) {
-            int b = gc7Var.b();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eg7Var)) == null) {
+            int b = eg7Var.b();
             int i = this.d;
             if (b == i) {
                 return false;
@@ -89,7 +89,7 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
             if (gameContactsItemView != null) {
                 gameContactsItemView.a();
             }
-            int b2 = gc7Var.b();
+            int b2 = eg7Var.b();
             this.d = b2;
             GameContactsItemView gameContactsItemView2 = this.a.get(Integer.valueOf(b2));
             if (gameContactsItemView2 != null) {
@@ -147,18 +147,18 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
         d();
     }
 
-    public void a(@NonNull List<gc7> list) {
-        ImMessageCenterPojo i;
+    public void a(@NonNull List<eg7> list) {
+        ImMessageCenterPojo h;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                gc7 gc7Var = list.get(i2);
-                GameContactsItemView gameContactsItemView = this.a.get(Integer.valueOf(gc7Var.b()));
+            for (int i = 0; i < list.size(); i++) {
+                eg7 eg7Var = list.get(i);
+                GameContactsItemView gameContactsItemView = this.a.get(Integer.valueOf(eg7Var.b()));
                 if (gameContactsItemView != null) {
-                    gameContactsItemView.setGameMatchUser(gc7Var);
+                    gameContactsItemView.setGameMatchUser(eg7Var);
                     gameContactsItemView.setVisibility(0);
-                    if (gc7Var.b() != this.d && (i = pd7.o().i(gc7Var.d(), 2)) != null && i.getUnread_count() > 0) {
-                        gameContactsItemView.g(i.getUnread_count());
+                    if (eg7Var.b() != this.d && (h = mh7.n().h(eg7Var.d(), 2)) != null && h.getUnread_count() > 0) {
+                        gameContactsItemView.g(h.getUnread_count());
                     }
                 }
             }
@@ -241,7 +241,7 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
             this.d = gameContactsItemView.getGameMatchUser().b();
             a aVar = this.b;
             if (aVar != null) {
-                gc7 gameMatchUser = gameContactsItemView.getGameMatchUser();
+                eg7 gameMatchUser = gameContactsItemView.getGameMatchUser();
                 if (z) {
                     i = 2;
                 } else {

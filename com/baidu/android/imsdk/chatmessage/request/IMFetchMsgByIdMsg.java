@@ -28,7 +28,7 @@ import com.baidu.android.imsdk.ubc.ScreenUbc;
 import com.baidu.android.imsdk.ubc.UBCConstants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.p70;
+import com.baidu.tieba.u70;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -164,7 +164,7 @@ public class IMFetchMsgByIdMsg extends Message {
                                     jSONObject2.put("event", "CIMFetchEnd");
                                     jSONObject2.put("timestamp_ms", System.currentTimeMillis());
                                     jSONArray2.put(jSONObject2);
-                                    jSONObject.put(Constants.EXTRA_EVENT_LIST, jSONArray2);
+                                    jSONObject.put("event_list", jSONArray2);
                                     eventList = jSONObject.toString();
                                     LogUtils.d(IMFetchMsgByIdMsg.TAG, "ParseResultTask event_list :" + eventList);
                                     String str2 = eventList;
@@ -204,7 +204,7 @@ public class IMFetchMsgByIdMsg extends Message {
                                 jSONObject22.put("event", "CIMFetchEnd");
                                 jSONObject22.put("timestamp_ms", System.currentTimeMillis());
                                 jSONArray2.put(jSONObject22);
-                                jSONObject3.put(Constants.EXTRA_EVENT_LIST, jSONArray2);
+                                jSONObject3.put("event_list", jSONArray2);
                                 eventList = jSONObject3.toString();
                                 LogUtils.d(IMFetchMsgByIdMsg.TAG, "ParseResultTask event_list :" + eventList);
                                 String str22 = eventList;
@@ -245,7 +245,7 @@ public class IMFetchMsgByIdMsg extends Message {
                     try {
                         JSONObject jSONObject32 = new JSONObject();
                         if (!TextUtils.isEmpty(eventList)) {
-                            jSONArray2 = new JSONObject(eventList).optJSONArray(Constants.EXTRA_EVENT_LIST);
+                            jSONArray2 = new JSONObject(eventList).optJSONArray("event_list");
                         }
                         if (jSONArray2 == null) {
                             jSONArray2 = new JSONArray();
@@ -254,7 +254,7 @@ public class IMFetchMsgByIdMsg extends Message {
                         jSONObject222.put("event", "CIMFetchEnd");
                         jSONObject222.put("timestamp_ms", System.currentTimeMillis());
                         jSONArray2.put(jSONObject222);
-                        jSONObject32.put(Constants.EXTRA_EVENT_LIST, jSONArray2);
+                        jSONObject32.put("event_list", jSONArray2);
                         eventList = jSONObject32.toString();
                         LogUtils.d(IMFetchMsgByIdMsg.TAG, "ParseResultTask event_list :" + eventList);
                     } catch (JSONException e5) {
@@ -412,7 +412,7 @@ public class IMFetchMsgByIdMsg extends Message {
                         LogUtils.e(str, "clientLogId :" + e7.getMessage());
                     }
                     this.this$0.mUbcData.setDebugInfo(this.this$0.mDebugInfo);
-                    p70.d().f(this.this$0.mUbcData.generateUBCData(String.valueOf(this.mErrorCode), this.mStrMsg), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                    u70.d().f(this.this$0.mUbcData.generateUBCData(String.valueOf(this.mErrorCode), this.mStrMsg), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
                 }
             }
         }
@@ -589,7 +589,7 @@ public class IMFetchMsgByIdMsg extends Message {
                 long longExtra3 = intent.getLongExtra(Constants.EXTRA_END_MSGID, -1L);
                 long longExtra4 = intent.getLongExtra(Constants.EXTRA_NOTIFY_MSGID, -1L);
                 long longExtra5 = intent.getLongExtra(Constants.EXTRA_NOTIFY_ID, -1L);
-                String stringExtra = intent.getStringExtra(Constants.EXTRA_EVENT_LIST);
+                String stringExtra = intent.getStringExtra("event_list");
                 int intExtra3 = intent.getIntExtra(Constants.EXTRA_TRIGGER_REASON, -1);
                 int intExtra4 = intent.getIntExtra(Constants.EXTRA_JUMP_MSG, -1);
                 int intExtra5 = intent.getIntExtra(Constants.EXTRA_RETRY_TIME, 0);
@@ -679,7 +679,7 @@ public class IMFetchMsgByIdMsg extends Message {
                 JSONArray jSONArray = null;
                 try {
                     if (!TextUtils.isEmpty(this.mEventList)) {
-                        jSONArray = new JSONObject(this.mEventList).optJSONArray(Constants.EXTRA_EVENT_LIST);
+                        jSONArray = new JSONObject(this.mEventList).optJSONArray("event_list");
                     }
                     if (jSONArray == null) {
                         jSONArray = new JSONArray();
@@ -688,7 +688,7 @@ public class IMFetchMsgByIdMsg extends Message {
                     jSONObject3.put("event", "CIMFetchBegin");
                     jSONObject3.put("timestamp_ms", System.currentTimeMillis());
                     jSONArray.put(jSONObject3);
-                    jSONObject.put(Constants.EXTRA_EVENT_LIST, jSONArray);
+                    jSONObject.put("event_list", jSONArray);
                     if (this.mNotifyId > 0) {
                         jSONObject.put(Constants.EXTRA_NOTIFY_ID, this.mNotifyId);
                     }

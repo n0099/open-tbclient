@@ -1,23 +1,20 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-@Singleton
-@Service
 /* loaded from: classes5.dex */
-public class nw3 implements zp1 {
+public class nw3 extends pw3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public nw3() {
+        super("echo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -25,20 +22,29 @@ public class nw3 implements zp1 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.zp1
-    @Nullable
-    public ew1 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull ih2 ih2Var) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.pw3
+    public jw1 a(@NonNull JSONObject jSONObject, @NonNull nh2 nh2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, ih2Var)) == null) {
-            return mw3.b().a(str, jSONObject, ih2Var);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, nh2Var)) == null) {
+            int optInt = jSONObject.optInt("status", 0);
+            String optString = jSONObject.optString("message");
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            if (optInt == 0) {
+                nh2Var.a(optJSONObject);
+                return null;
+            }
+            nh2Var.onFail(optInt, optString);
+            return null;
         }
-        return (ew1) invokeLLL.objValue;
+        return (jw1) invokeLL.objValue;
     }
 }

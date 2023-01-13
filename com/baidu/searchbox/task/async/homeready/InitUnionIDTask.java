@@ -3,7 +3,7 @@ package com.baidu.searchbox.task.async.homeready;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ln9;
+import com.baidu.tieba.ts9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,7 +49,7 @@ public class InitUnionIDTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ln9.c(TbadkCoreApplication.getInst()).e(null);
+            ts9.c(TbadkCoreApplication.getInst()).e(null);
         }
     }
 }

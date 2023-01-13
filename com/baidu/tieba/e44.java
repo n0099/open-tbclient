@@ -1,152 +1,328 @@
 package com.baidu.tieba;
 
 import android.util.Log;
+import android.webkit.JavascriptInterface;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
-import com.baidu.searchbox.v8engine.event.JSEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.swan.games.screenrecord.GameRecorderController;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 /* loaded from: classes4.dex */
-public class e44 extends EventTargetImpl implements sd0 {
+public class e44 extends j44 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public b44 b;
-    public String c;
+    public int e;
+    public String f;
+    public boolean g;
+    public ArrayList<m44> h;
+    public List<String> i;
+    public List<String> j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947684356, "Lcom/baidu/tieba/e44;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes4.dex */
+    public class a implements n44 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qw1 a;
+        public final /* synthetic */ e44 b;
+
+        public a(e44 e44Var, qw1 qw1Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {e44Var, qw1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947684356, "Lcom/baidu/tieba/e44;");
-                return;
+            this.b = e44Var;
+            this.a = qw1Var;
+        }
+
+        @Override // com.baidu.tieba.n44
+        public void a(o44 o44Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, o44Var, str) == null) {
+                this.b.B(this.a, str);
             }
-        }
-        d = ok1.a;
-    }
-
-    @Override // com.baidu.tieba.sd0
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            x("pause", this.b);
-            gb3 gb3Var = new gb3();
-            gb3Var.b = "pause";
-            xa3.h(gb3Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.sd0
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            x("resume", this.b);
-            gb3 gb3Var = new gb3();
-            gb3Var.b = "resume";
-            xa3.h(gb3Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.sd0
-    public void onStart() {
-        Object c44Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int i = this.a;
-            if (i == -1) {
-                c44Var = this.b;
-            } else {
-                c44Var = new c44(i);
-            }
-            x("start", c44Var);
-            gb3 gb3Var = new gb3();
-            gb3Var.b = "start";
-            xa3.h(gb3Var);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e44(JSRuntime jSRuntime) {
-        super(jSRuntime);
+    public e44(tb2 tb2Var) {
+        super(tb2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jSRuntime};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {tb2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 super((JSRuntime) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = -1;
-        this.b = new b44();
-        f44.a().b().s(this);
+        this.g = false;
+        this.h = new ArrayList<>();
+        this.i = new ArrayList(3);
+        this.j = new ArrayList(3);
     }
 
-    @Override // com.baidu.tieba.sd0
-    public void onError(int i) {
+    public final boolean F(GameRecorderController.RecorderState... recorderStateArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (d) {
-                Log.d("GameRecorderApi", "onError:" + i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, recorderStateArr)) == null) {
+            GameRecorderController.RecorderState l = k44.a().b().l();
+            if (j44.d) {
+                Log.d("GameRecorderApi", "RecorderState:" + l);
             }
-            x("error", new a44("internal error"));
-        }
-    }
-
-    @Override // com.baidu.tieba.sd0
-    public void w(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
-            if (d) {
-                Log.d("GameRecorderApi", "schemeVideoPath:" + this.c);
+            if (recorderStateArr == null) {
+                return true;
             }
-            x("stop", new d44(this.c));
-            gb3 gb3Var = new gb3();
-            gb3Var.b = "stop";
-            gb3Var.a("dura", String.valueOf(i / 1000.0f));
-            xa3.h(gb3Var);
-        }
-    }
-
-    public final void x(String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, obj) == null) {
-            if (d) {
-                Log.i("GameRecorderApi", "dispatchEvent:" + str);
+            for (GameRecorderController.RecorderState recorderState : recorderStateArr) {
+                if (l == recorderState) {
+                    return false;
+                }
             }
-            dispatchEvent(new JSEvent(str, obj));
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void B(qw1 qw1Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, qw1Var, str) == null) {
+            if (j44.d) {
+                Log.d("GameRecorderApi", "callFailureCallback: errMsg=" + str);
+            }
+            v64.call(qw1Var, false, new f44(str));
         }
     }
 
-    public void y(int i) {
+    @NonNull
+    public final String C(String str, @NonNull List<String> list, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, list, i)) == null) {
+            if (list.size() >= i) {
+                String remove = list.remove(0);
+                nk4.k(tg2.N(remove));
+                if (j44.d) {
+                    Log.d("GameRecorderApi", "deleteFile: " + remove);
+                }
+            }
+            String format = String.format(Locale.CHINA, str, Long.valueOf(System.currentTimeMillis()));
+            list.add(format);
+            return format;
+        }
+        return (String) invokeLLI.objValue;
+    }
+
+    public final void D() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (j44.d) {
+                Log.d("GameRecorderApi", "doStartRecorder:" + this.e + "," + this.f);
+            }
+            this.h.clear();
+            this.g = false;
+            k44.a().b().t(this.e, this.f);
         }
     }
 
-    public void z(String str) {
+    public final boolean E(double[] dArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.c = str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, dArr)) == null) {
+            if (dArr == null || dArr.length < 2) {
+                return false;
+            }
+            long j = (long) (dArr[0] * 1000.0d);
+            long j2 = (long) (dArr[1] * 1000.0d);
+            if (j < 0 || j2 < 0 || j + j2 <= 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @NonNull
+    public final qw1 G(JsObject jsObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jsObject)) == null) {
+            qw1 F = qw1.F(jsObject);
+            if (F == null) {
+                return new qw1();
+            }
+            return F;
+        }
+        return (qw1) invokeL.objValue;
+    }
+
+    public final void H(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, jsObject) == null) && jsObject != null) {
+            jsObject.release();
+        }
+    }
+
+    @JavascriptInterface
+    public void clipVideo(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, jsObject) == null) {
+            qw1 G = G(jsObject);
+            String B = G.B("path");
+            if (j44.d) {
+                Log.d("GameRecorderApi", "clipPath:" + B + "，hasExecutedClip：" + this.g);
+            }
+            if (this.g) {
+                return;
+            }
+            if (F(GameRecorderController.RecorderState.STOP)) {
+                B(G, "clipVideo can only called after onStop");
+            } else if (this.h.isEmpty()) {
+                B(G, "range is illegal");
+            } else {
+                new p44(this.h, tg2.B(B), tg2.N(C("bdfile://tmp/SwanVideoRecorder/videoClip_%d.mp4", this.j, 3))).c(new a(this, G));
+                this.h.clear();
+                this.g = true;
+                lb3 lb3Var = new lb3();
+                lb3Var.b = "clipVideo";
+                cb3.h(lb3Var);
+            }
+        }
+    }
+
+    @JavascriptInterface
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (j44.d) {
+                Log.d("GameRecorderApi", "pause");
+            }
+            if (F(GameRecorderController.RecorderState.RECORDING)) {
+                return;
+            }
+            k44.a().b().o();
+        }
+    }
+
+    @JavascriptInterface
+    public void resume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            if (j44.d) {
+                Log.d("GameRecorderApi", "resume");
+            }
+            if (!F(GameRecorderController.RecorderState.PAUSE) && !k44.a().c()) {
+                k44.a().b().q();
+            }
+        }
+    }
+
+    @JavascriptInterface
+    public void stop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            if (j44.d) {
+                Log.d("GameRecorderApi", "stop");
+            }
+            if (F(GameRecorderController.RecorderState.RECORDING, GameRecorderController.RecorderState.PAUSE)) {
+                return;
+            }
+            k44.a().b().u();
+        }
+    }
+
+    @JavascriptInterface
+    public void recordClip(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, jsObject) == null) {
+            qw1 G = G(jsObject);
+            if (F(GameRecorderController.RecorderState.RECORDING, GameRecorderController.RecorderState.PAUSE)) {
+                return;
+            }
+            double[] o = G.o("timeRange");
+            H(jsObject);
+            if (!E(o)) {
+                o = new double[]{3.0d, 3.0d};
+            }
+            m44 b = m44.b(k44.a().b().k(), o[0], o[1]);
+            if (j44.d) {
+                Log.d("GameRecorderApi", "recordClip:" + b.toString());
+            }
+            this.h.add(b);
+            lb3 lb3Var = new lb3();
+            lb3Var.b = "recordClip";
+            cb3.h(lb3Var);
+        }
+    }
+
+    @JavascriptInterface
+    public void start(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, jsObject) == null) {
+            if (j44.d) {
+                Log.d("GameRecorderApi", "start");
+            }
+            if (!F(GameRecorderController.RecorderState.IDLE, GameRecorderController.RecorderState.STOP) && !k44.a().c()) {
+                qw1 G = G(jsObject);
+                int r = G.r("duration", 10);
+                this.e = r;
+                if (r <= 0) {
+                    this.e = 10;
+                }
+                if (this.e > 120) {
+                    this.e = 120;
+                }
+                if (this.i.size() == 0) {
+                    nk4.k(tg2.N("bdfile://tmp/SwanVideoRecorder/"));
+                }
+                String C = C("bdfile://tmp/SwanVideoRecorder/video_%d.mp4", this.i, 3);
+                z(C);
+                String N = tg2.N(C);
+                this.f = N;
+                if (N == null) {
+                    if (j44.d) {
+                        Log.e("GameRecorderApi", "recordPath == null.");
+                        return;
+                    }
+                    return;
+                }
+                if (G.m("microphoneEnabled", false)) {
+                    y(2);
+                }
+                D();
+                v44.l();
+            }
+        }
+    }
+
+    @JavascriptInterface
+    public void start() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            start(null);
         }
     }
 }

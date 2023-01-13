@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.bigday;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.df;
-import com.baidu.tieba.kv4;
-import com.baidu.tieba.or4;
+import com.baidu.tieba.ef;
+import com.baidu.tieba.vv4;
+import com.baidu.tieba.yr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import tbclient.GetBigday.GetBigdayResIdl;
 public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<or4> bigdayInfos;
+    public ArrayList<yr4> bigdayInfos;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetBigdayInfoSocketResMessage() {
@@ -50,10 +50,10 @@ public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
             if (bArr == null) {
                 return;
             }
-            kv4.f();
-            df<byte[]> d = kv4.d("tb.bigday_datas");
-            d.remove("tb.bigday_datas");
-            d.g("tb.bigday_datas", bArr);
+            vv4.d();
+            ef<byte[]> b = vv4.b("tb.bigday_datas");
+            b.remove("tb.bigday_datas");
+            b.g("tb.bigday_datas", bArr);
         }
     }
 
@@ -75,10 +75,10 @@ public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
                     this.bigdayInfos = new ArrayList<>();
                     for (BigdayInfo bigdayInfo : getBigdayResIdl.data.bigday_list) {
                         if (bigdayInfo != null) {
-                            or4 or4Var = new or4();
-                            or4Var.b(bigdayInfo);
-                            if (or4Var.a()) {
-                                this.bigdayInfos.add(or4Var);
+                            yr4 yr4Var = new yr4();
+                            yr4Var.b(bigdayInfo);
+                            if (yr4Var.a()) {
+                                this.bigdayInfos.add(yr4Var);
                             }
                         }
                     }

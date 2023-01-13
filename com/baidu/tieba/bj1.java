@@ -1,59 +1,47 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.os.Handler;
-import android.os.HandlerThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class bj1 extends HandlerThread {
+public class bj1 {
     public static /* synthetic */ Interceptable $ic;
-    public static bj1 a;
-    public static Handler b;
     public transient /* synthetic */ FieldHolder $fh;
+    public cj1 a;
+    public Context b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bj1() {
-        super("BackgroundThread", 10);
+    public bj1(Context context, Handler handler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, handler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new cj1(context, handler);
+        this.b = context;
     }
 
-    public static Handler a() {
-        InterceptResult invokeV;
-        Handler handler;
+    public String a(String str, byte[] bArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (bj1.class) {
-                b();
-                handler = b;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bArr)) == null) {
+            if (str != null) {
+                return this.a.b(str, bArr, null);
             }
-            return handler;
+            throw new IllegalArgumentException("postToServerForm request null");
         }
-        return (Handler) invokeV.objValue;
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && a == null) {
-            bj1 bj1Var = new bj1();
-            a = bj1Var;
-            bj1Var.start();
-            b = new Handler(a.getLooper());
-        }
+        return (String) invokeLL.objValue;
     }
 }

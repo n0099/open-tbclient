@@ -1,81 +1,112 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.nadcore.sweetsqlite.BooleanColumn;
-import com.baidu.nadcore.sweetsqlite.Column;
-import com.baidu.nadcore.sweetsqlite.IntegerColumn;
-import com.baidu.nadcore.sweetsqlite.LongColumn;
-import com.baidu.nadcore.sweetsqlite.StringColumn;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class j11 {
+public class j11 extends h11 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final String b;
-    public final int c;
-    public final int d;
-    public final String e;
+    public String b;
 
-    public j11(int i, String str, String str2, int i2, int i3) {
+    public j11() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, str2, Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = str;
-        this.e = str2;
-        this.c = i2;
-        this.d = i3;
+        this.b = null;
     }
 
-    public static boolean a(Column column) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.k11
+    public boolean isValid() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, column)) == null) {
-            return ((BooleanColumn) column).getValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (TextUtils.isEmpty(this.b)) {
+                return f();
+            }
+            return true;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static int b(Column column) {
-        InterceptResult invokeL;
+    public final void e(StringBuilder sb, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, column)) == null) {
-            return ((IntegerColumn) column).getValue();
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, sb, str, str2) == null) {
+            if (sb.length() > 0) {
+                sb.append('&');
+            }
+            sb.append(str);
+            sb.append(com.alipay.sdk.encrypt.a.h);
+            sb.append(str2);
         }
-        return invokeL.intValue;
     }
 
-    public static long c(Column column) {
-        InterceptResult invokeL;
+    public final boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, column)) == null) {
-            return ((LongColumn) column).getValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            mj0 d = ej0.d();
+            StringBuilder sb = new StringBuilder();
+            e(sb, "productId", d.r());
+            e(sb, HttpRequest.CLIENT_TYPE, "2");
+            e(sb, "_os_type", "2");
+            String h = uj0.c().h(false);
+            if (!TextUtils.isEmpty(h)) {
+                e(sb, "_os_version", h);
+            }
+            e(sb, "_client_version", d.v());
+            e(sb, "_sdk_version", "5.10.0.26");
+            String e = uj0.c().e(false);
+            if (!TextUtils.isEmpty(e)) {
+                e(sb, "model", e);
+            }
+            e(sb, "cuid", d.g());
+            e(sb, "net_type", String.valueOf(new er0().c()));
+            if (sg0.a) {
+                e(sb, "rd", d.w());
+                e(sb, "qa", d.x());
+                e(sb, "story_id", d.t());
+            }
+            String sb2 = sb.toString();
+            this.b = sb2;
+            return !TextUtils.isEmpty(sb2);
         }
-        return invokeL.longValue;
+        return invokeV.booleanValue;
     }
 
-    public static String d(Column column) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.h11, com.baidu.tieba.k11
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, column)) == null) {
-            return ((StringColumn) column).getValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (TextUtils.isEmpty(this.b)) {
+                f();
+            }
+            if (this.a.toString().contains(this.b)) {
+                return this.a.toString();
+            }
+            if (this.a.length() > 0) {
+                this.a.append('&');
+            }
+            this.a.append(this.b);
+            return this.a.toString();
         }
-        return (String) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

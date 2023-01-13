@@ -1364,7 +1364,7 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
             CharSequence[] textArray = obtainStyledAttributes.getTextArray(0);
             if (textArray != null) {
                 ArrayAdapter arrayAdapter = new ArrayAdapter(context, 17367048, textArray);
-                arrayAdapter.setDropDownViewResource(R.layout.obfuscated_res_0x7f0d0836);
+                arrayAdapter.setDropDownViewResource(R.layout.obfuscated_res_0x7f0d0834);
                 setAdapter((SpinnerAdapter) arrayAdapter);
             }
             obtainStyledAttributes.recycle();

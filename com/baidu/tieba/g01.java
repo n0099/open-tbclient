@@ -1,7 +1,10 @@
 package com.baidu.tieba;
 
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,193 +12,171 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes4.dex */
-public class g01 extends b01 {
+public class g01 implements SharedPreferences {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final SharedPreferences a;
 
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final g01 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-827619101, "Lcom/baidu/tieba/g01$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-827619101, "Lcom/baidu/tieba/g01$b;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947740001, "Lcom/baidu/tieba/g01;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            a = new g01(null);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947740001, "Lcom/baidu/tieba/g01;");
+                return;
+            }
         }
+        b = wr0.f();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g01() {
-        super("com.baidu.nadcore_videoplayer");
+    @Override // android.content.SharedPreferences
+    public SharedPreferences.Editor edit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.edit();
+        }
+        return (SharedPreferences.Editor) invokeV.objValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public Map<String, ?> getAll() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a.getAll();
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public g01(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new b01("").getString("ad_pcdn_time_config", "");
+        if (!TextUtils.isEmpty(str) && !"default".equals(str)) {
+            this.a = wr0.b().getSharedPreferences(str, 0);
+        } else {
+            this.a = PreferenceManager.getDefaultSharedPreferences(wr0.b());
         }
-        return (String) invokeV.objValue;
     }
 
-    public static String g() {
-        InterceptResult invokeV;
+    @Override // android.content.SharedPreferences
+    public boolean contains(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return new b01("").getString("ad_pcdn_white_list", "");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return this.a.contains(str);
         }
-        return (String) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static boolean h() {
-        InterceptResult invokeV;
+    @Override // android.content.SharedPreferences
+    public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return l().getBoolean("clarity1080", false);
+        if (interceptable == null || interceptable.invokeL(1048587, this, onSharedPreferenceChangeListener) == null) {
+            this.a.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
         }
-        return invokeV.booleanValue;
     }
 
-    public static int i() {
-        InterceptResult invokeV;
+    @Override // android.content.SharedPreferences
+    public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return l().getInt("fast_forward_max_speed", 3);
+        if (interceptable == null || interceptable.invokeL(1048588, this, onSharedPreferenceChangeListener) == null) {
+            this.a.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
         }
-        return invokeV.intValue;
     }
 
-    public static int j() {
-        InterceptResult invokeV;
+    public void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return l().getInt("fast_forward_speed", 2);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            e(str, str2);
+            this.a.edit().putString(str, str2).apply();
         }
-        return invokeV.intValue;
     }
 
-    public static boolean k() {
-        InterceptResult invokeV;
+    @Override // android.content.SharedPreferences
+    public boolean getBoolean(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return TextUtils.equals(l().getString("autoPauseOnDeviceDisconnect", "1"), "1");
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048581, this, str, z)) == null) {
+            return this.a.getBoolean(str, z);
         }
-        return invokeV.booleanValue;
+        return invokeLZ.booleanValue;
     }
 
-    public static g01 l() {
-        InterceptResult invokeV;
+    @Override // android.content.SharedPreferences
+    public float getFloat(String str, float f) {
+        InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048582, this, str, f)) == null) {
+            return this.a.getFloat(str, f);
         }
-        return (g01) invokeV.objValue;
+        return invokeLF.floatValue;
     }
 
-    public static boolean m() {
-        InterceptResult invokeV;
+    @Override // android.content.SharedPreferences
+    public int getInt(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return new b01("").getBoolean("video_player_multiple_enable", true);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, str, i)) == null) {
+            return this.a.getInt(str, i);
         }
-        return invokeV.booleanValue;
+        return invokeLI.intValue;
     }
 
-    public static boolean n() {
-        InterceptResult invokeV;
+    @Override // android.content.SharedPreferences
+    public long getLong(String str, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return new b01("").getBoolean("video_pcdn_switch_force", false);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, j)) == null) {
+            return this.a.getLong(str, j);
         }
-        return invokeV.booleanValue;
+        return invokeLJ.longValue;
     }
 
-    public static String o() {
-        InterceptResult invokeV;
+    @Override // android.content.SharedPreferences
+    public String getString(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return new b01("").getString("video_pcdn_time_config", "");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, str2)) == null) {
+            return this.a.getString(str, str2);
         }
-        return (String) invokeV.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public static String p() {
-        InterceptResult invokeV;
+    @Override // android.content.SharedPreferences
+    public Set<String> getStringSet(String str, Set<String> set) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            return new b01("").getString("video_pcdn_white_list", "");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, set)) == null) {
+            return this.a.getStringSet(str, set);
         }
-        return (String) invokeV.objValue;
+        return (Set) invokeLL.objValue;
     }
 
-    public static boolean q() {
-        InterceptResult invokeV;
+    public final void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            return new b01("").getBoolean("video_player_debug_enable", false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            return l().getBoolean("show_long_press_guide", true);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public /* synthetic */ g01(a aVar) {
-        this();
-    }
-
-    public static void s(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) {
-            if ("https://searchvideo.cdn.bcebos.com/default/default.mp4".equals(str2)) {
-                l().d("key_current_video_nid_ufo", "");
-                l().d("key_current_video_url_ufo", "");
-                return;
-            }
-            if (!TextUtils.isEmpty(str)) {
-                l().d("key_current_video_nid_ufo", str);
-            }
-            if (!TextUtils.isEmpty(str2)) {
-                l().d("key_current_video_url_ufo", str2);
-            }
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) && str2 != null && str2.length() > 256 && b) {
+            throw new IllegalArgumentException(String.format("the value of %s is %d, over the limit of %d!", str, Integer.valueOf(str2.length()), 256));
         }
     }
 }

@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ah;
+import com.baidu.tieba.bh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -65,7 +65,7 @@ public class NavigationBarCoverTip extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                ah.a().removeCallbacks(this.a.c);
+                bh.a().removeCallbacks(this.a.c);
                 this.a.e();
             }
         }
@@ -304,7 +304,7 @@ public class NavigationBarCoverTip extends LinearLayout {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ah.a().removeCallbacks(this.c);
+            bh.a().removeCallbacks(this.c);
             clearAnimation();
             setVisibility(8);
             Activity activity = this.e;
@@ -355,7 +355,7 @@ public class NavigationBarCoverTip extends LinearLayout {
             setVisibility(0);
             clearAnimation();
             startAnimation(this.a);
-            ah.a().removeCallbacks(this.c);
+            bh.a().removeCallbacks(this.c);
         }
     }
 
@@ -369,8 +369,8 @@ public class NavigationBarCoverTip extends LinearLayout {
             setVisibility(0);
             clearAnimation();
             startAnimation(this.a);
-            ah.a().removeCallbacks(this.c);
-            ah.a().postDelayed(this.c, i);
+            bh.a().removeCallbacks(this.c);
+            bh.a().postDelayed(this.c, i);
         }
     }
 
@@ -396,8 +396,8 @@ public class NavigationBarCoverTip extends LinearLayout {
             setVisibility(0);
             clearAnimation();
             startAnimation(this.a);
-            ah.a().removeCallbacks(this.c);
-            ah.a().postDelayed(this.c, i);
+            bh.a().removeCallbacks(this.c);
+            bh.a().postDelayed(this.c, i);
         }
     }
 }

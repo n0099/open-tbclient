@@ -1,472 +1,467 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.RectF;
+import android.util.AttributeSet;
+import android.util.TypedValue;
+import android.view.View;
+import android.widget.LinearLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.LiveFeedPageSdk;
-import com.baidu.live.business.model.data.LiveRoomEntity;
-import com.baidu.live.feed.search.model.data.LiveErrorInfo;
-import com.baidu.live.feed.search.model.data.LiveSearchHotRankData;
-import com.baidu.live.feed.search.model.data.LiveSearchHotWordListData;
-import com.baidu.live.feed.search.model.data.LiveSearchSuggestionsBean;
-import com.baidu.live.feed.search.model.data.RequestSearchData;
-import com.baidu.live.feed.search.model.data.SearchResultBean;
-import com.baidu.pass.biometrics.face.liveness.PassFaceRecogManager;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.live.interfaces.net.NetResponse;
-import com.baidu.searchbox.live.interfaces.service.AppInfoService;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.live.business.view.smarttab.SmartTabLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
-import java.util.List;
-import java.util.Map;
-import kotlin.Pair;
-import kotlin.TuplesKt;
-import kotlin.collections.MapsKt__MapsKt;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 /* loaded from: classes6.dex */
-public final class sa0 {
+public class sa0 extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public AppInfoService b;
+    public Context A;
+    public final int a;
+    public final int b;
+    public final int c;
+    public final int d;
+    public final Paint e;
+    public final RectF f;
+    public final boolean g;
+    public final boolean h;
+    public final boolean i;
+    public final boolean j;
+    public final int k;
+    public int l;
+    public int m;
+    public final int n;
+    public final float o;
+    public final Paint p;
+    public final int q;
+    public final Paint r;
+    public final float s;
+    public final b t;
+    public final boolean u;
+    public int v;
+    public int w;
+    public float x;
+    public ra0 y;
+    public SmartTabLayout.g z;
 
     /* loaded from: classes6.dex */
-    public interface a<T> {
-        void onFail(int i, String str);
-
-        void onSuccess(T t);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948144551, "Lcom/baidu/tieba/sa0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948144551, "Lcom/baidu/tieba/sa0;");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b implements wb0<List<? extends LiveRoomEntity>> {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a a;
+    }
 
-        public b(a aVar) {
+    /* loaded from: classes6.dex */
+    public static class b implements SmartTabLayout.g {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int[] a;
+        public int[] b;
+
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = aVar;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wb0
-        /* renamed from: b */
-        public List<LiveRoomEntity> onParseResponseInBackground(NetResponse netResponse) {
-            InterceptResult invokeL;
-            String str;
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        @Override // com.baidu.live.business.view.smarttab.SmartTabLayout.g
+        public final int a(int i) {
+            InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netResponse)) == null) {
-                if (netResponse == null || (str = netResponse.decodedResponseStr) == null) {
-                    return null;
-                }
-                if (!netResponse.isSuccessful()) {
-                    str = null;
-                }
-                if (str == null) {
-                    return null;
-                }
-                return LiveSearchHotRankData.parse(str);
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                int[] iArr = this.a;
+                return iArr[i % iArr.length];
             }
-            return (List) invokeL.objValue;
+            return invokeI.intValue;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wb0
-        /* renamed from: a */
-        public void onNetResponse(NetResponse netResponse, List<? extends LiveRoomEntity> list, Map<String, String> map, List<String> list2) {
+        @Override // com.baidu.live.business.view.smarttab.SmartTabLayout.g
+        public final int b(int i) {
+            InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048576, this, netResponse, list, map, list2) == null) {
-                if (netResponse != null && netResponse.isSuccessful() && list != null) {
-                    this.a.onSuccess(list);
-                } else if (netResponse == null) {
-                    this.a.onFail(-111, "网络不给力，请稍后重试");
-                } else {
-                    this.a.onFail(netResponse.responseCode, netResponse.exception);
-                }
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                int[] iArr = this.b;
+                return iArr[i % iArr.length];
+            }
+            return invokeI.intValue;
+        }
+
+        public void c(int... iArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iArr) == null) {
+                this.b = iArr;
+            }
+        }
+
+        public void d(int... iArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, iArr) == null) {
+                this.a = iArr;
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class c implements wb0<LiveSearchHotWordListData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sa0 a;
-        public final /* synthetic */ a b;
-
-        public c(sa0 sa0Var, a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sa0Var, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = sa0Var;
-            this.b = aVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wb0
-        /* renamed from: a */
-        public void onNetResponse(NetResponse netResponse, LiveSearchHotWordListData liveSearchHotWordListData, Map<String, String> map, List<String> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048576, this, netResponse, liveSearchHotWordListData, map, list) == null) {
-                this.a.a = false;
-                if (netResponse != null && netResponse.isSuccessful() && liveSearchHotWordListData != null) {
-                    this.b.onSuccess(liveSearchHotWordListData);
-                } else if (netResponse == null) {
-                    this.b.onFail(-111, "网络不给力，请稍后重试");
-                } else {
-                    this.b.onFail(netResponse.responseCode, netResponse.exception);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wb0
-        /* renamed from: b */
-        public LiveSearchHotWordListData onParseResponseInBackground(NetResponse netResponse) {
-            InterceptResult invokeL;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netResponse)) == null) {
-                this.a.a = false;
-                if (netResponse == null || (str = netResponse.decodedResponseStr) == null) {
-                    return null;
-                }
-                if (!netResponse.isSuccessful()) {
-                    str = null;
-                }
-                if (str == null) {
-                    return null;
-                }
-                LiveSearchHotWordListData liveSearchHotWordListData = new LiveSearchHotWordListData(null, 1, null);
-                liveSearchHotWordListData.parseJson(str);
-                return liveSearchHotWordListData;
-            }
-            return (LiveSearchHotWordListData) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class d implements wb0<SearchResultBean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a a;
-
-        public d(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wb0
-        /* renamed from: a */
-        public void onNetResponse(NetResponse netResponse, SearchResultBean searchResultBean, Map<String, String> map, List<String> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048576, this, netResponse, searchResultBean, map, list) == null) {
-                if (netResponse != null && netResponse.isSuccessful() && searchResultBean != null) {
-                    this.a.onSuccess(searchResultBean);
-                } else if (netResponse == null) {
-                    this.a.onFail(-111, "网络不给力，请稍后重试");
-                } else {
-                    this.a.onFail(netResponse.responseCode, netResponse.exception);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wb0
-        /* renamed from: b */
-        public SearchResultBean onParseResponseInBackground(NetResponse netResponse) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netResponse)) == null) {
-                JSONObject jSONObject = null;
-                if (netResponse == null || !netResponse.isSuccessful()) {
-                    return null;
-                }
-                try {
-                    String str = netResponse.decodedResponseStr;
-                    if (str == null) {
-                        str = "";
-                    }
-                    jSONObject = new JSONObject(str);
-                } catch (JSONException unused) {
-                }
-                SearchResultBean searchResultBean = new SearchResultBean();
-                if (jSONObject != null) {
-                    searchResultBean.parse(jSONObject);
-                }
-                return searchResultBean;
-            }
-            return (SearchResultBean) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class e implements wb0<LiveSearchSuggestionsBean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a a;
-
-        public e(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wb0
-        /* renamed from: a */
-        public void onNetResponse(NetResponse netResponse, LiveSearchSuggestionsBean liveSearchSuggestionsBean, Map<String, String> map, List<String> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048576, this, netResponse, liveSearchSuggestionsBean, map, list) == null) {
-                if (liveSearchSuggestionsBean == null) {
-                    if (netResponse == null) {
-                        this.a.onFail(-111, "网络不给力，请稍后重试");
-                        return;
-                    } else {
-                        this.a.onFail(netResponse.responseCode, netResponse.exception);
-                        return;
-                    }
-                }
-                this.a.onSuccess(liveSearchSuggestionsBean);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wb0
-        /* renamed from: b */
-        public LiveSearchSuggestionsBean onParseResponseInBackground(NetResponse netResponse) {
-            InterceptResult invokeL;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netResponse)) == null) {
-                if (netResponse != null && netResponse.isSuccessful() && netResponse.netErrorCode == 0 && (str = netResponse.decodedResponseStr) != null && !TextUtils.isEmpty(str)) {
-                    JSONObject jSONObject = new JSONObject(str);
-                    LiveSearchSuggestionsBean liveSearchSuggestionsBean = new LiveSearchSuggestionsBean();
-                    liveSearchSuggestionsBean.parse(jSONObject);
-                    LiveErrorInfo liveErrorInfo = liveSearchSuggestionsBean.liveErrorInfo;
-                    if (liveErrorInfo != null && liveErrorInfo.errno == 0) {
-                        return liveSearchSuggestionsBean;
-                    }
-                }
-                return null;
-            }
-            return (LiveSearchSuggestionsBean) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class f implements wb0<Integer> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a a;
-        public final /* synthetic */ boolean b;
-
-        public f(a aVar, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aVar;
-            this.b = z;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wb0
-        /* renamed from: a */
-        public void onNetResponse(NetResponse netResponse, Integer num, Map<String, String> map, List<String> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048576, this, netResponse, num, map, list) == null) {
-                if (netResponse != null && !netResponse.isSuccessful()) {
-                    this.a.onFail(netResponse.responseCode, netResponse.exception);
-                } else if (num == null || num.intValue() != 0) {
-                    if (netResponse == null) {
-                        this.a.onFail(-111, "网络不给力，请稍后重试");
-                    } else {
-                        this.a.onFail(netResponse.responseCode, netResponse.exception);
-                    }
-                } else {
-                    this.a.onSuccess(Boolean.valueOf(this.b));
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wb0
-        /* renamed from: b */
-        public Integer onParseResponseInBackground(NetResponse netResponse) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netResponse)) == null) {
-                if (netResponse != null && netResponse.isSuccessful()) {
-                    String str = netResponse.decodedResponseStr;
-                    Intrinsics.checkExpressionValueIsNotNull(str, "res.decodedResponseStr");
-                    if (!StringsKt__StringsJVMKt.isBlank(str)) {
-                        int optInt = new JSONObject(netResponse.decodedResponseStr).optInt("errno");
-                        int i = netResponse.netErrorCode;
-                        return Integer.valueOf(optInt);
-                    }
-                    return null;
-                }
-                return null;
-            }
-            return (Integer) invokeL.objValue;
-        }
-    }
-
-    public sa0() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sa0(Context context, AttributeSet attributeSet) {
+        super(context);
+        int i;
+        int[] intArray;
+        int[] intArray2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r3;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
+        this.f = new RectF();
+        setWillNotDraw(false);
+        setClipChildren(false);
+        setClipToPadding(false);
+        this.A = context;
+        float f = getResources().getDisplayMetrics().density;
+        TypedValue typedValue = new TypedValue();
+        context.getTheme().resolveAttribute(16842800, typedValue, true);
+        int i4 = typedValue.data;
+        float f2 = 0.0f * f;
+        int k = k(i4, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS);
+        int i5 = (int) f2;
+        int k2 = k(i4, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS);
+        int k3 = k(i4, (byte) 32);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ua0.LiveFeedPage_live_feed_page_SmartTabLayout);
+        boolean z = obtainStyledAttributes.getBoolean(19, false);
+        boolean z2 = obtainStyledAttributes.getBoolean(20, false);
+        boolean z3 = obtainStyledAttributes.getBoolean(30, false);
+        boolean z4 = obtainStyledAttributes.getBoolean(25, false);
+        int i6 = obtainStyledAttributes.getInt(26, 0);
+        int i7 = obtainStyledAttributes.getInt(24, 0);
+        int color = obtainStyledAttributes.getColor(21, -13388315);
+        int resourceId = obtainStyledAttributes.getResourceId(22, -1);
+        int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(28, (int) (8.0f * f));
+        int dimensionPixelSize2 = obtainStyledAttributes.getDimensionPixelSize(27, (int) (6.0f * f));
+        int layoutDimension = obtainStyledAttributes.getLayoutDimension(29, -1);
+        float dimension = obtainStyledAttributes.getDimension(23, f2);
+        int color2 = obtainStyledAttributes.getColor(31, k);
+        int dimensionPixelSize3 = obtainStyledAttributes.getDimensionPixelSize(32, i5);
+        int color3 = obtainStyledAttributes.getColor(38, k2);
+        int dimensionPixelSize4 = obtainStyledAttributes.getDimensionPixelSize(39, (int) (2.0f * f));
+        int color4 = obtainStyledAttributes.getColor(15, k3);
+        int resourceId2 = obtainStyledAttributes.getResourceId(16, -1);
+        int dimensionPixelSize5 = obtainStyledAttributes.getDimensionPixelSize(17, (int) (f * 1.0f));
+        boolean z5 = obtainStyledAttributes.getBoolean(18, false);
+        obtainStyledAttributes.recycle();
+        if (resourceId == -1) {
+            i = 1;
+            intArray = new int[]{color};
+        } else {
+            i = 1;
+            intArray = getResources().getIntArray(resourceId);
+        }
+        if (resourceId2 == -1) {
+            intArray2 = new int[i];
+            intArray2[0] = color4;
+        } else {
+            intArray2 = getResources().getIntArray(resourceId2);
+        }
+        b bVar = new b(null);
+        this.t = bVar;
+        bVar.d(intArray);
+        this.t.c(intArray2);
+        this.a = dimensionPixelSize3;
+        this.b = color2;
+        this.c = dimensionPixelSize4;
+        this.d = color3;
+        this.e = new Paint(1);
+        this.h = z;
+        this.i = z2;
+        this.g = z3;
+        this.j = z4;
+        this.k = dimensionPixelSize;
+        this.l = dimensionPixelSize2;
+        this.m = layoutDimension;
+        this.p = new Paint(1);
+        this.o = dimension;
+        this.n = i7;
+        this.s = 0.5f;
+        Paint paint = new Paint(1);
+        this.r = paint;
+        paint.setStrokeWidth(dimensionPixelSize5);
+        this.q = dimensionPixelSize5;
+        this.u = z5;
+        this.y = ra0.d(i6);
     }
 
-    public final void b(a<List<LiveRoomEntity>> aVar) {
+    public static int a(int i, int i2, float f) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            Pair[] pairArr = new Pair[3];
-            pairArr[0] = TuplesKt.to("client_type", "2");
-            AppInfoService appInfoService = this.b;
-            pairArr[1] = TuplesKt.to("subapp_version", (appInfoService == null || (r1 = appInfoService.getVersionName()) == null) ? "" : "");
-            pairArr[2] = TuplesKt.to("sdk_version", LiveFeedPageSdk.LIVE_SDK_VERSION);
-            xb0.h("https://tiebac.baidu.com/bdlive/room/hot_rank", MapsKt__MapsKt.mapOf(pairArr), new b(aVar), 17, 223, null);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)})) == null) {
+            float f2 = 1.0f - f;
+            return Color.rgb((int) ((Color.red(i) * f) + (Color.red(i2) * f2)), (int) ((Color.green(i) * f) + (Color.green(i2) * f2)), (int) ((Color.blue(i) * f) + (Color.blue(i2) * f2)));
+        }
+        return invokeCommon.intValue;
+    }
+
+    public static int k(int i, byte b2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Byte.valueOf(b2)})) == null) {
+            return Color.argb((int) b2, Color.red(i), Color.green(i), Color.blue(i));
+        }
+        return invokeCommon.intValue;
+    }
+
+    public void j(int i, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            this.w = i;
+            this.x = f;
+            if (f == 0.0f && this.v != i) {
+                this.v = i;
+            }
+            invalidate();
         }
     }
 
-    public final void c(a<LiveSearchHotWordListData> aVar) {
+    public final void b(Canvas canvas) {
+        int i;
+        int i2;
+        int i3;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) != null) || this.a) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            int height = getHeight();
+            int width = getWidth();
+            int childCount = getChildCount();
+            SmartTabLayout.g g = g();
+            boolean n = ta0.n(this);
+            if (this.j) {
+                d(canvas, 0, width);
+                f(canvas, 0, width, height);
+            }
+            if (childCount > 0) {
+                View childAt = getChildAt(this.w);
+                int k = ta0.k(childAt, this.g);
+                int b2 = ta0.b(childAt, this.g);
+                if (n) {
+                    k = b2;
+                    b2 = k;
+                }
+                int a2 = g.a(this.w);
+                float f = this.k;
+                if (this.x > 0.0f && this.w < getChildCount() - 1) {
+                    int a3 = g.a(this.w + 1);
+                    if (a2 != a3) {
+                        a2 = a(a3, a2, this.x);
+                    }
+                    float a4 = this.y.a(this.x);
+                    float b3 = this.y.b(this.x);
+                    this.y.c(this.x);
+                    View childAt2 = getChildAt(this.w + 1);
+                    int k2 = ta0.k(childAt2, this.g);
+                    int b4 = ta0.b(childAt2, this.g);
+                    if (n) {
+                        i2 = (int) ((k2 * a4) + ((1.0f - a4) * b2));
+                        i3 = (int) ((b4 * b3) + ((1.0f - b3) * k));
+                    } else {
+                        i3 = (int) ((k2 * a4) + ((1.0f - a4) * k));
+                        i2 = (int) ((b4 * b3) + ((1.0f - b3) * b2));
+                    }
+                    i = a2;
+                } else {
+                    i = a2;
+                    int i4 = k;
+                    i2 = b2;
+                    i3 = i4;
+                }
+                c(canvas, i3, i2, height, f, i);
+            }
+            if (!this.j) {
+                d(canvas, 0, width);
+                f(canvas, 0, getWidth(), height);
+            }
+            e(canvas, height, childCount);
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:18:0x003a  */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0052  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x006d  */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x007c  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void c(Canvas canvas, int i, int i2, int i3, float f, int i4) {
+        int i5;
+        float f2;
+        float f3;
+        float f4;
+        float f5;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f), Integer.valueOf(i4)}) == null) && (i5 = this.k) > 0 && this.m != 0) {
+            int i6 = this.n;
+            if (i6 != 1) {
+                if (i6 != 2) {
+                    float f6 = (i3 - i5) - this.l;
+                    f4 = f6 - (i5 / 2.0f);
+                    f3 = f6 + (i5 / 2.0f);
+                    this.p.setColor(i4);
+                    if (this.m != -1) {
+                        this.f.set(i + ia0.b(this.A, 16.0f), f4, i2 - ia0.b(this.A, 16.0f), f3);
+                    } else {
+                        float abs = (Math.abs(i - i2) - this.m) / 2.0f;
+                        this.f.set(i + abs, f4, i2 - abs, f3);
+                    }
+                    f5 = this.o;
+                    if (f5 <= 0.0f) {
+                        float i7 = ia0.i(this.A, f5);
+                        canvas.drawRoundRect(this.f, i7, i7, this.p);
+                        return;
+                    }
+                    canvas.drawRect(this.f, this.p);
+                    return;
+                }
+                f2 = i3 / 2.0f;
+            } else {
+                f2 = i5 * 2;
+            }
+            float f7 = f / 2.0f;
+            float f8 = f2 - f7;
+            f3 = f2 + f7;
+            f4 = f8;
+            this.p.setColor(i4);
+            if (this.m != -1) {
+            }
+            f5 = this.o;
+            if (f5 <= 0.0f) {
+            }
+        }
+    }
+
+    public final void d(Canvas canvas, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, canvas, i, i2) != null) || this.a <= 0) {
             return;
         }
-        this.a = true;
-        xb0.h("https://tiebac.baidu.com/bdlive/search/hotWord", MapsKt__MapsKt.mapOf(TuplesKt.to("scene", "tab"), TuplesKt.to("sdk_version", LiveFeedPageSdk.LIVE_SDK_VERSION)), new c(this, aVar), 17, 223, null);
+        this.e.setColor(this.b);
+        canvas.drawRect(i, 0.0f, i2, this.a, this.e);
     }
 
-    public final void d(String str, String str2, a<SearchResultBean> aVar, RequestSearchData requestSearchData) {
+    @Override // android.view.ViewGroup, android.view.View
+    public void dispatchDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, aVar, requestSearchData) == null) {
-            xb0.g("https://tiebac.baidu.com/livefeed/search?", MapsKt__MapsKt.mapOf(TuplesKt.to("scene", "tab"), TuplesKt.to("tab", "rec"), TuplesKt.to("word", str), TuplesKt.to("pn", str2), TuplesKt.to("resource", requestSearchData.resource), TuplesKt.to("refresh_index", requestSearchData.refreshIndex), TuplesKt.to("refresh_type", requestSearchData.refreshType), TuplesKt.to("session_id", requestSearchData.sessionId), TuplesKt.to("upload_ids", requestSearchData.uploadIds), TuplesKt.to("channel_id", requestSearchData.channelId), TuplesKt.to("request_type", requestSearchData.requestType), TuplesKt.to("sdk_version", LiveFeedPageSdk.LIVE_SDK_VERSION)), new d(aVar), 17, PassFaceRecogManager.k, null, null, 64, null);
+        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
+            super.dispatchDraw(canvas);
+            if (this.u) {
+                b(canvas);
+            }
         }
     }
 
-    public final void e(String str, a<LiveSearchSuggestionsBean> aVar) {
+    public void l(int... iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, aVar) == null) {
-            xb0.g("https://tiebac.baidu.com/livefeed/search/querysug", MapsKt__MapsKt.mapOf(TuplesKt.to(ActVideoSetting.WIFI_DISPLAY, str), TuplesKt.to("scene", "tab"), TuplesKt.to("sdk_version", LiveFeedPageSdk.LIVE_SDK_VERSION)), new e(aVar), 17, 225, null, null, 64, null);
+        if (interceptable == null || interceptable.invokeL(1048586, this, iArr) == null) {
+            this.z = null;
+            this.t.d(iArr);
+            invalidate();
         }
     }
 
-    public final void f(String str, String str2, String str3, String str4, boolean z, String str5, a<Boolean> aVar) {
-        boolean z2;
-        String str6;
+    @Override // android.widget.LinearLayout, android.view.View
+    public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, str3, str4, Boolean.valueOf(z), str5, aVar}) == null) {
-            if (str5.length() > 0) {
-                z2 = true;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, canvas) == null) && !this.u) {
+            b(canvas);
+        }
+    }
+
+    public final void e(Canvas canvas, int i, int i2) {
+        int i3;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLII(1048580, this, canvas, i, i2) != null) || this.q <= 0) {
+            return;
+        }
+        int min = (int) (Math.min(Math.max(0.0f, this.s), 1.0f) * i);
+        SmartTabLayout.g g = g();
+        int i4 = (i - min) / 2;
+        int i5 = min + i4;
+        boolean n = ta0.n(this);
+        for (int i6 = 0; i6 < i2 - 1; i6++) {
+            View childAt = getChildAt(i6);
+            int a2 = ta0.a(childAt);
+            int c = ta0.c(childAt);
+            if (n) {
+                i3 = a2 - c;
             } else {
-                z2 = false;
+                i3 = a2 + c;
             }
-            if (z2 && !StringsKt__StringsJVMKt.startsWith$default(str5, "sv_", false, 2, null)) {
-                str5 = "sv_" + str5;
-            }
-            Map mapOf = MapsKt__MapsKt.mapOf(TuplesKt.to("uk", str3), TuplesKt.to("third_id", str2), TuplesKt.to("source", "star_live_float_android"), TuplesKt.to("room_id", str), TuplesKt.to("type", str4), TuplesKt.to("nid", str5), TuplesKt.to("scene", "tab"));
-            if (z) {
-                str6 = "https://tiebac.baidu.com/bdlive/user/follow";
-            } else {
-                str6 = "https://tiebac.baidu.com/bdlive/user/unfollow";
-            }
-            xb0.h(str6, mapOf, new f(aVar, z), 17, 112, null);
+            this.r.setColor(g.b(i6));
+            float f = i3;
+            canvas.drawLine(f, i4, f, i5, this.r);
         }
+    }
+
+    public final void f(Canvas canvas, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLIII(1048581, this, canvas, i, i2, i3) != null) || this.c <= 0) {
+            return;
+        }
+        this.e.setColor(this.d);
+        canvas.drawRect(i, i3 - this.c, i2, i3, this.e);
+    }
+
+    public SmartTabLayout.g g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            SmartTabLayout.g gVar = this.z;
+            if (gVar == null) {
+                return this.t;
+            }
+            return gVar;
+        }
+        return (SmartTabLayout.g) invokeV.objValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.h;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.i;
+        }
+        return invokeV.booleanValue;
     }
 }

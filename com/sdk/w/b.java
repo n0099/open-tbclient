@@ -5,8 +5,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* JADX INFO: Add missing generic type declarations: [T] */
 /* loaded from: classes8.dex */
-public class b implements com.sdk.e.a<T> {
+public class b<T> implements com.sdk.e.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ d a;

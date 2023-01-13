@@ -1,117 +1,182 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.payapi.PayType;
-/* loaded from: classes6.dex */
-public class yaa {
+import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.atomic.AtomicReferenceArray;
+/* loaded from: classes7.dex */
+public final class yaa<E> extends waa<E> {
     public static /* synthetic */ Interceptable $ic;
+    public static final Integer g;
     public transient /* synthetic */ FieldHolder $fh;
-    public PayType a;
-    public String b;
-    public String c;
-    public double d;
-    public boolean e;
-    public double f;
+    public final AtomicLong c;
+    public long d;
+    public final AtomicLong e;
+    public final int f;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public yaa(PayType payType, String str, String str2) {
-        this(payType, str, str2, 0.0d, false);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {payType, str, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((PayType) objArr2[0], (String) objArr2[1], (String) objArr2[2], ((Double) objArr2[3]).doubleValue(), ((Boolean) objArr2[4]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948324816, "Lcom/baidu/tieba/yaa;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948324816, "Lcom/baidu/tieba/yaa;");
                 return;
             }
         }
+        g = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public yaa(PayType payType, String str, String str2, double d) {
-        this(payType, str, str2, 0.0d, false, d);
+    public final long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e.get();
+        }
+        return invokeV.longValue;
+    }
+
+    public final long g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c.get();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public boolean isEmpty() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (g() == f()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.util.Queue
+    public E peek() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return c(a(this.e.get()));
+        }
+        return (E) invokeV.objValue;
+    }
+
+    @Override // java.util.Queue
+    public E poll() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            long j = this.e.get();
+            int a = a(j);
+            AtomicReferenceArray<E> atomicReferenceArray = this.a;
+            E d = d(atomicReferenceArray, a);
+            if (d == null) {
+                return null;
+            }
+            e(atomicReferenceArray, a, null);
+            h(j + 1);
+            return d;
+        }
+        return (E) invokeV.objValue;
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public int size() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            long f = f();
+            while (true) {
+                long g2 = g();
+                long f2 = f();
+                if (f == f2) {
+                    return (int) (g2 - f2);
+                }
+                f = f2;
+            }
+        } else {
+            return invokeV.intValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yaa(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {payType, str, str2, Double.valueOf(d)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((PayType) objArr2[0], (String) objArr2[1], (String) objArr2[2], ((Double) objArr2[3]).doubleValue(), ((Boolean) objArr2[4]).booleanValue(), ((Double) objArr2[5]).doubleValue());
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.c = new AtomicLong();
+        this.e = new AtomicLong();
+        this.f = Math.min(i / 4, g.intValue());
     }
 
-    public yaa(PayType payType, String str, String str2, double d, boolean z) {
+    @Override // java.util.Queue
+    public boolean offer(E e) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {payType, str, str2, Double.valueOf(d), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, e)) == null) {
+            if (e != null) {
+                AtomicReferenceArray<E> atomicReferenceArray = this.a;
+                int i = this.b;
+                long j = this.c.get();
+                int b = b(j, i);
+                if (j >= this.d) {
+                    long j2 = this.f + j;
+                    if (d(atomicReferenceArray, b(j2, i)) == null) {
+                        this.d = j2;
+                    } else if (d(atomicReferenceArray, b) != null) {
+                        return false;
+                    }
+                }
+                e(atomicReferenceArray, b, e);
+                i(j + 1);
+                return true;
             }
+            throw new NullPointerException("Null is not a valid element");
         }
-        this.b = "";
-        this.a = payType;
-        this.b = str;
-        this.c = str2;
-        this.d = d;
-        this.e = z;
+        return invokeL.booleanValue;
     }
 
-    public yaa(PayType payType, String str, String str2, double d, boolean z, double d2) {
+    public final void h(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {payType, str, str2, Double.valueOf(d), Boolean.valueOf(z), Double.valueOf(d2)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.e.lazySet(j);
         }
-        this.b = "";
-        this.a = payType;
-        this.b = str;
-        this.c = str2;
-        this.d = d;
-        this.e = z;
-        this.f = d2;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public final void i(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.c.lazySet(j);
         }
-        return (String) invokeV.objValue;
     }
 }

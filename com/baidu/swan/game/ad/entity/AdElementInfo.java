@@ -6,7 +6,6 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -625,7 +624,7 @@ public class AdElementInfo implements Parcelable {
             this.mVideoUrl = jSONObject.optString("vurl", "");
             this.mPrivacyUrl = jSONObject.optString("privacy_link", "");
             this.mPermissionUrl = jSONObject.optString("permission_link", "");
-            this.mVideoWidth = jSONObject.optInt(Config.DEVICE_WIDTH, 0);
+            this.mVideoWidth = jSONObject.optInt("w", 0);
             this.mVideoHeight = jSONObject.optInt("h", 0);
             this.mDuration = jSONObject.optInt("duration", 0);
             this.mCloseType = jSONObject.optInt("closetype", 0);

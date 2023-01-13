@@ -13,8 +13,8 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.service.AsyncService;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.aj;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.bj;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -186,7 +186,7 @@ public class BdNetTypeUtil {
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                AsyncService.INSTANCE.sendRunnable(BdNetTypeUtil.getInstance().mNetChangeRunnable);
+                AsyncService.INSTANCE.sendRunnable(BdNetTypeUtil.access$100().mNetChangeRunnable);
             }
         }
     }
@@ -251,8 +251,8 @@ public class BdNetTypeUtil {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) {
-            String j = aj.j();
-            if (j.length() < 4 || xi.isEmptyStringAfterTrim(j) || (substring = j.substring(0, 3)) == null || !substring.equals(NATION_CODE)) {
+            String j = bj.j();
+            if (j.length() < 4 || yi.isEmptyStringAfterTrim(j) || (substring = j.substring(0, 3)) == null || !substring.equals(NATION_CODE)) {
                 return 0;
             }
             try {
@@ -392,6 +392,10 @@ public class BdNetTypeUtil {
             return "wifi";
         }
         return (String) invokeV.objValue;
+    }
+
+    public static /* synthetic */ BdNetTypeUtil access$100() {
+        return getInstance();
     }
 
     public static String curMobileProxyHost() {
@@ -571,7 +575,7 @@ public class BdNetTypeUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) {
-            if (getInstance().isWifi || readNetworkOperatorType() == 1 || xi.isEmptyStringAfterTrim(Proxy.getDefaultHost())) {
+            if (getInstance().isWifi || readNetworkOperatorType() == 1 || yi.isEmptyStringAfterTrim(Proxy.getDefaultHost())) {
                 return false;
             }
             return true;

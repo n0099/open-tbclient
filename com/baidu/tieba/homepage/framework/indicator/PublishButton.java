@@ -36,7 +36,7 @@ public class PublishButton extends TBSpecificationBtn {
             }
         }
         this.o = 1.0f;
-        m();
+        init();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -59,7 +59,7 @@ public class PublishButton extends TBSpecificationBtn {
             }
         }
         this.o = 1.0f;
-        m();
+        init();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -82,15 +82,7 @@ public class PublishButton extends TBSpecificationBtn {
             }
         }
         this.o = 1.0f;
-        m();
-    }
-
-    private void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            setTextSize(R.dimen.T_X08);
-            setText(TbadkCoreApplication.getInst().getResources().getString(R.string.home_write_thread_publish));
-        }
+        init();
     }
 
     @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn, android.view.View
@@ -102,9 +94,17 @@ public class PublishButton extends TBSpecificationBtn {
         }
     }
 
+    public final void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setTextSize(R.dimen.T_X08);
+            setText(TbadkCoreApplication.getInst().getResources().getString(R.string.home_write_thread_publish));
+        }
+    }
+
     public void setScrollAlpha(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
             this.o = f;
         }
     }

@@ -66,6 +66,11 @@ public final class i {
         this();
     }
 
+    public static /* synthetic */ boolean a(i iVar, boolean z) {
+        iVar.fq = false;
+        return false;
+    }
+
     public static i fn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -189,7 +194,7 @@ public final class i {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLIL(65537, this, jVar, i, str) == null) {
                     super.onError(jVar, i, str);
-                    this.mh.fq = false;
+                    i.a(this.mh, false);
                     com.kwad.components.core.j.a.og().c(this.kp, 1, str);
                     com.kwad.sdk.core.e.b.i("RewardCallbackVerifyHelper", "callbackUrlInfo verify failed");
                 }
@@ -203,7 +208,7 @@ public final class i {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(65538, this, jVar, baseResultData) == null) {
                     super.onSuccess(jVar, baseResultData);
-                    this.mh.fq = false;
+                    i.a(this.mh, false);
                     com.kwad.components.core.j.a.og().c(this.kp, 0, "success");
                     com.kwad.sdk.core.e.b.i("RewardCallbackVerifyHelper", "callbackUrlInfo verify success");
                 }

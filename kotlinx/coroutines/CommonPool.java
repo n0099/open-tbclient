@@ -180,7 +180,8 @@ public final class CommonPool extends ExecutorCoroutineDispatcher {
     }
 
     @Override // kotlinx.coroutines.CoroutineDispatcher
-    public void dispatch(CoroutineContext coroutineContext, Runnable runnable) {
+    /* renamed from: dispatch */
+    public void mo2188dispatch(CoroutineContext coroutineContext, Runnable runnable) {
         Runnable runnable2;
         try {
             Executor executor = pool;
@@ -202,7 +203,11 @@ public final class CommonPool extends ExecutorCoroutineDispatcher {
     }
 
     public final boolean isGoodCommonPool$kotlinx_coroutines_core(Class<?> cls, ExecutorService executorService) {
-        executorService.submit(CommonPool$isGoodCommonPool$1.INSTANCE);
+        executorService.submit(new Runnable() { // from class: kotlinx.coroutines.CommonPool$isGoodCommonPool$1
+            @Override // java.lang.Runnable
+            public final void run() {
+            }
+        });
         Integer num = null;
         try {
             Object invoke = cls.getMethod("getPoolSize", new Class[0]).invoke(executorService, new Object[0]);
@@ -233,6 +238,11 @@ public final class CommonPool extends ExecutorCoroutineDispatcher {
                 DefaultExecutor.INSTANCE.enqueue(runnable);
             }
         }
-        pool = CommonPool$shutdown$2.INSTANCE;
+        pool = new Executor() { // from class: kotlinx.coroutines.CommonPool$shutdown$2
+            @Override // java.util.concurrent.Executor
+            public final void execute(Runnable runnable2) {
+                throw new RejectedExecutionException("CommonPool was shutdown");
+            }
+        };
     }
 }

@@ -9,7 +9,7 @@ public final class UByteArrayKt {
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: ubyteArrayOf-GBYM_sE  reason: not valid java name */
-    public static final byte[] m794ubyteArrayOfGBYM_sE(byte... bArr) {
+    public static final byte[] m858ubyteArrayOfGBYM_sE(byte... bArr) {
         return bArr;
     }
 
@@ -19,8 +19,8 @@ public final class UByteArrayKt {
     public static final byte[] UByteArray(int i, Function1<? super Integer, UByte> function1) {
         byte[] bArr = new byte[i];
         for (int i2 = 0; i2 < i; i2++) {
-            bArr[i2] = function1.invoke(Integer.valueOf(i2)).m775unboximpl();
+            bArr[i2] = function1.invoke(Integer.valueOf(i2)).m839unboximpl();
         }
-        return UByteArray.m778constructorimpl(bArr);
+        return UByteArray.m842constructorimpl(bArr);
     }
 }

@@ -1,45 +1,58 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.annotation.UiThread;
-import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
-import com.baidu.swan.apps.core.SwanAppWebViewManager;
-import com.baidu.tieba.lq1;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface mq1<T extends lq1> extends TypedCallbackHandler {
-    @UiThread
-    void N();
+public interface mq1 {
 
-    void U(r52 r52Var);
+    /* loaded from: classes5.dex */
+    public interface a {
+    }
 
-    String a();
+    void C(@NonNull Context context, @NonNull nq1 nq1Var, @NonNull a aVar);
 
-    void attachActivity(Activity activity);
+    boolean i();
 
-    void b(s22 s22Var);
+    /* loaded from: classes5.dex */
+    public static class b extends r43 implements mq1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    String b0();
+        @Override // com.baidu.tieba.mq1
+        public void C(Context context, nq1 nq1Var, a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, context, nq1Var, aVar) == null) {
+            }
+        }
 
-    SwanAppWebViewManager.d d();
+        @Override // com.baidu.tieba.mq1
+        public boolean i() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
 
-    void destroy();
-
-    void e0();
-
-    String getUserAgent();
-
-    void loadUrl(String str);
-
-    void onJSLoaded();
-
-    void onPause();
-
-    void onResume();
-
-    @UiThread
-    void q();
-
-    T r();
-
-    void t(r52 r52Var);
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 }

@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class w71 extends t71 {
+public class w71 extends x71 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public z71 n;
+    public a81 d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public w71() {
-        this(new z71());
+        this(new a81());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -22,7 +22,7 @@ public class w71 extends t71 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                this((z71) newInitContext.callArgs[0]);
+                this((a81) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -30,66 +30,36 @@ public class w71 extends t71 {
         }
     }
 
-    @Override // com.baidu.tieba.t71
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            z71 z71Var = this.n;
-            CharSequence charSequence = z71Var.q;
-            int B = z71Var.B();
-            z71 z71Var2 = this.n;
-            z71Var.C(charSequence, B, z71Var2.r, z71Var2.s);
-        }
-    }
-
-    @Override // com.baidu.tieba.t71
-    public void p() {
-        z71 z71Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (z71Var = this.n) != null && z71Var.h()) {
-            super.p();
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.t71
-    /* renamed from: r */
-    public z71 f() {
+    @Override // com.baidu.tieba.x71
+    /* renamed from: s */
+    public a81 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.n;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
-        return (z71) invokeV.objValue;
+        return (a81) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w71(z71 z71Var) {
-        super(z71Var);
+    public w71(a81 a81Var) {
+        super(a81Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {z71Var};
+            Object[] objArr = {a81Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((x71) newInitContext.callArgs[0]);
+                super((b81) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.n = z71Var;
-    }
-
-    public void s(int i, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
-            z71 z71Var = this.n;
-            z71Var.r = i;
-            z71Var.s = f;
-        }
+        this.d = a81Var;
     }
 }

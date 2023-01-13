@@ -1,9 +1,16 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import android.database.Cursor;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tbadk.TiebaDatabase;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.EmotionUtil;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.img.UploadedImageInfo;
+import com.baidu.tieba.faceshop.MyEmotionGroupData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,19 +18,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.RecommendForumInfo;
+import java.io.File;
+import java.io.InputStream;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class yi6 extends BaseCardInfo {
+public class yi6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId h;
+    public static final yi6 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public boolean d;
-    public int e;
-    public int f;
-    public String g;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +41,7 @@ public class yi6 extends BaseCardInfo {
                 return;
             }
         }
-        h = BdUniqueId.gen();
+        a = new yi6();
     }
 
     public yi6() {
@@ -55,102 +58,200 @@ public class yi6 extends BaseCardInfo {
         }
     }
 
-    public String c() {
+    public static yi6 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
-        return (String) invokeV.objValue;
+        return (yi6) invokeV.objValue;
     }
 
-    public long f() {
-        InterceptResult invokeV;
+    public final boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (new File(TbadkCoreApplication.getInst().getFilesDir(), str).exists()) {
+                return true;
+            }
+            return false;
         }
-        return invokeV.longValue;
+        return invokeL.booleanValue;
     }
 
-    public String g() {
-        InterceptResult invokeV;
+    public boolean b(MyEmotionGroupData myEmotionGroupData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, myEmotionGroupData)) == null) {
+            if (myEmotionGroupData == null) {
+                return false;
+            }
+            aa mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            try {
+                mainDBDatabaseManager.f().delete(EmotionUtil.TABLE_NAME_USER_EMOTIONS, "uid = ? and groupId = ?", new String[]{myEmotionGroupData.uid, myEmotionGroupData.groupId});
+                return true;
+            } catch (Throwable th) {
+                mainDBDatabaseManager.i(th, "EmotionsDBManager.deleteMyEmotion");
+                return false;
+            }
         }
-        return (String) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public String getRecomReason() {
-        InterceptResult invokeV;
+    public MyEmotionGroupData d(String str, String str2) {
+        InterceptResult invokeLL;
+        Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return null;
+            }
+            aa mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            try {
+                cursor = mainDBDatabaseManager.f().rawQuery("SELECT * FROM user_emotions where uid = ? and groupId = ? ", new String[]{str, str2});
+                try {
+                    if (cursor.moveToNext()) {
+                        return i(cursor);
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    try {
+                        mainDBDatabaseManager.i(th, "EmotionsDBManager.getMyEmotion");
+                        return null;
+                    } finally {
+                        aj.a(cursor);
+                    }
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                cursor = null;
+            }
+            return null;
         }
-        return (String) invokeV.objValue;
+        return (MyEmotionGroupData) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.xn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public boolean e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return h;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            aa mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            Cursor cursor = null;
+            try {
+                cursor = mainDBDatabaseManager.f().rawQuery("SELECT * FROM user_emotions where uid = ? and groupId = ? ", new String[]{TbadkCoreApplication.getCurrentAccount(), str});
+                if (!cursor.moveToNext()) {
+                    return false;
+                }
+                return true;
+            } catch (Throwable th) {
+                try {
+                    mainDBDatabaseManager.i(th, "EmotionsDBManager.hasEmotionByPckID");
+                    return false;
+                } finally {
+                    aj.a(cursor);
+                }
+            }
         }
-        return (BdUniqueId) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public int i() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, CONST_STR, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
+    public List<MyEmotionGroupData> h(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            LinkedList linkedList = new LinkedList();
+            if (TextUtils.isEmpty(str)) {
+                return linkedList;
+            }
+            Cursor cursor = null;
+            try {
+                cursor = TiebaDatabase.getInstance().getMainDBDatabaseManager().f().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{str});
+                while (cursor.moveToNext()) {
+                    linkedList.add(i(cursor));
+                }
+            } finally {
+                try {
+                    return linkedList;
+                } finally {
+                }
+            }
+            return linkedList;
         }
-        return invokeV.intValue;
+        return (List) invokeL.objValue;
     }
 
-    public int k() {
-        InterceptResult invokeV;
+    public MyEmotionGroupData i(Cursor cursor) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cursor)) == null) {
+            MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
+            myEmotionGroupData.id = cursor.getInt(cursor.getColumnIndex("id"));
+            myEmotionGroupData.uid = cursor.getString(cursor.getColumnIndex("uid"));
+            myEmotionGroupData.groupId = cursor.getString(cursor.getColumnIndex(TbEnum.SystemMessage.KEY_GROUP_ID));
+            myEmotionGroupData.updateTime = cursor.getLong(cursor.getColumnIndex("updateTime"));
+            return myEmotionGroupData;
         }
-        return invokeV.intValue;
+        return (MyEmotionGroupData) invokeL.objValue;
     }
 
-    public boolean m() {
-        InterceptResult invokeV;
+    public int f(j18 j18Var) {
+        InterceptResult invokeL;
+        List<k18> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, j18Var)) == null) {
+            if (j18Var == null || (list = j18Var.e) == null || list.size() == 0) {
+                return 0;
+            }
+            String str = ".emotions/" + j18Var.a;
+            gj6 o = gj6.o();
+            List<k18> list2 = j18Var.e;
+            int i = 0;
+            for (int i2 = 0; i2 < list2.size(); i2++) {
+                k18 k18Var = list2.get(i2);
+                if (a(str + "/" + k18Var.c)) {
+                    if (a(str + "/" + k18Var.d)) {
+                        StringBuilder sb = new StringBuilder(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT);
+                        sb.append(j18Var.a + "_" + k18Var.b);
+                        sb.append(",");
+                        sb.append(k18Var.f);
+                        sb.append(",");
+                        sb.append(k18Var.e);
+                        sb.append(",");
+                        String str2 = SmallTailInfo.EMOTION_PREFIX + sb.toString() + gj.c(sb.toString() + UploadedImageInfo.MD5_KEY).toLowerCase() + SmallTailInfo.EMOTION_SUFFIX;
+                        boolean isGifImage = FileHelper.isGifImage(bc5.b.e(j18Var.a, k18Var.c));
+                        zi6.g(j18Var.a, k18Var.d, zi6.c(str2, true, false));
+                        zi6.g(j18Var.a, k18Var.c, zi6.c(str2, false, isGifImage));
+                        if (o.f(str2, j18Var.a, i2 + 1)) {
+                            i++;
+                        }
+                    }
+                }
+            }
+            return i;
         }
-        return invokeV.booleanValue;
+        return invokeL.intValue;
     }
 
-    public void o(RecommendForumInfo recommendForumInfo) {
+    public int g(String str, InputStream inputStream) throws Exception {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, recommendForumInfo) != null) || recommendForumInfo == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, inputStream)) == null) {
+            gj6 o = gj6.o();
+            List<String> a2 = zi6.a(str, inputStream);
+            int i = 0;
+            int i2 = 0;
+            while (i < a2.size()) {
+                i++;
+                if (o.f(a2.get(i), str, i)) {
+                    i2++;
+                }
+            }
+            return i2;
         }
-        this.a = recommendForumInfo.forum_id.longValue();
-        this.b = recommendForumInfo.forum_name;
-        this.c = recommendForumInfo.avatar;
-        this.e = recommendForumInfo.member_count.intValue();
-        this.f = recommendForumInfo.thread_count.intValue();
-        boolean z = true;
-        if (recommendForumInfo.is_like.intValue() != 1) {
-            z = false;
-        }
-        this.d = z;
-        this.g = recommendForumInfo.recom_reason;
-        String str = recommendForumInfo.extra;
-    }
-
-    public void p(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.d = z;
-        }
+        return invokeLL.intValue;
     }
 }

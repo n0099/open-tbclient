@@ -1,25 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.eca;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.SplitOrderConfigResult;
+import java.util.AbstractQueue;
+import java.util.Iterator;
+import java.util.concurrent.atomic.AtomicReference;
+import rx.internal.util.atomic.LinkedQueueNode;
 /* loaded from: classes6.dex */
-public class xaa {
+public abstract class xaa<E> extends AbstractQueue<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SplitOrderConfigResult a;
-    public eca.b b;
+    public final AtomicReference<LinkedQueueNode<E>> a;
+    public final AtomicReference<LinkedQueueNode<E>> b;
 
-    public xaa(SplitOrderConfigResult splitOrderConfigResult, eca.b bVar) {
+    public xaa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {splitOrderConfigResult, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,16 +31,101 @@ public class xaa {
                 return;
             }
         }
-        this.a = splitOrderConfigResult;
-        this.b = bVar;
+        this.a = new AtomicReference<>();
+        this.b = new AtomicReference<>();
     }
 
-    public String toString() {
+    public final LinkedQueueNode<E> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "PaySplitOrderInfo{splitOrderConfigResult=" + this.a + ", splitsplitOrderViewParamsId=" + this.b + '}';
+            return this.b.get();
         }
-        return (String) invokeV.objValue;
+        return (LinkedQueueNode) invokeV.objValue;
+    }
+
+    public final LinkedQueueNode<E> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.get();
+        }
+        return (LinkedQueueNode) invokeV.objValue;
+    }
+
+    public final LinkedQueueNode<E> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b.get();
+        }
+        return (LinkedQueueNode) invokeV.objValue;
+    }
+
+    public final LinkedQueueNode<E> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.get();
+        }
+        return (LinkedQueueNode) invokeV.objValue;
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public final boolean isEmpty() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (c() == d()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
+    public final Iterator<E> iterator() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return (Iterator) invokeV.objValue;
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public final int size() {
+        InterceptResult invokeV;
+        LinkedQueueNode<E> lvNext;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            LinkedQueueNode<E> c = c();
+            LinkedQueueNode<E> d = d();
+            int i = 0;
+            while (c != d && i < Integer.MAX_VALUE) {
+                do {
+                    lvNext = c.lvNext();
+                } while (lvNext == null);
+                i++;
+                c = lvNext;
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void e(LinkedQueueNode<E> linkedQueueNode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, linkedQueueNode) == null) {
+            this.b.lazySet(linkedQueueNode);
+        }
+    }
+
+    public final void f(LinkedQueueNode<E> linkedQueueNode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, linkedQueueNode) == null) {
+            this.a.lazySet(linkedQueueNode);
+        }
     }
 }

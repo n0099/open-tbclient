@@ -25,6 +25,9 @@ public class ShareEntity implements Parcelable {
     public Bundle diskPicOperate;
     public String extLiveInfo;
     public String fName;
+    public String festivalTaskTid;
+    public String festivalTaskType;
+    public String floorAuthorUid;
     public GroupInfoData groupData;
     public Uri imageUri;
     public boolean isFromDuXiaoMan;
@@ -99,6 +102,7 @@ public class ShareEntity implements Parcelable {
                 shareEntity.setStats(parcel.readBundle());
                 shareEntity.setPreferImageToLink(parcel.readInt());
                 shareEntity.setTid(parcel.readString());
+                shareEntity.setFloorAuthorUid(parcel.readString());
                 shareEntity.setTypeShareToSmallApp(parcel.readInt());
                 shareEntity.setfName(parcel.readString());
                 shareEntity.topic = parcel.readString();
@@ -118,6 +122,8 @@ public class ShareEntity implements Parcelable {
                     z2 = false;
                 }
                 shareEntity.setIsVideoThread(z2);
+                shareEntity.setFestivalTaskTid(parcel.readString());
+                shareEntity.setFestivalTaskType(parcel.readString());
                 shareEntity.extLiveInfo = parcel.readString();
                 if (parcel.readByte() == 1) {
                     z3 = true;
@@ -196,10 +202,37 @@ public class ShareEntity implements Parcelable {
         return (String) invokeV.objValue;
     }
 
-    public Uri getImageUri() {
+    public String getFestivalTaskTid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.festivalTaskTid;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getFestivalTaskType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.festivalTaskType;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getFloorAuthorUid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.floorAuthorUid;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Uri getImageUri() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.imageUri;
         }
         return (Uri) invokeV.objValue;
@@ -208,7 +241,7 @@ public class ShareEntity implements Parcelable {
     public String getImgUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             Uri uri = this.imageUri;
             if (uri == null) {
                 return "";
@@ -221,7 +254,7 @@ public class ShareEntity implements Parcelable {
     public boolean getIsVideoThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.isVideoThread;
         }
         return invokeV.booleanValue;
@@ -230,7 +263,7 @@ public class ShareEntity implements Parcelable {
     public String getLinkUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.linkUrl;
         }
         return (String) invokeV.objValue;
@@ -239,7 +272,7 @@ public class ShareEntity implements Parcelable {
     public String getLocalFile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.localFile;
         }
         return (String) invokeV.objValue;
@@ -248,7 +281,7 @@ public class ShareEntity implements Parcelable {
     public Location getLocation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.location;
         }
         return (Location) invokeV.objValue;
@@ -257,7 +290,7 @@ public class ShareEntity implements Parcelable {
     public long getReadCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.readCount;
         }
         return invokeV.longValue;
@@ -266,7 +299,7 @@ public class ShareEntity implements Parcelable {
     public int getShareTo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.shareTo;
         }
         return invokeV.intValue;
@@ -275,7 +308,7 @@ public class ShareEntity implements Parcelable {
     public int getShareType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return this.shareType;
         }
         return invokeV.intValue;
@@ -284,7 +317,7 @@ public class ShareEntity implements Parcelable {
     public Bundle getStats() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             return this.stats;
         }
         return (Bundle) invokeV.objValue;
@@ -293,7 +326,7 @@ public class ShareEntity implements Parcelable {
     public String getTid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             return this.tid;
         }
         return (String) invokeV.objValue;
@@ -302,7 +335,7 @@ public class ShareEntity implements Parcelable {
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             return this.title;
         }
         return (String) invokeV.objValue;
@@ -311,7 +344,7 @@ public class ShareEntity implements Parcelable {
     public String getTopicId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             return this.mTopicId;
         }
         return (String) invokeV.objValue;
@@ -320,7 +353,7 @@ public class ShareEntity implements Parcelable {
     public int getTypeShareToSmallApp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             return this.typeShareToSmallApp;
         }
         return invokeV.intValue;
@@ -329,7 +362,7 @@ public class ShareEntity implements Parcelable {
     public String getUserGrowthWeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
             return this.userGrowthWeight;
         }
         return (String) invokeV.objValue;
@@ -338,7 +371,7 @@ public class ShareEntity implements Parcelable {
     public String getVideoUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
             return this.videoUrl;
         }
         return (String) invokeV.objValue;
@@ -347,7 +380,7 @@ public class ShareEntity implements Parcelable {
     public String getfName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
             return this.fName;
         }
         return (String) invokeV.objValue;
@@ -356,7 +389,7 @@ public class ShareEntity implements Parcelable {
     public boolean isFromDuXiaoMan() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
             return this.isFromDuXiaoMan;
         }
         return invokeV.booleanValue;
@@ -365,7 +398,7 @@ public class ShareEntity implements Parcelable {
     public boolean needCheckStoragePermission() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
             if (this.shareType != 0) {
                 int i = this.shareTo;
                 if (i == 8 || i == 4 || i == 3 || i == 2) {
@@ -381,7 +414,7 @@ public class ShareEntity implements Parcelable {
     public int getStatValueInt(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
             Bundle bundle = this.stats;
             if (bundle == null) {
                 return -1;
@@ -394,7 +427,7 @@ public class ShareEntity implements Parcelable {
     public long getStatValueLong(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
             Bundle bundle = this.stats;
             if (bundle == null) {
                 return -1L;
@@ -407,7 +440,7 @@ public class ShareEntity implements Parcelable {
     public String getStatValueString(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
             Bundle bundle = this.stats;
             if (bundle == null) {
                 return "";
@@ -419,133 +452,154 @@ public class ShareEntity implements Parcelable {
 
     public void setContent(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
             this.content = str;
         }
     }
 
     public void setExtLiveInfo(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
             this.extLiveInfo = str;
+        }
+    }
+
+    public void setFestivalTaskTid(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
+            this.festivalTaskTid = str;
+        }
+    }
+
+    public void setFestivalTaskType(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048607, this, str) == null) {
+            this.festivalTaskType = str;
+        }
+    }
+
+    public void setFloorAuthorUid(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048608, this, str) == null) {
+            this.floorAuthorUid = str;
         }
     }
 
     public void setFromDuXiaoMan(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
             this.isFromDuXiaoMan = z;
         }
     }
 
     public void setImageUri(Uri uri) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, uri) == null) {
+        if (interceptable == null || interceptable.invokeL(1048610, this, uri) == null) {
             this.imageUri = uri;
         }
     }
 
     public void setIsVideoThread(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048611, this, z) == null) {
             this.isVideoThread = z;
         }
     }
 
     public void setLinkUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048612, this, str) == null) {
             this.linkUrl = str;
         }
     }
 
     public void setLocalFile(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048613, this, str) == null) {
             this.localFile = str;
         }
     }
 
     public void setLocation(Location location) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, location) == null) {
+        if (interceptable == null || interceptable.invokeL(1048614, this, location) == null) {
             this.location = location;
         }
     }
 
     public void setPreferImageToLink(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
             this.shareType = i;
         }
     }
 
     public void setReadCount(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048610, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048616, this, j) == null) {
             this.readCount = j;
         }
     }
 
     public void setShareTo(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048617, this, i) == null) {
             this.shareTo = i;
         }
     }
 
     public void setStats(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048618, this, bundle) == null) {
             this.stats = bundle;
         }
     }
 
     public void setTid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
             this.tid = str;
         }
     }
 
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048614, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048620, this, str) == null) {
             this.title = str;
         }
     }
 
     public void setTopicId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048615, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048621, this, str) == null) {
             this.mTopicId = str;
         }
     }
 
     public void setTypeShareToSmallApp(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048622, this, i) == null) {
             this.typeShareToSmallApp = i;
         }
     }
 
     public void setUserGrowthWeight(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048623, this, str) == null) {
             this.userGrowthWeight = str;
         }
     }
 
     public void setVideoUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048624, this, str) == null) {
             this.videoUrl = str;
         }
     }
 
     public void setfName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048625, this, str) == null) {
             this.fName = str;
         }
     }
@@ -553,7 +607,7 @@ public class ShareEntity implements Parcelable {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048620, this, parcel, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048626, this, parcel, i) == null) {
             parcel.writeString(this.title);
             parcel.writeString(this.content);
             parcel.writeString(this.linkUrl);
@@ -565,6 +619,7 @@ public class ShareEntity implements Parcelable {
             parcel.writeBundle(this.stats);
             parcel.writeInt(this.shareType);
             parcel.writeString(this.tid);
+            parcel.writeString(this.floorAuthorUid);
             parcel.writeInt(this.typeShareToSmallApp);
             parcel.writeString(this.fName);
             parcel.writeString(this.topic);
@@ -573,6 +628,8 @@ public class ShareEntity implements Parcelable {
             parcel.writeByte(this.canShareBySmartApp ? (byte) 1 : (byte) 0);
             parcel.writeLong(this.readCount);
             parcel.writeByte(this.isVideoThread ? (byte) 1 : (byte) 0);
+            parcel.writeString(this.festivalTaskTid);
+            parcel.writeString(this.festivalTaskType);
             parcel.writeString(this.extLiveInfo);
             parcel.writeByte(this.isFromDuXiaoMan ? (byte) 1 : (byte) 0);
             parcel.writeString(this.userGrowthWeight);

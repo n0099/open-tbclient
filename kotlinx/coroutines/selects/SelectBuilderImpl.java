@@ -395,7 +395,7 @@ public final class SelectBuilderImpl<R> extends LockFreeLinkedListHead implement
         Throwable unwrapImpl;
         if (trySelect()) {
             Result.Companion companion = Result.Companion;
-            resumeWith(Result.m708constructorimpl(ResultKt.createFailure(th)));
+            resumeWith(Result.m772constructorimpl(ResultKt.createFailure(th)));
         } else if (!(th instanceof CancellationException)) {
             Object result = getResult();
             if (result instanceof CompletedExceptionally) {
@@ -482,7 +482,7 @@ public final class SelectBuilderImpl<R> extends LockFreeLinkedListHead implement
                 if (_result$FU.compareAndSet(this, IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED(), SelectKt.access$getRESUMED$p())) {
                     Continuation intercepted = IntrinsicsKt__IntrinsicsJvmKt.intercepted(this.uCont);
                     Result.Companion companion = Result.Companion;
-                    intercepted.resumeWith(Result.m708constructorimpl(ResultKt.createFailure(th)));
+                    intercepted.resumeWith(Result.m772constructorimpl(ResultKt.createFailure(th)));
                     return;
                 }
             } else {
@@ -504,17 +504,17 @@ public final class SelectBuilderImpl<R> extends LockFreeLinkedListHead implement
                 }
             } else if (obj2 == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
                 if (_result$FU.compareAndSet(this, IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED(), SelectKt.access$getRESUMED$p())) {
-                    if (Result.m714isFailureimpl(obj)) {
+                    if (Result.m778isFailureimpl(obj)) {
                         Continuation<R> continuation = this.uCont;
-                        Throwable m711exceptionOrNullimpl = Result.m711exceptionOrNullimpl(obj);
-                        if (m711exceptionOrNullimpl == null) {
+                        Throwable m775exceptionOrNullimpl = Result.m775exceptionOrNullimpl(obj);
+                        if (m775exceptionOrNullimpl == null) {
                             Intrinsics.throwNpe();
                         }
                         Result.Companion companion = Result.Companion;
                         if (DebugKt.getRECOVER_STACK_TRACES() && (continuation instanceof CoroutineStackFrame)) {
-                            m711exceptionOrNullimpl = StackTraceRecoveryKt.access$recoverFromStackFrame(m711exceptionOrNullimpl, (CoroutineStackFrame) continuation);
+                            m775exceptionOrNullimpl = StackTraceRecoveryKt.access$recoverFromStackFrame(m775exceptionOrNullimpl, (CoroutineStackFrame) continuation);
                         }
-                        continuation.resumeWith(Result.m708constructorimpl(ResultKt.createFailure(m711exceptionOrNullimpl)));
+                        continuation.resumeWith(Result.m772constructorimpl(ResultKt.createFailure(m775exceptionOrNullimpl)));
                         return;
                     }
                     this.uCont.resumeWith(obj);

@@ -49,7 +49,7 @@ public final class aj extends bx.a {
         if (interceptable == null || interceptable.invokeL(1048576, this, bxVar) == null) {
             com.xiaomi.push.ba a = com.xiaomi.push.ba.a(this.a);
             String a2 = bxVar.a("MSAID", "msaid");
-            String str = a.b() + a.a() + a.c() + a.d();
+            String str = a.b() + a.mo186a() + a.c() + a.d();
             if (TextUtils.isEmpty(str) || TextUtils.equals(a2, str)) {
                 return;
             }
@@ -59,7 +59,7 @@ public final class aj extends bx.a {
             iiVar.c(ht.g.f529a);
             iiVar.a(bd.a());
             iiVar.a(new HashMap());
-            a.a(iiVar.m491a());
+            a.a(iiVar.m554a());
             byte[] a3 = it.a(ah.a(this.a.getPackageName(), this.f912a.d, iiVar, hj.i));
             XMPushService xMPushService = this.a;
             xMPushService.a(xMPushService.getPackageName(), a3, true);

@@ -1,26 +1,94 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import androidx.annotation.NonNull;
+import android.os.Message;
 import androidx.annotation.Nullable;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.tieba.mh2;
+import com.baidu.searchbox.http.request.HttpRequest;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public interface to1 {
-    boolean a(@Nullable Activity activity);
+    @Nullable
+    String A();
 
-    void b(@NonNull Context context);
+    String B();
 
-    void c(@NonNull String str);
+    String C();
 
-    void d(CallbackHandler callbackHandler);
+    String D();
 
-    void e(e43 e43Var);
+    long E();
 
-    String f(@NonNull Context context);
+    HttpRequest F(Context context, Map<String, String> map);
 
-    void g(e43 e43Var);
+    String G();
 
-    void h(@NonNull Activity activity, String str, String str2, lh2 lh2Var, mh2.b bVar);
+    String H();
+
+    String I();
+
+    boolean J();
+
+    String K();
+
+    String L();
+
+    HttpRequest M(Context context, Map<String, String> map);
+
+    boolean N();
+
+    String O();
+
+    HttpRequest a(Context context, Map<String, String> map);
+
+    String b();
+
+    String c();
+
+    void d();
+
+    String e();
+
+    String f();
+
+    HttpRequest g(Context context, Map<String, String> map);
+
+    String h();
+
+    String i();
+
+    boolean isDebug();
+
+    String j();
+
+    void k();
+
+    String l();
+
+    String m(String str);
+
+    String n();
+
+    HttpRequest o(Context context, Map<String, String> map);
+
+    String p();
+
+    String q();
+
+    int r();
+
+    HttpRequest s(Context context, Map<String, String> map);
+
+    String t();
+
+    HttpRequest u(Context context, Map<String, String> map);
+
+    String v();
+
+    String w();
+
+    void x(Message message, jr2 jr2Var);
+
+    String y();
+
+    String z(Context context);
 }

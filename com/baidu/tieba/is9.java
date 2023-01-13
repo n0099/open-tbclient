@@ -1,54 +1,69 @@
 package com.baidu.tieba;
 
-import android.util.Pair;
-import com.baidu.tieba.hs9;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.renderscript.Allocation;
+import android.renderscript.Element;
+import android.renderscript.RenderScript;
+import android.renderscript.ScriptIntrinsicYuvToRGB;
+import android.renderscript.Type;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.AdReporter;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes4.dex */
-public class is9<A extends hs9> extends AdReporter<A> {
+/* loaded from: classes5.dex */
+public class is9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public RenderScript a;
+    public ScriptIntrinsicYuvToRGB b;
+    public Type.Builder c;
+    public Type.Builder d;
+    public Allocation e;
+    public Allocation f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public is9(String str, String str2, String str3) {
-        super(str, str2, str3);
+    public is9(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        RenderScript create = RenderScript.create(context);
+        this.a = create;
+        this.b = ScriptIntrinsicYuvToRGB.create(create, Element.U8_4(create));
     }
 
-    @Override // com.fun.ad.sdk.internal.api.utils.AdReporter
-    public List onReport(Object obj, String str) {
-        InterceptResult invokeLL;
+    public Bitmap a(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, str)) == null) {
-            hs9 hs9Var = (hs9) obj;
-            if (hs9Var == null) {
-                return null;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
+            if (this.c == null) {
+                RenderScript renderScript = this.a;
+                Type.Builder x = new Type.Builder(renderScript, Element.U8(renderScript)).setX(bArr.length);
+                this.c = x;
+                this.e = Allocation.createTyped(this.a, x.create(), 1);
+                RenderScript renderScript2 = this.a;
+                Type.Builder y = new Type.Builder(renderScript2, Element.RGBA_8888(renderScript2)).setX(i).setY(i2);
+                this.d = y;
+                this.f = Allocation.createTyped(this.a, y.create(), 1);
             }
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(Pair.create("csj_rq_id", hs9Var.a()));
-            return arrayList;
+            this.e.copyFrom(bArr);
+            this.b.setInput(this.e);
+            this.b.forEach(this.f);
+            Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
+            this.f.copyTo(createBitmap);
+            return createBitmap;
         }
-        return (List) invokeLL.objValue;
+        return (Bitmap) invokeLII.objValue;
     }
 }

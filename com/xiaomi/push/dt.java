@@ -48,8 +48,8 @@ public abstract class dt extends al.a {
     public static void a(Context context, hr hrVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, context, hrVar) == null) {
-            dm m279a = dn.a().m279a();
-            String a = m279a == null ? "" : m279a.a();
+            dm m285a = dn.a().m285a();
+            String a = m285a == null ? "" : m285a.a();
             if (TextUtils.isEmpty(a) || TextUtils.isEmpty(hrVar.a())) {
                 return;
             }
@@ -71,7 +71,7 @@ public abstract class dt extends al.a {
             try {
                 try {
                     File file2 = new File(context.getExternalFilesDir(null), "push_cdata.lock");
-                    ab.m171a(file2);
+                    ab.m175a(file2);
                     randomAccessFile = new RandomAccessFile(file2, "rw");
                     try {
                         FileLock lock = randomAccessFile.getChannel().lock();
@@ -159,7 +159,7 @@ public abstract class dt extends al.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            return "dc_job_result_time_" + mo217a();
+            return "dc_job_result_time_" + mo222a();
         }
         return (String) invokeV.objValue;
     }
@@ -168,27 +168,26 @@ public abstract class dt extends al.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            return "dc_job_result_" + mo217a();
+            return "dc_job_result_" + mo222a();
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.xiaomi.push.al.a
-    /* renamed from: a */
-    public abstract hl mo217a();
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.al.a.a()Ljava/lang/String; */
+    public abstract hl a();
 
-    @Override // com.xiaomi.push.al.a
-    /* renamed from: a */
-    public boolean mo217a() {
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.al.a.a()Ljava/lang/String; */
+    /* renamed from: a  reason: collision with other method in class */
+    public boolean m287a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? dp.a(this.f256a, String.valueOf(mo217a()), this.a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? dp.a(this.f256a, String.valueOf(mo222a()), this.a) : invokeV.booleanValue;
     }
 
     public abstract String b();
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m281b() {
+    public boolean m288b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -198,7 +197,7 @@ public abstract class dt extends al.a {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m282c() {
+    public boolean m289c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -215,14 +214,14 @@ public abstract class dt extends al.a {
             if (TextUtils.isEmpty(b)) {
                 return;
             }
-            if (mo217a()) {
-                com.xiaomi.channel.commonutils.logger.b.m99a("DC run job mutual: " + mo217a());
+            if (m287a()) {
+                com.xiaomi.channel.commonutils.logger.b.m103a("DC run job mutual: " + mo222a());
                 return;
             }
-            dm m279a = dn.a().m279a();
-            String a = m279a == null ? "" : m279a.a();
-            if (!TextUtils.isEmpty(a) && m281b()) {
-                if (m282c()) {
+            dm m285a = dn.a().m285a();
+            String a = m285a == null ? "" : m285a.a();
+            if (!TextUtils.isEmpty(a) && m288b()) {
+                if (m289c()) {
                     SharedPreferences sharedPreferences = this.f256a.getSharedPreferences("mipush_extra", 0);
                     if (bp.a(b).equals(sharedPreferences.getString(d(), null))) {
                         long j = sharedPreferences.getLong(c(), 0L);
@@ -238,7 +237,7 @@ public abstract class dt extends al.a {
                 hr hrVar = new hr();
                 hrVar.a(b);
                 hrVar.a(System.currentTimeMillis());
-                hrVar.a(mo217a());
+                hrVar.a(a());
                 a(this.f256a, hrVar, a);
             }
         }

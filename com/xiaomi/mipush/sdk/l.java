@@ -86,14 +86,14 @@ public class l {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static a m167a(e eVar) {
+    public static a m171a(e eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, eVar)) == null) ? a.get(eVar) : (a) invokeL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static ho m168a(e eVar) {
+    public static ho m172a(e eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, eVar)) == null) ? ho.ao : (ho) invokeL.objValue;

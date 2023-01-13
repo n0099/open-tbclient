@@ -42,14 +42,16 @@ public class c extends XMPushService.j {
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
-    public String a() {
+    /* renamed from: a */
+    public String mo673a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "batch send message." : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
-    public void a() {
+    /* renamed from: a */
+    public void mo394a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {

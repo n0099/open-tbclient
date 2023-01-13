@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ea;
-import com.baidu.tieba.ry4;
-import com.baidu.tieba.uf5;
+import com.baidu.tieba.cz4;
+import com.baidu.tieba.fa;
+import com.baidu.tieba.jg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -63,7 +63,7 @@ public class LogoTask extends LaunchTask {
     private void startSwitchDebugService() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2000996, new ea(TbadkCoreApplication.getInst())));
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2000996, new fa(TbadkCoreApplication.getInst())));
         }
     }
 
@@ -93,12 +93,12 @@ public class LogoTask extends LaunchTask {
             if (this.mIsFirstUse) {
                 TbadkSettings.getInst().saveBoolean("first_sync_image_quality", true);
                 TbadkCoreApplication.getInst().setIsAbstractOn(0);
-                ry4.l().v("frs_first_in", true);
+                cz4.l().v("frs_first_in", true);
             }
             if (TbSingleton.getInstance().isAuditPackageSwitchOn()) {
                 NASLib.onAppStart(TbadkCoreApplication.getInst());
             }
-            uf5.b().z(this.mIsFirstUse);
+            jg5.b().z(this.mIsFirstUse);
         }
     }
 }

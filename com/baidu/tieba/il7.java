@@ -1,232 +1,172 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.BIMManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.AtUserInfo;
+import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseMsg;
+import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.ReMsgInfo;
+import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.itemdata.TextGenImageMsg;
+import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.itemdata.TextMsg;
+import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.repo.entity.BotsDTO;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class il7 implements el7 {
+public class il7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final StatisticItem a;
 
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b implements el7 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.el7
-        public void a(ICardInfo iCardInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, iCardInfo) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.el7
-        public el7 b(String str, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) ? this : (el7) invokeLI.objValue;
-        }
-
-        @Override // com.baidu.tieba.el7
-        public el7 c(String str, long j) {
-            InterceptResult invokeLJ;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) ? this : (el7) invokeLJ.objValue;
-        }
-
-        @Override // com.baidu.tieba.el7
-        public el7 d(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) ? this : (el7) invokeLL.objValue;
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public il7(BaseLegoCardInfo baseLegoCardInfo) {
-        this(baseLegoCardInfo.getStatistics(), baseLegoCardInfo.getStatTab(), baseLegoCardInfo.getCardType(), baseLegoCardInfo.getItemId());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseLegoCardInfo};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (String) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public il7(String str, int i, int i2, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        StatisticItem statisticItem = new StatisticItem(str);
-        this.a = statisticItem;
-        statisticItem.param("obj_source", i);
-        this.a.param("obj_type", i2);
-        if (!TextUtils.isEmpty(str2)) {
-            this.a.param("obj_card", str2);
-        }
-    }
-
-    public static el7 e(BaseLegoCardInfo baseLegoCardInfo) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseLegoCardInfo)) == null) {
-            if (baseLegoCardInfo != null && !TextUtils.isEmpty(baseLegoCardInfo.getStatistics())) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                return new il7(baseLegoCardInfo);
-            }
-            return new b(null);
-        }
-        return (el7) invokeL.objValue;
-    }
-
-    public static el7 f(String str, int i, int i2, String str2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2})) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                return new il7(str, i, i2, str2);
-            }
-            return new b(null);
-        }
-        return (el7) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.el7
-    public void a(ICardInfo iCardInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, iCardInfo) == null) {
-            g(iCardInfo);
-            TiebaStatic.log(this.a);
-        }
-    }
-
-    @Override // com.baidu.tieba.el7
-    public el7 b(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                this.a.param(str, i);
-            }
-            return this;
-        }
-        return (el7) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.el7
-    public el7 c(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                this.a.param(str, String.valueOf(j));
-            }
-            return this;
-        }
-        return (el7) invokeLJ.objValue;
-    }
-
-    @Override // com.baidu.tieba.el7
-    public el7 d(String str, String str2) {
+    public static String a(@Nullable String str, @NonNull String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                this.a.param(str, str2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str2;
             }
-            return this;
+            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0839, new Object[]{str, str2});
         }
-        return (el7) invokeLL.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public final void g(ICardInfo iCardInfo) {
+    @Nullable
+    public static AtUserInfo b(@NonNull BotsDTO.BotListDTO.UserDTO userDTO, @NonNull BotsDTO.BotListDTO.SkillDTO skillDTO) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, iCardInfo) == null) {
-            BaseLegoCardInfo baseLegoCardInfo = (BaseLegoCardInfo) iCardInfo;
-            if (!TextUtils.isEmpty(baseLegoCardInfo.getStatistics()) && !TextUtils.isEmpty(baseLegoCardInfo.getsExtras())) {
-                List<Object> params = this.a.getParams();
-                for (String str : baseLegoCardInfo.getsExtras().split("&")) {
-                    String[] split = str.split("=");
-                    if (split.length == 2) {
-                        String str2 = split[0];
-                        String str3 = split[1];
-                        boolean z = false;
-                        for (int i = 0; i < params.size() && !z; i += 2) {
-                            if (TextUtils.equals(str2, params.get(i).toString())) {
-                                int i2 = i + 1;
-                                if (i2 < params.size()) {
-                                    params.set(i2, str3);
-                                }
-                                z = true;
-                            }
-                        }
-                        if (!z) {
-                            this.a.param(str2, str3);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, userDTO, skillDTO)) == null) {
+            String bdUidFromBdUK = BIMManager.getBdUidFromBdUK(userDTO.getUk());
+            if (TextUtils.isEmpty(bdUidFromBdUK)) {
+                return null;
+            }
+            try {
+                return AtUserInfo.create(AtUserInfo.AtType.USER, Long.parseLong(bdUidFromBdUK), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f083b, new Object[]{userDTO.getNameShow(), skillDTO.getName()}), userDTO.getPortrait(), 0);
+            } catch (Exception e) {
+                if (!TbadkCoreApplication.getInst().isDebugMode()) {
+                    e.printStackTrace();
+                    return null;
+                }
+                throw e;
+            }
+        }
+        return (AtUserInfo) invokeLL.objValue;
+    }
+
+    public static TextMsg c(@NonNull String str, @NonNull xk7 xk7Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, xk7Var)) == null) {
+            BotsDTO.BotListDTO.UserDTO userDTO = xk7Var.a;
+            BotsDTO.BotListDTO.SkillDTO skillDTO = xk7Var.b;
+            List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list = xk7Var.c;
+            if (userDTO != null && skillDTO != null) {
+                TextMsg create = TextMsg.create(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f083a, new Object[]{userDTO.getNameShow(), skillDTO.getName(), a(skillDTO.getAlias(), str)}));
+                AtUserInfo b = b(userDTO, skillDTO);
+                if (b == null) {
+                    return TextMsg.create(str);
+                }
+                create.addAtUserInfo(b);
+                HashMap hashMap = new HashMap();
+                hashMap.put("type", Integer.valueOf(skillDTO.getType()));
+                hashMap.put("promot", str);
+                hashMap.put("scene", "tieba_group_chat");
+                HashMap hashMap2 = new HashMap();
+                if (!ListUtils.isEmpty(list)) {
+                    for (BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO : list) {
+                        if (itemsDTO != null && !ListUtils.isEmpty(itemsDTO.getOpts())) {
+                            hashMap2.put(itemsDTO.getValue(), itemsDTO.getOpts().get(0).getName());
                         }
                     }
                 }
-                d(TiebaStatic.Params.OBJ_PARAM3, s46.e());
+                hashMap.put("opts", hashMap2);
+                create.setRobotParams(hashMap);
+                return create;
             }
+            return TextMsg.create(str);
         }
+        return (TextMsg) invokeLL.objValue;
+    }
+
+    public static TextMsg d(@NonNull String str, @NonNull BaseMsg baseMsg, @NonNull xk7 xk7Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, baseMsg, xk7Var)) == null) {
+            BotsDTO.BotListDTO.UserDTO userDTO = xk7Var.a;
+            BotsDTO.BotListDTO.SkillDTO skillDTO = xk7Var.b;
+            List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list = xk7Var.c;
+            if (userDTO != null && skillDTO != null) {
+                StringBuilder sb = new StringBuilder();
+                if (!ListUtils.isEmpty(list)) {
+                    for (BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO : list) {
+                        if (itemsDTO != null && !ListUtils.isEmpty(itemsDTO.getOpts())) {
+                            sb.append(a(itemsDTO.getName(), itemsDTO.getOpts().get(0).getName()));
+                            sb.append("\n");
+                        }
+                    }
+                }
+                if (!TextUtils.isEmpty(skillDTO.getAlias()) && !TextUtils.isEmpty(str)) {
+                    sb.append(a(skillDTO.getAlias(), str));
+                }
+                String sb2 = sb.toString();
+                if (sb2.endsWith("\n")) {
+                    sb2 = sb2.substring(0, sb2.length() - 1);
+                }
+                TextMsg create = TextMsg.create(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f083a, new Object[]{userDTO.getNameShow(), skillDTO.getName(), sb2}));
+                AtUserInfo b = b(userDTO, skillDTO);
+                if (b == null) {
+                    return TextMsg.create(str);
+                }
+                create.addAtUserInfo(b);
+                create.setReMsgInfo(ReMsgInfo.create(baseMsg.getMsgType(), baseMsg.getSdkMsg().getMsgType(), baseMsg.getCommonMsgField().getUserId(), baseMsg.getCommonMsgField().getUserName(), baseMsg.getCommonMsgField().getMsgId(), baseMsg.getCommonMsgField().getMsgKey(), baseMsg.getThumbnailText().toString()));
+                HashMap hashMap = new HashMap();
+                hashMap.put("type", Integer.valueOf(skillDTO.getType()));
+                hashMap.put("promot", str);
+                hashMap.put("scene", "tieba_group_chat");
+                if (baseMsg.getReMsgInfo() != null) {
+                    if (baseMsg instanceof TextGenImageMsg) {
+                        hashMap.put("last_promot", ((TextGenImageMsg) baseMsg).getLastPrompt());
+                    }
+                    hashMap.put("user_msg_id", Long.valueOf(baseMsg.getReMsgInfo().getMsgId()));
+                    hashMap.put("user_msg_key", baseMsg.getReMsgInfo().getMsgKey());
+                }
+                if (baseMsg.getTaskInfo() != null) {
+                    hashMap.put("robot_msg_id", Long.valueOf(baseMsg.getTaskInfo().getOriginMsgId()));
+                    hashMap.put("robot_msg_key", baseMsg.getTaskInfo().getOriginMsgKey());
+                }
+                HashMap hashMap2 = new HashMap();
+                if (!ListUtils.isEmpty(list)) {
+                    for (BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO2 : list) {
+                        if (itemsDTO2 != null && !ListUtils.isEmpty(itemsDTO2.getOpts())) {
+                            hashMap2.put(itemsDTO2.getValue(), itemsDTO2.getOpts().get(0).getName());
+                        }
+                    }
+                }
+                hashMap.put("opts", hashMap2);
+                create.setRobotParams(hashMap);
+                return create;
+            }
+            return TextMsg.create(str);
+        }
+        return (TextMsg) invokeLLL.objValue;
+    }
+
+    public static TextMsg e(@NonNull String str, @Nullable BaseMsg baseMsg, @Nullable xk7 xk7Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, baseMsg, xk7Var)) == null) {
+            if (xk7Var == null) {
+                return TextMsg.create(str);
+            }
+            if (baseMsg == null) {
+                return c(str, xk7Var);
+            }
+            return d(str, baseMsg, xk7Var);
+        }
+        return (TextMsg) invokeLLL.objValue;
     }
 }

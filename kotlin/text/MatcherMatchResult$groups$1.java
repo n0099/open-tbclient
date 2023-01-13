@@ -7,6 +7,7 @@ import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.internal.PlatformImplementations;
 import kotlin.internal.PlatformImplementationsKt;
+import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.ranges.IntRange;
 import kotlin.sequences.SequencesKt___SequencesKt;
@@ -77,6 +78,21 @@ public final class MatcherMatchResult$groups$1 extends AbstractCollection<MatchG
 
     @Override // kotlin.collections.AbstractCollection, java.util.Collection, java.lang.Iterable
     public Iterator<MatchGroup> iterator() {
-        return SequencesKt___SequencesKt.map(CollectionsKt___CollectionsKt.asSequence(CollectionsKt__CollectionsKt.getIndices(this)), new MatcherMatchResult$groups$1$iterator$1(this)).iterator();
+        return SequencesKt___SequencesKt.map(CollectionsKt___CollectionsKt.asSequence(CollectionsKt__CollectionsKt.getIndices(this)), new Function1<Integer, MatchGroup>() { // from class: kotlin.text.MatcherMatchResult$groups$1$iterator$1
+            {
+                super(1);
+            }
+
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function1
+            public /* bridge */ /* synthetic */ MatchGroup invoke(Integer num) {
+                return invoke(num.intValue());
+            }
+
+            public final MatchGroup invoke(int i) {
+                return MatcherMatchResult$groups$1.this.get(i);
+            }
+        }).iterator();
     }
 }

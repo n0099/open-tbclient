@@ -21,7 +21,7 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,12 +29,12 @@ public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpst
     public final Function<? super T, ? extends ObservableSource<V>> itemTimeoutIndicator;
     public final ObservableSource<? extends T> other;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface TimeoutSelectorSupport extends ObservableTimeoutTimed.TimeoutSupport {
         void onTimeoutError(long j, Throwable th);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class TimeoutConsumer extends AtomicReference<Disposable> implements Observer<Object>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8708641127342403073L;
@@ -127,7 +127,7 @@ public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpst
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class TimeoutFallbackObserver<T> extends AtomicReference<Disposable> implements Observer<T>, Disposable, TimeoutSelectorSupport {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7508389464265974549L;
@@ -279,7 +279,7 @@ public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpst
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class TimeoutObserver<T> extends AtomicLong implements Observer<T>, Disposable, TimeoutSelectorSupport {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3764492702657003550L;

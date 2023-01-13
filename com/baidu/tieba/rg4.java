@@ -1,69 +1,129 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class rg4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile rg4 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
 
-    public rg4(int i, int i2, int i3) {
+    public rg4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
     }
 
-    public static rg4 a() {
+    public static rg4 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new rg4(2, 2, 1000);
+            if (a == null) {
+                synchronized (rg4.class) {
+                    if (a == null) {
+                        a = new rg4();
+                    }
+                }
+            }
+            return a;
         }
         return (rg4) invokeV.objValue;
     }
 
-    @NonNull
-    public static rg4 b(@Nullable JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject != null) {
-                return new rg4(jSONObject.optInt("max_num", 2), jSONObject.optInt("per_call_num", 2), jSONObject.optInt("call_interval", 1000));
-            }
-            return a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return ub4.b().i().getString("web_mode_version", "0");
         }
-        return (rg4) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public String toString() {
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (ub4.b().i().getInt("web_mode_switch", 1) == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public ArrayList<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "PkgDownloadLimitStrategy{maxNum=" + this.a + ", perCallNum=" + this.b + ", callInterval=" + this.c + '}';
+            String string = ub4.b().i().getString("web_mode_degrade_list", "");
+            JSONArray jSONArray = null;
+            if (TextUtils.isEmpty(string)) {
+                return null;
+            }
+            try {
+                jSONArray = new JSONArray(string);
+            } catch (JSONException unused) {
+            }
+            ArrayList<String> arrayList = new ArrayList<>();
+            if (jSONArray != null && jSONArray.length() > 0) {
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    arrayList.add(jSONArray.optString(i));
+                }
+            }
+            return arrayList;
         }
-        return (String) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public final String e(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            JSONArray optJSONArray = jSONObject.optJSONArray("errno_list");
+            if (optJSONArray != null) {
+                return optJSONArray.toString();
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void f(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString("version");
+        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("host_use_weburl_degrade")) {
+            return;
+        }
+        int optInt = optJSONObject.optInt("host_use_weburl_degrade", 0);
+        String e = e(optJSONObject);
+        sb4 b = ub4.b();
+        if (b == null) {
+            return;
+        }
+        lk4 i = b.i();
+        i.putInt("web_mode_switch", optInt);
+        i.putString("web_mode_degrade_list", e);
+        i.putString("web_mode_version", optString);
     }
 }

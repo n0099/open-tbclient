@@ -10,7 +10,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.SapiWebView;
@@ -346,7 +345,7 @@ public class SapiCoreUtil {
             }
             HashMap hashMap = new HashMap();
             hashMap.put("r", 4);
-            hashMap.put(Config.DEVICE_WIDTH, 2);
+            hashMap.put("w", 2);
             int i = 1;
             hashMap.put("x", 1);
             hashMap.put("-", 0);

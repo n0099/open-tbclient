@@ -24,7 +24,7 @@ import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ObservableWithLatestFromMany<T, R> extends AbstractObservableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public final class ObservableWithLatestFromMany<T, R> extends AbstractObservable
     @Nullable
     public final Iterable<? extends ObservableSource<?>> otherIterable;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public final class SingletonArrayFunc implements Function<T, R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +71,7 @@ public final class ObservableWithLatestFromMany<T, R> extends AbstractObservable
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class WithLatestFromObserver<T, R> extends AtomicInteger implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1577321883966341961L;
@@ -242,7 +242,7 @@ public final class ObservableWithLatestFromMany<T, R> extends AbstractObservable
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class WithLatestInnerObserver extends AtomicReference<Disposable> implements Observer<Object> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3256684027868224024L;

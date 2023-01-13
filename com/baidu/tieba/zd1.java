@@ -1,47 +1,47 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Base64;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.view.View;
+import android.view.Window;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.platform.comapi.UIMsg;
-import com.baidu.poly.statistics.exception.ServerDataException;
+import com.baidu.poly.widget.coupon.CouponListView;
+import com.baidu.tieba.be1;
+import com.baidu.tieba.rd1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.URLDecoder;
-import java.security.KeyFactory;
-import java.security.PublicKey;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.Cipher;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class zd1 {
+public class zd1 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static String b;
-    public static String c;
-    public static Bundle d;
-    public static long e;
-    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
+    public CouponListView a;
+    public ImageView b;
+    public FrameLayout c;
+    public d d;
 
     /* loaded from: classes7.dex */
-    public static class a extends lb1<String> {
+    public interface d {
+        void a(boolean z, be1.a aVar);
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lb1 a;
+        public final /* synthetic */ zd1 a;
 
-        public a(lb1 lb1Var) {
+        public a(zd1 zd1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lb1Var};
+                Object[] objArr = {zd1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -51,56 +51,33 @@ public class zd1 {
                     return;
                 }
             }
-            this.a = lb1Var;
+            this.a = zd1Var;
         }
 
-        @Override // com.baidu.tieba.lb1
-        public void a(Throwable th, int i, String str) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
-                this.a.a(th, i, str);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lb1
-        /* renamed from: d */
-        public void c(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    int optInt = jSONObject.optInt("code", 1);
-                    String optString = jSONObject.optString("msg", "");
-                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                    if (optInt == 0 && optJSONObject != null) {
-                        String unused = zd1.a = optJSONObject.optString("orderId");
-                        String unused2 = zd1.b = optJSONObject.optString("smsId");
-                        zd1.c = optJSONObject.optString("mobile");
-                        this.a.c(optJSONObject);
-                        return;
-                    }
-                    lb1 lb1Var = this.a;
-                    lb1Var.a(new ServerDataException("msg = " + optString), optInt, optString);
-                } catch (JSONException unused3) {
-                    this.a.b(new ServerDataException(UIMsg.UI_TIP_SERVER_ERROR), UIMsg.UI_TIP_SERVER_ERROR);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.a != null && this.a.d != null) {
+                    this.a.d.a(false, this.a.a.getSelectedItem());
                 }
+                this.a.dismiss();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class b extends lb1<String> {
+    public class b implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lb1 a;
+        public final /* synthetic */ zd1 a;
 
-        public b(lb1 lb1Var) {
+        public b(zd1 zd1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lb1Var};
+                Object[] objArr = {zd1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -110,53 +87,44 @@ public class zd1 {
                     return;
                 }
             }
-            this.a = lb1Var;
+            this.a = zd1Var;
         }
 
-        @Override // com.baidu.tieba.lb1
-        public void a(Throwable th, int i, String str) {
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
-                this.a.a(th, i, str);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lb1
-        /* renamed from: d */
-        public void c(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    int optInt = jSONObject.optInt("code", 1);
-                    String optString = jSONObject.optString("msg", "");
-                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                    if (optInt == 0 && optJSONObject != null) {
-                        this.a.c(optJSONObject);
-                        return;
-                    }
-                    lb1 lb1Var = this.a;
-                    lb1Var.a(new ServerDataException("msg = " + optString), optInt, optString);
-                } catch (JSONException unused) {
-                    this.a.b(new ServerDataException(UIMsg.UI_TIP_SERVER_ERROR), UIMsg.UI_TIP_SERVER_ERROR);
-                }
+            if ((interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) && this.a.a != null && this.a.d != null) {
+                this.a.d.a(false, this.a.a.getSelectedItem());
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class c extends lb1<JSONObject> {
+    public class c implements CouponListView.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lb1 a;
+        public final /* synthetic */ zd1 a;
 
-        public c(lb1 lb1Var) {
+        @Override // com.baidu.poly.widget.coupon.CouponListView.h
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.poly.widget.coupon.CouponListView.h
+        public void onDetach() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            }
+        }
+
+        public c(zd1 zd1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lb1Var};
+                Object[] objArr = {zd1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -166,121 +134,108 @@ public class zd1 {
                     return;
                 }
             }
-            this.a = lb1Var;
+            this.a = zd1Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lb1
-        /* renamed from: d */
-        public void c(JSONObject jSONObject) {
+        @Override // com.baidu.poly.widget.coupon.CouponListView.h
+        public void c(be1.a aVar, rd1 rd1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-                this.a.c(jSONObject);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, rd1Var) == null) {
+                rd1.a aVar2 = new rd1.a();
+                aVar2.a = 0;
+                rd1Var.a(aVar2);
             }
         }
 
-        @Override // com.baidu.tieba.lb1
-        public void a(Throwable th, int i, String str) {
+        @Override // com.baidu.poly.widget.coupon.CouponListView.h
+        public void d(boolean z, be1.a aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
-                this.a.a(th, i, str);
-            }
-        }
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return i(str, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDeoE4C+X8ahP2/juzyb10hdQNIHR3a+m3+nV6sVaOiXpNw1sNnB/2ms9vV2yXCOTz2JFWMmgr8p5dA9yUfYzSVMWN8jyZdOzAwGzjh6oB32FsqlgFkXNTNJHkdIzJRq/H8Q9mlh67c2KrMN2QLU219M6EbLoTL0i+0oUbZ4W0IrwIDAQAB");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void c(String str, lb1<JSONObject> lb1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, lb1Var) == null) {
-            String[] split = str.split("&");
-            mb1 mb1Var = new mb1();
-            for (String str2 : split) {
-                String[] split2 = str2.split("=");
-                if (split2.length == 2) {
-                    if (TextUtils.equals(split2[0], "timestamp")) {
-                        mb1Var.d(split2[0], URLDecoder.decode(split2[1]));
-                    } else {
-                        mb1Var.d(split2[0], split2[1]);
-                    }
+            if (interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, aVar) == null) {
+                this.a.dismiss();
+                if (this.a.d != null) {
+                    this.a.d.a(z, aVar);
                 }
             }
-            tb1.j().g(vb1.e(), mb1Var, new c(lb1Var));
         }
     }
 
-    public static void g(String str, nb1 nb1Var) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public zd1(Context context) {
+        this(context, R.style.obfuscated_res_0x7f100100);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, str, nb1Var) == null) {
-            String a2 = nb1Var.a("Cookie");
-            String str2 = "BDUSS=" + str;
-            if (a2 == null) {
-                nb1Var.d("Cookie", str2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            nb1Var.d("Cookie", a2 + "; " + str2);
         }
     }
 
-    public static String i(String str, String str2) {
-        InterceptResult invokeLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zd1(Context context, int i) {
+        super(context, i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) {
-            try {
-                PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str2, 0)));
-                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                cipher.init(1, generatePublic);
-                return Base64.encodeToString(cipher.doFinal(str.getBytes()), 0);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return "";
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static void e(Bundle bundle, String str, String str2, long j, lb1<JSONObject> lb1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{bundle, str, str2, Long.valueOf(j), lb1Var}) == null) {
-            d = bundle;
-            e = j;
-            f = str2;
-            nb1 nb1Var = new nb1();
-            ub1.d(nb1Var);
-            f(bundle, nb1Var);
-            mb1 mb1Var = new mb1();
-            mb1Var.d("token", d("orderId=" + str + "&payChannel=" + str2 + "&timestamp=" + j));
-            new rb1().a(vb1.n(), nb1Var, mb1Var, new a(lb1Var));
-        }
-    }
-
-    public static void f(Bundle bundle, nb1 nb1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, bundle, nb1Var) == null) {
-            String string = bundle.getString("bduss");
-            if (TextUtils.isEmpty(string)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            g(string, nb1Var);
+        }
+        c();
+    }
+
+    public void d(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
+            this.d = dVar;
         }
     }
 
-    public static void h(String str, lb1<JSONObject> lb1Var) {
+    public void update(List<be1.a> list) {
+        CouponListView couponListView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, str, lb1Var) == null) {
-            nb1 nb1Var = new nb1();
-            ub1.d(nb1Var);
-            f(d, nb1Var);
-            mb1 mb1Var = new mb1();
-            mb1Var.d("token", d("orderId=" + a + "&payChannel=" + f + "&smsId=" + b + "&timestamp=" + e + "&verifyCode=" + str));
-            new rb1().a(vb1.g(), nb1Var, mb1Var, new b(lb1Var));
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && (couponListView = this.a) != null) {
+            couponListView.update(list);
+            this.a.setListener(new c(this));
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setContentView(R.layout.obfuscated_res_0x7f0d022d);
+            Window window = getWindow();
+            if (window != null) {
+                window.setGravity(80);
+                window.setWindowAnimations(R.style.obfuscated_res_0x7f1003a6);
+                window.setLayout(-1, -2);
+            }
+            this.a = (CouponListView) findViewById(R.id.obfuscated_res_0x7f0905af);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0905b0);
+            this.c = frameLayout;
+            frameLayout.setVisibility(8);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091094);
+            this.b = imageView;
+            imageView.setOnClickListener(new a(this));
+            setOnCancelListener(new b(this));
         }
     }
 }

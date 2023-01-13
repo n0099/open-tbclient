@@ -13,10 +13,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
+import com.baidu.tieba.cx4;
 import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter;
 import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.itemdata.ManagerTipsSysMsg;
-import com.baidu.tieba.rw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,8 +56,8 @@ public class ManagerTipsAdapter extends BaseSysAdapter<ManagerTipsSysMsg, Holder
                     return;
                 }
             }
-            this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0922d0);
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091538);
+            this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0922fb);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091546);
         }
     }
 
@@ -91,7 +91,7 @@ public class ManagerTipsAdapter extends BaseSysAdapter<ManagerTipsSysMsg, Holder
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
-            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0595, viewGroup, false));
+            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0593, viewGroup, false));
         }
         return (Holder) invokeL.objValue;
     }
@@ -120,10 +120,10 @@ public class ManagerTipsAdapter extends BaseSysAdapter<ManagerTipsSysMsg, Holder
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), viewGroup, managerTipsSysMsg, holder, list, Integer.valueOf(i2)})) == null) {
             if (managerTipsSysMsg != null && managerTipsSysMsg.getManagerTips() != null) {
                 holder.a.setText(managerTipsSysMsg.getManagerTips());
-                rw4 d = rw4.d(holder.b);
+                cx4 d = cx4.d(holder.b);
                 d.n(R.string.J_X04);
                 d.f(R.color.CAM_X0625);
-                rw4 d2 = rw4.d(holder.a);
+                cx4 d2 = cx4.d(holder.a);
                 d2.v(R.color.CAM_X0101);
                 d2.z(R.dimen.T_X09);
                 if (this.f) {

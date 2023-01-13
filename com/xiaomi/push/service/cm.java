@@ -34,7 +34,7 @@ public class cm implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a.f884a = true;
             try {
-                com.xiaomi.channel.commonutils.logger.b.m99a("try to trigger the wifi digest broadcast.");
+                com.xiaomi.channel.commonutils.logger.b.m103a("try to trigger the wifi digest broadcast.");
                 Object systemService = this.a.getApplicationContext().getSystemService("MiuiWifiService");
                 if (systemService != null) {
                     com.xiaomi.push.bk.b(systemService, "sendCurrentWifiDigestInfo", new Object[0]);

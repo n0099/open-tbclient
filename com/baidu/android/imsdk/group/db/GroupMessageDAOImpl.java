@@ -12,6 +12,7 @@ import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsgFactory;
 import com.baidu.android.imsdk.chatmessage.messages.FansGroupAtMsg;
 import com.baidu.android.imsdk.chatmessage.messages.HtmlMsg;
+import com.baidu.android.imsdk.db.CursorWrapper;
 import com.baidu.android.imsdk.db.DBGroupTableManager;
 import com.baidu.android.imsdk.db.DBOperation;
 import com.baidu.android.imsdk.db.DBOperationFactory;
@@ -641,7 +642,7 @@ public class GroupMessageDAOImpl {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, cursor)) == null) {
                             if (cursor != null) {
-                                j = cursor.getLong(cursor.getColumnIndex("msgid"));
+                                j = CursorWrapper.getLong(cursor, "msgid");
                             } else {
                                 j = -1;
                             }
@@ -666,26 +667,26 @@ public class GroupMessageDAOImpl {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, cursor)) == null) {
-            int i = cursor.getInt(cursor.getColumnIndex("_id"));
-            int i2 = cursor.getInt(cursor.getColumnIndex("type"));
-            long j = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupMessageColumns.COLUMN_FROM_USER));
-            long j2 = cursor.getLong(cursor.getColumnIndex("msgid"));
-            long j3 = cursor.getLong(cursor.getColumnIndex("time"));
-            int i3 = cursor.getInt(cursor.getColumnIndex("is_read"));
-            int i4 = cursor.getInt(cursor.getColumnIndex("status"));
-            String string = cursor.getString(cursor.getColumnIndex("content"));
-            long j4 = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupMessageColumns.COLUMN_GROUPID));
-            int i5 = cursor.getInt(cursor.getColumnIndex("cmd"));
-            String string2 = cursor.getString(cursor.getColumnIndex("local_url"));
-            if (cursor.getInt(cursor.getColumnIndex("isclicked")) == 1) {
+            int i = CursorWrapper.getInt(cursor, "_id");
+            int i2 = CursorWrapper.getInt(cursor, "type");
+            long j = CursorWrapper.getLong(cursor, DBTableDefine.GroupMessageColumns.COLUMN_FROM_USER);
+            long j2 = CursorWrapper.getLong(cursor, "msgid");
+            long j3 = CursorWrapper.getLong(cursor, "time");
+            int i3 = CursorWrapper.getInt(cursor, "is_read");
+            int i4 = CursorWrapper.getInt(cursor, "status");
+            String string = CursorWrapper.getString(cursor, "content");
+            long j4 = CursorWrapper.getLong(cursor, DBTableDefine.GroupMessageColumns.COLUMN_GROUPID);
+            int i5 = CursorWrapper.getInt(cursor, "cmd");
+            String string2 = CursorWrapper.getString(cursor, "local_url");
+            if (CursorWrapper.getInt(cursor, "isclicked") == 1) {
                 z = true;
             } else {
                 z = false;
             }
-            int i6 = cursor.getInt(cursor.getColumnIndex("device_flag"));
-            String string3 = cursor.getString(cursor.getColumnIndex("sendid"));
-            String string4 = cursor.getString(cursor.getColumnIndex("from_buid"));
-            String string5 = cursor.getString(cursor.getColumnIndex("msg_key"));
+            int i6 = CursorWrapper.getInt(cursor, "device_flag");
+            String string3 = CursorWrapper.getString(cursor, "sendid");
+            String string4 = CursorWrapper.getString(cursor, "from_buid");
+            String string5 = CursorWrapper.getString(cursor, "msg_key");
             ChatMsg newChatMsg = ChatMsgFactory.getInstance().newChatMsg(context, 1, i2, i5);
             if (newChatMsg == null) {
                 return null;

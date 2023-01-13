@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.TimeHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.o25;
-import com.baidu.tieba.ok7;
-import com.baidu.tieba.pk7;
-import com.baidu.tieba.qk7;
-import com.baidu.tieba.ry4;
+import com.baidu.tieba.cz4;
+import com.baidu.tieba.dp7;
+import com.baidu.tieba.ep7;
+import com.baidu.tieba.fp7;
+import com.baidu.tieba.y25;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,16 +24,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class InterestPanelShowManager {
     public static /* synthetic */ Interceptable $ic;
     public static volatile InterestPanelShowManager c;
     public transient /* synthetic */ FieldHolder $fh;
-    public qk7 a;
+    public fp7 a;
     public boolean b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class InterestPanelShowState {
         public static final /* synthetic */ InterestPanelShowState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -132,13 +132,13 @@ public class InterestPanelShowManager {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            o25 interestBoardConfigData = TbadkCoreApplication.getInst().getInterestBoardConfigData();
+            y25 interestBoardConfigData = TbadkCoreApplication.getInst().getInterestBoardConfigData();
             if (interestBoardConfigData == null) {
                 return false;
             }
-            long n = ry4.l().n("key_app_launch_time", 0L);
+            long n = cz4.l().n("key_app_launch_time", 0L);
             int i = (int) (((((j - n) / 1000) / 60) / 60) / 24);
-            boolean interestGuideShowCountInLimit = TbSingleton.getInstance().interestGuideShowCountInLimit(ry4.l().r("key_interest_guide_show", ""), interestBoardConfigData);
+            boolean interestGuideShowCountInLimit = TbSingleton.getInstance().interestGuideShowCountInLimit(cz4.l().r("key_interest_guide_show", ""), interestBoardConfigData);
             if (n == 0 || i < interestBoardConfigData.b || !interestGuideShowCountInLimit) {
                 return false;
             }
@@ -147,10 +147,10 @@ public class InterestPanelShowManager {
         return invokeJ.booleanValue;
     }
 
-    public void c(qk7 qk7Var) {
+    public void c(fp7 fp7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qk7Var) == null) {
-            this.a = qk7Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fp7Var) == null) {
+            this.a = fp7Var;
         }
     }
 
@@ -186,14 +186,14 @@ public class InterestPanelShowManager {
 
     public final InterestPanelShowState f() {
         InterceptResult invokeV;
-        qk7 qk7Var;
+        fp7 fp7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!TimeHelper.isSameDay(ry4.l().n("key_interest_panel_show_time", 0L), System.currentTimeMillis()) && (qk7Var = this.a) != null && qk7Var.b() != null && this.a.a() != null) {
+            if (!TimeHelper.isSameDay(cz4.l().n("key_interest_panel_show_time", 0L), System.currentTimeMillis()) && (fp7Var = this.a) != null && fp7Var.b() != null && this.a.a() != null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 int registerTime = (int) (((currentTimeMillis - (this.a.b().getRegisterTime() * 1000)) / 86400000) + 1);
-                ok7 a = this.a.a();
-                List<pk7> b = a.b();
+                dp7 a = this.a.a();
+                List<ep7> b = a.b();
                 if (ListUtils.isEmpty(b)) {
                     return null;
                 }

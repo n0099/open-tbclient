@@ -1,143 +1,166 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.app.Application;
+import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
-/* loaded from: classes6.dex */
+import java.util.concurrent.CopyOnWriteArrayList;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public class y8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final y8 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public volatile boolean a;
+    public ne1 b;
+    public long c;
+    public final Handler d;
+    public final CopyOnWriteArrayList<jh1> e;
 
-    public y8(File file) {
+    /* loaded from: classes7.dex */
+    public interface b {
+        void onFailed();
+
+        void onSuccess();
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ y8 b;
+
+        public a(y8 y8Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = y8Var;
+            this.a = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a == 1 && ((float) (System.currentTimeMillis() - this.b.c)) < ye1.i() * 60000.0f) {
+                    return;
+                }
+                if (this.b.b == null) {
+                    this.b.b = new ne1();
+                }
+                this.b.b.k();
+                this.b.c = System.currentTimeMillis();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448321198, "Lcom/baidu/tieba/y8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448321198, "Lcom/baidu/tieba/y8;");
+                return;
+            }
+        }
+        f = new y8();
+    }
+
+    public static y8 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return f;
+        }
+        return (y8) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e.clear();
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !c41.b()) {
+            return;
+        }
+        Context b2 = ej0.b();
+        if (b2 instanceof Application) {
+            ((Application) b2).registerActivityLifecycleCallbacks(new re1());
+        }
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONObject d = le1.a().d();
+            if (d == null || d.optBoolean("real_time_query_switch", true)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public y8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {file};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.a = file.getAbsolutePath();
+        this.a = false;
+        this.d = new Handler(Looper.getMainLooper());
+        this.e = new CopyOnWriteArrayList<>();
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public void j(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b() : invokeV.booleanValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:54:0x0088 A[Catch: Exception -> 0x0084, TRY_LEAVE, TryCatch #6 {Exception -> 0x0084, blocks: (B:50:0x0080, B:54:0x0088), top: B:68:0x0080 }] */
-    /* JADX WARN: Removed duplicated region for block: B:68:0x0080 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final boolean b() {
-        InterceptResult invokeV;
-        FileInputStream fileInputStream;
-        Exception e;
-        ZipInputStream zipInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
-            return invokeV.booleanValue;
-        }
-        if (TextUtils.isEmpty(this.a)) {
-            return false;
-        }
-        ZipInputStream zipInputStream2 = null;
-        try {
-            fileInputStream = new FileInputStream(new File(this.a));
-        } catch (Exception e2) {
-            fileInputStream = null;
-            e = e2;
-            zipInputStream = null;
-        } catch (Throwable th) {
-            th = th;
-            fileInputStream = null;
-        }
-        try {
-            zipInputStream = new ZipInputStream(new BufferedInputStream(fileInputStream));
-            while (true) {
-                try {
-                    try {
-                        ZipEntry nextEntry = zipInputStream.getNextEntry();
-                        if (nextEntry == null) {
-                            try {
-                                zipInputStream.close();
-                                fileInputStream.close();
-                            } catch (Exception e3) {
-                                e3.printStackTrace();
-                            }
-                            return true;
-                        } else if (!nextEntry.isDirectory() && nextEntry.getName().contains("../")) {
-                            try {
-                                zipInputStream.close();
-                                fileInputStream.close();
-                            } catch (Exception e4) {
-                                e4.printStackTrace();
-                            }
-                            return false;
-                        }
-                    } catch (Exception e5) {
-                        e = e5;
-                        e.printStackTrace();
-                        if (zipInputStream != null) {
-                            try {
-                                zipInputStream.close();
-                            } catch (Exception e6) {
-                                e6.printStackTrace();
-                                return false;
-                            }
-                        }
-                        if (fileInputStream != null) {
-                            fileInputStream.close();
-                            return false;
-                        }
-                        return false;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    zipInputStream2 = zipInputStream;
-                    if (zipInputStream2 != null) {
-                        try {
-                            zipInputStream2.close();
-                        } catch (Exception e7) {
-                            e7.printStackTrace();
-                            throw th;
-                        }
-                    }
-                    if (fileInputStream != null) {
-                        fileInputStream.close();
-                    }
-                    throw th;
-                }
-            }
-        } catch (Exception e8) {
-            e = e8;
-            zipInputStream = null;
-        } catch (Throwable th3) {
-            th = th3;
-            if (zipInputStream2 != null) {
-            }
-            if (fileInputStream != null) {
-            }
-            throw th;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.d.postDelayed(new a(this, i), 5000L);
         }
     }
 }

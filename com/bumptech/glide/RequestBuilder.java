@@ -165,22 +165,23 @@ public class RequestBuilder<TranscodeType> extends BaseRequestOptions<RequestBui
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.request.BaseRequestOptions
     @CheckResult
-    public RequestBuilder<TranscodeType> clone() {
+    /* renamed from: clone */
+    public RequestBuilder<TranscodeType> mo79clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RequestBuilder<TranscodeType> requestBuilder = (RequestBuilder) super.m76clone();
-            requestBuilder.transitionOptions = (TransitionOptions<?, ? super TranscodeType>) requestBuilder.transitionOptions.m75clone();
+            RequestBuilder<TranscodeType> requestBuilder = (RequestBuilder) super.mo79clone();
+            requestBuilder.transitionOptions = (TransitionOptions<?, ? super TranscodeType>) requestBuilder.transitionOptions.m80clone();
             if (requestBuilder.requestListeners != null) {
                 requestBuilder.requestListeners = new ArrayList(requestBuilder.requestListeners);
             }
             RequestBuilder<TranscodeType> requestBuilder2 = requestBuilder.thumbnailBuilder;
             if (requestBuilder2 != null) {
-                requestBuilder.thumbnailBuilder = requestBuilder2.clone();
+                requestBuilder.thumbnailBuilder = requestBuilder2.mo79clone();
             }
             RequestBuilder<TranscodeType> requestBuilder3 = requestBuilder.errorBuilder;
             if (requestBuilder3 != null) {
-                requestBuilder.errorBuilder = requestBuilder3.clone();
+                requestBuilder.errorBuilder = requestBuilder3.mo79clone();
             }
             return requestBuilder;
         }
@@ -343,7 +344,7 @@ public class RequestBuilder<TranscodeType> extends BaseRequestOptions<RequestBui
                 throw new IllegalStateException("You cannot use a request as both the main request and a thumbnail, consider using clone() on the request(s) passed to thumbnail()");
             } else if (this.thumbSizeMultiplier != null) {
                 ThumbnailRequestCoordinator thumbnailRequestCoordinator2 = new ThumbnailRequestCoordinator(obj, requestCoordinator);
-                thumbnailRequestCoordinator2.setRequests(obtainRequest(obj, target, requestListener, baseRequestOptions, thumbnailRequestCoordinator2, transitionOptions, priority, i, i2, executor), obtainRequest(obj, target, requestListener, baseRequestOptions.m76clone().sizeMultiplier(this.thumbSizeMultiplier.floatValue()), thumbnailRequestCoordinator2, transitionOptions, getThumbnailPriority(priority), i, i2, executor));
+                thumbnailRequestCoordinator2.setRequests(obtainRequest(obj, target, requestListener, baseRequestOptions, thumbnailRequestCoordinator2, transitionOptions, priority, i, i2, executor), obtainRequest(obj, target, requestListener, baseRequestOptions.mo79clone().sizeMultiplier(this.thumbSizeMultiplier.floatValue()), thumbnailRequestCoordinator2, transitionOptions, getThumbnailPriority(priority), i, i2, executor));
                 return thumbnailRequestCoordinator2;
             } else {
                 return obtainRequest(obj, target, requestListener, baseRequestOptions, requestCoordinator, transitionOptions, priority, i, i2, executor);
@@ -356,7 +357,7 @@ public class RequestBuilder<TranscodeType> extends BaseRequestOptions<RequestBui
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-            return clone().error((RequestBuilder) null).thumbnail((RequestBuilder) null);
+            return mo79clone().error((RequestBuilder) null).thumbnail((RequestBuilder) null);
         }
         return (RequestBuilder) invokeV.objValue;
     }
@@ -428,7 +429,7 @@ public class RequestBuilder<TranscodeType> extends BaseRequestOptions<RequestBui
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, obj)) == null) {
             if (isAutoCloneEnabled()) {
-                return clone().loadGeneric(obj);
+                return mo79clone().loadGeneric(obj);
             }
             this.model = obj;
             this.isModelSet = true;
@@ -467,7 +468,7 @@ public class RequestBuilder<TranscodeType> extends BaseRequestOptions<RequestBui
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, requestBuilder)) == null) {
             if (isAutoCloneEnabled()) {
-                return clone().error((RequestBuilder) requestBuilder);
+                return mo79clone().error((RequestBuilder) requestBuilder);
             }
             this.errorBuilder = requestBuilder;
             return selfOrThrowIfLocked();
@@ -492,7 +493,7 @@ public class RequestBuilder<TranscodeType> extends BaseRequestOptions<RequestBui
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, requestListener)) == null) {
             if (isAutoCloneEnabled()) {
-                return clone().listener(requestListener);
+                return mo79clone().listener(requestListener);
             }
             this.requestListeners = null;
             return addListener(requestListener);
@@ -520,7 +521,7 @@ public class RequestBuilder<TranscodeType> extends BaseRequestOptions<RequestBui
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, requestBuilder)) == null) {
             if (isAutoCloneEnabled()) {
-                return clone().thumbnail(requestBuilder);
+                return mo79clone().thumbnail(requestBuilder);
             }
             this.thumbnailBuilder = requestBuilder;
             return selfOrThrowIfLocked();
@@ -600,7 +601,7 @@ public class RequestBuilder<TranscodeType> extends BaseRequestOptions<RequestBui
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestListener)) == null) {
             if (isAutoCloneEnabled()) {
-                return clone().addListener(requestListener);
+                return mo79clone().addListener(requestListener);
             }
             if (requestListener != null) {
                 if (this.requestListeners == null) {
@@ -640,7 +641,7 @@ public class RequestBuilder<TranscodeType> extends BaseRequestOptions<RequestBui
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048614, this, f)) == null) {
             if (isAutoCloneEnabled()) {
-                return clone().thumbnail(f);
+                return mo79clone().thumbnail(f);
             }
             if (f >= 0.0f && f <= 1.0f) {
                 this.thumbSizeMultiplier = Float.valueOf(f);
@@ -658,7 +659,7 @@ public class RequestBuilder<TranscodeType> extends BaseRequestOptions<RequestBui
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, transitionOptions)) == null) {
             if (isAutoCloneEnabled()) {
-                return clone().transition(transitionOptions);
+                return mo79clone().transition(transitionOptions);
             }
             this.transitionOptions = (TransitionOptions) Preconditions.checkNotNull(transitionOptions);
             this.isDefaultTransitionOptionsSet = false;

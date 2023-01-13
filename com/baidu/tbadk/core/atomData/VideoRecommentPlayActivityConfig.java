@@ -10,6 +10,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.module.hottopic.VideoHotTopicParams;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -366,6 +367,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoRecommentPlayActivityConfig(Context context, List<VideoItemData> list, String str, String str2, boolean z) {
         super(context);
+        String str3;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -384,7 +386,13 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
         getIntent().putExtra("video_list", (Serializable) list);
         getIntent().putExtra("page_from", str);
         getIntent().putExtra("from", str2);
-        TbSingleton.getInstance().setIsNeedShowPbCommentFloat(z);
+        TbSingleton tbSingleton = TbSingleton.getInstance();
+        if (z && ListUtils.getCount(list) > 0 && list.get(0) != null) {
+            str3 = list.get(0).thread_id;
+        } else {
+            str3 = null;
+        }
+        tbSingleton.setIsNeedShowPbCommentThreadId(str3);
     }
 
     public void setIsFromBjhPb(boolean z) {

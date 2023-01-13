@@ -1,96 +1,187 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.messages.gfh.GfhKeyValue;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ci3 implements hh4 {
+public class ci3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ci3 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-889435426, "Lcom/baidu/tieba/ci3$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-889435426, "Lcom/baidu/tieba/ci3$b;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947675676, "Lcom/baidu/tieba/ci3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            a = new ci3(null);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947675676, "Lcom/baidu/tieba/ci3;");
+                return;
+            }
         }
+        a = tk1.a;
     }
 
-    public ci3() {
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (j43.M() != null) {
+                return j43.M().b;
             }
+            return "";
         }
+        return (String) invokeV.objValue;
     }
 
-    public static ci3 b() {
+    public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+            return xg3.b(xg3.a(), "yyyy-MM-dd");
         }
-        return (ci3) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public /* synthetic */ ci3(a aVar) {
-        this();
-    }
-
-    @Override // com.baidu.tieba.hh4
-    public boolean a(@NonNull String str, @NonNull int i) {
-        InterceptResult invokeLI;
+    public static int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    return false;
-                }
-                File file = new File(mn2.g().b(), str);
-                if (!file.exists() || !file.isDirectory()) {
-                    return false;
-                }
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            JSONObject d = d(a());
+            if (d == null) {
+                return 0;
             }
-            File file2 = new File(an2.g(), str);
-            if (!file2.exists() || !file2.isDirectory()) {
+            return d.optInt("launch_count", 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public static void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            i(a(), "visit_duration", Long.valueOf(e()));
+        }
+    }
+
+    public static JSONObject d(String str) {
+        InterceptResult invokeL;
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            String string = xc3.a().getString("dailyInfo", "");
+            if (a) {
+                Log.i("SwanAppUserVisitInfoUtils", "dailyInfo:" + string);
+            }
+            JSONObject jSONObject2 = null;
+            try {
+                if (TextUtils.isEmpty(string)) {
+                    jSONObject = new JSONObject();
+                } else {
+                    jSONObject = new JSONObject(string);
+                }
+                if (f(jSONObject)) {
+                    jSONObject.put(GfhKeyValue.TYPE_DATE, b());
+                }
+                jSONObject2 = jSONObject.optJSONObject(str);
+                if (jSONObject2 == null) {
+                    jSONObject.put(str, new JSONObject());
+                    xc3.a().putString("dailyInfo", jSONObject.toString());
+                    return jSONObject2;
+                }
+            } catch (JSONException e) {
+                if (a) {
+                    Log.e("SwanAppUserVisitInfoUtils", e.getMessage());
+                }
+            }
+            return jSONObject2;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static long e() {
+        InterceptResult invokeV;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            JSONObject d = d(a());
+            if (d != null) {
+                j = d.optLong("foreground_aiapp_last_time_local", 0L);
+            } else {
+                j = 0;
+            }
+            if (d == null) {
+                return 0L;
+            }
+            return d.optLong("visit_duration", 0L) + (currentTimeMillis - j);
+        }
+        return invokeV.longValue;
+    }
+
+    public static boolean f(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, jSONObject)) == null) {
+            String b = b();
+            String optString = jSONObject.optString(GfhKeyValue.TYPE_DATE, "");
+            if (!TextUtils.isEmpty(optString) && optString.equals(b)) {
                 return false;
             }
             return true;
         }
-        return invokeLI.booleanValue;
+        return invokeL.booleanValue;
+    }
+
+    public static void g(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65543, null, j) == null) {
+            i(a(), "foreground_aiapp_last_time_local", Long.valueOf(j));
+        }
+    }
+
+    public static void i(String str, String str2, Object obj) {
+        JSONObject jSONObject;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65545, null, str, str2, obj) == null) {
+            String string = xc3.a().getString("dailyInfo", "");
+            if (a) {
+                if (TextUtils.isEmpty(string)) {
+                    str3 = "dailyinfo is null";
+                } else {
+                    str3 = string;
+                }
+                Log.i("SwanAppUserVisitInfoUtils", str3);
+            }
+            try {
+                if (TextUtils.isEmpty(string)) {
+                    jSONObject = new JSONObject();
+                } else {
+                    jSONObject = new JSONObject(string);
+                }
+                JSONObject optJSONObject = jSONObject.optJSONObject(str);
+                if (optJSONObject != null) {
+                    optJSONObject.put(str2, obj);
+                } else {
+                    jSONObject.put(str, new JSONObject());
+                }
+                xc3.a().putString("dailyInfo", jSONObject.toString());
+            } catch (JSONException e) {
+                if (a) {
+                    Log.e("SwanAppUserVisitInfoUtils", e.getMessage());
+                }
+            }
+        }
     }
 }

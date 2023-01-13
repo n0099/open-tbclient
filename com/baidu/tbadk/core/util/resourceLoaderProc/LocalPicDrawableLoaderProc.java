@@ -4,9 +4,9 @@ import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.in;
-import com.baidu.tieba.m95;
-import com.baidu.tieba.xg;
+import com.baidu.tieba.ba5;
+import com.baidu.tieba.jn;
+import com.baidu.tieba.yg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,8 +68,8 @@ public class LocalPicDrawableLoaderProc extends AbstractImageLoaderProc {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.ug
-    public in getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.vg
+    public jn getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         String str3;
         Interceptable interceptable = $ic;
@@ -84,19 +84,19 @@ public class LocalPicDrawableLoaderProc extends AbstractImageLoaderProc {
                 str3 = "";
             }
             String str4 = str + str3;
-            in m = m95.k().m(str4);
+            jn m = ba5.k().m(str4);
             if (m == null) {
-                Bitmap bitmap = SkinManager.getBitmap(xg.e(str2, 0));
+                Bitmap bitmap = SkinManager.getBitmap(yg.e(str2, 0));
                 if (bitmap == null) {
                     return null;
                 }
-                in inVar = new in(bitmap, false, str2);
-                m95.k().d(str4, inVar);
-                return inVar;
+                jn jnVar = new jn(bitmap, false, str2);
+                ba5.k().d(str4, jnVar);
+                return jnVar;
             }
             return m;
         }
-        return (in) invokeCommon.objValue;
+        return (jn) invokeCommon.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc

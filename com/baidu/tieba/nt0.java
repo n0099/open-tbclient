@@ -1,34 +1,15 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class nt0 extends ex0 {
+public class nt0 extends rt0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public void s(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-        }
-    }
-
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
 
     public nt0() {
         Interceptable interceptable = $ic;
@@ -44,17 +25,20 @@ public abstract class nt0 extends ex0 {
         }
     }
 
-    @SuppressLint({"KotlinPropertyAccess"})
-    public ax0 r() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.rt0, com.baidu.tieba.pt0, com.baidu.tieba.qt0, com.baidu.tieba.mt0
+    public void k(@NonNull ru0 ru0Var) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            jx0 jx0Var = this.a;
-            if (jx0Var != null) {
-                return (ax0) jx0Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ru0Var) == null) {
+            super.k(ru0Var);
+            if (PlayerEvent.ACTION_PLAYER_ATTACH.equals(ru0Var.c())) {
+                if (q().n1().g()) {
+                    i = 0;
+                } else {
+                    i = 8;
+                }
+                K(i);
             }
-            throw new NullPointerException("null cannot be cast to non-null type com.baidu.nadcore.player.layer.AbsNewControlLayer");
         }
-        return (ax0) invokeV.objValue;
     }
 }

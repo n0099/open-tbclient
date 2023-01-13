@@ -1,53 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.clientupdate.ClientUpdater;
-import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
-import com.baidu.clientupdate.download.Download;
+import androidx.annotation.NonNull;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
 /* loaded from: classes7.dex */
-public class yk7 extends BdAsyncTask<String, Integer, Download> {
+public class yk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ClientUpdateInfo a;
 
-    public yk7(ClientUpdateInfo clientUpdateInfo) {
+    @NonNull
+    public static StatisticItem a(String str, String str2, long j, String str3) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {clientUpdateInfo};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{str, str2, Long.valueOf(j), str3})) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("fid", j);
+            statisticItem.param("fname", str3);
+            if (!StringUtils.isNull(str2)) {
+                statisticItem.param("room_id", str2);
             }
+            return statisticItem;
         }
-        this.a = clientUpdateInfo;
+        return (StatisticItem) invokeCommon.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public Download doInBackground(String... strArr) throws IOException {
-        InterceptResult invokeL;
+    public static void b(String str, long j, String str2, String str3, int i, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-            if (this.a == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Long.valueOf(j), str2, str3, Integer.valueOf(i), str4}) == null) {
+            StatisticItem a = a(str, str3, j, str2);
+            a.param("obj_locate", i);
+            if (!StringUtils.isNull(str4)) {
+                a.param("obj_type", str4);
             }
-            ClientUpdater.getInstance(TbadkCoreApplication.getInst()).startDownload(this.a, null);
-            return null;
+            TiebaStatic.log(a);
         }
-        return (Download) invokeL.objValue;
     }
 }

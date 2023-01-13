@@ -44,7 +44,7 @@ public abstract class PathUtils {
                     return;
                 }
             }
-            a = PathUtils.c();
+            a = PathUtils.a();
         }
     }
 
@@ -76,6 +76,10 @@ public abstract class PathUtils {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public static /* synthetic */ String[] a() {
+        return c();
     }
 
     @CalledByNative

@@ -16,6 +16,7 @@ import java.util.Iterator;
 import java.util.List;
 import kotlin.Deprecated;
 import kotlin.Metadata;
+import kotlin.Unit;
 import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
@@ -29,7 +30,7 @@ public class FilesKt__UtilsKt extends FilesKt__FileTreeWalkKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final boolean copyRecursively(File copyRecursively, File target, boolean z, Function2<? super File, ? super IOException, ? extends OnErrorAction> onError) {
+    public static final boolean copyRecursively(File copyRecursively, File target, boolean z, final Function2<? super File, ? super IOException, ? extends OnErrorAction> onError) {
         boolean z2;
         Intrinsics.checkNotNullParameter(copyRecursively, "$this$copyRecursively");
         Intrinsics.checkNotNullParameter(target, "target");
@@ -41,7 +42,29 @@ public class FilesKt__UtilsKt extends FilesKt__FileTreeWalkKt {
             return false;
         }
         try {
-            Iterator<File> it = FilesKt__FileTreeWalkKt.walkTopDown(copyRecursively).onFail(new FilesKt__UtilsKt$copyRecursively$2(onError)).iterator();
+            Iterator<File> it = FilesKt__FileTreeWalkKt.walkTopDown(copyRecursively).onFail(new Function2<File, IOException, Unit>() { // from class: kotlin.io.FilesKt__UtilsKt$copyRecursively$2
+                {
+                    super(2);
+                }
+
+                /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
+                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                @Override // kotlin.jvm.functions.Function2
+                public /* bridge */ /* synthetic */ Unit invoke(File file, IOException iOException) {
+                    invoke2(file, iOException);
+                    return Unit.INSTANCE;
+                }
+
+                /* renamed from: invoke  reason: avoid collision after fix types in other method */
+                public final void invoke2(File f, IOException e) {
+                    Intrinsics.checkNotNullParameter(f, "f");
+                    Intrinsics.checkNotNullParameter(e, "e");
+                    if (((OnErrorAction) Function2.this.invoke(f, e)) != OnErrorAction.TERMINATE) {
+                        return;
+                    }
+                    throw new TerminateException(f);
+                }
+            }).iterator();
             while (it.hasNext()) {
                 File next = it.next();
                 if (!next.exists()) {
@@ -89,7 +112,15 @@ public class FilesKt__UtilsKt extends FilesKt__FileTreeWalkKt {
             z = false;
         }
         if ((i & 4) != 0) {
-            function2 = FilesKt__UtilsKt$copyRecursively$1.INSTANCE;
+            function2 = new Function2() { // from class: kotlin.io.FilesKt__UtilsKt$copyRecursively$1
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // kotlin.jvm.functions.Function2
+                public final Void invoke(File file3, IOException exception) {
+                    Intrinsics.checkNotNullParameter(file3, "<anonymous parameter 0>");
+                    Intrinsics.checkNotNullParameter(exception, "exception");
+                    throw exception;
+                }
+            };
         }
         return copyRecursively(file, file2, z, function2);
     }

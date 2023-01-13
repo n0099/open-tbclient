@@ -20,7 +20,7 @@ import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class SingleUsing<T, U> extends Single<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public final class SingleUsing<T, U> extends Single<T> {
     public final Callable<U> resourceSupplier;
     public final Function<? super U, ? extends SingleSource<? extends T>> singleFunction;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class UsingSingleObserver<T, U> extends AtomicReference<Object> implements SingleObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5331524057054083935L;

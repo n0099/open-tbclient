@@ -78,6 +78,48 @@ public final class ar {
         return !z ? TextUtils.isEmpty(AR) ? "" : AR : !TextUtils.isEmpty(AR) ? com.kwad.sdk.c.b.a(aq.Ad(), AR, 0) : (aq.Ad() || ((com.kwad.sdk.service.kwai.f) ServiceProvider.get(com.kwad.sdk.service.kwai.f.class)).i(8L)) ? com.kwad.sdk.c.b.a(false, AR, 1) : com.kwad.sdk.c.b.a(false, AR, 2);
     }
 
+    public static /* synthetic */ String bj(boolean z) {
+        return bg(true);
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.kwad.sdk.utils.ar.1.xh():java.lang.String] */
+    public static /* synthetic */ String bk(boolean z) {
+        return Ah();
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.kwad.sdk.utils.ar.1.xi():java.lang.String] */
+    public static /* synthetic */ String bl(boolean z) {
+        return Ai();
+    }
+
+    public static /* synthetic */ String bm(boolean z) {
+        return bh(true);
+    }
+
+    public static /* synthetic */ String bn(boolean z) {
+        return bi(true);
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.kwad.sdk.utils.ar.1.xl():java.lang.String] */
+    public static /* synthetic */ String bo(boolean z) {
+        return Ak();
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.kwad.sdk.utils.ar.1.getSdkVersion():java.lang.String] */
+    public static /* synthetic */ String bp(boolean z) {
+        return Al();
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.kwad.sdk.utils.ar.1.getAppId():java.lang.String] */
+    public static /* synthetic */ String bq(boolean z) {
+        return Am();
+    }
+
     public static String c(Context context, boolean z) {
         String u = az.u(context, z);
         if (!z) {
@@ -187,18 +229,42 @@ public final class ar {
     @NonNull
     public static com.kwad.sdk.c.c cW(final Context context) {
         return new com.kwad.sdk.c.c() { // from class: com.kwad.sdk.utils.ar.1
+            /*  JADX ERROR: JadxRuntimeException in pass: InlineMethods
+                jadx.core.utils.exceptions.JadxRuntimeException: Failed to process method for inline: com.kwad.sdk.utils.ar.bq(boolean):java.lang.String
+                	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:76)
+                	at jadx.core.dex.visitors.InlineMethods.visit(InlineMethods.java:51)
+                Caused by: java.lang.IndexOutOfBoundsException: Index: 0
+                	at java.base/java.util.Collections$EmptyList.get(Collections.java:4807)
+                	at jadx.core.dex.nodes.InsnNode.getArg(InsnNode.java:104)
+                	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:117)
+                	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
+                	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
+                	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:65)
+                	... 1 more
+                */
             @Override // com.kwad.sdk.c.a
-            public final String getAppId() {
-                String Am = ar.Am();
-                com.kwad.sdk.core.e.b.d("SDKPrivateSafetyDataUtil", "getAppId:" + Am);
-                return Am;
+            public final java.lang.String getAppId() {
+                /*
+                    r3 = this;
+                    r0 = 1
+                    java.lang.String r0 = com.kwad.sdk.utils.ar.bq(r0)
+                    java.lang.StringBuilder r1 = new java.lang.StringBuilder
+                    java.lang.String r2 = "getAppId:"
+                    r1.<init>(r2)
+                    r1.append(r0)
+                    java.lang.String r1 = r1.toString()
+                    java.lang.String r2 = "SDKPrivateSafetyDataUtil"
+                    com.kwad.sdk.core.e.b.d(r2, r1)
+                    return r0
+                */
+                throw new UnsupportedOperationException("Method not decompiled: com.kwad.sdk.utils.ar.AnonymousClass1.getAppId():java.lang.String");
             }
 
             @Override // com.kwad.sdk.c.a
             public final String getDeviceId() {
-                String bh = ar.bh(true);
-                com.kwad.sdk.core.e.b.d("SDKPrivateSafetyDataUtil", "getDeviceId:" + bh);
-                return bh;
+                String bm = ar.bm(true);
+                com.kwad.sdk.core.e.b.d("SDKPrivateSafetyDataUtil", "getDeviceId:" + bm);
+                return bm;
             }
 
             @Override // com.kwad.sdk.c.a
@@ -209,9 +275,9 @@ public final class ar {
 
             @Override // com.kwad.sdk.c.a
             public final String getIp() {
-                String bi = ar.bi(true);
-                com.kwad.sdk.core.e.b.d("SDKPrivateSafetyDataUtil", "getIp:" + bi);
-                return bi;
+                String bn = ar.bn(true);
+                com.kwad.sdk.core.e.b.d("SDKPrivateSafetyDataUtil", "getIp:" + bn);
+                return bn;
             }
 
             @Override // com.kwad.sdk.c.a
@@ -223,15 +289,39 @@ public final class ar {
 
             @Override // com.kwad.sdk.c.a
             public final String getOaid() {
-                com.kwad.sdk.core.e.b.d("SDKPrivateSafetyDataUtil", "getOaid:" + ar.bg(true));
-                return ar.bg(true);
+                com.kwad.sdk.core.e.b.d("SDKPrivateSafetyDataUtil", "getOaid:" + ar.bj(true));
+                return ar.bj(true);
             }
 
+            /*  JADX ERROR: JadxRuntimeException in pass: InlineMethods
+                jadx.core.utils.exceptions.JadxRuntimeException: Failed to process method for inline: com.kwad.sdk.utils.ar.bp(boolean):java.lang.String
+                	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:76)
+                	at jadx.core.dex.visitors.InlineMethods.visit(InlineMethods.java:51)
+                Caused by: java.lang.IndexOutOfBoundsException: Index: 0
+                	at java.base/java.util.Collections$EmptyList.get(Collections.java:4807)
+                	at jadx.core.dex.nodes.InsnNode.getArg(InsnNode.java:104)
+                	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:117)
+                	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
+                	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
+                	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:65)
+                	... 1 more
+                */
             @Override // com.kwad.sdk.c.a
-            public final String getSdkVersion() {
-                String Al = ar.Al();
-                com.kwad.sdk.core.e.b.d("SDKPrivateSafetyDataUtil", "getSdkVersion:" + Al);
-                return Al;
+            public final java.lang.String getSdkVersion() {
+                /*
+                    r3 = this;
+                    r0 = 1
+                    java.lang.String r0 = com.kwad.sdk.utils.ar.bp(r0)
+                    java.lang.StringBuilder r1 = new java.lang.StringBuilder
+                    java.lang.String r2 = "getSdkVersion:"
+                    r1.<init>(r2)
+                    r1.append(r0)
+                    java.lang.String r1 = r1.toString()
+                    java.lang.String r2 = "SDKPrivateSafetyDataUtil"
+                    com.kwad.sdk.core.e.b.d(r2, r1)
+                    return r0
+                */
+                throw new UnsupportedOperationException("Method not decompiled: com.kwad.sdk.utils.ar.AnonymousClass1.getSdkVersion():java.lang.String");
             }
 
             @Override // com.kwad.sdk.c.a
@@ -277,18 +367,66 @@ public final class ar {
                 return ar.cQ(context);
             }
 
+            /*  JADX ERROR: JadxRuntimeException in pass: InlineMethods
+                jadx.core.utils.exceptions.JadxRuntimeException: Failed to process method for inline: com.kwad.sdk.utils.ar.bk(boolean):java.lang.String
+                	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:76)
+                	at jadx.core.dex.visitors.InlineMethods.visit(InlineMethods.java:51)
+                Caused by: java.lang.IndexOutOfBoundsException: Index: 0
+                	at java.base/java.util.Collections$EmptyList.get(Collections.java:4807)
+                	at jadx.core.dex.nodes.InsnNode.getArg(InsnNode.java:104)
+                	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:117)
+                	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
+                	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
+                	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:65)
+                	... 1 more
+                */
             @Override // com.kwad.sdk.c.a
-            public final String xh() {
-                String Ah = ar.Ah();
-                com.kwad.sdk.core.e.b.d("SDKPrivateSafetyDataUtil", "getSimCardActivePhoneCount:" + Ah);
-                return Ah;
+            public final java.lang.String xh() {
+                /*
+                    r3 = this;
+                    r0 = 1
+                    java.lang.String r0 = com.kwad.sdk.utils.ar.bk(r0)
+                    java.lang.StringBuilder r1 = new java.lang.StringBuilder
+                    java.lang.String r2 = "getSimCardActivePhoneCount:"
+                    r1.<init>(r2)
+                    r1.append(r0)
+                    java.lang.String r1 = r1.toString()
+                    java.lang.String r2 = "SDKPrivateSafetyDataUtil"
+                    com.kwad.sdk.core.e.b.d(r2, r1)
+                    return r0
+                */
+                throw new UnsupportedOperationException("Method not decompiled: com.kwad.sdk.utils.ar.AnonymousClass1.xh():java.lang.String");
             }
 
+            /*  JADX ERROR: JadxRuntimeException in pass: InlineMethods
+                jadx.core.utils.exceptions.JadxRuntimeException: Failed to process method for inline: com.kwad.sdk.utils.ar.bl(boolean):java.lang.String
+                	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:76)
+                	at jadx.core.dex.visitors.InlineMethods.visit(InlineMethods.java:51)
+                Caused by: java.lang.IndexOutOfBoundsException: Index: 0
+                	at java.base/java.util.Collections$EmptyList.get(Collections.java:4807)
+                	at jadx.core.dex.nodes.InsnNode.getArg(InsnNode.java:104)
+                	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:117)
+                	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
+                	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
+                	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:65)
+                	... 1 more
+                */
             @Override // com.kwad.sdk.c.a
-            public final String xi() {
-                String Ai = ar.Ai();
-                com.kwad.sdk.core.e.b.d("SDKPrivateSafetyDataUtil", "getBaseStationInfo:" + Ai);
-                return Ai;
+            public final java.lang.String xi() {
+                /*
+                    r3 = this;
+                    r0 = 1
+                    java.lang.String r0 = com.kwad.sdk.utils.ar.bl(r0)
+                    java.lang.StringBuilder r1 = new java.lang.StringBuilder
+                    java.lang.String r2 = "getBaseStationInfo:"
+                    r1.<init>(r2)
+                    r1.append(r0)
+                    java.lang.String r1 = r1.toString()
+                    java.lang.String r2 = "SDKPrivateSafetyDataUtil"
+                    com.kwad.sdk.core.e.b.d(r2, r1)
+                    return r0
+                */
+                throw new UnsupportedOperationException("Method not decompiled: com.kwad.sdk.utils.ar.AnonymousClass1.xi():java.lang.String");
             }
 
             @Override // com.kwad.sdk.c.a
@@ -305,11 +443,35 @@ public final class ar {
                 return cU;
             }
 
+            /*  JADX ERROR: JadxRuntimeException in pass: InlineMethods
+                jadx.core.utils.exceptions.JadxRuntimeException: Failed to process method for inline: com.kwad.sdk.utils.ar.bo(boolean):java.lang.String
+                	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:76)
+                	at jadx.core.dex.visitors.InlineMethods.visit(InlineMethods.java:51)
+                Caused by: java.lang.IndexOutOfBoundsException: Index: 0
+                	at java.base/java.util.Collections$EmptyList.get(Collections.java:4807)
+                	at jadx.core.dex.nodes.InsnNode.getArg(InsnNode.java:104)
+                	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:117)
+                	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
+                	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
+                	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:65)
+                	... 1 more
+                */
             @Override // com.kwad.sdk.c.a
-            public final String xl() {
-                String Ak = ar.Ak();
-                com.kwad.sdk.core.e.b.d("SDKPrivateSafetyDataUtil", "getSdkType:" + Ak);
-                return Ak;
+            public final java.lang.String xl() {
+                /*
+                    r3 = this;
+                    r0 = 1
+                    java.lang.String r0 = com.kwad.sdk.utils.ar.bo(r0)
+                    java.lang.StringBuilder r1 = new java.lang.StringBuilder
+                    java.lang.String r2 = "getSdkType:"
+                    r1.<init>(r2)
+                    r1.append(r0)
+                    java.lang.String r1 = r1.toString()
+                    java.lang.String r2 = "SDKPrivateSafetyDataUtil"
+                    com.kwad.sdk.core.e.b.d(r2, r1)
+                    return r0
+                */
+                throw new UnsupportedOperationException("Method not decompiled: com.kwad.sdk.utils.ar.AnonymousClass1.xl():java.lang.String");
             }
         };
     }

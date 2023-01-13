@@ -1,23 +1,167 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbPageContext;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.baseEditMark.MarkData;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.np4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class cq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public np4 b;
+    public b c;
+    public MarkData d;
+    public final np4.a e;
 
-    public static wp5 a(xp5 xp5Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, xp5Var)) == null) {
-            if (xp5Var != null && (xp5Var.a() instanceof TbPageContext) && (((TbPageContext) xp5Var.a()).getPageActivity() instanceof wp5)) {
-                return (wp5) ((TbPageContext) xp5Var.a()).getPageActivity();
+    /* loaded from: classes4.dex */
+    public interface b {
+        void a(boolean z);
+    }
+
+    /* loaded from: classes4.dex */
+    public class a implements np4.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cq5 a;
+
+        public a(cq5 cq5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cq5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return null;
+            this.a = cq5Var;
         }
-        return (wp5) invokeL.objValue;
+
+        @Override // com.baidu.tieba.np4.a
+        public void a(boolean z, boolean z2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) {
+                if (z) {
+                    if (z2) {
+                        zi.Q(this.a.a, this.a.a.getString(R.string.add_mark));
+                    } else {
+                        zi.Q(this.a.a, this.a.a.getString(R.string.remove_mark));
+                    }
+                    if (this.a.c != null) {
+                        this.a.c.a(z2);
+                    }
+                    if (this.a.d != null) {
+                        ex8 ex8Var = new ex8();
+                        ex8Var.a = this.a.d.getThreadId();
+                        ex8Var.b = z2;
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921603, ex8Var));
+                        return;
+                    }
+                    return;
+                }
+                zi.Q(this.a.a, this.a.a.getString(R.string.update_mark_failed));
+            }
+        }
+    }
+
+    public cq5(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = null;
+        this.e = new a(this);
+        this.a = context;
+        if (context instanceof BaseActivity) {
+            this.b = np4.b((BaseActivity) context);
+        } else if (context instanceof BaseFragmentActivity) {
+            this.b = np4.c((BaseFragmentActivity) context);
+        }
+        np4 np4Var = this.b;
+        if (np4Var != null) {
+            np4Var.j(this.e);
+        }
+    }
+
+    public void g(boolean z) {
+        np4 np4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (np4Var = this.b) != null) {
+            np4Var.h(z);
+        }
+    }
+
+    public void h(MarkData markData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, markData) == null) {
+            this.d = markData;
+            np4 np4Var = this.b;
+            if (np4Var != null) {
+                np4Var.i(markData);
+            }
+        }
+    }
+
+    public void i(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            this.c = bVar;
+        }
+    }
+
+    public void d() {
+        np4 np4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (np4Var = this.b) != null) {
+            np4Var.a();
+            this.b.h(true);
+        }
+    }
+
+    public void e() {
+        np4 np4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (np4Var = this.b) != null && np4Var.e()) {
+            this.b.d();
+            this.b.h(false);
+        }
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            np4 np4Var = this.b;
+            if (np4Var != null) {
+                return np4Var.e();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

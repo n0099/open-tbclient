@@ -1,62 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.message.GroupsByUidLocalMessage;
-import com.baidu.tieba.im.message.ResponseGroupsByUidLocalMessage;
-import com.baidu.tieba.im.message.ResponseGroupsByUidMessage;
+import android.content.Context;
+import com.baidu.tieba.im.chat.officialBar.MenuKeyboardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class rf7 implements CustomMessageTask.CustomRunnable<Object> {
+public class rf7 extends k75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public rf7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rf7(Context context) {
+        super(context, (String) null, 21);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof GroupsByUidLocalMessage)) {
-                if (TbadkCoreApplication.getCurrentAccountObj() != null) {
-                    str = TbadkCoreApplication.getCurrentAccountObj().getID();
-                } else {
-                    str = "";
-                }
-                kv4.f();
-                byte[] bArr = kv4.d("tb.im_entergroup").get(ResponseGroupsByUidMessage.CACHE_KEY_PREFIX + str);
-                ResponseGroupsByUidLocalMessage responseGroupsByUidLocalMessage = new ResponseGroupsByUidLocalMessage();
-                if (bArr != null) {
-                    try {
-                        responseGroupsByUidLocalMessage.decodeInBackGround(2001106, bArr);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-                return responseGroupsByUidLocalMessage;
-            }
-            return null;
-        }
-        return (CustomResponsedMessage) invokeL.objValue;
+        this.o = false;
+        this.n = 1;
+        this.m = new MenuKeyboardView(getContext());
+        this.p = new int[]{1};
     }
 }

@@ -10,10 +10,10 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cj4;
-import com.baidu.tieba.dj4;
-import com.baidu.tieba.ej4;
-import com.baidu.tieba.fj4;
+import com.baidu.tieba.hj4;
+import com.baidu.tieba.ij4;
+import com.baidu.tieba.jj4;
+import com.baidu.tieba.kj4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
     public Button b;
-    public List<cj4> c;
+    public List<hj4> c;
     public Set<String> d;
     public int e;
 
@@ -126,8 +126,8 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (cj4 cj4Var : this.c) {
-                this.d.add(cj4Var.f());
+            for (hj4 hj4Var : this.c) {
+                this.d.add(hj4Var.f());
             }
         }
     }
@@ -135,8 +135,8 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0923e0);
-            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f0920c7);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09240d);
+            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f0920f4);
             this.b = button;
             button.setOnClickListener(this);
             this.d = new HashSet();
@@ -152,9 +152,9 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        List<cj4> list;
+        List<hj4> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0920c7 && (list = this.c) != null && list.size() > 0) {
+        if ((interceptable == null || interceptable.invokeL(1048582, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0920f4 && (list = this.c) != null && list.size() > 0) {
             d();
         }
     }
@@ -164,7 +164,7 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0058);
+            setContentView(R.layout.obfuscated_res_0x7f0d0057);
             g();
             i();
         }
@@ -179,12 +179,12 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
             this.e = i + 1;
             String str = (String) arrayList.get(i % arrayList.size());
             ArrayList arrayList2 = new ArrayList();
-            for (cj4 cj4Var : this.c) {
-                if (TextUtils.equals(cj4Var.f(), str)) {
-                    arrayList2.add(cj4Var);
+            for (hj4 hj4Var : this.c) {
+                if (TextUtils.equals(hj4Var.f(), str)) {
+                    arrayList2.add(hj4Var);
                 }
             }
-            return fj4.c(arrayList2, null);
+            return kj4.c(arrayList2, null);
         }
         return (String) invokeV.objValue;
     }
@@ -192,12 +192,12 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ej4<List<cj4>> c = dj4.b().c();
+            jj4<List<hj4>> c = ij4.b().c();
             if (c == null) {
                 this.a.setText("NO DATA");
                 return;
             }
-            List<cj4> a2 = c.a();
+            List<hj4> a2 = c.a();
             if (a2 != null && a2.size() > 0) {
                 this.c = a2;
                 this.e = 0;

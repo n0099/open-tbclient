@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -205,13 +205,13 @@ public abstract class TBSpecificationButtonConfig {
         this.r = 0;
         this.s = GradientDrawable.Orientation.LEFT_RIGHT;
         this.e = new int[2];
-        this.j = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
-        this.k = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
-        this.l = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
-        this.m = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
-        this.n = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
-        this.o = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
-        this.g = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
+        this.j = zi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+        this.k = zi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+        this.l = zi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
+        this.m = zi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
+        this.n = zi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
+        this.o = zi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
+        this.g = zi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
     }
 
     public final Drawable b(int i) {
@@ -228,7 +228,7 @@ public abstract class TBSpecificationButtonConfig {
                 i2 = SkinManager.getColor(this.r, i3);
             } else {
                 i2 = this.h;
-                if (i2 <= 0) {
+                if (i2 == 0) {
                     i2 = this.b;
                 }
             }
@@ -307,31 +307,38 @@ public abstract class TBSpecificationButtonConfig {
         }
     }
 
-    public void k(boolean z) {
+    public void k(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
             this.p = z;
         }
     }
 
-    public void l(int i) {
+    public void m(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             this.j = i;
             this.k = i;
         }
     }
 
-    public void n(int i) {
+    public void o(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
             this.l = i;
         }
     }
 
-    public void o(WebpType webpType) {
+    public void p(WebpType webpType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, webpType) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, webpType) == null) {
             this.a = webpType;
         }
     }
@@ -365,9 +372,9 @@ public abstract class TBSpecificationButtonConfig {
         }
     }
 
-    public void m(int i, int i2) {
+    public void n(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048589, this, i, i2) == null) {
             this.j = i;
             this.k = i2;
         }

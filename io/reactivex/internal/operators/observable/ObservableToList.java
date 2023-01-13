@@ -16,13 +16,13 @@ import io.reactivex.internal.functions.Functions;
 import io.reactivex.internal.functions.ObjectHelper;
 import java.util.Collection;
 import java.util.concurrent.Callable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ObservableToList<T, U extends Collection<? super T>> extends AbstractObservableWithUpstream<T, U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Callable<U> collectionSupplier;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class ToListObserver<T, U extends Collection<? super T>> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

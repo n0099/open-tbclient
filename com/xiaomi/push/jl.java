@@ -119,91 +119,96 @@ public class jl extends jb {
     }
 
     @Override // com.xiaomi.push.jb, com.xiaomi.push.jf
-    public jd a() {
+    /* renamed from: a */
+    public jd mo619a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             byte a2 = a();
-            int a3 = a();
-            if (a3 <= c) {
-                return new jd(a2, a3);
+            int mo616a = mo616a();
+            if (mo616a <= c) {
+                return new jd(a2, mo616a);
             }
-            throw new jg(3, "Thrift list size " + a3 + " out of range!");
+            throw new jg(3, "Thrift list size " + mo616a + " out of range!");
         }
         return (jd) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.jb, com.xiaomi.push.jf
-    public je a() {
+    /* renamed from: a */
+    public je mo620a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             byte a2 = a();
             byte a3 = a();
-            int a4 = a();
-            if (a4 <= b) {
-                return new je(a2, a3, a4);
+            int mo616a = mo616a();
+            if (mo616a <= b) {
+                return new je(a2, a3, mo616a);
             }
-            throw new jg(3, "Thrift map size " + a4 + " out of range!");
+            throw new jg(3, "Thrift map size " + mo616a + " out of range!");
         }
         return (je) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.jb, com.xiaomi.push.jf
-    public jj a() {
+    /* renamed from: a */
+    public jj mo621a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             byte a2 = a();
-            int a3 = a();
-            if (a3 <= d) {
-                return new jj(a2, a3);
+            int mo616a = mo616a();
+            if (mo616a <= d) {
+                return new jj(a2, mo616a);
             }
-            throw new jg(3, "Thrift set size " + a3 + " out of range!");
+            throw new jg(3, "Thrift set size " + mo616a + " out of range!");
         }
         return (jj) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.jb, com.xiaomi.push.jf
-    public String a() {
+    /* renamed from: a */
+    public String mo623a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int a2 = a();
-            if (a2 > e) {
-                throw new jg(3, "Thrift string size " + a2 + " out of range!");
-            } else if (((jf) this).a.b() >= a2) {
+            int mo616a = mo616a();
+            if (mo616a > e) {
+                throw new jg(3, "Thrift string size " + mo616a + " out of range!");
+            } else if (((jf) this).a.b() >= mo616a) {
                 try {
-                    String str = new String(((jf) this).a.m566a(), ((jf) this).a.a(), a2, "UTF-8");
-                    ((jf) this).a.a(a2);
+                    String str = new String(((jf) this).a.mo630a(), ((jf) this).a.a(), mo616a, "UTF-8");
+                    ((jf) this).a.a(mo616a);
                     return str;
                 } catch (UnsupportedEncodingException unused) {
                     throw new iz("JVM DOES NOT SUPPORT UTF-8");
                 }
             } else {
-                return a(a2);
+                return a(mo616a);
             }
         }
         return (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.jb, com.xiaomi.push.jf
-    public ByteBuffer a() {
+    /* renamed from: a */
+    public ByteBuffer mo624a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int a2 = a();
-            if (a2 > f) {
-                throw new jg(3, "Thrift binary size " + a2 + " out of range!");
+            int mo616a = mo616a();
+            if (mo616a > f) {
+                throw new jg(3, "Thrift binary size " + mo616a + " out of range!");
             }
-            c(a2);
-            if (((jf) this).a.b() >= a2) {
-                ByteBuffer wrap = ByteBuffer.wrap(((jf) this).a.m566a(), ((jf) this).a.a(), a2);
-                ((jf) this).a.a(a2);
+            c(mo616a);
+            if (((jf) this).a.b() >= mo616a) {
+                ByteBuffer wrap = ByteBuffer.wrap(((jf) this).a.mo630a(), ((jf) this).a.a(), mo616a);
+                ((jf) this).a.a(mo616a);
                 return wrap;
             }
-            byte[] bArr = new byte[a2];
-            ((jf) this).a.b(bArr, 0, a2);
+            byte[] bArr = new byte[mo616a];
+            ((jf) this).a.b(bArr, 0, mo616a);
             return ByteBuffer.wrap(bArr);
         }
         return (ByteBuffer) invokeV.objValue;

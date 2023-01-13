@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rw4;
+import com.baidu.tieba.cx4;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,17 +68,17 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
                 }
             }
             this.a = view2;
-            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f9f);
-            this.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091aab);
-            this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091aad);
-            this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0921fb);
+            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fac);
+            this.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ab9);
+            this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091abb);
+            this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09222d);
             this.f = (EMTextView) view2.findViewById(R.id.text_title);
-            this.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f88);
-            this.h = view2.findViewById(R.id.obfuscated_res_0x7f090f79);
+            this.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f95);
+            this.h = view2.findViewById(R.id.obfuscated_res_0x7f090f86);
             this.b.setRadiusById(R.string.J_X05);
             this.b.setConrers(3);
-            rw4.d(this.h).s(R.array.Mask_X003);
-            rw4 d = rw4.d(view2);
+            cx4.d(this.h).s(R.array.Mask_X003);
+            cx4 d = cx4.d(view2);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0613);
         }
@@ -189,7 +189,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048580, this, videoItemData, forumViewHolder) == null) && videoItemData != null && forumViewHolder != null) {
             forumViewHolder.e.setText(StringHelper.numberUniformFormatExtra(videoItemData.play_count));
-            rw4 d = rw4.d(forumViewHolder.e);
+            cx4 d = cx4.d(forumViewHolder.e);
             d.z(R.dimen.T_X09);
             d.v(R.color.CAM_X0101);
         }
@@ -236,9 +236,9 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
     public final void l(VideoItemData videoItemData, ForumViewHolder forumViewHolder) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048582, this, videoItemData, forumViewHolder) == null) && videoItemData != null && forumViewHolder != null) {
-            if (!xi.isEmpty(videoItemData.title)) {
+            if (!yi.isEmpty(videoItemData.title)) {
                 forumViewHolder.f.setText(videoItemData.title);
-            } else if (!xi.isEmpty(videoItemData.abstext)) {
+            } else if (!yi.isEmpty(videoItemData.abstext)) {
                 forumViewHolder.f.setText(videoItemData.abstext);
             } else {
                 forumViewHolder.f.setText(TbadkCoreApplication.getInst().getString(R.string.original_recommend_video_attention_txt));
@@ -279,7 +279,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
             } else {
                 sb.append("00");
             }
-            rw4 d = rw4.d(forumViewHolder.d);
+            cx4 d = cx4.d(forumViewHolder.d);
             d.z(R.dimen.T_X09);
             d.v(R.color.CAM_X0101);
             forumViewHolder.d.setText(sb.toString());

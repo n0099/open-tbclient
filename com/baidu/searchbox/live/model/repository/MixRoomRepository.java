@@ -29,6 +29,7 @@ import com.baidu.searchbox.live.service.MixYaLogService;
 import com.baidu.searchbox.live.ubc.MediaLivePlayLogger;
 import com.baidu.searchbox.live.ubc.MediaLivePluginLogger;
 import com.baidu.searchbox.live.util.ListExtKt;
+import com.baidu.searchbox.live.util.ListUbc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -265,6 +266,7 @@ public final class MixRoomRepository {
             }
             MediaLivePluginLogger.Companion.getInstance().logPageEnterLiveRoomReqNetStart();
             MediaLivePlayLogger.Companion.getInstance().logLiveRoomPageStartEnterLiveReq();
+            ListUbc.getInstance().doEnterUbcByRequestEnterRealNet(roomEnterParams.getId(), ListUbc.UBC_FIRST_JUMP_REQ_START, "-1", "", roomEnterParams.getSource());
             MixRequesterKt.fetchData(MixUrlConfigKt.getRoomEnterUrl(), genRoomEnterReqParams, new MixNetCallback<JSONObject>(this, roomEnterParams) { // from class: com.baidu.searchbox.live.model.repository.MixRoomRepository$fetchRoomEnter$3
                 public static /* synthetic */ Interceptable $ic;
                 public final /* synthetic */ RoomEnterParams $enterParams;
@@ -305,6 +307,7 @@ public final class MixRoomRepository {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netResponse, jSONObject) == null) {
                         MediaLivePluginLogger.Companion.getInstance().logPageEnterLiveRoomReqNetEnd();
+                        ListUbc.getInstance().doEnterUbcByRequestEnterRealNet(this.$enterParams.getId(), ListUbc.UBC_FIRST_JUMP_REQ_END, "-1", "", this.$enterParams.getSource());
                         LiveRoomEnterRespData liveRoomEnterRespData = null;
                         String str = null;
                         if (netResponse != null && !netResponse.isSuccessful()) {

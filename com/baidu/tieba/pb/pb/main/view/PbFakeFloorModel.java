@@ -14,15 +14,15 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.editortools.pb.DataModel;
 import com.baidu.tieba.R;
+import com.baidu.tieba.o58;
 import com.baidu.tieba.pb.pb.sub.SubPbHttpResponseMessage;
 import com.baidu.tieba.pb.pb.sub.SubPbRequestMessage;
 import com.baidu.tieba.pb.pb.sub.SubPbSocketResponseMessage;
-import com.baidu.tieba.qb;
-import com.baidu.tieba.r9;
+import com.baidu.tieba.rb;
+import com.baidu.tieba.s9;
 import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.tieba.xg;
-import com.baidu.tieba.y08;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.yg;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ public class PbFakeFloorModel extends DataModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public y08 b;
+    public o58 b;
     public boolean c;
     public SubPbRequestMessage d;
     public TbPageContext e;
@@ -44,7 +44,7 @@ public class PbFakeFloorModel extends DataModel {
     public String j;
     public String k;
     public boolean l;
-    public qb m;
+    public rb m;
 
     /* loaded from: classes5.dex */
     public interface b {
@@ -62,7 +62,7 @@ public class PbFakeFloorModel extends DataModel {
     }
 
     /* loaded from: classes5.dex */
-    public class a extends qb {
+    public class a extends rb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbFakeFloorModel a;
@@ -89,7 +89,7 @@ public class PbFakeFloorModel extends DataModel {
             this.a = pbFakeFloorModel;
         }
 
-        @Override // com.baidu.tieba.qb
+        @Override // com.baidu.tieba.rb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             String userId;
             String errorString;
@@ -99,26 +99,26 @@ public class PbFakeFloorModel extends DataModel {
                 this.a.c = false;
                 if (responsedMessage.hasError()) {
                     if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                        errorString = this.a.e.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0cb8);
+                        errorString = this.a.e.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0cd1);
                     } else {
                         errorString = responsedMessage.getErrorString();
                     }
                     this.a.e.showToast(errorString);
                     return;
                 }
-                y08 y08Var = null;
+                o58 o58Var = null;
                 if (responsedMessage instanceof SubPbHttpResponseMessage) {
-                    y08Var = ((SubPbHttpResponseMessage) responsedMessage).pbFloorData;
+                    o58Var = ((SubPbHttpResponseMessage) responsedMessage).pbFloorData;
                 } else if (responsedMessage instanceof SubPbSocketResponseMessage) {
-                    y08Var = ((SubPbSocketResponseMessage) responsedMessage).pbFloorData;
+                    o58Var = ((SubPbSocketResponseMessage) responsedMessage).pbFloorData;
                 }
-                if (y08Var != null && y08Var.k() != null) {
-                    PostData postData = (PostData) ListUtils.getItem(y08Var.k(), y08Var.k().size() - 1);
+                if (o58Var != null && o58Var.k() != null) {
+                    PostData postData = (PostData) ListUtils.getItem(o58Var.k(), o58Var.k().size() - 1);
                     if (postData != null && this.a.b != null && this.a.b.i() != null) {
                         if (this.a.b.l() != null && this.a.b.l().getAuthor() != null && postData.r() != null && (userId = this.a.b.l().getAuthor().getUserId()) != null && userId.equals(postData.r().getUserId())) {
                             z = true;
                         }
-                        postData.j1(this.a.e, z);
+                        postData.m1(this.a.e, z);
                     }
                     if (this.a.f != null) {
                         this.a.f.a(postData);
@@ -140,7 +140,7 @@ public class PbFakeFloorModel extends DataModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((r9) newInitContext.callArgs[0]);
+                super((s9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -160,7 +160,7 @@ public class PbFakeFloorModel extends DataModel {
         if ((interceptable == null || interceptable.invokeL(1048586, this, postData) == null) && postData != null) {
             this.b.i().b(postData);
             this.b.i().c(postData);
-            this.b.i().U0(true);
+            this.b.i().X0(true);
         }
     }
 
@@ -171,10 +171,10 @@ public class PbFakeFloorModel extends DataModel {
         }
     }
 
-    public void c0(y08 y08Var) {
+    public void c0(o58 o58Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, y08Var) == null) {
-            this.b = y08Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, o58Var) == null) {
+            this.b = o58Var;
         }
     }
 
@@ -207,9 +207,9 @@ public class PbFakeFloorModel extends DataModel {
         PostData i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            y08 y08Var = this.b;
-            if (y08Var != null && (i = y08Var.i()) != null) {
-                return i.D();
+            o58 o58Var = this.b;
+            if (o58Var != null && (i = o58Var.i()) != null) {
+                return i.F();
             }
             return super.H();
         }
@@ -231,8 +231,8 @@ public class PbFakeFloorModel extends DataModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            y08 y08Var = this.b;
-            if (y08Var != null && y08Var.l() != null) {
+            o58 o58Var = this.b;
+            if (o58Var != null && o58Var.l() != null) {
                 return this.b.l().getTid();
             }
             return null;
@@ -331,8 +331,8 @@ public class PbFakeFloorModel extends DataModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            y08 y08Var = this.b;
-            if (y08Var != null && y08Var.d() != null) {
+            o58 o58Var = this.b;
+            if (o58Var != null && o58Var.d() != null) {
                 return this.b.d().getId();
             }
             return null;
@@ -362,8 +362,8 @@ public class PbFakeFloorModel extends DataModel {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            y08 y08Var = this.b;
-            if (y08Var != null && y08Var.d() != null && this.b.l() != null && this.b.i() != null) {
+            o58 o58Var = this.b;
+            if (o58Var != null && o58Var.d() != null && this.b.l() != null && this.b.i() != null) {
                 WriteData writeData = new WriteData();
                 boolean isMutiForumThread = this.b.l().isMutiForumThread();
                 if (isMutiForumThread) {
@@ -374,7 +374,7 @@ public class PbFakeFloorModel extends DataModel {
                     writeData.setForumId(this.b.d().getId());
                 }
                 writeData.setFromForumId(this.g);
-                writeData.setFloor(this.b.i().M());
+                writeData.setFloor(this.b.i().O());
                 writeData.setType(2);
                 writeData.setCanNoForum(isMutiForumThread);
                 writeData.setThreadId(this.b.l().getId());
@@ -390,13 +390,13 @@ public class PbFakeFloorModel extends DataModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            y08 y08Var = this.b;
-            if (y08Var != null && y08Var.l() != null && this.b.l().getId() != null && this.b.i() != null && this.b.i().M() != null) {
+            o58 o58Var = this.b;
+            if (o58Var != null && o58Var.l() != null && this.b.l().getId() != null && this.b.i() != null && this.b.i().O() != null) {
                 this.c = true;
                 float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-                int l = yi.l(TbadkCoreApplication.getInst().getApp());
-                int j = yi.j(TbadkCoreApplication.getInst().getApp());
-                return new SubPbRequestMessage(this.e.getPageActivity(), xg.g(this.b.l().getId(), 0L), xg.g(this.b.i().M(), 0L), 0L, 1, l, j, f, "", 1);
+                int l = zi.l(TbadkCoreApplication.getInst().getApp());
+                int j = zi.j(TbadkCoreApplication.getInst().getApp());
+                return new SubPbRequestMessage(this.e.getPageActivity(), yg.g(this.b.l().getId(), 0L), yg.g(this.b.i().O(), 0L), 0L, 1, l, j, f, "", 1);
             }
             this.c = false;
             return null;

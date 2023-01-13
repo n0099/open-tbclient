@@ -3,82 +3,62 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.zip.GZIPInputStream;
-import java.util.zip.GZIPOutputStream;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes6.dex */
-public abstract class rj1 {
+public final class rj1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(InputStream inputStream, OutputStream outputStream) {
+    public static byte[] a(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, inputStream, outputStream) == null) {
-            GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
-            byte[] bArr = new byte[2048];
-            while (true) {
-                int read = inputStream.read(bArr, 0, 2048);
-                if (read != -1) {
-                    gZIPOutputStream.write(bArr, 0, read);
-                } else {
-                    gZIPOutputStream.flush();
-                    gZIPOutputStream.finish();
-                    gZIPOutputStream.close();
-                    return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bArr, bArr2)) == null) {
+            try {
+                SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
+                Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
+                byte[] bArr3 = new byte[16];
+                for (int i = 0; i < 16; i++) {
+                    bArr3[i] = 0;
                 }
+                cipher.init(1, secretKeySpec, new IvParameterSpec(bArr3));
+                byte[] doFinal = cipher.doFinal(bArr2);
+                byte[] e = xj1.e(bArr2);
+                byte[] bArr4 = new byte[doFinal.length + e.length];
+                System.arraycopy(doFinal, 0, bArr4, 0, doFinal.length);
+                System.arraycopy(e, 0, bArr4, doFinal.length, e.length);
+                return bArr4;
+            } catch (Throwable th) {
+                tj1.d(th);
+                return null;
             }
         }
+        return (byte[]) invokeLL.objValue;
     }
 
-    public static void c(InputStream inputStream, OutputStream outputStream) {
+    public static byte[] b(byte[] bArr, byte[] bArr2, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, inputStream, outputStream) == null) {
-            GZIPInputStream gZIPInputStream = new GZIPInputStream(inputStream);
-            byte[] bArr = new byte[2048];
-            while (true) {
-                int read = gZIPInputStream.read(bArr, 0, 2048);
-                if (read != -1) {
-                    outputStream.write(bArr, 0, read);
-                } else {
-                    gZIPInputStream.close();
-                    return;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, bArr, bArr2, z)) == null) {
+            try {
+                SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
+                Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
+                byte[] bArr3 = new byte[16];
+                for (int i = 0; i < 16; i++) {
+                    bArr3[i] = 0;
                 }
+                cipher.init(2, secretKeySpec, new IvParameterSpec(bArr3));
+                if (z) {
+                    byte[] bArr4 = new byte[bArr2.length - 16];
+                    System.arraycopy(bArr2, 0, bArr4, 0, bArr2.length - 16);
+                    bArr2 = bArr4;
+                }
+                return cipher.doFinal(bArr2);
+            } catch (Throwable unused) {
+                return null;
             }
         }
-    }
-
-    public static byte[] b(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            a(byteArrayInputStream, byteArrayOutputStream);
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            byteArrayOutputStream.flush();
-            byteArrayOutputStream.close();
-            byteArrayInputStream.close();
-            return byteArray;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static byte[] d(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            c(byteArrayInputStream, byteArrayOutputStream);
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            byteArrayOutputStream.flush();
-            byteArrayOutputStream.close();
-            byteArrayInputStream.close();
-            return byteArray;
-        }
-        return (byte[]) invokeL.objValue;
+        return (byte[]) invokeLLZ.objValue;
     }
 }

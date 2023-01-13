@@ -18,7 +18,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -325,7 +324,7 @@ public class FileProvider extends ContentProvider {
             if ("r".equals(str)) {
                 return LaunchTaskConstants.OTHER_PROCESS;
             }
-            if (!Config.DEVICE_WIDTH.equals(str) && !"wt".equals(str)) {
+            if (!"w".equals(str) && !"wt".equals(str)) {
                 if ("wa".equals(str)) {
                     return 704643072;
                 }

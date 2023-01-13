@@ -365,7 +365,7 @@ public class ChatSessionUpdateManager implements DBBase.ChatSessionChangeOberser
                     } else {
                         ChatSession chatSession2 = null;
                         try {
-                            chatSession2 = list.get(0).m27clone();
+                            chatSession2 = list.get(0).m28clone();
                         } catch (CloneNotSupportedException unused) {
                             LogUtils.d(TAG, "doAggSessionChangeNotify classtype exception");
                         }
@@ -391,7 +391,7 @@ public class ChatSessionUpdateManager implements DBBase.ChatSessionChangeOberser
             if (strangerSessionList != null && strangerSessionList.size() != 0) {
                 strangerSessionList.get(0).setSessionFrom(2);
                 strangerSessionList.get(0).setIsStranger(1);
-                strangerSessionList.get(0).setNewMsgSum(ChatMessageDBManager.getInstance(this.mContext).getStrangerUnReadCount());
+                strangerSessionList.get(0).setNewMsgSum(ChatMessageDBManager.getInstance(this.mContext).getStrangerUnReadCount(0L));
                 if (i == 2 || (i == 0 && strangerSessionList.size() > 1)) {
                     i = 1;
                 }
@@ -402,7 +402,7 @@ public class ChatSessionUpdateManager implements DBBase.ChatSessionChangeOberser
             } else {
                 ChatSession chatSession = null;
                 try {
-                    chatSession = list.get(0).m27clone();
+                    chatSession = list.get(0).m28clone();
                 } catch (CloneNotSupportedException unused) {
                     LogUtils.d(TAG, "doAggSessionChangeNotify stanger exception");
                 }
@@ -678,7 +678,7 @@ public class ChatSessionUpdateManager implements DBBase.ChatSessionChangeOberser
             for (ChatSession chatSession : list) {
                 if (IMConfigInternal.getInstance().getProductLine(this.mContext) != 4 || chatSession.getCategory() == 1) {
                     try {
-                        arrayList2.add(chatSession.m27clone());
+                        arrayList2.add(chatSession.m28clone());
                     } catch (CloneNotSupportedException e) {
                         LogUtils.e(TAG, "ChatSessionChangerCallBack throw RuntimeException", e);
                     }

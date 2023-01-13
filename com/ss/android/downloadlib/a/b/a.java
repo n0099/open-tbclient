@@ -10,7 +10,6 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.text.TextUtils;
 import android.util.Pair;
-import com.baidu.mobstat.Config;
 import com.ss.android.downloadlib.a.b.c;
 import com.ss.android.downloadlib.addownload.j;
 import java.util.ArrayList;
@@ -28,15 +27,15 @@ public class a {
     public boolean i = false;
     public volatile boolean j = false;
     public final List<Pair<b, d>> l = new ArrayList();
-    public final List<InterfaceC0678a> b = new ArrayList();
+    public final List<InterfaceC0677a> b = new ArrayList();
     public final ServiceConnection m = new ServiceConnection() { // from class: com.ss.android.downloadlib.a.b.a.1
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
             synchronized (a.this.c) {
                 a.this.a(false);
                 a.this.a = null;
-                for (InterfaceC0678a interfaceC0678a : a.this.b) {
-                    interfaceC0678a.b();
+                for (InterfaceC0677a interfaceC0677a : a.this.b) {
+                    interfaceC0677a.b();
                 }
             }
         }
@@ -47,8 +46,8 @@ public class a {
                 a.this.a(false);
                 a.this.a = c.a.a(iBinder);
                 a.this.c();
-                for (InterfaceC0678a interfaceC0678a : a.this.b) {
-                    interfaceC0678a.a();
+                for (InterfaceC0677a interfaceC0677a : a.this.b) {
+                    interfaceC0677a.a();
                 }
             }
         }
@@ -58,7 +57,7 @@ public class a {
 
     /* renamed from: com.ss.android.downloadlib.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0678a {
+    public interface InterfaceC0677a {
         void a();
 
         void b();
@@ -148,7 +147,7 @@ public class a {
             String optString = i.optString("s");
             d = com.ss.android.socialbase.appdownloader.f.c.a(i.optString("q"), optString);
             e = com.ss.android.socialbase.appdownloader.f.c.a(i.optString("u"), optString);
-            f = com.ss.android.socialbase.appdownloader.f.c.a(i.optString(Config.DEVICE_WIDTH), optString);
+            f = com.ss.android.socialbase.appdownloader.f.c.a(i.optString("w"), optString);
         }
         this.i = z;
         if (context != null) {

@@ -1,16 +1,16 @@
 package rx.internal.schedulers;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a3a;
-import com.baidu.tieba.b3a;
-import com.baidu.tieba.c3a;
-import com.baidu.tieba.d3a;
-import com.baidu.tieba.e7a;
-import com.baidu.tieba.f3a;
-import com.baidu.tieba.j3a;
-import com.baidu.tieba.p3a;
-import com.baidu.tieba.u3a;
-import com.baidu.tieba.z7a;
+import com.baidu.tieba.c9a;
+import com.baidu.tieba.hda;
+import com.baidu.tieba.i8a;
+import com.baidu.tieba.j8a;
+import com.baidu.tieba.k8a;
+import com.baidu.tieba.l8a;
+import com.baidu.tieba.mca;
+import com.baidu.tieba.n8a;
+import com.baidu.tieba.r8a;
+import com.baidu.tieba.x8a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,30 +24,30 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.internal.operators.BufferUntilSubscriber;
 import rx.subjects.PublishSubject;
 /* loaded from: classes9.dex */
-public class SchedulerWhen extends f3a implements j3a {
+public class SchedulerWhen extends n8a implements r8a {
     public static /* synthetic */ Interceptable $ic;
-    public static final j3a d;
-    public static final j3a e;
+    public static final r8a d;
+    public static final r8a e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final f3a a;
-    public final d3a<c3a<a3a>> b;
-    public final j3a c;
+    public final n8a a;
+    public final l8a<k8a<i8a>> b;
+    public final r8a c;
 
     /* loaded from: classes9.dex */
-    public class a implements u3a<ScheduledAction, a3a> {
+    public class a implements c9a<ScheduledAction, i8a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f3a.a a;
+        public final /* synthetic */ n8a.a a;
 
         /* renamed from: rx.internal.schedulers.SchedulerWhen$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C0745a implements a3a.f {
+        public class C0744a implements i8a.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ScheduledAction a;
             public final /* synthetic */ a b;
 
-            public C0745a(a aVar, ScheduledAction scheduledAction) {
+            public C0744a(a aVar, ScheduledAction scheduledAction) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,17 +67,17 @@ public class SchedulerWhen extends f3a implements j3a {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.a3a.f, com.baidu.tieba.q3a
-            public void call(b3a b3aVar) {
+            @Override // com.baidu.tieba.i8a.f, com.baidu.tieba.y8a
+            public void call(j8a j8aVar) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, b3aVar) == null) {
-                    b3aVar.onSubscribe(this.a);
-                    this.a.call(this.b.a, b3aVar);
+                if (interceptable == null || interceptable.invokeL(1048576, this, j8aVar) == null) {
+                    j8aVar.onSubscribe(this.a);
+                    this.a.call(this.b.a, j8aVar);
                 }
             }
         }
 
-        public a(SchedulerWhen schedulerWhen, f3a.a aVar) {
+        public a(SchedulerWhen schedulerWhen, n8a.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,14 +96,14 @@ public class SchedulerWhen extends f3a implements j3a {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.u3a
-        public a3a call(ScheduledAction scheduledAction) {
+        @Override // com.baidu.tieba.c9a
+        public i8a call(ScheduledAction scheduledAction) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, scheduledAction)) == null) {
-                return a3a.b(new C0745a(this, scheduledAction));
+                return i8a.b(new C0744a(this, scheduledAction));
             }
-            return (a3a) invokeL.objValue;
+            return (i8a) invokeL.objValue;
         }
     }
 
@@ -111,16 +111,16 @@ public class SchedulerWhen extends f3a implements j3a {
     public static class DelayedAction extends ScheduledAction {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final p3a action;
+        public final x8a action;
         public final long delayTime;
         public final TimeUnit unit;
 
-        public DelayedAction(p3a p3aVar, long j, TimeUnit timeUnit) {
+        public DelayedAction(x8a x8aVar, long j, TimeUnit timeUnit) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {p3aVar, Long.valueOf(j), timeUnit};
+                Object[] objArr = {x8aVar, Long.valueOf(j), timeUnit};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -130,19 +130,19 @@ public class SchedulerWhen extends f3a implements j3a {
                     return;
                 }
             }
-            this.action = p3aVar;
+            this.action = x8aVar;
             this.delayTime = j;
             this.unit = timeUnit;
         }
 
         @Override // rx.internal.schedulers.SchedulerWhen.ScheduledAction
-        public j3a callActual(f3a.a aVar, b3a b3aVar) {
+        public r8a callActual(n8a.a aVar, j8a j8aVar) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, aVar, b3aVar)) == null) {
-                return aVar.c(new d(this.action, b3aVar), this.delayTime, this.unit);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, aVar, j8aVar)) == null) {
+                return aVar.c(new d(this.action, j8aVar), this.delayTime, this.unit);
             }
-            return (j3a) invokeLL.objValue;
+            return (r8a) invokeLL.objValue;
         }
     }
 
@@ -150,14 +150,14 @@ public class SchedulerWhen extends f3a implements j3a {
     public static class ImmediateAction extends ScheduledAction {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final p3a action;
+        public final x8a action;
 
-        public ImmediateAction(p3a p3aVar) {
+        public ImmediateAction(x8a x8aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {p3aVar};
+                Object[] objArr = {x8aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -167,26 +167,26 @@ public class SchedulerWhen extends f3a implements j3a {
                     return;
                 }
             }
-            this.action = p3aVar;
+            this.action = x8aVar;
         }
 
         @Override // rx.internal.schedulers.SchedulerWhen.ScheduledAction
-        public j3a callActual(f3a.a aVar, b3a b3aVar) {
+        public r8a callActual(n8a.a aVar, j8a j8aVar) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, aVar, b3aVar)) == null) {
-                return aVar.b(new d(this.action, b3aVar));
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, aVar, j8aVar)) == null) {
+                return aVar.b(new d(this.action, j8aVar));
             }
-            return (j3a) invokeLL.objValue;
+            return (r8a) invokeLL.objValue;
         }
     }
 
     /* loaded from: classes9.dex */
-    public static abstract class ScheduledAction extends AtomicReference<j3a> implements j3a {
+    public static abstract class ScheduledAction extends AtomicReference<r8a> implements r8a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public abstract j3a callActual(f3a.a aVar, b3a b3aVar);
+        public abstract r8a callActual(n8a.a aVar, j8a j8aVar);
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ScheduledAction() {
@@ -206,7 +206,7 @@ public class SchedulerWhen extends f3a implements j3a {
             }
         }
 
-        @Override // com.baidu.tieba.j3a
+        @Override // com.baidu.tieba.r8a
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -216,32 +216,32 @@ public class SchedulerWhen extends f3a implements j3a {
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.j3a
+        @Override // com.baidu.tieba.r8a
         public void unsubscribe() {
-            j3a j3aVar;
+            r8a r8aVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                j3a j3aVar2 = SchedulerWhen.e;
+                r8a r8aVar2 = SchedulerWhen.e;
                 do {
-                    j3aVar = get();
-                    if (j3aVar == SchedulerWhen.e) {
+                    r8aVar = get();
+                    if (r8aVar == SchedulerWhen.e) {
                         return;
                     }
-                } while (!compareAndSet(j3aVar, j3aVar2));
-                if (j3aVar != SchedulerWhen.d) {
-                    j3aVar.unsubscribe();
+                } while (!compareAndSet(r8aVar, r8aVar2));
+                if (r8aVar != SchedulerWhen.d) {
+                    r8aVar.unsubscribe();
                 }
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void call(f3a.a aVar, b3a b3aVar) {
-            j3a j3aVar;
+        public void call(n8a.a aVar, j8a j8aVar) {
+            r8a r8aVar;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(65538, this, aVar, b3aVar) != null) || (j3aVar = get()) == SchedulerWhen.e || j3aVar != SchedulerWhen.d) {
+            if ((interceptable != null && interceptable.invokeLL(65538, this, aVar, j8aVar) != null) || (r8aVar = get()) == SchedulerWhen.e || r8aVar != SchedulerWhen.d) {
                 return;
             }
-            j3a callActual = callActual(aVar, b3aVar);
+            r8a callActual = callActual(aVar, j8aVar);
             if (!compareAndSet(SchedulerWhen.d, callActual)) {
                 callActual.unsubscribe();
             }
@@ -249,19 +249,19 @@ public class SchedulerWhen extends f3a implements j3a {
     }
 
     /* loaded from: classes9.dex */
-    public class b extends f3a.a {
+    public class b extends n8a.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final AtomicBoolean a;
-        public final /* synthetic */ f3a.a b;
-        public final /* synthetic */ d3a c;
+        public final /* synthetic */ n8a.a b;
+        public final /* synthetic */ l8a c;
 
-        public b(SchedulerWhen schedulerWhen, f3a.a aVar, d3a d3aVar) {
+        public b(SchedulerWhen schedulerWhen, n8a.a aVar, l8a l8aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {schedulerWhen, aVar, d3aVar};
+                Object[] objArr = {schedulerWhen, aVar, l8aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -272,35 +272,35 @@ public class SchedulerWhen extends f3a implements j3a {
                 }
             }
             this.b = aVar;
-            this.c = d3aVar;
+            this.c = l8aVar;
             this.a = new AtomicBoolean();
         }
 
-        @Override // com.baidu.tieba.f3a.a
-        public j3a b(p3a p3aVar) {
+        @Override // com.baidu.tieba.n8a.a
+        public r8a b(x8a x8aVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, p3aVar)) == null) {
-                ImmediateAction immediateAction = new ImmediateAction(p3aVar);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, x8aVar)) == null) {
+                ImmediateAction immediateAction = new ImmediateAction(x8aVar);
                 this.c.onNext(immediateAction);
                 return immediateAction;
             }
-            return (j3a) invokeL.objValue;
+            return (r8a) invokeL.objValue;
         }
 
-        @Override // com.baidu.tieba.f3a.a
-        public j3a c(p3a p3aVar, long j, TimeUnit timeUnit) {
+        @Override // com.baidu.tieba.n8a.a
+        public r8a c(x8a x8aVar, long j, TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{p3aVar, Long.valueOf(j), timeUnit})) == null) {
-                DelayedAction delayedAction = new DelayedAction(p3aVar, j, timeUnit);
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{x8aVar, Long.valueOf(j), timeUnit})) == null) {
+                DelayedAction delayedAction = new DelayedAction(x8aVar, j, timeUnit);
                 this.c.onNext(delayedAction);
                 return delayedAction;
             }
-            return (j3a) invokeCommon.objValue;
+            return (r8a) invokeCommon.objValue;
         }
 
-        @Override // com.baidu.tieba.j3a
+        @Override // com.baidu.tieba.r8a
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -310,7 +310,7 @@ public class SchedulerWhen extends f3a implements j3a {
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.j3a
+        @Override // com.baidu.tieba.r8a
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.a.compareAndSet(false, true)) {
@@ -321,11 +321,11 @@ public class SchedulerWhen extends f3a implements j3a {
     }
 
     /* loaded from: classes9.dex */
-    public static class c implements j3a {
+    public static class c implements r8a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.j3a
+        @Override // com.baidu.tieba.r8a
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -335,7 +335,7 @@ public class SchedulerWhen extends f3a implements j3a {
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.j3a
+        @Override // com.baidu.tieba.r8a
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -358,18 +358,18 @@ public class SchedulerWhen extends f3a implements j3a {
     }
 
     /* loaded from: classes9.dex */
-    public static class d implements p3a {
+    public static class d implements x8a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public b3a a;
-        public p3a b;
+        public j8a a;
+        public x8a b;
 
-        public d(p3a p3aVar, b3a b3aVar) {
+        public d(x8a x8aVar, j8a j8aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {p3aVar, b3aVar};
+                Object[] objArr = {x8aVar, j8aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -379,11 +379,11 @@ public class SchedulerWhen extends f3a implements j3a {
                     return;
                 }
             }
-            this.b = p3aVar;
-            this.a = b3aVar;
+            this.b = x8aVar;
+            this.a = j8aVar;
         }
 
-        @Override // com.baidu.tieba.p3a
+        @Override // com.baidu.tieba.x8a
         public void call() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -410,10 +410,10 @@ public class SchedulerWhen extends f3a implements j3a {
             }
         }
         d = new c();
-        e = z7a.c();
+        e = hda.c();
     }
 
-    @Override // com.baidu.tieba.j3a
+    @Override // com.baidu.tieba.r8a
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -423,7 +423,7 @@ public class SchedulerWhen extends f3a implements j3a {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.j3a
+    @Override // com.baidu.tieba.r8a
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -431,12 +431,12 @@ public class SchedulerWhen extends f3a implements j3a {
         }
     }
 
-    public SchedulerWhen(u3a<c3a<c3a<a3a>>, a3a> u3aVar, f3a f3aVar) {
+    public SchedulerWhen(c9a<k8a<k8a<i8a>>, i8a> c9aVar, n8a n8aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {u3aVar, f3aVar};
+            Object[] objArr = {c9aVar, n8aVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -446,27 +446,27 @@ public class SchedulerWhen extends f3a implements j3a {
                 return;
             }
         }
-        this.a = f3aVar;
+        this.a = n8aVar;
         PublishSubject D = PublishSubject.D();
-        this.b = new e7a(D);
-        this.c = u3aVar.call(D.n()).f();
+        this.b = new mca(D);
+        this.c = c9aVar.call(D.n()).f();
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: com.baidu.tieba.d3a<com.baidu.tieba.c3a<com.baidu.tieba.a3a>> */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: com.baidu.tieba.l8a<com.baidu.tieba.k8a<com.baidu.tieba.i8a>> */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.tieba.f3a
-    public f3a.a createWorker() {
+    @Override // com.baidu.tieba.n8a
+    public n8a.a createWorker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            f3a.a createWorker = this.a.createWorker();
+            n8a.a createWorker = this.a.createWorker();
             BufferUntilSubscriber D = BufferUntilSubscriber.D();
-            e7a e7aVar = new e7a(D);
+            mca mcaVar = new mca(D);
             Object h = D.h(new a(this, createWorker));
-            b bVar = new b(this, createWorker, e7aVar);
+            b bVar = new b(this, createWorker, mcaVar);
             this.b.onNext(h);
             return bVar;
         }
-        return (f3a.a) invokeV.objValue;
+        return (n8a.a) invokeV.objValue;
     }
 }

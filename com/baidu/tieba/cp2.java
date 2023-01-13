@@ -1,189 +1,165 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
+import android.util.LruCache;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.swan.apps.SwanAppLauncherActivity;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
-import com.baidu.tieba.cp2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public abstract class cp2<SelfT extends cp2<SelfT>> extends ep2<SelfT> {
+public final class cp2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final LruCache<String, Object> a;
 
     /* loaded from: classes4.dex */
-    public static final class a extends cp2<a> {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+    }
 
-        public a i1() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (a) invokeV.objValue;
-        }
+    /* loaded from: classes4.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final cp2 a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-883000570, "Lcom/baidu/tieba/cp2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-883000570, "Lcom/baidu/tieba/cp2$b;");
+                    return;
                 }
             }
+            a = new cp2(null);
         }
+    }
 
-        @Override // com.baidu.tieba.aj3
-        public /* bridge */ /* synthetic */ aj3 d() {
-            i1();
-            return this;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947682372, "Lcom/baidu/tieba/cp2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947682372, "Lcom/baidu/tieba/cp2;");
+                return;
+            }
         }
-
-        @Override // com.baidu.tieba.cp2, com.baidu.tieba.hp2
-        public /* bridge */ /* synthetic */ hp2 update(Bundle bundle) {
-            return super.update(bundle);
-        }
+        b = tk1.a;
     }
 
     public cp2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new LruCache<>(10);
     }
 
-    public static String d1(String str, int i, JSONObject jSONObject) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, str, i, jSONObject)) == null) {
-            return e1(str, null, i, jSONObject);
-        }
-        return (String) invokeLIL.objValue;
-    }
-
-    public static String e1(String str, String str2, int i, JSONObject jSONObject) {
-        InterceptResult invokeLLIL;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65538, null, str, str2, i, jSONObject)) == null) {
-            if (i == 1) {
-                str3 = SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME;
-            } else {
-                str3 = "swan";
-            }
-            Uri.Builder builder = new Uri.Builder();
-            builder.scheme(UnitedSchemeConstants.UNITED_SCHEME).authority(str3).appendPath(str);
-            if (!TextUtils.isEmpty(str2)) {
-                builder.appendEncodedPath(str2);
-            } else if (jSONObject == null) {
-                jSONObject = new JSONObject();
-            }
-            if (jSONObject != null) {
-                builder.appendQueryParameter("_baiduboxapp", jSONObject.toString());
-            }
-            builder.build();
-            return builder.toString();
-        }
-        return (String) invokeLLIL.objValue;
-    }
-
-    public static cp2 f1(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bundle)) == null) {
-            a aVar = new a();
-            aVar.update(bundle);
-            return aVar;
-        }
-        return (cp2) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hp2
-    public SelfT update(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
-            h12.h(bundle);
-            return (SelfT) super.update(bundle);
-        }
-        return (SelfT) invokeL.objValue;
-    }
-
-    public static Intent g1(Context context, cp2 cp2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, cp2Var)) == null) {
-            if (context != null && cp2Var != null) {
-                Intent intent = new Intent();
-                intent.setAction("com.baidu.searchbox.action.aiapps.LAUNCH");
-                intent.setComponent(new ComponentName(context, SwanAppLauncherActivity.class));
-                if (context instanceof Application) {
-                    intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-                }
-                intent.putExtras(cp2Var.D());
-                return intent;
-            }
-            return null;
-        }
-        return (Intent) invokeLL.objValue;
-    }
-
-    public static String h1(String str, String str2, int i) {
-        InterceptResult invokeLLI;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65541, null, str, str2, i)) == null) {
-            if (i == 1) {
-                str3 = SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME;
-            } else {
-                str3 = "swan";
-            }
-            Uri.Builder builder = new Uri.Builder();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("from", str2);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            builder.scheme(UnitedSchemeConstants.UNITED_SCHEME).authority(str3).appendPath(str).appendQueryParameter("_baiduboxapp", jSONObject.toString()).build();
-            return builder.toString();
-        }
-        return (String) invokeLLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.hp2
-    public String toString() {
+    public static cp2 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SwanAppLaunchParams{appId='" + H() + "', from='" + T() + "', page='" + e0() + "', isDebug=" + n0() + ", extraData=" + P() + ", clickId='" + L() + "', launchScheme='" + W() + "', notInHistory='" + c0() + "'}";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
         }
-        return (String) invokeV.objValue;
+        return (cp2) invokeV.objValue;
+    }
+
+    public synchronized void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                if (this.a != null) {
+                    this.a.evictAll();
+                }
+            }
+        }
+    }
+
+    public /* synthetic */ cp2(a aVar) {
+        this();
+    }
+
+    public synchronized <RESULT> RESULT b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                RESULT result = (RESULT) this.a.get(str);
+                if (result == null) {
+                    if (b) {
+                        Log.d("SwanAppLaunchCache", "doesn't hit the cache result, key = " + str);
+                    }
+                    return null;
+                }
+                try {
+                    if (b) {
+                        Log.d("SwanAppLaunchCache", "hit the cache result, key = " + str);
+                    }
+                    return result;
+                } catch (Exception e) {
+                    if (b) {
+                        Log.e("SwanAppLaunchCache", Log.getStackTraceString(e));
+                    }
+                    return null;
+                }
+            }
+        }
+        return (RESULT) invokeL.objValue;
+    }
+
+    public synchronized <RESULT> void d(String str, RESULT result) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, result) == null) {
+            synchronized (this) {
+                if (!TextUtils.isEmpty(str) && result != null) {
+                    if (b) {
+                        Log.d("SwanAppLaunchCache", "putConfig key: " + str);
+                    }
+                    this.a.put(str, result);
+                }
+            }
+        }
+    }
+
+    public synchronized void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                if (b) {
+                    Log.d("SwanAppLaunchCache", "removeConfig key: " + str);
+                }
+                this.a.remove(str);
+            }
+        }
     }
 }

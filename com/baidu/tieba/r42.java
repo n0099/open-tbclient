@@ -1,16 +1,67 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import androidx.annotation.NonNull;
+import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class r42 extends o42 {
+public class r42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bitmap d;
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(NetworkStatus networkStatus);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements SwanAppNetworkUtils.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
+
+        public a(r42 r42Var, b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r42Var, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bVar;
+        }
+
+        @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.b
+        public void onResult(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            this.a.a(NetworkStatus.NETWORK_UNKNOWN);
+                            return;
+                        } else {
+                            this.a.a(NetworkStatus.NETWORK_OFFLINE);
+                            return;
+                        }
+                    }
+                    this.a.a(NetworkStatus.NETWORK_BAD);
+                    return;
+                }
+                this.a.a(NetworkStatus.NETWORK_GOOD);
+            }
+        }
+    }
 
     public r42() {
         Interceptable interceptable = $ic;
@@ -26,30 +77,11 @@ public class r42 extends o42 {
         }
     }
 
-    public static r42 a(String str, Bitmap bitmap) {
-        InterceptResult invokeLL;
+    public void a(@NonNull b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, bitmap)) == null) {
-            r42 r42Var = new r42();
-            r42Var.a = 1;
-            r42Var.b = str;
-            r42Var.c = 0L;
-            r42Var.d = bitmap;
-            return r42Var;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, bVar) != null) || bVar == null) {
+            return;
         }
-        return (r42) invokeLL.objValue;
-    }
-
-    public static r42 b(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j)) == null) {
-            r42 r42Var = new r42();
-            r42Var.a = 1;
-            r42Var.b = str;
-            r42Var.c = j;
-            return r42Var;
-        }
-        return (r42) invokeLJ.objValue;
+        SwanAppNetworkUtils.b(new a(this, bVar));
     }
 }

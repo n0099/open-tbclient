@@ -1,8 +1,9 @@
 package com.baidu.bdtask.framework.utils;
 
+import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kr;
+import com.baidu.tieba.mr;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,7 +55,7 @@ public final class DebugTrace {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!kr.c.l() || !kr.c.h().c()) {
+            if (!mr.c.l() || !mr.c.h().c()) {
                 return false;
             }
             return true;
@@ -88,12 +89,52 @@ public final class DebugTrace {
         }
     }
 
-    public final void b(String str, String str2, Function0<Unit> function0) {
+    public final void b(String str, final String str2, Function0<Unit> function0) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, function0) != null) || !e()) {
             return;
         }
-        Log.d(new DebugTrace$debug$1(str2).invoke(), str);
+        Log.d(new Function0<String>(str2) { // from class: com.baidu.bdtask.framework.utils.DebugTrace$debug$1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ String $subTag;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(0);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {str2};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        super(((Integer) newInitContext.callArgs[0]).intValue());
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.$subTag = str2;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // kotlin.jvm.functions.Function0
+            public final String invoke() {
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    DebugTrace debugTrace = DebugTrace.a;
+                    if (TextUtils.isEmpty(this.$subTag)) {
+                        return "bdptask_sdk";
+                    }
+                    return "bdptask_sdk:" + this.$subTag;
+                }
+                return (String) invokeV.objValue;
+            }
+        }.invoke(), str);
         if (function0 != null) {
             function0.invoke();
         }

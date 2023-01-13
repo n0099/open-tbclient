@@ -16,9 +16,9 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.j31;
-import com.baidu.tieba.m31;
-import com.baidu.tieba.zi0;
+import com.baidu.tieba.ej0;
+import com.baidu.tieba.o31;
+import com.baidu.tieba.r31;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -69,7 +69,7 @@ public class NadDragView extends RelativeLayout {
                 return;
             }
         }
-        p = m31.c.c(zi0.b()) / 5;
+        p = r31.c.c(ej0.b()) / 5;
     }
 
     public final void c() {
@@ -263,7 +263,7 @@ public class NadDragView extends RelativeLayout {
             int i = action & 255;
             if (i == 0) {
                 if (this.c == null) {
-                    this.c = j31.a(this.b);
+                    this.c = o31.a(this.b);
                 }
                 if (this.d == null && this.c != null) {
                     int measuredWidth = getMeasuredWidth();
@@ -277,7 +277,7 @@ public class NadDragView extends RelativeLayout {
                 if (this.e == null && (bitmap = this.c) != null) {
                     int height = bitmap.getHeight();
                     int width = bitmap.getWidth();
-                    float b2 = m31.c.b(getContext());
+                    float b2 = r31.c.b(getContext());
                     int i2 = (int) (height * b2);
                     int i3 = (int) (width * b2);
                     if (i3 > this.c.getWidth() && this.c.getWidth() != 0) {
@@ -288,8 +288,8 @@ public class NadDragView extends RelativeLayout {
                         i3 = (int) (i3 / ((i2 * 1.0f) / this.c.getHeight()));
                         i2 = this.c.getHeight();
                     }
-                    int c = (m31.c.c(getContext()) - i2) / 2;
-                    int e = (m31.c.e(getContext()) - i3) / 2;
+                    int c = (r31.c.c(getContext()) - i2) / 2;
+                    int e = (r31.c.e(getContext()) - i3) / 2;
                     this.e = new Rect(e, c, i3 + e, i2 + c);
                     this.f = new Rect(0, 0, this.c.getWidth(), this.c.getHeight());
                 }

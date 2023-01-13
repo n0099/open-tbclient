@@ -1,88 +1,238 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.data.DialogStrategiesData;
+import android.os.Handler;
+import android.os.Looper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.mw4;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.PriorityQueue;
 /* loaded from: classes5.dex */
-public final class nw4 {
+public class nw4 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static WeakReference<mw4> b;
+    public static final PriorityQueue<mw4> c;
+    public static final Handler d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void b(List<? extends DialogStrategiesData> list, List<? extends DialogStrategiesData> list2) {
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, list, list2) == null) {
-            for (DialogStrategiesData dialogStrategiesData : list) {
-                Iterator<T> it = list2.iterator();
-                while (true) {
-                    if (it.hasNext()) {
-                        obj = it.next();
-                        if (Intrinsics.areEqual(((DialogStrategiesData) obj).getDialogName(), dialogStrategiesData.getDialogName())) {
-                            break;
-                        }
-                    } else {
-                        obj = null;
-                        break;
+    /* loaded from: classes5.dex */
+    public static class a implements mw4.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mw4 a;
+        public final /* synthetic */ List b;
+        public final /* synthetic */ int c;
+
+        /* renamed from: com.baidu.tieba.nw4$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class RunnableC0381a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public RunnableC0381a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
                     }
                 }
-                DialogStrategiesData dialogStrategiesData2 = (DialogStrategiesData) obj;
-                if (dialogStrategiesData2 != null) {
-                    DialogStrategiesData.StrategiesConfigData c = c(dialogStrategiesData2, "FREQUENCE_STRATEGY");
-                    boolean z = false;
-                    if (c != null && d(c, c(dialogStrategiesData, "FREQUENCE_STRATEGY"))) {
-                        z = true;
-                    }
-                    if (z) {
-                        lw4 lw4Var = lw4.a;
-                        String dialogName = dialogStrategiesData.getDialogName();
-                        Intrinsics.checkNotNullExpressionValue(dialogName, "ori.dialogName");
-                        lw4Var.b(dialogName);
-                    }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    nw4.k(this.a.a);
                 }
             }
         }
-    }
 
-    public static final DialogStrategiesData.StrategiesConfigData c(DialogStrategiesData dialogStrategiesData, String str) {
-        InterceptResult invokeLL;
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, dialogStrategiesData, str)) == null) {
-            List<DialogStrategiesData.StrategiesConfigData> dialogStrategy = dialogStrategiesData.getDialogStrategy();
-            Intrinsics.checkNotNullExpressionValue(dialogStrategy, "dialogStrategy");
-            Iterator<T> it = dialogStrategy.iterator();
-            while (true) {
-                if (it.hasNext()) {
-                    obj = it.next();
-                    if (Intrinsics.areEqual(str, ((DialogStrategiesData.StrategiesConfigData) obj).getType())) {
-                        break;
+        /* loaded from: classes5.dex */
+        public class b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public b(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
                     }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    a aVar = this.a;
+                    nw4.h(aVar.b, aVar.c + 1);
+                }
+            }
+        }
+
+        public a(mw4 mw4Var, List list, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mw4Var, list, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mw4Var;
+            this.b = list;
+            this.c = i;
+        }
+
+        @Override // com.baidu.tieba.mw4.a
+        public void a(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                if (z) {
+                    nw4.d.post(new RunnableC0381a(this));
                 } else {
-                    obj = null;
-                    break;
+                    nw4.d.post(new b(this));
                 }
             }
-            return (DialogStrategiesData.StrategiesConfigData) obj;
         }
-        return (DialogStrategiesData.StrategiesConfigData) invokeLL.objValue;
     }
 
-    public static final boolean d(DialogStrategiesData.StrategiesConfigData strategiesConfigData, DialogStrategiesData.StrategiesConfigData strategiesConfigData2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, strategiesConfigData, strategiesConfigData2)) == null) {
-            if (strategiesConfigData2 != null) {
-                if (Intrinsics.areEqual(strategiesConfigData.H().get("startTimestamp"), strategiesConfigData2.H().get("startTimestamp")) && Intrinsics.areEqual(strategiesConfigData.H().get("endTimestamp"), strategiesConfigData2.H().get("endTimestamp"))) {
-                    return false;
+    /* loaded from: classes5.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                return true;
             }
-            return false;
         }
-        return invokeLL.booleanValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            boolean unused = nw4.a = false;
+            WeakReference unused2 = nw4.b = null;
+            nw4.k((mw4) nw4.c.poll());
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948016862, "Lcom/baidu/tieba/nw4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948016862, "Lcom/baidu/tieba/nw4;");
+                return;
+            }
+        }
+        c = new PriorityQueue<>();
+        d = new Handler(Looper.getMainLooper());
+    }
+
+    public static void i() {
+        mw4 mw4Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
+            a = false;
+            WeakReference<mw4> weakReference = b;
+            if (weakReference != null && (mw4Var = weakReference.get()) != null) {
+                mw4Var.b();
+            }
+            b = null;
+            c.clear();
+            d.removeCallbacksAndMessages(null);
+        }
+    }
+
+    public static void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            d.postDelayed(new b(), 500L);
+        }
+    }
+
+    public static void g(List<mw4> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, list) == null) {
+            h(list, 0);
+        }
+    }
+
+    public static void h(List<mw4> list, int i) {
+        mw4 mw4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(65544, null, list, i) != null) || list == null || list.size() <= i || (mw4Var = list.get(i)) == null || mw4Var.b != TbadkCoreApplication.getInst().getCurrentActivity()) {
+            return;
+        }
+        mw4Var.d(new a(mw4Var, list, i));
+    }
+
+    public static void k(mw4 mw4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65547, null, mw4Var) != null) || mw4Var == null) {
+            return;
+        }
+        if (mw4Var.b != TbadkCoreApplication.getInst().getCurrentActivity()) {
+            if (!a) {
+                j();
+            }
+        } else if (a) {
+            c.offer(mw4Var);
+        } else {
+            a = true;
+            mw4Var.e();
+            b = new WeakReference<>(mw4Var);
+        }
     }
 }

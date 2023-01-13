@@ -1,37 +1,36 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.layout.FlowLabelLayout;
-import com.baidu.tieba.pb.videopb.viewholder.VideoPbEnterForumAndTopicViewHolder;
+import com.baidu.tieba.pb.pb.main.PbListAlaRecommendVH;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class c88 extends kn<c18, VideoPbEnterForumAndTopicViewHolder> {
+/* loaded from: classes4.dex */
+public class c88 extends p78<d88, PbListAlaRecommendVH> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public y48 g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c88(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public c88(kc8 kc8Var) {
+        super(kc8Var, d88.o);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
+            Object[] objArr = {kc8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((kc8) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -39,41 +38,38 @@ public class c88 extends kn<c18, VideoPbEnterForumAndTopicViewHolder> {
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.kn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, c18 c18Var, VideoPbEnterForumAndTopicViewHolder videoPbEnterForumAndTopicViewHolder) {
-        t(i, view2, viewGroup, c18Var, videoPbEnterForumAndTopicViewHolder);
-        return view2;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: s */
-    public VideoPbEnterForumAndTopicViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.ln
+    /* renamed from: u */
+    public PbListAlaRecommendVH onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.mContext);
-            FlowLabelLayout flowLabelLayout = new FlowLabelLayout(this.mContext);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            layoutParams.leftMargin = yi.g(this.mContext, R.dimen.M_W_X007);
-            layoutParams.topMargin = yi.g(this.mContext, R.dimen.M_W_X004);
-            layoutParams.rightMargin = yi.g(this.mContext, R.dimen.M_W_X007);
-            layoutParams.bottomMargin = yi.g(this.mContext, R.dimen.M_W_X004);
-            frameLayout.addView(flowLabelLayout, layoutParams);
-            return new VideoPbEnterForumAndTopicViewHolder(this.mContext, frameLayout);
+            return new PbListAlaRecommendVH(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06fc, (ViewGroup) null), this.a.S());
         }
-        return (VideoPbEnterForumAndTopicViewHolder) invokeL.objValue;
+        return (PbListAlaRecommendVH) invokeL.objValue;
     }
 
-    public View t(int i, View view2, ViewGroup viewGroup, c18 c18Var, VideoPbEnterForumAndTopicViewHolder videoPbEnterForumAndTopicViewHolder) {
+    public void w(y48 y48Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, y48Var) == null) {
+            this.g = y48Var;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.p78, com.baidu.tieba.ln
+    /* renamed from: v */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, d88 d88Var, PbListAlaRecommendVH pbListAlaRecommendVH) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, c18Var, videoPbEnterForumAndTopicViewHolder})) == null) {
-            if (c18Var != null) {
-                videoPbEnterForumAndTopicViewHolder.setData(c18Var.a);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, d88Var, pbListAlaRecommendVH})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) d88Var, (d88) pbListAlaRecommendVH);
+            if (d88Var == null) {
+                return null;
             }
-            videoPbEnterForumAndTopicViewHolder.a();
+            pbListAlaRecommendVH.b(d88Var);
+            pbListAlaRecommendVH.g(this.g);
             return view2;
         }
         return (View) invokeCommon.objValue;

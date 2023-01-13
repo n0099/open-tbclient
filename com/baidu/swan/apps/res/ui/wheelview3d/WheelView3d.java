@@ -19,13 +19,13 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.e43;
-import com.baidu.tieba.nk1;
-import com.baidu.tieba.t23;
-import com.baidu.tieba.u23;
-import com.baidu.tieba.v23;
-import com.baidu.tieba.w23;
-import com.baidu.tieba.x23;
+import com.baidu.tieba.a33;
+import com.baidu.tieba.b33;
+import com.baidu.tieba.c33;
+import com.baidu.tieba.d33;
+import com.baidu.tieba.e33;
+import com.baidu.tieba.j43;
+import com.baidu.tieba.sk1;
 import com.baidu.tieba.y23;
 import com.baidu.tieba.z23;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -72,7 +72,7 @@ public class WheelView3d extends View {
     public Context b;
     public Handler c;
     public GestureDetector d;
-    public w23 e;
+    public b33 e;
     public boolean f;
     public boolean g;
     public ScheduledExecutorService h;
@@ -80,7 +80,7 @@ public class WheelView3d extends View {
     public Paint j;
     public Paint k;
     public Paint l;
-    public t23 m;
+    public y23 m;
     public String n;
     public int o;
     public int p;
@@ -259,9 +259,9 @@ public class WheelView3d extends View {
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
             }
-            w23 w23Var = this.a.e;
+            b33 b33Var = this.a.e;
             WheelView3d wheelView3d = this.a;
-            w23Var.a(wheelView3d, wheelView3d.getCurrentItem());
+            b33Var.a(wheelView3d, wheelView3d.getCurrentItem());
         }
     }
 
@@ -293,13 +293,13 @@ public class WheelView3d extends View {
         }
     }
 
-    public final t23 getAdapter() {
+    public final y23 getAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.m;
         }
-        return (t23) invokeV.objValue;
+        return (y23) invokeV.objValue;
     }
 
     public float getCenterContentOffset() {
@@ -343,9 +343,9 @@ public class WheelView3d extends View {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            t23 t23Var = this.m;
-            if (t23Var != null) {
-                return t23Var.a();
+            y23 y23Var = this.m;
+            if (y23Var != null) {
+                return y23Var.a();
             }
             return 0;
         }
@@ -474,7 +474,7 @@ public class WheelView3d extends View {
             }
         }
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, nk1.swan_pickerview, 0, 0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, sk1.swan_pickerview, 0, 0);
             this.P = obtainStyledAttributes.getInt(0, 17);
             this.u = obtainStyledAttributes.getColor(4, -5723992);
             this.v = obtainStyledAttributes.getColor(3, -14013910);
@@ -492,15 +492,15 @@ public class WheelView3d extends View {
         if (interceptable == null || interceptable.invokeF(1048602, this, f) == null) {
             b();
             synchronized (WheelView3d.class) {
-                this.i = this.h.scheduleWithFixedDelay(new x23(this, f), 0L, 5L, TimeUnit.MILLISECONDS);
+                this.i = this.h.scheduleWithFixedDelay(new c33(this, f), 0L, 5L, TimeUnit.MILLISECONDS);
             }
         }
     }
 
-    public final void setAdapter(t23 t23Var) {
+    public final void setAdapter(y23 y23Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, t23Var) == null) {
-            this.m = t23Var;
+        if (interceptable == null || interceptable.invokeL(1048604, this, y23Var) == null) {
+            this.m = y23Var;
             p();
             invalidate();
         }
@@ -585,10 +585,10 @@ public class WheelView3d extends View {
         }
     }
 
-    public final void setOnItemSelectedListener(w23 w23Var) {
+    public final void setOnItemSelectedListener(b33 b33Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048615, this, w23Var) == null) {
-            this.e = w23Var;
+        if (interceptable == null || interceptable.invokeL(1048615, this, b33Var) == null) {
+            this.e = b33Var;
         }
     }
 
@@ -666,8 +666,8 @@ public class WheelView3d extends View {
             if (obj == null) {
                 return "";
             }
-            if (obj instanceof u23) {
-                return ((u23) obj).a();
+            if (obj instanceof z23) {
+                return ((z23) obj).a();
             }
             if (obj instanceof Integer) {
                 return String.format(Locale.getDefault(), "%02d", Integer.valueOf(((Integer) obj).intValue()));
@@ -681,8 +681,8 @@ public class WheelView3d extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
             this.b = context;
-            this.c = new y23(this);
-            GestureDetector gestureDetector = new GestureDetector(context, new v23(this));
+            this.c = new d33(this);
+            GestureDetector gestureDetector = new GestureDetector(context, new a33(this));
             this.d = gestureDetector;
             gestureDetector.setIsLongpressEnabled(false);
             this.y = true;
@@ -726,7 +726,7 @@ public class WheelView3d extends View {
                 }
             }
             synchronized (WheelView3d.class) {
-                this.i = this.h.scheduleWithFixedDelay(new z23(this, this.L), 0L, 10L, TimeUnit.MILLISECONDS);
+                this.i = this.h.scheduleWithFixedDelay(new e33(this, this.L), 0L, 10L, TimeUnit.MILLISECONDS);
             }
         }
     }
@@ -755,11 +755,11 @@ public class WheelView3d extends View {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            t23 t23Var = this.m;
-            if (t23Var == null) {
+            y23 y23Var = this.m;
+            if (y23Var == null) {
                 return 0;
             }
-            if (this.y && ((i = this.E) < 0 || i >= t23Var.a())) {
+            if (this.y && ((i = this.E) < 0 || i >= y23Var.a())) {
                 return Math.max(0, Math.min(Math.abs(Math.abs(this.E) - this.m.a()), this.m.a() - 1));
             }
             return Math.max(0, Math.min(this.E, this.m.a() - 1));
@@ -910,7 +910,7 @@ public class WheelView3d extends View {
         try {
             this.F = min + (i3 % this.m.a());
         } catch (ArithmeticException unused) {
-            if (e43.v) {
+            if (j43.v) {
                 Log.e("WheelView", "出错了！adapter.getItemsCount() == 0，联动数据不匹配");
             }
         }

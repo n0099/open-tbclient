@@ -25,14 +25,14 @@ import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cd7;
+import com.baidu.tieba.a05;
+import com.baidu.tieba.b05;
+import com.baidu.tieba.cx4;
 import com.baidu.tieba.im.data.GamePlayOrderMsgData;
 import com.baidu.tieba.im.model.FlutterCommonModel;
 import com.baidu.tieba.im.model.IFlutterCommonDataCallback;
-import com.baidu.tieba.pz4;
-import com.baidu.tieba.qz4;
-import com.baidu.tieba.rw4;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.zg7;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -125,12 +125,12 @@ public final class GamePlayCardMsgView extends LinearLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 TiebaStatic.log(this.a.f("c14878").addParam("obj_locate", 2));
                 TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(TbadkCoreApplication.getInst().getCurrentActivity());
-                tBAlertBuilder.v(R.string.game_back_tip);
+                tBAlertBuilder.w(R.string.game_back_tip);
                 tBAlertBuilder.m(R.string.game_play_confirm_order);
-                tBAlertBuilder.t(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0501, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0509, TBAlertConfig.OperateBtnStyle.MAIN, new View$OnClickListenerC0318a(this)));
+                tBAlertBuilder.u(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0509, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0511, TBAlertConfig.OperateBtnStyle.MAIN, new View$OnClickListenerC0318a(this)));
                 tBAlertBuilder.i();
                 tBAlertBuilder.j(false);
-                tBAlertBuilder.y();
+                tBAlertBuilder.z();
             }
         }
     }
@@ -198,12 +198,12 @@ public final class GamePlayCardMsgView extends LinearLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 TiebaStatic.log(this.a.f("c14878").addParam("obj_locate", 1));
                 TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(TbadkCoreApplication.getInst().getCurrentActivity());
-                tBAlertBuilder.v(R.string.game_back_tip);
+                tBAlertBuilder.w(R.string.game_back_tip);
                 tBAlertBuilder.m(R.string.game_play_confuse_order);
-                tBAlertBuilder.t(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0501, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0509, TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
+                tBAlertBuilder.u(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0509, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0511, TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
                 tBAlertBuilder.i();
                 tBAlertBuilder.j(false);
-                tBAlertBuilder.y();
+                tBAlertBuilder.z();
             }
         }
     }
@@ -673,7 +673,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
     private void setStrokeWith(TbImageView tbImageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, tbImageView) == null) {
-            tbImageView.setBorderWidth(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            tbImageView.setBorderWidth(zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
             tbImageView.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
             tbImageView.setBorderSurroundContent(true);
             tbImageView.setDrawBorder(true);
@@ -815,7 +815,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
             } else if (!StringUtils.isNull(str) && str.endsWith("MsgrightView")) {
                 SkinManager.setBackgroundResource(this, R.drawable.icon_pic_im_bubble_share_right);
             }
-            rw4.d(this.a).v(R.color.CAM_X0105);
+            cx4.d(this.a).v(R.color.CAM_X0105);
         }
     }
 
@@ -895,7 +895,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
             if (this.n == null) {
                 return false;
             }
-            return cd7.w().y(this.n.getGid(), this.n.getMid(), OrmObject.jsonStrWithObject(this.n));
+            return zg7.w().y(this.n.getGid(), this.n.getMid(), OrmObject.jsonStrWithObject(this.n));
         }
         return invokeV.booleanValue;
     }
@@ -916,7 +916,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
             this.g = (EMTextView) findViewById(R.id.msg_card_inner_order_num);
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.msg_card_inner_ll);
             this.h = linearLayout;
-            rw4 d2 = rw4.d(linearLayout);
+            cx4 d2 = cx4.d(linearLayout);
             d2.n(R.string.J_X05);
             d2.f(R.color.CAM_X0204);
             this.l = (LinearLayout) findViewById(R.id.msg_card_bottom_ll);
@@ -924,14 +924,14 @@ public final class GamePlayCardMsgView extends LinearLayout {
             this.i = (LinearLayout) findViewById(R.id.msg_card_btn_ll);
             this.j = (TBSpecificationBtn) findViewById(R.id.msg_card_btn_main);
             this.k = (TBSpecificationBtn) findViewById(R.id.msg_card_btn_second);
-            pz4 pz4Var = new pz4();
-            pz4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
-            this.j.setConfig(pz4Var);
+            a05 a05Var = new a05();
+            a05Var.r(R.color.CAM_X0302, R.color.CAM_X0101);
+            this.j.setConfig(a05Var);
             this.j.setTextSize(R.dimen.T_X08);
             this.j.setEnabled(true);
-            qz4 qz4Var = new qz4();
-            qz4Var.r(R.color.CAM_X0105);
-            this.k.setConfig(qz4Var);
+            b05 b05Var = new b05();
+            b05Var.s(R.color.CAM_X0105);
+            this.k.setConfig(b05Var);
             this.k.setTextSize(R.dimen.T_X08);
             this.k.setEnabled(true);
             l("");

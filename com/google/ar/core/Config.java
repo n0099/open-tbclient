@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Config {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public class Config {
     private native void nativeSetUpdateMode(long j, long j2, int i);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class AugmentedFaceMode {
         public static final /* synthetic */ AugmentedFaceMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -135,7 +135,7 @@ public class Config {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class CloudAnchorMode {
         public static final /* synthetic */ CloudAnchorMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -222,7 +222,7 @@ public class Config {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class FocusMode {
         public static final /* synthetic */ FocusMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -309,7 +309,7 @@ public class Config {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class LightEstimationMode {
         public static final /* synthetic */ LightEstimationMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -396,7 +396,7 @@ public class Config {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class PlaneFindingMode {
         public static final /* synthetic */ PlaneFindingMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -487,7 +487,7 @@ public class Config {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class UpdateMode {
         public static final /* synthetic */ UpdateMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

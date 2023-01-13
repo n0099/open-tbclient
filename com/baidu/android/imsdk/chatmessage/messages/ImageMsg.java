@@ -7,7 +7,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -182,7 +181,7 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
                     jSONObject.put("url", str);
                     jSONObject.put("thumbnail", this.mThumbUrl);
                     if (this.mWidth > 0 && this.mHeight > 0) {
-                        jSONObject.put(Config.DEVICE_WIDTH, this.mWidth);
+                        jSONObject.put("w", this.mWidth);
                         jSONObject.put("h", this.mHeight);
                     }
                     return jSONObject.toString();
@@ -254,7 +253,7 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
                 JSONObject jSONObject = new JSONObject(this.mjsonContent);
                 this.mRemoteUrl = jSONObject.optString("url");
                 this.mThumbUrl = jSONObject.optString("thumbnail");
-                this.mWidth = jSONObject.optInt(Config.DEVICE_WIDTH, 0);
+                this.mWidth = jSONObject.optInt("w", 0);
                 this.mHeight = jSONObject.optInt("h", 0);
                 this.advisoryMsgBusinessExtra = AdvisoryMsgBusinessExtra.parseAdvisoryExtra(jSONObject.optString("business_ext"));
                 return true;

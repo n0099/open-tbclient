@@ -85,8 +85,8 @@ public class DBGroupTableManager {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, cursor)) == null) {
-                            String string = cursor.getString(cursor.getColumnIndex("group_id"));
-                            int i = cursor.getInt(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_ACTIVE_STATE));
+                            String string = CursorWrapper.getString(cursor, "group_id");
+                            int i = CursorWrapper.getInt(cursor, DBTableDefine.GroupInfoColumns.COLUMN_ACTIVE_STATE);
                             GroupInfo groupInfo = new GroupInfo(string);
                             groupInfo.setState(i);
                             return groupInfo;
@@ -142,7 +142,7 @@ public class DBGroupTableManager {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor)) == null) {
-                            String string = cursor.getString(cursor.getColumnIndex("name"));
+                            String string = CursorWrapper.getString(cursor, "name");
                             LogUtils.d(DBGroupTableManager.TAG, string);
                             return string;
                         }

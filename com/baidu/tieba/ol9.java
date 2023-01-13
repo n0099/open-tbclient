@@ -1,97 +1,47 @@
 package com.baidu.tieba;
 
-import android.os.Process;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.SharedPreferences;
+import com.baidu.android.util.KVStorageFactory;
+import com.baidu.android.util.sp.SharedPrefsWrapper;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.ByteBuffer;
 /* loaded from: classes5.dex */
-public class ol9 {
+public class ol9 extends SharedPrefsWrapper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile boolean a;
-    public am9 b;
-    public b c;
-    public fm9 d;
-    public boolean e;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final ol9 a;
         public transient /* synthetic */ FieldHolder $fh;
-    }
 
-    /* loaded from: classes5.dex */
-    public class b extends Thread {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ol9 a;
-
-        public b(ol9 ol9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ol9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-542936336, "Lcom/baidu/tieba/ol9$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-542936336, "Lcom/baidu/tieba/ol9$a;");
                     return;
                 }
             }
-            this.a = ol9Var;
-        }
-
-        public /* synthetic */ b(ol9 ol9Var, a aVar) {
-            this(ol9Var);
-        }
-
-        @Override // java.lang.Thread, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Process.setThreadPriority(-19);
-                try {
-                    try {
-                        this.a.b = new am9(-100);
-                        if (this.a.b.d() != null) {
-                            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(am9.d);
-                            this.a.b.c();
-                            if (this.a.b.e() != 3) {
-                                return;
-                            }
-                            while (!this.a.a) {
-                                allocateDirect.clear();
-                                int a = this.a.b.a(allocateDirect, am9.d);
-                                if (a > 0) {
-                                    double a2 = hm9.a(allocateDirect, a);
-                                    if (this.a.d != null && a2 > 0.0d) {
-                                        this.a.d.a(a2);
-                                    }
-                                }
-                            }
-                        } else if (this.a.d != null) {
-                            this.a.d.a("failed to initialize AudioRecord", true);
-                        }
-                    } catch (Exception unused) {
-                        if (this.a.d != null) {
-                            this.a.d.a("failed to initialize AudioRecord", true);
-                        }
-                    }
-                } finally {
-                    this.a.i();
-                }
-            }
+            a = new ol9();
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ol9() {
+        super(KVStorageFactory.getSharedPreferences(UBCCloudControlProcessor.SP_UBC_FILE_NAME));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,58 +49,20 @@ public class ol9 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((SharedPreferences) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = false;
     }
 
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = true;
-            this.a = false;
-            b bVar = new b(this, null);
-            this.c = bVar;
-            bVar.start();
-        }
-    }
-
-    public void d(fm9 fm9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fm9Var) == null) {
-            this.d = fm9Var;
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = true;
-            this.e = false;
-        }
-    }
-
-    public boolean h() {
+    public static ol9 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : invokeV.booleanValue;
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a = false;
-            this.e = false;
-            am9 am9Var = this.b;
-            if (am9Var != null) {
-                am9Var.b();
-            }
-            if (this.c != null) {
-                this.c = null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
         }
+        return (ol9) invokeV.objValue;
     }
 }

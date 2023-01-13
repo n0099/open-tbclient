@@ -1,103 +1,115 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.core.Call;
+import com.baidu.searchbox.network.outback.core.MediaType;
+import com.baidu.searchbox.network.outback.core.Request;
+import com.baidu.searchbox.network.outback.core.Response;
+import com.baidu.tieba.z60;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import java.io.IOException;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class p70 {
+public final class p70 implements z60.a {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile p70 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public Context c;
-    public boolean d;
+    public final List<z60> a;
+    public g70 b;
+    public final int c;
+    public final Request d;
+    public final Call e;
+    public int f;
 
-    public p70() {
+    public p70(List<z60> list, g70 g70Var, int i, Request request, Call call) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, g70Var, Integer.valueOf(i), request, call};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = "";
+        this.a = list;
+        this.b = g70Var;
+        this.c = i;
+        this.d = request;
+        this.e = call;
     }
 
-    public static p70 d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.z60.a
+    public Response a(Request request) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (e == null) {
-                synchronized (p70.class) {
-                    if (e == null) {
-                        e = new p70();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, request)) == null) {
+            return b(request, this.b);
+        }
+        return (Response) invokeL.objValue;
+    }
+
+    public Response b(Request request, g70 g70Var) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, g70Var)) == null) {
+            if (this.c < this.a.size()) {
+                this.f++;
+                p70 p70Var = new p70(this.a, g70Var, this.c + 1, request, this.e);
+                z60 z60Var = this.a.get(this.c);
+                Response a = z60Var.a(p70Var);
+                if (a != null) {
+                    if (a.body() != null) {
+                        a.getStatRecord().responseLength = a.body().contentLength();
+                        a.getStatRecord().finishTs = System.currentTimeMillis();
+                        MediaType contentType = a.body().contentType();
+                        if (contentType != null) {
+                            a.getStatRecord().contentType = contentType.toString();
+                        }
+                        return a;
                     }
+                    throw new IllegalStateException("interceptor " + z60Var + " returned a response with no body");
                 }
+                throw new NullPointerException("interceptor " + z60Var + " returned null");
             }
-            return e;
+            throw new AssertionError();
         }
-        return (p70) invokeV.objValue;
+        return (Response) invokeLL.objValue;
     }
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int c() {
+    public Call call() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+            return this.e;
         }
-        return invokeV.intValue;
+        return (Call) invokeV.objValue;
     }
 
-    public void e(Context context, String str, int i, boolean z) {
+    @Override // com.baidu.tieba.z60.a
+    public g70 connection() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            this.b = str;
-            if (context != null) {
-                this.c = context.getApplicationContext();
-            }
-            this.a = i;
-            this.d = z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
         }
+        return (g70) invokeV.objValue;
     }
 
-    public void f(JSONArray jSONArray, boolean z, boolean z2, boolean z3) {
+    @Override // com.baidu.tieba.z60.a
+    public Request request() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{jSONArray, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
-            if (!TextUtils.isEmpty(this.b) && this.c != null && jSONArray != null && jSONArray.length() != 0) {
-                v70.b(this.c, jSONArray, z, z2, z3);
-            } else {
-                z70.a("IMLiteUBC", "cuid is empty or context null or upload json is null");
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
         }
+        return (Request) invokeV.objValue;
     }
 }

@@ -3,11 +3,11 @@ package com.baidu.adp.lib.OrmObject.toolsystem.orm.source;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.le;
-import com.baidu.tieba.nd;
-import com.baidu.tieba.pe;
-import com.baidu.tieba.sc;
-import com.baidu.tieba.vd;
+import com.baidu.tieba.me;
+import com.baidu.tieba.od;
+import com.baidu.tieba.qe;
+import com.baidu.tieba.tc;
+import com.baidu.tieba.wd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 /* loaded from: classes.dex */
-public class XmlDataSource implements nd {
+public class XmlDataSource implements od {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Element element;
@@ -70,7 +70,7 @@ public class XmlDataSource implements nd {
         }
     }
 
-    @Override // com.baidu.tieba.nd
+    @Override // com.baidu.tieba.od
     public Set<String> getKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -103,17 +103,17 @@ public class XmlDataSource implements nd {
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.nd
+    @Override // com.baidu.tieba.od
     public Object getObjectByType(String str, Type type) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) {
             Object object = getObject(str);
             if (object != null) {
-                le leVar = new le(type);
-                vd a = pe.a(object);
+                me meVar = new me(type);
+                wd a = qe.a(object);
                 if (a != null) {
-                    return a.a(leVar);
+                    return a.a(meVar);
                 }
                 return object;
             }
@@ -122,7 +122,7 @@ public class XmlDataSource implements nd {
         return invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.nd
+    @Override // com.baidu.tieba.od
     public void set(String str, Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048579, this, str, obj) == null) && obj != null && str != null) {
@@ -144,8 +144,8 @@ public class XmlDataSource implements nd {
                 this.element.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof String) {
                 this.element.setAttribute(str, String.valueOf(obj));
-            } else if (!obj.getClass().isArray() && !sc.e(obj.getClass(), List.class) && !sc.e(obj.getClass(), Queue.class) && !sc.e(obj.getClass(), Set.class) && !sc.e(obj.getClass(), Map.class)) {
-                sc.e(obj.getClass(), SparseArray.class);
+            } else if (!obj.getClass().isArray() && !tc.e(obj.getClass(), List.class) && !tc.e(obj.getClass(), Queue.class) && !tc.e(obj.getClass(), Set.class) && !tc.e(obj.getClass(), Map.class)) {
+                tc.e(obj.getClass(), SparseArray.class);
             }
         }
     }

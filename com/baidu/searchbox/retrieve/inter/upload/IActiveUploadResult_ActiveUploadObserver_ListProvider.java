@@ -1,6 +1,6 @@
 package com.baidu.searchbox.retrieve.inter.upload;
 
-import com.baidu.tieba.if1;
+import com.baidu.tieba.nf1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class IActiveUploadResult_ActiveUploadObserver_ListProvider implements if1 {
+public class IActiveUploadResult_ActiveUploadObserver_ListProvider implements nf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,7 +26,7 @@ public class IActiveUploadResult_ActiveUploadObserver_ListProvider implements if
         }
     }
 
-    @Override // com.baidu.tieba.if1
+    @Override // com.baidu.tieba.nf1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

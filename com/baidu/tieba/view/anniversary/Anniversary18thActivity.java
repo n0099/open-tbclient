@@ -26,23 +26,23 @@ import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pw4;
-import com.baidu.tieba.rq8;
-import com.baidu.tieba.rw4;
-import com.baidu.tieba.v49;
+import com.baidu.tieba.ax4;
+import com.baidu.tieba.cx4;
+import com.baidu.tieba.nv8;
+import com.baidu.tieba.s99;
+import com.baidu.tieba.t99;
 import com.baidu.tieba.view.anniversary.model.AnniversaryEtModel;
 import com.baidu.tieba.view.anniversary.view.MaxureLayerView;
-import com.baidu.tieba.w49;
-import com.baidu.tieba.wp4;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.z49;
+import com.baidu.tieba.w99;
+import com.baidu.tieba.zi;
+import com.baidu.tieba.zp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivity> implements w49 {
+public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivity> implements t99 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AnniversaryEtModel a;
@@ -60,7 +60,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
     public String m;
     public String n;
     public int o;
-    public z49 p;
+    public w99 p;
     public MaxureLayerView q;
     public PermissionJudgePolicy r;
 
@@ -95,7 +95,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
                 if (this.a.o <= 0 || this.a.o >= 100) {
                     this.a.finish();
                 } else {
-                    this.a.E1();
+                    this.a.F1();
                 }
             }
         }
@@ -130,9 +130,9 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.o == 100 && !TextUtils.isEmpty(this.a.k)) {
-                    v49.n(this.a.getPageContext(), this.a.k, this.a.l, this.a.n, this.a.m);
+                    s99.n(this.a.getPageContext(), this.a.k, this.a.l, this.a.n, this.a.m);
                 } else {
-                    yi.Q(TbadkCoreApplication.getInst(), this.a.getString(R.string.obfuscated_res_0x7f0f128f));
+                    zi.Q(TbadkCoreApplication.getInst(), this.a.getString(R.string.obfuscated_res_0x7f0f12a6));
                 }
             }
         }
@@ -168,7 +168,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.p != null) {
                 UrlManager urlManager = UrlManager.getInstance();
                 TbPageContext<Anniversary18thActivity> pageContext = this.a.getPageContext();
-                urlManager.dealOneLink(pageContext, new String[]{wp4.a + this.a.p.a()});
+                urlManager.dealOneLink(pageContext, new String[]{zp4.a + this.a.p.a()});
             }
         }
     }
@@ -346,7 +346,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         }
     }
 
-    @Override // com.baidu.tieba.w49
+    @Override // com.baidu.tieba.t99
     public void onFinish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -354,7 +354,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         }
     }
 
-    @Override // com.baidu.tieba.w49
+    @Override // com.baidu.tieba.t99
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
@@ -375,31 +375,31 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         }
     }
 
-    public final void E1() {
+    public final void F1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             TBAlertConfig.a aVar = new TBAlertConfig.a(getString(R.string.pickerview_submit), TBAlertConfig.OperateBtnStyle.MAIN);
-            TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f037c, TBAlertConfig.OperateBtnStyle.SECONDARY);
+            TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f037e, TBAlertConfig.OperateBtnStyle.SECONDARY);
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(TbadkCoreApplication.getInst().getCurrentActivity());
-            tBAlertBuilder.w(getString(R.string.obfuscated_res_0x7f0f128e));
-            tBAlertBuilder.q(getString(R.string.obfuscated_res_0x7f0f128d));
+            tBAlertBuilder.x(getString(R.string.obfuscated_res_0x7f0f12a5));
+            tBAlertBuilder.q(getString(R.string.obfuscated_res_0x7f0f12a4));
             tBAlertBuilder.o(true);
-            tBAlertBuilder.t(aVar2, aVar);
+            tBAlertBuilder.u(aVar2, aVar);
             tBAlertBuilder.j(false);
-            AlertDialog y = tBAlertBuilder.y();
-            aVar.a(new f(this, y));
-            aVar2.a(new g(this, y));
+            AlertDialog z = tBAlertBuilder.z();
+            aVar.a(new f(this, z));
+            aVar2.a(new g(this, z));
         }
     }
 
-    @Override // com.baidu.tieba.w49
-    public void G0(z49 z49Var) {
+    @Override // com.baidu.tieba.t99
+    public void H0(w99 w99Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z49Var) == null) {
-            this.p = z49Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w99Var) == null) {
+            this.p = w99Var;
             TbImageView tbImageView = this.d;
             if (tbImageView != null) {
-                tbImageView.K(z49Var.b(), 10, false);
+                tbImageView.K(w99Var.b(), 10, false);
             }
             if (this.r == null) {
                 this.r = new PermissionJudgePolicy();
@@ -426,16 +426,16 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         }
     }
 
-    @Override // com.baidu.tieba.w49
-    public void L0(String str, String str2, String str3, String str4) {
+    @Override // com.baidu.tieba.t99
+    public void M0(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3, str4) == null) {
-            this.k = v49.m(getPageContext(), str);
+            this.k = s99.m(getPageContext(), str);
             this.l = str2;
             this.n = str3;
             this.m = str4;
             this.q.setVisibility(8);
-            this.e.setText(getString(R.string.obfuscated_res_0x7f0f1291));
+            this.e.setText(getString(R.string.obfuscated_res_0x7f0f12a8));
         }
     }
 
@@ -445,21 +445,21 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
             this.b = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).setOnClickListener(new a(this));
-            this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091564);
-            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0921a6);
-            this.e = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09165d);
-            this.f = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091f78);
-            this.j = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f79);
-            this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09165c);
-            MaxureLayerView maxureLayerView = (MaxureLayerView) findViewById(R.id.obfuscated_res_0x7f09156d);
+            this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091572);
+            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0921d6);
+            this.e = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09166d);
+            this.f = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091f98);
+            this.j = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f99);
+            this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09166c);
+            MaxureLayerView maxureLayerView = (MaxureLayerView) findViewById(R.id.obfuscated_res_0x7f09157b);
             this.q = maxureLayerView;
             maxureLayerView.c(true);
-            this.q.d(rq8.a(SkinManager.getColor(0, (int) R.color.CAM_X0611), SkinManager.RESOURCE_ALPHA_DISABLE));
+            this.q.d(nv8.a(SkinManager.getColor(0, (int) R.color.CAM_X0611), SkinManager.RESOURCE_ALPHA_DISABLE));
             this.q.g(getResources().getColor(R.color.CAM_X0101));
-            this.q.f(rq8.a(SkinManager.getColor(0, (int) R.color.CAM_X0611), pw4.b(R.string.A_X05)));
-            this.q.e(rq8.a(SkinManager.getColor(0, (int) R.color.CAM_X0101), SkinManager.RESOURCE_ALPHA_PRESS));
+            this.q.f(nv8.a(SkinManager.getColor(0, (int) R.color.CAM_X0611), ax4.b(R.string.A_X05)));
+            this.q.e(nv8.a(SkinManager.getColor(0, (int) R.color.CAM_X0101), SkinManager.RESOURCE_ALPHA_PRESS));
             this.q.h(UtilHelper.getDimenPixelSize(R.dimen.T_X07));
-            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ce7);
+            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cf7);
             this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090077);
             this.d.setAutoChangeStyle(false);
             this.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -468,8 +468,8 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
             this.d.setRadiusById(R.string.J_X06);
             this.d.setPlaceHolderAutoChangeSkinType(2);
             this.d.setDrawBorder(false);
-            rw4.d(this.f).A(R.string.F_X02);
-            this.j.setBackgroundDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080860, WebPManager.ResourceStateType.NORMAL));
+            cx4.d(this.f).A(R.string.F_X02);
+            this.j.setBackgroundDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f08086e, WebPManager.ResourceStateType.NORMAL));
             this.f.setOnClickListener(new b(this));
             this.i.setOnClickListener(new c(this));
             c(0);
@@ -477,11 +477,11 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         }
     }
 
-    @Override // com.baidu.tieba.w49
+    @Override // com.baidu.tieba.t99
     public void onError(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, str) == null) {
-            yi.Q(TbadkCoreApplication.getInst(), str);
+            zi.Q(TbadkCoreApplication.getInst(), str);
         }
     }
 
@@ -492,7 +492,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, keyEvent)) == null) {
             if (i == 4 && (i2 = this.o) > 0 && i2 < 100) {
-                E1();
+                F1();
                 return true;
             }
             return super.onKeyDown(i, keyEvent);

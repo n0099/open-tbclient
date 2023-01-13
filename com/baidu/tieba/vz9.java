@@ -1,155 +1,99 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
-import org.brotli.dec.BrotliRuntimeException;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.PidLoader;
+import com.fun.ad.sdk.internal.api.PidLoaderCreator;
+import com.fun.ad.sdk.internal.api.config.Ssp;
 /* loaded from: classes6.dex */
-public class vz9 extends InputStream {
+public class vz9 implements PidLoaderCreator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public int b;
-    public int c;
-    public final d0a d;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public vz9(InputStream inputStream) throws IOException {
-        this(inputStream, 16384, null);
+    public vz9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((InputStream) objArr2[0], ((Integer) objArr2[1]).intValue(), (byte[]) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public vz9(InputStream inputStream, int i, byte[] bArr) throws IOException {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
+    public PidLoader create(Ssp.Pid pid) {
+        InterceptResult invokeL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, Integer.valueOf(i), bArr};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        d0a d0aVar = new d0a();
-        this.d = d0aVar;
-        if (i > 0) {
-            if (inputStream != null) {
-                this.a = new byte[i];
-                this.b = 0;
-                this.c = 0;
-                try {
-                    d0a.c(d0aVar, inputStream);
-                    if (bArr != null) {
-                        xz9.s(this.d, bArr);
-                        return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
+            String str = pid.type;
+            str.hashCode();
+            switch (str.hashCode()) {
+                case -1900686778:
+                    if (str.equals(FunAdType.JY_NATIVE)) {
+                        c = 0;
+                        break;
                     }
-                    return;
-                } catch (BrotliRuntimeException e) {
-                    throw new IOException("Brotli decoder initialization failed", e);
-                }
-            }
-            throw new IllegalArgumentException("source is null");
-        }
-        throw new IllegalArgumentException("Bad buffer size:" + i);
-    }
-
-    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            d0a.a(this.d);
-        }
-    }
-
-    @Override // java.io.InputStream
-    public int read() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.c >= this.b) {
-                byte[] bArr = this.a;
-                int read = read(bArr, 0, bArr.length);
-                this.b = read;
-                this.c = 0;
-                if (read == -1) {
-                    return -1;
-                }
-            }
-            byte[] bArr2 = this.a;
-            int i = this.c;
-            this.c = i + 1;
-            return bArr2[i] & 255;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2)) == null) {
-            if (i >= 0) {
-                if (i2 >= 0) {
-                    int i3 = i + i2;
-                    if (i3 <= bArr.length) {
-                        if (i2 == 0) {
-                            return 0;
-                        }
-                        int max = Math.max(this.b - this.c, 0);
-                        if (max != 0) {
-                            max = Math.min(max, i2);
-                            System.arraycopy(this.a, this.c, bArr, i, max);
-                            this.c += max;
-                            i += max;
-                            i2 -= max;
-                            if (i2 == 0) {
-                                return max;
-                            }
-                        }
-                        try {
-                            this.d.Z = bArr;
-                            this.d.U = i;
-                            this.d.V = i2;
-                            this.d.W = 0;
-                            xz9.i(this.d);
-                            if (this.d.W == 0) {
-                                return -1;
-                            }
-                            return this.d.W + max;
-                        } catch (BrotliRuntimeException e) {
-                            throw new IOException("Brotli stream decoding failed", e);
-                        }
+                    c = 65535;
+                    break;
+                case -1743934314:
+                    if (str.equals(FunAdType.JY_SPLASH)) {
+                        c = 1;
+                        break;
                     }
-                    throw new IllegalArgumentException("Buffer overflow: " + i3 + " > " + bArr.length);
-                }
-                throw new IllegalArgumentException("Bad length: " + i2);
+                    c = 65535;
+                    break;
+                case -1659486968:
+                    if (str.equals(FunAdType.JY_DRAW_VIDEO)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -39027267:
+                    if (str.equals(FunAdType.JY_REWARD_VIDEO)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1872382491:
+                    if (str.equals(FunAdType.JY_INTERSTITIAL)) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
             }
-            throw new IllegalArgumentException("Bad offset: " + i);
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (c != 3) {
+                            if (c != 4) {
+                                return null;
+                            }
+                            return new yz9(pid);
+                        }
+                        return new b0a(pid);
+                    }
+                    return new wz9(pid);
+                }
+                return new c0a(pid);
+            }
+            return new zz9(pid);
         }
-        return invokeLII.intValue;
+        return (PidLoader) invokeL.objValue;
     }
 }

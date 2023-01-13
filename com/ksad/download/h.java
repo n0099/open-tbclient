@@ -68,7 +68,7 @@ public final class h implements com.kwai.filedownloader.kwai.b {
                     return;
                 }
             }
-            this.aq = z ? h.Y() : h.X();
+            this.aq = z ? h.Z() : h.aa();
         }
 
         @Override // com.kwai.filedownloader.e.c.b
@@ -144,6 +144,14 @@ public final class h implements com.kwai.filedownloader.kwai.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new OkHttpClient.Builder().connectTimeout(10000L, TimeUnit.MILLISECONDS).addInterceptor(new com.ksad.download.a.a()).protocols(Util.immutableList(Protocol.HTTP_1_1)).readTimeout(0L, TimeUnit.MILLISECONDS).connectionPool(new ConnectionPool(6, 60000L, TimeUnit.MILLISECONDS)).retryOnConnectionFailure(true) : (OkHttpClient.Builder) invokeV.objValue;
+    }
+
+    public static /* synthetic */ OkHttpClient.Builder Z() {
+        return Y();
+    }
+
+    public static /* synthetic */ OkHttpClient.Builder aa() {
+        return X();
     }
 
     private String q(String str) {

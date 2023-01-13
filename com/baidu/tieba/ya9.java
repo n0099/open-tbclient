@@ -1,25 +1,35 @@
 package com.baidu.tieba;
+/* loaded from: classes7.dex */
+public interface ya9 {
+    void a();
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class ya9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+    void b(long j);
 
-    public ya9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void c(double d);
+
+    void d(int i);
+
+    void e(int i, int i2);
+
+    void f(int i, int i2);
+
+    void g(int i, int i2, int i3);
+
+    void h();
+
+    void i();
+
+    void j(int i, ab9 ab9Var);
+
+    void k();
+
+    void l(double d);
+
+    void m();
+
+    void n(long j, long j2);
+
+    void o(long j, long j2);
+
+    void onClick();
 }

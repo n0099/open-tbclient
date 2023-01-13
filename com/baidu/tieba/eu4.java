@@ -1,23 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.PrivateForumShareinfo;
-import tbclient.FrsPage.PrivateForumTotalInfo;
-import tbclient.PrivateForumInfo;
-import tbclient.PrivatePopInfo;
 /* loaded from: classes4.dex */
 public class eu4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PrivatePopInfo a;
-    public PrivateForumInfo b;
-    public Integer c;
+    public long a;
+    public String b;
+    public String c;
+    public String d;
+    public long e;
 
     public eu4() {
         Interceptable interceptable = $ic;
@@ -32,50 +29,82 @@ public class eu4 {
                 return;
             }
         }
-        this.a = null;
+        this.a = -1L;
         this.b = null;
         this.c = null;
+        this.d = "";
+        this.e = -1L;
     }
 
-    public PrivateForumInfo a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.c;
         }
-        return (PrivateForumInfo) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public Integer b() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+            return this.b;
         }
-        return (Integer) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public PrivatePopInfo c() {
+    public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.a;
         }
-        return (PrivatePopInfo) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public void d(PrivateForumTotalInfo privateForumTotalInfo) {
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, privateForumTotalInfo) != null) || privateForumTotalInfo == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
         }
-        try {
-            PrivateForumShareinfo privateForumShareinfo = privateForumTotalInfo.private_forum_shareinfo;
-            this.b = privateForumTotalInfo.private_forum_info;
-            this.c = privateForumTotalInfo.private_forum_taskpercent;
-            this.a = privateForumTotalInfo.private_forum_popinfo;
-        } catch (Exception e) {
-            BdLog.detailException(e);
+        return (String) invokeV.objValue;
+    }
+
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
         }
+        return invokeV.longValue;
+    }
+
+    public eu4(long j, long j2, String str, String str2, String str3, long j3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), str, str2, str3, Long.valueOf(j3)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = -1L;
+        this.b = null;
+        this.c = null;
+        this.d = "";
+        this.e = -1L;
+        this.a = j;
+        this.e = j2;
+        this.b = str;
+        this.c = str2;
+        this.d = str3;
     }
 }

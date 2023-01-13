@@ -1,7 +1,9 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
-public interface dl7 {
-    void a(int i, long j, String str, String str2);
 
-    void b(long j, String str);
+import android.view.View;
+import androidx.annotation.NonNull;
+import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseMsg;
+/* loaded from: classes4.dex */
+public interface dl7<ChildItemData extends BaseMsg> {
+    void a(@NonNull View view2, @NonNull ChildItemData childitemdata, int i);
 }

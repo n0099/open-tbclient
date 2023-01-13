@@ -22,14 +22,14 @@ import io.reactivex.internal.observers.BasicIntQueueDisposable;
 import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ObservableFlatMapCompletable<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean delayErrors;
     public final Function<? super T, ? extends CompletableSource> mapper;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class FlatMapCompletableMainObserver<T> extends BasicIntQueueDisposable<T> implements Observer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8443155186132538303L;
@@ -77,7 +77,7 @@ public final class ObservableFlatMapCompletable<T> extends AbstractObservableWit
             return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) ? i & 2 : invokeI.intValue;
         }
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public final class InnerObserver extends AtomicReference<Disposable> implements CompletableObserver, Disposable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 8606673141535671828L;

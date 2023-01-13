@@ -1,5 +1,6 @@
 package com.baidu.tieba.imMessageCenter.chatgroup.chatbox.adapter;
 
+import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -14,11 +15,11 @@ import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fh7;
-import com.baidu.tieba.gh7;
-import com.baidu.tieba.rw4;
-import com.baidu.tieba.wg7;
-import com.baidu.tieba.xg7;
+import com.baidu.tieba.cx4;
+import com.baidu.tieba.kk7;
+import com.baidu.tieba.lk7;
+import com.baidu.tieba.tk7;
+import com.baidu.tieba.uk7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -32,15 +33,52 @@ public class ChatNameViewHolder extends BaseItemViewHolder {
     public TextView e;
     public ImageView f;
     public RecyclerView g;
-    public fh7 h;
+    public tk7 h;
 
     /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
+    public class a extends LinearLayoutManager {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ChatNameViewHolder chatNameViewHolder, Context context) {
+            super(context);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {chatNameViewHolder, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Context) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // androidx.recyclerview.widget.LinearLayoutManager, androidx.recyclerview.widget.RecyclerView.LayoutManager
+        public void onLayoutChildren(RecyclerView.Recycler recycler, RecyclerView.State state) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, recycler, state) == null) {
+                try {
+                    super.onLayoutChildren(recycler, state);
+                } catch (Throwable unused) {
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatNameViewHolder a;
 
-        public a(ChatNameViewHolder chatNameViewHolder) {
+        public b(ChatNameViewHolder chatNameViewHolder) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,19 +100,19 @@ public class ChatNameViewHolder extends BaseItemViewHolder {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.h != null) {
-                if (this.a.h.g()) {
-                    this.a.f.setImageResource(R.drawable.obfuscated_res_0x7f08077f);
+                if (this.a.h.d()) {
+                    this.a.f.setImageResource(R.drawable.obfuscated_res_0x7f08078c);
                     ChatNameViewHolder chatNameViewHolder = this.a;
-                    xg7.d(chatNameViewHolder, chatNameViewHolder.g);
+                    lk7.d(chatNameViewHolder, chatNameViewHolder.g);
                     int unused = ChatNameViewHolder.i = 1;
                 } else {
-                    this.a.f.setImageResource(R.drawable.obfuscated_res_0x7f08077e);
+                    this.a.f.setImageResource(R.drawable.obfuscated_res_0x7f08078b);
                     ChatNameViewHolder chatNameViewHolder2 = this.a;
-                    xg7.a(chatNameViewHolder2, chatNameViewHolder2.g);
+                    lk7.a(chatNameViewHolder2, chatNameViewHolder2.g);
                     int unused2 = ChatNameViewHolder.i = 2;
                 }
                 this.a.n();
-                this.a.h.j(true ^ this.a.h.g());
+                this.a.h.g(true ^ this.a.h.d());
             }
         }
     }
@@ -97,21 +135,20 @@ public class ChatNameViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0916c1);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d62);
-        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d7a);
-        RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090d6c);
-        this.g = recyclerView;
-        recyclerView.setLayoutManager(new LinearLayoutManager(view2.getContext()));
+        this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0916d1);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d6b);
+        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d83);
+        this.g = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090d76);
+        this.g.setLayoutManager(new a(this, view2.getContext()));
         this.g.setFocusable(false);
-        this.d.setOnClickListener(new a(this));
+        this.d.setOnClickListener(new b(this));
     }
 
     @Override // com.baidu.tieba.imMessageCenter.chatgroup.chatbox.adapter.BaseItemViewHolder
     public void f(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && !this.h.h()) {
-            rw4 d = rw4.d(this.e);
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && !this.h.e()) {
+            cx4 d = cx4.d(this.e);
             d.z(R.dimen.T_X08);
             d.A(R.string.F_X01);
             d.v(R.color.CAM_X0107);
@@ -119,35 +156,35 @@ public class ChatNameViewHolder extends BaseItemViewHolder {
     }
 
     @Override // com.baidu.tieba.imMessageCenter.chatgroup.chatbox.adapter.BaseItemViewHolder
-    public void d(@NonNull wg7 wg7Var, @NonNull TbPageContext tbPageContext, int i2) {
+    public void d(@NonNull kk7 kk7Var, @NonNull TbPageContext tbPageContext, int i2) {
         int i3;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(1048576, this, wg7Var, tbPageContext, i2) == null) && (wg7Var instanceof fh7)) {
-            fh7 fh7Var = (fh7) wg7Var;
-            this.h = fh7Var;
-            this.e.setText(fh7Var.d());
+        if ((interceptable == null || interceptable.invokeLLI(1048576, this, kk7Var, tbPageContext, i2) == null) && (kk7Var instanceof tk7)) {
+            tk7 tk7Var = (tk7) kk7Var;
+            this.h = tk7Var;
+            this.e.setText(tk7Var.b());
             ImageView imageView = this.f;
-            int i4 = R.drawable.obfuscated_res_0x7f08077f;
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f08077f);
-            if (this.g.getAdapter() != this.h.b()) {
+            int i4 = R.drawable.obfuscated_res_0x7f08078c;
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f08078c);
+            if (this.g.getAdapter() != this.h.getAdapter()) {
                 if (this.g.getAdapter() != null) {
-                    this.g.swapAdapter(this.h.b(), true);
+                    this.g.swapAdapter(this.h.getAdapter(), true);
                 } else {
-                    this.g.setAdapter(this.h.b());
+                    this.g.setAdapter(this.h.getAdapter());
                 }
             } else {
-                this.h.i();
+                this.h.f();
             }
             RecyclerView recyclerView = this.g;
-            if (this.h.g()) {
+            if (this.h.d()) {
                 i3 = 8;
             } else {
                 i3 = 0;
             }
             recyclerView.setVisibility(i3);
             ImageView imageView2 = this.f;
-            if (this.h.g()) {
-                i4 = R.drawable.obfuscated_res_0x7f08077e;
+            if (this.h.d()) {
+                i4 = R.drawable.obfuscated_res_0x7f08078b;
             }
             imageView2.setImageResource(i4);
             o();
@@ -158,17 +195,17 @@ public class ChatNameViewHolder extends BaseItemViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CHAT_GROUP_CLICK);
-            wg7 wg7Var = this.h.e().get(0);
-            if (wg7Var instanceof gh7) {
-                gh7 gh7Var = (gh7) wg7Var;
-                if (gh7Var.b() != null) {
-                    statisticItem.param("fid", gh7Var.b().getForumId());
-                    statisticItem.param("fname", gh7Var.b().getForumName());
+            kk7 kk7Var = this.h.getSubItems().get(0);
+            if (kk7Var instanceof uk7) {
+                uk7 uk7Var = (uk7) kk7Var;
+                if (uk7Var.a() != null) {
+                    statisticItem.param("fid", uk7Var.a().getForumId());
+                    statisticItem.param("fname", uk7Var.a().getForumName());
                 }
             }
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             statisticItem.param("obj_type", i);
-            statisticItem.param("obj_source", this.h.d());
+            statisticItem.param("obj_source", this.h.b());
             TiebaStatic.log(statisticItem);
         }
     }
@@ -176,7 +213,7 @@ public class ChatNameViewHolder extends BaseItemViewHolder {
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.h.h()) {
+            if (this.h.e()) {
                 this.d.setVisibility(8);
             } else {
                 this.d.setVisibility(0);

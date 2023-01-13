@@ -1,72 +1,46 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import androidx.annotation.CallSuper;
+import com.baidu.bdtask.BDPTask;
+import com.baidu.bdtask.component.buoy.TaskBuoyViewData;
+import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.JvmStatic;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class fv {
+public class fv implements gv {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448304861, "Lcom/baidu/tieba/fv;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public fv() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448304861, "Lcom/baidu/tieba/fv;");
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    @JvmStatic
-    @JvmOverloads
-    public static final ps a(Class<? extends xs<aq>> cls) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.gv
+    @CallSuper
+    public void a(View view2, TaskInfo taskInfo, TaskBuoyViewData taskBuoyViewData) {
+        qs b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) {
-            return new ps(cls, aq.class);
+        if ((interceptable == null || interceptable.invokeLLL(1048576, this, view2, taskInfo, taskBuoyViewData) == null) && taskBuoyViewData.getTaskStatus().isFinished()) {
+            if (view2.getParent() != null) {
+                view2.setVisibility(8);
+            }
+            ku v = BDPTask.m.v();
+            if (v != null && (b = v.b()) != null) {
+                b.a(taskBuoyViewData.getScheme(), 3);
+            }
         }
-        return (ps) invokeL.objValue;
-    }
-
-    @JvmStatic
-    @JvmOverloads
-    public static final qs b(Class<? extends ft<eq>> cls, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, cls, z)) == null) {
-            return new qs(cls, eq.class, z);
-        }
-        return (qs) invokeLZ.objValue;
-    }
-
-    @JvmStatic
-    public static final ps c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return a(gv.class);
-        }
-        return (ps) invokeV.objValue;
-    }
-
-    @JvmStatic
-    public static final qs d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return b(hv.class, true);
-        }
-        return (qs) invokeV.objValue;
     }
 }

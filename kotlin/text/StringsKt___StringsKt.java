@@ -48,6 +48,7 @@ import kotlin.collections.SetsKt__SetsKt;
 import kotlin.collections.SlidingWindowKt;
 import kotlin.internal.InlineOnly;
 import kotlin.jvm.JvmName;
+import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function3;
@@ -92,7 +93,14 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     @SinceKotlin(version = "1.2")
     public static final Sequence<String> chunkedSequence(CharSequence chunkedSequence, int i) {
         Intrinsics.checkNotNullParameter(chunkedSequence, "$this$chunkedSequence");
-        return chunkedSequence(chunkedSequence, i, StringsKt___StringsKt$chunkedSequence$1.INSTANCE);
+        return chunkedSequence(chunkedSequence, i, new Function1<CharSequence, String>() { // from class: kotlin.text.StringsKt___StringsKt$chunkedSequence$1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // kotlin.jvm.functions.Function1
+            public final String invoke(CharSequence it) {
+                Intrinsics.checkNotNullParameter(it, "it");
+                return it.toString();
+            }
+        });
     }
 
     public static final int count(CharSequence count, Function1<? super Character, Boolean> predicate) {
@@ -294,9 +302,8 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         Intrinsics.checkNotNullParameter(groupingBy, "$this$groupingBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         return new Grouping<Character, K>() { // from class: kotlin.text.StringsKt___StringsKt$groupingBy$1
-            /* JADX WARN: Type inference failed for: r2v2, types: [java.lang.Object, K] */
             public K keyOf(char c) {
-                return keySelector.invoke(Character.valueOf(c));
+                return (K) keySelector.invoke(Character.valueOf(c));
             }
 
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -549,11 +556,11 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     @OverloadResolutionByLambdaReturnType
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final int sumOfUInt(CharSequence charSequence, Function1<? super Character, UInt> function1) {
-        int m802constructorimpl = UInt.m802constructorimpl(0);
+        int m866constructorimpl = UInt.m866constructorimpl(0);
         for (int i = 0; i < charSequence.length(); i++) {
-            m802constructorimpl = UInt.m802constructorimpl(m802constructorimpl + function1.invoke(Character.valueOf(charSequence.charAt(i))).m853unboximpl());
+            m866constructorimpl = UInt.m866constructorimpl(m866constructorimpl + function1.invoke(Character.valueOf(charSequence.charAt(i))).m917unboximpl());
         }
-        return m802constructorimpl;
+        return m866constructorimpl;
     }
 
     @SinceKotlin(version = "1.5")
@@ -562,11 +569,11 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     @OverloadResolutionByLambdaReturnType
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final long sumOfULong(CharSequence charSequence, Function1<? super Character, ULong> function1) {
-        long m880constructorimpl = ULong.m880constructorimpl(0);
+        long m944constructorimpl = ULong.m944constructorimpl(0);
         for (int i = 0; i < charSequence.length(); i++) {
-            m880constructorimpl = ULong.m880constructorimpl(m880constructorimpl + function1.invoke(Character.valueOf(charSequence.charAt(i))).m931unboximpl());
+            m944constructorimpl = ULong.m944constructorimpl(m944constructorimpl + function1.invoke(Character.valueOf(charSequence.charAt(i))).m995unboximpl());
         }
-        return m880constructorimpl;
+        return m944constructorimpl;
     }
 
     public static final <C extends Collection<? super Character>> C toCollection(CharSequence toCollection, C destination) {
@@ -771,9 +778,21 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return (List) toCollection(toMutableList, new ArrayList(toMutableList.length()));
     }
 
-    public static final Iterable<IndexedValue<Character>> withIndex(CharSequence withIndex) {
+    public static final Iterable<IndexedValue<Character>> withIndex(final CharSequence withIndex) {
         Intrinsics.checkNotNullParameter(withIndex, "$this$withIndex");
-        return new IndexingIterable(new StringsKt___StringsKt$withIndex$1(withIndex));
+        return new IndexingIterable(new Function0<Iterator<? extends Character>>() { // from class: kotlin.text.StringsKt___StringsKt$withIndex$1
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(0);
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX DEBUG: Return type fixed from 'java.util.Iterator<java.lang.Character>' to match base method */
+            @Override // kotlin.jvm.functions.Function0
+            public final Iterator<? extends Character> invoke() {
+                return StringsKt__StringsKt.iterator(withIndex);
+            }
+        });
     }
 
     public static final <K, V> Map<K, V> associate(CharSequence associate, Function1<? super Character, ? extends Pair<? extends K, ? extends V>> transform) {
@@ -965,7 +984,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final <R extends Comparable<? super R>> R m1972maxOf(CharSequence charSequence, Function1<? super Character, ? extends R> function1) {
+    public static final <R extends Comparable<? super R>> R m2036maxOf(CharSequence charSequence, Function1<? super Character, ? extends R> function1) {
         boolean z;
         int i = 1;
         if (charSequence.length() == 0) {
@@ -1059,7 +1078,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final <R extends Comparable<? super R>> R m1976minOf(CharSequence charSequence, Function1<? super Character, ? extends R> function1) {
+    public static final <R extends Comparable<? super R>> R m2040minOf(CharSequence charSequence, Function1<? super Character, ? extends R> function1) {
         boolean z;
         int i = 1;
         if (charSequence.length() == 0) {
@@ -2157,7 +2176,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final Double m1973maxOfOrNull(CharSequence charSequence, Function1<? super Character, Double> function1) {
+    public static final Double m2037maxOfOrNull(CharSequence charSequence, Function1<? super Character, Double> function1) {
         boolean z;
         int i = 1;
         if (charSequence.length() == 0) {
@@ -2289,7 +2308,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final Double m1977minOfOrNull(CharSequence charSequence, Function1<? super Character, Double> function1) {
+    public static final Double m2041minOfOrNull(CharSequence charSequence, Function1<? super Character, Double> function1) {
         boolean z;
         int i = 1;
         if (charSequence.length() == 0) {
@@ -2467,7 +2486,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final float m1971maxOf(CharSequence charSequence, Function1<? super Character, Float> function1) {
+    public static final float m2035maxOf(CharSequence charSequence, Function1<? super Character, Float> function1) {
         boolean z;
         int i = 1;
         if (charSequence.length() == 0) {
@@ -2496,7 +2515,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final Float m1974maxOfOrNull(CharSequence charSequence, Function1<? super Character, Float> function1) {
+    public static final Float m2038maxOfOrNull(CharSequence charSequence, Function1<? super Character, Float> function1) {
         boolean z;
         int i = 1;
         if (charSequence.length() == 0) {
@@ -2525,7 +2544,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final float m1975minOf(CharSequence charSequence, Function1<? super Character, Float> function1) {
+    public static final float m2039minOf(CharSequence charSequence, Function1<? super Character, Float> function1) {
         boolean z;
         int i = 1;
         if (charSequence.length() == 0) {
@@ -2554,7 +2573,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final Float m1978minOfOrNull(CharSequence charSequence, Function1<? super Character, Float> function1) {
+    public static final Float m2042minOfOrNull(CharSequence charSequence, Function1<? super Character, Float> function1) {
         boolean z;
         int i = 1;
         if (charSequence.length() == 0) {
@@ -2721,13 +2740,27 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     @SinceKotlin(version = "1.2")
     public static final List<String> windowed(CharSequence windowed, int i, int i2, boolean z) {
         Intrinsics.checkNotNullParameter(windowed, "$this$windowed");
-        return windowed(windowed, i, i2, z, StringsKt___StringsKt$windowed$1.INSTANCE);
+        return windowed(windowed, i, i2, z, new Function1<CharSequence, String>() { // from class: kotlin.text.StringsKt___StringsKt$windowed$1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // kotlin.jvm.functions.Function1
+            public final String invoke(CharSequence it) {
+                Intrinsics.checkNotNullParameter(it, "it");
+                return it.toString();
+            }
+        });
     }
 
     @SinceKotlin(version = "1.2")
     public static final Sequence<String> windowedSequence(CharSequence windowedSequence, int i, int i2, boolean z) {
         Intrinsics.checkNotNullParameter(windowedSequence, "$this$windowedSequence");
-        return windowedSequence(windowedSequence, i, i2, z, StringsKt___StringsKt$windowedSequence$1.INSTANCE);
+        return windowedSequence(windowedSequence, i, i2, z, new Function1<CharSequence, String>() { // from class: kotlin.text.StringsKt___StringsKt$windowedSequence$1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // kotlin.jvm.functions.Function1
+            public final String invoke(CharSequence it) {
+                Intrinsics.checkNotNullParameter(it, "it");
+                return it.toString();
+            }
+        });
     }
 
     @SinceKotlin(version = "1.2")
@@ -2800,7 +2833,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     }
 
     @SinceKotlin(version = "1.2")
-    public static final <R> Sequence<R> windowedSequence(CharSequence windowedSequence, int i, int i2, boolean z, Function1<? super CharSequence, ? extends R> transform) {
+    public static final <R> Sequence<R> windowedSequence(final CharSequence windowedSequence, final int i, int i2, boolean z, final Function1<? super CharSequence, ? extends R> transform) {
         IntRange until;
         Intrinsics.checkNotNullParameter(windowedSequence, "$this$windowedSequence");
         Intrinsics.checkNotNullParameter(transform, "transform");
@@ -2810,6 +2843,25 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         } else {
             until = RangesKt___RangesKt.until(0, (windowedSequence.length() - i) + 1);
         }
-        return SequencesKt___SequencesKt.map(CollectionsKt___CollectionsKt.asSequence(RangesKt___RangesKt.step(until, i2)), new StringsKt___StringsKt$windowedSequence$2(windowedSequence, i, transform));
+        return SequencesKt___SequencesKt.map(CollectionsKt___CollectionsKt.asSequence(RangesKt___RangesKt.step(until, i2)), new Function1<Integer, R>() { // from class: kotlin.text.StringsKt___StringsKt$windowedSequence$2
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(1);
+            }
+
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+            @Override // kotlin.jvm.functions.Function1
+            public /* bridge */ /* synthetic */ Object invoke(Integer num) {
+                return invoke(num.intValue());
+            }
+
+            public final R invoke(int i3) {
+                int i4 = i + i3;
+                if (i4 < 0 || i4 > windowedSequence.length()) {
+                    i4 = windowedSequence.length();
+                }
+                return (R) transform.invoke(windowedSequence.subSequence(i3, i4));
+            }
+        });
     }
 }

@@ -1,7 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import java.util.Map;
 /* loaded from: classes4.dex */
 public interface ho2 {
-    boolean a(Context context, String str, xf3 xf3Var);
+    void a(g53 g53Var);
+
+    @Nullable
+    Map<String, Object> b(@NonNull ks1 ks1Var);
+
+    @Nullable
+    Map<String, Object> c(@NonNull ks1 ks1Var);
+
+    @Nullable
+    Map<Class, Object> d();
 }

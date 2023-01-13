@@ -1,43 +1,16 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.q53;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes5.dex */
-public class lm1 implements qo1 {
+public class lm1 implements oo1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.qo1
-    public boolean a(Activity activity, String str, q53.b bVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, str, bVar)) == null) {
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.qo1
-    public boolean b(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
 
     public lm1() {
         Interceptable interceptable = $ic;
@@ -53,32 +26,13 @@ public class lm1 implements qo1 {
         }
     }
 
-    @Override // com.baidu.tieba.qo1
-    public boolean c(Activity activity, Uri uri, String str) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.oo1
+    public InputStream a(InputStream inputStream) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, uri, str)) == null) {
-            if (activity != null && uri != null && uri.getPath() != null && !TextUtils.isEmpty(str)) {
-                if (lg3.i()) {
-                    uri = bi3.a(activity, new File(uri.getPath()));
-                }
-                d(activity, uri, str);
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) {
+            return new d5a(inputStream);
         }
-        return invokeLLL.booleanValue;
-    }
-
-    public final void d(Activity activity, Uri uri, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, uri, str) == null) {
-            Intent intent = new Intent("android.intent.action.VIEW");
-            intent.addCategory("android.intent.category.DEFAULT");
-            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-            intent.addFlags(1);
-            intent.setDataAndType(uri, str);
-            ng3.f(activity, intent);
-        }
+        return (InputStream) invokeL.objValue;
     }
 }

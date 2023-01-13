@@ -14,6 +14,7 @@ public class SyncDataEvent extends SerializableEvent {
     public static final long serialVersionUID = -4019344353242140288L;
     public transient /* synthetic */ FieldHolder $fh;
     public ABTestExtraData abtestExtraData;
+    public int praiseSwitch;
     public ProfileVirtualImageInfo profileVirtualImageInfo;
     public String sampleId;
     public int themeIsBlack;

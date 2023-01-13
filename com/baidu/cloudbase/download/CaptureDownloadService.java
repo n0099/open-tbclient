@@ -9,11 +9,11 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cloudbase.download.exception.DownloadException;
+import com.baidu.tieba.c10;
 import com.baidu.tieba.d10;
-import com.baidu.tieba.g;
-import com.baidu.tieba.x00;
-import com.baidu.tieba.y00;
-import com.baidu.tieba.z00;
+import com.baidu.tieba.e10;
+import com.baidu.tieba.h;
+import com.baidu.tieba.i10;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ public class CaptureDownloadService extends Service {
     public static final String EXTRA_TAG = "extra_tag";
     public static final String TAG = "CaptureDownloadService";
     public transient /* synthetic */ FieldHolder $fh;
-    public x00 mDownloadManager;
+    public c10 mDownloadManager;
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -48,21 +48,21 @@ public class CaptureDownloadService extends Service {
     }
 
     /* loaded from: classes2.dex */
-    public static class a extends z00 {
+    public static class a extends e10 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-        public g b;
+        public h b;
         public LocalBroadcastManager c;
         public long d;
         public int e;
 
-        public a(int i, g gVar, Context context) {
+        public a(int i, h hVar, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), gVar, context};
+                Object[] objArr = {Integer.valueOf(i), hVar, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -73,30 +73,30 @@ public class CaptureDownloadService extends Service {
                 }
             }
             this.a = i;
-            this.b = gVar;
+            this.b = hVar;
             this.c = LocalBroadcastManager.getInstance(context);
         }
 
-        @Override // com.baidu.tieba.z00
+        @Override // com.baidu.tieba.e10
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                g gVar = this.b;
-                gVar.g = 6;
-                gVar.e = 100;
-                gVar.h = str;
-                j(gVar);
+                h hVar = this.b;
+                hVar.g = 6;
+                hVar.e = 100;
+                hVar.h = str;
+                j(hVar);
             }
         }
 
-        @Override // com.baidu.tieba.z00
+        @Override // com.baidu.tieba.e10
         public void f(DownloadException downloadException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, downloadException) == null) {
                 downloadException.printStackTrace();
-                g gVar = this.b;
-                gVar.g = 5;
-                j(gVar);
+                h hVar = this.b;
+                hVar.g = 5;
+                j(hVar);
             }
         }
 
@@ -115,52 +115,52 @@ public class CaptureDownloadService extends Service {
             return invokeI.booleanValue;
         }
 
-        @Override // com.baidu.tieba.z00
+        @Override // com.baidu.tieba.e10
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                g gVar = this.b;
-                gVar.g = 0;
-                gVar.e = 0;
-                gVar.f = "";
-                j(gVar);
+                h hVar = this.b;
+                hVar.g = 0;
+                hVar.e = 0;
+                hVar.f = "";
+                j(hVar);
             }
         }
 
-        @Override // com.baidu.tieba.z00
+        @Override // com.baidu.tieba.e10
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                g gVar = this.b;
-                gVar.g = 4;
-                j(gVar);
+                h hVar = this.b;
+                hVar.g = 4;
+                j(hVar);
             }
         }
 
-        @Override // com.baidu.tieba.z00
+        @Override // com.baidu.tieba.e10
         public void g(long j, long j2, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
                 if (this.d == 0) {
                     this.d = System.currentTimeMillis();
                 }
-                g gVar = this.b;
-                gVar.g = 3;
-                gVar.e = i;
-                gVar.f = d10.a(j, j2);
+                h hVar = this.b;
+                hVar.g = 3;
+                hVar.e = i;
+                hVar.f = i10.a(j, j2);
                 if (i(i)) {
                     j(this.b);
                 }
             }
         }
 
-        public final void j(g gVar) {
+        public final void j(h hVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, gVar) == null) {
+            if (interceptable == null || interceptable.invokeL(1048582, this, hVar) == null) {
                 Intent intent = new Intent();
                 intent.setAction(CaptureDownloadService.ACTION_DOWNLOAD_BROAD_CAST);
                 intent.putExtra("extra_position", this.a);
-                intent.putExtra("extra_file_info", gVar.a().toString());
+                intent.putExtra("extra_file_info", hVar.a().toString());
                 this.c.sendBroadcast(intent);
             }
         }
@@ -199,7 +199,7 @@ public class CaptureDownloadService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.mDownloadManager = x00.i();
+            this.mDownloadManager = c10.i();
         }
     }
 
@@ -271,30 +271,30 @@ public class CaptureDownloadService extends Service {
         }
     }
 
-    private void download(int i, g gVar, String str) {
+    private void download(int i, h hVar, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65542, this, i, gVar, str) == null) {
-            y00.a aVar = new y00.a();
-            aVar.d(gVar.d);
-            this.mDownloadManager.f(aVar.a(), str, new a(i, gVar, getApplicationContext()));
+        if (interceptable == null || interceptable.invokeILL(65542, this, i, hVar, str) == null) {
+            d10.a aVar = new d10.a();
+            aVar.d(hVar.d);
+            this.mDownloadManager.f(aVar.a(), str, new a(i, hVar, getApplicationContext()));
         }
     }
 
-    public static void start(Context context, String str, g gVar) {
+    public static void start(Context context, String str, h hVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65548, null, context, str, gVar) == null) {
-            start(context, 0, str, gVar);
+        if (interceptable == null || interceptable.invokeLLL(65548, null, context, str, hVar) == null) {
+            start(context, 0, str, hVar);
         }
     }
 
-    public static void start(Context context, int i, String str, g gVar) {
+    public static void start(Context context, int i, String str, h hVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(65547, null, context, i, str, gVar) == null) {
+        if (interceptable == null || interceptable.invokeLILL(65547, null, context, i, str, hVar) == null) {
             Intent intent = new Intent(context, CaptureDownloadService.class);
             intent.setAction(ACTION_DOWNLOAD);
             intent.putExtra("extra_position", i);
             intent.putExtra("extra_tag", str);
-            intent.putExtra("extra_file_info", gVar.a().toString());
+            intent.putExtra("extra_file_info", hVar.a().toString());
             context.startService(intent);
         }
     }
@@ -315,19 +315,19 @@ public class CaptureDownloadService extends Service {
                 String action = intent.getAction();
                 char c = 0;
                 int intExtra = intent.getIntExtra("extra_position", 0);
-                g gVar = new g();
+                h hVar = new h();
                 String stringExtra = intent.getStringExtra("extra_file_info");
                 if (!TextUtils.isEmpty(stringExtra)) {
                     try {
                         JSONObject jSONObject = new JSONObject(stringExtra);
-                        gVar.a = jSONObject.optString("name");
-                        gVar.b = jSONObject.optString("id");
-                        gVar.c = jSONObject.optString("image");
-                        gVar.d = jSONObject.optString("url");
-                        gVar.e = jSONObject.optInt("progress");
-                        gVar.f = jSONObject.optString("downloadPerSize");
-                        gVar.g = jSONObject.optInt("status");
-                        gVar.h = jSONObject.optString("savePath");
+                        hVar.a = jSONObject.optString("name");
+                        hVar.b = jSONObject.optString("id");
+                        hVar.c = jSONObject.optString("image");
+                        hVar.d = jSONObject.optString("url");
+                        hVar.e = jSONObject.optInt("progress");
+                        hVar.f = jSONObject.optString("downloadPerSize");
+                        hVar.g = jSONObject.optInt("status");
+                        hVar.h = jSONObject.optString("savePath");
                     } catch (JSONException unused) {
                     }
                 }
@@ -384,7 +384,7 @@ public class CaptureDownloadService extends Service {
                         pause(stringExtra2);
                     }
                 } else {
-                    download(intExtra, gVar, stringExtra2);
+                    download(intExtra, hVar, stringExtra2);
                 }
             }
             return super.onStartCommand(intent, i, i2);

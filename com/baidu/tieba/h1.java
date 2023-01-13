@@ -1,9 +1,19 @@
 package com.baidu.tieba;
 /* loaded from: classes4.dex */
 public interface h1 {
-    void dispose();
+    boolean a(int i, int i2, int i3, int i4);
 
-    void pause();
+    boolean b(int i, int i2, int i3, int i4);
 
-    void resume();
+    boolean c(float f, float f2);
+
+    boolean d(int i, int i2, int i3);
+
+    boolean e(int i, int i2);
+
+    boolean f(int i);
+
+    boolean g(int i);
+
+    boolean h(char c);
 }

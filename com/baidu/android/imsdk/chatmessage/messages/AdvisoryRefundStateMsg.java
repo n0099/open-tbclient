@@ -2,7 +2,6 @@ package com.baidu.android.imsdk.chatmessage.messages;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -123,7 +122,7 @@ public class AdvisoryRefundStateMsg extends NormalMsg {
                 return;
             }
         }
-        setMsgType(IMConstants.IM_MSG_TYPE_ADVISORY_REFUND_STATE);
+        setMsgType(2017);
         this.refundStatus = i;
         this.title = str;
         this.text = str2;

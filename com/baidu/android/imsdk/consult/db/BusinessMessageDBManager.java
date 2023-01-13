@@ -16,6 +16,7 @@ import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsgFactory;
 import com.baidu.android.imsdk.consult.listener.IBusiSessionChangeListener;
 import com.baidu.android.imsdk.consult.listener.IBusinessSessionUnReadListener;
+import com.baidu.android.imsdk.db.CursorWrapper;
 import com.baidu.android.imsdk.db.DBBase;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
@@ -85,7 +86,7 @@ public class BusinessMessageDBManager extends DBBase {
             if (cursor == null) {
                 return null;
             }
-            return new AdvAdBtnShowInfo(cursor.getString(cursor.getColumnIndex("uk")), cursor.getInt(cursor.getColumnIndex(TableDefine.BusiAdvAdBtnShowColumns.COLUMN_HAS_CLICKED_TODAY)), cursor.getLong(cursor.getColumnIndex(TableDefine.BusiAdvAdBtnShowColumns.COLUMN_LAST_SHOW_TIME)), cursor.getInt(cursor.getColumnIndex(TableDefine.BusiAdvAdBtnShowColumns.COLUMN_SHOW_TIMES_TODAY)));
+            return new AdvAdBtnShowInfo(CursorWrapper.getString(cursor, "uk"), CursorWrapper.getInt(cursor, TableDefine.BusiAdvAdBtnShowColumns.COLUMN_HAS_CLICKED_TODAY), CursorWrapper.getLong(cursor, TableDefine.BusiAdvAdBtnShowColumns.COLUMN_LAST_SHOW_TIME), CursorWrapper.getInt(cursor, TableDefine.BusiAdvAdBtnShowColumns.COLUMN_SHOW_TIMES_TODAY));
         }
         return (AdvAdBtnShowInfo) invokeL.objValue;
     }
@@ -273,7 +274,7 @@ public class BusinessMessageDBManager extends DBBase {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x006f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x006b, code lost:
         if (r4.isClosed() == false) goto L23;
      */
     /*
@@ -295,7 +296,7 @@ public class BusinessMessageDBManager extends DBBase {
                     cursor = openDatabase.rawQuery("SELECT time FROM busisessmsg WHERE business_type = 27 AND contacter = " + j + " AND session_type = 0 ORDER BY time DESC  LIMIT 1", null);
                     if (cursor != null) {
                         while (cursor.moveToNext()) {
-                            j2 = cursor.getLong(cursor.getColumnIndex("time"));
+                            j2 = CursorWrapper.getLong(cursor, "time");
                         }
                     }
                     if (cursor != null) {
@@ -587,37 +588,37 @@ public class BusinessMessageDBManager extends DBBase {
             if (cursor == null) {
                 return null;
             }
-            long j = cursor.getLong(cursor.getColumnIndex(TableDefine.BusiAdvCustomMsgColumns.COLUMN_TARGET_MSGID));
-            int i = cursor.getInt(cursor.getColumnIndex("role"));
-            String string = cursor.getString(cursor.getColumnIndex("aid"));
-            String string2 = cursor.getString(cursor.getColumnIndex("uk"));
-            int i2 = cursor.getInt(cursor.getColumnIndex("source"));
-            int i3 = cursor.getInt(cursor.getColumnIndex(TableDefine.BusiAdvCustomMsgColumns.COLUMN_ORDER_TYPE));
-            String string3 = cursor.getString(cursor.getColumnIndex(TableDefine.BusiAdvCustomMsgColumns.COLUMN_REPLAYER_UID));
-            int i4 = cursor.getInt(cursor.getColumnIndex(TableDefine.BusiAdvCustomMsgColumns.COLUMN_EVA_IS_EVA));
-            int i5 = cursor.getInt(cursor.getColumnIndex(TableDefine.BusiAdvCustomMsgColumns.COLUMN_EVA_STAR_NUM));
-            String string4 = cursor.getString(cursor.getColumnIndex(TableDefine.BusiAdvCustomMsgColumns.COLUMN_EVA_STAR_DESC));
-            String string5 = cursor.getString(cursor.getColumnIndex(TableDefine.BusiAdvCustomMsgColumns.COLUMN_EVA_MSG));
-            String string6 = cursor.getString(cursor.getColumnIndex(TableDefine.BusiAdvCustomMsgColumns.COLUMN_EVA_TAGS));
+            long j = CursorWrapper.getLong(cursor, TableDefine.BusiAdvCustomMsgColumns.COLUMN_TARGET_MSGID);
+            int i = CursorWrapper.getInt(cursor, "role");
+            String string = CursorWrapper.getString(cursor, "aid");
+            String string2 = CursorWrapper.getString(cursor, "uk");
+            int i2 = CursorWrapper.getInt(cursor, "source");
+            int i3 = CursorWrapper.getInt(cursor, TableDefine.BusiAdvCustomMsgColumns.COLUMN_ORDER_TYPE);
+            String string3 = CursorWrapper.getString(cursor, TableDefine.BusiAdvCustomMsgColumns.COLUMN_REPLAYER_UID);
+            int i4 = CursorWrapper.getInt(cursor, TableDefine.BusiAdvCustomMsgColumns.COLUMN_EVA_IS_EVA);
+            int i5 = CursorWrapper.getInt(cursor, TableDefine.BusiAdvCustomMsgColumns.COLUMN_EVA_STAR_NUM);
+            String string4 = CursorWrapper.getString(cursor, TableDefine.BusiAdvCustomMsgColumns.COLUMN_EVA_STAR_DESC);
+            String string5 = CursorWrapper.getString(cursor, TableDefine.BusiAdvCustomMsgColumns.COLUMN_EVA_MSG);
+            String string6 = CursorWrapper.getString(cursor, TableDefine.BusiAdvCustomMsgColumns.COLUMN_EVA_TAGS);
             ArrayList arrayList2 = new ArrayList();
             parseAdvCustomMsgTags(string6, arrayList2);
-            int i6 = cursor.getInt(cursor.getColumnIndex(TableDefine.BusiAdvCustomMsgColumns.COLUMN_EVA_AMOUNT));
-            int i7 = cursor.getInt(cursor.getColumnIndex(TableDefine.BusiAdvCustomMsgColumns.COLUMN_EVA_IS_FREE));
-            int i8 = cursor.getInt(cursor.getColumnIndex(TableDefine.BusiAdvCustomMsgColumns.COLUMN_EVA_HAS_REFUND));
-            int i9 = cursor.getInt(cursor.getColumnIndex(TableDefine.BusiAdvCustomMsgColumns.COLUMN_REFUND_STATUS));
-            String string7 = cursor.getString(cursor.getColumnIndex(TableDefine.BusiAdvCustomMsgColumns.COLUMN_REFUND_TITLE));
-            String string8 = cursor.getString(cursor.getColumnIndex(TableDefine.BusiAdvCustomMsgColumns.COLUMN_REFUND_TEXT));
-            String string9 = cursor.getString(cursor.getColumnIndex(TableDefine.BusiAdvCustomMsgColumns.COLUMN_REFUND_URL_TEXT));
-            int i10 = cursor.getInt(cursor.getColumnIndex(TableDefine.BusiAdvCustomMsgColumns.COLUMN_ALLOW_REFUND_STATUS));
-            int i11 = cursor.getInt(cursor.getColumnIndex(TableDefine.BusiAdvCustomMsgColumns.COLUMN_EVA_TYPE));
-            String string10 = cursor.getString(cursor.getColumnIndex(TableDefine.BusiAdvCustomMsgColumns.COLUMN_EVA_TITLE));
-            String string11 = cursor.getString(cursor.getColumnIndex(TableDefine.BusiAdvCustomMsgColumns.COLUMN_EVA_SUBTITLE));
-            String string12 = cursor.getString(cursor.getColumnIndex(TableDefine.BusiAdvCustomMsgColumns.COLUMN_EVA_TAG_LIST));
+            int i6 = CursorWrapper.getInt(cursor, TableDefine.BusiAdvCustomMsgColumns.COLUMN_EVA_AMOUNT);
+            int i7 = CursorWrapper.getInt(cursor, TableDefine.BusiAdvCustomMsgColumns.COLUMN_EVA_IS_FREE);
+            int i8 = CursorWrapper.getInt(cursor, TableDefine.BusiAdvCustomMsgColumns.COLUMN_EVA_HAS_REFUND);
+            int i9 = CursorWrapper.getInt(cursor, TableDefine.BusiAdvCustomMsgColumns.COLUMN_REFUND_STATUS);
+            String string7 = CursorWrapper.getString(cursor, TableDefine.BusiAdvCustomMsgColumns.COLUMN_REFUND_TITLE);
+            String string8 = CursorWrapper.getString(cursor, TableDefine.BusiAdvCustomMsgColumns.COLUMN_REFUND_TEXT);
+            String string9 = CursorWrapper.getString(cursor, TableDefine.BusiAdvCustomMsgColumns.COLUMN_REFUND_URL_TEXT);
+            int i10 = CursorWrapper.getInt(cursor, TableDefine.BusiAdvCustomMsgColumns.COLUMN_ALLOW_REFUND_STATUS);
+            int i11 = CursorWrapper.getInt(cursor, TableDefine.BusiAdvCustomMsgColumns.COLUMN_EVA_TYPE);
+            String string10 = CursorWrapper.getString(cursor, TableDefine.BusiAdvCustomMsgColumns.COLUMN_EVA_TITLE);
+            String string11 = CursorWrapper.getString(cursor, TableDefine.BusiAdvCustomMsgColumns.COLUMN_EVA_SUBTITLE);
+            String string12 = CursorWrapper.getString(cursor, TableDefine.BusiAdvCustomMsgColumns.COLUMN_EVA_TAG_LIST);
             ArrayList arrayList3 = new ArrayList();
             parseAdvCustomMsgTags(string12, arrayList3);
-            String string13 = cursor.getString(cursor.getColumnIndex(TableDefine.BusiAdvCustomMsgColumns.COLUMN_CARD_TIP));
-            String string14 = cursor.getString(cursor.getColumnIndex(TableDefine.BusiAdvCustomMsgColumns.COLUMN_SOP_TITLE));
-            String string15 = cursor.getString(cursor.getColumnIndex(TableDefine.BusiAdvCustomMsgColumns.COLUMN_SOP_LIST));
+            String string13 = CursorWrapper.getString(cursor, TableDefine.BusiAdvCustomMsgColumns.COLUMN_CARD_TIP);
+            String string14 = CursorWrapper.getString(cursor, TableDefine.BusiAdvCustomMsgColumns.COLUMN_SOP_TITLE);
+            String string15 = CursorWrapper.getString(cursor, TableDefine.BusiAdvCustomMsgColumns.COLUMN_SOP_LIST);
             ArrayList arrayList4 = new ArrayList();
             parseAdvCustomMsgTags(string15, arrayList4);
             if (i8 == 1) {
@@ -639,28 +640,28 @@ public class BusinessMessageDBManager extends DBBase {
             if (cursor == null) {
                 return null;
             }
-            int i = cursor.getInt(cursor.getColumnIndex("_id"));
-            long j = cursor.getLong(cursor.getColumnIndex("msgid"));
-            long j2 = cursor.getLong(cursor.getColumnIndex("from_user"));
-            int i2 = cursor.getInt(cursor.getColumnIndex("category"));
-            long j3 = cursor.getLong(cursor.getColumnIndex("contacter"));
-            int i3 = cursor.getInt(cursor.getColumnIndex("type"));
-            String string = cursor.getString(cursor.getColumnIndex("content"));
-            long j4 = cursor.getLong(cursor.getColumnIndex("time"));
-            int i4 = cursor.getInt(cursor.getColumnIndex("is_read"));
-            int i5 = cursor.getInt(cursor.getColumnIndex("status"));
-            int i6 = cursor.getInt(cursor.getColumnIndex("cmd"));
-            int i7 = cursor.getInt(cursor.getColumnIndex("device_flag"));
-            String string2 = cursor.getString(cursor.getColumnIndex("msg_key"));
-            String string3 = cursor.getString(cursor.getColumnIndex("from_buid"));
-            int i8 = cursor.getInt(cursor.getColumnIndex("tips_code"));
-            String string4 = cursor.getString(cursor.getColumnIndex("tips"));
-            String string5 = cursor.getString(cursor.getColumnIndex(TableDefine.BusiChatMsgColumns.COLUMN_TO_BDUID));
-            int i9 = cursor.getInt(cursor.getColumnIndex(TableDefine.BusiChatMsgColumns.COLUMN_CONTACTER_IS_READ));
-            long j5 = cursor.getLong(cursor.getColumnIndex("dialogue_id"));
-            String string6 = cursor.getString(cursor.getColumnIndex("sendid"));
-            int i10 = cursor.getInt(cursor.getColumnIndex("session_type"));
-            int i11 = cursor.getInt(cursor.getColumnIndex("logic_del"));
+            int i = CursorWrapper.getInt(cursor, "_id");
+            long j = CursorWrapper.getLong(cursor, "msgid");
+            long j2 = CursorWrapper.getLong(cursor, "from_user");
+            int i2 = CursorWrapper.getInt(cursor, "category");
+            long j3 = CursorWrapper.getLong(cursor, "contacter");
+            int i3 = CursorWrapper.getInt(cursor, "type");
+            String string = CursorWrapper.getString(cursor, "content");
+            long j4 = CursorWrapper.getLong(cursor, "time");
+            int i4 = CursorWrapper.getInt(cursor, "is_read");
+            int i5 = CursorWrapper.getInt(cursor, "status");
+            int i6 = CursorWrapper.getInt(cursor, "cmd");
+            int i7 = CursorWrapper.getInt(cursor, "device_flag");
+            String string2 = CursorWrapper.getString(cursor, "msg_key");
+            String string3 = CursorWrapper.getString(cursor, "from_buid");
+            int i8 = CursorWrapper.getInt(cursor, "tips_code");
+            String string4 = CursorWrapper.getString(cursor, "tips");
+            String string5 = CursorWrapper.getString(cursor, TableDefine.BusiChatMsgColumns.COLUMN_TO_BDUID);
+            int i9 = CursorWrapper.getInt(cursor, TableDefine.BusiChatMsgColumns.COLUMN_CONTACTER_IS_READ);
+            long j5 = CursorWrapper.getLong(cursor, "dialogue_id");
+            String string6 = CursorWrapper.getString(cursor, "sendid");
+            int i10 = CursorWrapper.getInt(cursor, "session_type");
+            int i11 = CursorWrapper.getInt(cursor, "logic_del");
             ChatMsg newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.mContext, i2, i3, i6);
             if (newChatMsg == null) {
                 return null;
@@ -698,35 +699,35 @@ public class BusinessMessageDBManager extends DBBase {
             if (cursor == null) {
                 return null;
             }
-            int i = cursor.getInt(cursor.getColumnIndex("business"));
-            int i2 = cursor.getInt(cursor.getColumnIndex("category"));
-            long j = cursor.getLong(cursor.getColumnIndex("contacter"));
-            String string = cursor.getString(cursor.getColumnIndex("name"));
-            String string2 = cursor.getString(cursor.getColumnIndex("last_msg"));
-            long j2 = cursor.getLong(cursor.getColumnIndex("last_msg_time"));
-            long j3 = cursor.getLong(cursor.getColumnIndex("new_msg_sum"));
-            String string3 = cursor.getString(cursor.getColumnIndex("icon_url"));
-            long j4 = cursor.getLong(cursor.getColumnIndex("bduid"));
-            long j5 = cursor.getLong(cursor.getColumnIndex(TableDefine.BusiSessionColumns.COLUMN_LAST_MSG_ID));
-            int i3 = cursor.getInt(cursor.getColumnIndex("session_type"));
-            long j6 = cursor.getLong(cursor.getColumnIndex(TableDefine.BusiSessionColumns.COLUMN_LAST_DIALOGUE_ID));
-            String string4 = cursor.getString(cursor.getColumnIndex(TableDefine.BusiSessionColumns.COLUMN_LAST_RESOURCE_ID));
-            int i4 = cursor.getInt(cursor.getColumnIndex(TableDefine.BusiSessionColumns.COLUMN_AID_TYPE));
-            int i5 = cursor.getInt(cursor.getColumnIndex(TableDefine.BusiSessionColumns.COLUMN_DIALOGUE_STATUS));
-            int i6 = cursor.getInt(cursor.getColumnIndex("chat_type"));
-            String string5 = cursor.getString(cursor.getColumnIndex("extra"));
-            String string6 = cursor.getString(cursor.getColumnIndex("v_portrait"));
-            long j7 = cursor.getLong(cursor.getColumnIndex(TableDefine.BusiSessionColumns.COLUMN_LAST_ASK_UK));
-            long j8 = cursor.getLong(cursor.getColumnIndex(TableDefine.BusiSessionColumns.COLUMN_LAST_ANSWER_UK));
-            String string7 = cursor.getString(cursor.getColumnIndex(TableDefine.BusiSessionColumns.COLUMN_LAST_MSG_DESC));
-            String string8 = cursor.getString(cursor.getColumnIndex(TableDefine.BusiSessionColumns.COLUMN_DRAFT));
-            String string9 = cursor.getString(cursor.getColumnIndex(TableDefine.BusiSessionColumns.COLUMN_STATUS_SHOW));
-            int i7 = cursor.getInt(cursor.getColumnIndex("classtype"));
-            int i8 = cursor.getInt(cursor.getColumnIndex("classshow"));
-            String string10 = cursor.getString(cursor.getColumnIndex("classtitle"));
-            String string11 = cursor.getString(cursor.getColumnIndex("classavatar"));
-            int i9 = cursor.getInt(cursor.getColumnIndex("subscribe_status"));
-            int i10 = cursor.getInt(cursor.getColumnIndex(TableDefine.BusiSessionColumns.COLUMN_COLLECT_STATUS));
+            int i = CursorWrapper.getInt(cursor, "business");
+            int i2 = CursorWrapper.getInt(cursor, "category");
+            long j = CursorWrapper.getLong(cursor, "contacter");
+            String string = CursorWrapper.getString(cursor, "name");
+            String string2 = CursorWrapper.getString(cursor, "last_msg");
+            long j2 = CursorWrapper.getLong(cursor, "last_msg_time");
+            long j3 = CursorWrapper.getLong(cursor, "new_msg_sum");
+            String string3 = CursorWrapper.getString(cursor, "icon_url");
+            long j4 = CursorWrapper.getLong(cursor, "bduid");
+            long j5 = CursorWrapper.getLong(cursor, TableDefine.BusiSessionColumns.COLUMN_LAST_MSG_ID);
+            int i3 = CursorWrapper.getInt(cursor, "session_type");
+            long j6 = CursorWrapper.getLong(cursor, TableDefine.BusiSessionColumns.COLUMN_LAST_DIALOGUE_ID);
+            String string4 = CursorWrapper.getString(cursor, TableDefine.BusiSessionColumns.COLUMN_LAST_RESOURCE_ID);
+            int i4 = CursorWrapper.getInt(cursor, TableDefine.BusiSessionColumns.COLUMN_AID_TYPE);
+            int i5 = CursorWrapper.getInt(cursor, TableDefine.BusiSessionColumns.COLUMN_DIALOGUE_STATUS);
+            int i6 = CursorWrapper.getInt(cursor, "chat_type");
+            String string5 = CursorWrapper.getString(cursor, "extra");
+            String string6 = CursorWrapper.getString(cursor, "v_portrait");
+            long j7 = CursorWrapper.getLong(cursor, TableDefine.BusiSessionColumns.COLUMN_LAST_ASK_UK);
+            long j8 = CursorWrapper.getLong(cursor, TableDefine.BusiSessionColumns.COLUMN_LAST_ANSWER_UK);
+            String string7 = CursorWrapper.getString(cursor, TableDefine.BusiSessionColumns.COLUMN_LAST_MSG_DESC);
+            String string8 = CursorWrapper.getString(cursor, TableDefine.BusiSessionColumns.COLUMN_DRAFT);
+            String string9 = CursorWrapper.getString(cursor, TableDefine.BusiSessionColumns.COLUMN_STATUS_SHOW);
+            int i7 = CursorWrapper.getInt(cursor, "classtype");
+            int i8 = CursorWrapper.getInt(cursor, "classshow");
+            String string10 = CursorWrapper.getString(cursor, "classtitle");
+            String string11 = CursorWrapper.getString(cursor, "classavatar");
+            int i9 = CursorWrapper.getInt(cursor, "subscribe_status");
+            int i10 = CursorWrapper.getInt(cursor, TableDefine.BusiSessionColumns.COLUMN_COLLECT_STATUS);
             ChatSession chatSession = new ChatSession(i2, j, j4, string);
             chatSession.setBusinessType(i);
             chatSession.setLastMsg(string2);
@@ -756,104 +757,6 @@ public class BusinessMessageDBManager extends DBBase {
             return chatSession;
         }
         return (ChatSession) invokeL.objValue;
-    }
-
-    public long replaceBusinessAdvCustomMsg(ChatAdvCustomMsg chatAdvCustomMsg) {
-        InterceptResult invokeL;
-        long j;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, chatAdvCustomMsg)) == null) {
-            long j2 = -1;
-            if (chatAdvCustomMsg == null) {
-                return -1L;
-            }
-            synchronized (DBBase.mSyncLock) {
-                SQLiteDatabase openDatabase = openDatabase();
-                if (openDatabase == null) {
-                    return -1L;
-                }
-                long j3 = 0;
-                try {
-                    SQLiteStatement compileStatement = openDatabase.compileStatement(BUSINESS_ADV_MSG_REPLACE_SQL);
-                    openDatabase.beginTransaction();
-                    compileStatement.bindLong(1, chatAdvCustomMsg.targetMsgId);
-                    compileStatement.bindLong(2, chatAdvCustomMsg.role);
-                    compileStatement.bindString(3, chatAdvCustomMsg.aid);
-                    compileStatement.bindString(4, chatAdvCustomMsg.uk);
-                    compileStatement.bindLong(5, chatAdvCustomMsg.source);
-                    compileStatement.bindLong(6, chatAdvCustomMsg.orderType);
-                    compileStatement.bindString(7, chatAdvCustomMsg.replyerUid);
-                    compileStatement.bindLong(8, chatAdvCustomMsg.evaIsEvaluated);
-                    compileStatement.bindLong(9, chatAdvCustomMsg.evaStarNum);
-                    compileStatement.bindString(10, chatAdvCustomMsg.evaStarDesc);
-                    compileStatement.bindString(11, chatAdvCustomMsg.evaMsg);
-                    StringBuilder sb = new StringBuilder();
-                    for (int i = 0; i < chatAdvCustomMsg.evaTags.size(); i++) {
-                        sb.append(chatAdvCustomMsg.evaTags.get(i));
-                        if (i < chatAdvCustomMsg.evaTags.size() - 1) {
-                            sb.append(",");
-                        }
-                    }
-                    compileStatement.bindString(12, sb.toString());
-                    compileStatement.bindLong(13, chatAdvCustomMsg.evaAmount);
-                    compileStatement.bindLong(14, chatAdvCustomMsg.evaIsFree);
-                    if (chatAdvCustomMsg.evaHasRefund) {
-                        j = 1;
-                    } else {
-                        j = 0;
-                    }
-                    compileStatement.bindLong(15, j);
-                    compileStatement.bindLong(16, chatAdvCustomMsg.refundStatus);
-                    compileStatement.bindString(17, chatAdvCustomMsg.refundTitle);
-                    compileStatement.bindString(18, chatAdvCustomMsg.refundText);
-                    if (TextUtils.isEmpty(chatAdvCustomMsg.refundUrlText)) {
-                        str = "";
-                    } else {
-                        str = chatAdvCustomMsg.refundUrlText;
-                    }
-                    compileStatement.bindString(19, str);
-                    compileStatement.bindLong(20, chatAdvCustomMsg.allowRefund);
-                    compileStatement.bindLong(21, chatAdvCustomMsg.evaType);
-                    compileStatement.bindString(22, chatAdvCustomMsg.evaTitle);
-                    compileStatement.bindString(23, chatAdvCustomMsg.evaSubTitle);
-                    String str2 = "";
-                    if (chatAdvCustomMsg.evaTagList != null) {
-                        str2 = TextUtils.join(",", chatAdvCustomMsg.evaTagList);
-                    }
-                    compileStatement.bindString(24, str2);
-                    compileStatement.bindString(25, chatAdvCustomMsg.cardTip);
-                    compileStatement.bindString(26, chatAdvCustomMsg.sopTitle);
-                    String str3 = "";
-                    if (chatAdvCustomMsg.sopList != null) {
-                        str3 = TextUtils.join(",", chatAdvCustomMsg.sopList);
-                    }
-                    compileStatement.bindString(27, str3);
-                    compileStatement.execute();
-                } catch (Exception e) {
-                    e = e;
-                }
-                try {
-                    openDatabase.setTransactionSuccessful();
-                    if (openDatabase != null && openDatabase.inTransaction()) {
-                        openDatabase.endTransaction();
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                    j2 = 0;
-                    LogUtils.e(TAG, "replaceBusinessAdvCustomMsg:", e);
-                    if (openDatabase != null && openDatabase.inTransaction()) {
-                        openDatabase.endTransaction();
-                    }
-                    j3 = j2;
-                    LogUtils.d(TAG, "replaceBusinessAdvCustomMsg result = " + j3);
-                    return j3;
-                }
-                LogUtils.d(TAG, "replaceBusinessAdvCustomMsg result = " + j3);
-                return j3;
-            }
-        }
-        return invokeL.longValue;
     }
 
     public int delBusiChatSession(int i, int i2, long j) {
@@ -907,6 +810,47 @@ public class BusinessMessageDBManager extends DBBase {
             }
         }
         return invokeCommon.intValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x004d, code lost:
+        if (r12 != null) goto L21;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x004f, code lost:
+        r12.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x005d, code lost:
+        if (r12 == null) goto L22;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0061, code lost:
+        return r11;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String getDraftMsg(int i, long j, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2)})) == null) {
+            synchronized (DBBase.mSyncLock) {
+                SQLiteDatabase openDatabase = openDatabase();
+                String str = "";
+                Cursor cursor = null;
+                if (openDatabase == null) {
+                    LogUtils.e(TAG, "getReadableDb fail!");
+                    return null;
+                }
+                try {
+                    cursor = openDatabase.query(TableDefine.DB_TABLE_BUSINESS_SESSION, null, "category=? AND contacter=? AND session_type=?", new String[]{String.valueOf(i), String.valueOf(j), String.valueOf(i2)}, null, null, null, null);
+                    if (cursor != null && cursor.moveToNext()) {
+                        str = CursorWrapper.getString(cursor, TableDefine.BusiSessionColumns.COLUMN_DRAFT);
+                    }
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "getDraftMsg:", e);
+                }
+            }
+        } else {
+            return (String) invokeCommon.objValue;
+        }
     }
 
     public int setSessionSubscribeStatusByBusiness(int i, long j, int i2) {
@@ -1195,10 +1139,10 @@ public class BusinessMessageDBManager extends DBBase {
         }
     }
 
-    public List<ChatSession> getBusinessChatSessions(int i, int i2, long j, long j2) {
+    public List<ChatSession> getBusinessChatSessions(int i, int i2, long j, long j2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
             if (i2 == 0) {
                 return null;
             }
@@ -1207,15 +1151,17 @@ public class BusinessMessageDBManager extends DBBase {
                 sb.append("last_msg_time");
                 sb.append(" > ");
                 sb.append(j2 - j);
+                sb.append(" AND ");
             }
-            sb.append(" AND ");
             sb.append(TableDefine.BusiSessionColumns.COLUMN_LAST_ASK_UK);
             sb.append(" = ");
             sb.append(AccountManager.getUK(this.mContext));
-            sb.append(" AND ");
-            sb.append("new_msg_sum");
-            sb.append(" > ");
-            sb.append(0);
+            if (z) {
+                sb.append(" AND ");
+                sb.append("new_msg_sum");
+                sb.append(" > ");
+                sb.append(0);
+            }
             sb.append(" ORDER BY ");
             sb.append("last_msg_time");
             sb.append(" ");
@@ -1223,98 +1169,6 @@ public class BusinessMessageDBManager extends DBBase {
             return getBusinessSessionWithNewMsg(i, i2, sb.toString());
         }
         return (List) invokeCommon.objValue;
-    }
-
-    public int updateSessionCollectStatus(int i, long j, int i2, int i3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            synchronized (DBBase.mSyncLock) {
-                SQLiteDatabase openDatabase = openDatabase();
-                if (openDatabase == null) {
-                    return -1;
-                }
-                int i4 = 0;
-                try {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put(TableDefine.BusiSessionColumns.COLUMN_COLLECT_STATUS, Integer.valueOf(i3));
-                    i4 = openDatabase.update(TableDefine.DB_TABLE_BUSINESS_SESSION, contentValues, "business = ? AND contacter = ? AND session_type = ?", new String[]{String.valueOf(i), String.valueOf(j), String.valueOf(i2)});
-                } catch (Exception e) {
-                    LogUtils.e(TAG, "updateSessionCollectStatus:", e);
-                }
-                LogUtils.d(TAG, "updateSessionCollectStatus result = " + i4);
-                return i4;
-            }
-        }
-        return invokeCommon.intValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x0051, code lost:
-        if (r12 != null) goto L21;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x0053, code lost:
-        r12.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x0061, code lost:
-        if (r12 == null) goto L22;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x0065, code lost:
-        return r11;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String getDraftMsg(int i, long j, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2)})) == null) {
-            synchronized (DBBase.mSyncLock) {
-                SQLiteDatabase openDatabase = openDatabase();
-                String str = "";
-                Cursor cursor = null;
-                if (openDatabase == null) {
-                    LogUtils.e(TAG, "getReadableDb fail!");
-                    return null;
-                }
-                try {
-                    cursor = openDatabase.query(TableDefine.DB_TABLE_BUSINESS_SESSION, null, "category=? AND contacter=? AND session_type=?", new String[]{String.valueOf(i), String.valueOf(j), String.valueOf(i2)}, null, null, null, null);
-                    if (cursor != null && cursor.moveToNext()) {
-                        str = cursor.getString(cursor.getColumnIndex(TableDefine.BusiSessionColumns.COLUMN_DRAFT));
-                    }
-                } catch (Exception e) {
-                    LogUtils.e(TAG, "getDraftMsg:", e);
-                }
-            }
-        } else {
-            return (String) invokeCommon.objValue;
-        }
-    }
-
-    public long insertBusinessDialogueId(int i, String str, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j)})) == null) {
-            synchronized (DBBase.mSyncLock) {
-                SQLiteDatabase openDatabase = openDatabase();
-                long j2 = -1;
-                if (openDatabase == null) {
-                    return -1L;
-                }
-                LogUtils.d(TAG, "insertBusinessDialogueId businessType = " + i + " resourceId = " + str + " dialogueId = " + j);
-                try {
-                    SQLiteStatement compileStatement = openDatabase.compileStatement(BUSINESS_DIALOGUEID_INSERT_SQL);
-                    compileStatement.bindLong(1, i);
-                    compileStatement.bindString(2, str);
-                    compileStatement.bindLong(3, j);
-                    j2 = compileStatement.executeInsert();
-                } catch (Exception e) {
-                    LogUtils.e(TAG, "insertBusinessDialogueId:", e);
-                }
-                LogUtils.d(TAG, "insertBusinessDialogueId result = " + j2);
-                return j2;
-            }
-        }
-        return invokeCommon.longValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:43:0x015a, code lost:
@@ -1409,6 +1263,33 @@ public class BusinessMessageDBManager extends DBBase {
         return invokeIL.longValue;
     }
 
+    public long insertBusinessDialogueId(int i, String str, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j)})) == null) {
+            synchronized (DBBase.mSyncLock) {
+                SQLiteDatabase openDatabase = openDatabase();
+                long j2 = -1;
+                if (openDatabase == null) {
+                    return -1L;
+                }
+                LogUtils.d(TAG, "insertBusinessDialogueId businessType = " + i + " resourceId = " + str + " dialogueId = " + j);
+                try {
+                    SQLiteStatement compileStatement = openDatabase.compileStatement(BUSINESS_DIALOGUEID_INSERT_SQL);
+                    compileStatement.bindLong(1, i);
+                    compileStatement.bindString(2, str);
+                    compileStatement.bindLong(3, j);
+                    j2 = compileStatement.executeInsert();
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "insertBusinessDialogueId:", e);
+                }
+                LogUtils.d(TAG, "insertBusinessDialogueId result = " + j2);
+                return j2;
+            }
+        }
+        return invokeCommon.longValue;
+    }
+
     /* JADX WARN: Code restructure failed: missing block: B:21:0x006d, code lost:
         if (r9.isClosed() == false) goto L25;
      */
@@ -1477,6 +1358,104 @@ public class BusinessMessageDBManager extends DBBase {
             }
         }
         return invokeIL.intValue;
+    }
+
+    public long replaceBusinessAdvCustomMsg(ChatAdvCustomMsg chatAdvCustomMsg) {
+        InterceptResult invokeL;
+        long j;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, chatAdvCustomMsg)) == null) {
+            long j2 = -1;
+            if (chatAdvCustomMsg == null) {
+                return -1L;
+            }
+            synchronized (DBBase.mSyncLock) {
+                SQLiteDatabase openDatabase = openDatabase();
+                if (openDatabase == null) {
+                    return -1L;
+                }
+                long j3 = 0;
+                try {
+                    SQLiteStatement compileStatement = openDatabase.compileStatement(BUSINESS_ADV_MSG_REPLACE_SQL);
+                    openDatabase.beginTransaction();
+                    compileStatement.bindLong(1, chatAdvCustomMsg.targetMsgId);
+                    compileStatement.bindLong(2, chatAdvCustomMsg.role);
+                    compileStatement.bindString(3, chatAdvCustomMsg.aid);
+                    compileStatement.bindString(4, chatAdvCustomMsg.uk);
+                    compileStatement.bindLong(5, chatAdvCustomMsg.source);
+                    compileStatement.bindLong(6, chatAdvCustomMsg.orderType);
+                    compileStatement.bindString(7, chatAdvCustomMsg.replyerUid);
+                    compileStatement.bindLong(8, chatAdvCustomMsg.evaIsEvaluated);
+                    compileStatement.bindLong(9, chatAdvCustomMsg.evaStarNum);
+                    compileStatement.bindString(10, chatAdvCustomMsg.evaStarDesc);
+                    compileStatement.bindString(11, chatAdvCustomMsg.evaMsg);
+                    StringBuilder sb = new StringBuilder();
+                    for (int i = 0; i < chatAdvCustomMsg.evaTags.size(); i++) {
+                        sb.append(chatAdvCustomMsg.evaTags.get(i));
+                        if (i < chatAdvCustomMsg.evaTags.size() - 1) {
+                            sb.append(",");
+                        }
+                    }
+                    compileStatement.bindString(12, sb.toString());
+                    compileStatement.bindLong(13, chatAdvCustomMsg.evaAmount);
+                    compileStatement.bindLong(14, chatAdvCustomMsg.evaIsFree);
+                    if (chatAdvCustomMsg.evaHasRefund) {
+                        j = 1;
+                    } else {
+                        j = 0;
+                    }
+                    compileStatement.bindLong(15, j);
+                    compileStatement.bindLong(16, chatAdvCustomMsg.refundStatus);
+                    compileStatement.bindString(17, chatAdvCustomMsg.refundTitle);
+                    compileStatement.bindString(18, chatAdvCustomMsg.refundText);
+                    if (TextUtils.isEmpty(chatAdvCustomMsg.refundUrlText)) {
+                        str = "";
+                    } else {
+                        str = chatAdvCustomMsg.refundUrlText;
+                    }
+                    compileStatement.bindString(19, str);
+                    compileStatement.bindLong(20, chatAdvCustomMsg.allowRefund);
+                    compileStatement.bindLong(21, chatAdvCustomMsg.evaType);
+                    compileStatement.bindString(22, chatAdvCustomMsg.evaTitle);
+                    compileStatement.bindString(23, chatAdvCustomMsg.evaSubTitle);
+                    String str2 = "";
+                    if (chatAdvCustomMsg.evaTagList != null) {
+                        str2 = TextUtils.join(",", chatAdvCustomMsg.evaTagList);
+                    }
+                    compileStatement.bindString(24, str2);
+                    compileStatement.bindString(25, chatAdvCustomMsg.cardTip);
+                    compileStatement.bindString(26, chatAdvCustomMsg.sopTitle);
+                    String str3 = "";
+                    if (chatAdvCustomMsg.sopList != null) {
+                        str3 = TextUtils.join(",", chatAdvCustomMsg.sopList);
+                    }
+                    compileStatement.bindString(27, str3);
+                    compileStatement.execute();
+                } catch (Exception e) {
+                    e = e;
+                }
+                try {
+                    openDatabase.setTransactionSuccessful();
+                    if (openDatabase != null && openDatabase.inTransaction()) {
+                        openDatabase.endTransaction();
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                    j2 = 0;
+                    LogUtils.e(TAG, "replaceBusinessAdvCustomMsg:", e);
+                    if (openDatabase != null && openDatabase.inTransaction()) {
+                        openDatabase.endTransaction();
+                    }
+                    j3 = j2;
+                    LogUtils.d(TAG, "replaceBusinessAdvCustomMsg result = " + j3);
+                    return j3;
+                }
+                LogUtils.d(TAG, "replaceBusinessAdvCustomMsg result = " + j3);
+                return j3;
+            }
+        }
+        return invokeL.longValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:71:0x0264  */
@@ -1720,5 +1699,29 @@ public class BusinessMessageDBManager extends DBBase {
             }
         }
         return invokeIL.intValue;
+    }
+
+    public int updateSessionCollectStatus(int i, long j, int i2, int i3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            synchronized (DBBase.mSyncLock) {
+                SQLiteDatabase openDatabase = openDatabase();
+                if (openDatabase == null) {
+                    return -1;
+                }
+                int i4 = 0;
+                try {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put(TableDefine.BusiSessionColumns.COLUMN_COLLECT_STATUS, Integer.valueOf(i3));
+                    i4 = openDatabase.update(TableDefine.DB_TABLE_BUSINESS_SESSION, contentValues, "business = ? AND contacter = ? AND session_type = ?", new String[]{String.valueOf(i), String.valueOf(j), String.valueOf(i2)});
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "updateSessionCollectStatus:", e);
+                }
+                LogUtils.d(TAG, "updateSessionCollectStatus result = " + i4);
+                return i4;
+            }
+        }
+        return invokeCommon.intValue;
     }
 }

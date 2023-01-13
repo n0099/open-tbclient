@@ -5,6 +5,7 @@ import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHel
 import kotlin.BuilderInference;
 import kotlin.Metadata;
 import kotlin.PublishedApi;
+import kotlin.TypeCastException;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.CoroutineContext;
@@ -18,8 +19,42 @@ import kotlinx.coroutines.internal.ScopeCoroutine;
 /* loaded from: classes9.dex */
 public final class SafeCollector_commonKt {
     @JvmName(name = "checkContext")
-    public static final void checkContext(SafeCollector<?> safeCollector, CoroutineContext coroutineContext) {
-        if (((Number) coroutineContext.fold(0, new SafeCollector_commonKt$checkContext$result$1(safeCollector))).intValue() == safeCollector.collectContextSize) {
+    public static final void checkContext(final SafeCollector<?> safeCollector, CoroutineContext coroutineContext) {
+        if (((Number) coroutineContext.fold(0, new Function2<Integer, CoroutineContext.Element, Integer>() { // from class: kotlinx.coroutines.flow.internal.SafeCollector_commonKt$checkContext$result$1
+            {
+                super(2);
+            }
+
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function2
+            public /* bridge */ /* synthetic */ Integer invoke(Integer num, CoroutineContext.Element element) {
+                return Integer.valueOf(invoke(num.intValue(), element));
+            }
+
+            public final int invoke(int i, CoroutineContext.Element element) {
+                CoroutineContext.Key<?> key = element.getKey();
+                CoroutineContext.Element element2 = SafeCollector.this.collectContext.get(key);
+                if (key != Job.Key) {
+                    if (element != element2) {
+                        return Integer.MIN_VALUE;
+                    }
+                    return i + 1;
+                }
+                Job job = (Job) element2;
+                if (element != null) {
+                    Job transitiveCoroutineParent = SafeCollector_commonKt.transitiveCoroutineParent((Job) element, job);
+                    if (transitiveCoroutineParent == job) {
+                        if (job != null) {
+                            return i + 1;
+                        }
+                        return i;
+                    }
+                    throw new IllegalStateException(("Flow invariant is violated:\n\t\tEmission from another coroutine is detected.\n\t\tChild of " + transitiveCoroutineParent + ", expected child of " + job + ".\n\t\tFlowCollector is not thread-safe and concurrent emissions are prohibited.\n\t\tTo mitigate this restriction please use 'channelFlow' builder instead of 'flow'").toString());
+                }
+                throw new TypeCastException("null cannot be cast to non-null type kotlinx.coroutines.Job");
+            }
+        })).intValue() == safeCollector.collectContextSize) {
             return;
         }
         throw new IllegalStateException(("Flow invariant is violated:\n\t\tFlow was collected in " + safeCollector.collectContext + ",\n\t\tbut emission happened in " + coroutineContext + ".\n\t\tPlease refer to 'flow' documentation or use 'flowOn' instead").toString());

@@ -308,15 +308,16 @@ public class TransitionSet extends Transition {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
-    public Transition clone() {
+    /* renamed from: clone */
+    public Transition mo5clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            TransitionSet transitionSet = (TransitionSet) super.m5clone();
+            TransitionSet transitionSet = (TransitionSet) super.mo5clone();
             transitionSet.mTransitions = new ArrayList<>();
             int size = this.mTransitions.size();
             for (int i = 0; i < size; i++) {
-                transitionSet.addTransitionInternal(this.mTransitions.get(i).m5clone());
+                transitionSet.addTransitionInternal(this.mTransitions.get(i).mo5clone());
             }
             return transitionSet;
         }

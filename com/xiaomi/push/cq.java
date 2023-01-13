@@ -85,7 +85,7 @@ public class cq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public JSONObject m251a() {
+    public JSONObject m256a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

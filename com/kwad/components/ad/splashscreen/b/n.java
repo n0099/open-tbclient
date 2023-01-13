@@ -117,7 +117,7 @@ public final class n extends e implements com.kwad.sdk.core.h.b {
                                         AdInfo.AdSplashInfo adSplashInfo = bQ.adSplashInfo;
                                         String str = z ? adSplashInfo.speakerIconUrl : adSplashInfo.speakerMuteIconUrl;
                                         if (TextUtils.isEmpty(str)) {
-                                            this.zz.zy.eE.setImageDrawable(this.zz.zy.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ce1));
+                                            this.zz.zy.eE.setImageDrawable(this.zz.zy.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080cf1));
                                         } else {
                                             KSImageLoader.loadImage(this.zz.zy.eE, str, this.zz.zy.yF.mAdTemplate);
                                         }
@@ -319,7 +319,7 @@ public final class n extends e implements com.kwad.sdk.core.h.b {
                     n nVar = this.zy;
                     nVar.yF.yc.c(nVar.zu, true);
                 }
-                this.zy.zv = true;
+                n.b(this.zy, true);
             }
 
             @Override // com.kwad.components.core.video.g
@@ -343,6 +343,11 @@ public final class n extends e implements com.kwad.sdk.core.h.b {
         if (interceptable == null || interceptable.invokeLL(65538, this, skipView, adInfo) == null) {
             skipView.setTimerBtnVisible(jX() ? false : com.kwad.sdk.core.response.a.a.bA(adInfo));
         }
+    }
+
+    public static /* synthetic */ boolean b(n nVar, boolean z) {
+        nVar.zv = true;
+        return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -401,13 +406,13 @@ public final class n extends e implements com.kwad.sdk.core.h.b {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.aq();
             this.mAdInfo = com.kwad.sdk.core.response.a.d.bQ(this.yF.mAdTemplate);
-            ((DetailVideoView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091296)).setVisibility(0);
+            ((DetailVideoView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0912a1)).setVisibility(0);
             com.kwad.components.ad.splashscreen.c.a aVar2 = this.yF.yc;
             if (aVar2 != null) {
                 aVar2.a(this.zx);
             }
             this.yF.yd.a(this);
-            this.zw = (SkipView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09128e);
+            this.zw = (SkipView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091299);
             if (p(this.mAdInfo)) {
                 a(this.zw, this.mAdInfo);
             }
@@ -424,14 +429,14 @@ public final class n extends e implements com.kwad.sdk.core.h.b {
                         aVar.c(this.zu, false);
                         this.yF.yc.a(this.dv);
                     }
-                    ImageView imageView = (ImageView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091293);
+                    ImageView imageView = (ImageView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09129e);
                     this.eE = imageView;
                     imageView.setVisibility(0);
                     str = !this.zu ? this.mAdInfo.adSplashInfo.speakerIconUrl : this.mAdInfo.adSplashInfo.speakerMuteIconUrl;
                     if (TextUtils.isEmpty(str)) {
                         KSImageLoader.loadImage(this.eE, str, this.yF.mAdTemplate);
                     } else {
-                        this.eE.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ce1));
+                        this.eE.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080cf1));
                     }
                     this.eE.setSelected(this.zu);
                     this.eE.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.ad.splashscreen.b.n.3
@@ -465,7 +470,7 @@ public final class n extends e implements com.kwad.sdk.core.h.b {
                                 nVar.zu = !nVar.zu;
                                 String str2 = this.zy.zu ? this.zy.mAdInfo.adSplashInfo.speakerIconUrl : this.zy.mAdInfo.adSplashInfo.speakerMuteIconUrl;
                                 if (TextUtils.isEmpty(str2)) {
-                                    this.zy.eE.setImageDrawable(this.zy.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ce1));
+                                    this.zy.eE.setImageDrawable(this.zy.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080cf1));
                                 } else {
                                     KSImageLoader.loadImage(this.zy.eE, str2, this.zy.yF.mAdTemplate);
                                 }
@@ -485,7 +490,7 @@ public final class n extends e implements com.kwad.sdk.core.h.b {
             aVar = this.yF.yc;
             if (aVar != null) {
             }
-            ImageView imageView2 = (ImageView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091293);
+            ImageView imageView2 = (ImageView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09129e);
             this.eE = imageView2;
             imageView2.setVisibility(0);
             if (!this.zu) {
@@ -524,7 +529,7 @@ public final class n extends e implements com.kwad.sdk.core.h.b {
                         nVar.zu = !nVar.zu;
                         String str2 = this.zy.zu ? this.zy.mAdInfo.adSplashInfo.speakerIconUrl : this.zy.mAdInfo.adSplashInfo.speakerMuteIconUrl;
                         if (TextUtils.isEmpty(str2)) {
-                            this.zy.eE.setImageDrawable(this.zy.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ce1));
+                            this.zy.eE.setImageDrawable(this.zy.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080cf1));
                         } else {
                             KSImageLoader.loadImage(this.zy.eE, str2, this.zy.yF.mAdTemplate);
                         }

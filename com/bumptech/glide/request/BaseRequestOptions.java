@@ -222,7 +222,7 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048631, this, z)) == null) {
             if (this.isAutoCloneEnabled) {
-                return (T) m76clone().onlyRetrieveFromCache(z);
+                return (T) mo79clone().onlyRetrieveFromCache(z);
             }
             this.onlyRetrieveFromCache = z;
             this.fields |= 524288;
@@ -260,7 +260,7 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048648, this, z)) == null) {
             if (this.isAutoCloneEnabled) {
-                return (T) m76clone().skipMemoryCache(true);
+                return (T) mo79clone().skipMemoryCache(true);
             }
             this.isCacheable = !z;
             this.fields |= 256;
@@ -276,7 +276,7 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048649, this, theme)) == null) {
             if (this.isAutoCloneEnabled) {
-                return (T) m76clone().theme(theme);
+                return (T) mo79clone().theme(theme);
             }
             this.theme = theme;
             this.fields |= 32768;
@@ -327,7 +327,7 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048658, this, z)) == null) {
             if (this.isAutoCloneEnabled) {
-                return (T) m76clone().useAnimationPool(z);
+                return (T) mo79clone().useAnimationPool(z);
             }
             this.useAnimationPool = z;
             this.fields |= 1048576;
@@ -343,7 +343,7 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048659, this, z)) == null) {
             if (this.isAutoCloneEnabled) {
-                return (T) m76clone().useUnlimitedSourceGeneratorsPool(z);
+                return (T) mo79clone().useUnlimitedSourceGeneratorsPool(z);
             }
             this.useUnlimitedSourceGeneratorsPool = z;
             this.fields |= 262144;
@@ -378,7 +378,7 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048637, this, downsampleStrategy, transformation)) == null) {
             if (this.isAutoCloneEnabled) {
-                return (T) m76clone().optionalTransform(downsampleStrategy, transformation);
+                return (T) mo79clone().optionalTransform(downsampleStrategy, transformation);
             }
             downsample(downsampleStrategy);
             return transform(transformation, false);
@@ -393,7 +393,7 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048640, this, i, i2)) == null) {
             if (this.isAutoCloneEnabled) {
-                return (T) m76clone().override(i, i2);
+                return (T) mo79clone().override(i, i2);
             }
             this.overrideWidth = i;
             this.overrideHeight = i2;
@@ -410,7 +410,7 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048645, this, option, y)) == null) {
             if (this.isAutoCloneEnabled) {
-                return (T) m76clone().set(option, y);
+                return (T) mo79clone().set(option, y);
             }
             Preconditions.checkNotNull(option);
             Preconditions.checkNotNull(y);
@@ -427,7 +427,7 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048653, this, downsampleStrategy, transformation)) == null) {
             if (this.isAutoCloneEnabled) {
-                return (T) m76clone().transform(downsampleStrategy, transformation);
+                return (T) mo79clone().transform(downsampleStrategy, transformation);
             }
             downsample(downsampleStrategy);
             return transform(transformation);
@@ -459,7 +459,7 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, baseRequestOptions)) == null) {
             if (this.isAutoCloneEnabled) {
-                return (T) m76clone().apply(baseRequestOptions);
+                return (T) mo79clone().apply(baseRequestOptions);
             }
             if (isSet(baseRequestOptions.fields, 2)) {
                 this.sizeMultiplier = baseRequestOptions.sizeMultiplier;
@@ -981,9 +981,10 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    @Override // 
     @CheckResult
     /* renamed from: clone */
-    public T m76clone() {
+    public T mo79clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -1012,7 +1013,7 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             if (this.isAutoCloneEnabled) {
-                return (T) m76clone().dontTransform();
+                return (T) mo79clone().dontTransform();
             }
             this.transformations.clear();
             int i = this.fields & (-2049);
@@ -1035,7 +1036,7 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cls)) == null) {
             if (this.isAutoCloneEnabled) {
-                return (T) m76clone().decode(cls);
+                return (T) mo79clone().decode(cls);
             }
             this.resourceClass = (Class) Preconditions.checkNotNull(cls);
             this.fields |= 4096;
@@ -1051,7 +1052,7 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, diskCacheStrategy)) == null) {
             if (this.isAutoCloneEnabled) {
-                return (T) m76clone().diskCacheStrategy(diskCacheStrategy);
+                return (T) mo79clone().diskCacheStrategy(diskCacheStrategy);
             }
             this.diskCacheStrategy = (DiskCacheStrategy) Preconditions.checkNotNull(diskCacheStrategy);
             this.fields |= 4;
@@ -1067,7 +1068,7 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
             if (this.isAutoCloneEnabled) {
-                return (T) m76clone().error(i);
+                return (T) mo79clone().error(i);
             }
             this.errorId = i;
             int i2 = this.fields | 32;
@@ -1086,7 +1087,7 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
             if (this.isAutoCloneEnabled) {
-                return (T) m76clone().fallback(i);
+                return (T) mo79clone().fallback(i);
             }
             this.fallbackId = i;
             int i2 = this.fields | 16384;
@@ -1105,7 +1106,7 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048641, this, i)) == null) {
             if (this.isAutoCloneEnabled) {
-                return (T) m76clone().placeholder(i);
+                return (T) mo79clone().placeholder(i);
             }
             this.placeholderId = i;
             int i2 = this.fields | 128;
@@ -1124,7 +1125,7 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048643, this, priority)) == null) {
             if (this.isAutoCloneEnabled) {
-                return (T) m76clone().priority(priority);
+                return (T) mo79clone().priority(priority);
             }
             this.priority = (Priority) Preconditions.checkNotNull(priority);
             this.fields |= 8;
@@ -1140,7 +1141,7 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048646, this, key)) == null) {
             if (this.isAutoCloneEnabled) {
-                return (T) m76clone().signature(key);
+                return (T) mo79clone().signature(key);
             }
             this.signature = (Key) Preconditions.checkNotNull(key);
             this.fields |= 1024;
@@ -1156,7 +1157,7 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048647, this, f)) == null) {
             if (this.isAutoCloneEnabled) {
-                return (T) m76clone().sizeMultiplier(f);
+                return (T) mo79clone().sizeMultiplier(f);
             }
             if (f >= 0.0f && f <= 1.0f) {
                 this.sizeMultiplier = f;
@@ -1191,7 +1192,7 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, drawable)) == null) {
             if (this.isAutoCloneEnabled) {
-                return (T) m76clone().error(drawable);
+                return (T) mo79clone().error(drawable);
             }
             this.errorPlaceholder = drawable;
             int i = this.fields | 16;
@@ -1210,7 +1211,7 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, drawable)) == null) {
             if (this.isAutoCloneEnabled) {
-                return (T) m76clone().fallback(drawable);
+                return (T) mo79clone().fallback(drawable);
             }
             this.fallbackDrawable = drawable;
             int i = this.fields | 8192;
@@ -1229,7 +1230,7 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048642, this, drawable)) == null) {
             if (this.isAutoCloneEnabled) {
-                return (T) m76clone().placeholder(drawable);
+                return (T) mo79clone().placeholder(drawable);
             }
             this.placeholderDrawable = drawable;
             int i = this.fields | 64;
@@ -1281,7 +1282,7 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048652, this, transformation, z)) == null) {
             if (this.isAutoCloneEnabled) {
-                return (T) m76clone().transform(transformation, z);
+                return (T) mo79clone().transform(transformation, z);
             }
             DrawableTransformation drawableTransformation = new DrawableTransformation(transformation, z);
             transform(Bitmap.class, transformation, z);
@@ -1299,7 +1300,7 @@ public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implem
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048655, this, cls, transformation, z)) == null) {
             if (this.isAutoCloneEnabled) {
-                return (T) m76clone().transform(cls, transformation, z);
+                return (T) mo79clone().transform(cls, transformation, z);
             }
             Preconditions.checkNotNull(cls);
             Preconditions.checkNotNull(transformation);

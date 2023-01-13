@@ -556,7 +556,7 @@ public class SVProgressHUD {
     public void setCancelable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65541, this, z) == null) {
-            View findViewById = this.rootView.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092083);
+            View findViewById = this.rootView.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0920b0);
             if (z) {
                 findViewById.setOnTouchListener(this.onCancelableTouchListener);
             } else {
@@ -640,7 +640,7 @@ public class SVProgressHUD {
         }
         LayoutInflater from = LayoutInflater.from(context);
         this.decorView = (ViewGroup) ((Activity) context).getWindow().getDecorView().findViewById(16908290);
-        ViewGroup viewGroup = (ViewGroup) from.inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d052f, (ViewGroup) null, false);
+        ViewGroup viewGroup = (ViewGroup) from.inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d052e, (ViewGroup) null, false);
         this.rootView = viewGroup;
         viewGroup.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
     }

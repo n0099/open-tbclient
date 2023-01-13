@@ -101,7 +101,7 @@ public class PushMessageHandler extends BaseService {
             try {
                 context.startService(intent);
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m99a(e.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m103a(e.getMessage());
             }
         }
     }
@@ -272,7 +272,7 @@ public class PushMessageHandler extends BaseService {
                 intent.setAction("action_clicked_activity_finish");
                 context.sendBroadcast(intent, d.a(context));
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m99a("callback sync error" + e);
+                com.xiaomi.channel.commonutils.logger.b.m103a("callback sync error" + e);
             }
         }
     }
@@ -285,7 +285,7 @@ public class PushMessageHandler extends BaseService {
             try {
                 z = intent.getBooleanExtra("is_clicked_activity_call", false);
             } catch (Throwable th) {
-                com.xiaomi.channel.commonutils.logger.b.m99a("intent unparcel error:" + th);
+                com.xiaomi.channel.commonutils.logger.b.m103a("intent unparcel error:" + th);
             }
             try {
                 ResolveInfo resolveInfo = null;
@@ -297,7 +297,7 @@ public class PushMessageHandler extends BaseService {
                     com.xiaomi.channel.commonutils.logger.b.c("PushMessageHandler.onHandleIntent " + hnVar.d());
                     MiTinyDataClient.upload(context, hnVar);
                 } else if (1 == PushMessageHelper.getPushMode(context)) {
-                    if (m118b()) {
+                    if (m122b()) {
                         com.xiaomi.channel.commonutils.logger.b.d("receive a message before application calling initialize");
                         if (z) {
                             b(context);
@@ -368,7 +368,7 @@ public class PushMessageHandler extends BaseService {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m118b() {
+    public static boolean m122b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? b.isEmpty() : invokeV.booleanValue;
@@ -384,7 +384,7 @@ public class PushMessageHandler extends BaseService {
 
     @Override // com.xiaomi.mipush.sdk.BaseService
     /* renamed from: a  reason: collision with other method in class */
-    public boolean mo119a() {
+    public boolean mo123a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

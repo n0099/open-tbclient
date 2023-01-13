@@ -1,151 +1,141 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.ThreadCardView;
-import com.baidu.tieba.vr4;
-import com.baidu.tieba.zy;
+import com.baidu.browser.sailor.BdSailor;
+import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.Log;
+import com.baidu.webkit.sdk.WebView;
 /* loaded from: classes3.dex */
-public abstract class ax<T extends vr4> implements tx, sx<T> {
+public final class ax {
     public static /* synthetic */ Interceptable $ic;
+    public static final String d;
+    public static ax e;
     public transient /* synthetic */ FieldHolder $fh;
-    public oy a;
-    public Context b;
-    public Boolean c;
-    public h56<T> d;
-    public a e;
+    public Context a;
+    public WebView b;
+    public boolean c;
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void a(vr4 vr4Var);
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448300118, "Lcom/baidu/tieba/ax;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448300118, "Lcom/baidu/tieba/ax;");
+                return;
+            }
         }
+        d = BdSailor.class.getName();
     }
 
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-        }
-    }
-
-    public abstract View k();
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-        }
-    }
-
-    public ax(Context context) {
+    public ax() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.c = Boolean.FALSE;
-        this.b = context;
     }
 
-    public h56<T> h() {
+    public static ax a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            ax axVar = e;
+            if (axVar == null) {
+                e = new ax();
+            } else if (axVar.b != null && (axVar.c ^ BdZeusUtil.isWebkitLoaded())) {
+                Log.d(d, "BdWebViewSingleton, re-new instance need because of the kernel changed");
+                e.f();
+                e.e();
+            }
+            return e;
         }
-        return (h56) invokeV.objValue;
+        return (ax) invokeV.objValue;
     }
 
-    public Boolean j() {
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            ax a = a();
+            a.f();
+            a.a = null;
+            e = null;
+        }
+    }
+
+    public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (Boolean) invokeV.objValue;
-    }
-
-    public final ThreadCardView i(View view2, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, view2, i)) == null) {
-            if (view2 != null && view2.getParent() != null && i != 0) {
-                if (view2.getParent() instanceof ThreadCardView) {
-                    return (ThreadCardView) view2.getParent();
-                }
-                return i((View) view2.getParent(), i - 1);
-            }
-            return null;
-        }
-        return (ThreadCardView) invokeLI.objValue;
-    }
-
-    public void m(int i, zy.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i, bVar) == null) {
-            this.a.n(i, bVar);
-        }
-    }
-
-    public void o(View view2, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048585, this, view2, i) == null) && (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
-            if (marginLayoutParams.topMargin != i) {
-                marginLayoutParams.topMargin = i;
-                view2.setLayoutParams(marginLayoutParams);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Log.d(d, "BdWebViewSingleton pauseTimer");
+            try {
+                e();
+                this.b.pauseTimers();
+                return true;
+            } catch (Exception e2) {
+                Log.printStackTrace(e2);
+                return false;
             }
         }
+        return invokeV.booleanValue;
     }
 
-    public void q(View view2, int i) {
-        ThreadCardView i2;
+    public final boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048587, this, view2, i) == null) && (i2 = i(view2, i)) != null) {
-            rw4 d = rw4.d(i2);
-            d.n(R.string.J_X06);
-            d.f(R.color.CAM_X0205);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Log.d(d, "BdWebViewSingleton resumeTimer");
+            try {
+                e();
+                this.b.resumeTimers();
+                return true;
+            } catch (Exception e2) {
+                Log.printStackTrace(e2);
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b == null && this.a != null) {
+            if (BdZeusUtil.isWebkitLoaded()) {
+                this.c = true;
+            } else {
+                this.c = false;
+                Log.d(d, "BdWebViewSingleton init system webview,zeus was not load complete");
+            }
+            this.b = new WebView(this.a);
         }
     }
 
-    public void n(oy oyVar) {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, oyVar) == null) {
-            this.a = oyVar;
-        }
-    }
-
-    public void p(h56<T> h56Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, h56Var) == null) {
-            this.d = h56Var;
-        }
-    }
-
-    public void r(Boolean bool) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, bool) == null) {
-            this.c = bool;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Log.w(d, "BdWebViewSingleton, old instance has been destroyed");
+            WebView webView = this.b;
+            if (webView != null) {
+                webView.destroy();
+                this.b = null;
+            }
         }
     }
 }

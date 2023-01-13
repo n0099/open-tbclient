@@ -18,6 +18,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class HttpExecutor {
     public static /* synthetic */ Interceptable $ic = null;
@@ -140,10 +141,20 @@ public class HttpExecutor {
         return (HttpExecutor) invokeV.objValue;
     }
 
+    private void responseAddEventList(HttpHelper.ResponseHandler responseHandler, int i, byte[] bArr, JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLILL(65539, this, responseHandler, i, bArr, jSONArray) != null) || !(responseHandler instanceof HttpHelper.LogoutResponseHandler)) {
+            return;
+        }
+        Utility.addEventListMs(jSONArray, "CNetResponse");
+        ((HttpHelper.LogoutResponseHandler) responseHandler).onResult(i, bArr, jSONArray);
+    }
+
     public void execute(int i, String str, byte[] bArr, Map<String, String> map, String str2, HttpHelper.ResponseHandler responseHandler) {
         Request build;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, bArr, map, str2, responseHandler}) == null) {
+            JSONArray jSONArray = new JSONArray();
             try {
                 if (i == 16) {
                     if (TextUtils.isEmpty(str2)) {
@@ -156,19 +167,25 @@ public class HttpExecutor {
                     }
                     build = new Request.Builder().url(str).headers(getHeaders(map)).build();
                 }
+                if (str.contains("logout")) {
+                    Utility.addEventListMs(jSONArray, "CNetRequest");
+                }
                 try {
                     Response execute = this.okHttpClient.newCall(build).execute();
                     byte[] bytes = execute.body().bytes();
                     LogUtils.i("HttpExecutor", "requestUrl:" + str + "\nrequest method: " + i + "\nrequest contentType: " + str2 + "\nrequest param: " + new String(bArr) + "\n response : " + new String(bytes));
                     responseHandler.onSuccess(execute.code(), bytes);
+                    responseAddEventList(responseHandler, execute.code(), bytes, jSONArray);
                 } catch (IOException e) {
                     LogUtils.e("HttpExecutor", "exception :", e);
                     responseHandler.onSuccess(1011, e.getMessage().getBytes());
+                    responseAddEventList(responseHandler, 1011, e.getMessage().getBytes(), jSONArray);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
                 if (responseHandler != null) {
                     responseHandler.onFailure(-1003, "Http Unknown exception".getBytes(), e2);
+                    responseAddEventList(responseHandler, -1003, "Http Unknown exception".getBytes(), jSONArray);
                 }
             }
         }

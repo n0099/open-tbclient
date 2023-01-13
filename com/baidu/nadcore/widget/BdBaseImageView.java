@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.z81;
+import com.baidu.tieba.e91;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -93,7 +93,7 @@ public class BdBaseImageView extends ImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (Color.alpha(z81.e(getContext())) != 0) {
+            if (Color.alpha(e91.e(getContext())) != 0) {
                 return true;
             }
             return false;
@@ -105,7 +105,7 @@ public class BdBaseImageView extends ImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!this.a && this.b == z81.e(getContext())) {
+            if (!this.a && this.b == e91.e(getContext())) {
                 return false;
             }
             return true;
@@ -119,8 +119,8 @@ public class BdBaseImageView extends ImageView {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             try {
                 if (b()) {
-                    z81.c(getContext(), getDrawable());
-                    this.b = z81.e(getContext());
+                    e91.c(getContext(), getDrawable());
+                    this.b = e91.e(getContext());
                     this.a = false;
                 }
                 super.draw(canvas);
@@ -134,7 +134,7 @@ public class BdBaseImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             if (a()) {
-                z81.d(getContext(), getDrawable(), i);
+                e91.d(getContext(), getDrawable(), i);
             } else {
                 super.setImageAlpha(i);
             }

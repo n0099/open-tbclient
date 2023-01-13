@@ -89,14 +89,16 @@ public class ay implements au {
     }
 
     @Override // com.xiaomi.push.au
-    public String a() {
+    /* renamed from: a */
+    public String mo186a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a(this.a, this.b) : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.au
-    public boolean a() {
+    /* renamed from: a */
+    public boolean mo187a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.f147a == null || this.f148a == null) ? false : true : invokeV.booleanValue;

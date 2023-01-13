@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h36;
+import com.baidu.tieba.b46;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import java.util.List;
 public class CandidateSearchAdapter extends RecyclerView.Adapter<CandidateSearchItemHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<h36> a;
+    public List<b46> a;
 
     public CandidateSearchAdapter() {
         Interceptable interceptable = $ic;
@@ -68,7 +68,7 @@ public class CandidateSearchAdapter extends RecyclerView.Adapter<CandidateSearch
         return (CandidateSearchItemHolder) invokeLI.objValue;
     }
 
-    public void setData(List<h36> list) {
+    public void setData(List<b46> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             this.a.clear();

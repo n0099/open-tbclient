@@ -9,10 +9,10 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.fluency.utils.FpsConstants;
 import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
-import com.baidu.tieba.jy9;
-import com.baidu.tieba.my9;
-import com.baidu.tieba.ry9;
-import com.baidu.tieba.vy9;
+import com.baidu.tieba.d4a;
+import com.baidu.tieba.r3a;
+import com.baidu.tieba.u3a;
+import com.baidu.tieba.z3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,11 +53,11 @@ public final class SVGAVideoEntity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public vy9 b;
+    public d4a b;
     public int c;
     public int d;
-    public List<ry9> e;
-    public List<my9> f;
+    public List<z3a> e;
+    public List<u3a> f;
     public SoundPool g;
     public HashMap<String, Bitmap> h;
     public File i;
@@ -127,7 +127,7 @@ public final class SVGAVideoEntity {
             }
         }
         this.a = true;
-        this.b = new vy9(0.0d, 0.0d, 0.0d, 0.0d);
+        this.b = new d4a(0.0d, 0.0d, 0.0d, 0.0d);
         this.c = 15;
         this.e = CollectionsKt__CollectionsKt.emptyList();
         this.f = CollectionsKt__CollectionsKt.emptyList();
@@ -142,7 +142,7 @@ public final class SVGAVideoEntity {
             } else {
                 f = 0.0f;
             }
-            this.b = new vy9(0.0d, 0.0d, f, movieParams.viewBoxHeight != null ? f2.floatValue() : 0.0f);
+            this.b = new d4a(0.0d, 0.0d, f, movieParams.viewBoxHeight != null ? f2.floatValue() : 0.0f);
             Integer num = movieParams.fps;
             if (num != null) {
                 i = num.intValue();
@@ -182,7 +182,7 @@ public final class SVGAVideoEntity {
             }
         }
         this.a = true;
-        this.b = new vy9(0.0d, 0.0d, 0.0d, 0.0d);
+        this.b = new d4a(0.0d, 0.0d, 0.0d, 0.0d);
         this.c = 15;
         this.e = CollectionsKt__CollectionsKt.emptyList();
         this.f = CollectionsKt__CollectionsKt.emptyList();
@@ -192,7 +192,7 @@ public final class SVGAVideoEntity {
         if (optJSONObject != null) {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("viewBox");
             if (optJSONObject2 != null) {
-                this.b = new vy9(0.0d, 0.0d, optJSONObject2.optDouble("width", 0.0d), optJSONObject2.optDouble("height", 0.0d));
+                this.b = new d4a(0.0d, 0.0d, optJSONObject2.optDouble("width", 0.0d), optJSONObject2.optDouble("height", 0.0d));
             }
             this.c = optJSONObject.optInt(FpsConstants.REPORT_FPS, 20);
             this.d = optJSONObject.optInt("frames", 0);
@@ -210,7 +210,7 @@ public final class SVGAVideoEntity {
         return invokeV.booleanValue;
     }
 
-    public final List<my9> b() {
+    public final List<u3a> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -267,7 +267,7 @@ public final class SVGAVideoEntity {
         }
     }
 
-    public final List<ry9> g() {
+    public final List<z3a> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -276,21 +276,64 @@ public final class SVGAVideoEntity {
         return (List) invokeV.objValue;
     }
 
-    public final vy9 h() {
+    public final d4a h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.b;
         }
-        return (vy9) invokeV.objValue;
+        return (d4a) invokeV.objValue;
     }
 
-    public final void i(Function0<Unit> function0) {
+    public final void i(final Function0<Unit> function0) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, function0) == null) {
             MovieEntity movieEntity = this.j;
             if (movieEntity != null) {
-                j(movieEntity, new SVGAVideoEntity$prepare$$inlined$let$lambda$1(this, function0));
+                j(movieEntity, new Function0<Unit>(this, function0) { // from class: com.opensource.svgaplayer.SVGAVideoEntity$prepare$$inlined$let$lambda$1
+                    public static /* synthetic */ Interceptable $ic;
+                    public final /* synthetic */ Function0 $callback$inlined;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ SVGAVideoEntity this$0;
+
+                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                    {
+                        super(0);
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, function0};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                super(((Integer) newInitContext.callArgs[0]).intValue());
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.$callback$inlined = function0;
+                    }
+
+                    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                    @Override // kotlin.jvm.functions.Function0
+                    public /* bridge */ /* synthetic */ Unit invoke() {
+                        invoke2();
+                        return Unit.INSTANCE;
+                    }
+
+                    /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
+                    /* renamed from: invoke  reason: avoid collision after fix types in other method */
+                    public final void invoke2() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                            this.$callback$inlined.invoke();
+                        }
+                    }
+                });
             } else {
                 function0.invoke();
             }
@@ -362,7 +405,7 @@ public final class SVGAVideoEntity {
                     ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(list2, 10));
                     for (AudioEntity audio : list2) {
                         Intrinsics.checkExpressionValueIsNotNull(audio, "audio");
-                        my9 my9Var = new my9(audio);
+                        u3a u3aVar = new u3a(audio);
                         File file = (File) hashMap2.get(audio.audioKey);
                         if (file != null) {
                             FileInputStream fileInputStream = new FileInputStream(file);
@@ -382,13 +425,13 @@ public final class SVGAVideoEntity {
                             }
                             soundPool2 = soundPool;
                             hashMap = hashMap2;
-                            my9Var.f(Integer.valueOf(soundPool.load(fd, (long) ((d / i2) * fileInputStream.available()), fileInputStream.available(), 1)));
+                            u3aVar.f(Integer.valueOf(soundPool.load(fd, (long) ((d / i2) * fileInputStream.available()), fileInputStream.available(), 1)));
                             fileInputStream.close();
                         } else {
                             soundPool2 = soundPool;
                             hashMap = hashMap2;
                         }
-                        arrayList.add(my9Var);
+                        arrayList.add(u3aVar);
                         soundPool = soundPool2;
                         hashMap2 = hashMap;
                     }
@@ -415,7 +458,7 @@ public final class SVGAVideoEntity {
             while (it.hasNext()) {
                 Map.Entry entry = (Map.Entry) it.next();
                 String imageKey = (String) entry.getKey();
-                options = jy9.a;
+                options = r3a.a;
                 options.inPreferredConfig = Bitmap.Config.RGB_565;
                 byte[] byteArray = ((ByteString) entry.getValue()).toByteArray();
                 Intrinsics.checkExpressionValueIsNotNull(byteArray, "byteArray");
@@ -423,7 +466,7 @@ public final class SVGAVideoEntity {
                     List<Byte> slice = ArraysKt___ArraysKt.slice(byteArray, new IntRange(0, 3));
                     if (slice.get(0).byteValue() != 73 || slice.get(1).byteValue() != 68 || slice.get(2).byteValue() != 51 || slice.get(3).byteValue() != 3) {
                         int length = byteArray.length;
-                        options2 = jy9.a;
+                        options2 = r3a.a;
                         Bitmap decodeByteArray = BitmapFactory.decodeByteArray(byteArray, 0, length, options2);
                         if (decodeByteArray != null) {
                             HashMap<String, Bitmap> hashMap = this.h;
@@ -435,7 +478,7 @@ public final class SVGAVideoEntity {
                                 String str = this.i.getAbsolutePath() + "/" + utf8;
                                 String str2 = null;
                                 if (new File(str).exists()) {
-                                    options4 = jy9.a;
+                                    options4 = r3a.a;
                                     bitmap = BitmapFactory.decodeFile(str, options4);
                                 } else {
                                     bitmap = null;
@@ -448,7 +491,7 @@ public final class SVGAVideoEntity {
                                         str2 = str3;
                                     }
                                     if (str2 != null) {
-                                        options3 = jy9.a;
+                                        options3 = r3a.a;
                                         Bitmap decodeFile = BitmapFactory.decodeFile(str2, options3);
                                         if (decodeFile != null) {
                                             this.h.put(imageKey, decodeFile);
@@ -475,12 +518,12 @@ public final class SVGAVideoEntity {
             Intrinsics.checkExpressionValueIsNotNull(keys, "imgObjects.keys()");
             while (keys.hasNext()) {
                 String next = keys.next();
-                options = jy9.a;
+                options = r3a.a;
                 options.inPreferredConfig = Bitmap.Config.RGB_565;
                 String str = this.i.getAbsolutePath() + "/" + optJSONObject.get(next);
                 String str2 = null;
                 if (new File(str).exists()) {
-                    options3 = jy9.a;
+                    options3 = r3a.a;
                     bitmap = BitmapFactory.decodeFile(str, options3);
                 } else {
                     bitmap = null;
@@ -493,7 +536,7 @@ public final class SVGAVideoEntity {
                         str2 = str3;
                     }
                     if (str2 != null) {
-                        options2 = jy9.a;
+                        options2 = r3a.a;
                         Bitmap decodeFile = BitmapFactory.decodeFile(str2, options2);
                         if (decodeFile != null) {
                             this.h.put(next, decodeFile);
@@ -505,7 +548,7 @@ public final class SVGAVideoEntity {
     }
 
     public final void m(MovieEntity movieEntity) {
-        List<ry9> emptyList;
+        List<z3a> emptyList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, movieEntity) == null) {
             List<SpriteEntity> list = movieEntity.sprites;
@@ -513,7 +556,7 @@ public final class SVGAVideoEntity {
                 emptyList = new ArrayList<>(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
                 for (SpriteEntity it : list) {
                     Intrinsics.checkExpressionValueIsNotNull(it, "it");
-                    emptyList.add(new ry9(it));
+                    emptyList.add(new z3a(it));
                 }
             } else {
                 emptyList = CollectionsKt__CollectionsKt.emptyList();
@@ -532,7 +575,7 @@ public final class SVGAVideoEntity {
                 for (int i = 0; i < length; i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     if (optJSONObject != null) {
-                        arrayList.add(new ry9(optJSONObject));
+                        arrayList.add(new z3a(optJSONObject));
                     }
                 }
             }

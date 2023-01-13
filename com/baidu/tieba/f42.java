@@ -1,33 +1,47 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.searchbox.download.center.clearcache.UserSettingForceListListener;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import android.app.Activity;
+import android.content.Context;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.Window;
+import android.widget.FrameLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class f42 {
     public static /* synthetic */ Interceptable $ic;
+    public static final FrameLayout.LayoutParams f;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public View b;
+    public FrameLayout c;
+    public int d;
+    public b e;
 
     /* loaded from: classes4.dex */
-    public static class a implements SwanAppNetworkUtils.b {
+    public interface b {
+        void onCustomViewHidden();
+    }
+
+    /* loaded from: classes4.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
+        public final /* synthetic */ Activity a;
 
-        public a(String str) {
+        public a(f42 f42Var, Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str};
+                Object[] objArr = {f42Var, activity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -37,88 +51,151 @@ public class f42 {
                     return;
                 }
             }
-            this.a = str;
+            this.a = activity;
         }
 
-        @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.b
-        public void onResult(int i) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                f42.b(this.a, i);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                he3.c().e(this.a, -1.0f);
             }
         }
     }
 
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            SwanAppNetworkUtils.b(new a(str));
-        }
-    }
+    /* loaded from: classes4.dex */
+    public static class c extends FrameLayout {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static void b(String str, int i) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, str, i) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        str2 = "unknown";
-                    } else {
-                        str2 = "offline";
-                    }
-                } else {
-                    str2 = "bad";
+        @Override // android.view.View
+        public boolean onTouchEvent(MotionEvent motionEvent) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(Context context) {
+            super(context);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Context) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            setBackgroundColor(context.getResources().getColor(17170444));
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947714085, "Lcom/baidu/tieba/f42;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947714085, "Lcom/baidu/tieba/f42;");
+                return;
+            }
+        }
+        f = new FrameLayout.LayoutParams(-1, -1);
+    }
+
+    public f42(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = context;
+    }
+
+    public void a() {
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b == null) {
+            return;
+        }
+        Context context = this.a;
+        if (context instanceof Activity) {
+            activity = (Activity) context;
+        } else {
+            activity = null;
+        }
+        if (activity != null) {
+            di3.a0(new a(this, activity));
+            b(activity, false);
+            ((FrameLayout) activity.getWindow().getDecorView()).removeView(this.c);
+            this.c = null;
+            this.b = null;
+            this.e.onCustomViewHidden();
+            activity.setRequestedOrientation(this.d);
+        }
+    }
+
+    public void b(Activity activity, boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, z) == null) {
+            Window window = activity.getWindow();
+            if (!z) {
+                i = 0;
             } else {
-                str2 = FrsActivityConfig.GOOD;
+                i = 1024;
             }
-            c(str, str2);
+            window.setFlags(i, 1024);
         }
     }
 
-    public static void c(String str, String str2) {
+    public void c(View view2, int i, b bVar) {
+        Activity activity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            d(str, str2, null);
-        }
-    }
-
-    public static void d(String str, String str2, @Nullable String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
-            e(str, str2, str3, 0, 0, 0, 0L);
-        }
-    }
-
-    public static void e(String str, String str2, @Nullable String str3, int i, int i2, int i3, long j) {
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)}) == null) {
-            gb3 gb3Var = new gb3();
-            gb3Var.a = "swan";
-            gb3Var.b = str;
-            gb3Var.a("appid", d43.K().getAppId());
-            gb3Var.a(DpStatConstants.KEY_NETWORK_STATUS, str2);
-            if (!TextUtils.isEmpty(str3)) {
-                gb3Var.a("request", str3);
-                gb3Var.a("request_total", String.valueOf(i));
-                gb3Var.a("request_fail", String.valueOf(i2));
-                gb3Var.a("request_slow", String.valueOf(i3));
-                gb3Var.a("error_duration", String.valueOf(j));
-            }
-            String str4 = "1";
-            if (j42.d().c()) {
-                obj = "1";
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, view2, i, bVar) == null) {
+            Context context = this.a;
+            if (context instanceof Activity) {
+                activity = (Activity) context;
             } else {
-                obj = "0";
+                activity = null;
             }
-            gb3Var.a("jserror", obj);
-            if (!e42.b()) {
-                str4 = "0";
+            if (activity != null) {
+                if (this.b != null) {
+                    bVar.onCustomViewHidden();
+                    return;
+                }
+                this.d = activity.getRequestedOrientation();
+                c cVar = new c(activity);
+                this.c = cVar;
+                cVar.addView(view2, f);
+                ((FrameLayout) activity.getWindow().getDecorView()).addView(this.c, f);
+                this.b = view2;
+                b(activity, true);
+                this.e = bVar;
+                activity.setRequestedOrientation(i);
             }
-            gb3Var.a(UserSettingForceListListener.FORCE_LIST_ITEM_SHOW_KEY, str4);
-            xa3.x("1619", gb3Var);
         }
     }
 }

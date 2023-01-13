@@ -1,242 +1,446 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.FunNativeAd2;
-import com.fun.ad.sdk.FunSplashAd;
-import com.fun.ad.sdk.internal.api.PidLoader;
-import com.fun.ad.sdk.internal.api.SidSessionMeta;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.NumberUtils;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class jw9 implements PidLoader {
+public final class jw9 extends o1a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final PidLoader a;
+    public final String a;
     public final long b;
-    public long c;
+    public final long c;
+    public final int d;
+    public final List<c> e;
 
-    public jw9(PidLoader pidLoader) {
+    /* loaded from: classes5.dex */
+    public static final class b extends o1a implements ew9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final long a;
+        public final int b;
+        public final Ssp.Pid c;
+        public final c d;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(int i, ObjectInput objectInput, Map<Long, Ssp.Pid> map, c cVar) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), objectInput, map, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = cVar;
+            long readLong = objectInput.readLong();
+            this.a = readLong;
+            this.b = objectInput.readInt();
+            this.c = map.get(Long.valueOf(readLong));
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(JSONObject jSONObject, Map<Long, Ssp.Pid> map, c cVar) {
+            super(0);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jSONObject, map, cVar};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.d = cVar;
+            long adjustLong = NumberUtils.adjustLong(jSONObject.getLong("id"), 0L);
+            this.a = adjustLong;
+            this.b = NumberUtils.adjustInt(jSONObject.getInt("weight"), 0);
+            this.c = map.get(Long.valueOf(adjustLong));
+        }
+
+        @Override // com.baidu.tieba.ew9
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.ew9
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
+        }
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                if (obj == null || b.class != obj.getClass()) {
+                    return false;
+                }
+                b bVar = (b) obj;
+                return this.a == bVar.a && this.b == bVar.b && Objects.equals(this.c, bVar.c);
+            }
+            return invokeL.booleanValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Objects.hash(Long.valueOf(this.a), Integer.valueOf(this.b), this.c) : invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.o1a
+        public void srzableInternal(ObjectOutput objectOutput) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, objectOutput) == null) {
+                objectOutput.writeLong(this.a);
+                objectOutput.writeInt(this.b);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jw9(int i, ObjectInput objectInput, Map<Long, Ssp.Pid> map) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pidLoader};
+            Object[] objArr = {Integer.valueOf(i), objectInput, map};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = pidLoader;
-        this.b = pidLoader.getPid().tmout * 60 * 1000;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public void addListener(kq9 kq9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, kq9Var) == null) {
-            this.a.addListener(new a(this, kq9Var));
+        this.a = objectInput.readUTF();
+        this.b = objectInput.readLong();
+        this.c = objectInput.readLong();
+        int readInt = objectInput.readInt();
+        HashSet hashSet = new HashSet(readInt);
+        for (int i4 = 0; i4 < readInt; i4++) {
+            hashSet.add(new c(objectInput.readInt(), objectInput, map));
+        }
+        ArrayList arrayList = new ArrayList(hashSet);
+        a(arrayList);
+        this.e = Collections.unmodifiableList(arrayList);
+        if (i >= 1) {
+            this.d = objectInput.readInt();
+        } else {
+            this.d = 0;
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public void destroy() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jw9(JSONObject jSONObject, Map<Long, Ssp.Pid> map) {
+        super(1);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.destroy();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject, map};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public void destroy(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.a.destroy(z);
+        this.a = jSONObject.getString("sid");
+        this.b = NumberUtils.adjustLong(jSONObject.getLong("wt"), 0L);
+        this.c = NumberUtils.adjustLong(jSONObject.getLong("tmout"), 0L);
+        JSONArray jSONArray = jSONObject.getJSONArray("pGroups");
+        HashSet hashSet = new HashSet();
+        for (int i3 = 0; i3 < jSONArray.length(); i3++) {
+            hashSet.add(new c(jSONArray.getJSONObject(i3), map));
         }
+        ArrayList arrayList = new ArrayList(hashSet);
+        a(arrayList);
+        this.e = Collections.unmodifiableList(arrayList);
+        this.d = jSONObject.optInt("ver", 0);
     }
 
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public int getAdCount() {
-        InterceptResult invokeV;
+    public final <T extends c> List<T> a(List<T> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.getAdCount() : invokeV.intValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public FunAdType getAdType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.getAdType() : (FunAdType) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public double getBiddingOrBasePrices() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.getBiddingOrBasePrices() : invokeV.doubleValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public FunNativeAd2 getNativeAd2(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, context, str)) == null) ? this.a.getNativeAd2(context, str) : (FunNativeAd2) invokeLL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public Ssp.Pid getPid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a.getPid() : (Ssp.Pid) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public boolean isLoaded() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a.isLoaded() && System.currentTimeMillis() - this.c < this.b : invokeV.booleanValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public boolean load(Context context, FunAdSlot funAdSlot, SidSessionMeta sidSessionMeta) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, context, funAdSlot, sidSessionMeta)) == null) ? this.a.load(context, funAdSlot, sidSessionMeta) : invokeLLL.booleanValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public void removeListener(kq9 kq9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, kq9Var) == null) {
-            this.a.removeListener(kq9Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            Collections.sort(list, new a(this));
+            return list;
         }
+        return (List) invokeL.objValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public void setBiddingResult(double d, double d2, int i) {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Double.valueOf(d), Double.valueOf(d2), Integer.valueOf(i)}) == null) {
-            this.a.setBiddingResult(d, d2, i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || jw9.class != obj.getClass()) {
+                return false;
+            }
+            jw9 jw9Var = (jw9) obj;
+            return this.b == jw9Var.b && this.c == jw9Var.c && Objects.equals(this.a, jw9Var.a) && Objects.equals(this.e, jw9Var.e) && this.d == jw9Var.d;
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public boolean show(Activity activity, ViewGroup viewGroup, String str, SidSessionMeta sidSessionMeta) {
-        InterceptResult invokeLLLL;
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048588, this, activity, viewGroup, str, sidSessionMeta)) == null) ? this.a.show(activity, viewGroup, str, sidSessionMeta) : invokeLLLL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Objects.hash(this.a, Long.valueOf(this.b), Long.valueOf(this.c), this.e, Integer.valueOf(this.d)) : invokeV.intValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public FunSplashAd showSplash(Activity activity, ViewGroup viewGroup, String str, SidSessionMeta sidSessionMeta) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.o1a
+    public void srzableInternal(ObjectOutput objectOutput) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048589, this, activity, viewGroup, str, sidSessionMeta)) == null) ? this.a.showSplash(activity, viewGroup, str, sidSessionMeta) : (FunSplashAd) invokeLLLL.objValue;
+        if (interceptable == null || interceptable.invokeL(1048579, this, objectOutput) == null) {
+            objectOutput.writeUTF(this.a);
+            objectOutput.writeLong(this.b);
+            objectOutput.writeLong(this.c);
+            objectOutput.writeInt(this.e.size());
+            for (c cVar : this.e) {
+                cVar.srzable(objectOutput);
+            }
+            objectOutput.writeInt(this.d);
+        }
     }
 
     /* loaded from: classes5.dex */
-    public class a implements kq9 {
+    public static final class c extends o1a implements ew9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final kq9 a;
-        public final /* synthetic */ jw9 b;
+        public final int a;
+        public final List<b> b;
 
-        public a(jw9 jw9Var, kq9 kq9Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(int i, ObjectInput objectInput, Map<Long, Ssp.Pid> map) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jw9Var, kq9Var};
+                Object[] objArr = {Integer.valueOf(i), objectInput, map};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = objectInput.readInt();
+            int readInt = objectInput.readInt();
+            HashSet hashSet = new HashSet();
+            for (int i4 = 0; i4 < readInt; i4++) {
+                hashSet.add(new b(objectInput.readInt(), objectInput, map, this));
+            }
+            this.b = Collections.unmodifiableList(new ArrayList(hashSet));
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(JSONObject jSONObject, Map<Long, Ssp.Pid> map) {
+            super(0);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jSONObject, map};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.a = NumberUtils.adjustInt(jSONObject.getInt("weight"), 0);
+            HashSet hashSet = new HashSet();
+            JSONArray jSONArray = jSONObject.getJSONArray(TiebaStatic.Params.PID_MERGE);
+            for (int i3 = 0; i3 < jSONArray.length(); i3++) {
+                hashSet.add(new b(jSONArray.getJSONObject(i3), map, this));
+            }
+            ArrayList arrayList = new ArrayList(hashSet);
+            a(arrayList);
+            this.b = Collections.unmodifiableList(arrayList);
+        }
+
+        public final <T extends b> List<T> a(List<T> list) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+                Collections.sort(list, new a(this));
+                return list;
+            }
+            return (List) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.ew9
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.ew9
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
+        }
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                if (obj == null || c.class != obj.getClass()) {
+                    return false;
+                }
+                c cVar = (c) obj;
+                return this.a == cVar.a && Objects.equals(this.b, cVar.b);
+            }
+            return invokeL.booleanValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Objects.hash(Integer.valueOf(this.a), this.b) : invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.o1a
+        public void srzableInternal(ObjectOutput objectOutput) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, objectOutput) == null) {
+                objectOutput.writeInt(this.a);
+                objectOutput.writeInt(this.b.size());
+                for (b bVar : this.b) {
+                    bVar.srzable(objectOutput);
+                }
+            }
+        }
+
+        /* JADX INFO: Add missing generic type declarations: [T] */
+        /* loaded from: classes5.dex */
+        public class a<T> implements Comparator<T> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // java.util.Comparator
+            public int compare(Object obj, Object obj2) {
+                InterceptResult invokeLL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
+                    return -Integer.compare(((b) obj).b, ((b) obj2).b);
+                }
+                return invokeLL.intValue;
+            }
+        }
+    }
+
+    /* JADX INFO: Add missing generic type declarations: [T] */
+    /* loaded from: classes5.dex */
+    public class a<T> implements Comparator<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(jw9 jw9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jw9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.b = jw9Var;
-            this.a = kq9Var;
         }
 
-        @Override // com.baidu.tieba.kq9
-        public void a() {
+        @Override // java.util.Comparator
+        public int compare(Object obj, Object obj2) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a();
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
+                return -Integer.compare(((c) obj).a, ((c) obj2).a);
             }
-        }
-
-        @Override // com.baidu.tieba.kq9
-        public void a(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                this.a.a(i, str);
-            }
-        }
-
-        @Override // com.baidu.tieba.kq9
-        public void a(boolean z, int i, String... strArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), strArr}) == null) {
-                this.a.a(z, i, strArr);
-            }
-        }
-
-        @Override // com.baidu.tieba.kq9
-        public void b(RippedAd rippedAd, String... strArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, rippedAd, strArr) == null) {
-                this.a.b(rippedAd, strArr);
-            }
-        }
-
-        @Override // com.baidu.tieba.kq9
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.a.c();
-            }
-        }
-
-        @Override // com.baidu.tieba.kq9
-        public void c(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048582, this, i, str) == null) {
-                this.a.c(i, str);
-            }
-        }
-
-        @Override // com.baidu.tieba.kq9
-        public void d(RippedAd rippedAd, String... strArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048583, this, rippedAd, strArr) == null) {
-                this.a.d(rippedAd, strArr);
-            }
-        }
-
-        @Override // com.baidu.tieba.kq9
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.b.c = System.currentTimeMillis();
-                this.a.b();
-            }
+            return invokeLL.intValue;
         }
     }
 }

@@ -1,6 +1,7 @@
 package kotlin.coroutines;
 
 import androidx.exifinterface.media.ExifInterface;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
@@ -160,11 +161,35 @@ public final class CombinedContext implements CoroutineContext, Serializable {
 
     private final Object writeReplace() {
         int size = size();
-        CoroutineContext[] coroutineContextArr = new CoroutineContext[size];
-        Ref.IntRef intRef = new Ref.IntRef();
+        final CoroutineContext[] coroutineContextArr = new CoroutineContext[size];
+        final Ref.IntRef intRef = new Ref.IntRef();
         boolean z = false;
         intRef.element = 0;
-        fold(Unit.INSTANCE, new CombinedContext$writeReplace$1(coroutineContextArr, intRef));
+        fold(Unit.INSTANCE, new Function2<Unit, CoroutineContext.Element, Unit>() { // from class: kotlin.coroutines.CombinedContext$writeReplace$1
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(2);
+            }
+
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function2
+            public /* bridge */ /* synthetic */ Unit invoke(Unit unit, CoroutineContext.Element element) {
+                invoke2(unit, element);
+                return Unit.INSTANCE;
+            }
+
+            /* renamed from: invoke  reason: avoid collision after fix types in other method */
+            public final void invoke2(Unit unit, CoroutineContext.Element element) {
+                Intrinsics.checkNotNullParameter(unit, "<anonymous parameter 0>");
+                Intrinsics.checkNotNullParameter(element, "element");
+                CoroutineContext[] coroutineContextArr2 = coroutineContextArr;
+                Ref.IntRef intRef2 = intRef;
+                int i = intRef2.element;
+                intRef2.element = i + 1;
+                coroutineContextArr2[i] = element;
+            }
+        });
         if (intRef.element == size) {
             z = true;
         }
@@ -179,6 +204,23 @@ public final class CombinedContext implements CoroutineContext, Serializable {
     }
 
     public String toString() {
-        return PreferencesUtil.LEFT_MOUNT + ((String) fold("", CombinedContext$toString$1.INSTANCE)) + PreferencesUtil.RIGHT_MOUNT;
+        return PreferencesUtil.LEFT_MOUNT + ((String) fold("", new Function2<String, CoroutineContext.Element, String>() { // from class: kotlin.coroutines.CombinedContext$toString$1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // kotlin.jvm.functions.Function2
+            public final String invoke(String acc, CoroutineContext.Element element) {
+                boolean z;
+                Intrinsics.checkNotNullParameter(acc, "acc");
+                Intrinsics.checkNotNullParameter(element, "element");
+                if (acc.length() == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    return element.toString();
+                }
+                return acc + StringUtil.ARRAY_ELEMENT_SEPARATOR + element;
+            }
+        })) + PreferencesUtil.RIGHT_MOUNT;
     }
 }

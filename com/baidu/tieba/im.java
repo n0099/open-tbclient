@@ -1,65 +1,190 @@
 package com.baidu.tieba;
 
+import android.annotation.TargetApi;
+import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Array;
+import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes4.dex */
 public class im {
     public static /* synthetic */ Interceptable $ic;
+    public static File a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Object obj, String str, Object[] objArr) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, obj, str, objArr) == null) {
-            Field b = b(obj, str);
-            Object[] objArr2 = (Object[]) b.get(obj);
-            Object[] objArr3 = (Object[]) Array.newInstance(objArr2.getClass().getComponentType(), objArr2.length + objArr.length);
-            System.arraycopy(objArr, 0, objArr3, 0, objArr.length);
-            System.arraycopy(objArr2, 0, objArr3, objArr.length, objArr2.length);
-            b.set(obj, objArr3);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448307465, "Lcom/baidu/tieba/im;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448307465, "Lcom/baidu/tieba/im;");
         }
     }
 
-    public static Field b(Object obj, String str) throws NoSuchFieldException {
+    /* loaded from: classes4.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static void b(ClassLoader classLoader, File file) throws Throwable {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65537, null, classLoader, file) == null) {
+                jm.a(jm.b(classLoader, "pathList").get(classLoader), "nativeLibraryDirectories", new File[]{file});
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: Removed duplicated region for block: B:10:0x002c  */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public static void b(ClassLoader classLoader, File file) throws Throwable {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65537, null, classLoader, file) == null) {
+                Object obj = jm.b(classLoader, "pathList").get(classLoader);
+                List list = (List) jm.b(obj, "nativeLibraryDirectories").get(obj);
+                if (list == null) {
+                    list = new ArrayList(2);
+                }
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    if (file.equals((File) it.next()) || file.equals(im.a)) {
+                        it.remove();
+                        break;
+                    }
+                    while (it.hasNext()) {
+                    }
+                }
+                list.add(0, file);
+                Collection collection = (List) jm.b(obj, "systemNativeLibraryDirectories").get(obj);
+                if (collection == null) {
+                    collection = new ArrayList(2);
+                }
+                Method c = jm.c(obj, "makePathElements", List.class, File.class, List.class);
+                ArrayList arrayList = new ArrayList();
+                list.addAll(collection);
+                Object[] objArr = {list, null, arrayList};
+                Field b = jm.b(obj, "nativeLibraryPathElements");
+                b.setAccessible(true);
+                b.set(obj, (Object[]) c.invoke(obj, objArr));
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static final class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: Removed duplicated region for block: B:10:0x002c  */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public static void b(ClassLoader classLoader, File file) throws Throwable {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65537, null, classLoader, file) == null) {
+                Object obj = jm.b(classLoader, "pathList").get(classLoader);
+                List list = (List) jm.b(obj, "nativeLibraryDirectories").get(obj);
+                if (list == null) {
+                    list = new ArrayList(2);
+                }
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    if (file.equals((File) it.next()) || file.equals(im.a)) {
+                        it.remove();
+                        break;
+                    }
+                    while (it.hasNext()) {
+                    }
+                }
+                list.add(0, file);
+                Collection collection = (List) jm.b(obj, "systemNativeLibraryDirectories").get(obj);
+                if (collection == null) {
+                    collection = new ArrayList(2);
+                }
+                Method c = jm.c(obj, "makePathElements", List.class);
+                list.addAll(collection);
+                Object[] objArr = {list};
+                Field b = jm.b(obj, "nativeLibraryPathElements");
+                b.setAccessible(true);
+                b.set(obj, (Object[]) c.invoke(obj, objArr));
+            }
+        }
+    }
+
+    @TargetApi(23)
+    public static int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            try {
+                return Build.VERSION.PREVIEW_SDK_INT;
+            } catch (Throwable unused) {
+                return 1;
+            }
+        }
+        return invokeV.intValue;
+    }
+
+    public static synchronized boolean c(ClassLoader classLoader, File file) throws Throwable {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, obj, str)) == null) {
-            for (Class<?> cls = obj.getClass(); cls != null; cls = cls.getSuperclass()) {
-                try {
-                    Field declaredField = cls.getDeclaredField(str);
-                    if (!declaredField.isAccessible()) {
-                        declaredField.setAccessible(true);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, classLoader, file)) == null) {
+            synchronized (im.class) {
+                boolean z = false;
+                if (classLoader != null && file != null) {
+                    if (file.exists()) {
+                        int i = Build.VERSION.SDK_INT;
+                        if ((i == 25 && b() != 0) || i > 25) {
+                            z = true;
+                        }
+                        if (z) {
+                            c.b(classLoader, file);
+                        } else if (i >= 23) {
+                            b.b(classLoader, file);
+                        } else if (i >= 14) {
+                            a.b(classLoader, file);
+                        }
+                        a = file;
+                        return true;
                     }
-                    return declaredField;
-                } catch (NoSuchFieldException e) {
-                    e.printStackTrace();
                 }
+                return false;
             }
-            throw new NoSuchFieldException("Field " + str + " not found in " + obj.getClass());
         }
-        return (Field) invokeLL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public static Method c(Object obj, String str, Class<?>... clsArr) throws NoSuchMethodException {
-        InterceptResult invokeLLL;
+    public static synchronized boolean d(ClassLoader classLoader, String str) throws Throwable {
+        InterceptResult invokeLL;
+        boolean c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, obj, str, clsArr)) == null) {
-            for (Class<?> cls = obj.getClass(); cls != null; cls = cls.getSuperclass()) {
-                try {
-                    Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
-                    if (!declaredMethod.isAccessible()) {
-                        declaredMethod.setAccessible(true);
-                    }
-                    return declaredMethod;
-                } catch (NoSuchMethodException unused) {
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, classLoader, str)) == null) {
+            synchronized (im.class) {
+                c2 = c(classLoader, new File(str));
             }
-            throw new NoSuchMethodException("Method " + str + " with parameters " + Arrays.asList(clsArr) + " not found in " + obj.getClass());
+            return c2;
         }
-        return (Method) invokeLLL.objValue;
+        return invokeLL.booleanValue;
     }
 }

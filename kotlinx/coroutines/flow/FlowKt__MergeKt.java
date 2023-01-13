@@ -35,10 +35,11 @@ public final /* synthetic */ class FlowKt__MergeKt {
     public static final <T, R> Flow<R> flatMapConcat(final Flow<? extends T> flow, final Function2<? super T, ? super Continuation<? super Flow<? extends R>>, ? extends Object> function2) {
         return FlowKt.flattenConcat(new Flow<Flow<? extends R>>() { // from class: kotlinx.coroutines.flow.FlowKt__MergeKt$flatMapConcat$$inlined$map$1
 
+            /* JADX INFO: Add missing generic type declarations: [T] */
             @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0013\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004*\u0001\u0000\b\n\u0018\u00002\u00020\u0001J\u001b\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00028\u0000H\u0096@ø\u0001\u0000¢\u0006\u0004\b\u0004\u0010\u0005\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0006¸\u0006\u0007"}, d2 = {"kotlinx/coroutines/flow/FlowKt__CollectKt$collect$3", "Lkotlinx/coroutines/flow/FlowCollector;", "value", "", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx-coroutines-core", "kotlinx/coroutines/flow/FlowKt__MergeKt$map$$inlined$unsafeTransform$1$2"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
             /* renamed from: kotlinx.coroutines.flow.FlowKt__MergeKt$flatMapConcat$$inlined$map$1$2  reason: invalid class name */
             /* loaded from: classes9.dex */
-            public static final class AnonymousClass2 implements FlowCollector<T> {
+            public static final class AnonymousClass2<T> implements FlowCollector<T> {
                 public final /* synthetic */ FlowCollector $this_unsafeFlow$inlined;
                 public final /* synthetic */ FlowKt__MergeKt$flatMapConcat$$inlined$map$1 this$0;
 
@@ -87,7 +88,7 @@ public final /* synthetic */ class FlowKt__MergeKt {
                     Object obj2;
                     Object coroutine_suspended;
                     int i;
-                    AnonymousClass2 anonymousClass2;
+                    AnonymousClass2<T> anonymousClass2;
                     Object obj3;
                     Object obj4;
                     Object obj5;
@@ -218,10 +219,11 @@ public final /* synthetic */ class FlowKt__MergeKt {
     public static final <T, R> Flow<R> flatMapMerge(final Flow<? extends T> flow, int i, final Function2<? super T, ? super Continuation<? super Flow<? extends R>>, ? extends Object> function2) {
         return FlowKt.flattenMerge(new Flow<Flow<? extends R>>() { // from class: kotlinx.coroutines.flow.FlowKt__MergeKt$flatMapMerge$$inlined$map$1
 
+            /* JADX INFO: Add missing generic type declarations: [T] */
             @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0013\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004*\u0001\u0000\b\n\u0018\u00002\u00020\u0001J\u001b\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00028\u0000H\u0096@ø\u0001\u0000¢\u0006\u0004\b\u0004\u0010\u0005\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0006¸\u0006\u0007"}, d2 = {"kotlinx/coroutines/flow/FlowKt__CollectKt$collect$3", "Lkotlinx/coroutines/flow/FlowCollector;", "value", "", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx-coroutines-core", "kotlinx/coroutines/flow/FlowKt__MergeKt$map$$inlined$unsafeTransform$2$2"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
             /* renamed from: kotlinx.coroutines.flow.FlowKt__MergeKt$flatMapMerge$$inlined$map$1$2  reason: invalid class name */
             /* loaded from: classes9.dex */
-            public static final class AnonymousClass2 implements FlowCollector<T> {
+            public static final class AnonymousClass2<T> implements FlowCollector<T> {
                 public final /* synthetic */ FlowCollector $this_unsafeFlow$inlined;
                 public final /* synthetic */ FlowKt__MergeKt$flatMapMerge$$inlined$map$1 this$0;
 
@@ -270,7 +272,7 @@ public final /* synthetic */ class FlowKt__MergeKt {
                     Object obj2;
                     Object coroutine_suspended;
                     int i;
-                    AnonymousClass2 anonymousClass2;
+                    AnonymousClass2<T> anonymousClass2;
                     Object obj3;
                     Object obj4;
                     Object obj5;

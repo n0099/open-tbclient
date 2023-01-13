@@ -12,13 +12,13 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class MaybeTakeUntilMaybe<T, U> extends AbstractMaybeWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MaybeSource<U> other;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class TakeUntilMainMaybeObserver<T, U> extends AtomicReference<Disposable> implements MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2187421758664251153L;
@@ -26,7 +26,7 @@ public final class MaybeTakeUntilMaybe<T, U> extends AbstractMaybeWithUpstream<T
         public final MaybeObserver<? super T> actual;
         public final TakeUntilOtherMaybeObserver<U> other;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public static final class TakeUntilOtherMaybeObserver<U> extends AtomicReference<Disposable> implements MaybeObserver<U> {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -1266041316834525931L;

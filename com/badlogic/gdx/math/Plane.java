@@ -149,7 +149,7 @@ public class Plane implements Serializable {
         Vector3 vector32 = new Vector3();
         this.normal = vector32;
         this.d = 0.0f;
-        vector32.set(vector3).m20nor();
+        vector32.set(vector3).m21nor();
         this.d = f;
     }
 
@@ -171,7 +171,7 @@ public class Plane implements Serializable {
         Vector3 vector33 = new Vector3();
         this.normal = vector33;
         this.d = 0.0f;
-        vector33.set(vector3).m20nor();
+        vector33.set(vector3).m21nor();
         this.d = -this.normal.dot(vector32);
     }
 
@@ -198,7 +198,7 @@ public class Plane implements Serializable {
     public void set(Vector3 vector3, Vector3 vector32, Vector3 vector33) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, vector3, vector32, vector33) == null) {
-            this.normal.set(vector3).sub(vector32).crs(vector32.x - vector33.x, vector32.y - vector33.y, vector32.z - vector33.z).m20nor();
+            this.normal.set(vector3).sub(vector32).crs(vector32.x - vector33.x, vector32.y - vector33.y, vector32.z - vector33.z).m21nor();
             this.d = -vector3.dot(this.normal);
         }
     }

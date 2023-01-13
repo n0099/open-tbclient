@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
+import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.NinePatchDrawable;
@@ -24,6 +25,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
@@ -33,6 +35,8 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -45,6 +49,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.ItemCardView;
 import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
 import com.baidu.tbadk.gif.GifInfo;
@@ -57,29 +62,32 @@ import com.baidu.tbadk.widget.layout.GridImageLayout;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tbadk.widget.tiejia.TiebaPlusRecommendCard;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dr4;
-import com.baidu.tieba.fl;
-import com.baidu.tieba.gz7;
-import com.baidu.tieba.in;
-import com.baidu.tieba.k18;
-import com.baidu.tieba.og;
-import com.baidu.tieba.on5;
-import com.baidu.tieba.p49;
+import com.baidu.tieba.a68;
+import com.baidu.tieba.cx4;
+import com.baidu.tieba.gl;
+import com.baidu.tieba.io5;
+import com.baidu.tieba.j05;
+import com.baidu.tieba.jn;
+import com.baidu.tieba.m99;
+import com.baidu.tieba.no5;
+import com.baidu.tieba.nr4;
+import com.baidu.tieba.oz8;
 import com.baidu.tieba.pg;
-import com.baidu.tieba.r9;
-import com.baidu.tieba.rw4;
-import com.baidu.tieba.sg;
-import com.baidu.tieba.su8;
+import com.baidu.tieba.qg;
+import com.baidu.tieba.qo5;
+import com.baidu.tieba.s9;
+import com.baidu.tieba.sa9;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import com.baidu.tieba.tg;
-import com.baidu.tieba.tn5;
-import com.baidu.tieba.w9;
-import com.baidu.tieba.wn5;
+import com.baidu.tieba.ua9;
+import com.baidu.tieba.ug;
+import com.baidu.tieba.view.festivalview.FestivalTipView;
+import com.baidu.tieba.w38;
 import com.baidu.tieba.x9;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.yz4;
+import com.baidu.tieba.y9;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -87,7 +95,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import io.reactivex.annotations.NonNull;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -96,18 +103,18 @@ import tbclient.MemeInfo;
 import tbclient.PbContent;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes3.dex */
-public class TbRichTextView extends LinearLayout implements fl {
+public class TbRichTextView extends LinearLayout implements gl {
     public static /* synthetic */ Interceptable $ic;
-    public static final float r0;
+    public static final float u0;
     public transient /* synthetic */ FieldHolder $fh;
-    public Runnable A;
-    public boolean B;
-    public x C;
-    public TbRichText D;
-    public boolean E;
-    public int F;
+    public boolean A;
+    public Runnable B;
+    public boolean C;
+    public z D;
+    public TbRichText E;
+    public boolean F;
     public int G;
-    public boolean H;
+    public int H;
     public boolean I;
     public boolean J;
     public boolean K;
@@ -115,92 +122,245 @@ public class TbRichTextView extends LinearLayout implements fl {
     public boolean M;
     public boolean N;
     public boolean O;
-    public int P;
-    public TextView Q;
-    public boolean R;
+    public boolean P;
+    public int Q;
+    public TextView R;
     public boolean S;
     public boolean T;
-    public String U;
-    public tn5 V;
-    public View.OnLongClickListener W;
-    public on5 a;
-    public v a0;
-    public gz7<ImageView> b;
-    public final View.OnClickListener b0;
-    public og<ImageView> c;
-    public final k18 c0;
-    public og<TextView> d;
-    public final View.OnClickListener d0;
-    public og<View> e;
-    public final w e0;
-    public og<LinearLayout> f;
-    public boolean f0;
-    public og<RelativeLayout> g;
-    public Drawable g0;
-    public og<GifView> h;
-    public String h0;
-    public og<TiebaPlusRecommendCard> i;
-    public BdUniqueId i0;
+    public boolean U;
+    public String V;
+    public String W;
+    public io5 a;
+    public Position a0;
+    public w38<ImageView> b;
+    public no5 b0;
+    public pg<ImageView> c;
+    public View.OnLongClickListener c0;
+    public pg<TextView> d;
+    public x d0;
+    public pg<View> e;
+    public final View.OnClickListener e0;
+    public pg<LinearLayout> f;
+    public final a68 f0;
+    public pg<RelativeLayout> g;
+    public final View.OnClickListener g0;
+    public pg<GifView> h;
+    public final y h0;
+    public pg<TiebaPlusRecommendCard> i;
+    public boolean i0;
     public GridImageLayout j;
-    public final sg<in> j0;
-    public og<ItemCardView> k;
-    public boolean l;
-    public TextUtils.TruncateAt m;
-    public a0 n;
-    public y o;
-    public k18 p;
-    public z q;
-    public CustomMessageListener q0;
-    public View.OnClickListener r;
+    public Drawable j0;
+    public pg<ItemCardView> k;
+    public pg<FestivalTipView> l;
+    public boolean m;
+    public TextUtils.TruncateAt n;
+    public c0 o;
+    public a0 p;
+    public a68 q;
+    public String q0;
+    public b0 r;
+    public BdUniqueId r0;
     public View.OnClickListener s;
+    public final tg<jn> s0;
     public View.OnClickListener t;
-    public boolean u;
+    public CustomMessageListener t0;
+    public View.OnClickListener u;
     public boolean v;
-    public int w;
-    public View.OnClickListener x;
-    public boolean y;
+    public boolean w;
+    public int x;
+    public View.OnClickListener y;
     public boolean z;
 
     /* loaded from: classes3.dex */
-    public interface s {
-        void u0(SpannableStringBuilder spannableStringBuilder, TextView textView, TbRichTextView tbRichTextView);
+    public interface a0 {
+        void a(View view2, String str, int i, boolean z, boolean z2);
     }
 
     /* loaded from: classes3.dex */
-    public interface v {
+    public interface b0 {
+        void a(View view2, String str);
+    }
+
+    /* loaded from: classes3.dex */
+    public interface u {
+        void w0(SpannableStringBuilder spannableStringBuilder, TextView textView, TbRichTextView tbRichTextView);
+    }
+
+    /* loaded from: classes3.dex */
+    public interface x {
         void a();
 
         void b();
     }
 
     /* loaded from: classes3.dex */
-    public interface w {
+    public interface y {
         void dispatchTouchEvent(MotionEvent motionEvent);
     }
 
     /* loaded from: classes3.dex */
-    public interface x {
+    public interface z {
         void a(View view2, String str, String str2, String str3, String str4, String str5, String str6, int i, int i2);
     }
 
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public interface y {
-        void a(View view2, String str, int i, boolean z, boolean z2);
+    public static final class Position {
+        public static final /* synthetic */ Position[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final Position PB_COMMENT_FLOOR;
+        public static final Position PB_FIRST_FLOOR;
+        public static final Position SUB_PB;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int index;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-110096088, "Lcom/baidu/tbadk/widget/richText/TbRichTextView$Position;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-110096088, "Lcom/baidu/tbadk/widget/richText/TbRichTextView$Position;");
+                    return;
+                }
+            }
+            PB_FIRST_FLOOR = new Position("PB_FIRST_FLOOR", 0, 1);
+            PB_COMMENT_FLOOR = new Position("PB_COMMENT_FLOOR", 1, 2);
+            Position position = new Position("SUB_PB", 2, 3);
+            SUB_PB = position;
+            $VALUES = new Position[]{PB_FIRST_FLOOR, PB_COMMENT_FLOOR, position};
+        }
+
+        public Position(String str, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.index = i2;
+        }
+
+        public static Position valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Position) Enum.valueOf(Position.class, str);
+            }
+            return (Position) invokeL.objValue;
+        }
+
+        public static Position[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Position[]) $VALUES.clone();
+            }
+            return (Position[]) invokeV.objValue;
+        }
+
+        public int getIndex() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.index;
+            }
+            return invokeV.intValue;
+        }
     }
 
     /* loaded from: classes3.dex */
-    public interface z {
-        void a(View view2, String str);
+    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbRichTextView a;
+
+        public a(TbRichTextView tbRichTextView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tbRichTextView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tbRichTextView;
+        }
+
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.a.o0();
+            this.a.R.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+        }
     }
 
     /* loaded from: classes3.dex */
-    public class a implements View.OnClickListener {
+    public class b implements ViewTreeObserver.OnGlobalLayoutListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbRichTextView a;
+
+        public b(TbRichTextView tbRichTextView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tbRichTextView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tbRichTextView;
+        }
+
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.a.l0();
+            this.a.R.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbRichTextData a;
         public final /* synthetic */ TbRichTextView b;
 
-        public a(TbRichTextView tbRichTextView, TbRichTextData tbRichTextData) {
+        public c(TbRichTextView tbRichTextView, TbRichTextData tbRichTextData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -222,22 +382,22 @@ public class TbRichTextView extends LinearLayout implements fl {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.b.C != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.b.D != null) {
                 TbRichTextEmotionInfo J = this.a.J();
-                x xVar = this.b.C;
+                z zVar = this.b.D;
                 GifInfo gifInfo = J.mGifInfo;
-                xVar.a(view2, gifInfo.mGid, gifInfo.mPackageName, gifInfo.mIcon, gifInfo.mStaticUrl, gifInfo.mDynamicUrl, gifInfo.mSharpText, gifInfo.mGifWidth, gifInfo.mGifHeight);
+                zVar.a(view2, gifInfo.mGid, gifInfo.mPackageName, gifInfo.mIcon, gifInfo.mStaticUrl, gifInfo.mDynamicUrl, gifInfo.mSharpText, gifInfo.mGifWidth, gifInfo.mGifHeight);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class a0 implements AbsListView.RecyclerListener {
+    public static class c0 implements AbsListView.RecyclerListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
-        public a0(int i) {
+        public c0(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -267,14 +427,14 @@ public class TbRichTextView extends LinearLayout implements fl {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements View.OnClickListener {
+    public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbRichTextData a;
         public final /* synthetic */ ItemCardView b;
         public final /* synthetic */ TbRichTextView c;
 
-        public b(TbRichTextView tbRichTextView, TbRichTextData tbRichTextData, ItemCardView itemCardView) {
+        public d(TbRichTextView tbRichTextView, TbRichTextData tbRichTextData, ItemCardView itemCardView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -301,22 +461,22 @@ public class TbRichTextView extends LinearLayout implements fl {
                 int i = 0;
                 if (this.a.getType() == 37) {
                     TiebaStatic.log(new StatisticItem("common_click").param("page_type", "a005").param(TiebaStatic.Params.GUA_TYPE, 4).param("obj_locate", 16));
-                    int intValue = this.a.N().a().buttonLinkType.intValue();
-                    if (this.a.N().a().apkDetail != null) {
-                        i = this.a.N().a().apkDetail.pkg_source.intValue();
+                    int intValue = this.a.P().a().buttonLinkType.intValue();
+                    if (this.a.P().a().apkDetail != null) {
+                        i = this.a.P().a().apkDetail.pkg_source.intValue();
                     }
-                    ItemCardHelper.q(this.b.getPosition(), this.a.N().a().itemId, this.b.z(this.a.N().a()), this.c.U, yz4.a(intValue, i), "", 2);
-                    ItemClickJumpUtil.itemClickJump(this.a.N().a().forumName, String.valueOf(this.a.N().a().itemId), 3, 3);
+                    ItemCardHelper.q(this.b.getPosition(), this.a.P().a().itemId, this.b.z(this.a.P().a()), this.c.V, j05.a(intValue, i), "", 2);
+                    ItemClickJumpUtil.itemClickJump(this.a.P().a().forumName, String.valueOf(this.a.P().a().itemId), 3, 3);
                 } else if (this.a.getType() == 1281) {
                     TiebaStatic.log(new StatisticItem("common_click").param("page_type", "a005").param(TiebaStatic.Params.GUA_TYPE, 2).param("obj_locate", 16));
                     int intValue2 = this.a.K().getItem().button_link_type.intValue();
                     if (this.a.K().getItem().apk_detail != null) {
                         i = this.a.K().getItem().apk_detail.pkg_source.intValue();
                     }
-                    int a = yz4.a(intValue2, i);
+                    int a = j05.a(intValue2, i);
                     ItemData itemData = new ItemData();
                     itemData.parseProto(this.a.K().getItem());
-                    ItemCardHelper.q(this.b.getPosition(), this.a.K().getItem().item_id.longValue(), this.b.z(itemData), this.c.U, a, "", 2);
+                    ItemCardHelper.q(this.b.getPosition(), this.a.K().getItem().item_id.longValue(), this.b.z(itemData), this.c.V, a, "", 2);
                     ItemClickJumpUtil.itemClickJump(this.a.K().getItemForumName(), this.a.K().getItemID(), 3, 3);
                 }
             }
@@ -324,12 +484,12 @@ public class TbRichTextView extends LinearLayout implements fl {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements w {
+    public class e implements y {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbRichTextView a;
 
-        public c(TbRichTextView tbRichTextView) {
+        public e(TbRichTextView tbRichTextView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -347,7 +507,7 @@ public class TbRichTextView extends LinearLayout implements fl {
             this.a = tbRichTextView;
         }
 
-        @Override // com.baidu.tbadk.widget.richText.TbRichTextView.w
+        @Override // com.baidu.tbadk.widget.richText.TbRichTextView.y
         public void dispatchTouchEvent(MotionEvent motionEvent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) {
@@ -355,21 +515,21 @@ public class TbRichTextView extends LinearLayout implements fl {
                     if (motionEvent.getAction() != 1 && motionEvent.getAction() != 3) {
                         return;
                     }
-                    this.a.M = false;
+                    this.a.N = false;
                     return;
                 }
-                this.a.M = true;
+                this.a.N = true;
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class d extends sg<in> {
+    public class f extends tg<jn> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbRichTextView a;
 
-        public d(TbRichTextView tbRichTextView) {
+        public f(TbRichTextView tbRichTextView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -387,7 +547,7 @@ public class TbRichTextView extends LinearLayout implements fl {
             this.a = tbRichTextView;
         }
 
-        @Override // com.baidu.tieba.sg
+        @Override // com.baidu.tieba.tg
         public void onCancelled(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -395,7 +555,7 @@ public class TbRichTextView extends LinearLayout implements fl {
             }
         }
 
-        @Override // com.baidu.tieba.sg
+        @Override // com.baidu.tieba.tg
         public void onProgressUpdate(Object... objArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, objArr) == null) {
@@ -404,30 +564,30 @@ public class TbRichTextView extends LinearLayout implements fl {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.sg
-        public void onLoaded(in inVar, String str, int i) {
+        @Override // com.baidu.tieba.tg
+        public void onLoaded(jn jnVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inVar, str, i) == null) {
-                if (inVar == null) {
-                    if (this.a.a0 != null) {
-                        this.a.a0.a();
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jnVar, str, i) == null) {
+                if (jnVar == null) {
+                    if (this.a.d0 != null) {
+                        this.a.d0.a();
                     }
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.PB_FIRST_FLOOR_BUBBLE_LOAD_FAIL).param("tid", this.a.U).param(TiebaStatic.Params.OBJ_URL, str));
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.PB_FIRST_FLOOR_BUBBLE_LOAD_FAIL).param("tid", this.a.V).param(TiebaStatic.Params.OBJ_URL, str));
                     return;
                 }
-                this.a.C(inVar);
+                this.a.F(jnVar);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class e extends CustomMessageListener {
+    public class g extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbRichTextView a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(TbRichTextView tbRichTextView, int i) {
+        public g(TbRichTextView tbRichTextView, int i) {
             super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -453,17 +613,17 @@ public class TbRichTextView extends LinearLayout implements fl {
             int contentSize;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                if (this.a.I) {
+                if (this.a.J) {
                     contentSize = TbConfig.getOutterSubpbContentSize();
                 } else {
                     contentSize = TbConfig.getContentSize();
                 }
-                if (this.a.D != null && !ListUtils.isEmpty(this.a.D.I())) {
-                    Iterator<TbRichTextData> it = this.a.D.I().iterator();
+                if (this.a.E != null && !ListUtils.isEmpty(this.a.E.I())) {
+                    Iterator<TbRichTextData> it = this.a.E.I().iterator();
                     while (it.hasNext()) {
                         TbRichTextData next = it.next();
                         if (next != null) {
-                            next.b0(contentSize, contentSize);
+                            next.d0(contentSize, contentSize);
                         }
                     }
                 }
@@ -473,7 +633,7 @@ public class TbRichTextView extends LinearLayout implements fl {
     }
 
     /* loaded from: classes3.dex */
-    public class f implements pg<ImageView> {
+    public class h implements qg<ImageView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbRichTextView a;
@@ -484,7 +644,7 @@ public class TbRichTextView extends LinearLayout implements fl {
             return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, imageView)) == null) ? imageView : (ImageView) invokeL.objValue;
         }
 
-        public f(TbRichTextView tbRichTextView) {
+        public h(TbRichTextView tbRichTextView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -504,7 +664,7 @@ public class TbRichTextView extends LinearLayout implements fl {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.pg
+        @Override // com.baidu.tieba.qg
         public /* bridge */ /* synthetic */ ImageView a(ImageView imageView) {
             ImageView imageView2 = imageView;
             e(imageView2);
@@ -513,7 +673,7 @@ public class TbRichTextView extends LinearLayout implements fl {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.pg
+        @Override // com.baidu.tieba.qg
         public /* bridge */ /* synthetic */ ImageView c(ImageView imageView) {
             ImageView imageView2 = imageView;
             h(imageView2);
@@ -521,7 +681,7 @@ public class TbRichTextView extends LinearLayout implements fl {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.pg
+        @Override // com.baidu.tieba.qg
         /* renamed from: f */
         public void b(ImageView imageView) {
             Interceptable interceptable = $ic;
@@ -546,7 +706,7 @@ public class TbRichTextView extends LinearLayout implements fl {
                 if (imageView instanceof TbImageView) {
                     TbImageView tbImageView = (TbImageView) imageView;
                     tbImageView.setTag(null);
-                    if (dr4.c().g()) {
+                    if (nr4.c().g()) {
                         tbImageView.setAdjustViewBounds(false);
                         tbImageView.setInterceptOnClick(false);
                     } else {
@@ -560,14 +720,14 @@ public class TbRichTextView extends LinearLayout implements fl {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.pg
+        @Override // com.baidu.tieba.qg
         /* renamed from: g */
         public ImageView d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(x9.a(this.a.getContext()).getPageActivity());
-                boolean g = dr4.c().g();
+                ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(y9.a(this.a.getContext()).getPageActivity());
+                boolean g = nr4.c().g();
                 foreDrawableImageView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
                 if (g) {
                     foreDrawableImageView.setAdjustViewBounds(false);
@@ -584,25 +744,25 @@ public class TbRichTextView extends LinearLayout implements fl {
     }
 
     /* loaded from: classes3.dex */
-    public class g extends gz7<ImageView> {
+    public class i extends w38<ImageView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbRichTextView e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public g(TbRichTextView tbRichTextView, pg pgVar, int i, int i2) {
-            super(pgVar, i, i2);
+        public i(TbRichTextView tbRichTextView, qg qgVar, int i, int i2) {
+            super(qgVar, i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tbRichTextView, pgVar, Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {tbRichTextView, qgVar, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
                     int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((pg) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
+                    super((qg) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -612,7 +772,7 @@ public class TbRichTextView extends LinearLayout implements fl {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.gz7
+        @Override // com.baidu.tieba.w38
         /* renamed from: i */
         public ImageView h(Object obj) {
             InterceptResult invokeL;
@@ -637,13 +797,13 @@ public class TbRichTextView extends LinearLayout implements fl {
     }
 
     /* loaded from: classes3.dex */
-    public class h extends tn5 {
+    public class j extends no5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbRichTextView i;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public h(TbRichTextView tbRichTextView, int i, String str) {
+        public j(TbRichTextView tbRichTextView, int i, String str) {
             super(i, str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -664,7 +824,7 @@ public class TbRichTextView extends LinearLayout implements fl {
             this.i = tbRichTextView;
         }
 
-        @Override // com.baidu.tieba.tn5, android.text.style.ClickableSpan
+        @Override // com.baidu.tieba.no5, android.text.style.ClickableSpan
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
@@ -672,164 +832,10 @@ public class TbRichTextView extends LinearLayout implements fl {
                 this.i.setTextEllipsize(TextUtils.TruncateAt.END);
                 this.i.setMaxLines(5);
                 this.i.setAddTruncateListener(true);
-                this.i.D.isChanged = true;
+                this.i.E.isChanged = true;
                 TbRichTextView tbRichTextView = this.i;
-                tbRichTextView.setText(tbRichTextView.D);
+                tbRichTextView.setText(tbRichTextView.E);
             }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class i implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbRichTextView a;
-
-        public i(TbRichTextView tbRichTextView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tbRichTextView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tbRichTextView;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            String str;
-            MemeInfo memeInfo;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.o != null && (view2 instanceof ImageView)) {
-                String str2 = null;
-                Object tag = view2.getTag();
-                int i = 0;
-                int i2 = -1;
-                if (tag != null && (tag instanceof TbRichText)) {
-                    int childCount = this.a.getChildCount();
-                    while (i < childCount) {
-                        i2++;
-                        if (view2.getParent() == this.a.getChildAt(i)) {
-                            break;
-                        }
-                        i++;
-                    }
-                    this.a.o.a(view2, null, i2, this.a.J, false);
-                    return;
-                }
-                if (tag != null && (tag instanceof String)) {
-                    str2 = (String) tag;
-                } else {
-                    boolean z = view2 instanceof TbImageView;
-                    if (z && (view2.getTag(R.id.tag_rich_text_meme_info) instanceof TbRichTextMemeInfo)) {
-                        TbRichTextMemeInfo tbRichTextMemeInfo = (TbRichTextMemeInfo) view2.getTag(R.id.tag_rich_text_meme_info);
-                        if (tbRichTextMemeInfo != null && (memeInfo = tbRichTextMemeInfo.memeInfo) != null) {
-                            str = memeInfo.pic_url;
-                        } else {
-                            str = "";
-                        }
-                        String str3 = str;
-                        int childCount2 = this.a.getChildCount();
-                        while (i < childCount2) {
-                            i2++;
-                            if (view2.getParent() == this.a.getChildAt(i)) {
-                                break;
-                            }
-                            i++;
-                        }
-                        this.a.o.a(view2, str3, i2, this.a.J, false);
-                        return;
-                    } else if (z) {
-                        str2 = ((TbImageView) view2).getUrl();
-                    } else if (view2 instanceof GifView) {
-                        str2 = ((GifView) view2).getUrl();
-                    }
-                }
-                String str4 = str2;
-                int childCount3 = this.a.getChildCount();
-                while (i < childCount3) {
-                    View childAt = this.a.getChildAt(i);
-                    if (this.a.T(childAt)) {
-                        i2++;
-                    }
-                    if (view2 == childAt) {
-                        break;
-                    }
-                    i++;
-                }
-                this.a.o.a(view2, str4, i2, this.a.J, false);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class j implements k18.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbRichTextView a;
-
-        @Override // com.baidu.tieba.k18.a
-        public boolean a(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                return false;
-            }
-            return invokeLL.booleanValue;
-        }
-
-        public j(TbRichTextView tbRichTextView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tbRichTextView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tbRichTextView;
-        }
-
-        @Override // com.baidu.tieba.k18.a
-        public boolean b(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, motionEvent)) == null) {
-                if (this.a.b0 != null) {
-                    this.a.b0.onClick(view2);
-                    return true;
-                }
-                return false;
-            }
-            return invokeLL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.k18.a
-        public boolean c(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, motionEvent)) == null) {
-                if (this.a.p != null) {
-                    this.a.p.a(view2);
-                    return this.a.p.onDoubleTap(motionEvent);
-                }
-                return false;
-            }
-            return invokeLL.booleanValue;
         }
     }
 
@@ -859,20 +865,174 @@ public class TbRichTextView extends LinearLayout implements fl {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
+            String str;
+            MemeInfo memeInfo;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.q != null && (view2 instanceof TbImageView)) {
-                String str = null;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.p != null && (view2 instanceof ImageView)) {
+                String str2 = null;
                 Object tag = view2.getTag();
-                if (tag != null && (tag instanceof u)) {
-                    str = ((u) tag).a;
+                int i = 0;
+                int i2 = -1;
+                if (tag != null && (tag instanceof TbRichText)) {
+                    int childCount = this.a.getChildCount();
+                    while (i < childCount) {
+                        i2++;
+                        if (view2.getParent() == this.a.getChildAt(i)) {
+                            break;
+                        }
+                        i++;
+                    }
+                    this.a.p.a(view2, null, i2, this.a.K, false);
+                    return;
                 }
-                this.a.q.a(view2, str);
+                if (tag != null && (tag instanceof String)) {
+                    str2 = (String) tag;
+                } else {
+                    boolean z = view2 instanceof TbImageView;
+                    if (z && (view2.getTag(R.id.tag_rich_text_meme_info) instanceof TbRichTextMemeInfo)) {
+                        TbRichTextMemeInfo tbRichTextMemeInfo = (TbRichTextMemeInfo) view2.getTag(R.id.tag_rich_text_meme_info);
+                        if (tbRichTextMemeInfo != null && (memeInfo = tbRichTextMemeInfo.memeInfo) != null) {
+                            str = memeInfo.pic_url;
+                        } else {
+                            str = "";
+                        }
+                        String str3 = str;
+                        int childCount2 = this.a.getChildCount();
+                        while (i < childCount2) {
+                            i2++;
+                            if (view2.getParent() == this.a.getChildAt(i)) {
+                                break;
+                            }
+                            i++;
+                        }
+                        this.a.p.a(view2, str3, i2, this.a.K, false);
+                        return;
+                    } else if (z) {
+                        str2 = ((TbImageView) view2).getUrl();
+                    } else if (view2 instanceof GifView) {
+                        str2 = ((GifView) view2).getUrl();
+                    }
+                }
+                String str4 = str2;
+                int childCount3 = this.a.getChildCount();
+                while (i < childCount3) {
+                    View childAt = this.a.getChildAt(i);
+                    if (this.a.X(childAt)) {
+                        i2++;
+                    }
+                    if (view2 == childAt) {
+                        break;
+                    }
+                    i++;
+                }
+                this.a.p.a(view2, str4, i2, this.a.K, false);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class l implements pg<TextView> {
+    public class l implements a68.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbRichTextView a;
+
+        @Override // com.baidu.tieba.a68.a
+        public boolean a(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        public l(TbRichTextView tbRichTextView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tbRichTextView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tbRichTextView;
+        }
+
+        @Override // com.baidu.tieba.a68.a
+        public boolean b(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, motionEvent)) == null) {
+                if (this.a.e0 != null) {
+                    this.a.e0.onClick(view2);
+                    return true;
+                }
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.a68.a
+        public boolean c(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, motionEvent)) == null) {
+                if (this.a.q != null) {
+                    this.a.q.a(view2);
+                    return this.a.q.onDoubleTap(motionEvent);
+                }
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class m implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbRichTextView a;
+
+        public m(TbRichTextView tbRichTextView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tbRichTextView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tbRichTextView;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.r != null && (view2 instanceof TbImageView)) {
+                String str = null;
+                Object tag = view2.getTag();
+                if (tag != null && (tag instanceof w)) {
+                    str = ((w) tag).a;
+                }
+                this.a.r.a(view2, str);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class n implements qg<TextView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -883,7 +1043,7 @@ public class TbRichTextView extends LinearLayout implements fl {
             return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, textView)) == null) ? textView : (TextView) invokeL.objValue;
         }
 
-        public l(Context context) {
+        public n(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -903,7 +1063,7 @@ public class TbRichTextView extends LinearLayout implements fl {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.pg
+        @Override // com.baidu.tieba.qg
         public /* bridge */ /* synthetic */ TextView a(TextView textView) {
             TextView textView2 = textView;
             e(textView2);
@@ -912,7 +1072,7 @@ public class TbRichTextView extends LinearLayout implements fl {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.pg
+        @Override // com.baidu.tieba.qg
         public /* bridge */ /* synthetic */ TextView c(TextView textView) {
             TextView textView2 = textView;
             h(textView2);
@@ -920,7 +1080,7 @@ public class TbRichTextView extends LinearLayout implements fl {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.pg
+        @Override // com.baidu.tieba.qg
         /* renamed from: g */
         public TextView d() {
             InterceptResult invokeV;
@@ -932,7 +1092,7 @@ public class TbRichTextView extends LinearLayout implements fl {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.pg
+        @Override // com.baidu.tieba.qg
         /* renamed from: f */
         public void b(TextView textView) {
             Interceptable interceptable = $ic;
@@ -977,7 +1137,94 @@ public class TbRichTextView extends LinearLayout implements fl {
     }
 
     /* loaded from: classes3.dex */
-    public class m implements ViewGroup.OnHierarchyChangeListener {
+    public static class o implements qg<FestivalTipView> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ int b;
+
+        public FestivalTipView e(FestivalTipView festivalTipView) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, festivalTipView)) == null) ? festivalTipView : (FestivalTipView) invokeL.objValue;
+        }
+
+        public o(Context context, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = i;
+        }
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.qg
+        public /* bridge */ /* synthetic */ FestivalTipView a(FestivalTipView festivalTipView) {
+            FestivalTipView festivalTipView2 = festivalTipView;
+            e(festivalTipView2);
+            return festivalTipView2;
+        }
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.qg
+        public /* bridge */ /* synthetic */ FestivalTipView c(FestivalTipView festivalTipView) {
+            FestivalTipView festivalTipView2 = festivalTipView;
+            h(festivalTipView2);
+            return festivalTipView2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.qg
+        /* renamed from: f */
+        public void b(FestivalTipView festivalTipView) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, festivalTipView) == null) {
+                festivalTipView.h();
+            }
+        }
+
+        public FestivalTipView h(FestivalTipView festivalTipView) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, festivalTipView)) == null) {
+                festivalTipView.h();
+                return festivalTipView;
+            }
+            return (FestivalTipView) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.qg
+        /* renamed from: g */
+        public FestivalTipView d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                FestivalTipView festivalTipView = new FestivalTipView(this.a);
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+                layoutParams.topMargin = zi.g(TbadkCoreApplication.getInst(), this.b);
+                festivalTipView.setLayoutParams(layoutParams);
+                return festivalTipView;
+            }
+            return (FestivalTipView) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class p implements ViewGroup.OnHierarchyChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbRichTextView a;
@@ -989,7 +1236,7 @@ public class TbRichTextView extends LinearLayout implements fl {
             }
         }
 
-        public m(TbRichTextView tbRichTextView) {
+        public p(TbRichTextView tbRichTextView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1013,7 +1260,7 @@ public class TbRichTextView extends LinearLayout implements fl {
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, view3) == null) {
                 if (view3 instanceof GifView) {
                     Object tag = view3.getTag(R.id.tag_rich_text_view_recycle);
-                    if ((tag instanceof t) && ((t) tag).a) {
+                    if ((tag instanceof v) && ((v) tag).a) {
                         if (this.a.b == null) {
                             TbRichTextView tbRichTextView = this.a;
                             tbRichTextView.b = tbRichTextView.getRecycleImageViewPool();
@@ -1024,7 +1271,7 @@ public class TbRichTextView extends LinearLayout implements fl {
                     }
                 } else if (view3 instanceof ImageView) {
                     Object tag2 = view3.getTag(R.id.tag_rich_text_view_recycle);
-                    if ((tag2 instanceof t) && ((t) tag2).a) {
+                    if ((tag2 instanceof v) && ((v) tag2).a) {
                         if (this.a.b == null) {
                             TbRichTextView tbRichTextView2 = this.a;
                             tbRichTextView2.b = tbRichTextView2.getRecycleImageViewPool();
@@ -1058,8 +1305,10 @@ public class TbRichTextView extends LinearLayout implements fl {
                     this.a.g.e((RelativeLayout) view3);
                 } else if ((view3 instanceof ItemCardView) && this.a.k != null) {
                     this.a.k.e((ItemCardView) view3);
+                } else if ((view3 instanceof FestivalTipView) && this.a.l != null) {
+                    this.a.l.e((FestivalTipView) view3);
                 }
-                if ((view3 instanceof LinearLayout) && !(view3 instanceof ItemCardView)) {
+                if ((view3 instanceof LinearLayout) && !(view3 instanceof ItemCardView) && !(view3 instanceof FestivalTipView)) {
                     Object tag3 = view3.getTag();
                     if (tag3 != null && (tag3 instanceof String) && "VideoView".equals(tag3)) {
                         view3.setBackgroundDrawable(null);
@@ -1087,13 +1336,55 @@ public class TbRichTextView extends LinearLayout implements fl {
     }
 
     /* loaded from: classes3.dex */
-    public class n implements View.OnClickListener {
+    public class q implements sa9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbRichTextData a;
         public final /* synthetic */ TbRichTextView b;
 
-        public n(TbRichTextView tbRichTextView, TbRichTextData tbRichTextData) {
+        public q(TbRichTextView tbRichTextView, TbRichTextData tbRichTextData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tbRichTextView, tbRichTextData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = tbRichTextView;
+            this.a = tbRichTextData;
+        }
+
+        @Override // com.baidu.tieba.sa9
+        public void onClick(@NonNull View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.L() != null && !TextUtils.isEmpty(this.a.L().c()) && (this.b.getContext() instanceof TbPageContextSupport)) {
+                    TbPageContext<?> pageContext = ((TbPageContextSupport) this.b.getContext()).getPageContext();
+                    if (pageContext == null) {
+                        return;
+                    }
+                    UrlManager.getInstance().dealOneLink(pageContext, new String[]{this.a.L().c()});
+                }
+                ua9.a(this.b.V, this.b.W, this.b.a0);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class r implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbRichTextData a;
+        public final /* synthetic */ TbRichTextView b;
+
+        public r(TbRichTextView tbRichTextView, TbRichTextData tbRichTextData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1115,96 +1406,26 @@ public class TbRichTextView extends LinearLayout implements fl {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.Q() != null) {
-                if (this.b.getContext() instanceof wn5) {
-                    ((wn5) this.b.getContext()).H(this.b.getContext(), this.a.Q().toString());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.S() != null) {
+                if (this.b.getContext() instanceof qo5) {
+                    ((qo5) this.b.getContext()).H(this.b.getContext(), this.a.S().toString());
                     return;
                 }
-                r9<?> a = x9.a(this.b.getContext());
-                if (a != null && (a.getOrignalPage() instanceof wn5)) {
-                    ((wn5) a.getOrignalPage()).H(this.b.getContext(), this.a.Q().toString());
+                s9<?> a = y9.a(this.b.getContext());
+                if (a != null && (a.getOrignalPage() instanceof qo5)) {
+                    ((qo5) a.getOrignalPage()).H(this.b.getContext(), this.a.S().toString());
                 }
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class o implements ViewTreeObserver.OnGlobalLayoutListener {
+    public class s implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbRichTextView a;
 
-        public o(TbRichTextView tbRichTextView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tbRichTextView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tbRichTextView;
-        }
-
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.a.k0();
-            this.a.Q.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class p implements ViewTreeObserver.OnGlobalLayoutListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbRichTextView a;
-
-        public p(TbRichTextView tbRichTextView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tbRichTextView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tbRichTextView;
-        }
-
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.a.h0();
-            this.a.Q.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class q implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbRichTextView a;
-
-        public q(TbRichTextView tbRichTextView) {
+        public s(TbRichTextView tbRichTextView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1225,35 +1446,10 @@ public class TbRichTextView extends LinearLayout implements fl {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.M || !this.a.performLongClick()) {
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.N || !this.a.performLongClick()) {
                 return;
             }
-            this.a.z = true;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class r {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-
-        public r() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ r(h hVar) {
-            this();
+            this.a.A = true;
         }
     }
 
@@ -1277,18 +1473,43 @@ public class TbRichTextView extends LinearLayout implements fl {
             }
         }
 
-        public /* synthetic */ t(h hVar) {
+        public /* synthetic */ t(j jVar) {
             this();
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class u {
+    public static class v {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+
+        public v() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ v(j jVar) {
+            this();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class w {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
-        public u(String str) {
+        public w(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1320,17 +1541,17 @@ public class TbRichTextView extends LinearLayout implements fl {
                 return;
             }
         }
-        r0 = yi.i(TbadkCoreApplication.getInst());
+        u0 = zi.i(TbadkCoreApplication.getInst());
     }
 
     private ItemCardView getItemCardView() {
         InterceptResult invokeV;
         ItemCardView itemCardView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65558, this)) == null) {
-            og<ItemCardView> ogVar = this.k;
-            if (ogVar != null) {
-                itemCardView = ogVar.b();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65562, this)) == null) {
+            pg<ItemCardView> pgVar = this.k;
+            if (pgVar != null) {
+                itemCardView = pgVar.b();
             } else {
                 itemCardView = null;
             }
@@ -1342,20 +1563,20 @@ public class TbRichTextView extends LinearLayout implements fl {
         return (ItemCardView) invokeV.objValue;
     }
 
-    public boolean H() {
+    public boolean L() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.B;
+            return this.C;
         }
         return invokeV.booleanValue;
     }
 
-    public final void J() {
+    public final void N() {
         int contentSize;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.I) {
+            if (this.J) {
                 contentSize = TbConfig.getContentSizeOfLzl();
             } else {
                 contentSize = TbConfig.getContentSize();
@@ -1364,69 +1585,69 @@ public class TbRichTextView extends LinearLayout implements fl {
         }
     }
 
-    public final void a0() {
+    public final void e0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.z = false;
-            if (this.A == null) {
-                this.A = new q(this);
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            this.A = false;
+            if (this.B == null) {
+                this.B = new s(this);
             }
-            postDelayed(this.A, ViewConfiguration.getLongPressTimeout());
+            postDelayed(this.B, ViewConfiguration.getLongPressTimeout());
         }
     }
 
-    public final void b0() {
+    public final void f0() {
         Runnable runnable;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && (runnable = this.A) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && (runnable = this.B) != null) {
             removeCallbacks(runnable);
         }
     }
 
-    public on5 getLayoutStrategy() {
+    public io5 getLayoutStrategy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             return this.a;
         }
-        return (on5) invokeV.objValue;
+        return (io5) invokeV.objValue;
     }
 
-    public y getOnImageClickListener() {
+    public a0 getOnImageClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            return this.o;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.p;
         }
-        return (y) invokeV.objValue;
+        return (a0) invokeV.objValue;
     }
 
-    public z getOnLinkImageClickListener() {
+    public b0 getOnLinkImageClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            return this.q;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.r;
         }
-        return (z) invokeV.objValue;
+        return (b0) invokeV.objValue;
     }
 
-    public gz7<ImageView> getRecycleImageViewPool() {
+    public w38<ImageView> getRecycleImageViewPool() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
             if (this.b == null) {
-                this.b = new g(this, new f(this), 10, 0);
+                this.b = new i(this, new h(this), 10, 0);
             }
             return this.b;
         }
-        return (gz7) invokeV.objValue;
+        return (w38) invokeV.objValue;
     }
 
     public TbRichText getRichText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            return this.D;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.E;
         }
         return (TbRichText) invokeV.objValue;
     }
@@ -1434,7 +1655,7 @@ public class TbRichTextView extends LinearLayout implements fl {
     public TextView getTextView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
             int childCount = getChildCount();
             for (int i2 = 0; i2 < childCount; i2++) {
                 View childAt = getChildAt(i2);
@@ -1447,64 +1668,77 @@ public class TbRichTextView extends LinearLayout implements fl {
         return (TextView) invokeV.objValue;
     }
 
-    public final void i0() {
+    public final void m0() {
         TextView textView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048608, this) == null) && (textView = this.Q) != null) {
-            textView.getViewTreeObserver().addOnGlobalLayoutListener(new p(this));
+        if ((interceptable == null || interceptable.invokeV(1048608, this) == null) && (textView = this.R) != null) {
+            textView.getViewTreeObserver().addOnGlobalLayoutListener(new b(this));
         }
     }
 
-    public final void j0() {
+    public final void n0() {
         TextView textView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048609, this) == null) && (textView = this.Q) != null) {
-            textView.getViewTreeObserver().addOnGlobalLayoutListener(new o(this));
+        if ((interceptable == null || interceptable.invokeV(1048609, this) == null) && (textView = this.R) != null) {
+            textView.getViewTreeObserver().addOnGlobalLayoutListener(new a(this));
         }
-    }
-
-    public void n0() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048613, this) != null) || TextUtils.isEmpty(this.h0)) {
-            return;
-        }
-        tg.h().d(this.h0, 19, this.j0);
-        setBackgroundDrawable(null);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
             super.onDetachedFromWindow();
-            on5 on5Var = this.a;
-            if (on5Var != null) {
-                on5Var.d();
+            io5 io5Var = this.a;
+            if (io5Var != null) {
+                io5Var.e();
             }
-            n0();
+            r0();
         }
     }
 
     @Override // android.view.View
     public void onStartTemporaryDetach() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
             super.onStartTemporaryDetach();
-            n0();
+            r0();
         }
     }
 
-    @Override // com.baidu.tieba.fl
+    public void r0() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048618, this) != null) || TextUtils.isEmpty(this.q0)) {
+            return;
+        }
+        ug.h().d(this.q0, 19, this.s0);
+        setBackgroundDrawable(null);
+    }
+
+    @Override // com.baidu.tieba.gl
     public void refresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
-            l0(this.h0);
+            p0(this.q0);
+        }
+    }
+
+    public void setFestivalTipViewSkin() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048627, this) == null) {
+            int childCount = getChildCount();
+            for (int i2 = 0; i2 < childCount; i2++) {
+                View childAt = getChildAt(i2);
+                if (childAt instanceof FestivalTipView) {
+                    ((FestivalTipView) childAt).b(true);
+                }
+            }
         }
     }
 
     public void setTextBold() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048649, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048652, this) == null) {
             this.a.g = true;
         }
     }
@@ -1527,7 +1761,7 @@ public class TbRichTextView extends LinearLayout implements fl {
                 return;
             }
         }
-        this.a = new on5();
+        this.a = new io5();
         this.b = null;
         this.c = null;
         this.d = null;
@@ -1537,8 +1771,7 @@ public class TbRichTextView extends LinearLayout implements fl {
         this.h = null;
         this.i = null;
         this.k = null;
-        this.l = true;
-        this.m = null;
+        this.m = true;
         this.n = null;
         this.o = null;
         this.p = null;
@@ -1546,35 +1779,36 @@ public class TbRichTextView extends LinearLayout implements fl {
         this.r = null;
         this.s = null;
         this.t = null;
-        this.u = true;
+        this.u = null;
         this.v = true;
-        this.w = -1;
-        this.y = false;
+        this.w = true;
+        this.x = -1;
         this.z = false;
-        this.A = null;
-        this.B = false;
-        this.E = false;
-        this.F = -1;
+        this.A = false;
+        this.B = null;
+        this.C = false;
+        this.F = false;
         this.G = -1;
-        this.H = true;
-        this.I = false;
+        this.H = -1;
+        this.I = true;
         this.J = false;
         this.K = false;
         this.L = false;
         this.M = false;
         this.N = false;
         this.O = false;
-        this.R = false;
+        this.P = false;
         this.S = false;
         this.T = false;
-        this.V = new h(this, 2, null);
-        this.b0 = new i(this);
-        this.c0 = new k18(new j(this));
-        this.d0 = new k(this);
-        this.e0 = new c(this);
-        this.j0 = new d(this);
-        this.q0 = new e(this, 2004018);
-        I();
+        this.U = false;
+        this.b0 = new j(this, 2, null);
+        this.e0 = new k(this);
+        this.f0 = new a68(new l(this));
+        this.g0 = new m(this);
+        this.h0 = new e(this);
+        this.s0 = new f(this);
+        this.t0 = new g(this, 2004018);
+        M();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -1596,7 +1830,7 @@ public class TbRichTextView extends LinearLayout implements fl {
                 return;
             }
         }
-        this.a = new on5();
+        this.a = new io5();
         this.b = null;
         this.c = null;
         this.d = null;
@@ -1606,8 +1840,7 @@ public class TbRichTextView extends LinearLayout implements fl {
         this.h = null;
         this.i = null;
         this.k = null;
-        this.l = true;
-        this.m = null;
+        this.m = true;
         this.n = null;
         this.o = null;
         this.p = null;
@@ -1615,47 +1848,48 @@ public class TbRichTextView extends LinearLayout implements fl {
         this.r = null;
         this.s = null;
         this.t = null;
-        this.u = true;
+        this.u = null;
         this.v = true;
-        this.w = -1;
-        this.y = false;
+        this.w = true;
+        this.x = -1;
         this.z = false;
-        this.A = null;
-        this.B = false;
-        this.E = false;
-        this.F = -1;
+        this.A = false;
+        this.B = null;
+        this.C = false;
+        this.F = false;
         this.G = -1;
-        this.H = true;
-        this.I = false;
+        this.H = -1;
+        this.I = true;
         this.J = false;
         this.K = false;
         this.L = false;
         this.M = false;
         this.N = false;
         this.O = false;
-        this.R = false;
+        this.P = false;
         this.S = false;
         this.T = false;
-        this.V = new h(this, 2, null);
-        this.b0 = new i(this);
-        this.c0 = new k18(new j(this));
-        this.d0 = new k(this);
-        this.e0 = new c(this);
-        this.j0 = new d(this);
-        this.q0 = new e(this, 2004018);
-        I();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, su8.TbRichTextView);
-        this.a.b(obtainStyledAttributes);
+        this.U = false;
+        this.b0 = new j(this, 2, null);
+        this.e0 = new k(this);
+        this.f0 = new a68(new l(this));
+        this.g0 = new m(this);
+        this.h0 = new e(this);
+        this.s0 = new f(this);
+        this.t0 = new g(this, 2004018);
+        M();
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, oz8.TbRichTextView);
+        this.a.c(obtainStyledAttributes);
         obtainStyledAttributes.recycle();
-        J();
+        N();
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, motionEvent)) == null) {
-            if (this.z && (motionEvent.getAction() == 3 || motionEvent.getAction() == 1)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, motionEvent)) == null) {
+            if (this.A && (motionEvent.getAction() == 3 || motionEvent.getAction() == 1)) {
                 return true;
             }
             return super.onInterceptTouchEvent(motionEvent);
@@ -1667,8 +1901,8 @@ public class TbRichTextView extends LinearLayout implements fl {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048617, this, motionEvent)) == null) {
-            this.y = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, motionEvent)) == null) {
+            this.z = true;
             return super.onTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
@@ -1677,12 +1911,12 @@ public class TbRichTextView extends LinearLayout implements fl {
     @Override // android.view.View
     public void onWindowVisibilityChanged(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048618, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
             super.onWindowVisibilityChanged(i2);
             if (i2 != 8 && i2 != 4) {
                 refresh();
             } else {
-                n0();
+                r0();
             }
         }
     }
@@ -1690,14 +1924,14 @@ public class TbRichTextView extends LinearLayout implements fl {
     public void setAddExpandableListener(boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048620, this, z2) == null) {
-            this.L = z2;
+            this.M = z2;
         }
     }
 
     public void setAddTruncateListener(boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048621, this, z2) == null) {
-            this.K = z2;
+            this.L = z2;
         }
     }
 
@@ -1706,51 +1940,51 @@ public class TbRichTextView extends LinearLayout implements fl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048622, this, drawable) == null) {
             super.setBackgroundDrawable(drawable);
-            if (this.g0 != drawable) {
-                this.f0 = true;
-                this.g0 = drawable;
+            if (this.j0 != drawable) {
+                this.i0 = true;
+                this.j0 = drawable;
             }
-            setText(this.D);
-            this.f0 = false;
+            setText(this.E);
+            this.i0 = false;
         }
     }
 
     public void setCommonTextViewOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048623, this, onClickListener) == null) {
-            this.r = onClickListener;
+            this.s = onClickListener;
         }
     }
 
     public void setDuiEnabled(boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048625, this, z2) == null) {
-            this.l = z2;
+            this.m = z2;
         }
     }
 
     public void setHasMovementMethod(boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048627, this, z2) == null) {
-            this.H = z2;
+        if (interceptable == null || interceptable.invokeZ(1048628, this, z2) == null) {
+            this.I = z2;
         }
     }
 
     public void setIsFromCDN(boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048628, this, z2) == null) {
-            this.v = z2;
-            on5 on5Var = this.a;
-            if (on5Var != null) {
-                on5Var.u = z2;
+        if (interceptable == null || interceptable.invokeZ(1048629, this, z2) == null) {
+            this.w = z2;
+            io5 io5Var = this.a;
+            if (io5Var != null) {
+                io5Var.u = z2;
             }
         }
     }
 
     public void setIsHost(boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048629, this, z2) == null) {
-            this.J = z2;
+        if (interceptable == null || interceptable.invokeZ(1048630, this, z2) == null) {
+            this.K = z2;
             GridImageLayout gridImageLayout = this.j;
             if (gridImageLayout != null) {
                 gridImageLayout.setIsHost(z2);
@@ -1760,38 +1994,38 @@ public class TbRichTextView extends LinearLayout implements fl {
 
     public void setIsNeedResizeEmotion(boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048630, this, z2) == null) {
-            this.S = z2;
-        }
-    }
-
-    public void setIsShowOrderOrDownloadBtn(boolean z2) {
-        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048631, this, z2) == null) {
             this.T = z2;
         }
     }
 
-    public void setIsUseGridImage(boolean z2) {
+    public void setIsShowOrderOrDownloadBtn(boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048632, this, z2) == null) {
-            this.N = z2;
+            this.U = z2;
+        }
+    }
+
+    public void setIsUseGridImage(boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048633, this, z2) == null) {
+            this.O = z2;
         }
     }
 
     public void setItemOrderOrDownloadListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048633, this, onClickListener) == null) {
-            this.t = onClickListener;
+        if (interceptable == null || interceptable.invokeL(1048634, this, onClickListener) == null) {
+            this.u = onClickListener;
         }
     }
 
-    public void setLayoutStrategy(on5 on5Var) {
+    public void setLayoutStrategy(io5 io5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048634, this, on5Var) == null) && on5Var != null) {
-            this.a.d();
-            this.a = on5Var;
-            J();
+        if ((interceptable == null || interceptable.invokeL(1048635, this, io5Var) == null) && io5Var != null) {
+            this.a.e();
+            this.a = io5Var;
+            N();
             GridImageLayout gridImageLayout = this.j;
             if (gridImageLayout != null) {
                 gridImageLayout.setLayoutStrategy(this.a);
@@ -1801,12 +2035,12 @@ public class TbRichTextView extends LinearLayout implements fl {
 
     public void setLinkTextColor(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048635, this, i2) == null) {
-            on5 on5Var = this.a;
-            if (i2 == on5Var.r) {
+        if (interceptable == null || interceptable.invokeI(1048636, this, i2) == null) {
+            io5 io5Var = this.a;
+            if (i2 == io5Var.r) {
                 return;
             }
-            on5Var.r = i2;
+            io5Var.r = i2;
             int childCount = getChildCount();
             for (int i3 = 0; i3 < childCount; i3++) {
                 View childAt = getChildAt(i3);
@@ -1819,9 +2053,9 @@ public class TbRichTextView extends LinearLayout implements fl {
 
     public void setMaxLines(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048636, this, i2) == null) {
-            this.G = i2;
-            TextView textView = this.Q;
+        if (interceptable == null || interceptable.invokeI(1048637, this, i2) == null) {
+            this.H = i2;
+            TextView textView = this.R;
             if (textView != null) {
                 textView.setMaxLines(i2);
             }
@@ -1830,89 +2064,103 @@ public class TbRichTextView extends LinearLayout implements fl {
 
     public void setMaxWidth(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048637, this, i2) == null) {
-            this.F = i2;
+        if (interceptable == null || interceptable.invokeI(1048638, this, i2) == null) {
+            this.G = i2;
         }
     }
 
-    public void setOnEmotionClickListener(x xVar) {
+    public void setOnEmotionClickListener(z zVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048638, this, xVar) == null) {
-            this.C = xVar;
+        if (interceptable == null || interceptable.invokeL(1048639, this, zVar) == null) {
+            this.D = zVar;
         }
     }
 
-    public void setOnImageClickListener(y yVar) {
+    public void setOnImageClickListener(a0 a0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048639, this, yVar) == null) {
-            this.o = yVar;
+        if (interceptable == null || interceptable.invokeL(1048640, this, a0Var) == null) {
+            this.p = a0Var;
             GridImageLayout gridImageLayout = this.j;
             if (gridImageLayout != null) {
-                gridImageLayout.setOnImageClickListener(yVar);
+                gridImageLayout.setOnImageClickListener(a0Var);
             }
         }
     }
 
-    public void setOnImageTouchListener(k18 k18Var) {
+    public void setOnImageTouchListener(a68 a68Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048640, this, k18Var) == null) {
-            this.p = k18Var;
+        if (interceptable == null || interceptable.invokeL(1048641, this, a68Var) == null) {
+            this.q = a68Var;
         }
     }
 
-    public void setOnLinkImageClickListener(z zVar) {
+    public void setOnLinkImageClickListener(b0 b0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048641, this, zVar) == null) {
-            this.q = zVar;
+        if (interceptable == null || interceptable.invokeL(1048642, this, b0Var) == null) {
+            this.r = b0Var;
         }
     }
 
     @Override // android.view.View
     public void setOnLongClickListener(View.OnLongClickListener onLongClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048642, this, onLongClickListener) == null) {
-            this.W = onLongClickListener;
+        if (interceptable == null || interceptable.invokeL(1048643, this, onLongClickListener) == null) {
+            this.c0 = onLongClickListener;
             super.setOnLongClickListener(onLongClickListener);
         }
     }
 
     public void setOnVoiceAfterClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048643, this, onClickListener) == null) {
-            this.x = onClickListener;
+        if (interceptable == null || interceptable.invokeL(1048644, this, onClickListener) == null) {
+            this.y = onClickListener;
+        }
+    }
+
+    public void setPid(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048645, this, str) == null) {
+            this.W = str;
+        }
+    }
+
+    public void setPosition(Position position) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048646, this, position) == null) {
+            this.a0 = position;
         }
     }
 
     public void setSubPbPost(boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048644, this, z2) == null) {
-            this.I = z2;
-            J();
+        if (interceptable == null || interceptable.invokeZ(1048647, this, z2) == null) {
+            this.J = z2;
+            N();
         }
     }
 
     public void setText(TbRichText tbRichText) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048645, this, tbRichText) == null) {
+        if (interceptable == null || interceptable.invokeL(1048648, this, tbRichText) == null) {
             setText(tbRichText, false);
         }
     }
 
     public void setTextCenter(boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048650, this, z2) == null) {
-            this.E = z2;
+        if (interceptable == null || interceptable.invokeZ(1048653, this, z2) == null) {
+            this.F = z2;
         }
     }
 
     public void setTextColor(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048651, this, i2) == null) {
-            on5 on5Var = this.a;
-            if (i2 == on5Var.l) {
+        if (interceptable == null || interceptable.invokeI(1048654, this, i2) == null) {
+            io5 io5Var = this.a;
+            if (i2 == io5Var.l) {
                 return;
             }
-            on5Var.l = i2;
+            io5Var.l = i2;
             int childCount = getChildCount();
             for (int i3 = 0; i3 < childCount; i3++) {
                 View childAt = getChildAt(i3);
@@ -1925,9 +2173,9 @@ public class TbRichTextView extends LinearLayout implements fl {
 
     public void setTextEllipsize(TextUtils.TruncateAt truncateAt) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048652, this, truncateAt) == null) {
-            this.m = truncateAt;
-            TextView textView = this.Q;
+        if (interceptable == null || interceptable.invokeL(1048655, this, truncateAt) == null) {
+            this.n = truncateAt;
+            TextView textView = this.R;
             if (textView != null) {
                 textView.setEllipsize(truncateAt);
             }
@@ -1936,7 +2184,7 @@ public class TbRichTextView extends LinearLayout implements fl {
 
     public void setTextViewCheckSelection(boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048655, this, z2) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048658, this, z2) == null) {
             int childCount = getChildCount();
             for (int i2 = 0; i2 < childCount; i2++) {
                 View childAt = getChildAt(i2);
@@ -1949,7 +2197,7 @@ public class TbRichTextView extends LinearLayout implements fl {
 
     public void setTextViewOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048656, this, onClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048659, this, onClickListener) == null) {
             int childCount = getChildCount();
             for (int i2 = 0; i2 < childCount; i2++) {
                 View childAt = getChildAt(i2);
@@ -1962,7 +2210,7 @@ public class TbRichTextView extends LinearLayout implements fl {
 
     public void setTextViewOnTouchListener(View.OnTouchListener onTouchListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048657, this, onTouchListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048660, this, onTouchListener) == null) {
             int childCount = getChildCount();
             for (int i2 = 0; i2 < childCount; i2++) {
                 View childAt = getChildAt(i2);
@@ -1975,112 +2223,121 @@ public class TbRichTextView extends LinearLayout implements fl {
 
     public void setTid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048658, this, str) == null) {
-            this.U = str;
+        if (interceptable == null || interceptable.invokeL(1048661, this, str) == null) {
+            this.V = str;
         }
     }
 
     public void setVoiceViewRes(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048659, this, i2) == null) {
-            this.w = i2;
+        if (interceptable == null || interceptable.invokeI(1048662, this, i2) == null) {
+            this.x = i2;
         }
     }
 
     public void setmGridEmptyClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048660, this, onClickListener) == null) {
-            this.s = onClickListener;
+        if (interceptable == null || interceptable.invokeL(1048663, this, onClickListener) == null) {
+            this.t = onClickListener;
         }
     }
 
     public void setmIsGridImageSupportLongPress(boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048661, this, z2) == null) {
-            this.O = z2;
+        if (interceptable == null || interceptable.invokeZ(1048664, this, z2) == null) {
+            this.P = z2;
         }
     }
 
-    public static og<TextView> D(Context context, int i2) {
+    public static pg<FestivalTipView> G(Context context, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, context, i2)) == null) {
-            return new og<>(new l(context), i2, 0);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, context, i2)) == null) {
+            return new pg<>(new o(context, i2), 10, 0);
         }
-        return (og) invokeLI.objValue;
+        return (pg) invokeLI.objValue;
     }
 
-    public static TbRichText U(JSONArray jSONArray, int i2) {
+    public static pg<TextView> H(Context context, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, jSONArray, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, context, i2)) == null) {
+            return new pg<>(new n(context), i2, 0);
+        }
+        return (pg) invokeLI.objValue;
+    }
+
+    public static TbRichText Y(JSONArray jSONArray, int i2) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, jSONArray, i2)) == null) {
             return new TbRichText(jSONArray, i2);
         }
         return (TbRichText) invokeLI.objValue;
     }
 
-    public static TbRichText V(JSONArray jSONArray, boolean z2) {
+    public static TbRichText Z(JSONArray jSONArray, boolean z2) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65543, null, jSONArray, z2)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65547, null, jSONArray, z2)) == null) {
             return new TbRichText(jSONArray, z2);
         }
         return (TbRichText) invokeLZ.objValue;
     }
 
-    public static TbRichText Y(List<PbContent> list, boolean z2) {
+    public static TbRichText c0(List<PbContent> list, boolean z2) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65546, null, list, z2)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65553, null, list, z2)) == null) {
             return new TbRichText(list, null, z2);
         }
         return (TbRichText) invokeLZ.objValue;
     }
 
-    public void m0(String str, v vVar) {
+    public void q0(String str, x xVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048612, this, str, vVar) == null) {
-            this.a0 = vVar;
-            l0(str);
+        if (interceptable == null || interceptable.invokeLL(1048617, this, str, xVar) == null) {
+            this.d0 = xVar;
+            p0(str);
         }
     }
 
     public void setText(TbRichText tbRichText, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048646, this, tbRichText, z2) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048649, this, tbRichText, z2) == null) {
             setText(tbRichText, z2, null);
         }
     }
 
-    public static TbRichText W(List<PbContent> list, String str, boolean z2) {
+    public static TbRichText a0(List<PbContent> list, String str, boolean z2) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65544, null, list, str, z2)) == null) {
-            return X(list, str, z2, null, null, -1);
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65549, null, list, str, z2)) == null) {
+            return b0(list, str, z2, null, null, -1);
         }
         return (TbRichText) invokeLLZ.objValue;
     }
 
-    public void setText(TbRichText tbRichText, boolean z2, s sVar) {
+    public void setText(TbRichText tbRichText, boolean z2, u uVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048647, this, new Object[]{tbRichText, Boolean.valueOf(z2), sVar}) == null) {
-            setText(tbRichText, z2, sVar, false, false);
+        if (interceptable == null || interceptable.invokeCommon(1048650, this, new Object[]{tbRichText, Boolean.valueOf(z2), uVar}) == null) {
+            setText(tbRichText, z2, uVar, false, false);
         }
     }
 
-    public static TbRichText X(List<PbContent> list, String str, boolean z2, @Nullable PostData postData, @Nullable ThreadData threadData, int i2) {
+    public static TbRichText b0(List<PbContent> list, String str, boolean z2, @Nullable PostData postData, @Nullable ThreadData threadData, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{list, str, Boolean.valueOf(z2), postData, threadData, Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{list, str, Boolean.valueOf(z2), postData, threadData, Integer.valueOf(i2)})) == null) {
             return new TbRichText(list, str, z2, postData, threadData, i2);
         }
         return (TbRichText) invokeCommon.objValue;
     }
 
-    public static TbRichText Z(List<PbContent> list, boolean z2, @NonNull ThreadData threadData) {
+    public static TbRichText d0(List<PbContent> list, boolean z2, @io.reactivex.annotations.NonNull ThreadData threadData) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{list, Boolean.valueOf(z2), threadData})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{list, Boolean.valueOf(z2), threadData})) == null) {
             return new TbRichText(list, null, z2, null, threadData, -1);
         }
         return (TbRichText) invokeCommon.objValue;
@@ -2090,10 +2347,10 @@ public class TbRichTextView extends LinearLayout implements fl {
         InterceptResult invokeV;
         GifView gifView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65555, this)) == null) {
-            og<GifView> ogVar = this.h;
-            if (ogVar != null) {
-                gifView = ogVar.b();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65559, this)) == null) {
+            pg<GifView> pgVar = this.h;
+            if (pgVar != null) {
+                gifView = pgVar.b();
             } else {
                 gifView = null;
             }
@@ -2107,8 +2364,8 @@ public class TbRichTextView extends LinearLayout implements fl {
             gifView.setDrawBorder(true);
             gifView.setConrers(15);
             gifView.setDrawBorder(true);
-            gifView.setRadius(this.P);
-            if (this.N) {
+            gifView.setRadius(this.Q);
+            if (this.O) {
                 gifView.setPlaceHolder(2);
             } else {
                 gifView.setPlaceHolder(3);
@@ -2127,7 +2384,7 @@ public class TbRichTextView extends LinearLayout implements fl {
     private GridImageLayout getGridImageView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65556, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65560, this)) == null) {
             GridImageLayout gridImageLayout = this.j;
             if (gridImageLayout == null || gridImageLayout.getParent() != null) {
                 this.j = new GridImageLayout(getContext());
@@ -2135,44 +2392,44 @@ public class TbRichTextView extends LinearLayout implements fl {
             }
             this.j.setLayoutStrategy(this.a);
             this.j.setObjectPool(this.c, this.h);
-            this.j.setOnImageClickListener(this.o);
-            View.OnClickListener onClickListener = this.s;
+            this.j.setOnImageClickListener(this.p);
+            View.OnClickListener onClickListener = this.t;
             if (onClickListener != null) {
                 this.j.setOnClickListener(onClickListener);
             }
-            this.j.setIsHost(this.J);
-            if (this.O) {
-                this.j.setOnLongClickListener(this.W);
+            this.j.setIsHost(this.K);
+            if (this.P) {
+                this.j.setOnLongClickListener(this.c0);
             }
             return this.j;
         }
         return (GridImageLayout) invokeV.objValue;
     }
 
-    public final void k0() {
+    public final void o0() {
         TextView textView;
         CharSequence text;
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048610, this) == null) && this.G > 0 && (textView = this.Q) != null && textView.getLineCount() > this.G) {
+        if ((interceptable == null || interceptable.invokeV(1048610, this) == null) && this.H > 0 && (textView = this.R) != null && textView.getLineCount() > this.H) {
             try {
-                text = this.Q.getText().subSequence(0, this.Q.getLayout().getLineEnd(this.G - 1) - 1);
+                text = this.R.getText().subSequence(0, this.R.getLayout().getLineEnd(this.H - 1) - 1);
                 str = StringHelper.STRING_MORE;
             } catch (Exception unused) {
-                text = this.Q.getText();
+                text = this.R.getText();
                 str = "";
             }
-            TextUtils.TruncateAt ellipsize = this.Q.getEllipsize();
+            TextUtils.TruncateAt ellipsize = this.R.getEllipsize();
             if (ellipsize == TextUtils.TruncateAt.START) {
-                this.Q.setText(str);
-                this.Q.append(text);
+                this.R.setText(str);
+                this.R.append(text);
             } else if (ellipsize == TextUtils.TruncateAt.MIDDLE) {
-                this.Q.setText(text.subSequence(0, text.length() / 2));
-                this.Q.append(str);
-                this.Q.append(text.subSequence(text.length() / 2, text.length()));
+                this.R.setText(text.subSequence(0, text.length() / 2));
+                this.R.append(str);
+                this.R.append(text.subSequence(text.length() / 2, text.length()));
             } else if (ellipsize == TextUtils.TruncateAt.END) {
-                this.Q.setText(text);
-                this.Q.append(str);
+                this.R.setText(text);
+                this.R.append(str);
             }
         }
     }
@@ -2181,11 +2438,11 @@ public class TbRichTextView extends LinearLayout implements fl {
         InterceptResult invokeV;
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65557, this)) == null) {
-            og<ImageView> ogVar = this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65561, this)) == null) {
+            pg<ImageView> pgVar = this.c;
             ImageView imageView2 = null;
-            if (ogVar != null) {
-                imageView = ogVar.b();
+            if (pgVar != null) {
+                imageView = pgVar.b();
             } else {
                 imageView = null;
             }
@@ -2203,81 +2460,80 @@ public class TbRichTextView extends LinearLayout implements fl {
     private View getTextVoiceView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65559, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65563, this)) == null) {
             LinearLayout b2 = this.f.b();
             if (b2 != null) {
-                TextView E = E(getContext());
-                if (E == null) {
+                TextView I = I(getContext());
+                if (I == null) {
                     this.f.e(b2);
                     return null;
                 }
-                b2.addView(E);
-                View G = G(null);
-                if (G == null) {
-                    this.d.e(E);
+                b2.addView(I);
+                View K = K(null);
+                if (K == null) {
+                    this.d.e(I);
                     this.f.e(b2);
                     return null;
                 }
-                b2.addView(G);
+                b2.addView(K);
             }
             return b2;
         }
         return (View) invokeV.objValue;
     }
 
-    public final void C(in inVar) {
+    public final void F(jn jnVar) {
+        int i2;
+        int i3;
+        int i4;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, inVar) != null) || inVar == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jnVar) != null) || jnVar == null) {
             return;
         }
         try {
-            NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(getResources(), inVar.p(), inVar.p().getNinePatchChunk(), inVar.o(), null);
+            if (this.a.b() != null) {
+                Rect b2 = this.a.b();
+                if (b2.left != -1) {
+                    i2 = b2.left;
+                } else {
+                    i2 = jnVar.j.left;
+                }
+                if (b2.top != -1) {
+                    i3 = b2.top;
+                } else {
+                    i3 = jnVar.j.top;
+                }
+                if (b2.right != -1) {
+                    i4 = b2.right;
+                } else {
+                    i4 = jnVar.j.right;
+                }
+                if (b2.bottom == -1) {
+                    b2 = jnVar.j;
+                }
+                jnVar.j = new Rect(i2, i3, i4, b2.bottom);
+            }
+            NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(getResources(), jnVar.p(), jnVar.p().getNinePatchChunk(), jnVar.o(), null);
             if (TbadkCoreApplication.getInst().getSkinType() == 1 || TbadkCoreApplication.getInst().getSkinType() == 4) {
                 ninePatchDrawable.getPaint().setAlpha(80);
             }
             setBackgroundDrawable(ninePatchDrawable);
-            v vVar = this.a0;
-            if (vVar != null) {
-                vVar.b();
+            x xVar = this.d0;
+            if (xVar != null) {
+                xVar.b();
             }
         } catch (Exception unused) {
         }
     }
 
-    public final boolean T(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, view2)) == null) {
-            if (!(view2 instanceof ImageView)) {
-                return false;
-            }
-            if (view2 instanceof GifView) {
-                if (view2.getTag(R.id.tag_rich_text_view_gif_view) == null || !(view2.getTag(R.id.tag_rich_text_view_gif_view) instanceof r) || !((r) view2.getTag(R.id.tag_rich_text_view_gif_view)).a) {
-                    return false;
-                }
-                return true;
-            }
-            if ((view2 instanceof TbImageView) && view2.getTag() != null) {
-                if (view2.getTag() instanceof u) {
-                    return false;
-                }
-                if ((view2.getTag() instanceof String) && TextUtils.equals("VideoView", (String) view2.getTag())) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public TextView E(Context context) {
+    public TextView I(Context context) {
         InterceptResult invokeL;
         TextView textView;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            og<TextView> ogVar = this.d;
-            if (ogVar != null) {
-                textView = ogVar.b();
+            pg<TextView> pgVar = this.d;
+            if (pgVar != null) {
+                textView = pgVar.b();
             } else {
                 textView = null;
             }
@@ -2295,15 +2551,15 @@ public class TbRichTextView extends LinearLayout implements fl {
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, motionEvent)) == null) {
-            this.y = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, motionEvent)) == null) {
+            this.z = false;
             int action = motionEvent.getAction();
-            if ((action == 1 || action == 3) && !this.z) {
-                b0();
+            if ((action == 1 || action == 3) && !this.A) {
+                f0();
             }
             boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
-            if (motionEvent.getAction() == 0 && !this.y) {
-                a0();
+            if (motionEvent.getAction() == 0 && !this.z) {
+                e0();
             }
             return dispatchTouchEvent;
         }
@@ -2314,32 +2570,32 @@ public class TbRichTextView extends LinearLayout implements fl {
         int emotionContentSize;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048626, this, f2) == null) {
-            if (this.S && UbsABTestHelper.isResizeEmotionABTest()) {
-                if (this.I) {
+            if (this.T && UbsABTestHelper.isResizeEmotionABTest()) {
+                if (this.J) {
                     emotionContentSize = TbConfig.getEmotionContentSizeOfLzl();
                 } else {
                     emotionContentSize = TbConfig.getEmotionContentSize();
                 }
-                on5 on5Var = this.a;
-                on5Var.h = emotionContentSize;
-                on5Var.i = emotionContentSize;
+                io5 io5Var = this.a;
+                io5Var.h = emotionContentSize;
+                io5Var.i = emotionContentSize;
                 return;
             }
-            on5 on5Var2 = this.a;
+            io5 io5Var2 = this.a;
             int i2 = (int) f2;
-            on5Var2.h = i2;
-            on5Var2.i = i2;
+            io5Var2.h = i2;
+            io5Var2.i = i2;
         }
     }
 
     public void setTextPadding(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048653, this, i2) == null) {
-            on5 on5Var = this.a;
-            if (on5Var.d == i2) {
+        if (interceptable == null || interceptable.invokeI(1048656, this, i2) == null) {
+            io5 io5Var = this.a;
+            if (io5Var.d == i2) {
                 return;
             }
-            on5Var.d = i2;
+            io5Var.d = i2;
             int childCount = getChildCount();
             for (int i3 = 0; i3 < childCount; i3++) {
                 View childAt = getChildAt(i3);
@@ -2353,13 +2609,13 @@ public class TbRichTextView extends LinearLayout implements fl {
 
     public void setTextSize(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048654, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048657, this, f2) == null) {
             setFaceSize(f2);
-            on5 on5Var = this.a;
-            if (f2 == on5Var.f) {
+            io5 io5Var = this.a;
+            if (f2 == io5Var.f) {
                 return;
             }
-            on5Var.f = f2;
+            io5Var.f = f2;
             int childCount = getChildCount();
             for (int i2 = 0; i2 < childCount; i2++) {
                 View childAt = getChildAt(i2);
@@ -2370,7 +2626,7 @@ public class TbRichTextView extends LinearLayout implements fl {
         }
     }
 
-    public final LinearLayout F(TbRichTextData tbRichTextData) {
+    public final LinearLayout J(TbRichTextData tbRichTextData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbRichTextData)) == null) {
@@ -2386,7 +2642,7 @@ public class TbRichTextView extends LinearLayout implements fl {
                 }
                 linearLayout.setFocusable(false);
                 linearLayout.setLayoutParams(layoutParams);
-                linearLayout.setOnClickListener(new n(this, tbRichTextData));
+                linearLayout.setOnClickListener(new r(this, tbRichTextData));
                 return linearLayout;
             }
             return null;
@@ -2394,19 +2650,19 @@ public class TbRichTextView extends LinearLayout implements fl {
         return (LinearLayout) invokeL.objValue;
     }
 
-    public final View G(View view2) {
+    public final View K(View view2) {
         InterceptResult invokeL;
         View view3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
-            og<View> ogVar = this.e;
-            if (ogVar != null) {
-                view3 = ogVar.b();
+            pg<View> pgVar = this.e;
+            if (pgVar != null) {
+                view3 = pgVar.b();
             } else {
                 view3 = null;
             }
-            if ((view3 == null || view3.getParent() != null) && this.w != -1) {
-                view3 = LayoutInflater.from(getContext()).inflate(this.w, (ViewGroup) null);
+            if ((view3 == null || view3.getParent() != null) && this.x != -1) {
+                view3 = LayoutInflater.from(getContext()).inflate(this.x, (ViewGroup) null);
             }
             if (view3 == null) {
                 return null;
@@ -2420,24 +2676,24 @@ public class TbRichTextView extends LinearLayout implements fl {
             layoutParams.bottomMargin = this.a.D;
             view3.setLayoutParams(layoutParams);
             if (view3 instanceof PlayVoiceBntNew) {
-                ((PlayVoiceBntNew) view3).setAfterClickListener(this.x);
+                ((PlayVoiceBntNew) view3).setAfterClickListener(this.y);
             }
             return view3;
         }
         return (View) invokeL.objValue;
     }
 
-    public void l0(String str) {
+    public void p0(String str) {
         BdUniqueId bdUniqueId;
         boolean z2;
         boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048616, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                this.h0 = str;
+                this.q0 = str;
                 return;
             }
-            w9 c2 = x9.c(getContext());
+            x9 c2 = y9.c(getContext());
             if (c2 != null) {
                 bdUniqueId = c2.getUniqueId();
                 z2 = c2.isScroll();
@@ -2445,82 +2701,83 @@ public class TbRichTextView extends LinearLayout implements fl {
                 bdUniqueId = null;
                 z2 = false;
             }
-            if (str.equals(this.h0) && this.i0 == bdUniqueId) {
+            if (str.equals(this.q0) && this.r0 == bdUniqueId) {
                 z3 = true;
             } else {
                 z3 = false;
             }
             if (!z3) {
-                n0();
+                r0();
             }
-            this.h0 = str;
-            this.i0 = bdUniqueId;
+            this.q0 = str;
+            this.r0 = bdUniqueId;
             setBackgroundDrawable(null);
-            in inVar = (in) tg.h().n(this.h0, 19, new Object[0]);
-            if (inVar != null) {
-                C(inVar);
+            jn jnVar = (jn) ug.h().n(this.q0, 19, new Object[0]);
+            if (jnVar != null) {
+                F(jnVar);
             } else if (z2) {
                 invalidate();
-            } else if (!tg.h().j(19)) {
+            } else if (!ug.h().j(19)) {
                 invalidate();
             } else {
-                tg.h().k(this.h0, 19, this.j0, 0, 0, this.i0, new Object[0]);
+                ug.h().k(this.q0, 19, this.s0, 0, 0, this.r0, new Object[0]);
             }
         }
     }
 
-    public final void I() {
-        wn5 wn5Var;
+    public final void M() {
+        qo5 qo5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            r9<?> a2 = x9.a(getContext());
-            if (getContext() instanceof wn5) {
-                wn5Var = (wn5) getContext();
-            } else if (a2 != null && (a2.getOrignalPage() instanceof wn5)) {
-                wn5Var = (wn5) a2.getOrignalPage();
+            s9<?> a2 = y9.a(getContext());
+            if (getContext() instanceof qo5) {
+                qo5Var = (qo5) getContext();
+            } else if (a2 != null && (a2.getOrignalPage() instanceof qo5)) {
+                qo5Var = (qo5) a2.getOrignalPage();
             } else {
-                wn5Var = null;
+                qo5Var = null;
             }
-            if (wn5Var == null && (getContext() instanceof BaseFragmentActivity)) {
+            if (qo5Var == null && (getContext() instanceof BaseFragmentActivity)) {
                 List<Fragment> fragments = ((BaseFragmentActivity) getContext()).getSupportFragmentManager().getFragments();
-                if (!ListUtils.isEmpty(fragments) && (fragments.get(0) instanceof wn5)) {
-                    wn5Var = (wn5) fragments.get(0);
+                if (!ListUtils.isEmpty(fragments) && (fragments.get(0) instanceof qo5)) {
+                    qo5Var = (qo5) fragments.get(0);
                 }
             }
             if (a2 != null) {
-                a2.registerListener(this.q0);
+                a2.registerListener(this.t0);
             }
-            if (wn5Var != null) {
-                this.c = wn5Var.P();
-                this.d = wn5Var.V0();
-                this.e = wn5Var.Q();
-                this.f = wn5Var.y();
-                this.h = wn5Var.v();
-                this.i = wn5Var.w1();
-                this.g = wn5Var.N();
-                this.k = wn5Var.h0();
-                if (wn5Var.getListView() != null && this.n == null) {
-                    this.n = new a0(wn5Var.C());
-                    wn5Var.getListView().setRecyclerListener(this.n);
+            if (qo5Var != null) {
+                this.c = qo5Var.Q();
+                this.d = qo5Var.W0();
+                this.e = qo5Var.R();
+                this.f = qo5Var.y();
+                this.h = qo5Var.v();
+                this.i = qo5Var.B1();
+                this.g = qo5Var.N();
+                this.k = qo5Var.i0();
+                this.l = qo5Var.P();
+                if (qo5Var.getListView() != null && this.o == null) {
+                    this.o = new c0(qo5Var.C());
+                    qo5Var.getListView().setRecyclerListener(this.o);
                 }
             }
-            this.P = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds21);
+            this.Q = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds21);
             setOrientation(1);
-            setOnHierarchyChangeListener(new m(this));
+            setOnHierarchyChangeListener(new p(this));
         }
     }
 
-    public final void h0() {
+    public final void l0() {
         TextView textView;
         CharSequence subSequence;
         Object[] spans;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048607, this) == null) && this.G > 1 && (textView = this.Q) != null && textView.getLineCount() > this.G) {
+        if ((interceptable == null || interceptable.invokeV(1048607, this) == null) && this.H > 1 && (textView = this.R) != null && textView.getLineCount() > this.H) {
             try {
-                CharSequence subSequence2 = this.Q.getText().subSequence(0, this.Q.getLayout().getLineEnd(this.G - 1));
-                Layout layout = this.Q.getLayout();
-                int lineStart = layout.getLineStart(this.G - 1);
-                int lineEnd = layout.getLineEnd(this.G - 1);
+                CharSequence subSequence2 = this.R.getText().subSequence(0, this.R.getLayout().getLineEnd(this.H - 1));
+                Layout layout = this.R.getLayout();
+                int lineStart = layout.getLineStart(this.H - 1);
+                int lineEnd = layout.getLineEnd(this.H - 1);
                 CharSequence subSequence3 = subSequence2.subSequence(0, lineStart);
                 CharSequence cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(subSequence2.subSequence(lineStart, lineEnd), StringHelper.getChineseAndEnglishLength(subSequence) - 6, "");
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
@@ -2540,16 +2797,16 @@ public class TbRichTextView extends LinearLayout implements fl {
                 }
                 spannableStringBuilder.append((CharSequence) StringHelper.STRING_MORE);
                 SpannableString spannableString = new SpannableString("展开");
-                spannableString.setSpan(this.V, 0, spannableString.length(), 17);
+                spannableString.setSpan(this.b0, 0, spannableString.length(), 17);
                 spannableStringBuilder.append((CharSequence) spannableString);
-                this.Q.setText(spannableStringBuilder);
+                this.R.setText(spannableStringBuilder);
             } catch (Exception unused) {
-                this.Q.setText(this.Q.getText());
+                this.R.setText(this.R.getText());
             }
         }
     }
 
-    public final boolean K(TbRichTextData tbRichTextData, GifView gifView) {
+    public final boolean O(TbRichTextData tbRichTextData, GifView gifView) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, tbRichTextData, gifView)) == null) {
@@ -2561,20 +2818,20 @@ public class TbRichTextView extends LinearLayout implements fl {
                 layoutParams2.gravity = 3;
                 gifView.setLayoutParams(layoutParams2);
             }
-            gifView.setOnClickListener(new a(this, tbRichTextData));
+            gifView.setOnClickListener(new c(this, tbRichTextData));
             gifView.i0(tbRichTextData.J().mGifInfo);
             return true;
         }
         return invokeLL.booleanValue;
     }
 
-    public final boolean L(TbRichTextData tbRichTextData, ImageView imageView, int i2, int i3, boolean z2) {
+    public final boolean P(TbRichTextData tbRichTextData, ImageView imageView, int i2, int i3, boolean z2) {
         InterceptResult invokeCommon;
         String H;
         int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{tbRichTextData, imageView, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z2)})) == null) {
-            if (tbRichTextData == null || imageView == null || tbRichTextData.M() == null) {
+            if (tbRichTextData == null || imageView == null || tbRichTextData.O() == null) {
                 return false;
             }
             if (imageView instanceof TbImageView) {
@@ -2586,10 +2843,10 @@ public class TbRichTextView extends LinearLayout implements fl {
                 tbImageView.setDrawBorder(true);
                 tbImageView.setLongIconSupport(true);
                 tbImageView.setGifIconSupport(true);
-                tbImageView.setTLIconType(tbRichTextData.L());
+                tbImageView.setTLIconType(tbRichTextData.N());
                 tbImageView.setConrers(15);
-                tbImageView.setRadius(this.P);
-                if (this.N) {
+                tbImageView.setRadius(this.Q);
+                if (this.O) {
                     tbImageView.setPlaceHolder(2);
                 } else {
                     tbImageView.setPlaceHolder(3);
@@ -2597,47 +2854,47 @@ public class TbRichTextView extends LinearLayout implements fl {
                 if (this.a.t) {
                     tbImageView.setSupportNoImage(true);
                 }
-                if (this.a.c()) {
-                    H = tbRichTextData.M().G();
+                if (this.a.d()) {
+                    H = tbRichTextData.O().G();
                 } else {
-                    H = tbRichTextData.M().H();
+                    H = tbRichTextData.O().H();
                 }
                 if (!z2 || tbImageView.getUrl() == null || !tbImageView.getUrl().equals(H)) {
-                    if (this.v) {
+                    if (this.w) {
                         i4 = 17;
                     } else {
                         i4 = 18;
                     }
                     tbImageView.K(H, i4, false);
                 }
-                if (!tbRichTextData.M().M()) {
+                if (!tbRichTextData.O().M()) {
                     tbImageView.setAdjustViewBounds(false);
                 }
                 tbImageView.setTag(R.id.tag_rich_text_meme_info, null);
             }
-            return f0(imageView, tbRichTextData.M().getWidth(), tbRichTextData.M().getHeight(), i2, i3, this.b0);
+            return j0(imageView, tbRichTextData.O().getWidth(), tbRichTextData.O().getHeight(), i2, i3, this.e0);
         }
         return invokeCommon.booleanValue;
     }
 
-    public final boolean M(ItemCardView itemCardView, TbRichTextData tbRichTextData) {
+    public final boolean Q(ItemCardView itemCardView, TbRichTextData tbRichTextData) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, itemCardView, tbRichTextData)) == null) {
             if (tbRichTextData != null) {
-                if (tbRichTextData.N() != null || tbRichTextData.K() != null) {
+                if (tbRichTextData.P() != null || tbRichTextData.K() != null) {
                     if (tbRichTextData.getType() == 37) {
                         itemCardView.setPosition(9);
                     } else if (tbRichTextData.getType() == 1281) {
                         itemCardView.setPosition(4);
                     }
-                    itemCardView.setOnClickListener(new b(this, tbRichTextData, itemCardView));
-                    itemCardView.setOnClickListenerOfRightBtn(this.t);
-                    itemCardView.setIsShowRightBtn(this.T);
+                    itemCardView.setOnClickListener(new d(this, tbRichTextData, itemCardView));
+                    itemCardView.setOnClickListenerOfRightBtn(this.u);
+                    itemCardView.setIsShowRightBtn(this.U);
                     if (tbRichTextData.getType() == 37) {
-                        itemCardView.setData(tbRichTextData.N().a(), 17, this.U);
+                        itemCardView.setData(tbRichTextData.P().a(), 17, this.V);
                     } else if (tbRichTextData.getType() == 1281) {
-                        itemCardView.setData(tbRichTextData.K(), 17, this.U);
+                        itemCardView.setData(tbRichTextData.K(), 17, this.V);
                     }
                     itemCardView.G();
                     return true;
@@ -2649,13 +2906,13 @@ public class TbRichTextView extends LinearLayout implements fl {
         return invokeLL.booleanValue;
     }
 
-    public final boolean N(TbRichTextData tbRichTextData, ImageView imageView, int i2, int i3) {
+    public final boolean R(TbRichTextData tbRichTextData, ImageView imageView, int i2, int i3) {
         InterceptResult invokeLLII;
-        TbRichTextLinkImageInfo O;
+        TbRichTextLinkImageInfo Q;
         int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048586, this, tbRichTextData, imageView, i2, i3)) == null) {
-            if (tbRichTextData == null || imageView == null || (O = tbRichTextData.O()) == null || O.getLink() == null) {
+            if (tbRichTextData == null || imageView == null || (Q = tbRichTextData.Q()) == null || Q.getLink() == null) {
                 return false;
             }
             if (imageView instanceof TbImageView) {
@@ -2663,29 +2920,29 @@ public class TbRichTextView extends LinearLayout implements fl {
                 if (this.a.t) {
                     tbImageView.setSupportNoImage(true);
                 }
-                String G = O.G();
-                if (this.v) {
+                String G = Q.G();
+                if (this.w) {
                     i4 = 17;
                 } else {
                     i4 = 18;
                 }
                 tbImageView.K(G, i4, false);
-                tbImageView.setTag(new u(O.getLink()));
-                if (!O.H()) {
+                tbImageView.setTag(new w(Q.getLink()));
+                if (!Q.H()) {
                     tbImageView.setAdjustViewBounds(false);
                 }
             }
-            return g0(imageView, O.getWidth(), O.getHeight(), i2, i3, this.d0);
+            return k0(imageView, Q.getWidth(), Q.getHeight(), i2, i3, this.g0);
         }
         return invokeLLII.booleanValue;
     }
 
-    public final boolean O(TbRichTextData tbRichTextData, ImageView imageView, int i2, int i3) {
+    public final boolean S(TbRichTextData tbRichTextData, ImageView imageView, int i2, int i3) {
         InterceptResult invokeLLII;
         int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048587, this, tbRichTextData, imageView, i2, i3)) == null) {
-            if (tbRichTextData == null || imageView == null || tbRichTextData.P() == null) {
+            if (tbRichTextData == null || imageView == null || tbRichTextData.R() == null) {
                 return false;
             }
             if (imageView instanceof TbImageView) {
@@ -2698,8 +2955,8 @@ public class TbRichTextView extends LinearLayout implements fl {
                 tbImageView.setLongIconSupport(true);
                 tbImageView.setGifIconSupport(true);
                 tbImageView.setConrers(15);
-                tbImageView.setRadius(this.P);
-                if (this.N) {
+                tbImageView.setRadius(this.Q);
+                if (this.O) {
                     tbImageView.setPlaceHolder(2);
                 } else {
                     tbImageView.setPlaceHolder(3);
@@ -2707,22 +2964,22 @@ public class TbRichTextView extends LinearLayout implements fl {
                 if (this.a.t) {
                     tbImageView.setSupportNoImage(true);
                 }
-                String str = tbRichTextData.P().memeInfo.pic_url;
-                if (this.v) {
+                String str = tbRichTextData.R().memeInfo.pic_url;
+                if (this.w) {
                     i4 = 17;
                 } else {
                     i4 = 18;
                 }
                 tbImageView.K(str, i4, false);
                 tbImageView.setAdjustViewBounds(false);
-                tbImageView.setTag(R.id.tag_rich_text_meme_info, tbRichTextData.P());
+                tbImageView.setTag(R.id.tag_rich_text_meme_info, tbRichTextData.R());
             }
-            return g0(imageView, tbRichTextData.P().memeInfo.width.intValue(), tbRichTextData.P().memeInfo.height.intValue(), i2, i3, this.b0);
+            return k0(imageView, tbRichTextData.R().memeInfo.width.intValue(), tbRichTextData.R().memeInfo.height.intValue(), i2, i3, this.e0);
         }
         return invokeLLII.booleanValue;
     }
 
-    public final boolean P(TbRichTextData tbRichTextData, GifView gifView, boolean z2) {
+    public final boolean T(TbRichTextData tbRichTextData, GifView gifView, boolean z2) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048588, this, tbRichTextData, gifView, z2)) == null) {
@@ -2740,21 +2997,21 @@ public class TbRichTextView extends LinearLayout implements fl {
             } else {
                 gifView.setBackgroundDrawable(SkinManager.getDrawable(R.color.common_color_10220));
             }
-            String I = tbRichTextData.M().I();
+            String I = tbRichTextData.O().I();
             if (StringUtils.isNull(I)) {
-                on5 on5Var = this.a;
-                if (on5Var.I) {
-                    if (on5Var.u) {
-                        I = tbRichTextData.M().G();
+                io5 io5Var = this.a;
+                if (io5Var.I) {
+                    if (io5Var.u) {
+                        I = tbRichTextData.O().G();
                     } else {
-                        I = tbRichTextData.M().getBigSrc();
+                        I = tbRichTextData.O().getBigSrc();
                     }
                 }
                 if (StringUtils.isNull(I)) {
                     if (this.a.u) {
-                        I = tbRichTextData.M().H();
+                        I = tbRichTextData.O().H();
                     } else {
-                        I = tbRichTextData.M().L();
+                        I = tbRichTextData.O().L();
                     }
                 }
             }
@@ -2762,90 +3019,90 @@ public class TbRichTextView extends LinearLayout implements fl {
             if (!z2 || gifView.getUrl() == null || !gifView.getUrl().equals(I)) {
                 gifView.j0(I, 38);
             }
-            int width = tbRichTextData.M().getWidth();
-            int height = tbRichTextData.M().getHeight();
-            on5 on5Var2 = this.a;
-            return f0(gifView, width, height, on5Var2.m, on5Var2.n, this.b0);
+            int width = tbRichTextData.O().getWidth();
+            int height = tbRichTextData.O().getHeight();
+            io5 io5Var2 = this.a;
+            return j0(gifView, width, height, io5Var2.m, io5Var2.n, this.e0);
         }
         return invokeLLZ.booleanValue;
     }
 
-    public final boolean Q(TbRichTextData tbRichTextData, TextView textView, boolean z2, s sVar) {
+    public final boolean U(TbRichTextData tbRichTextData, TextView textView, boolean z2, u uVar) {
         InterceptResult invokeCommon;
         LinearLayout.LayoutParams layoutParams;
-        SpannableStringBuilder Q;
+        SpannableStringBuilder S;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{tbRichTextData, textView, Boolean.valueOf(z2), sVar})) == null) {
-            this.Q = textView;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{tbRichTextData, textView, Boolean.valueOf(z2), uVar})) == null) {
+            this.R = textView;
             if (z2) {
                 layoutParams = new LinearLayout.LayoutParams(-1, -2);
             } else {
                 layoutParams = new LinearLayout.LayoutParams(-2, -2);
             }
-            if (this.E) {
+            if (this.F) {
                 layoutParams.gravity = 16;
                 textView.setGravity(16);
             } else {
                 layoutParams.topMargin = this.a.e;
             }
             textView.setIncludeFontPadding(this.a.b);
-            on5 on5Var = this.a;
-            textView.setLineSpacing(on5Var.c, on5Var.a);
+            io5 io5Var = this.a;
+            textView.setLineSpacing(io5Var.c, io5Var.a);
             textView.setTextSize(0, this.a.f);
             if (this.a.g) {
-                rw4.d(textView).A(R.string.F_X02);
+                cx4.d(textView).A(R.string.F_X02);
             }
             textView.setTextColor(this.a.l);
             textView.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0304));
             textView.setHighlightColor(getContext().getResources().getColor(R.color.transparent));
             textView.setSingleLine(this.a.q);
-            if (this.K) {
-                j0();
-            }
             if (this.L) {
-                i0();
+                n0();
             }
-            TextUtils.TruncateAt truncateAt = this.m;
+            if (this.M) {
+                m0();
+            }
+            TextUtils.TruncateAt truncateAt = this.n;
             if (truncateAt != null) {
                 textView.setEllipsize(truncateAt);
             }
-            if (this.R) {
-                rw4.d(textView).y(R.array.S_O_X001);
+            if (this.S) {
+                cx4.d(textView).y(R.array.S_O_X001);
             }
-            int i3 = this.F;
+            int i3 = this.G;
             if (i3 > 0) {
                 textView.setMaxWidth(i3);
             }
-            int i4 = this.G;
+            int i4 = this.H;
             if (i4 > 0) {
                 textView.setMaxLines(i4);
             }
-            if (tbRichTextData == null || (Q = tbRichTextData.Q()) == null || Q.length() <= 0) {
+            if (tbRichTextData == null || (S = tbRichTextData.S()) == null || S.length() <= 0) {
                 return false;
             }
-            on5 on5Var2 = this.a;
-            int i5 = on5Var2.i;
-            if (i5 > 0 && (i2 = on5Var2.h) > 0) {
-                tbRichTextData.b0(i2, i5);
+            io5 io5Var2 = this.a;
+            int i5 = io5Var2.i;
+            if (i5 > 0 && (i2 = io5Var2.h) > 0) {
+                tbRichTextData.d0(i2, i5);
             }
-            on5 on5Var3 = this.a;
-            if (on5Var3.j > 0 || on5Var3.k > 0) {
-                on5 on5Var4 = this.a;
-                tbRichTextData.a0(on5Var4.j, on5Var4.k);
+            io5 io5Var3 = this.a;
+            if (io5Var3.j > 0 || io5Var3.k > 0) {
+                io5 io5Var4 = this.a;
+                tbRichTextData.c0(io5Var4.j, io5Var4.k);
             }
-            tbRichTextData.a0(8, 0);
-            if (sVar != null) {
-                sVar.u0(Q, textView, this);
+            tbRichTextData.c0(8, 0);
+            if (uVar != null) {
+                uVar.w0(S, textView, this);
             }
             try {
-                textView.setText(Q);
+                textView.setText(S);
             } catch (Exception unused) {
                 textView.setText("");
             }
-            if (this.H) {
-                if (tbRichTextData.X()) {
-                    textView.setMovementMethod(p49.a());
+            if (this.I) {
+                if (tbRichTextData.Z()) {
+                    textView.setMovementMethod(m99.a());
                 } else {
                     textView.setMovementMethod(LinkMovementMethod.getInstance());
                 }
@@ -2853,8 +3110,8 @@ public class TbRichTextView extends LinearLayout implements fl {
             textView.setFocusable(false);
             textView.setLayoutParams(layoutParams);
             textView.setTag(tbRichTextData);
-            if (tbRichTextData != null && tbRichTextData.S() != null) {
-                tbRichTextData.S().needRecompute = this.f0;
+            if (tbRichTextData != null && tbRichTextData.U() != null) {
+                tbRichTextData.U().needRecompute = this.i0;
                 return true;
             }
             return true;
@@ -2862,11 +3119,11 @@ public class TbRichTextView extends LinearLayout implements fl {
         return invokeCommon.booleanValue;
     }
 
-    public final boolean R(TbRichTextData tbRichTextData, LinearLayout linearLayout, s sVar) {
+    public final boolean V(TbRichTextData tbRichTextData, LinearLayout linearLayout, u uVar) {
         InterceptResult invokeLLL;
-        boolean S;
+        boolean W;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048590, this, tbRichTextData, linearLayout, sVar)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048590, this, tbRichTextData, linearLayout, uVar)) == null) {
             if (linearLayout == null) {
                 return false;
             }
@@ -2876,13 +3133,13 @@ public class TbRichTextView extends LinearLayout implements fl {
                 View childAt = linearLayout.getChildAt(i2);
                 if (childAt != null) {
                     if (childAt instanceof TextView) {
-                        S = Q(tbRichTextData, (TextView) childAt, false, sVar);
+                        W = U(tbRichTextData, (TextView) childAt, false, uVar);
                     } else if (childAt.getClass().getSimpleName().equals("PlayVoiceBnt")) {
-                        S = S(tbRichTextData, childAt);
+                        W = W(tbRichTextData, childAt);
                     } else if (childAt.getClass().getSimpleName().equals("PlayVoiceBntNew")) {
-                        S = S(tbRichTextData, childAt);
+                        W = W(tbRichTextData, childAt);
                     }
-                    z2 &= S;
+                    z2 &= W;
                 }
             }
             return z2;
@@ -2890,11 +3147,11 @@ public class TbRichTextView extends LinearLayout implements fl {
         return invokeLLL.booleanValue;
     }
 
-    public final boolean S(TbRichTextData tbRichTextData, View view2) {
+    public final boolean W(TbRichTextData tbRichTextData, View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, tbRichTextData, view2)) == null) {
-            view2.setTag(tbRichTextData.W());
+            view2.setTag(tbRichTextData.Y());
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view2.getLayoutParams();
             if (layoutParams == null) {
                 layoutParams = new LinearLayout.LayoutParams(-2, -2);
@@ -2910,31 +3167,57 @@ public class TbRichTextView extends LinearLayout implements fl {
     }
 
     public void setDisplayImage(boolean z2, boolean z3) {
-        og<ImageView> ogVar;
+        pg<ImageView> pgVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048624, this, new Object[]{Boolean.valueOf(z2), Boolean.valueOf(z3)}) != null) || this.u == z2) {
+        if ((interceptable != null && interceptable.invokeCommon(1048624, this, new Object[]{Boolean.valueOf(z2), Boolean.valueOf(z3)}) != null) || this.v == z2) {
             return;
         }
-        this.u = z2;
+        this.v = z2;
         if (z3) {
             requestLayout();
         }
-        if (!this.u && (ogVar = this.c) != null) {
-            ogVar.c();
+        if (!this.v && (pgVar = this.c) != null) {
+            pgVar.c();
         }
     }
 
-    public final void c0(RelativeLayout relativeLayout, int i2, int i3, int i4, int i5) {
+    public final boolean X(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, view2)) == null) {
+            if (!(view2 instanceof ImageView)) {
+                return false;
+            }
+            if (view2 instanceof GifView) {
+                if (view2.getTag(R.id.tag_rich_text_view_gif_view) == null || !(view2.getTag(R.id.tag_rich_text_view_gif_view) instanceof t) || !((t) view2.getTag(R.id.tag_rich_text_view_gif_view)).a) {
+                    return false;
+                }
+                return true;
+            }
+            if ((view2 instanceof TbImageView) && view2.getTag() != null) {
+                if (view2.getTag() instanceof w) {
+                    return false;
+                }
+                if ((view2.getTag() instanceof String) && TextUtils.equals("VideoView", (String) view2.getTag())) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void g0(RelativeLayout relativeLayout, int i2, int i3, int i4, int i5) {
         int[] n2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048595, this, new Object[]{relativeLayout, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) != null) || (n2 = yi.n(i2, i3, i4, i5)) == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048596, this, new Object[]{relativeLayout, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) != null) || (n2 = zi.n(i2, i3, i4, i5)) == null) {
             return;
         }
         int[] iArr = {n2[0], n2[1]};
         int i6 = iArr[0];
         int i7 = iArr[1];
         if (this.a.v && i4 > i6) {
-            float f2 = r0;
+            float f2 = u0;
             if (f2 > 1.0f) {
                 float f3 = i6;
                 float f4 = i4;
@@ -2959,31 +3242,31 @@ public class TbRichTextView extends LinearLayout implements fl {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void d0(RelativeLayout relativeLayout, int i2, int i3, int i4, int i5) {
+    public final void h0(RelativeLayout relativeLayout, int i2, int i3, int i4, int i5) {
         int[] n2;
         int i6;
         int i7;
         int g2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048596, this, new Object[]{relativeLayout, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) != null) || (n2 = yi.n(i2, i3, i4, i5)) == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048603, this, new Object[]{relativeLayout, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) != null) || (n2 = zi.n(i2, i3, i4, i5)) == null) {
             return;
         }
         int[] iArr = {n2[0], n2[1]};
         int i8 = iArr[0];
         int i9 = iArr[1];
         if (this.a.v && i4 > i8) {
-            float f2 = r0;
+            float f2 = u0;
             if (f2 > 1.0f) {
                 float f3 = i8;
                 float f4 = i4;
                 if (f3 * f2 > f4) {
-                    i7 = i4 - yi.g(getContext(), R.dimen.obfuscated_res_0x7f070300);
-                    g2 = yi.g(getContext(), R.dimen.obfuscated_res_0x7f0701be);
+                    i7 = i4 - zi.g(getContext(), R.dimen.obfuscated_res_0x7f070300);
+                    g2 = zi.g(getContext(), R.dimen.obfuscated_res_0x7f0701be);
                 } else {
                     float f5 = f4 * 0.68f;
                     if (f3 * f2 > f5) {
                         i7 = (int) f5;
-                        g2 = yi.g(getContext(), R.dimen.obfuscated_res_0x7f070300);
+                        g2 = zi.g(getContext(), R.dimen.obfuscated_res_0x7f070300);
                     } else {
                         i6 = (int) (f3 * f2);
                         if (iArr[0] > 0) {
@@ -2999,12 +3282,12 @@ public class TbRichTextView extends LinearLayout implements fl {
         relativeLayout.setLayoutParams(new LinearLayout.LayoutParams(i4, i9));
     }
 
-    public final boolean e0(ImageView imageView, int i2, int i3, int i4, int i5, View.OnClickListener onClickListener) {
+    public final boolean i0(ImageView imageView, int i2, int i3, int i4, int i5, View.OnClickListener onClickListener) {
         InterceptResult invokeCommon;
         View.OnLongClickListener onLongClickListener;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048598, this, new Object[]{imageView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), onClickListener})) == null) {
-            int[] n2 = yi.n(i2, i3, i4, i5);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048604, this, new Object[]{imageView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), onClickListener})) == null) {
+            int[] n2 = zi.n(i2, i3, i4, i5);
             if (n2 == null) {
                 return false;
             }
@@ -3012,16 +3295,16 @@ public class TbRichTextView extends LinearLayout implements fl {
             int i6 = iArr[0];
             int i7 = iArr[1];
             if (this.a.v && i4 > i6) {
-                float f2 = r0;
+                float f2 = u0;
                 if (f2 > 1.0f) {
                     float f3 = i6;
                     float f4 = i4;
                     if (f3 * f2 > f4) {
-                        i6 = (i4 - yi.g(getContext(), R.dimen.obfuscated_res_0x7f070300)) - yi.g(getContext(), R.dimen.obfuscated_res_0x7f0701be);
+                        i6 = (i4 - zi.g(getContext(), R.dimen.obfuscated_res_0x7f070300)) - zi.g(getContext(), R.dimen.obfuscated_res_0x7f0701be);
                     } else {
                         float f5 = f4 * 0.68f;
                         if (f3 * f2 > f5) {
-                            i6 = ((int) f5) - yi.g(getContext(), R.dimen.obfuscated_res_0x7f070300);
+                            i6 = ((int) f5) - zi.g(getContext(), R.dimen.obfuscated_res_0x7f070300);
                         } else {
                             i6 = (int) (f3 * f2);
                         }
@@ -3049,19 +3332,19 @@ public class TbRichTextView extends LinearLayout implements fl {
             }
             imageView.setClickable(true);
             imageView.setFocusable(false);
-            if (this.p != null && z2) {
-                ((TbImageView) imageView).setTbGestureDetector(this.c0);
+            if (this.q != null && z2) {
+                ((TbImageView) imageView).setTbGestureDetector(this.f0);
                 imageView.setClickable(true);
             } else {
                 imageView.setOnClickListener(onClickListener);
             }
             imageView.setLayoutParams(layoutParams);
             if (z2) {
-                if (this.W != null) {
-                    ((TbImageView) imageView).setDispatchTouchListener(this.e0);
-                    imageView.setOnLongClickListener(this.W);
+                if (this.c0 != null) {
+                    ((TbImageView) imageView).setDispatchTouchListener(this.h0);
+                    imageView.setOnLongClickListener(this.c0);
                 }
-            } else if ((imageView instanceof GifView) && (onLongClickListener = this.W) != null) {
+            } else if ((imageView instanceof GifView) && (onLongClickListener = this.c0) != null) {
                 imageView.setOnLongClickListener(onLongClickListener);
             }
             return true;
@@ -3069,16 +3352,16 @@ public class TbRichTextView extends LinearLayout implements fl {
         return invokeCommon.booleanValue;
     }
 
-    public final boolean f0(ImageView imageView, int i2, int i3, int i4, int i5, View.OnClickListener onClickListener) {
+    public final boolean j0(ImageView imageView, int i2, int i3, int i4, int i5, View.OnClickListener onClickListener) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{imageView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), onClickListener})) == null) {
-            int[] e2 = this.a.e(i2, i3, i4, i5);
-            if (e2 == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{imageView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), onClickListener})) == null) {
+            int[] f2 = this.a.f(i2, i3, i4, i5);
+            if (f2 == null) {
                 return false;
             }
-            int i6 = e2[0];
-            int i7 = e2[1];
+            int i6 = f2[0];
+            int i7 = f2[1];
             boolean z2 = imageView instanceof TbImageView;
             if (z2) {
                 TbImageView tbImageView = (TbImageView) imageView;
@@ -3089,44 +3372,44 @@ public class TbRichTextView extends LinearLayout implements fl {
                 }
             }
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i6, i7);
-            on5 on5Var = this.a;
-            if (on5Var.v) {
-                imageView.setScaleType(on5Var.s);
+            io5 io5Var = this.a;
+            if (io5Var.v) {
+                imageView.setScaleType(io5Var.s);
                 if (z2) {
-                    ((TbImageView) imageView).setOnDrawListener(this.a.L);
+                    ((TbImageView) imageView).setOnDrawListener(this.a.M);
                 }
             } else {
                 imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
             }
             imageView.setClickable(true);
             imageView.setFocusable(false);
-            if (this.p != null && z2) {
-                ((TbImageView) imageView).setTbGestureDetector(this.c0);
+            if (this.q != null && z2) {
+                ((TbImageView) imageView).setTbGestureDetector(this.f0);
                 imageView.setClickable(true);
             } else {
                 imageView.setOnClickListener(onClickListener);
             }
             imageView.setLayoutParams(layoutParams);
             if (z2) {
-                if (this.W != null) {
-                    ((TbImageView) imageView).setDispatchTouchListener(this.e0);
-                    imageView.setOnLongClickListener(this.W);
+                if (this.c0 != null) {
+                    ((TbImageView) imageView).setDispatchTouchListener(this.h0);
+                    imageView.setOnLongClickListener(this.c0);
                 }
-            } else if ((imageView instanceof GifView) && this.W != null) {
-                ((GifView) imageView).setDispatchTouchListener(this.e0);
-                imageView.setOnLongClickListener(this.W);
+            } else if ((imageView instanceof GifView) && this.c0 != null) {
+                ((GifView) imageView).setDispatchTouchListener(this.h0);
+                imageView.setOnLongClickListener(this.c0);
             }
             return true;
         }
         return invokeCommon.booleanValue;
     }
 
-    public final boolean g0(ImageView imageView, int i2, int i3, int i4, int i5, View.OnClickListener onClickListener) {
+    public final boolean k0(ImageView imageView, int i2, int i3, int i4, int i5, View.OnClickListener onClickListener) {
         InterceptResult invokeCommon;
         View.OnLongClickListener onLongClickListener;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{imageView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), onClickListener})) == null) {
-            int[] n2 = yi.n(i2, i3, i4, i5);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048606, this, new Object[]{imageView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), onClickListener})) == null) {
+            int[] n2 = zi.n(i2, i3, i4, i5);
             if (n2 == null) {
                 return false;
             }
@@ -3134,7 +3417,7 @@ public class TbRichTextView extends LinearLayout implements fl {
             int i6 = iArr[0];
             int i7 = iArr[1];
             if (this.a.v && i4 > i6) {
-                float f2 = r0;
+                float f2 = u0;
                 if (f2 > 1.0f) {
                     float f3 = i6;
                     float f4 = i4;
@@ -3170,19 +3453,19 @@ public class TbRichTextView extends LinearLayout implements fl {
             }
             imageView.setClickable(true);
             imageView.setFocusable(false);
-            if (this.p != null && z2) {
-                ((TbImageView) imageView).setTbGestureDetector(this.c0);
+            if (this.q != null && z2) {
+                ((TbImageView) imageView).setTbGestureDetector(this.f0);
                 imageView.setClickable(true);
             } else {
                 imageView.setOnClickListener(onClickListener);
             }
             imageView.setLayoutParams(layoutParams);
             if (z2) {
-                if (this.W != null) {
-                    ((TbImageView) imageView).setDispatchTouchListener(this.e0);
-                    imageView.setOnLongClickListener(this.W);
+                if (this.c0 != null) {
+                    ((TbImageView) imageView).setDispatchTouchListener(this.h0);
+                    imageView.setOnLongClickListener(this.c0);
                 }
-            } else if ((imageView instanceof GifView) && (onLongClickListener = this.W) != null) {
+            } else if ((imageView instanceof GifView) && (onLongClickListener = this.c0) != null) {
                 imageView.setOnLongClickListener(onLongClickListener);
             }
             return true;
@@ -3190,37 +3473,40 @@ public class TbRichTextView extends LinearLayout implements fl {
         return invokeCommon.booleanValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:255:0x022c */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:267:0x0036 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:268:0x0036 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:262:0x022c */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:274:0x0036 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:275:0x0036 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:202:0x04e1  */
-    /* JADX WARN: Removed duplicated region for block: B:210:0x04fb  */
+    /* JADX WARN: Removed duplicated region for block: B:209:0x0527  */
+    /* JADX WARN: Removed duplicated region for block: B:217:0x0541  */
     /* JADX WARN: Removed duplicated region for block: B:75:0x0110  */
     /* JADX WARN: Removed duplicated region for block: B:76:0x0115  */
     /* JADX WARN: Removed duplicated region for block: B:81:0x012f  */
-    /* JADX WARN: Type inference failed for: r0v122, types: [com.baidu.tbadk.gif.GifView, android.view.View] */
-    /* JADX WARN: Type inference failed for: r0v157 */
+    /* JADX WARN: Type inference failed for: r0v125, types: [com.baidu.tbadk.gif.GifView, android.view.View] */
+    /* JADX WARN: Type inference failed for: r0v160 */
+    /* JADX WARN: Type inference failed for: r0v29, types: [android.widget.RelativeLayout, com.baidu.tbadk.widget.tiejia.TiebaPlusRecommendCard] */
     /* JADX WARN: Type inference failed for: r10v9, types: [android.widget.ImageView] */
     /* JADX WARN: Type inference failed for: r11v5 */
     /* JADX WARN: Type inference failed for: r25v0, types: [android.widget.LinearLayout, com.baidu.tbadk.widget.richText.TbRichTextView, java.lang.Object] */
-    /* JADX WARN: Type inference failed for: r2v57, types: [android.widget.ImageView] */
+    /* JADX WARN: Type inference failed for: r2v61, types: [android.widget.ImageView] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void setText(TbRichText tbRichText, boolean z2, s sVar, boolean z3, boolean z4) {
+    public void setText(TbRichText tbRichText, boolean z2, u uVar, boolean z3, boolean z4) {
         ArrayList<TbRichTextData> I;
-        gz7<ImageView> gz7Var;
-        boolean Q;
+        w38<ImageView> w38Var;
+        boolean U;
         TbRichTextData tbRichTextData;
-        SpannableStringBuilder Q2;
+        SpannableStringBuilder S;
         boolean z5;
         Iterator<TbRichTextData> it;
         LinearLayout linearLayout;
         int i2;
         GifView gifView;
         int i3;
-        og<TiebaPlusRecommendCard> ogVar;
+        pg<FestivalTipView> pgVar;
+        FestivalTipView festivalTipView;
+        pg<TiebaPlusRecommendCard> pgVar2;
         ImageView imageView;
         boolean z6;
         View view2;
@@ -3239,19 +3525,19 @@ public class TbRichTextView extends LinearLayout implements fl {
         GifView gifView3;
         Object obj3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048648, this, new Object[]{tbRichText, Boolean.valueOf(z2), sVar, Boolean.valueOf(z3), Boolean.valueOf(z4)}) == null) {
-            s sVar2 = sVar;
-            if (this.D == tbRichText && (tbRichText == null || !tbRichText.isChanged)) {
+        if (interceptable == null || interceptable.invokeCommon(1048651, this, new Object[]{tbRichText, Boolean.valueOf(z2), uVar, Boolean.valueOf(z3), Boolean.valueOf(z4)}) == null) {
+            u uVar2 = uVar;
+            if (this.E == tbRichText && (tbRichText == null || !tbRichText.isChanged)) {
                 return;
             }
             if (tbRichText != null) {
                 tbRichText.isChanged = false;
             }
-            this.D = tbRichText;
+            this.E = tbRichText;
             removeAllViews();
             if (tbRichText != null && (I = tbRichText.I()) != null) {
                 Iterator<TbRichTextData> it2 = I.iterator();
-                h hVar = null;
+                j jVar = null;
                 boolean z10 = true;
                 View view4 = null;
                 View view5 = null;
@@ -3262,51 +3548,51 @@ public class TbRichTextView extends LinearLayout implements fl {
                     TbRichTextData next = it2.next();
                     if (next != null) {
                         if (next.getType() == z10) {
-                            TextView E = E(getContext());
-                            Q = Q(next, E, z10, sVar2);
-                            if (z2 && !this.B && (Q2 = next.Q()) != null) {
-                                if (Q2.length() >= 200) {
+                            TextView I2 = I(getContext());
+                            U = U(next, I2, z10, uVar2);
+                            if (z2 && !this.C && (S = next.S()) != null) {
+                                if (S.length() >= 200) {
                                     z5 = true;
                                 } else {
                                     z5 = false;
                                 }
-                                this.B = z5;
+                                this.C = z5;
                             }
-                            TiePlusEventController.i(next.T());
-                            if (this.p != null) {
-                                E.setOnTouchListener(this.c0);
+                            TiePlusEventController.i(next.V());
+                            if (this.q != null) {
+                                I2.setOnTouchListener(this.f0);
                             } else {
-                                E.setOnClickListener(this.r);
+                                I2.setOnClickListener(this.s);
                             }
                             tbRichTextData = next;
-                            gifView = E;
+                            gifView = I2;
                         } else {
                             if (next.getType() == 8) {
-                                if (!this.N) {
-                                    if (next.M() != null) {
-                                        if (TbadkCoreApplication.getInst().isGifAutoPlay() && !next.M().O()) {
+                                if (!this.O) {
+                                    if (next.O() != null) {
+                                        if (TbadkCoreApplication.getInst().isGifAutoPlay() && !next.O().O()) {
                                             if (z4) {
-                                                String I2 = next.M().I();
-                                                if (StringUtils.isNull(I2)) {
-                                                    on5 on5Var = this.a;
-                                                    if (on5Var.I) {
-                                                        if (on5Var.u) {
-                                                            I2 = next.M().G();
+                                                String I3 = next.O().I();
+                                                if (StringUtils.isNull(I3)) {
+                                                    io5 io5Var = this.a;
+                                                    if (io5Var.I) {
+                                                        if (io5Var.u) {
+                                                            I3 = next.O().G();
                                                         } else {
-                                                            I2 = next.M().getBigSrc();
+                                                            I3 = next.O().getBigSrc();
                                                         }
                                                     }
-                                                    if (StringUtils.isNull(I2)) {
+                                                    if (StringUtils.isNull(I3)) {
                                                         if (this.a.u) {
-                                                            I2 = next.M().H();
+                                                            I3 = next.O().H();
                                                         } else {
-                                                            I2 = next.M().L();
+                                                            I3 = next.O().L();
                                                         }
                                                     }
                                                 }
-                                                gz7<ImageView> gz7Var2 = this.b;
-                                                if (gz7Var2 != null) {
-                                                    Object obj4 = (ImageView) gz7Var2.h(I2);
+                                                w38<ImageView> w38Var2 = this.b;
+                                                if (w38Var2 != null) {
+                                                    Object obj4 = (ImageView) w38Var2.h(I3);
                                                     if (obj4 instanceof GifView) {
                                                         obj3 = (GifView) obj4;
                                                         if (obj3 != null) {
@@ -3314,21 +3600,21 @@ public class TbRichTextView extends LinearLayout implements fl {
                                                         } else {
                                                             z9 = true;
                                                             gifView2 = obj3;
-                                                            r rVar = new r(hVar);
-                                                            rVar.a = z10;
-                                                            gifView2.setTag(R.id.tag_rich_text_view_gif_view, rVar);
-                                                            Q = P(next, gifView2, z9);
+                                                            t tVar = new t(jVar);
+                                                            tVar.a = z10;
+                                                            gifView2.setTag(R.id.tag_rich_text_view_gif_view, tVar);
+                                                            U = T(next, gifView2, z9);
                                                             if (z3) {
-                                                                t tVar = new t(hVar);
-                                                                tVar.a = z10;
-                                                                gifView2.setTag(R.id.tag_rich_text_view_recycle, tVar);
+                                                                v vVar = new v(jVar);
+                                                                vVar.a = z10;
+                                                                gifView2.setTag(R.id.tag_rich_text_view_recycle, vVar);
                                                             }
                                                             tbRichTextData2 = next;
                                                             view3 = gifView2;
                                                         }
                                                     }
                                                 }
-                                                obj3 = hVar;
+                                                obj3 = jVar;
                                                 if (obj3 != null) {
                                                 }
                                             } else {
@@ -3336,26 +3622,26 @@ public class TbRichTextView extends LinearLayout implements fl {
                                             }
                                             z9 = false;
                                             gifView2 = gifView3;
-                                            r rVar2 = new r(hVar);
-                                            rVar2.a = z10;
-                                            gifView2.setTag(R.id.tag_rich_text_view_gif_view, rVar2);
-                                            Q = P(next, gifView2, z9);
+                                            t tVar2 = new t(jVar);
+                                            tVar2.a = z10;
+                                            gifView2.setTag(R.id.tag_rich_text_view_gif_view, tVar2);
+                                            U = T(next, gifView2, z9);
                                             if (z3) {
                                             }
                                             tbRichTextData2 = next;
                                             view3 = gifView2;
                                         } else {
                                             if (z4) {
-                                                if (this.a.c()) {
-                                                    H = next.M().G();
+                                                if (this.a.d()) {
+                                                    H = next.O().G();
                                                 } else {
-                                                    H = next.M().H();
+                                                    H = next.O().H();
                                                 }
-                                                gz7<ImageView> gz7Var3 = this.b;
-                                                if (gz7Var3 != null) {
-                                                    obj = (ImageView) gz7Var3.h(H);
+                                                w38<ImageView> w38Var3 = this.b;
+                                                if (w38Var3 != null) {
+                                                    obj = (ImageView) w38Var3.h(H);
                                                 } else {
-                                                    obj = hVar;
+                                                    obj = jVar;
                                                 }
                                                 if (obj == null) {
                                                     z8 = false;
@@ -3370,28 +3656,28 @@ public class TbRichTextView extends LinearLayout implements fl {
                                                 imageView2 = getImageView();
                                                 z7 = false;
                                             }
-                                            on5 on5Var2 = this.a;
+                                            io5 io5Var2 = this.a;
                                             ?? r10 = imageView2;
                                             tbRichTextData2 = next;
-                                            boolean L = L(next, imageView2, on5Var2.m, on5Var2.n, z7);
+                                            boolean P = P(next, imageView2, io5Var2.m, io5Var2.n, z7);
                                             if (z3) {
-                                                t tVar2 = new t(hVar);
-                                                tVar2.a = z10;
-                                                r10.setTag(R.id.tag_rich_text_view_recycle, tVar2);
+                                                v vVar2 = new v(jVar);
+                                                vVar2.a = z10;
+                                                r10.setTag(R.id.tag_rich_text_view_recycle, vVar2);
                                             }
-                                            Q = L;
+                                            U = P;
                                             view3 = r10;
                                         }
                                     } else {
                                         tbRichTextData2 = next;
-                                        Q = false;
+                                        U = false;
                                         view3 = view4;
                                     }
                                     tbRichTextData = tbRichTextData2;
                                     gifView = view3;
                                     gifView = view3;
                                     if (view3 != null && tbRichTextData != null) {
-                                        view3.setTag(R.id.tag_rich_text_image_info, tbRichTextData.M());
+                                        view3.setTag(R.id.tag_rich_text_image_info, tbRichTextData.O());
                                         gifView = view3;
                                     }
                                 } else {
@@ -3400,7 +3686,7 @@ public class TbRichTextView extends LinearLayout implements fl {
                                         GridImageLayout gridImageView = getGridImageView();
                                         gridImageView.setData(tbRichText.K());
                                         it = it2;
-                                        Q = true;
+                                        U = true;
                                         i2 = 8;
                                         z11 = true;
                                         view4 = gridImageView;
@@ -3410,29 +3696,29 @@ public class TbRichTextView extends LinearLayout implements fl {
                                 tbRichTextData = next;
                                 if (tbRichTextData.getType() == 32) {
                                     it = it2;
-                                    Q = true;
-                                    linearLayout = F(tbRichTextData);
+                                    U = true;
+                                    linearLayout = J(tbRichTextData);
                                     i2 = 8;
                                     view4 = linearLayout;
                                 } else if (tbRichTextData.getType() == 512) {
-                                    view4 = G(view5);
+                                    view4 = K(view5);
                                     if (view4 != null) {
-                                        Q = S(tbRichTextData, view4);
+                                        U = W(tbRichTextData, view4);
                                         gifView = view4;
                                     }
                                 } else if (tbRichTextData.getType() == 768) {
                                     View textVoiceView = getTextVoiceView();
-                                    Q = R(tbRichTextData, (LinearLayout) textVoiceView, sVar2);
+                                    U = V(tbRichTextData, (LinearLayout) textVoiceView, uVar2);
                                     gifView = textVoiceView;
                                 } else if (tbRichTextData.getType() == 17) {
                                     GifView gifView4 = getGifView();
-                                    Q = K(tbRichTextData, gifView4);
+                                    U = O(tbRichTextData, gifView4);
                                     gifView = gifView4;
                                 } else {
                                     if (tbRichTextData.getType() == 20) {
                                         if (i5 < 10) {
                                             int i6 = i5 + 1;
-                                            if (tbRichTextData != null && tbRichTextData.P() != null && tbRichTextData.P().memeInfo != null && !StringUtils.isNull(tbRichTextData.P().memeInfo.pic_url)) {
+                                            if (tbRichTextData != null && tbRichTextData.R() != null && tbRichTextData.R().memeInfo != null && !StringUtils.isNull(tbRichTextData.R().memeInfo.pic_url)) {
                                                 z6 = true;
                                             } else {
                                                 z6 = false;
@@ -3440,24 +3726,24 @@ public class TbRichTextView extends LinearLayout implements fl {
                                             if (z6) {
                                                 RelativeLayout b2 = this.g.b();
                                                 b2.removeAllViews();
-                                                b2.setLayoutParams(new LinearLayout.LayoutParams(tbRichTextData.P().memeInfo.width.intValue(), tbRichTextData.P().memeInfo.height.intValue()));
-                                                if (DuiSwitch.getInOn() && this.l) {
-                                                    int intValue = tbRichTextData.P().memeInfo.width.intValue();
-                                                    int intValue2 = tbRichTextData.P().memeInfo.height.intValue();
-                                                    on5 on5Var3 = this.a;
-                                                    d0(b2, intValue, intValue2, on5Var3.m, on5Var3.n);
+                                                b2.setLayoutParams(new LinearLayout.LayoutParams(tbRichTextData.R().memeInfo.width.intValue(), tbRichTextData.R().memeInfo.height.intValue()));
+                                                if (DuiSwitch.getInOn() && this.m) {
+                                                    int intValue = tbRichTextData.R().memeInfo.width.intValue();
+                                                    int intValue2 = tbRichTextData.R().memeInfo.height.intValue();
+                                                    io5 io5Var3 = this.a;
+                                                    h0(b2, intValue, intValue2, io5Var3.m, io5Var3.n);
                                                 } else {
-                                                    int intValue3 = tbRichTextData.P().memeInfo.width.intValue();
-                                                    int intValue4 = tbRichTextData.P().memeInfo.height.intValue();
-                                                    on5 on5Var4 = this.a;
-                                                    c0(b2, intValue3, intValue4, on5Var4.m, on5Var4.n);
+                                                    int intValue3 = tbRichTextData.R().memeInfo.width.intValue();
+                                                    int intValue4 = tbRichTextData.R().memeInfo.height.intValue();
+                                                    io5 io5Var4 = this.a;
+                                                    g0(b2, intValue3, intValue4, io5Var4.m, io5Var4.n);
                                                 }
                                                 ImageView b3 = this.c.b();
-                                                on5 on5Var5 = this.a;
-                                                O(tbRichTextData, b3, on5Var5.m, on5Var5.n);
-                                                if (DuiSwitch.getInOn() && this.l) {
+                                                io5 io5Var5 = this.a;
+                                                S(tbRichTextData, b3, io5Var5.m, io5Var5.n);
+                                                if (DuiSwitch.getInOn() && this.m) {
                                                     ImageView b4 = this.c.b();
-                                                    b4.setTag(this.D);
+                                                    b4.setTag(this.E);
                                                     if (b4 instanceof TbImageView) {
                                                         TbImageView tbImageView = (TbImageView) b4;
                                                         tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
@@ -3468,26 +3754,26 @@ public class TbRichTextView extends LinearLayout implements fl {
                                                         tbImageView.setLongIconSupport(z10);
                                                         tbImageView.setGifIconSupport(z10);
                                                         tbImageView.setConrers(15);
-                                                        tbImageView.setRadius(this.P);
+                                                        tbImageView.setRadius(this.Q);
                                                         tbImageView.setAdjustViewBounds(false);
-                                                        if (this.N) {
+                                                        if (this.O) {
                                                             tbImageView.setPlaceHolder(2);
                                                         } else {
                                                             tbImageView.setPlaceHolder(3);
                                                         }
                                                     }
                                                     b4.setScaleType(ImageView.ScaleType.FIT_XY);
-                                                    int g2 = yi.g(getContext(), R.dimen.obfuscated_res_0x7f070300);
-                                                    int g3 = yi.g(getContext(), R.dimen.obfuscated_res_0x7f070300);
+                                                    int g2 = zi.g(getContext(), R.dimen.obfuscated_res_0x7f070300);
+                                                    int g3 = zi.g(getContext(), R.dimen.obfuscated_res_0x7f070300);
                                                     b3.setId(R.id.meme_image_view);
-                                                    int intValue5 = tbRichTextData.P().memeInfo.width.intValue();
-                                                    int intValue6 = tbRichTextData.P().memeInfo.height.intValue();
-                                                    on5 on5Var6 = this.a;
+                                                    int intValue5 = tbRichTextData.R().memeInfo.width.intValue();
+                                                    int intValue6 = tbRichTextData.R().memeInfo.height.intValue();
+                                                    io5 io5Var6 = this.a;
                                                     it = it2;
                                                     relativeLayout = b2;
-                                                    e0(b3, intValue5, intValue6, on5Var6.m, on5Var6.n, this.b0);
+                                                    i0(b3, intValue5, intValue6, io5Var6.m, io5Var6.n, this.e0);
                                                     relativeLayout.addView(b3);
-                                                    if (g3 > tbRichTextData.P().memeInfo.height.intValue()) {
+                                                    if (g3 > tbRichTextData.R().memeInfo.height.intValue()) {
                                                         g2 /= 2;
                                                         i4 = g3 / 2;
                                                     } else {
@@ -3497,9 +3783,9 @@ public class TbRichTextView extends LinearLayout implements fl {
                                                     i2 = 8;
                                                     layoutParams.addRule(8, R.id.meme_image_view);
                                                     layoutParams.addRule(11);
-                                                    b4.setOnClickListener(this.b0);
+                                                    b4.setOnClickListener(this.e0);
                                                     if (relativeLayout.getLeft() > 0) {
-                                                        layoutParams.rightMargin = yi.g(getContext(), R.dimen.obfuscated_res_0x7f0702e6);
+                                                        layoutParams.rightMargin = zi.g(getContext(), R.dimen.obfuscated_res_0x7f0702e6);
                                                     }
                                                     SkinManager.setImageResource(b4, R.drawable.icon_emotion_dui_n);
                                                     relativeLayout.addView(b4, layoutParams);
@@ -3507,10 +3793,10 @@ public class TbRichTextView extends LinearLayout implements fl {
                                                     it = it2;
                                                     i2 = 8;
                                                     relativeLayout = b2;
-                                                    int intValue7 = tbRichTextData.P().memeInfo.width.intValue();
-                                                    int intValue8 = tbRichTextData.P().memeInfo.height.intValue();
-                                                    on5 on5Var7 = this.a;
-                                                    g0(b3, intValue7, intValue8, on5Var7.m, on5Var7.n, this.b0);
+                                                    int intValue7 = tbRichTextData.R().memeInfo.width.intValue();
+                                                    int intValue8 = tbRichTextData.R().memeInfo.height.intValue();
+                                                    io5 io5Var7 = this.a;
+                                                    k0(b3, intValue7, intValue8, io5Var7.m, io5Var7.n, this.e0);
                                                     relativeLayout.addView(b3);
                                                 }
                                                 view2 = relativeLayout;
@@ -3520,7 +3806,7 @@ public class TbRichTextView extends LinearLayout implements fl {
                                                 view2 = view4;
                                             }
                                             i5 = i6;
-                                            Q = z6;
+                                            U = z6;
                                             imageView = view2;
                                         }
                                     } else {
@@ -3528,99 +3814,118 @@ public class TbRichTextView extends LinearLayout implements fl {
                                         i2 = 8;
                                         if (tbRichTextData.getType() == 1280) {
                                             ImageView imageView3 = getImageView();
-                                            Q = N(tbRichTextData, imageView3, (this.a.m - getPaddingLeft()) - getPaddingRight(), this.a.n);
+                                            U = R(tbRichTextData, imageView3, (this.a.m - getPaddingLeft()) - getPaddingRight(), this.a.n);
                                             imageView = imageView3;
                                         } else if (tbRichTextData.getType() != 37 && tbRichTextData.getType() != 1281) {
-                                            if (tbRichTextData.getType() == 36 && tbRichTextData.U() != null && tbRichTextData.U().I() != null && (ogVar = this.i) != null) {
-                                                TiebaPlusRecommendCard b5 = ogVar.b();
-                                                b5.w(tbRichTextData.U());
-                                                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) b5.getLayoutParams();
-                                                on5 on5Var8 = this.a;
-                                                marginLayoutParams.setMargins(0, on5Var8.z, 0, on5Var8.A);
-                                                b5.setLayoutParams(marginLayoutParams);
-                                                Q = true;
-                                                view4 = b5;
+                                            if (tbRichTextData.getType() == 36) {
+                                                if (tbRichTextData.W() != null && tbRichTextData.W().I() != null && (pgVar2 = this.i) != null) {
+                                                    TiebaPlusRecommendCard b5 = pgVar2.b();
+                                                    b5.w(tbRichTextData.W());
+                                                    ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) b5.getLayoutParams();
+                                                    io5 io5Var8 = this.a;
+                                                    marginLayoutParams.setMargins(0, io5Var8.z, 0, io5Var8.A);
+                                                    b5.setLayoutParams(marginLayoutParams);
+                                                    festivalTipView = b5;
+                                                    U = true;
+                                                    view4 = festivalTipView;
+                                                } else {
+                                                    U = false;
+                                                    view4 = view4;
+                                                }
                                             } else {
-                                                Q = false;
+                                                if (tbRichTextData.getType() == 1282 && (pgVar = this.l) != null) {
+                                                    FestivalTipView b6 = pgVar.b();
+                                                    LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
+                                                    layoutParams2.topMargin = zi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
+                                                    b6.setLayoutParams(layoutParams2);
+                                                    b6.setFestivalTipViewData(tbRichTextData.L());
+                                                    b6.setFestivalTipViewStyle(tbRichTextData.M());
+                                                    b6.a();
+                                                    b6.setFestivalTipViewClickCallBack(new q(this, tbRichTextData));
+                                                    festivalTipView = b6;
+                                                    U = true;
+                                                    view4 = festivalTipView;
+                                                }
+                                                U = false;
                                                 view4 = view4;
                                             }
                                         } else {
                                             ItemCardView itemCardView = getItemCardView();
-                                            Q = M(itemCardView, tbRichTextData);
+                                            U = Q(itemCardView, tbRichTextData);
                                             view4 = itemCardView;
                                         }
                                     }
                                     view4 = imageView;
                                 }
                             }
-                            if (Q && view4 != null) {
+                            if (U && view4 != null) {
                                 addView(view4);
-                                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) view4.getLayoutParams();
+                                LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) view4.getLayoutParams();
                                 if (!z12 && (i3 = this.a.G) >= 0) {
-                                    if (layoutParams2 != null) {
-                                        layoutParams2.topMargin = i3;
-                                        view4.setLayoutParams(layoutParams2);
+                                    if (layoutParams3 != null) {
+                                        layoutParams3.topMargin = i3;
+                                        view4.setLayoutParams(layoutParams3);
                                     }
                                     z12 = false;
                                 } else if (!(view4 instanceof TbListTextView)) {
                                     if (!(view5 instanceof ImageView) && !(view5 instanceof RelativeLayout)) {
-                                        layoutParams2.topMargin = this.a.e;
+                                        layoutParams3.topMargin = this.a.e;
                                     } else {
-                                        layoutParams2.topMargin = this.a.C;
+                                        layoutParams3.topMargin = this.a.C;
                                     }
-                                    view4.setLayoutParams(layoutParams2);
+                                    view4.setLayoutParams(layoutParams3);
                                 } else if ((!(view4 instanceof ImageView) && !(view4 instanceof RelativeLayout)) || (tbRichTextData.getType() != i2 && tbRichTextData.getType() != 20 && tbRichTextData.getType() != 17)) {
                                     if ((view4 instanceof ItemCardView) && !z12) {
-                                        layoutParams2.topMargin = this.a.H;
-                                        view4.setLayoutParams(layoutParams2);
+                                        layoutParams3.topMargin = this.a.H;
+                                        view4.setLayoutParams(layoutParams3);
                                     }
                                 } else {
                                     if (view5 instanceof TbListTextView) {
-                                        layoutParams2.topMargin = this.a.x;
+                                        layoutParams3.topMargin = this.a.x;
                                     } else if (!(view5 instanceof ImageView) && !(view4 instanceof RelativeLayout)) {
-                                        layoutParams2.topMargin = this.a.e;
+                                        layoutParams3.topMargin = this.a.e;
                                     } else {
-                                        layoutParams2.topMargin = this.a.w;
+                                        layoutParams3.topMargin = this.a.w;
                                     }
-                                    view4.setLayoutParams(layoutParams2);
+                                    view4.setLayoutParams(layoutParams3);
                                 }
                                 view5 = view4;
                             }
-                            sVar2 = sVar;
+                            uVar2 = uVar;
                             it2 = it;
-                            hVar = null;
+                            jVar = null;
                             z10 = true;
                         }
                         it = it2;
                         linearLayout = gifView;
                         i2 = 8;
                         view4 = linearLayout;
-                        if (Q) {
+                        if (U) {
                             addView(view4);
-                            LinearLayout.LayoutParams layoutParams22 = (LinearLayout.LayoutParams) view4.getLayoutParams();
+                            LinearLayout.LayoutParams layoutParams32 = (LinearLayout.LayoutParams) view4.getLayoutParams();
                             if (!z12) {
                             }
                             if (!(view4 instanceof TbListTextView)) {
                             }
                             view5 = view4;
                         }
-                        sVar2 = sVar;
+                        uVar2 = uVar;
                         it2 = it;
-                        hVar = null;
+                        jVar = null;
                         z10 = true;
                     }
                 }
                 if (view5 instanceof TbListTextView) {
-                    LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) view5.getLayoutParams();
-                    layoutParams3.bottomMargin = this.a.F;
-                    view5.setLayoutParams(layoutParams3);
-                } else if (view5 != null && this.a.E >= 0) {
                     LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) view5.getLayoutParams();
-                    layoutParams4.bottomMargin = this.a.E;
+                    layoutParams4.bottomMargin = this.a.F;
                     view5.setLayoutParams(layoutParams4);
+                } else if (view5 != null && this.a.E >= 0) {
+                    LinearLayout.LayoutParams layoutParams5 = (LinearLayout.LayoutParams) view5.getLayoutParams();
+                    layoutParams5.bottomMargin = this.a.E;
+                    view5.setLayoutParams(layoutParams5);
                 }
-                if (!z3 && (gz7Var = this.b) != null) {
-                    gz7Var.c();
+                if (!z3 && (w38Var = this.b) != null) {
+                    w38Var.c();
                 }
             }
         }

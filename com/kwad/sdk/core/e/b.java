@@ -39,7 +39,7 @@ public final class b {
         a(new a() { // from class: com.kwad.sdk.core.e.b.6
             @Override // com.kwad.sdk.core.e.b.a
             public final void b(com.kwad.sdk.core.e.kwai.a aVar) {
-                aVar.v(b.tv(), z, true);
+                aVar.v(b.kx(), z, true);
             }
         });
     }
@@ -66,7 +66,7 @@ public final class b {
         a(new a() { // from class: com.kwad.sdk.core.e.b.5
             @Override // com.kwad.sdk.core.e.b.a
             public final void b(com.kwad.sdk.core.e.kwai.a aVar) {
-                aVar.v(b.tv(), str, true);
+                aVar.v(b.kx(), str, true);
             }
         });
     }
@@ -80,7 +80,7 @@ public final class b {
         a(new a() { // from class: com.kwad.sdk.core.e.b.10
             @Override // com.kwad.sdk.core.e.b.a
             public final void b(com.kwad.sdk.core.e.kwai.a aVar) {
-                aVar.e(b.tv(), z);
+                aVar.e(b.kx(), z);
             }
         });
     }
@@ -90,7 +90,7 @@ public final class b {
         a(new a() { // from class: com.kwad.sdk.core.e.b.11
             @Override // com.kwad.sdk.core.e.b.a
             public final void b(com.kwad.sdk.core.e.kwai.a aVar) {
-                aVar.e(b.tv(), z);
+                aVar.e(b.kx(), z);
             }
         });
     }
@@ -100,7 +100,7 @@ public final class b {
         a(new a() { // from class: com.kwad.sdk.core.e.b.7
             @Override // com.kwad.sdk.core.e.b.a
             public final void b(com.kwad.sdk.core.e.kwai.a aVar) {
-                aVar.i(b.tv(), z);
+                aVar.i(b.kx(), z);
             }
         });
     }
@@ -109,6 +109,10 @@ public final class b {
         XL = z;
         XO.clear();
         XO.add(XN);
+    }
+
+    public static /* synthetic */ String kx() {
+        return tv();
     }
 
     public static void printStackTrace(final Throwable th) {
@@ -162,7 +166,7 @@ public final class b {
         a(new a() { // from class: com.kwad.sdk.core.e.b.4
             @Override // com.kwad.sdk.core.e.b.a
             public final void b(com.kwad.sdk.core.e.kwai.a aVar) {
-                aVar.v(b.tv(), z);
+                aVar.v(b.kx(), z);
             }
         });
     }
@@ -172,7 +176,7 @@ public final class b {
         a(new a() { // from class: com.kwad.sdk.core.e.b.8
             @Override // com.kwad.sdk.core.e.b.a
             public final void b(com.kwad.sdk.core.e.kwai.a aVar) {
-                aVar.w(b.tv(), z);
+                aVar.w(b.kx(), z);
             }
         });
     }
@@ -182,7 +186,7 @@ public final class b {
         a(new a() { // from class: com.kwad.sdk.core.e.b.9
             @Override // com.kwad.sdk.core.e.b.a
             public final void b(com.kwad.sdk.core.e.kwai.a aVar) {
-                aVar.w(b.tv(), z, com.kwad.kwai.kwai.a.aw.booleanValue());
+                aVar.w(b.kx(), z, com.kwad.kwai.kwai.a.aw.booleanValue());
             }
         });
     }

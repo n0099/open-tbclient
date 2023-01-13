@@ -35,7 +35,7 @@ public final class a {
     public boolean BR;
     public boolean BS;
     public View BT;
-    public InterfaceC0555a BU;
+    public InterfaceC0554a BU;
     public boolean BV;
     public boolean BW;
     public boolean BX;
@@ -53,7 +53,7 @@ public final class a {
 
     /* renamed from: com.kwad.components.ad.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0555a {
+    public interface InterfaceC0554a {
         void V(boolean z);
     }
 
@@ -82,11 +82,31 @@ public final class a {
         this.BX = false;
     }
 
+    public static /* synthetic */ boolean a(a aVar, boolean z) {
+        aVar.BW = true;
+        return true;
+    }
+
+    public static /* synthetic */ boolean b(a aVar, boolean z) {
+        aVar.BP = true;
+        return true;
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public boolean bs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? this.BX ? !this.BP : (this.BP || this.BV || this.BW) ? false : true : invokeV.booleanValue;
+    }
+
+    public static /* synthetic */ boolean c(a aVar, boolean z) {
+        aVar.BV = true;
+        return true;
+    }
+
+    public static /* synthetic */ boolean d(a aVar, boolean z) {
+        aVar.BR = true;
+        return true;
     }
 
     @SuppressLint({"ClickableViewAccessibility"})
@@ -96,7 +116,7 @@ public final class a {
             this.bS.removeAllViews();
             this.bS.setVisibility(4);
             this.BT = com.kwad.sdk.b.kwai.a.a((ViewGroup) this.bS, getLayoutId(), true);
-            KsAdWebView ksAdWebView = (KsAdWebView) this.bS.findViewById(R.id.obfuscated_res_0x7f0912d0);
+            KsAdWebView ksAdWebView = (KsAdWebView) this.bS.findViewById(R.id.obfuscated_res_0x7f0912db);
             this.BQ = ksAdWebView;
             ksAdWebView.setBackgroundColor(-1);
             u.b bVar = new u.b();
@@ -131,14 +151,14 @@ public final class a {
                 public final void onDownloadStart(String str, String str2, String str3, String str4, long j) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) {
-                        this.BZ.BW = true;
+                        a.a(this.BZ, true);
                         if (this.BZ.BU != null) {
                             this.BZ.BU.V(this.BZ.bs());
                         }
                     }
                 }
             });
-            ImageView imageView = (ImageView) this.BT.findViewById(R.id.obfuscated_res_0x7f09113f);
+            ImageView imageView = (ImageView) this.BT.findViewById(R.id.obfuscated_res_0x7f09114a);
             this.mBackIcon = imageView;
             imageView.setVisibility(8);
             this.mBackIcon.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.ad.i.a.2
@@ -179,7 +199,7 @@ public final class a {
     public static int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? R.layout.obfuscated_res_0x7f0d0424 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? R.layout.obfuscated_res_0x7f0d0423 : invokeV.intValue;
     }
 
     private KsAdWebView.d getWebListener() {
@@ -212,7 +232,7 @@ public final class a {
             public final void a(int i, String str, String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str, str2) == null) {
-                    this.BZ.BP = true;
+                    a.b(this.BZ, true);
                     if (this.BZ.BU != null) {
                         this.BZ.BU.V(this.BZ.bs());
                     }
@@ -267,7 +287,7 @@ public final class a {
             public final void kU() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.BZ.BV = true;
+                    a.c(this.BZ, true);
                     if (this.BZ.BU != null) {
                         this.BZ.BU.V(this.BZ.bs());
                     }
@@ -278,7 +298,7 @@ public final class a {
             public final void onSuccess() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.BZ.BV = true;
+                    a.c(this.BZ, true);
                     if (this.BZ.BU != null) {
                         this.BZ.BU.V(this.BZ.bs());
                     }
@@ -325,10 +345,10 @@ public final class a {
         }
     }
 
-    public final void a(InterfaceC0555a interfaceC0555a) {
+    public final void a(InterfaceC0554a interfaceC0554a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0555a) == null) {
-            this.BU = interfaceC0555a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0554a) == null) {
+            this.BU = interfaceC0554a;
         }
     }
 
@@ -419,7 +439,7 @@ public final class a {
                                 if (this.BZ.mLastDown > 0 && elapsedRealtime > 30 && elapsedRealtime < 500) {
                                     com.kwad.sdk.core.report.a.a(this.BZ.mAdTemplate, 155, this.BZ.ct.getTouchCoords());
                                     if (!this.BZ.BR) {
-                                        this.BZ.BR = true;
+                                        a.d(this.BZ, true);
                                         if (this.BZ.bJ != null) {
                                             com.kwad.sdk.core.webview.a.a.a aVar = new com.kwad.sdk.core.webview.a.a.a();
                                             aVar.Mx = 3;

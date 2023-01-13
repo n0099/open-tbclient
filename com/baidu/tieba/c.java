@@ -1,24 +1,141 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.common.security.DeviceIdBag;
+import com.baidu.searchbox.common.security.DeviceInfoManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class c {
+/* loaded from: classes4.dex */
+public class c extends dg1<nj0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public volatile int b;
-    public volatile int c;
-    public volatile int d;
-    public int e;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    /* loaded from: classes3.dex */
+    public class a implements nj0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.nj0
+        @Nullable
+        public kq0 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                DeviceIdBag androidId = DeviceInfoManager.INSTANCE.getAndroidId(ej0.b(), "fad", "fad");
+                return new kq0(androidId.errorCode, androidId.deviceId, androidId.encodedDeviceId);
+            }
+            return (kq0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.nj0
+        @Nullable
+        public kq0 b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                DeviceIdBag osVersion = DeviceInfoManager.INSTANCE.getOsVersion("fad", "fad");
+                return new kq0(osVersion.errorCode, osVersion.deviceId, osVersion.encodedDeviceId);
+            }
+            return (kq0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.nj0
+        @Nullable
+        public kq0 c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                DeviceIdBag oaid = DeviceInfoManager.INSTANCE.getOAID("fad", "fad");
+                return new kq0(oaid.errorCode, oaid.deviceId, oaid.encodedDeviceId);
+            }
+            return (kq0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.nj0
+        @Nullable
+        public kq0 d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                DeviceIdBag model = DeviceInfoManager.INSTANCE.getModel("fad", "fad");
+                return new kq0(model.errorCode, model.deviceId, model.encodedDeviceId);
+            }
+            return (kq0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.nj0
+        @Nullable
+        public kq0 e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                DeviceIdBag imei = DeviceInfoManager.INSTANCE.getIMEI(ej0.b(), "fad", "fad");
+                return new kq0(imei.errorCode, imei.deviceId, imei.encodedDeviceId);
+            }
+            return (kq0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.nj0
+        @Nullable
+        public kq0 f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                DeviceIdBag macAddress = DeviceInfoManager.INSTANCE.getMacAddress(ej0.b(), "fad", "fad");
+                return new kq0(macAddress.errorCode, macAddress.deviceId, macAddress.encodedDeviceId);
+            }
+            return (kq0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.nj0
+        @Nullable
+        public kq0 g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                DeviceIdBag manufacturer = DeviceInfoManager.INSTANCE.getManufacturer("fad", "fad");
+                return new kq0(manufacturer.errorCode, manufacturer.deviceId, manufacturer.encodedDeviceId);
+            }
+            return (kq0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.nj0
+        @Nullable
+        public boolean h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                if (mr5.a().b("tieba_nad_privacy_switch", 0) != 1) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
     public c() {
-        this(4194304);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -26,98 +143,21 @@ public class c {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                this(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public synchronized void a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.dg1
+    /* renamed from: a */
+    public nj0 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                this.b = 0;
-                this.c = 0;
-                this.d = 0;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-    }
-
-    public c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.b = 0;
-        this.c = 0;
-        this.d = 0;
-        this.e = 0;
-        this.e = i;
-        this.a = new byte[i];
-    }
-
-    public synchronized boolean b(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i)) == null) {
-            synchronized (this) {
-                if (bArr != null) {
-                    if (bArr.length >= i && i <= this.b) {
-                        if (this.c + i <= this.e) {
-                            System.arraycopy(this.a, this.c, bArr, 0, i);
-                            this.c += i;
-                            this.b -= i;
-                            return true;
-                        }
-                        System.arraycopy(this.a, this.c, bArr, 0, this.e - this.c);
-                        System.arraycopy(this.a, 0, bArr, this.e - this.c, (this.c + i) - this.e);
-                        this.c = (i - this.e) + this.c;
-                        this.b -= i;
-                        return true;
-                    }
-                }
-                return false;
-            }
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public synchronized boolean c(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, bArr, i)) == null) {
-            synchronized (this) {
-                if (bArr != null) {
-                    if (bArr.length >= i && this.b + i <= this.e) {
-                        if (this.d + i <= this.e) {
-                            System.arraycopy(bArr, 0, this.a, this.d, i);
-                            this.d += i;
-                            this.b += i;
-                            return true;
-                        }
-                        System.arraycopy(bArr, 0, this.a, this.d, this.e - this.d);
-                        System.arraycopy(bArr, this.e - this.d, this.a, 0, (this.d + i) - this.e);
-                        this.d = (i - this.e) + this.d;
-                        this.b += i;
-                        return true;
-                    }
-                }
-                return false;
-            }
-        }
-        return invokeLI.booleanValue;
+        return (nj0) invokeV.objValue;
     }
 }

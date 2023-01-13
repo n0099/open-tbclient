@@ -1,5 +1,7 @@
 package com.baidu.tieba;
+
+import android.content.Context;
 /* loaded from: classes4.dex */
 public interface hp1 {
-    sj4 l();
+    void a(Context context);
 }

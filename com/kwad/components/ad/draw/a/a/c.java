@@ -562,8 +562,8 @@ public final class c extends com.kwad.components.ad.draw.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.bh = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910eb);
-            this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0911b6);
+            this.bh = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910f6);
+            this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0911c1);
         }
     }
 

@@ -1,55 +1,30 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.RemoteException;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.ubc.Flow;
-import com.baidu.swan.ubc.IRemoteUBCService;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class vj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final vj4 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-344528245, "Lcom/baidu/tieba/vj4$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-344528245, "Lcom/baidu/tieba/vj4$b;");
-                    return;
-                }
-            }
-            a = new vj4(null);
-        }
-    }
+    public String a;
+    public int b;
+    public String c;
+    public JSONObject d;
+    public long e;
+    public long f;
+    public int g;
+    public String h;
+    public String i;
+    public String j;
+    public JSONArray k;
+    public boolean l;
 
     public vj4() {
         Interceptable interceptable = $ic;
@@ -61,134 +36,47 @@ public class vj4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static vj4 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (vj4) invokeV.objValue;
-    }
-
-    public final IRemoteUBCService c() throws RemoteException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return kj4.f();
-        }
-        return (IRemoteUBCService) invokeV.objValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            tj4.f().q();
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            tj4.f().l();
-        }
-    }
-
-    public /* synthetic */ vj4(a aVar) {
-        this();
-    }
-
-    public final void onEvent(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            e(str, "", 0);
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public Flow a(String str, String str2, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, str, str2, i)) == null) {
-            if (nf1.g()) {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                return tj4.f().a(str, str2, i);
-            }
-            return d(str, xj4.b(str2), i);
-        }
-        return (Flow) invokeLLI.objValue;
-    }
-
-    public final Flow d(String str, String str2, int i) {
-        Flow flow;
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, str, str2, i)) == null) {
-            try {
-                flow = c().ubcBeginFlow(str, str2, i);
-            } catch (RemoteException e) {
-                e.printStackTrace();
-                flow = null;
-            }
-            if (flow == null) {
-                return new Flow();
-            }
-            return flow;
-        }
-        return (Flow) invokeLLI.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public void e(String str, String str2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048579, this, str, str2, i) == null) {
-            if (nf1.g()) {
-                if (kj4.g() == null && TextUtils.isEmpty(str)) {
-                    return;
-                }
-                tj4.f().j(str, str2, i);
                 return;
             }
-            try {
-                c().ubcOnEvent(str, xj4.b(str2), i);
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
+        }
+        this.l = false;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && oj4.g().a(this.a)) {
+            this.i = pj4.g().h();
         }
     }
 
-    public final void f(String str, Map<String, String> map, int i) {
+    public vj4(String str, int i, String str2, int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048580, this, str, map, i) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    jSONObject.put(entry.getKey(), entry.getValue());
-                }
-            } catch (JSONException unused) {
-            }
-            e(str, jSONObject.toString(), i);
-        }
-    }
-
-    public void g(String str, JSONObject jSONObject, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048581, this, str, jSONObject, i) == null) {
-            if (nf1.g()) {
-                if (kj4.g() == null && TextUtils.isEmpty(str)) {
-                    return;
-                }
-                tj4.f().k(str, jSONObject, i);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), str2, Integer.valueOf(i2), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
+        }
+        this.l = false;
+        this.a = str;
+        this.b = i;
+        this.c = str2;
+        this.g = i2;
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !TextUtils.isEmpty(str)) {
             try {
-                c().ubcOnEvent(str, xj4.c(jSONObject), i);
-            } catch (RemoteException e) {
+                this.k = new JSONArray(str);
+            } catch (JSONException e) {
                 e.printStackTrace();
             }
         }

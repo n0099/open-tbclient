@@ -367,7 +367,7 @@ public class Number3D {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public Number3D m28clone() {
+    public Number3D m30clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new Number3D(this.x, this.y, this.z) : (Number3D) invokeV.objValue;

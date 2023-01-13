@@ -18,14 +18,14 @@ import com.baidu.tbadk.core.util.CustomToast;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l29;
-import com.baidu.tieba.p29;
-import com.baidu.tieba.t29;
+import com.baidu.tieba.i79;
+import com.baidu.tieba.m79;
+import com.baidu.tieba.q79;
+import com.baidu.tieba.v59;
 import com.baidu.tieba.video.editvideo.data.MusicData;
 import com.baidu.tieba.video.record.VideoEffectButtonLayout;
 import com.baidu.tieba.video.record.VideoEffectLayout;
-import com.baidu.tieba.y09;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,14 +34,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class VideoControllerLayout extends RelativeLayout implements View.OnClickListener, View.OnTouchListener, VideoEffectButtonLayout.a, y09 {
+public class VideoControllerLayout extends RelativeLayout implements View.OnClickListener, View.OnTouchListener, VideoEffectButtonLayout.a, v59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
     public RelativeLayout b;
     public VideoRecordButton c;
     public ImageView d;
-    public p29 e;
+    public m79 e;
     public long f;
     public boolean g;
     public AnimatorSet h;
@@ -49,25 +49,25 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     public List<ObjectAnimator> j;
     public f k;
     public boolean l;
-    public List<l29> m;
-    public List<l29> n;
+    public List<i79> m;
+    public List<i79> n;
     public List<StickerItem> o;
-    public List<l29> p;
+    public List<i79> p;
     public VideoEffectLayout q;
     public Handler r;
     public int s;
 
     /* loaded from: classes6.dex */
     public interface f {
-        void F0();
+        void G0();
 
         void L();
 
-        void U();
-
-        void j();
+        void V();
 
         void k();
+
+        void l();
 
         void n();
 
@@ -75,15 +75,15 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
 
         void q();
 
-        void q0();
+        void r0();
 
-        void v0();
+        void w0();
     }
 
-    @Override // com.baidu.tieba.y09
-    public void n1(String str, int i, String str2) {
+    @Override // com.baidu.tieba.v59
+    public void o1(String str, int i, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048592, this, str, i, str2) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048593, this, str, i, str2) == null) {
         }
     }
 
@@ -94,7 +94,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     }
 
     /* loaded from: classes6.dex */
-    public class a extends t29 {
+    public class a extends q79 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean b;
@@ -119,7 +119,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             this.b = z;
         }
 
-        @Override // com.baidu.tieba.t29, android.animation.Animator.AnimatorListener
+        @Override // com.baidu.tieba.q79, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
@@ -132,7 +132,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     }
 
     /* loaded from: classes6.dex */
-    public class b extends t29 {
+    public class b extends q79 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoControllerLayout b;
@@ -155,7 +155,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             this.b = videoControllerLayout;
         }
 
-        @Override // com.baidu.tieba.t29, android.animation.Animator.AnimatorListener
+        @Override // com.baidu.tieba.q79, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, animator) == null) && !this.a) {
@@ -202,7 +202,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     }
 
     /* loaded from: classes6.dex */
-    public class d extends t29 {
+    public class d extends q79 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoControllerLayout b;
@@ -225,28 +225,28 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             this.b = videoControllerLayout;
         }
 
-        @Override // com.baidu.tieba.t29, android.animation.Animator.AnimatorListener
+        @Override // com.baidu.tieba.q79, android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, animator) == null) && this.b.k != null) {
-                this.b.k.j();
+                this.b.k.k();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class e extends t29 {
+    public class e extends q79 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t29 b;
+        public final /* synthetic */ q79 b;
         public final /* synthetic */ VideoControllerLayout c;
 
-        public e(VideoControllerLayout videoControllerLayout, t29 t29Var) {
+        public e(VideoControllerLayout videoControllerLayout, q79 q79Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {videoControllerLayout, t29Var};
+                Object[] objArr = {videoControllerLayout, q79Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -257,10 +257,10 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                 }
             }
             this.c = videoControllerLayout;
-            this.b = t29Var;
+            this.b = q79Var;
         }
 
-        @Override // com.baidu.tieba.t29, android.animation.Animator.AnimatorListener
+        @Override // com.baidu.tieba.q79, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, animator) != null) || this.a) {
@@ -268,11 +268,11 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             }
             this.c.q.setVisibility(8);
             if (this.c.k != null) {
-                this.c.k.q0();
+                this.c.k.r0();
             }
-            t29 t29Var = this.b;
-            if (t29Var != null) {
-                t29Var.onAnimationEnd(animator);
+            q79 q79Var = this.b;
+            if (q79Var != null) {
+                q79Var.onAnimationEnd(animator);
             }
         }
     }
@@ -357,7 +357,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
 
     public final void k(View view2, MotionEvent motionEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, view2, motionEvent) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048587, this, view2, motionEvent) == null) {
             int action = motionEvent.getAction();
             if (action != 0) {
                 if (action == 1) {
@@ -367,8 +367,8 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                 this.e.m(1);
                 f fVar = this.k;
                 if (fVar != null) {
-                    fVar.U();
-                    this.k.k();
+                    fVar.V();
+                    this.k.l();
                 }
                 this.c.getTvTip().setText("");
                 this.c.getTvTip().setVisibility(8);
@@ -413,10 +413,10 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                 fVar.n();
             }
             if (this.e.f() != 7 && this.e.f() != 6) {
-                p29 p29Var = this.e;
-                if (p29Var != null && p29Var.i()) {
+                m79 m79Var = this.e;
+                if (m79Var != null && m79Var.i()) {
                     this.l = true;
-                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f0b97);
+                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f0bb1);
                     return;
                 }
                 long currentTimeMillis = System.currentTimeMillis();
@@ -479,10 +479,10 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         }
     }
 
-    public void setRecordController(p29 p29Var) {
+    public void setRecordController(m79 m79Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, p29Var) == null) {
-            this.e = p29Var;
+        if (interceptable == null || interceptable.invokeL(1048605, this, m79Var) == null) {
+            this.e = m79Var;
             j(1);
         }
     }
@@ -535,7 +535,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             if (this.e.e() >= 100) {
                 f fVar = this.k;
                 if (fVar != null) {
-                    fVar.v0();
+                    fVar.w0();
                     return;
                 }
                 return;
@@ -555,9 +555,9 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             } else {
                 B(z);
             }
-            p29 p29Var = this.e;
-            if (p29Var != null) {
-                p29Var.n();
+            m79 m79Var = this.e;
+            if (m79Var != null) {
+                m79Var.n();
             }
             f fVar2 = this.k;
             if (fVar2 != null) {
@@ -568,7 +568,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
 
     public final void B(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             AnimatorSet animatorSet = this.i;
             if (animatorSet != null && animatorSet.isRunning()) {
                 this.i.cancel();
@@ -599,26 +599,26 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                 this.a.setVisibility(8);
                 this.d.setVisibility(8);
             } else if (i == 3) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f0812df);
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080b68);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f0812f6);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080b79);
             } else if (i == 4) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f0812df);
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f0812e2);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f0812f6);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f0812f9);
             } else if (i == 5) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f0812e3);
-                p29 p29Var = this.e;
-                if (p29Var != null && p29Var.g() >= 3000.0f) {
-                    this.d.setImageResource(R.drawable.obfuscated_res_0x7f0812e2);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f0812fa);
+                m79 m79Var = this.e;
+                if (m79Var != null && m79Var.g() >= 3000.0f) {
+                    this.d.setImageResource(R.drawable.obfuscated_res_0x7f0812f9);
                 } else {
-                    this.d.setImageResource(R.drawable.obfuscated_res_0x7f080b68);
+                    this.d.setImageResource(R.drawable.obfuscated_res_0x7f080b79);
                 }
             }
         }
     }
 
-    public void m(t29 t29Var) {
+    public void m(q79 q79Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048590, this, t29Var) != null) || this.q.getVisibility() == 8) {
+        if ((interceptable != null && interceptable.invokeL(1048590, this, q79Var) != null) || this.q.getVisibility() == 8) {
             return;
         }
         o();
@@ -637,54 +637,17 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                 objectAnimator.cancel();
                 objectAnimator.removeAllListeners();
                 if (i == this.j.size() - 1) {
-                    objectAnimator.addListener(new e(this, t29Var));
+                    objectAnimator.addListener(new e(this, q79Var));
                 }
                 objectAnimator.reverse();
             }
         }
     }
 
-    public void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            D();
-            int f2 = this.e.f();
-            p29 p29Var = this.e;
-            if (p29Var != null) {
-                if (!p29Var.h() && this.e.j()) {
-                    this.e.o();
-                }
-                E();
-            }
-            f fVar = this.k;
-            if (fVar != null) {
-                fVar.k();
-                if (f2 == 6) {
-                    this.k.U();
-                }
-            }
-        }
-    }
-
-    public void E() {
-        p29 p29Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (p29Var = this.e) == null) {
-            return;
-        }
-        if (p29Var.g() >= 3000.0f) {
-            j(4);
-        } else if (this.e.g() > 0) {
-            j(3);
-        } else {
-            j(1);
-        }
-    }
-
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void C0() {
+    public void A0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (p() && this.q.getCurrentEffectLayout() == 3) {
                 m(null);
                 return;
@@ -692,12 +655,12 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             if (!p()) {
                 z();
             }
-            this.q.C0();
+            this.q.A0();
         }
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void R0() {
+    public void S0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             if (p() && this.q.getCurrentEffectLayout() == 2) {
@@ -707,11 +670,11 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             if (!p()) {
                 z();
             }
-            this.q.R0();
+            this.q.S0();
         }
     }
 
-    public List<l29> getChoosedBeautyList() {
+    public List<i79> getChoosedBeautyList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -720,7 +683,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         return (List) invokeV.objValue;
     }
 
-    public List<l29> getChoosedFilterList() {
+    public List<i79> getChoosedFilterList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -739,9 +702,9 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void j0() {
+    public void k0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             if (p() && this.q.getCurrentEffectLayout() == 1) {
                 m(null);
                 return;
@@ -749,7 +712,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             if (!p()) {
                 z();
             }
-            this.q.j0();
+            this.q.k0();
         }
     }
 
@@ -809,11 +772,48 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         }
     }
 
+    public void C() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            D();
+            int f2 = this.e.f();
+            m79 m79Var = this.e;
+            if (m79Var != null) {
+                if (!m79Var.h() && this.e.j()) {
+                    this.e.o();
+                }
+                E();
+            }
+            f fVar = this.k;
+            if (fVar != null) {
+                fVar.l();
+                if (f2 == 6) {
+                    this.k.V();
+                }
+            }
+        }
+    }
+
+    public void E() {
+        m79 m79Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (m79Var = this.e) == null) {
+            return;
+        }
+        if (m79Var.g() >= 3000.0f) {
+            j(4);
+        } else if (this.e.g() > 0) {
+            j(3);
+        } else {
+            j(1);
+        }
+    }
+
     public void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            p29 p29Var = this.e;
-            if (p29Var != null && !p29Var.j() && this.e.f() != 6) {
+            m79 m79Var = this.e;
+            if (m79Var != null && !m79Var.j() && this.e.f() != 6) {
                 return;
             }
             AnimatorSet animatorSet = this.h;
@@ -843,30 +843,30 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07a9, this);
-            this.q = (VideoEffectLayout) findViewById(R.id.obfuscated_res_0x7f09131b);
-            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091337);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0907c4);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07a6, this);
+            this.q = (VideoEffectLayout) findViewById(R.id.obfuscated_res_0x7f091326);
+            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091342);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0907c8);
             this.a = imageView;
             imageView.setOnClickListener(this);
-            VideoRecordButton videoRecordButton = (VideoRecordButton) findViewById(R.id.obfuscated_res_0x7f091338);
+            VideoRecordButton videoRecordButton = (VideoRecordButton) findViewById(R.id.obfuscated_res_0x7f091343);
             this.c = videoRecordButton;
             videoRecordButton.setOnTouchListener(this);
-            ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f0906f7);
+            ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f0906f5);
             this.d = imageView2;
             imageView2.setOnClickListener(this);
-            this.p.add(0, new l29(3, getResources().getString(R.string.obfuscated_res_0x7f0f0b98), new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_NORMAL_ID, 1, getResources().getString(R.string.obfuscated_res_0x7f0f0b98)), R.drawable.obfuscated_res_0x7f080b7d));
-            this.p.add(1, new l29(3, getResources().getString(R.string.obfuscated_res_0x7f0f0b96), new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_CLOUD_ID, 2, getResources().getString(R.string.obfuscated_res_0x7f0f0b96)), R.drawable.obfuscated_res_0x7f080b67));
+            this.p.add(0, new i79(3, getResources().getString(R.string.obfuscated_res_0x7f0f0bb2), new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_NORMAL_ID, 1, getResources().getString(R.string.obfuscated_res_0x7f0f0bb2)), R.drawable.obfuscated_res_0x7f080b8e));
+            this.p.add(1, new i79(3, getResources().getString(R.string.obfuscated_res_0x7f0f0bb0), new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_CLOUD_ID, 2, getResources().getString(R.string.obfuscated_res_0x7f0f0bb0)), R.drawable.obfuscated_res_0x7f080b78));
         }
     }
 
     public final void o() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && ListUtils.isEmpty(this.j)) {
+        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && ListUtils.isEmpty(this.j)) {
             ArrayList arrayList = new ArrayList();
             this.j = arrayList;
             arrayList.add(ObjectAnimator.ofFloat(this.q, Key.TRANSLATION_Y, 1000.0f, 0.0f));
-            this.j.add(ObjectAnimator.ofFloat(this.b, Key.TRANSLATION_Y, 0.0f, yi.g(getContext(), R.dimen.obfuscated_res_0x7f07019a)));
+            this.j.add(ObjectAnimator.ofFloat(this.b, Key.TRANSLATION_Y, 0.0f, zi.g(getContext(), R.dimen.obfuscated_res_0x7f07019a)));
             this.j.add(ObjectAnimator.ofFloat(this.c.getLayer3(), Key.SCALE_X, 0.766f, 0.585f));
             this.j.add(ObjectAnimator.ofFloat(this.c.getLayer3(), Key.SCALE_Y, 0.766f, 0.585f));
             this.j.add(ObjectAnimator.ofFloat(this.c.getLayer2(), Key.SCALE_X, 1.0f, 0.82f));
@@ -891,8 +891,8 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                     fVar.n();
                 }
                 int f2 = this.e.f();
-                p29 p29Var = this.e;
-                if (p29Var != null && p29Var.g() > 0 && f2 > 2) {
+                m79 m79Var = this.e;
+                if (m79Var != null && m79Var.g() > 0 && f2 > 2) {
                     if (f2 == 5) {
                         TiebaStatic.log("c12299");
                         this.e.d();
@@ -916,12 +916,12 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                 }
             } else if (view2 == this.d) {
                 TiebaStatic.log("c12300");
-                p29 p29Var2 = this.e;
-                if (p29Var2 != null && p29Var2.f() > 2 && this.k != null) {
+                m79 m79Var2 = this.e;
+                if (m79Var2 != null && m79Var2.f() > 2 && this.k != null) {
                     if (this.e.g() >= 3000.0f) {
-                        this.k.v0();
+                        this.k.w0();
                     } else {
-                        this.k.F0();
+                        this.k.G0();
                     }
                 }
             }
@@ -936,7 +936,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             }
             B(false);
             this.c.getLayer1().setVisibility(8);
-            this.c.getTvTip().setText(getResources().getText(R.string.obfuscated_res_0x7f0f15cd));
+            this.c.getTvTip().setText(getResources().getText(R.string.obfuscated_res_0x7f0f15e0));
             this.c.getTvTip().setVisibility(0);
             f fVar = this.k;
             if (fVar != null) {
@@ -953,10 +953,10 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                 this.c.setAlpha(1.0f);
                 this.a.setVisibility(8);
                 this.d.setVisibility(8);
-                this.c.getTvTip().setText(getResources().getString(R.string.obfuscated_res_0x7f0f15ce));
-                p29 p29Var = this.e;
-                if (p29Var != null) {
-                    p29Var.n();
+                this.c.getTvTip().setText(getResources().getString(R.string.obfuscated_res_0x7f0f15e1));
+                m79 m79Var = this.e;
+                if (m79Var != null) {
+                    m79Var.n();
                     return;
                 }
                 return;
@@ -992,13 +992,13 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
         }
     }
 
-    @Override // com.baidu.tieba.y09
+    @Override // com.baidu.tieba.v59
     public void setMusicData(List<MusicData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, list) == null) {
             if (list != null && list.size() > 0) {
                 for (MusicData musicData : list) {
-                    this.p.add(new l29(3, musicData.name, musicData, -1));
+                    this.p.add(new i79(3, musicData.name, musicData, -1));
                 }
             }
             VideoEffectLayout videoEffectLayout = this.q;

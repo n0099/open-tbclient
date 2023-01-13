@@ -3,7 +3,7 @@ package com.baidu.tbadk.BdToken.completeTask;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.nn4;
+import com.baidu.tieba.rn4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import tbclient.Error;
 public class CompleteTaskHTTPResMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nn4 mData;
+    public rn4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CompleteTaskHTTPResMsg() {
@@ -37,13 +37,13 @@ public class CompleteTaskHTTPResMsg extends HttpResponsedMessage {
         }
     }
 
-    public nn4 getData() {
+    public rn4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mData;
         }
-        return (nn4) invokeV.objValue;
+        return (rn4) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -58,31 +58,31 @@ public class CompleteTaskHTTPResMsg extends HttpResponsedMessage {
                 setErrorString(completeTaskResIdl.error.usermsg);
             }
             if (completeTaskResIdl.data != null) {
-                nn4 nn4Var = new nn4();
-                this.mData = nn4Var;
-                nn4Var.c = completeTaskResIdl.data.show_type.intValue();
+                rn4 rn4Var = new rn4();
+                this.mData = rn4Var;
+                rn4Var.c = completeTaskResIdl.data.show_type.intValue();
                 this.mData.d = completeTaskResIdl.data.ahead_type.intValue();
-                nn4 nn4Var2 = this.mData;
+                rn4 rn4Var2 = this.mData;
                 DataRes dataRes = completeTaskResIdl.data;
-                nn4Var2.e = dataRes.message;
-                nn4Var2.f = dataRes.btn_text;
-                nn4Var2.g = dataRes.btn_confirm;
-                nn4Var2.h = dataRes.btn_cancel;
-                nn4Var2.i = dataRes.toast_duration.intValue();
-                nn4 nn4Var3 = this.mData;
+                rn4Var2.e = dataRes.message;
+                rn4Var2.f = dataRes.btn_text;
+                rn4Var2.g = dataRes.btn_confirm;
+                rn4Var2.h = dataRes.btn_cancel;
+                rn4Var2.i = dataRes.toast_duration.intValue();
+                rn4 rn4Var3 = this.mData;
                 DataRes dataRes2 = completeTaskResIdl.data;
-                nn4Var3.j = dataRes2.img_url;
-                nn4Var3.k = dataRes2.url;
-                nn4Var3.l = dataRes2.schema;
-                nn4Var3.m = dataRes2.token;
-                nn4Var3.a = dataRes2.activity_id.intValue();
+                rn4Var3.j = dataRes2.img_url;
+                rn4Var3.k = dataRes2.url;
+                rn4Var3.l = dataRes2.schema;
+                rn4Var3.m = dataRes2.token;
+                rn4Var3.a = dataRes2.activity_id.intValue();
                 this.mData.b = completeTaskResIdl.data.mission_id.intValue();
-                nn4 nn4Var4 = this.mData;
+                rn4 rn4Var4 = this.mData;
                 DataRes dataRes3 = completeTaskResIdl.data;
-                nn4Var4.o = dataRes3.btn_color;
-                nn4Var4.p = dataRes3.message_color;
-                nn4Var4.q = dataRes3.btn_text_color;
-                nn4Var4.r = dataRes3.interface_type.intValue();
+                rn4Var4.o = dataRes3.btn_color;
+                rn4Var4.p = dataRes3.message_color;
+                rn4Var4.q = dataRes3.btn_text_color;
+                rn4Var4.r = dataRes3.interface_type.intValue();
                 this.mData.n = completeTaskResIdl.data.opacity.doubleValue();
                 this.mData.x = completeTaskResIdl.data.is_not_complete.intValue();
             }

@@ -1,74 +1,124 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.os.HandlerThread;
-import android.os.Looper;
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.util.LongSparseArray;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.browser.core.BdCore;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+@SuppressLint({"NewApi"})
 /* loaded from: classes4.dex */
-public class gw extends HandlerThread {
+public final class gw {
     public static /* synthetic */ Interceptable $ic;
+    public static gw b;
+    public static HashMap<String, tw<String, Integer>> c;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gw(String str, int i) {
-        super(str, i);
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448305853, "Lcom/baidu/tieba/gw;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448305853, "Lcom/baidu/tieba/gw;");
                 return;
             }
         }
+        c = new HashMap<>();
     }
 
-    public void a() {
+    public gw() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                Looper looper = getLooper();
-                if (Build.VERSION.SDK_INT >= 18) {
-                    looper.quitSafely();
-                } else {
-                    looper.quit();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        new LongSparseArray();
     }
 
-    @Override // android.os.HandlerThread
-    public boolean quit() {
+    public static synchronized gw b() {
         InterceptResult invokeV;
+        gw gwVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return quitSafely();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            synchronized (gw.class) {
+                if (b == null) {
+                    b = new gw();
+                }
+                gwVar = b;
+            }
+            return gwVar;
         }
-        return invokeV.booleanValue;
+        return (gw) invokeV.objValue;
     }
 
-    @Override // android.os.HandlerThread
-    public boolean quitSafely() {
+    private Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            hw.c(this);
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+            if (this.a == null) {
+                this.a = BdCore.a().getContext();
+            }
+            Context context = this.a;
+            if (context != null) {
+                return context;
+            }
+            throw new RuntimeException("context is null!");
         }
-        return invokeV.booleanValue;
+        return (Context) invokeV.objValue;
+    }
+
+    @Deprecated
+    public static int c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            a(str2, str);
+            tw<String, Integer> twVar = c.get(str);
+            if (twVar == null) {
+                twVar = new tw<>(100);
+                c.put(str, twVar);
+            }
+            Integer c2 = twVar.c(str2);
+            if (c2 == null) {
+                try {
+                    int identifier = b().getContext().getResources().getIdentifier(str2, str, b().getContext().getPackageName());
+                    twVar.d(str2, Integer.valueOf(identifier));
+                    return identifier;
+                } catch (Error e) {
+                    e.printStackTrace();
+                    return 0;
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                    return 0;
+                }
+            }
+            return c2.intValue();
+        }
+        return invokeLL.intValue;
     }
 }

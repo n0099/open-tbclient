@@ -240,7 +240,7 @@ public class p {
             }
 
             /* renamed from: a  reason: collision with other method in class */
-            public void m685a() {
+            public void m749a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                     this.f1020a = new d[this.a];
@@ -275,7 +275,7 @@ public class p {
             }
 
             /* renamed from: a  reason: collision with other method in class */
-            public void m686a(d dVar) {
+            public void m750a(d dVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
                     d[] dVarArr = this.f1020a;
@@ -296,14 +296,14 @@ public class p {
             }
 
             /* renamed from: a  reason: collision with other method in class */
-            public boolean m687a() {
+            public boolean m751a() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b == 0 : invokeV.booleanValue;
             }
 
             /* renamed from: a  reason: collision with other method in class */
-            public boolean m688a(int i) {
+            public boolean m752a(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
@@ -375,7 +375,7 @@ public class p {
         public void a(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65539, this, dVar) == null) {
-                this.f1017a.m686a(dVar);
+                this.f1017a.m750a(dVar);
                 notify();
             }
         }
@@ -385,14 +385,14 @@ public class p {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (this) {
                     this.f1019b = true;
-                    this.f1017a.m685a();
+                    this.f1017a.m749a();
                     notify();
                 }
             }
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m684a() {
+        public boolean m748a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1018a && SystemClock.uptimeMillis() - this.a > 600000 : invokeV.booleanValue;
@@ -431,7 +431,7 @@ public class p {
                     if (this.f1019b) {
                         return;
                     }
-                    if (!this.f1017a.m687a()) {
+                    if (!this.f1017a.m751a()) {
                         long a2 = p.a();
                         d a3 = this.f1017a.a();
                         synchronized (a3.f1023a) {
@@ -690,10 +690,10 @@ public class p {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m679a() {
+    public void m743a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.xiaomi.channel.commonutils.logger.b.m99a("quit. finalizer:" + this.f1015a);
+            com.xiaomi.channel.commonutils.logger.b.m103a("quit. finalizer:" + this.f1015a);
             this.f1016a.a();
         }
     }
@@ -740,32 +740,32 @@ public class p {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m680a() {
+    public boolean m744a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f1016a.m684a() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f1016a.m748a() : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m681a(int i) {
+    public boolean m745a(int i) {
         InterceptResult invokeI;
-        boolean m688a;
+        boolean m752a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
             synchronized (this.f1016a) {
-                m688a = this.f1016a.f1017a.m688a(i);
+                m752a = this.f1016a.f1017a.m752a(i);
             }
-            return m688a;
+            return m752a;
         }
         return invokeI.booleanValue;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m682b() {
+    public void m746b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             synchronized (this.f1016a) {
-                this.f1016a.f1017a.m685a();
+                this.f1016a.f1017a.m749a();
             }
         }
     }

@@ -55,6 +55,11 @@ public final class b {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (b) invokeV.objValue;
     }
 
+    public static /* synthetic */ Thread b(b bVar) {
+        bVar.b = null;
+        return null;
+    }
+
     public final synchronized void a(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {

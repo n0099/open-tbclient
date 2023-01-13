@@ -1,18 +1,25 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
-import android.util.Log;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"BDThrowableCheck"})
 /* loaded from: classes5.dex */
-public class pc3 extends oc3 {
+public class pc3 extends jc3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.nc3
+    public long getMaxSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Config.FULL_TRACE_LOG_LIMIT : invokeV.longValue;
+    }
 
     public pc3() {
         Interceptable interceptable = $ic;
@@ -28,49 +35,18 @@ public class pc3 extends oc3 {
         }
     }
 
-    @Override // com.baidu.tieba.oc3
-    @SuppressLint({"BDThrowableCheck"})
-    public Bundle c(nc3 nc3Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.jc3
+    @NonNull
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, nc3Var)) == null) {
-            Bundle bundle = new Bundle();
-            mc3 b = sc3.b(nc3Var.a);
-            if (b == null) {
-                if (!oc3.a) {
-                    return bundle;
-                }
-                throw new IllegalArgumentException("illegal sp.");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String z = rb3.z(i43.K().getAppId());
+            if (TextUtils.isEmpty(z)) {
+                return "";
             }
-            int i = nc3Var.b;
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            if (i != 5) {
-                                if (oc3.a) {
-                                    throw new IllegalArgumentException("wrong info params.");
-                                }
-                            } else {
-                                bundle.putFloat("result_value", b.getFloat(nc3Var.c, Float.parseFloat(nc3Var.d)));
-                            }
-                        } else {
-                            bundle.putString("result_value", b.getString(nc3Var.c, nc3Var.d));
-                        }
-                    } else {
-                        bundle.putBoolean("result_value", b.getBoolean(nc3Var.c, Boolean.parseBoolean(nc3Var.d)));
-                    }
-                } else {
-                    bundle.putLong("result_value", b.getLong(nc3Var.c, Long.parseLong(nc3Var.d)));
-                }
-            } else {
-                bundle.putInt("result_value", b.getInt(nc3Var.c, Integer.parseInt(nc3Var.d)));
-            }
-            if (oc3.a) {
-                Log.d("SwanAppSpDelegation", "Get: " + nc3Var);
-            }
-            return bundle;
+            return z;
         }
-        return (Bundle) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

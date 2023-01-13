@@ -591,6 +591,8 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         }
     }
 
+    /* JADX DEBUG: Possible override for method com.baidu.sapi2.activity.BaseActivity.b()Lcom/baidu/sapi2/callback/ImageCropCallback; */
+    /* JADX DEBUG: Possible override for method com.baidu.sapi2.activity.TitleActivity.b()V */
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -807,6 +809,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         }
     }
 
+    /* JADX DEBUG: Possible override for method com.baidu.sapi2.activity.BaseActivity.c()V */
     public List<PassNameValuePair> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

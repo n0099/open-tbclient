@@ -1,51 +1,209 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tieba.qi7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ti7 extends ej7 {
+public class ti7<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public yi7<T> a;
+    public qi7 b;
+    public ri7 c;
+    public T d;
+    public b e;
 
-    @Override // com.baidu.tieba.ej7, com.baidu.tieba.qd5
-    public String F() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "tb_user_atme" : (String) invokeV.objValue;
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a();
+
+        void onCancel();
     }
 
-    @Override // com.baidu.tieba.ej7, com.baidu.tieba.pd5
-    public String getCacheKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "atme_cache" : (String) invokeV.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public class a implements ri7 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ ti7 b;
 
-    @Override // com.baidu.tieba.ej7, com.baidu.tieba.qd5
-    public boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
+        public a(ti7 ti7Var, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ti7Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ti7Var;
+            this.a = context;
         }
-        return invokeV.booleanValue;
+
+        @Override // com.baidu.tieba.ri7
+        public void a() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.b != null) {
+                zi.z(this.a, this.b.a.j());
+                if (this.b.a != null) {
+                    this.b.a.h();
+                }
+                this.b.b.dismiss();
+                if (this.b.e != null) {
+                    this.b.e.onCancel();
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.ri7
+        public void b(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.b.b != null) {
+                zi.z(this.a, this.b.a.j());
+                if (this.b.a != null) {
+                    this.b.a.h();
+                }
+                this.b.b.dismiss();
+                if (this.b.e != null) {
+                    this.b.e.a();
+                }
+            }
+        }
     }
 
-    public ti7() {
+    public ti7(Context context, yi7<T> yi7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, yi7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        e(context);
+        f(context, yi7Var);
+    }
+
+    public final void e(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            this.c = new a(this, context);
+        }
+    }
+
+    public /* synthetic */ void h(Context context) {
+        if (g(context, this.b.getWindow().getDecorView().findViewById(16908290))) {
+            zi.z(context, this.a.j());
+            return;
+        }
+        yi7<T> yi7Var = this.a;
+        if (yi7Var != null) {
+            yi7Var.h();
+        }
+        this.b.dismiss();
+    }
+
+    public void i(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            this.e = bVar;
+        }
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.d != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.b != null && d()) {
+            this.b.show();
+        }
+    }
+
+    public final void f(final Context context, yi7<T> yi7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, yi7Var) == null) {
+            this.a = yi7Var;
+            yi7Var.n(this.c);
+            qi7 qi7Var = new qi7(context, R.style.obfuscated_res_0x7f100107);
+            this.b = qi7Var;
+            qi7Var.setContentView(this.a.j());
+            this.b.a(new qi7.a() { // from class: com.baidu.tieba.pi7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.baidu.tieba.qi7.a
+                public final void onClick() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        ti7.this.h(context);
+                    }
+                }
+            });
+            Window window = this.b.getWindow();
+            window.addFlags(512);
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.y = zi.g(TbadkCoreApplication.getInst(), R.dimen._bottom_enter_anim_place_holder_height);
+            window.setAttributes(attributes);
+            window.setWindowAnimations(R.style.obfuscated_res_0x7f1003fa);
+            window.setGravity(80);
+            window.setLayout(-1, -2);
+        }
+    }
+
+    public final boolean g(Context context, View view2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, view2)) == null) {
+            if (view2 == null) {
+                return false;
+            }
+            int[] iArr = new int[2];
+            view2.getLocationOnScreen(iArr);
+            if (iArr[1] >= context.getResources().getDisplayMetrics().heightPixels / 2) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public void j(T t, MetaData metaData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, t, metaData) == null) {
+            this.d = t;
+            this.a.o(t, metaData);
         }
     }
 }

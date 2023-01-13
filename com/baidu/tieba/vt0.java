@@ -1,41 +1,45 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.ObjectAnimator;
-import android.graphics.Color;
+import android.content.Context;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.content.ContextCompat;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.event.ControlEvent;
 import com.baidu.searchbox.player.event.LayerEvent;
-import com.baidu.searchbox.player.event.PlayerEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
+import kotlin.Unit;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class vt0 extends nt0 {
+public final class vt0 extends au0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView b;
-    public FrameLayout.LayoutParams c;
-    public boolean d;
-    public Animator e;
-    public Animator f;
-    public String g;
-    public int h;
-    public int i;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948252183, "Lcom/baidu/tieba/vt0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948252183, "Lcom/baidu/tieba/vt0;");
+        }
+    }
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public static final class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ vt0 a;
@@ -59,7 +63,7 @@ public class vt0 extends nt0 {
         }
 
         @Override // java.lang.Runnable
-        public void run() {
+        public final void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.w();
@@ -71,273 +75,137 @@ public class vt0 extends nt0 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b.bringToFront();
-            this.e.start();
-            v();
-            z(true);
-        }
-    }
-
-    @Override // com.baidu.tieba.ot0
-    @NonNull
-    public View getContentView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.b.postDelayed(new a(this), 3000L);
-        }
-    }
-
-    public void w() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && !this.f.isRunning() && this.b.getAlpha() != 0.0f) {
-            this.f.start();
-            z(false);
-        }
-    }
-
-    public boolean y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (!this.e.isRunning() && this.b.getAlpha() != 1.0f) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void A(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            if (z) {
-                this.h = R.string.nad_videoplayer_video_next_tip;
-                this.i = R.string.nad_videoplayer_full_after_ad_play_next_tip;
-                return;
-            }
-            this.h = R.string.nad_videoplayer_half_video_next_tip;
-            this.i = R.string.nad_videoplayer_after_ad_play_next_tip;
-        }
-    }
-
-    public final void z(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            mu0 w = cu0.w(LayerEvent.ACTION_POPUP_SHOW);
-            w.n(28, Boolean.valueOf(z));
-            q().q0(w);
-        }
-    }
-
-    public final void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.b.getLayoutParams();
-            layoutParams.width = -2;
-            layoutParams.height = -2;
-            this.b.setBackground(getContext().getResources().getDrawable(R.drawable.nad_videoplayer_immersive_video_next_bg));
-            this.b.setText(getContext().getResources().getText(R.string.nad_videoplayer_video_next_tip));
-            this.b.setPadding(38, 14, 38, 14);
-            this.b.setLayoutParams(layoutParams);
-        }
-    }
-
-    public final void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.b.getLayoutParams();
-            layoutParams.width = -1;
-            layoutParams.height = v41.b(35.0f);
-            this.b.setPadding(0, 0, v41.b(15.0f), 0);
-            this.b.setText(getContext().getResources().getString(R.string.nad_videoplayer_half_video_next_tip));
-            this.b.setBackground(getContext().getResources().getDrawable(R.drawable.nad_videoplayer_control_panel_background));
-            this.b.setLayoutParams(layoutParams);
-        }
-    }
-
-    public void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.e = ObjectAnimator.ofFloat(this.b, Key.ALPHA, 0.0f, 1.0f).setDuration(250L);
-            this.f = ObjectAnimator.ofFloat(this.b, Key.ALPHA, 1.0f, 0.0f).setDuration(250L);
-        }
-    }
-
-    public void D() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (q().V0()) {
-                this.c.bottomMargin = v41.b(7.0f);
-            } else {
-                this.c.bottomMargin = 2;
-                this.b.setBackground(getContext().getResources().getDrawable(R.drawable.nad_videoplayer_control_panel_background));
-            }
-            this.b.setLayoutParams(this.c);
-        }
-    }
-
+    @Override // com.baidu.tieba.au0
     public void E() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (q().V0()) {
-                this.c.bottomMargin = v41.b(81.0f);
-            } else {
-                this.c.bottomMargin = v41.b(32.0f);
-                this.b.setBackgroundColor(0);
-                this.c.height = v41.b(32.0f);
-            }
-            this.b.setLayoutParams(this.c);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c.bottomMargin = a51.b(45.0f);
+            this.c.leftMargin = a51.b(15.0f);
+            TextView mNextTips = this.b;
+            Intrinsics.checkNotNullExpressionValue(mNextTips, "mNextTips");
+            mNextTips.setLayoutParams(this.c);
         }
     }
 
-    @Override // com.baidu.tieba.ht0
+    @Override // com.baidu.tieba.au0
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.postDelayed(new a(this), 5000L);
+        }
+    }
+
+    @Override // com.baidu.tieba.au0
+    public void D() {
+        int b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c.bottomMargin = a51.b(10.0f);
+            FrameLayout.LayoutParams layoutParams = this.c;
+            if (q().V()) {
+                b = a51.b(45.0f);
+            } else {
+                b = a51.b(15.0f);
+            }
+            layoutParams.leftMargin = b;
+            TextView mNextTips = this.b;
+            Intrinsics.checkNotNullExpressionValue(mNextTips, "mNextTips");
+            mNextTips.setLayoutParams(this.c);
+        }
+    }
+
+    @Override // com.baidu.tieba.au0, com.baidu.tieba.mt0
     public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             TextView textView = new TextView(getContext());
-            this.b = textView;
-            textView.setText(getContext().getResources().getString(R.string.nad_videoplayer_half_video_next_tip));
-            this.b.setTextSize(0, getContext().getResources().getDimensionPixelSize(R.dimen.nad_videoplayer_immersive_video_next_text_size));
-            this.b.setShadowLayer(0.0f, 0.0f, 1.0f, Color.parseColor("#80000000"));
-            this.b.setTextColor(-1);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, v41.b(35.0f));
+            Context context = textView.getContext();
+            Intrinsics.checkNotNullExpressionValue(context, "context");
+            textView.setTextSize(0, context.getResources().getDimension(R.dimen.nad_videoplayer_immersive_video_next_text_size));
+            textView.setTextColor(-1);
+            textView.setBackground(ContextCompat.getDrawable(textView.getContext(), R.drawable.nad_videoplayer_next_play_tips_background));
+            textView.setGravity(16);
+            textView.setAlpha(0.0f);
+            textView.setMaxEms(18);
+            textView.setMaxLines(1);
+            textView.setEllipsize(TextUtils.TruncateAt.END);
+            textView.setIncludeFontPadding(false);
+            textView.setPadding(a51.b(13.0f), 0, a51.b(13.0f), 0);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, a51.b(24.0f));
             this.c = layoutParams;
-            layoutParams.gravity = BadgeDrawable.BOTTOM_END;
-            this.b.setLayoutParams(layoutParams);
-            this.b.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.nad_videoplayer_next_play_tips_background));
-            this.b.setGravity(8388629);
-            this.b.setAlpha(0.0f);
-            this.b.setPadding(0, 0, v41.b(15.0f), 0);
+            layoutParams.gravity = BadgeDrawable.BOTTOM_START;
+            layoutParams.leftMargin = a51.b(15.0f);
+            textView.setLayoutParams(this.c);
+            Unit unit = Unit.INSTANCE;
+            this.b = textView;
             x();
-            A(false);
         }
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.baidu.tieba.ht0
-    public void k(@NonNull mu0 mu0Var) {
-        char c;
+    @Override // com.baidu.tieba.au0, com.baidu.tieba.mt0
+    public void k(ru0 event) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mu0Var) == null) {
-            super.k(mu0Var);
-            String c2 = mu0Var.c();
-            switch (c2.hashCode()) {
-                case -1244137507:
-                    if (c2.equals(PlayerEvent.ACTION_SEEK_COMPLETE)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -882902390:
-                    if (c2.equals(PlayerEvent.ACTION_SET_DATA_SOURCE)) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -552621273:
-                    if (c2.equals(LayerEvent.ACTION_SWITCH_FULL)) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -552580917:
-                    if (c2.equals(LayerEvent.ACTION_SWITCH_HALF)) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 723345051:
-                    if (c2.equals(ControlEvent.ACTION_START)) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1933234291:
-                    if (c2.equals(ControlEvent.ACTION_CONTINUE_TIPS_SHOW)) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            if (c != 0 && c != 1 && c != 2) {
-                if (c != 3) {
-                    if (c != 4) {
-                        if (c == 5) {
-                            C();
-                            A(false);
+        if (interceptable == null || interceptable.invokeL(1048579, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            String c = event.c();
+            switch (c.hashCode()) {
+                case -1327414233:
+                    if (c.equals(LayerEvent.ACTION_OPTIMIZE_CONTINUE_TIPS_SHOW)) {
+                        if (q().r1()) {
+                            return;
+                        }
+                        Object f = event.f(24);
+                        if (!(f instanceof String)) {
+                            f = null;
+                        }
+                        String str = (String) f;
+                        if (str == null) {
+                            str = "";
+                        }
+                        TextView mNextTips = this.b;
+                        Intrinsics.checkNotNullExpressionValue(mNextTips, "mNextTips");
+                        mNextTips.setText(str);
+                        if (this.d) {
+                            E();
+                        } else {
+                            D();
+                        }
+                        if (!y()) {
+                            F();
                             return;
                         }
                         return;
                     }
-                    B();
-                    A(true);
-                    return;
-                } else if (q().r1()) {
-                    return;
-                } else {
-                    boolean e = mu0Var.e(8, false);
-                    boolean e2 = mu0Var.e(9, false);
-                    if (e) {
-                        this.b.setText(getContext().getResources().getString(this.i));
-                    } else if (e2) {
-                        if (!TextUtils.isEmpty(this.g)) {
-                            this.b.setText(this.g);
-                            this.b.setBackground(getContext().getResources().getDrawable(R.drawable.nad_videoplayer_control_panel_background));
-                        }
-                    } else {
-                        this.b.setText(getContext().getResources().getString(this.h));
+                    break;
+                case -552621273:
+                    if (c.equals(LayerEvent.ACTION_SWITCH_FULL)) {
+                        w();
+                        return;
                     }
-                    if (this.d) {
-                        E();
-                    } else {
-                        D();
+                    break;
+                case -552580917:
+                    if (c.equals(LayerEvent.ACTION_SWITCH_HALF)) {
+                        A(false);
+                        return;
                     }
-                    F();
-                    return;
-                }
+                    break;
+                case 1933234291:
+                    if (c.equals(ControlEvent.ACTION_CONTINUE_TIPS_SHOW)) {
+                        return;
+                    }
+                    break;
             }
-            w();
-        }
-    }
-
-    @Override // com.baidu.tieba.nt0
-    public void s(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            super.s(z, z2);
-            this.d = z;
-            w();
+            super.k(event);
         }
     }
 }

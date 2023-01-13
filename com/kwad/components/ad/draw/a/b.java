@@ -137,7 +137,7 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.bd = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912b6);
+            this.bd = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912c1);
         }
     }
 

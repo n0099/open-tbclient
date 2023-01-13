@@ -3,7 +3,7 @@ package com.baidu.tieba.mainentrance.searchsuggestlist;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.wj5;
+import com.baidu.tieba.nk5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ public class SearchListNetMessage extends NetMessage {
             builder.word = this.mKey;
             builder.isforum = String.valueOf(this.isForum);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                wj5.a(builder, true);
+                nk5.a(builder, true);
             }
             SearchSugReqIdl.Builder builder2 = new SearchSugReqIdl.Builder();
             builder2.data = builder.build(false);

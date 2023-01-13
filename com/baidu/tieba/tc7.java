@@ -1,371 +1,285 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteException;
-import android.database.sqlite.SQLiteStatement;
-import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.TopicDetailActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.data.ValidateItemData;
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.model.ModelHelper;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.ThreadGodReplyLayout;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.homepage.topic.topictab.view.CellTopicLinearLayout;
+import com.baidu.tieba.homepage.topic.topictab.view.TopicPkView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class tc7 {
+public class tc7 extends a86<qc7> {
     public static /* synthetic */ Interceptable $ic;
-    public static tc7 a;
+    public static final int z;
     public transient /* synthetic */ FieldHolder $fh;
+    public final View i;
+    public int j;
+    public CellTopicLinearLayout k;
+    public TextView l;
+    public TextView m;
+    public TextView n;
+    public TextView o;
+    public RelativeLayout p;
+    public TbImageView q;
+    public View r;
+    public TopicPkView s;
+    public ThreadGodReplyLayout t;
+    public View u;
+    public RelativeLayout v;
+    public HeadImageView w;
+    public qc7 x;
+    public final int y;
 
-    public tc7() {
+    @Override // com.baidu.tieba.a86
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01cf : invokeV.intValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948176481, "Lcom/baidu/tieba/tc7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948176481, "Lcom/baidu/tieba/tc7;");
+                return;
+            }
+        }
+        z = zi.l(TbadkCoreApplication.getInst()) - ((zi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + zi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tc7(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.j = 3;
+        this.y = zi.g(getContext(), R.dimen.M_W_X005);
+        View h = h();
+        this.k = (CellTopicLinearLayout) h.findViewById(R.id.obfuscated_res_0x7f0905de);
+        this.v = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f0905e0);
+        this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0905db);
+        this.m = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0905df);
+        this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0905dc);
+        this.o = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0905d5);
+        this.p = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f0905d8);
+        this.q = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f0905d7);
+        this.r = h.findViewById(R.id.obfuscated_res_0x7f0905da);
+        this.s = (TopicPkView) h.findViewById(R.id.obfuscated_res_0x7f0905dd);
+        this.t = (ThreadGodReplyLayout) h.findViewById(R.id.obfuscated_res_0x7f0905d6);
+        this.u = h.findViewById(R.id.obfuscated_res_0x7f0905d9);
+        this.i = h.findViewById(R.id.obfuscated_res_0x7f0905d4);
+        HeadImageView headImageView = (HeadImageView) h.findViewById(R.id.user_avatar);
+        this.w = headImageView;
+        headImageView.setIsRound(true);
+        this.w.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.w.setDefaultResource(17170445);
+        this.w.setPlaceHolder(1);
+        t(this.v);
+        t(this.o);
+        t(this.t);
+        t(this.i);
+        t(this.q);
+        t(this.u);
+        int g = zi.g(getContext(), R.dimen.tbds11);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.s.getLayoutParams();
+        layoutParams.leftMargin = g;
+        layoutParams.rightMargin = g;
+        this.s.setLayoutParams(layoutParams);
+        ViewGroup.LayoutParams layoutParams2 = this.q.getLayoutParams();
+        layoutParams2.height = ((zi.l(getContext()) - zi.g(getContext(), R.dimen.tbds88)) * 9) / 16;
+        this.q.setLayoutParams(layoutParams2);
+        this.q.setRadiusById(R.string.J_X05);
+        this.q.setConrers(15);
+        this.q.setDrawCorner(true);
+        this.q.setPlaceHolder(3);
+    }
+
+    public final void t(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, view2) == null) && (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
+            int i = this.y;
+            marginLayoutParams.leftMargin = i;
+            marginLayoutParams.rightMargin = i;
+            view2.setLayoutParams(marginLayoutParams);
         }
     }
 
-    public static tc7 c() {
+    @Override // com.baidu.tieba.a86
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.s.q();
+            this.t.k();
+            if (i == this.j) {
+                return;
+            }
+            this.j = i;
+            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.o, (int) R.color.CAM_X0105);
+            this.q.setSkinType(this.j);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        qc7 qc7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, view2) != null) || (qc7Var = this.x) == null) {
+            return;
+        }
+        if (qc7Var.Z != 1) {
+            TiebaStatic.log(new StatisticItem("c13351").param("topic_id", this.x.S).param("obj_locate", this.x.R));
+        }
+        if (this.x.Z == 1) {
+            TiebaStatic.log(new StatisticItem("c13449").param("topic_id", this.x.S));
+        }
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TopicDetailActivityConfig(getContext(), this.x.S)));
+    }
+
+    public CellTopicLinearLayout r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                a = new tc7();
-            }
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.k;
         }
-        return (tc7) invokeV.objValue;
+        return (CellTopicLinearLayout) invokeV.objValue;
     }
 
-    public boolean a(String str) {
-        InterceptResult invokeL;
-        Boolean bool;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.a86
+    /* renamed from: s */
+    public void i(qc7 qc7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            try {
-                xc7.d().delete("tb_group_news", "notice_id = ?", new String[]{str});
-                bool = Boolean.TRUE;
-            } catch (Exception e) {
-                TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.deleteByNoticeId", new Object[0]);
-                e.printStackTrace();
-                bool = Boolean.FALSE;
-            }
-            return bool.booleanValue();
+        if ((interceptable != null && interceptable.invokeL(1048581, this, qc7Var) != null) || qc7Var == null) {
+            return;
         }
-        return invokeL.booleanValue;
-    }
-
-    public LinkedList<GroupNewsPojo> b(long j, int i, int i2, String str) {
-        InterceptResult invokeCommon;
-        Cursor e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), str})) == null) {
-            if (i2 < 0) {
-                i2 = 0;
+        this.x = qc7Var;
+        if (qc7Var.Z == 0) {
+            this.w.setVisibility(8);
+            this.l.setVisibility(0);
+            this.n.setVisibility(0);
+            this.l.setText(String.valueOf(qc7Var.R));
+            int i = qc7Var.R;
+            if (i == 1) {
+                SkinManager.setBackgroundResource(this.l, R.drawable.topic_rank_one_bg);
+            } else if (i == 2) {
+                SkinManager.setBackgroundResource(this.l, R.drawable.topic_rank_two_bg);
+            } else if (i == 3) {
+                SkinManager.setBackgroundResource(this.l, R.drawable.topic_rank_three_bg);
+            } else {
+                SkinManager.setBackgroundResource(this.l, R.drawable.topic_rank_other_bg);
             }
-            LinkedList<GroupNewsPojo> linkedList = new LinkedList<>();
-            if (i <= 0) {
-                i = 20;
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.m.getLayoutParams();
+            int g = zi.g(getContext(), R.dimen.tbds16);
+            layoutParams.addRule(1, R.id.obfuscated_res_0x7f0905db);
+            layoutParams.setMargins(g, 0, g, 0);
+            ThreadCardUtils.cutAndSetTextByMaxLine(this.o, qc7Var.U, R.string.check_detail, R.dimen.tbds17, 2, z, true);
+            if (qc7Var.V == 0) {
+                this.n.setText("NEW");
+            } else {
+                this.n.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f14f2), StringHelper.numberUniformFormat(qc7Var.V)));
             }
-            Cursor cursor = null;
-            try {
-                try {
-                    if (j <= 0) {
-                        if (TextUtils.isEmpty(str)) {
-                            e = xc7.d().e("select * from tb_group_news ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, null);
-                        } else {
-                            e = xc7.d().e(String.format("select * from tb_group_news WHERE cmd IN ( '%1$s' ) ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, str), null);
-                        }
-                    } else if (TextUtils.isEmpty(str)) {
-                        e = xc7.d().e("select * from tb_group_news WHERE time <=? ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, new String[]{String.valueOf(j)});
-                    } else {
-                        e = xc7.d().e("select * from tb_group_news WHERE time <=? AND cmd IN ( ? ) ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, new String[]{String.valueOf(j), str});
-                    }
-                    cursor = e;
-                    if (cursor != null) {
-                        while (cursor.moveToNext()) {
-                            GroupNewsPojo groupNewsPojo = new GroupNewsPojo();
-                            groupNewsPojo.setCmd(cursor.getString(cursor.getColumnIndex("cmd")));
-                            groupNewsPojo.setContent(cursor.getString(cursor.getColumnIndex("content")));
-                            groupNewsPojo.setContent_status(cursor.getInt(cursor.getColumnIndex("content_status")));
-                            groupNewsPojo.setExt(cursor.getString(cursor.getColumnIndex("ext")));
-                            groupNewsPojo.setGid(cursor.getString(cursor.getColumnIndex(TbEnum.ParamKey.GID)));
-                            groupNewsPojo.setNotice_id(cursor.getString(cursor.getColumnIndex("notice_id")));
-                            groupNewsPojo.setTime(cursor.getLong(cursor.getColumnIndex("time")));
-                            linkedList.add(groupNewsPojo);
-                        }
-                    }
-                } catch (Exception e2) {
-                    TiebaStatic.printDBExceptionLog(e2, "GroupNewsDao.getAllByCmd", new Object[0]);
-                    e2.printStackTrace();
-                }
-                zi.a(cursor);
-                return h(linkedList);
-            } catch (Throwable th) {
-                zi.a(cursor);
-                throw th;
+            if (qc7Var.Y == null) {
+                this.t.setVisibility(8);
+            } else {
+                this.t.setVisibility(0);
+                this.t.setData(qc7Var.Y);
             }
+        } else {
+            this.w.setVisibility(0);
+            this.l.setVisibility(8);
+            this.n.setVisibility(8);
+            this.t.setVisibility(8);
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.m.getLayoutParams();
+            int g2 = zi.g(getContext(), R.dimen.tbds30);
+            int g3 = zi.g(getContext(), R.dimen.tbds16);
+            layoutParams2.addRule(1, R.id.user_avatar);
+            layoutParams2.setMargins(g2, 0, g3, 0);
+            this.m.setTextSize(0, zi.g(this.c, R.dimen.tbds40));
+            cx4 d = cx4.d(this.m);
+            d.v(R.color.CAM_X0105);
+            d.A(R.string.F_X01);
+            if (StringUtils.isNull(qc7Var.U)) {
+                this.o.setVisibility(8);
+            } else {
+                this.o.setVisibility(0);
+                ThreadCardUtils.setAbstractStyleAb(this.o);
+                ThreadCardUtils.cutAndSetTextByMaxLine(this.o, qc7Var.U, R.string.check_detail, R.dimen.tbds17, 2, z, true, false);
+            }
+            SkinManager.setViewTextColor(this.o, R.color.CAM_X0105, 1);
         }
-        return (LinkedList) invokeCommon.objValue;
-    }
-
-    public int d(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
-            Cursor cursor = null;
-            int i2 = 0;
-            try {
-                try {
-                    try {
-                        cursor = xc7.d().e(String.format("select count(*) from tb_group_news WHERE cmd IN ( '%1$s' ) and content_status = %2$s", str, "" + i), null);
-                        i2 = cursor.moveToFirst() ? cursor.getInt(0) : -1;
-                    } catch (Exception e) {
-                        TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.getNewCountByCmd", new Object[0]);
-                        e.printStackTrace();
-                    }
-                } catch (SQLiteException e2) {
-                    TiebaStatic.printDBExceptionLog(e2, "GroupNewsDao.getNewCountByCmd", new Object[0]);
-                    e2.printStackTrace();
-                }
-                return i2;
-            } finally {
-                zi.a(cursor);
-            }
+        String str = qc7Var.T;
+        if (str.length() > 14) {
+            str = str.substring(0, 13) + StringHelper.STRING_MORE;
         }
-        return invokeLI.intValue;
-    }
-
-    public boolean g(String str, int i) {
-        InterceptResult invokeLI;
-        Cursor e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
-            Cursor cursor = null;
-            String str2 = null;
-            cursor = null;
-            if (i < 1000) {
-                i = 1000;
-            }
-            try {
-                try {
-                    xc7 d = xc7.d();
-                    e = d.e("SELECT * FROM tb_group_news ORDER BY notice_id DESC LIMIT " + i + ", 1", null);
-                } catch (Exception e2) {
-                    e = e2;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                if (e.moveToNext()) {
-                    str2 = e.getString(e.getColumnIndex("notice_id"));
-                }
-                zi.a(e);
-                if (str2 != null) {
-                    xc7.d().delete("tb_group_news", "notice_id<?", new String[]{str2});
-                }
-                zi.a(e);
-                return true;
-            } catch (Exception e3) {
-                e = e3;
-                cursor = e;
-                e.printStackTrace();
-                TiebaStatic.printDBExceptionLog(e, "shrink", new Object[0]);
-                zi.a(cursor);
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                cursor = e;
-                zi.a(cursor);
-                throw th;
-            }
+        this.m.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f04a2), str));
+        if (StringUtils.isNull(qc7Var.W)) {
+            this.p.setVisibility(8);
+            this.s.setUserColor(R.color.CAM_X0109);
+        } else {
+            this.p.setVisibility(0);
+            this.q.setPlaceHolder(3);
+            this.q.K(qc7Var.W, 10, false);
+            this.s.setUserColor(R.color.CAM_X0101);
         }
-        return invokeLI.booleanValue;
-    }
-
-    public int e(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) {
-            try {
-                if (!TextUtils.isEmpty(str)) {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put("content_status", (Integer) 3);
-                    return xc7.d().update("tb_group_news", contentValues, "notice_id= ?", new String[]{str});
-                }
-            } catch (Exception e) {
-                TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.hideByNoticeIdSync", new Object[0]);
-                e.printStackTrace();
-            }
-            return 0;
+        if (!StringUtils.isNull(qc7Var.a0)) {
+            this.w.setVisibility(0);
+            this.w.K(qc7Var.a0, 10, false);
         }
-        return invokeLI.intValue;
-    }
-
-    public final long f(GroupNewsPojo groupNewsPojo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, groupNewsPojo)) == null) {
-            try {
-                try {
-                    StringBuffer stringBuffer = new StringBuffer();
-                    stringBuffer.append("INSERT INTO ");
-                    stringBuffer.append("tb_group_news");
-                    stringBuffer.append("(");
-                    stringBuffer.append("cmd");
-                    stringBuffer.append(",");
-                    stringBuffer.append("content");
-                    stringBuffer.append(",");
-                    stringBuffer.append("content_status");
-                    stringBuffer.append(",");
-                    stringBuffer.append("ext");
-                    stringBuffer.append(",");
-                    stringBuffer.append(TbEnum.ParamKey.GID);
-                    stringBuffer.append(",");
-                    stringBuffer.append("notice_id");
-                    stringBuffer.append(",");
-                    stringBuffer.append("time");
-                    stringBuffer.append(") VALUES(?,?,?,?,?,?,?)");
-                    SQLiteStatement a2 = xc7.d().a(stringBuffer.toString());
-                    if (a2 == null) {
-                        zi.c(a2);
-                        return -1L;
-                    }
-                    a2.clearBindings();
-                    vc7.b(a2, 1, groupNewsPojo.getCmd());
-                    vc7.b(a2, 2, groupNewsPojo.getContent());
-                    a2.bindLong(3, groupNewsPojo.getContent_status());
-                    vc7.b(a2, 4, groupNewsPojo.getExt());
-                    vc7.b(a2, 5, groupNewsPojo.getGid());
-                    vc7.b(a2, 6, groupNewsPojo.getNotice_id());
-                    a2.bindLong(7, groupNewsPojo.getTime());
-                    long executeInsert = a2.executeInsert();
-                    zi.c(a2);
-                    return executeInsert;
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.insertByStatement", new Object[0]);
-                    zi.c(null);
-                    return -1L;
-                }
-            } catch (Throwable th) {
-                zi.c(null);
-                throw th;
-            }
+        if (qc7Var.X == null) {
+            this.r.setVisibility(8);
+            this.s.setVisibility(8);
+            this.u.setVisibility(8);
+            return;
         }
-        return invokeL.longValue;
-    }
-
-    public final LinkedList<GroupNewsPojo> h(LinkedList<GroupNewsPojo> linkedList) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, linkedList)) == null) {
-            LinkedList<GroupNewsPojo> linkedList2 = new LinkedList<>();
-            ArrayList arrayList = new ArrayList();
-            int size = linkedList.size();
-            for (int i = 0; i < size; i++) {
-                GroupNewsPojo groupNewsPojo = linkedList.get(i);
-                boolean z = false;
-                for (int i2 = 0; i2 < linkedList2.size(); i2++) {
-                    if (linkedList2.get(i2).getContent().equals(groupNewsPojo.getContent())) {
-                        z = true;
-                    }
-                }
-                if (z) {
-                    arrayList.add(groupNewsPojo.getNotice_id());
-                } else {
-                    linkedList2.add(groupNewsPojo);
-                }
-                int size2 = arrayList.size();
-                for (int i3 = 0; i3 < size2; i3++) {
-                    e((String) arrayList.get(i3), 3);
-                }
-            }
-            return linkedList2;
-        }
-        return (LinkedList) invokeL.objValue;
-    }
-
-    public Boolean i(LinkedList<GroupNewsPojo> linkedList) {
-        InterceptResult invokeL;
-        ValidateItemData validateItemData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, linkedList)) == null) {
-            Boolean bool = Boolean.FALSE;
-            if (linkedList != null && linkedList.size() != 0) {
-                try {
-                    try {
-                        xc7.d().f();
-                        Iterator<GroupNewsPojo> it = linkedList.iterator();
-                        LinkedList<GroupNewsPojo> linkedList2 = null;
-                        List<ValidateItemData> list = null;
-                        while (it.hasNext()) {
-                            GroupNewsPojo next = it.next();
-                            if (next.getCmd().equals("apply_join_group")) {
-                                if (linkedList2 == null) {
-                                    linkedList2 = b(0L, Integer.MAX_VALUE, 0, "apply_join_group");
-                                    if (ModelHelper.getInstance().getValidateModel() != null) {
-                                        list = ModelHelper.getInstance().getValidateModel().convertToValidateItemDataList(linkedList2);
-                                    }
-                                    if (list == null) {
-                                        list = new LinkedList<>();
-                                    }
-                                }
-                                if (list != null) {
-                                    if (ModelHelper.getInstance().getValidateModel() != null) {
-                                        validateItemData = ModelHelper.getInstance().getValidateModel().convertToValidateItemData(next);
-                                    } else {
-                                        validateItemData = null;
-                                    }
-                                    if (validateItemData != null) {
-                                        for (ValidateItemData validateItemData2 : list) {
-                                            if (validateItemData.getUserId() != null && validateItemData.getUserId().equals(validateItemData2.getUserId()) && validateItemData.getGroupId() != null && validateItemData.getGroupId().equals(validateItemData2.getGroupId())) {
-                                                a(validateItemData2.getNotice_id());
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            ContentValues contentValues = new ContentValues();
-                            contentValues.put("cmd", next.getCmd());
-                            contentValues.put("content", next.getContent());
-                            contentValues.put("content_status", Integer.valueOf(next.getContent_status()));
-                            contentValues.put("ext", next.getExt());
-                            contentValues.put(TbEnum.ParamKey.GID, next.getGid());
-                            contentValues.put("notice_id", next.getNotice_id());
-                            contentValues.put("time", Long.valueOf(next.getTime()));
-                            if (xc7.d().update("tb_group_news", contentValues, "notice_id=?", new String[]{next.getNotice_id()}) == 0) {
-                                f(next);
-                            }
-                            bool = Boolean.valueOf(bool.booleanValue() & true);
-                        }
-                    } catch (Exception e) {
-                        TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.updateData", new Object[0]);
-                        e.printStackTrace();
-                        bool = Boolean.FALSE;
-                    }
-                    return bool;
-                } finally {
-                    xc7.d().b();
-                }
-            }
-            return Boolean.FALSE;
-        }
-        return (Boolean) invokeL.objValue;
+        this.r.setVisibility(0);
+        this.s.setVisibility(0);
+        this.s.setData(qc7Var.X);
+        this.u.setVisibility(0);
     }
 }

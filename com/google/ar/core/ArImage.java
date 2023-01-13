@@ -5,7 +5,7 @@ import android.media.Image;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.a0;
-import com.baidu.tieba.z;
+import com.baidu.tieba.b0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
-public class ArImage extends z {
+/* loaded from: classes8.dex */
+public class ArImage extends a0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Session a;
@@ -43,8 +43,8 @@ public class ArImage extends z {
 
     public static native void nativeLoadSymbols();
 
-    /* loaded from: classes7.dex */
-    public class a extends a0 {
+    /* loaded from: classes8.dex */
+    public class a extends b0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long a;

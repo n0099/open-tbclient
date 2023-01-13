@@ -1,37 +1,32 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class s54 {
+public class s54 extends sy3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public long currentSize;
+    @V8JavascriptField
+    public String[] keys;
+    @V8JavascriptField
+    public long limitSize;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(int i, long j, long j2);
-
-        void b(int i);
-
-        void success();
-    }
-
-    public static void a(String str, a aVar) {
-        e43 M;
+    public s54() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, str, aVar) != null) || aVar == null || TextUtils.isEmpty(str) || (M = e43.M()) == null) {
-            return;
-        }
-        if (r54.b().d(str)) {
-            aVar.success();
-            return;
-        }
-        String a2 = r54.b().a(str);
-        if (TextUtils.isEmpty(a2)) {
-            aVar.b(2112);
-        } else {
-            ob4.h(new jf4(M.b, M.k0(), a2, 1), new v54(M.b, M.k0(), r54.b().c(str, 2), aVar));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 }

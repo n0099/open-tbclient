@@ -15,12 +15,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.flow.data.ApkDownloadInfoData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.viewpager.ListViewPager;
-import com.baidu.tieba.ax4;
-import com.baidu.tieba.uw4;
-import com.baidu.tieba.vw4;
-import com.baidu.tieba.ww4;
-import com.baidu.tieba.xw4;
-import com.baidu.tieba.zw4;
+import com.baidu.tieba.fx4;
+import com.baidu.tieba.gx4;
+import com.baidu.tieba.hx4;
+import com.baidu.tieba.ix4;
+import com.baidu.tieba.kx4;
+import com.baidu.tieba.lx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,20 +28,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class DownloadFlowView<T extends vw4> extends FrameLayout {
+public class DownloadFlowView<T extends gx4> extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ListViewPager a;
     public IndicatorView b;
-    public xw4 c;
+    public ix4 c;
     public View d;
     public DownloadFlowAdapter<T> e;
-    public uw4 f;
+    public fx4 f;
     public DownloadFlowView<T>.c g;
     public boolean h;
     public boolean i;
     public boolean j;
-    public zw4<T> k;
+    public kx4<T> k;
     public DownloadFlowView<T>.e l;
     public DownloadFlowView<T>.b m;
     public DownloadFlowView<T>.d n;
@@ -81,7 +81,7 @@ public class DownloadFlowView<T extends vw4> extends FrameLayout {
             this(downloadFlowView);
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r0v11, resolved type: com.baidu.tieba.zw4 */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v11, resolved type: com.baidu.tieba.kx4 */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
@@ -191,7 +191,7 @@ public class DownloadFlowView<T extends vw4> extends FrameLayout {
             }
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r0v12, resolved type: com.baidu.tieba.zw4 */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v12, resolved type: com.baidu.tieba.kx4 */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
@@ -255,7 +255,7 @@ public class DownloadFlowView<T extends vw4> extends FrameLayout {
             this(downloadFlowView);
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r0v11, resolved type: com.baidu.tieba.zw4 */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v11, resolved type: com.baidu.tieba.kx4 */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
@@ -297,7 +297,7 @@ public class DownloadFlowView<T extends vw4> extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             q(context);
             p(context);
-            setCoverFlowFactory(new ww4());
+            setCoverFlowFactory(new hx4());
             addView(this.a);
             addView(this.b);
             DownloadFlowAdapter<T> downloadFlowAdapter = new DownloadFlowAdapter<>(context);
@@ -308,17 +308,17 @@ public class DownloadFlowView<T extends vw4> extends FrameLayout {
         }
     }
 
-    public void setCoverFlowFactory(uw4 uw4Var) {
+    public void setCoverFlowFactory(fx4 fx4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, uw4Var) != null) || uw4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048586, this, fx4Var) != null) || fx4Var == null) {
             return;
         }
-        this.f = uw4Var;
-        xw4 a2 = uw4Var.a();
+        this.f = fx4Var;
+        ix4 a2 = fx4Var.a();
         this.c = a2;
         a2.i(this.b);
-        uw4Var.c().b(this.a);
-        View b2 = uw4Var.b();
+        fx4Var.c().b(this.a);
+        View b2 = fx4Var.b();
         this.d = b2;
         if (b2 != null) {
             removeAllViews();
@@ -431,10 +431,10 @@ public class DownloadFlowView<T extends vw4> extends FrameLayout {
         }
     }
 
-    public void setCallback(zw4<T> zw4Var) {
+    public void setCallback(kx4<T> kx4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, zw4Var) == null) {
-            this.k = zw4Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, kx4Var) == null) {
+            this.k = kx4Var;
         }
     }
 
@@ -500,11 +500,11 @@ public class DownloadFlowView<T extends vw4> extends FrameLayout {
         }
     }
 
-    public void z(ax4 ax4Var) {
+    public void z(lx4 lx4Var) {
         ListViewPager listViewPager;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048601, this, ax4Var) == null) && ax4Var != null && (listViewPager = this.a) != null) {
-            ax4Var.b(listViewPager);
+        if ((interceptable == null || interceptable.invokeL(1048601, this, lx4Var) == null) && lx4Var != null && (listViewPager = this.a) != null) {
+            lx4Var.b(listViewPager);
         }
     }
 
@@ -532,13 +532,13 @@ public class DownloadFlowView<T extends vw4> extends FrameLayout {
     }
 
     public void r() {
-        xw4 xw4Var;
+        ix4 ix4Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.e.d();
             IndicatorView indicatorView = this.b;
-            if (indicatorView != null && (xw4Var = this.c) != null) {
-                indicatorView.setDrawable(SkinManager.getDrawable(xw4Var.a()));
+            if (indicatorView != null && (ix4Var = this.c) != null) {
+                indicatorView.setDrawable(SkinManager.getDrawable(ix4Var.a()));
                 this.b.setSelector(SkinManager.getDrawable(this.c.b()));
             }
         }

@@ -111,7 +111,7 @@ public final class DeepRecursiveScopeImpl<T, R> extends DeepRecursiveScope<T, R>
             Continuation<Object> continuation = this.cont;
             if (continuation != null) {
                 obj = DeepRecursiveKt.UNDEFINED_RESULT;
-                if (!Result.m710equalsimpl0(obj, r)) {
+                if (!Result.m774equalsimpl0(obj, r)) {
                     obj2 = DeepRecursiveKt.UNDEFINED_RESULT;
                     this.result = obj2;
                     continuation.resumeWith(r);
@@ -123,7 +123,7 @@ public final class DeepRecursiveScopeImpl<T, R> extends DeepRecursiveScope<T, R>
                             Object invoke = ((Function3) TypeIntrinsics.beforeCheckcastToFunctionOfArity(function3, 3)).invoke(this, obj3, continuation);
                             if (invoke != IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
                                 Result.Companion companion = Result.Companion;
-                                continuation.resumeWith(Result.m708constructorimpl(invoke));
+                                continuation.resumeWith(Result.m772constructorimpl(invoke));
                             }
                         } else {
                             throw new NullPointerException("null cannot be cast to non-null type (R, P, kotlin.coroutines.Continuation<T>) -> kotlin.Any?");
@@ -131,7 +131,7 @@ public final class DeepRecursiveScopeImpl<T, R> extends DeepRecursiveScope<T, R>
                         }
                     } catch (Throwable th) {
                         Result.Companion companion2 = Result.Companion;
-                        continuation.resumeWith(Result.m708constructorimpl(ResultKt.createFailure(th)));
+                        continuation.resumeWith(Result.m772constructorimpl(ResultKt.createFailure(th)));
                     }
                 }
             } else {

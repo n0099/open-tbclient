@@ -1,59 +1,22 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
 public class qz3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
+    public static long b;
+    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static class a implements xi3<e93> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lw1 a;
-
-        public a(lw1 lw1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lw1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lw1Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xi3
-        /* renamed from: b */
-        public void a(e93 e93Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e93Var) == null) {
-                if (e93Var == null || e93Var.d || e93Var.j != 1) {
-                    qz3.c(this.a, false, "system deny");
-                } else {
-                    qz3.c(this.a, true, "authorize:ok");
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -68,32 +31,94 @@ public class qz3 {
                 return;
             }
         }
-        a = ok1.a;
+        a = tk1.a;
+        b = 86400000L;
+        c = "duration_permission_list";
     }
 
-    public static void b(JsObject jsObject) {
-        lw1 F;
+    public static void a(JsObject jsObject) {
+        rz3 rz3Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, jsObject) != null) || (F = lw1.F(jsObject)) == null) {
-            return;
-        }
-        e43 b0 = e43.b0();
-        if (b0 == null) {
-            c(F, false, "authorize:fail internal error");
-        } else {
-            b0.e0().e("mapp_enable_eval", new a(F));
-        }
-    }
-
-    public static void c(lw1 lw1Var, boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{lw1Var, Boolean.valueOf(z), str}) == null) {
-            if (a) {
-                Log.i("AuthorizeEvalApi", "callAsyncCallback: " + str);
+        if (interceptable == null || interceptable.invokeL(65537, null, jsObject) == null) {
+            j43 M = j43.M();
+            qw1 qw1Var = null;
+            if (jsObject != null && M != null && b(M)) {
+                if (a) {
+                    Log.e("SwanGameDurationApi", "params is " + jsObject.toString());
+                }
+                qw1 F = qw1.F(jsObject);
+                String B = F.B("swanGameId");
+                if (!TextUtils.isEmpty(B)) {
+                    rc3 a2 = xc3.a();
+                    if (!c(Long.valueOf(a2.getLong(B + "_LastPause", 0L)), Long.valueOf(System.currentTimeMillis()))) {
+                        a2.putLong(B + "_Duration", 0L);
+                    }
+                    rz3Var = new rz3();
+                    rz3Var.duration = a2.getLong(B + "_Duration", 0L);
+                } else {
+                    rz3Var = null;
+                }
+                qw1Var = F;
+            } else {
+                rz3Var = null;
             }
-            ny3 ny3Var = new ny3();
-            ny3Var.errMsg = str;
-            q64.call(lw1Var, z, ny3Var);
+            v64.call(qw1Var, true, rz3Var);
+        }
+    }
+
+    public static boolean b(j43 j43Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, j43Var)) == null) {
+            String string = xc3.a().getString(c, "");
+            if (!TextUtils.isEmpty(string)) {
+                try {
+                    JSONArray jSONArray = new JSONArray(string);
+                    for (int i = 0; i < jSONArray.length(); i++) {
+                        if (j43.g0().contains(jSONArray.optString(i))) {
+                            return true;
+                        }
+                    }
+                } catch (Exception e) {
+                    if (a) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c(Long l, Long l2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, l, l2)) == null) {
+            if (l.longValue() / 86400000 == l2.longValue() / 86400000) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void d(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && j2 > j && j43.M() != null && !TextUtils.isEmpty(j43.g0())) {
+            String g0 = j43.g0();
+            rc3 a2 = xc3.a();
+            long j3 = a2.getLong(g0 + "_LastPause", 0L);
+            long j4 = a2.getLong(g0 + "_Duration", 0L);
+            if (c(Long.valueOf(j), Long.valueOf(j2))) {
+                if (c(Long.valueOf(j3), Long.valueOf(j))) {
+                    a2.putLong(g0 + "_Duration", (j4 + j2) - j);
+                } else {
+                    a2.putLong(g0 + "_Duration", j2 - j);
+                }
+            } else {
+                a2.putLong(g0 + "_Duration", j2 % b);
+            }
+            a2.putLong(g0 + "_LastPause", System.currentTimeMillis());
         }
     }
 }

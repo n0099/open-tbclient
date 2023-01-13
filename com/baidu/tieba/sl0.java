@@ -1,51 +1,48 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.DialogInterface;
-import android.text.SpannableString;
+import android.os.Environment;
 import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.m31;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class sl0 {
     public static /* synthetic */ Interceptable $ic;
+    public static long b;
+    public static int c;
+    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public Dialog b;
-    public TextView c;
-    public RelativeLayout d;
-    public TextView e;
-    public RelativeLayout f;
-    public boolean g;
+    public final List<qk0> a;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public class a implements DialogInterface.OnKeyListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View.OnClickListener a;
-        public final /* synthetic */ sl0 b;
+        public final /* synthetic */ qk0 a;
+        public final /* synthetic */ Activity b;
+        public final /* synthetic */ ql0 c;
+        public final /* synthetic */ sl0 d;
 
-        public a(sl0 sl0Var, View.OnClickListener onClickListener) {
+        public a(sl0 sl0Var, qk0 qk0Var, Activity activity, ql0 ql0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sl0Var, onClickListener};
+                Object[] objArr = {sl0Var, qk0Var, activity, ql0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -55,86 +52,10 @@ public class sl0 {
                     return;
                 }
             }
-            this.b = sl0Var;
-            this.a = onClickListener;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                View.OnClickListener onClickListener = this.a;
-                if (onClickListener != null) {
-                    onClickListener.onClick(view2);
-                }
-                this.b.b.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View.OnClickListener a;
-        public final /* synthetic */ sl0 b;
-
-        public b(sl0 sl0Var, View.OnClickListener onClickListener) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sl0Var, onClickListener};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = sl0Var;
-            this.a = onClickListener;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b.b.dismiss();
-                View.OnClickListener onClickListener = this.a;
-                if (onClickListener != null) {
-                    onClickListener.onClick(view2);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements DialogInterface.OnKeyListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ DialogInterface.OnKeyListener a;
-        public final /* synthetic */ sl0 b;
-
-        public c(sl0 sl0Var, DialogInterface.OnKeyListener onKeyListener) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sl0Var, onKeyListener};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = sl0Var;
-            this.a = onKeyListener;
+            this.d = sl0Var;
+            this.a = qk0Var;
+            this.b = activity;
+            this.c = ql0Var;
         }
 
         @Override // android.content.DialogInterface.OnKeyListener
@@ -142,28 +63,130 @@ public class sl0 {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, dialogInterface, i, keyEvent)) == null) {
-                if (!this.b.g) {
-                    this.b.g = true;
-                } else {
-                    this.b.b.dismiss();
-                    DialogInterface.OnKeyListener onKeyListener = this.a;
-                    if (onKeyListener != null) {
-                        onKeyListener.onKey(dialogInterface, i, keyEvent);
-                    }
-                    this.b.g = false;
+                sl0.a();
+                this.d.j();
+                this.d.g(ClogBuilder.LogType.FREE_CLICK, ClogBuilder.Area.DIALOG_KEYBACK, this.a);
+                if (pk0.b().a(this.b)) {
+                    pk0.b().e(this.b, System.currentTimeMillis());
+                    this.c.a();
+                    return true;
                 }
+                this.c.b();
                 return true;
             }
             return invokeLIL.booleanValue;
         }
     }
 
-    public sl0(@NonNull Activity activity) {
+    /* loaded from: classes6.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ql0 a;
+        public final /* synthetic */ qk0 b;
+        public final /* synthetic */ sl0 c;
+
+        public b(sl0 sl0Var, ql0 ql0Var, qk0 qk0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sl0Var, ql0Var, qk0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = sl0Var;
+            this.a = ql0Var;
+            this.b = qk0Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.c.j();
+                pk0.b().d(false);
+                this.a.a();
+                this.c.g(ClogBuilder.LogType.FREE_CLICK, ClogBuilder.Area.DIALOG_NEGATIVE, this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qk0 a;
+        public final /* synthetic */ sl0 b;
+
+        public c(sl0 sl0Var, qk0 qk0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sl0Var, qk0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = sl0Var;
+            this.a = qk0Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.b.j();
+                pk0.b().d(false);
+                this.b.g(ClogBuilder.LogType.FREE_CLICK, ClogBuilder.Area.DIALOG_POSITIVE, this.a);
+                if (TextUtils.equals(this.a.q.o, "reminded_type_unopen")) {
+                    ul0.g(this.a.d);
+                    return;
+                }
+                ul0.e(this.a.h, this.a.a());
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final sl0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-428687758, "Lcom/baidu/tieba/sl0$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-428687758, "Lcom/baidu/tieba/sl0$d;");
+                    return;
+                }
+            }
+            a = new sl0(null);
+        }
+    }
+
+    public sl0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -173,112 +196,173 @@ public class sl0 {
                 return;
             }
         }
-        this.a = activity;
+        this.a = new ArrayList();
     }
 
-    public sl0 e(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            this.b.setCancelable(z);
-            return this;
-        }
-        return (sl0) invokeZ.objValue;
+    public static /* synthetic */ int a() {
+        int i = c;
+        c = i + 1;
+        return i;
     }
 
-    public sl0 f(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            this.b.setCanceledOnTouchOutside(z);
-            return this;
-        }
-        return (sl0) invokeZ.objValue;
-    }
-
-    public sl0 h(View.OnClickListener onClickListener) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, onClickListener)) == null) {
-            this.f.setOnClickListener(new b(this, onClickListener));
-            return this;
-        }
-        return (sl0) invokeL.objValue;
-    }
-
-    public sl0 i(DialogInterface.OnKeyListener onKeyListener) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, onKeyListener)) == null) {
-            this.b.setOnKeyListener(new c(this, onKeyListener));
-            return this;
-        }
-        return (sl0) invokeL.objValue;
-    }
-
-    public sl0 j(View.OnClickListener onClickListener) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, onClickListener)) == null) {
-            this.d.setOnClickListener(new a(this, onClickListener));
-            return this;
-        }
-        return (sl0) invokeL.objValue;
-    }
-
-    public sl0 d() {
+    public static long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.nad_back_alert_dialog, kk0.b().b(this.a), false);
-            this.c = (TextView) inflate.findViewById(R.id.ad_back_alert_dialog_description);
-            this.d = (RelativeLayout) inflate.findViewById(R.id.ad_back_alert_dialog_positive_layout);
-            TextView textView = (TextView) inflate.findViewById(R.id.ad_back_alert_dialog_positive_button);
-            this.e = textView;
-            textView.setTextColor(-48831);
-            this.f = (RelativeLayout) inflate.findViewById(R.id.ad_back_alert_dialog_negative_layout);
-            Dialog dialog = new Dialog(this.a, R.style.obfuscated_res_0x7f100133);
-            this.b = dialog;
-            dialog.setContentView(inflate);
-            Window window = this.b.getWindow();
-            if (window != null) {
-                window.setGravity(80);
-                WindowManager.LayoutParams attributes = window.getAttributes();
-                attributes.width = m31.c.e(this.a);
-                window.setAttributes(attributes);
-            }
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return b11.a().b("nad_app_quick_config").getLong("key_last_alert_dialog_show_time", 0L);
+        }
+        return invokeV.longValue;
+    }
+
+    public static sl0 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return d.a;
         }
         return (sl0) invokeV.objValue;
     }
 
-    public sl0 g(@NonNull lk0 lk0Var) {
-        InterceptResult invokeL;
-        SpannableString spannableString;
+    public final void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, lk0Var)) == null) {
-            String str = lk0Var.p.h;
-            if (TextUtils.equals(lk0Var.q.o, "reminded_type_unopen")) {
-                spannableString = new SpannableString("您刚刚下载的" + str + "应用还没有体验，是否立即体验？");
-                this.e.setText("去体验");
-            } else {
-                spannableString = new SpannableString("您刚刚下载的" + str + "应用还没有安装，是否立即安装？");
-                this.e.setText("去安装");
-            }
-            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(-48831);
-            if (!TextUtils.isEmpty(str.trim())) {
-                spannableString.setSpan(foregroundColorSpan, 6, str.trim().length() + 6, 18);
-            }
-            this.c.setText(spannableString);
-            return this;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            b = currentTimeMillis;
+            h(currentTimeMillis);
         }
-        return (sl0) invokeL.objValue;
     }
 
-    public void k() {
+    public void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            g31.b(this.b);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            c++;
+        }
+    }
+
+    public /* synthetic */ sl0(a aVar) {
+        this();
+    }
+
+    public static void h(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65543, null, j) == null) {
+            b11.a().b("nad_app_quick_config").h("key_last_alert_dialog_show_time", j);
+        }
+    }
+
+    public final qk0 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            qk0 qk0Var = null;
+            if (t01.g(this.a)) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            int l = t01.l(this.a) - 1;
+            qk0 qk0Var2 = null;
+            while (true) {
+                if (l < 0) {
+                    break;
+                }
+                qk0 qk0Var3 = (qk0) t01.d(this.a, l);
+                if (qk0Var3 != null) {
+                    String str = qk0Var3.d;
+                    boolean c2 = ul0.c(str);
+                    boolean exists = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/" + str).exists();
+                    if (c2) {
+                        if (exists) {
+                            t01.b(arrayList, qk0Var3);
+                        } else {
+                            qk0Var3.q.o = "reminded_type_unopen";
+                            t01.b(arrayList, qk0Var3);
+                            qk0Var = qk0Var3;
+                            break;
+                        }
+                    } else if (ul0.f(qk0Var3.h) && qk0Var3.c != AdDownloadStatus.NONE && TextUtils.equals(qk0Var3.q.o, "reminded_type_none") && qk0Var2 == null) {
+                        qk0Var3.q.o = "reminded_type_uninstall";
+                        qk0Var2 = qk0Var3;
+                    }
+                }
+                l--;
+            }
+            t01.k(this.a, arrayList);
+            if (qk0Var != null) {
+                return qk0Var;
+            }
+            return qk0Var2;
+        }
+        return (qk0) invokeV.objValue;
+    }
+
+    public final void g(ClogBuilder.LogType logType, ClogBuilder.Area area, qk0 qk0Var) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, logType, area, qk0Var) != null) || qk0Var == null) {
+            return;
+        }
+        ClogBuilder clogBuilder = new ClogBuilder();
+        clogBuilder.u(ClogBuilder.Page.POPUP);
+        if (logType != null) {
+            clogBuilder.y(logType);
+        }
+        if (area != null) {
+            clogBuilder.i(area);
+        }
+        if (!TextUtils.isEmpty(qk0Var.p.a)) {
+            clogBuilder.p(qk0Var.p.a);
+        }
+        clogBuilder.k(String.valueOf(c));
+        clogBuilder.l(String.valueOf(d));
+        if (TextUtils.equals(qk0Var.q.o, "reminded_type_uninstall")) {
+            str = "1";
+        } else {
+            str = "2";
+        }
+        clogBuilder.m(str);
+        e11.b(clogBuilder);
+    }
+
+    public void i(Activity activity, ql0 ql0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, ql0Var) == null) && pk0.b().isMainActivity(activity) && ql0Var != null) {
+            if (b == 0) {
+                b = e();
+            }
+            if (System.currentTimeMillis() - b < 600000) {
+                ql0Var.a();
+                return;
+            }
+            qk0 d2 = d();
+            if (d2 == null) {
+                ql0Var.a();
+                return;
+            }
+            xl0 xl0Var = new xl0(activity);
+            xl0Var.d();
+            xl0Var.e(false);
+            xl0Var.f(false);
+            xl0Var.g(d2);
+            xl0Var.j(new c(this, d2));
+            xl0Var.h(new b(this, ql0Var, d2));
+            xl0Var.i(new a(this, d2, activity, ql0Var));
+            xl0Var.k();
+            d++;
+            pk0.b().d(true);
+            g(ClogBuilder.LogType.FREE_SHOW, ClogBuilder.Area.DIALOG, d2);
+        }
+    }
+
+    public void k(qk0 qk0Var) {
+        File file;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, qk0Var) == null) && qk0Var != null && (file = qk0Var.h) != null && file.exists()) {
+            String str = qk0Var.p.h;
+            String absolutePath = qk0Var.h.getAbsolutePath();
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(absolutePath)) {
+                qk0Var.q.o = "reminded_type_none";
+                t01.b(this.a, qk0Var);
+            }
         }
     }
 }

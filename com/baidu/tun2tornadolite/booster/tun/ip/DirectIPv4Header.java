@@ -14,6 +14,10 @@ import com.baidu.webkit.sdk.WebChromeClient;
 import com.yy.gslbsdk.db.ProbeTB;
 import java.nio.ByteBuffer;
 import kotlin.Metadata;
+import kotlin.UByte;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.MutablePropertyReference1Impl;
@@ -108,7 +112,7 @@ public final class DirectIPv4Header extends DirectIPHeader {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DirectIPv4Header(byte[] buffer2, int i) {
+    public DirectIPv4Header(final byte[] buffer2, int i) {
         super(buffer2, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -128,7 +132,88 @@ public final class DirectIPv4Header extends DirectIPHeader {
         }
         Intrinsics.checkNotNullParameter(buffer2, "buffer");
         this.version$delegate = int4Left$tun2tornadolite_release(0);
-        this.headerLength$delegate = field$tun2tornadolite_release(0, new DirectIPv4Header$headerLength$2(buffer2), new DirectIPv4Header$headerLength$3(buffer2));
+        this.headerLength$delegate = field$tun2tornadolite_release(0, new Function1<Integer, Integer>(buffer2) { // from class: com.baidu.tun2tornadolite.booster.tun.ip.DirectIPv4Header$headerLength$2
+            public static /* synthetic */ Interceptable $ic;
+            public final /* synthetic */ byte[] $buffer;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(1);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr3 = {buffer2};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        super(((Integer) newInitContext2.callArgs[0]).intValue());
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.$buffer = buffer2;
+            }
+
+            public final Integer invoke(int i4) {
+                InterceptResult invokeI;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i4)) == null) {
+                    return Integer.valueOf((UByte.m790constructorimpl(this.$buffer[i4]) & 255 & 15) * 4);
+                }
+                return (Integer) invokeI.objValue;
+            }
+
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function1
+            public /* bridge */ /* synthetic */ Integer invoke(Integer num) {
+                return invoke(num.intValue());
+            }
+        }, new Function2<Integer, Integer, Unit>(buffer2) { // from class: com.baidu.tun2tornadolite.booster.tun.ip.DirectIPv4Header$headerLength$3
+            public static /* synthetic */ Interceptable $ic;
+            public final /* synthetic */ byte[] $buffer;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(2);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr3 = {buffer2};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        super(((Integer) newInitContext2.callArgs[0]).intValue());
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.$buffer = buffer2;
+            }
+
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function2
+            public /* bridge */ /* synthetic */ Unit invoke(Integer num, Integer num2) {
+                invoke(num.intValue(), num2.intValue());
+                return Unit.INSTANCE;
+            }
+
+            public final void invoke(int i4, int i5) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i4, i5) == null) {
+                    this.$buffer[i4] = (byte) ((i5 / 4) | 64);
+                }
+            }
+        });
         this.protocol$delegate = int8$tun2tornadolite_release(9);
         this.checksum$delegate = int16$tun2tornadolite_release(10);
         this.totalLength$delegate = int16$tun2tornadolite_release(2);

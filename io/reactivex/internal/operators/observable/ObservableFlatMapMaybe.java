@@ -23,14 +23,14 @@ import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ObservableFlatMapMaybe<T, R> extends AbstractObservableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean delayErrors;
     public final Function<? super T, ? extends MaybeSource<? extends R>> mapper;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class FlatMapMaybeObserver<T, R> extends AtomicInteger implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8600231336733376951L;
@@ -45,7 +45,7 @@ public final class ObservableFlatMapMaybe<T, R> extends AbstractObservableWithUp
         public final AtomicReference<SpscLinkedArrayQueue<R>> queue;
         public final CompositeDisposable set;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public final class InnerObserver extends AtomicReference<Disposable> implements MaybeObserver<R>, Disposable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -502562646270949838L;

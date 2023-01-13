@@ -15,7 +15,6 @@ import android.webkit.MimeTypeMap;
 import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
@@ -206,7 +205,7 @@ public class FileProvider extends ContentProvider {
             if ("r".equals(str)) {
                 return LaunchTaskConstants.OTHER_PROCESS;
             }
-            if (!Config.DEVICE_WIDTH.equals(str) && !"wt".equals(str)) {
+            if (!"w".equals(str) && !"wt".equals(str)) {
                 if ("wa".equals(str)) {
                     return 704643072;
                 }

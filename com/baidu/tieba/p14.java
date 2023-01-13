@@ -1,17 +1,27 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface p14 {
-    boolean a(@NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull boolean z, @NonNull jh2 jh2Var);
+public class p14 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile o14 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(String str, String str2, String str3, String str4, String str5);
-
-    void c(@NonNull String str);
-
-    void d(@NonNull String str, @NonNull String str2);
-
-    void e(@NonNull String str);
-
-    void f(@NonNull String str);
+    public static synchronized o14 a() {
+        InterceptResult invokeV;
+        o14 o14Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (p14.class) {
+                if (a == null) {
+                    a = new o14();
+                }
+                o14Var = a;
+            }
+            return o14Var;
+        }
+        return (o14) invokeV.objValue;
+    }
 }

@@ -712,13 +712,13 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
             stateListDrawable.addState(new int[]{16842922}, popUpMaterialShapeDrawable);
             this.filledPopupBackground.addState(new int[0], popUpMaterialShapeDrawable2);
             if (IS_LOLLIPOP) {
-                i = R.drawable.obfuscated_res_0x7f080dda;
+                i = R.drawable.obfuscated_res_0x7f080deb;
             } else {
-                i = R.drawable.obfuscated_res_0x7f080ddb;
+                i = R.drawable.obfuscated_res_0x7f080dec;
             }
             this.textInputLayout.setEndIconDrawable(AppCompatResources.getDrawable(this.context, i));
             TextInputLayout textInputLayout = this.textInputLayout;
-            textInputLayout.setEndIconContentDescription(textInputLayout.getResources().getText(R.string.obfuscated_res_0x7f0f0602));
+            textInputLayout.setEndIconContentDescription(textInputLayout.getResources().getText(R.string.obfuscated_res_0x7f0f060a));
             this.textInputLayout.setEndIconOnClickListener(new View.OnClickListener(this) { // from class: com.google.android.material.textfield.DropdownMenuEndIconDelegate.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

@@ -2,7 +2,7 @@ package com.baidu.searchbox.abtest.ioc;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.abtest.AbTestManager;
-import com.baidu.tieba.a9;
+import com.baidu.tieba.b9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,7 +39,7 @@ public class AbTestServiceManager implements AbTestService {
     }
 
     @Override // com.baidu.searchbox.abtest.ioc.AbTestService
-    public ArrayList<a9> getExperimentInfoList() {
+    public ArrayList<b9> getExperimentInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

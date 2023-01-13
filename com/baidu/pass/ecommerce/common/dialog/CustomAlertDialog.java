@@ -89,12 +89,12 @@ public class CustomAlertDialog extends Dialog {
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d0512);
+            setContentView(R.layout.obfuscated_res_0x7f0d0511);
             setCanceledOnTouchOutside(true);
-            this.titleTv = (TextView) findViewById(R.id.obfuscated_res_0x7f091de1);
-            this.contentTv = (TextView) findViewById(R.id.obfuscated_res_0x7f091dde);
-            this.positiveBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091de0);
-            this.negativeBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091ddf);
+            this.titleTv = (TextView) findViewById(R.id.obfuscated_res_0x7f091e00);
+            this.contentTv = (TextView) findViewById(R.id.obfuscated_res_0x7f091dfd);
+            this.positiveBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091dff);
+            this.negativeBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091dfe);
         }
     }
 

@@ -1,191 +1,197 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
+import android.app.Activity;
 import android.text.TextUtils;
+import android.view.MotionEvent;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.sapi2.utils.ThirdPartyUtil;
-import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.BdToken.completeTask.CompleteTaskToastData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.tencent.connect.common.Constants;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class dn4 {
     public static /* synthetic */ Interceptable $ic;
+    public static View.OnClickListener a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(StatisticItem statisticItem, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, statisticItem, str) == null) {
-            String paramStr = UrlManager.getParamStr(str);
-            if (!TextUtils.isEmpty(paramStr)) {
-                b(statisticItem, UrlManager.getParamPair(paramStr));
+    /* loaded from: classes4.dex */
+    public static class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-    }
 
-    public static void b(StatisticItem statisticItem, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, statisticItem, map) == null) && statisticItem != null && map != null) {
-            statisticItem.param(TiebaStatic.Params.REFER, map.get(TiebaStatic.Params.REFER));
-            statisticItem.param("pid", map.get("hightlight_anchor_pid"));
-        }
-    }
-
-    public static void c(Uri uri) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, uri) == null) && uri != null) {
-            String d = d(uri);
-            String queryParameter = uri.getQueryParameter("obj_source");
-            if ("shoubai".equals(queryParameter) || ThirdPartyUtil.TYPE_WEIXIN.equals(queryParameter) || "tbShareH5".equals(queryParameter) || PbModel.WISE.equals(queryParameter) || "zhongjianye".equals(queryParameter) || "PC".equals(queryParameter) || Constants.SOURCE_QQ.equals(queryParameter)) {
-                String queryParameter2 = uri.getQueryParameter("obj_locate");
-                uri.getQueryParameter("obj_type");
-                String queryParameter3 = uri.getQueryParameter("obj_param1");
-                String queryParameter4 = uri.getQueryParameter(TiebaStatic.Params.OBJ_PARAM2);
-                String queryParameter5 = uri.getQueryParameter(TiebaStatic.Params.OBJ_PARAM3);
-                String queryParameter6 = uri.getQueryParameter("tid");
-                String queryParameter7 = uri.getQueryParameter(TiebaStatic.Params.H5_FORUM_NAME);
-                String queryParameter8 = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_ORI_UGC_NID);
-                String queryParameter9 = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_ORI_UGC_TID);
-                String queryParameter10 = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_ORI_UGC_TYPE);
-                String queryParameter11 = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_ORI_UGC_VID);
-                String queryParameter12 = uri.getQueryParameter("obj_name");
-                String queryParameter13 = uri.getQueryParameter(TiebaStatic.Params.EQID);
-                String queryParameter14 = uri.getQueryParameter("topic_id");
-                String queryParameter15 = uri.getQueryParameter("fid");
-                String queryParameter16 = uri.getQueryParameter("room_id");
-                String queryParameter17 = uri.getQueryParameter(TiebaStatic.Params.REFER);
-                String queryParameter18 = uri.getQueryParameter(TiebaStatic.Params.WISE_SAMPLE_ID);
-                String queryParameter19 = uri.getQueryParameter(TiebaStatic.Params.BDID);
-                String queryParameter20 = uri.getQueryParameter("hightlight_anchor_pid");
-                String queryParameter21 = uri.getQueryParameter(TiebaStatic.Params.QD);
-                StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_AIAPPS_CALL_NATIVE);
-                statisticItem.param("obj_locate", queryParameter2);
-                statisticItem.param("obj_type", d);
-                statisticItem.param("obj_param1", queryParameter3);
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, queryParameter4);
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, queryParameter5);
-                statisticItem.param("tid", queryParameter6);
-                statisticItem.param("fid", queryParameter15);
-                statisticItem.param("fname", queryParameter7);
-                statisticItem.param("room_id", queryParameter16);
-                statisticItem.param(BdUniDispatchSchemeController.PARAM_ORI_UGC_NID, queryParameter8);
-                statisticItem.param(BdUniDispatchSchemeController.PARAM_ORI_UGC_TID, queryParameter9);
-                statisticItem.param(BdUniDispatchSchemeController.PARAM_ORI_UGC_TYPE, queryParameter10);
-                statisticItem.param(BdUniDispatchSchemeController.PARAM_ORI_UGC_VID, queryParameter11);
-                statisticItem.param("obj_source", queryParameter);
-                statisticItem.param("obj_name", queryParameter12);
-                statisticItem.param("query", queryParameter13);
-                statisticItem.param("topic_id", queryParameter14);
-                statisticItem.param("obj_id", TbadkCoreApplication.getInst().getStartType());
-                statisticItem.param(TiebaStatic.Params.OBJ_TO, 1);
-                statisticItem.param(TiebaStatic.Params.WISE_SAMPLE_ID, queryParameter18);
-                statisticItem.param(TiebaStatic.Params.BDID, queryParameter19);
-                if (TextUtils.isEmpty(queryParameter17)) {
-                    queryParameter17 = StringUtil.NULL_STRING;
-                }
-                statisticItem.param(TiebaStatic.Params.REFER, queryParameter17);
-                statisticItem.param("pid", queryParameter20);
-                statisticItem.param(TiebaStatic.Params.QD, queryParameter21);
-                TiebaStatic.log(statisticItem);
-            }
-        }
-    }
-
-    public static String d(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, uri)) == null) {
-            if (uri == null) {
-                return "";
-            }
-            String uri2 = uri.toString();
-            if (TextUtils.isEmpty(uri2)) {
-                return "";
-            }
-            if (uri2.contains("unidispatch/openapp") || uri2.contains("donothing")) {
-                return "5";
-            }
-            if (!uri2.contains("tbpb") && !uri2.contains(PbModel.UNIDISPATCH_PB)) {
-                if (uri2.contains("tbfrs") || uri2.contains("unidispatch/frs")) {
-                    return "2";
-                }
-                if (uri2.contains("tbwebview")) {
-                    return "9";
-                }
-                if (!uri2.contains("tbusercenter") && !uri2.contains("unidispatch/usercenter") && !uri2.contains("usercenter")) {
-                    if (!uri2.contains("tbtopicdetail") && !uri2.contains("unidispatch/topicdetail")) {
-                        if (uri2.contains("unidispatch/hotuserrank")) {
-                            return "7";
-                        }
-                        if (BdUniDispatchSchemeController.PATH_HOMEPAGE.equals(uri.getPath())) {
-                            return "5";
-                        }
-                        if (uri2.contains("unidispatch/searchResultPage")) {
-                            if (TextUtils.isEmpty(uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_QUERY))) {
-                                return "5";
-                            }
-                            return "11";
-                        }
-                        return "10";
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            TbPageContext<?> d;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                Object tag = view2.getTag();
+                if (tag instanceof CompleteTaskToastData) {
+                    CompleteTaskToastData completeTaskToastData = (CompleteTaskToastData) tag;
+                    if (TextUtils.isEmpty(completeTaskToastData.url) || (d = dn4.d()) == null) {
+                        return;
                     }
-                    return "3";
+                    UrlManager.getInstance().dealOneLink(d, new String[]{completeTaskToastData.url});
+                    tn4.b(completeTaskToastData.activityId, completeTaskToastData.missionId);
                 }
-                return "4";
-            } else if ("tbpb://tieba.baidu.com".equals(uri2)) {
-                return "5";
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947710303, "Lcom/baidu/tieba/dn4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947710303, "Lcom/baidu/tieba/dn4;");
+                return;
+            }
+        }
+        a = new a();
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return TbadkCoreApplication.getInst().isMainProcess(true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void a(MotionEvent motionEvent, int i, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{motionEvent, Integer.valueOf(i), Long.valueOf(j)}) == null) && motionEvent != null && motionEvent.getAction() == 0) {
+            g(i, j);
+        }
+    }
+
+    public static void c(int i, long j, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Long.valueOf(j), str}) == null) {
+            MissionEvent missionEvent = new MissionEvent();
+            missionEvent.tid = j;
+            missionEvent.pageId = i;
+            missionEvent.actionType = str;
+            ad5.i(missionEvent);
+        }
+    }
+
+    public static void j(int i, int i2, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+            if (e()) {
+                pm4.w().P(i, j);
             } else {
-                if (!TextUtils.isEmpty(uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_ORI_UGC_NID))) {
-                    return "6";
-                }
-                String queryParameter = uri.getQueryParameter("obj_param1");
-                if (BdUniDispatchSchemeController.PARAM_VIDEO.equals(queryParameter) || "2".equals(queryParameter)) {
-                    String queryParameter2 = uri.getQueryParameter("obj_source");
-                    String queryParameter3 = uri.getQueryParameter("tid");
-                    StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_FROM_OUTSIDE);
-                    if (BdUniDispatchSchemeController.PARAM_WISE.equals(queryParameter2)) {
-                        statisticItem.param("obj_source", 2);
-                    } else if (BdUniDispatchSchemeController.PARAM_SHOUBAI.equals(queryParameter2)) {
-                        statisticItem.param("obj_source", 3);
-                    } else if (BdUniDispatchSchemeController.PARAM_TBSHAREH5.equals(queryParameter2)) {
-                        statisticItem.param("obj_source", 4);
-                    } else if (BdUniDispatchSchemeController.PARAM_QQ.equals(queryParameter2)) {
-                        statisticItem.param("obj_source", 5);
-                    }
-                    statisticItem.param("tid", queryParameter3);
-                    TiebaStatic.log(statisticItem);
-                    return "1";
-                }
-                return "1";
+                b(i, i2, j, "onResume");
             }
         }
-        return (String) invokeL.objValue;
     }
 
-    public static void e(Uri uri) {
+    public static void b(int i, int i2, long j, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri) == null) && uri != null) {
-            String queryParameter = uri.getQueryParameter(BdUniDispatchSchemeController.IS_NEW_SCHEMA);
-            if (!TextUtils.isEmpty(queryParameter) && queryParameter.equals("1")) {
-                String queryParameter2 = uri.getQueryParameter("obj_source");
-                String queryParameter3 = uri.getQueryParameter("obj_locate");
-                String queryParameter4 = uri.getQueryParameter("obj_type");
-                String queryParameter5 = uri.getQueryParameter("obj_param1");
-                StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_PAY_PUT_TIE);
-                statisticItem.param("obj_source", queryParameter2);
-                statisticItem.param("obj_locate", queryParameter3);
-                statisticItem.param("obj_type", queryParameter4);
-                statisticItem.param("obj_param1", queryParameter5);
-                TiebaStatic.log(statisticItem);
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str}) == null) {
+            MissionEvent missionEvent = new MissionEvent();
+            missionEvent.tid = j;
+            missionEvent.pageId = i2;
+            missionEvent.pageType = i;
+            missionEvent.actionType = str;
+            ad5.i(missionEvent);
+        }
+    }
+
+    public static TbPageContext d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (currentActivity instanceof BaseActivity) {
+                return ((BaseActivity) currentActivity).getPageContext();
+            }
+            if (currentActivity instanceof BaseFragmentActivity) {
+                return ((BaseFragmentActivity) currentActivity).getPageContext();
+            }
+            return null;
+        }
+        return (TbPageContext) invokeV.objValue;
+    }
+
+    public static void f(int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (e()) {
+                pm4.w().E();
+            } else {
+                c(i, j, MissionEvent.MESSAGE_PAUSE);
             }
         }
+    }
+
+    public static void g(int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (e()) {
+                pm4.w().F();
+            } else {
+                c(i, j, MissionEvent.MESSAGE_TOUCH);
+            }
+        }
+    }
+
+    public static void h(int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (e()) {
+                pm4.w().K(i, j);
+            } else {
+                c(i, j, MissionEvent.MESSAGE_ACTIVITY);
+            }
+        }
+    }
+
+    public static cw4 i(CompleteTaskToastData completeTaskToastData) {
+        InterceptResult invokeL;
+        TbPageContext d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, completeTaskToastData)) == null) {
+            if (completeTaskToastData == null || (d = d()) == null || d.getUniqueId() == null || completeTaskToastData.pageId != d.getUniqueId().getId()) {
+                return null;
+            }
+            cw4 f = cw4.f(d.getPageActivity(), completeTaskToastData.message);
+            f.g(completeTaskToastData.duration);
+            f.h(a);
+            f.i(completeTaskToastData);
+            f.j();
+            return f;
+        }
+        return (cw4) invokeL.objValue;
     }
 }

@@ -3,7 +3,9 @@ package com.baidu.tieba.im.db.pojo;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.exp.ADConfigError;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.im.data.UpdatesItemData;
 import com.baidu.tieba.im.data.ValidateItemData;
@@ -255,29 +257,29 @@ public class GroupNewsPojo implements Serializable {
             return;
         }
         setContent_status(1);
-        if (str.equals(TbEnum.SystemMessage.EVENT_ID_APPLY_VERIFY)) {
+        if (str.equals("001")) {
             str2 = "apply_join_group";
-        } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_APPLY_SUC)) {
+        } else if (str.equals("002")) {
             str2 = "apply_join_success";
-        } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_KICKED_OUT)) {
+        } else if (str.equals("003")) {
             str2 = "kick_out";
-        } else if (str.equals("101")) {
+        } else if (str.equals(ADConfigError.REQUEST_HAS_SUCCESS_BEFORE)) {
             str2 = "group_name_change";
-        } else if (str.equals("102")) {
+        } else if (str.equals(WorkPostNotifyFlutterData.FAIL_POST)) {
             str2 = "group_notice_change";
-        } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY)) {
+        } else if (str.equals("103")) {
             str2 = "group_intro_change";
-        } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_GROUP_UPGRADE)) {
+        } else if (str.equals("104")) {
             str2 = "group_level_up";
         } else if (str.equals("108")) {
             str2 = "group_head_change";
-        } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP)) {
+        } else if (str.equals("107")) {
             str2 = "dismiss_group";
-        } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_HIDE_GROUP_WARN)) {
+        } else if (str.equals("121")) {
             str2 = "hide_group_warn";
-        } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_HIDE_GROUP)) {
+        } else if (str.equals("122")) {
             str2 = "hide_group";
-        } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_INVITE_GROUP)) {
+        } else if (str.equals("109")) {
             str2 = "group_event_info";
         } else if (str.equals("124")) {
             str2 = "group_activitys_change";

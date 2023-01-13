@@ -1,100 +1,35 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.drawable.Drawable;
-import android.media.ExifInterface;
-import android.net.Uri;
-import android.opengl.GLES10;
-import android.provider.MediaStore;
+import android.os.Build;
+import android.os.Looper;
 import android.text.TextUtils;
+import android.text.format.Formatter;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.face.platform.utils.BitmapUtils;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.gp2;
+import com.baidu.tieba.j22;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.lang.reflect.Field;
-import javax.microedition.khronos.egl.EGL10;
-import javax.microedition.khronos.egl.EGLConfig;
-import javax.microedition.khronos.egl.EGLContext;
-import javax.microedition.khronos.egl.EGLDisplay;
-import javax.microedition.khronos.egl.EGLSurface;
-import org.webrtc.EglBase10;
-/* loaded from: classes3.dex */
-public final class ch3 {
+import com.baidu.webkit.sdk.WebView;
+import java.util.List;
+/* loaded from: classes4.dex */
+public class ch3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes3.dex */
-    public static class a implements zi3<OutputStream, Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Bitmap a;
-        public final /* synthetic */ Bitmap.CompressFormat b;
-        public final /* synthetic */ int c;
-
-        public a(Bitmap bitmap, Bitmap.CompressFormat compressFormat, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bitmap, compressFormat, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bitmap;
-            this.b = compressFormat;
-            this.c = i;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zi3
-        /* renamed from: b */
-        public Boolean a(OutputStream outputStream) {
-            InterceptResult invokeL;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, outputStream)) == null) {
-                Bitmap bitmap = this.a;
-                if (bitmap != null) {
-                    Bitmap.CompressFormat compressFormat = this.b;
-                    if (compressFormat == null) {
-                        compressFormat = Bitmap.CompressFormat.JPEG;
-                    }
-                    if (bitmap.compress(compressFormat, this.c, outputStream)) {
-                        z = true;
-                        return Boolean.valueOf(z);
-                    }
-                }
-                z = false;
-                return Boolean.valueOf(z);
-            }
-            return (Boolean) invokeL.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -109,548 +44,394 @@ public final class ch3 {
                 return;
             }
         }
-        a = ok1.a;
+        a = tk1.a;
     }
 
-    public static Bitmap a(Bitmap bitmap, long j, boolean z) {
+    public static String a(int i, boolean z) {
         InterceptResult invokeCommon;
-        byte[] byteArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{bitmap, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
-            if (bitmap != null && j > 0) {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                int i = 100;
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-                if (byteArrayOutputStream.size() <= j) {
-                    byteArray = byteArrayOutputStream.toByteArray();
-                } else {
-                    byteArrayOutputStream.reset();
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 0, byteArrayOutputStream);
-                    if (byteArrayOutputStream.size() >= j) {
-                        byteArray = byteArrayOutputStream.toByteArray();
-                    } else {
-                        int i2 = 0;
-                        int i3 = 0;
-                        while (i2 < i) {
-                            i3 = (i2 + i) / 2;
-                            byteArrayOutputStream.reset();
-                            bitmap.compress(Bitmap.CompressFormat.JPEG, i3, byteArrayOutputStream);
-                            int i4 = (byteArrayOutputStream.size() > j ? 1 : (byteArrayOutputStream.size() == j ? 0 : -1));
-                            if (i4 == 0) {
-                                break;
-                            } else if (i4 > 0) {
-                                i = i3 - 1;
-                            } else {
-                                i2 = i3 + 1;
-                            }
-                        }
-                        if (i == i3 - 1) {
-                            byteArrayOutputStream.reset();
-                            bitmap.compress(Bitmap.CompressFormat.JPEG, i2, byteArrayOutputStream);
-                        }
-                        byteArray = byteArrayOutputStream.toByteArray();
-                    }
-                }
-                if (z && !bitmap.isRecycled()) {
-                    bitmap.recycle();
-                }
-                return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
-            }
-            return null;
-        }
-        return (Bitmap) invokeCommon.objValue;
-    }
-
-    public static boolean b(File file, File file2, int i) {
-        InterceptResult invokeLLI;
-        FileOutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, file, file2, i)) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             if (a) {
-                Log.d(BitmapUtils.TAG, "压缩图片");
-            }
-            if (file2 == null) {
-                if (a) {
-                    Log.e(BitmapUtils.TAG, "dest file is null");
+                if (i03.p()) {
+                    return wg3.d(i, SchemeCollecter.CLASSIFY_SWAN_V8);
                 }
-                return false;
-            } else if (i >= 0 && i <= 100) {
-                Bitmap decodeFile = BitmapFactory.decodeFile(file.getAbsolutePath());
-                if (decodeFile == null) {
-                    if (a) {
-                        Log.e(BitmapUtils.TAG, "compress image，but decode bitmap is null");
-                    }
-                    return false;
-                }
-                FileOutputStream fileOutputStream2 = null;
-                try {
-                    try {
-                        fileOutputStream = new FileOutputStream(file2);
-                    } catch (FileNotFoundException e) {
-                        e = e;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                }
-                try {
-                    decodeFile.compress(Bitmap.CompressFormat.JPEG, i, fileOutputStream);
-                    ik4.d(fileOutputStream);
-                    return true;
-                } catch (FileNotFoundException e2) {
-                    e = e2;
-                    fileOutputStream2 = fileOutputStream;
-                    if (a) {
-                        Log.e(BitmapUtils.TAG, "压缩图片失败", e);
-                    }
-                    ik4.d(fileOutputStream2);
-                    return false;
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileOutputStream2 = fileOutputStream;
-                    ik4.d(fileOutputStream2);
-                    throw th;
-                }
+                return "";
+            } else if (z) {
+                return wg3.d(i, SchemeCollecter.CLASSIFY_SWAN_V8);
             } else {
-                if (a) {
-                    Log.e(BitmapUtils.TAG, "quality must be 0..100");
-                }
-                return false;
+                return wg3.d(i, SchemeCollecter.CLASSIFY_SWAN_WEBVIEW);
             }
         }
-        return invokeLLI.booleanValue;
+        return (String) invokeCommon.objValue;
     }
 
-    public static boolean c(String str, String str2, int i) {
-        InterceptResult invokeLLI;
+    public static String b() {
+        InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, str, str2, i)) == null) {
-            try {
-                if (a) {
-                    Log.d(BitmapUtils.TAG, "copyJpegExif oldFilePath:" + str + "，newFilePath：" + str2 + ",quality:" + i);
-                }
-                ExifInterface i2 = i(str);
-                ExifInterface i3 = i(str2);
-                if (i2 != null && i3 != null) {
-                    Field[] fields = ExifInterface.class.getFields();
-                    for (int i4 = 0; i4 < fields.length; i4++) {
-                        String name = fields[i4].getName();
-                        if (!TextUtils.isEmpty(name) && name.startsWith("TAG")) {
-                            String obj = fields[i4].get(ExifInterface.class).toString();
-                            String attribute = i2.getAttribute(obj);
-                            if (a) {
-                                Log.d(BitmapUtils.TAG, "fields name:" + obj + "，value：" + attribute);
-                            }
-                            if (!TextUtils.isEmpty(obj) && !TextUtils.equals(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, obj)) {
-                                if (i < 100) {
-                                    char c = 65535;
-                                    switch (obj.hashCode()) {
-                                        case -2093253645:
-                                            if (obj.equals(androidx.exifinterface.media.ExifInterface.TAG_PIXEL_Y_DIMENSION)) {
-                                                c = 3;
-                                                break;
-                                            }
-                                            break;
-                                        case -1896740140:
-                                            if (obj.equals(androidx.exifinterface.media.ExifInterface.TAG_PIXEL_X_DIMENSION)) {
-                                                c = 1;
-                                                break;
-                                            }
-                                            break;
-                                        case -666122239:
-                                            if (obj.equals(androidx.exifinterface.media.ExifInterface.TAG_IMAGE_LENGTH)) {
-                                                c = 2;
-                                                break;
-                                            }
-                                            break;
-                                        case 542970187:
-                                            if (obj.equals(androidx.exifinterface.media.ExifInterface.TAG_IMAGE_WIDTH)) {
-                                                c = 0;
-                                                break;
-                                            }
-                                            break;
-                                    }
-                                    if (c != 0) {
-                                        if (c != 1) {
-                                            if (c != 2) {
-                                                if (c == 3) {
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                                if (attribute != null) {
-                                    i3.setAttribute(obj, attribute);
-                                }
-                            }
-                        }
-                    }
-                    i3.saveAttributes();
-                    return true;
-                }
-                return false;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return invokeLLI.booleanValue;
-    }
-
-    public static boolean n(File file, File file2, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65550, null, file, file2, i)) == null) {
-            if (a) {
-                Log.d(BitmapUtils.TAG, "rotateAndCompressImage");
-            }
-            if (file2 != null && file != null && file.exists() && file2.exists()) {
-                if (i >= 0 && i <= 100) {
-                    FileOutputStream fileOutputStream = null;
-                    try {
-                        try {
-                            Bitmap decodeFile = BitmapFactory.decodeFile(file.getAbsolutePath());
-                            if (decodeFile != null && decodeFile.getWidth() != 0 && decodeFile.getHeight() != 0) {
-                                int f = f(file.getAbsolutePath());
-                                if (f != 0) {
-                                    Matrix matrix = new Matrix();
-                                    matrix.postRotate(f);
-                                    decodeFile = Bitmap.createBitmap(decodeFile, 0, 0, decodeFile.getWidth(), decodeFile.getHeight(), matrix, true);
-                                }
-                                FileOutputStream fileOutputStream2 = new FileOutputStream(file2);
-                                try {
-                                    decodeFile.compress(Bitmap.CompressFormat.JPEG, i, fileOutputStream2);
-                                    ik4.d(fileOutputStream2);
-                                    c(file.getAbsolutePath(), file2.getAbsolutePath(), i);
-                                    return true;
-                                } catch (Exception e) {
-                                    e = e;
-                                    fileOutputStream = fileOutputStream2;
-                                    if (a) {
-                                        Log.e(BitmapUtils.TAG, "rotateAndCompressImage fail:", e);
-                                    }
-                                    ik4.d(fileOutputStream);
-                                    return false;
-                                } catch (OutOfMemoryError e2) {
-                                    e = e2;
-                                    fileOutputStream = fileOutputStream2;
-                                    if (a) {
-                                        Log.e(BitmapUtils.TAG, "rotateAndCompressImage fail:", e);
-                                    }
-                                    ik4.d(fileOutputStream);
-                                    return false;
-                                } catch (Throwable th) {
-                                    th = th;
-                                    fileOutputStream = fileOutputStream2;
-                                    ik4.d(fileOutputStream);
-                                    throw th;
-                                }
-                            }
-                            if (a) {
-                                Log.e(BitmapUtils.TAG, "compress image，but decode bitmap is null");
-                            }
-                            ik4.d(null);
-                            return false;
-                        } catch (Throwable th2) {
-                            th = th2;
-                        }
-                    } catch (Exception e3) {
-                        e = e3;
-                    } catch (OutOfMemoryError e4) {
-                        e = e4;
-                    }
-                } else {
-                    if (a) {
-                        Log.e(BitmapUtils.TAG, "quality must be 0..100");
-                    }
-                    return false;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            SwanCoreVersion M = wp2.U().M();
+            String str2 = "";
+            if (M == null) {
+                str = "";
             } else {
-                if (a) {
-                    Log.e(BitmapUtils.TAG, "dest file or sourceFile is null");
-                }
-                return false;
+                String str3 = M.swanCoreVersionName;
+                str2 = SwanCoreVersion.getTypeString(M.swanCoreType);
+                str = str3;
             }
-        } else {
-            return invokeLLI.booleanValue;
+            sb.append("swanjs: ");
+            sb.append(str2);
+            sb.append("/");
+            sb.append(str);
+            return sb.toString();
         }
+        return (String) invokeV.objValue;
     }
 
-    public static boolean d(File file) {
+    public static String c(Context context) {
         InterceptResult invokeL;
+        String w1;
+        String v1;
+        pq1 o3;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
-            if (!file.getParentFile().exists()) {
-                return file.getParentFile().mkdirs();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            j43 b0 = j43.b0();
+            String str2 = "";
+            if (context == null || b0 == null || b0.k() != 0) {
+                return "";
             }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static Bitmap e(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uri)) == null) {
-            if (uri == null) {
-                return null;
+            StringBuilder sb = new StringBuilder();
+            gp2.a W = b0.W();
+            String formatFileSize = Formatter.formatFileSize(AppRuntime.getAppContext(), W.i1());
+            sb.append("size: ");
+            if (TextUtils.isEmpty(formatFileSize)) {
+                formatFileSize = "";
             }
-            try {
-                return MediaStore.Images.Media.getBitmap(d43.K().getContentResolver(), uri);
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-                return null;
+            sb.append(formatFileSize);
+            sb.append("\n");
+            sb.append("version: ");
+            if (TextUtils.isEmpty(W.w1())) {
+                w1 = "";
+            } else {
+                w1 = W.w1();
             }
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public static Bitmap g(Drawable drawable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, drawable)) == null) {
-            if (drawable == null) {
-                return null;
+            sb.append(w1);
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            sb.append("code: ");
+            if (TextUtils.isEmpty(W.v1())) {
+                v1 = "";
+            } else {
+                v1 = W.v1();
             }
-            return h(drawable, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public static ExifInterface i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+            sb.append(v1);
+            sb.append("\n");
+            sb.append("is opt pkg: ");
+            sb.append(ou2.g().h(W.f0()));
+            sb.append("\n");
+            sb.append("swan native: ");
+            if (eo3.getContext() != null) {
+                str2 = eo3.getContext().b();
             }
-            try {
-                return new ExifInterface(str);
-            } catch (IOException unused) {
-                return null;
-            }
-        }
-        return (ExifInterface) invokeL.objValue;
-    }
-
-    public static File k(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            return l(rp2.U().G().k(), str);
-        }
-        return (File) invokeL.objValue;
-    }
-
-    public static int f(String str) {
-        InterceptResult invokeL;
-        ExifInterface i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || (i = i(str)) == null) {
-                return 0;
-            }
-            int attributeInt = i.getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
-            if (attributeInt != 3) {
-                if (attributeInt != 6) {
-                    if (attributeInt != 8) {
-                        return 0;
+            sb.append(str2);
+            sb.append("\n");
+            sb.append(b());
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            sb.append(e(0));
+            sb.append("\n");
+            sb.append("is v8 master: ");
+            sb.append(db2.U().r0());
+            sb.append("\n");
+            String a2 = a(0, db2.U().r0());
+            sb.append("is native desc: ");
+            sb.append(!TextUtils.isEmpty(a2));
+            sb.append("\n");
+            boolean m = ze2.m();
+            sb.append("debugDynamicLibEnable: ");
+            sb.append(m);
+            sb.append('\n');
+            if (m) {
+                List<String> o = ze2.o();
+                sb.append("debugDynamicLibList: {");
+                if (!o.isEmpty()) {
+                    sb.append('\n');
+                    for (String str3 : o) {
+                        sb.append(str3);
+                        sb.append('\n');
                     }
-                    return 270;
                 }
-                return 90;
+                sb.append("}\n");
             }
-            return 180;
-        }
-        return invokeL.intValue;
-    }
-
-    public static Bitmap h(Drawable drawable, int i, int i2) {
-        InterceptResult invokeLII;
-        Bitmap.Config config;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65544, null, drawable, i, i2)) == null) {
-            Bitmap bitmap = null;
-            if (drawable != null && i > 0 && i2 > 0) {
-                if (drawable.getOpacity() != -1) {
-                    config = Bitmap.Config.ARGB_8888;
+            r32 H = wp2.U().H();
+            if (H != null && (o3 = H.o3()) != null) {
+                int Q = o3.Q();
+                sb.append("top fragment na-slave: ");
+                if (Q == 1) {
+                    str = "NA";
                 } else {
-                    config = Bitmap.Config.RGB_565;
+                    str = WebView.LOGTAG;
                 }
-                try {
-                    bitmap = Bitmap.createBitmap(i, i2, config);
-                    if (bitmap != null) {
-                        Canvas canvas = new Canvas(bitmap);
-                        drawable.setBounds(0, 0, i, i2);
-                        drawable.draw(canvas);
-                    }
-                } catch (Exception | OutOfMemoryError e) {
-                    e.printStackTrace();
-                }
+                sb.append(str);
+                sb.append("\n");
             }
-            return bitmap;
+            return sb.toString();
         }
-        return (Bitmap) invokeLII.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static int[] j() {
+    public static String d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            return "model: " + Build.MODEL + "\nandroid: " + Build.VERSION.RELEASE + StringUtil.ARRAY_ELEMENT_SEPARATOR + "api level: " + Build.VERSION.SDK_INT + "\ncuid: " + qn2.h0().i(qn2.c()) + "\n";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e(int i) {
+        InterceptResult invokeI;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            String str2 = "";
+            if (i != 0) {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder();
+            ExtensionCore T = db2.U().T();
+            if (T == null) {
+                str = "";
+            } else {
+                String str3 = T.extensionCoreVersionName;
+                String typeString = SwanCoreVersion.getTypeString(T.extensionCoreType);
+                str = str3;
+                str2 = typeString;
+            }
+            sb.append("extensionjs: ");
+            sb.append(str2);
+            sb.append("/");
+            sb.append(str);
+            return sb.toString();
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static String h(Context context) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            co3 context2 = eo3.getContext();
+            StringBuilder sb = new StringBuilder();
+            sb.append("name: ");
+            sb.append(qn2.n().a());
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            sb.append("version: ");
+            if (context2 != null) {
+                str = context2.h();
+            } else {
+                str = "";
+            }
+            sb.append(str);
+            sb.append("\n");
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void m(Activity activity) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65549, null, activity) != null) || activity == null) {
+            return;
+        }
+        try {
+            str = l(activity);
+        } catch (Exception e) {
+            if (!a) {
+                j12.l("SwanAppEnvironmentUtils", "getExtraInfo error", e);
+                str = "";
+            } else {
+                throw e;
+            }
+        }
+        j12.k("SwanAppEnvironmentUtils", "recordExtraInfoToLogSystem\n--------------------ExtraInfo list----------------------\n" + str + "--------------------ExtraInfo end-----------------------");
+        String k = qn2.g0().k();
+        j12.k("SwanAppEnvironmentUtils", "sid = " + k);
+        j82.k();
+    }
+
+    public static String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            int[] iArr = new int[1];
-            GLES10.glGetIntegerv(3379, iArr, 0);
-            if (iArr[0] != 0) {
-                return iArr;
-            }
-            EGL10 egl10 = (EGL10) EGLContext.getEGL();
-            EGLDisplay eglGetDisplay = egl10.eglGetDisplay(EGL10.EGL_DEFAULT_DISPLAY);
-            egl10.eglInitialize(eglGetDisplay, new int[2]);
-            EGLConfig[] eGLConfigArr = new EGLConfig[1];
-            egl10.eglChooseConfig(eglGetDisplay, new int[]{12351, 12430, 12329, 0, 12339, 1, 12344}, eGLConfigArr, 1, new int[1]);
-            EGLConfig eGLConfig = eGLConfigArr[0];
-            EGLSurface eglCreatePbufferSurface = egl10.eglCreatePbufferSurface(eglGetDisplay, eGLConfig, new int[]{12375, 64, 12374, 64, 12344});
-            EGLContext eglCreateContext = egl10.eglCreateContext(eglGetDisplay, eGLConfig, EGL10.EGL_NO_CONTEXT, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 1, 12344});
-            egl10.eglMakeCurrent(eglGetDisplay, eglCreatePbufferSurface, eglCreatePbufferSurface, eglCreateContext);
-            GLES10.glGetIntegerv(3379, iArr, 0);
-            EGLSurface eGLSurface = EGL10.EGL_NO_SURFACE;
-            egl10.eglMakeCurrent(eglGetDisplay, eGLSurface, eGLSurface, EGL10.EGL_NO_CONTEXT);
-            egl10.eglDestroySurface(eglGetDisplay, eglCreatePbufferSurface);
-            egl10.eglDestroyContext(eglGetDisplay, eglCreateContext);
-            egl10.eglTerminate(eglGetDisplay);
-            return iArr;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            SwanCoreVersion M = wp2.U().M();
+            sb.append("game-core version : ");
+            sb.append(od3.i(M, 1));
+            return sb.toString();
         }
-        return (int[]) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static File l(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) {
-            if (a) {
-                Log.d(BitmapUtils.TAG, "获取temp路径");
-            }
-            String str3 = "swan_tmp_" + System.currentTimeMillis() + "_" + str2;
-            File file = null;
-            if (!TextUtils.isEmpty(str)) {
-                File file2 = new File(str);
-                if (file2.exists()) {
-                    file = new File(file2, str3);
-                } else if (file2.mkdirs()) {
-                    file = new File(file2, str3);
-                }
-                if (file != null && !file.exists()) {
-                    try {
-                        file.createNewFile();
-                    } catch (IOException e) {
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-            }
-            if (a && file != null) {
-                Log.e(BitmapUtils.TAG, "temp路径:" + file.getAbsolutePath());
-            }
-            return file;
-        }
-        return (File) invokeLL.objValue;
-    }
-
-    public static Uri m(String str) {
+    public static String g(Context context) {
         InterceptResult invokeL;
+        String v1;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            j43 b0 = j43.b0();
+            String str = "";
+            if (context == null || b0 == null || b0.k() != 1) {
+                return "";
             }
-            if (!str.startsWith("http://") && !str.startsWith("https://") && !str.startsWith("file://") && !str.startsWith("content://")) {
-                if (!str.startsWith("/")) {
-                    return null;
-                }
-                return Uri.fromFile(new File(str));
+            StringBuilder sb = new StringBuilder();
+            gp2.a W = b0.W();
+            sb.append(f());
+            sb.append("\n");
+            sb.append("host version : ");
+            sb.append(di3.u(AppRuntime.getAppContext(), AppRuntime.getAppContext().getPackageName()));
+            sb.append("\n");
+            sb.append("enable V8: ");
+            sb.append(db2.U().r0());
+            sb.append("\n");
+            sb.append("aps version: ");
+            if (TextUtils.isEmpty(W.v1())) {
+                v1 = "";
+            } else {
+                v1 = W.v1();
             }
-            return Uri.parse(str);
+            sb.append(v1);
+            sb.append("\n");
+            String formatFileSize = Formatter.formatFileSize(AppRuntime.getAppContext(), W.i1());
+            sb.append("app bundle size: ");
+            if (TextUtils.isEmpty(formatFileSize)) {
+                formatFileSize = "";
+            }
+            sb.append(formatFileSize);
+            sb.append("\n");
+            sb.append("app bundle version: ");
+            if (!TextUtils.isEmpty(W.w1())) {
+                str = W.w1();
+            }
+            sb.append(str);
+            sb.append("\n");
+            sb.append("app is opt pkg: ");
+            sb.append(ou2.g().h(W.f0()));
+            sb.append("\n");
+            String b = rn2.h().b();
+            if (!TextUtils.isEmpty(b)) {
+                sb.append("app sconsole version: ");
+                sb.append(b);
+                sb.append("\n");
+            }
+            sb.append("game engine version: ");
+            sb.append("1.3.6.1");
+            sb.append("\n");
+            sb.append("so version: ");
+            sb.append(xc3.a().getLong("swan_so_installed_version_code_zeus", 0L));
+            sb.append("\n");
+            return sb.toString();
         }
-        return (Uri) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static boolean o(Bitmap bitmap, String str, int i) {
-        InterceptResult invokeLLI;
+    public static void i(Context context, cj3<String> cj3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65551, null, bitmap, str, i)) == null) {
-            return p(bitmap, str, i, Bitmap.CompressFormat.JPEG);
+        if (interceptable == null || interceptable.invokeLL(65545, null, context, cj3Var) == null) {
+            l42.e(cj3Var);
         }
-        return invokeLLI.booleanValue;
     }
 
-    public static boolean p(Bitmap bitmap, String str, int i, Bitmap.CompressFormat compressFormat) {
-        InterceptResult invokeLLIL;
+    public static String j(@NonNull j43 j43Var) {
+        InterceptResult invokeL;
+        String str;
+        SwanAppConfigData.h hVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65552, null, bitmap, str, i, compressFormat)) == null) {
-            return q(str, new a(bitmap, compressFormat, i));
-        }
-        return invokeLLIL.booleanValue;
-    }
-
-    public static boolean q(String str, zi3<OutputStream, Boolean> zi3Var) {
-        InterceptResult invokeLL;
-        FileOutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, str, zi3Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, j43Var)) == null) {
+            PMSAppInfo f0 = j43Var.W().f0();
+            if (f0 == null) {
+                return "no info";
+            }
+            StringBuilder sb = new StringBuilder();
+            boolean i = ou2.g().i(f0);
+            boolean j0 = db2.U().j0();
             boolean z = false;
-            if (!ik4.w()) {
-                return false;
+            SwanAppConfigData Q = j43Var.Q();
+            if (Q != null && (hVar = Q.t) != null) {
+                z = hVar.a;
+                str = hVar.b;
+            } else {
+                str = "";
             }
-            FileOutputStream fileOutputStream2 = null;
-            try {
-                try {
-                    File file = new File(str);
-                    if (zi3Var != null && d(file)) {
-                        fileOutputStream = new FileOutputStream(file);
-                        try {
-                            if (zi3Var.a(fileOutputStream).booleanValue()) {
-                                z = true;
-                                ik4.d(fileOutputStream);
-                                return z;
-                            }
-                            fileOutputStream2 = fileOutputStream;
-                        } catch (FileNotFoundException e) {
-                            e = e;
-                            fileOutputStream2 = fileOutputStream;
-                            if (a) {
-                                Log.e(BitmapUtils.TAG, "保存图片失败", e);
-                            }
-                            ik4.d(fileOutputStream2);
-                            return false;
-                        } catch (Throwable th) {
-                            th = th;
-                            fileOutputStream2 = fileOutputStream;
-                            ik4.d(fileOutputStream2);
-                            throw th;
-                        }
-                    }
-                    fileOutputStream = fileOutputStream2;
-                    ik4.d(fileOutputStream);
-                    return z;
-                } catch (Throwable th2) {
-                    th = th2;
-                }
-            } catch (FileNotFoundException e2) {
-                e = e2;
-            }
-        } else {
-            return invokeLL.booleanValue;
+            sb.append("is server on: ");
+            sb.append(i);
+            sb.append("\n");
+            sb.append("app.json info: ");
+            sb.append("enabled/");
+            sb.append(z);
+            sb.append(", trigger/");
+            sb.append(str);
+            sb.append("\n");
+            sb.append("is hit: ");
+            sb.append(j0);
+            sb.append("\n");
+            return sb.toString();
         }
+        return (String) invokeL.objValue;
     }
 
-    public static void r(Context context, String str) {
+    public static String k() {
+        InterceptResult invokeV;
+        long j;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65554, null, context, str) == null) && str != null && context != null) {
-            File file = new File(str);
-            Intent intent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
-            intent.setData(Uri.fromFile(file));
-            context.sendBroadcast(intent);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            if (a) {
+                j = System.nanoTime();
+            } else {
+                j = 0;
+            }
+            j22.d g = j22.c().g();
+            if (a) {
+                Log.d("SwanAppEnvironmentUtils", "获取内存信息耗时: " + ((System.nanoTime() - j) / 1000000) + " ms");
+            }
+            return "设备总内存：" + g.c + " M，设备剩余内存：" + g.d + " M，小程序启动占用内存：" + g.a + " M，宿主APP占用内存：" + g.b + " M\n";
         }
+        return (String) invokeV.objValue;
+    }
+
+    public static String l(Context context) {
+        InterceptResult invokeL;
+        long j;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
+            if (a) {
+                j = System.nanoTime();
+            } else {
+                j = 0;
+            }
+            j43 b0 = j43.b0();
+            if (b0 != null && context != null) {
+                String str = "=========================\n= " + b0.W().K() + "\n=========================\n===== 小程序信息 =====\n" + c(context) + "\n===== 设备信息 =====\n" + d(context) + "\n===== 宿主信息 =====\n" + h(context) + "\n===== 内存信息 =====\n" + k() + "\n===== onPrefetch信息 =====\n" + j(b0) + "\n";
+                if (a) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("获取启动时信息耗时：");
+                    sb.append((System.nanoTime() - j) / 1000000);
+                    sb.append(" ms 是否主线程：");
+                    if (Looper.getMainLooper() == Looper.myLooper()) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    sb.append(z);
+                    Log.d("SwanAppEnvironmentUtils", sb.toString());
+                }
+                j12.k("SwanAppEnvironmentUtils", str);
+                return str;
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
     }
 }

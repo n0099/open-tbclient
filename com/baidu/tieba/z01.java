@@ -1,98 +1,118 @@
 package com.baidu.tieba;
 
+import android.content.SharedPreferences;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.nadcore.net.request.BodyStyle;
-import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Locale;
 /* loaded from: classes7.dex */
-public class z01 {
+public class z01 extends y01 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f11 a;
-        public final /* synthetic */ cr0 b;
-
-        public a(f11 f11Var, cr0 cr0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f11Var, cr0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = f11Var;
-            this.b = cr0Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                z01.d(this.a, this.b);
-            }
-        }
-    }
-
-    public static <T> void c(@NonNull f11 f11Var, @Nullable cr0<T> cr0Var) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public z01() {
+        this("nad_default", 0);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, f11Var, cr0Var) == null) {
-            f11Var.a();
-            a21.c(new a(f11Var, cr0Var), "als_async_executor", 2);
-        }
-    }
-
-    public static void b(@NonNull f11 f11Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, f11Var) == null) {
-            c(f11Var, null);
-        }
-    }
-
-    public static <T> void d(f11 f11Var, @Nullable cr0<T> cr0Var) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, f11Var, cr0Var) == null) && f11Var != null && f11Var.isValid()) {
-            String f11Var2 = f11Var.toString();
-            if (f11Var instanceof ClogBuilder) {
-                if (ng0.a) {
-                    str = "http://x1250658afd00.als.nativeads-afd.otp.baidu.com/clog/clog";
-                } else {
-                    str = "https://als.baidu.com/clog/clog";
-                }
-            } else if (f11Var instanceof g11) {
-                if (ng0.a) {
-                    str = "http://x1250658afd00.als.nativeads-afd.otp.baidu.com/elog/plog";
-                } else {
-                    str = "https://als.baidu.com/elog/plog";
-                }
-            } else if (f11Var instanceof d11) {
-                str = "https://afd.baidu.com/afd/close";
-            } else {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this((String) objArr[0], ((Integer) objArr[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            jr0 jr0Var = new jr0();
-            jr0Var.h(f11Var2);
-            jr0Var.k(BodyStyle.STRING);
-            jr0Var.i("application/x-www-form-urlencoded");
-            kr0 kr0Var = new kr0();
-            kr0Var.l(str);
-            kr0Var.f(jr0Var);
-            rq0.b().a().a(kr0Var, cr0Var);
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public z01(String str) {
+        this(str, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public z01(String str, int i) {
+        super(str, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.y01
+    public SharedPreferences d(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str = "nad_default";
+            }
+            return ej0.b().getSharedPreferences(str, i);
+        }
+        return (SharedPreferences) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.y01
+    public void i(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            j(str, str2, true);
+        }
+    }
+
+    @Override // com.baidu.tieba.y01
+    public void j(@NonNull String str, @Nullable String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, str, str2, z) == null) {
+            if (z) {
+                l(str, str2);
+            }
+            super.i(str, str2);
+        }
+    }
+
+    public final void l(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) && str2 != null && str2.length() > 256) {
+            k(String.format(Locale.getDefault(), "the value of %s is %d, over the limit of %d!", str, Integer.valueOf(str2.length()), 256));
         }
     }
 }

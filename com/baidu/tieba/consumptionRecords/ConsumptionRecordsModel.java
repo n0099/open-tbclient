@@ -10,8 +10,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.n66;
-import com.baidu.tieba.o66;
+import com.baidu.tieba.fa6;
+import com.baidu.tieba.ga6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,8 +25,8 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     public int a;
     public int b;
     public int c;
-    public ArrayList<n66> d;
-    public o66 e;
+    public ArrayList<fa6> d;
+    public ga6 e;
     public boolean f;
     public b g;
     public HttpMessageListener h;
@@ -35,7 +35,7 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     public interface b {
         void a();
 
-        void b(int i, String str, ArrayList<n66> arrayList, o66 o66Var, boolean z);
+        void b(int i, String str, ArrayList<fa6> arrayList, ga6 ga6Var, boolean z);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -227,11 +227,11 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
         }
     }
 
-    public final void O(ArrayList<n66> arrayList, o66 o66Var, boolean z) {
+    public final void O(ArrayList<fa6> arrayList, ga6 ga6Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, arrayList, o66Var, z) == null) {
-            if (o66Var != null) {
-                this.e = o66Var;
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, arrayList, ga6Var, z) == null) {
+            if (ga6Var != null) {
+                this.e = ga6Var;
             }
             this.f = z;
             if (arrayList == null) {

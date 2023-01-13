@@ -1,32 +1,197 @@
 package com.baidu.tieba;
 
-import androidx.exifinterface.media.ExifInterface;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.content.Context;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTAdSdk;
+import com.bytedance.sdk.openadsdk.TTRewardVideoAd;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.util.Arrays;
 import java.util.Set;
-import kotlin.collections.SetsKt__SetsKt;
 /* loaded from: classes5.dex */
-public final class oy9 {
+public class oy9 extends nx9<fy9> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948048730, "Lcom/baidu/tieba/oy9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948048730, "Lcom/baidu/tieba/oy9;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public oy9(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.REWARD), pid);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = SetsKt__SetsKt.setOf((Object[]) new String[]{"M", "L", "H", ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "C", ExifInterface.LATITUDE_SOUTH, "Q", "R", ExifInterface.GPS_MEASUREMENT_IN_PROGRESS, "Z", "m", "l", "h", "v", "c", "s", "q", "r", "a", "z"});
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            fy9 fy9Var = (fy9) obj;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements TTAdNative.RewardVideoAdListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ oy9 c;
+
+        public a(oy9 oy9Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oy9Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = oy9Var;
+            this.b = str;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("CSJRewardVideoAd onError code: " + i + ", message: " + str, new Object[0]);
+                if (this.a) {
+                    return;
+                }
+                this.c.onError(i, str);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener
+        public void onRewardVideoCached() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener
+        public void onRewardVideoCached(TTRewardVideoAd tTRewardVideoAd) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, tTRewardVideoAd) == null) {
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener
+        public void onRewardVideoAdLoad(TTRewardVideoAd tTRewardVideoAd) {
+            Set<String> set;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTRewardVideoAd) == null) {
+                this.a = true;
+                LogPrinter.d();
+                fy9 fy9Var = new fy9(tTRewardVideoAd);
+                String a = fy9Var.a();
+                synchronized (zw9.class) {
+                    set = zw9.b;
+                    if (set.isEmpty()) {
+                        String string = jy9.a.getString("req_id", "");
+                        if (string.isEmpty()) {
+                            z = true;
+                        } else {
+                            set.addAll(Arrays.asList(string.split(";")));
+                        }
+                    }
+                    z = !set.contains(a);
+                }
+                if (!z) {
+                    this.c.onError("repeat");
+                    this.c.getClass();
+                    return;
+                }
+                String a2 = fy9Var.a();
+                synchronized (zw9.class) {
+                    if (set.add(a2)) {
+                        StringBuilder sb = new StringBuilder();
+                        for (String str : set) {
+                            sb.append(str);
+                            sb.append(";");
+                        }
+                        sb.deleteCharAt(sb.length() - 1);
+                        jy9.a.edit().putString("req_id", sb.toString()).apply();
+                    }
+                }
+                oy9 oy9Var = this.c;
+                String str2 = this.b;
+                oy9Var.getClass();
+                ((TTRewardVideoAd) fy9Var.a).setRewardPlayAgainInteractionListener(new vw9(oy9Var, fy9Var, str2));
+                oy9 oy9Var2 = this.c;
+                String str3 = this.b;
+                oy9Var2.getClass();
+                ((TTRewardVideoAd) fy9Var.a).setRewardAdInteractionListener(new xw9(oy9Var2, fy9Var, str3));
+                this.c.onAdLoaded((oy9) fy9Var);
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, funAdSlot) == null) {
+            if (this.e == null) {
+                this.e = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
+            }
+            String valueOf = String.valueOf(System.currentTimeMillis());
+            String tid = getTid(valueOf);
+            String buildExtra = buildExtra(context, tid, valueOf);
+            int i = 1;
+            AdSlot.Builder userID = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setUserID(FunAdSdk.getFunAdConfig().userId);
+            if (this.mPid.isHorizontal) {
+                i = 2;
+            }
+            AdSlot build = userID.setOrientation(i).setMediaExtra(buildExtra).build();
+            onLoadStart(funAdSlot);
+            this.e.loadRewardVideoAd(build, new a(this, tid));
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, activity, viewGroup, str, obj)) == null) {
+            fy9 fy9Var = (fy9) obj;
+            onShowStart(fy9Var);
+            ((TTRewardVideoAd) fy9Var.a).setDownloadListener(new fx9(null));
+            ((TTRewardVideoAd) fy9Var.a).showRewardVideoAd(activity);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

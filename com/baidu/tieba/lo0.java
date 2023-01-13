@@ -1,89 +1,201 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.os.Handler;
+import android.os.Message;
+import android.os.SystemClock;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.max.event.NestedEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class lo0 implements xi0 {
+public class lo0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final NestedEvent a;
-    public final int b;
-    public final int c;
-    public final int d;
+    public long a;
+    public final long b;
+    public final long c;
+    public long d;
+    public volatile boolean e;
+    public volatile boolean f;
+    public long g;
+    public long h;
+    @SuppressLint({"HandlerLeak"})
+    public final Handler i;
 
-    public lo0(NestedEvent type, float f, int i, int i2, int i3) {
+    public abstract void k();
+
+    /* loaded from: classes5.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lo0 a;
+
+        public a(lo0 lo0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lo0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lo0Var;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            long j;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                synchronized (this.a) {
+                    if (this.a.e) {
+                        return;
+                    }
+                    long elapsedRealtime = this.a.d - SystemClock.elapsedRealtime();
+                    this.a.a = elapsedRealtime;
+                    if (elapsedRealtime <= this.a.g) {
+                        this.a.k();
+                        this.a.f = true;
+                    } else {
+                        long elapsedRealtime2 = SystemClock.elapsedRealtime();
+                        this.a.l(elapsedRealtime);
+                        long elapsedRealtime3 = SystemClock.elapsedRealtime() - elapsedRealtime2;
+                        long j2 = 0;
+                        if (elapsedRealtime < this.a.c) {
+                            j = elapsedRealtime - elapsedRealtime3;
+                            if (j < 0) {
+                                sendMessageDelayed(obtainMessage(1), j2);
+                            }
+                        } else {
+                            j = this.a.c - elapsedRealtime3;
+                            while (j < 0) {
+                                j += this.a.c;
+                            }
+                        }
+                        j2 = j;
+                        sendMessageDelayed(obtainMessage(1), j2);
+                    }
+                }
+            }
+        }
+    }
+
+    public lo0(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {type, Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(type, "type");
-        this.a = type;
-        this.b = i;
-        this.c = i2;
-        this.d = i3;
+        this.e = false;
+        this.f = false;
+        this.i = new a(this);
+        this.c = j2;
+        this.a = j;
+        this.b = j;
     }
 
-    @Override // com.baidu.tieba.xi0
-    public String a() {
-        InterceptResult invokeV;
+    public void l(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String simpleName = lo0.class.getSimpleName();
-            Intrinsics.checkNotNullExpressionValue(simpleName, "NestedMoveViewEvent::class.java.simpleName");
-            return simpleName;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.h = j;
         }
-        return (String) invokeV.objValue;
     }
 
-    public final int b() {
+    public final synchronized void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                this.e = true;
+                this.i.removeCallbacksAndMessages(null);
+            }
+        }
+    }
+
+    public final synchronized long i() {
+        InterceptResult invokeV;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                j = this.b - this.h;
+            }
+            return j;
+        }
+        return invokeV.longValue;
+    }
+
+    public final synchronized long j() {
+        InterceptResult invokeV;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this) {
+                j = this.a - this.g;
+            }
+            return j;
+        }
+        return invokeV.longValue;
+    }
+
+    public final synchronized lo0 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+            synchronized (this) {
+                if (this.f) {
+                    return this;
+                }
+                this.e = false;
+                if (this.a <= 0) {
+                    k();
+                    this.f = true;
+                    return this;
+                }
+                this.d = SystemClock.elapsedRealtime() + this.a;
+                this.i.sendMessage(this.i.obtainMessage(1));
+                return this;
+            }
         }
-        return invokeV.intValue;
+        return (lo0) invokeV.objValue;
     }
 
-    public final int c() {
+    public final synchronized lo0 m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this) {
+                if (this.f) {
+                    return this;
+                }
+                this.e = false;
+                if (this.a <= this.g) {
+                    k();
+                    this.f = true;
+                    return this;
+                }
+                this.d = SystemClock.elapsedRealtime() + this.a;
+                this.i.sendMessage(this.i.obtainMessage(1));
+                return this;
+            }
         }
-        return invokeV.intValue;
-    }
-
-    public final int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public final NestedEvent getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (NestedEvent) invokeV.objValue;
+        return (lo0) invokeV.objValue;
     }
 }

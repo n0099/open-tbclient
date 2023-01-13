@@ -1,70 +1,176 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.Uri;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class bf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947642940, "Lcom/baidu/tieba/bf1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            String b = b();
+            if (TextUtils.isEmpty(b)) {
+                return 0;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947642940, "Lcom/baidu/tieba/bf1;");
-                return;
+            try {
+                long currentTimeMillis = System.currentTimeMillis();
+                JSONArray jSONArray = new JSONArray();
+                JSONArray jSONArray2 = new JSONArray(b);
+                for (int i = 0; i < jSONArray2.length(); i++) {
+                    long optLong = jSONArray2.optLong(i);
+                    if (q31.d(optLong, currentTimeMillis)) {
+                        jSONArray.put(optLong);
+                    }
+                }
+                g(jSONArray.toString());
+                return jSONArray.length();
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return 0;
             }
         }
-        ff1 e = ff1.e();
-        gf1 gf1Var = new gf1();
-        e.f("splash_ad", gf1Var);
-        e.g(gf1Var);
+        return invokeV.intValue;
     }
 
-    public static boolean a(Context context, String str, ye1 ye1Var) {
-        InterceptResult invokeLLL;
+    @NonNull
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, ye1Var)) == null) {
-            if (hf1.g(str)) {
-                return c(context, Uri.parse(str), ye1Var);
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return b11.a().b("splash_sp_name").getString("today_cpc_show_list", "");
         }
-        return invokeLLL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public static boolean c(Context context, Uri uri, ye1 ye1Var) {
-        InterceptResult invokeLLL;
+    public static long c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, uri, ye1Var)) == null) {
-            return b(context, uri, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE, ye1Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b11.a().b("splash_sp_name").getLong(TableDefine.BusiAdvAdBtnShowColumns.COLUMN_LAST_SHOW_TIME, 0L);
         }
-        return invokeLLL.booleanValue;
+        return invokeV.longValue;
     }
 
-    public static boolean b(Context context, Uri uri, String str, ye1 ye1Var) {
-        InterceptResult invokeLLLL;
+    public static JSONArray d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, context, uri, str, ye1Var)) == null) {
-            if (context == null) {
-                context = af1.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String string = b11.a().b("splash_sp_name").getString("today_show_list", "");
+            JSONArray jSONArray = new JSONArray();
+            if (TextUtils.isEmpty(string)) {
+                return jSONArray;
             }
-            ff1 e = ff1.e();
-            ef1 ef1Var = new ef1(uri, str);
-            ef1Var.g(false);
-            return e.b(context, ef1Var, ye1Var);
+            try {
+                JSONArray jSONArray2 = new JSONArray(string);
+                for (int i = 0; i < jSONArray2.length(); i++) {
+                    JSONObject optJSONObject = jSONArray2.optJSONObject(i);
+                    try {
+                        if (q31.d(Long.valueOf(optJSONObject.optString("t").split("_")[0]).longValue() * 1000, System.currentTimeMillis())) {
+                            jSONArray.put(optJSONObject);
+                        }
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
+                    }
+                }
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            b11.a().b("splash_sp_name").j("today_show_list", jSONArray.toString(), false);
+            return jSONArray;
         }
-        return invokeLLLL.booleanValue;
+        return (JSONArray) invokeV.objValue;
+    }
+
+    public static void e(ze1 ze1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, ze1Var) == null) {
+            b11.a().b("splash_sp_name").h(TableDefine.BusiAdvAdBtnShowColumns.COLUMN_LAST_SHOW_TIME, System.currentTimeMillis() / 1000);
+            h(ze1Var);
+            we1.m().g();
+        }
+    }
+
+    public static void g(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
+            b11.a().b("splash_sp_name").j("today_cpc_show_list", str, false);
+        }
+    }
+
+    public static void f() {
+        JSONArray jSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            String b = b();
+            try {
+                if (TextUtils.isEmpty(b)) {
+                    jSONArray = new JSONArray();
+                } else {
+                    jSONArray = new JSONArray(b);
+                }
+                jSONArray.put(System.currentTimeMillis());
+                g(jSONArray.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void h(ze1 ze1Var) {
+        JSONArray jSONArray;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65543, null, ze1Var) != null) || ze1Var == null) {
+            return;
+        }
+        if (ze1Var.g()) {
+            f();
+            return;
+        }
+        String valueOf = String.valueOf(System.currentTimeMillis() / 1000);
+        String string = b11.a().b("splash_sp_name").getString("today_show_list", "");
+        try {
+            if (TextUtils.isEmpty(string)) {
+                jSONArray = new JSONArray();
+            } else {
+                jSONArray = new JSONArray(string);
+            }
+            boolean z = true;
+            if (jSONArray.length() > 0) {
+                int i = 0;
+                while (true) {
+                    if (i >= jSONArray.length()) {
+                        break;
+                    }
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                    if (TextUtils.equals(optJSONObject.optString("k"), ze1Var.c)) {
+                        optJSONObject.put("t", TextUtils.concat(valueOf, "_", optJSONObject.optString("t")).toString());
+                        jSONArray.put(i, optJSONObject);
+                        z = false;
+                        break;
+                    }
+                    i++;
+                }
+            }
+            if (z) {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("k", ze1Var.c);
+                jSONObject.put("t", valueOf);
+                jSONArray.put(jSONObject);
+            }
+            b11.a().b("splash_sp_name").j("today_show_list", jSONArray.toString(), false);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 }

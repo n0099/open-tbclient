@@ -1,23 +1,150 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
+import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class q30 implements m30 {
+public class q30 {
     public static /* synthetic */ Interceptable $ic;
+    public static q30 i;
     public transient /* synthetic */ FieldHolder $fh;
-    public s30 a;
-    public x30 b;
+    public Thread a;
+    public AtomicInteger b;
     public r30 c;
-    public JSONObject d;
-    public Context e;
+    public a40 d;
+    public HashMap<String, String> e;
+    public HashMap<String, String> f;
+    public y30 g;
+    public Context h;
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ q30 a;
+
+        public a(q30 q30Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q30Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = q30Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                q30 q30Var = this.a;
+                q30Var.c = new v30(q30Var.h);
+                if (this.a.g != null) {
+                    this.a.g.a(this.a.c.a());
+                    z = this.a.g.a();
+                } else {
+                    z = false;
+                }
+                if (z && this.a.k()) {
+                    this.a.m();
+                    this.a.o();
+                }
+                this.a.a = null;
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static b a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            if (context == null) {
+                throw new NullPointerException("context should not be null");
+            }
+            if (q30.i == null) {
+                synchronized (q30.class) {
+                    if (q30.i == null) {
+                        q30 unused = q30.i = new q30(context.getApplicationContext(), null);
+                    }
+                }
+            }
+        }
+
+        public static b c(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+                if (a == null) {
+                    synchronized (q30.class) {
+                        if (a == null) {
+                            a = new b(context);
+                        }
+                    }
+                }
+                return a;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                q30.i.e = new HashMap();
+                q30.i.e.put(BOSTokenRequest.CHARSET, IMAudioTransRequest.CHARSET);
+                q30.i.e.put("Content-type", "application/json");
+                q30.i.d = new i40();
+            }
+        }
+
+        public q30 b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (q30.i.d == null) {
+                    a();
+                }
+                return q30.i;
+            }
+            return (q30) invokeV.objValue;
+        }
+    }
 
     public q30(Context context) {
         Interceptable interceptable = $ic;
@@ -26,135 +153,89 @@ public class q30 implements m30 {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new p30();
-        this.b = new b40();
-        this.c = new o30();
-        if (this.d == null) {
-            c(context);
-        }
+        this.b = new AtomicInteger(0);
+        new AtomicBoolean(false);
+        this.h = context;
+        this.g = new f40(context);
     }
 
-    @Override // com.baidu.tieba.m30
-    public JSONObject a() {
+    public /* synthetic */ q30(Context context, p30 p30Var) {
+        this(context);
+    }
+
+    public final String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                throw new NullPointerException("url should not be empty");
+            }
+            HashMap<String, String> hashMap = this.f;
+            return hashMap == null ? str : h40.b(str, hashMap);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final Runnable h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.d == null) {
-                c(this.e);
-            }
-            return this.d;
-        }
-        return (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this) : (Runnable) invokeV.objValue;
     }
 
-    public final JSONObject b() {
+    public final boolean k() {
         InterceptResult invokeV;
+        b40 a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ver", 2);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            try {
-                jSONObject.put("aid", this.a.a(this.e));
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-            try {
-                jSONObject.put("uid", this.c.a(this.e));
-            } catch (Exception e3) {
-                e3.printStackTrace();
-            }
-            try {
-                jSONObject.put("adrid", this.b.d(this.e));
-            } catch (Exception e4) {
-                e4.printStackTrace();
-            }
-            try {
-                jSONObject.put("network", this.b.c(this.e));
-            } catch (Exception e5) {
-                e5.printStackTrace();
-            }
-            try {
-                jSONObject.put("pkg", this.b.b(this.e));
-            } catch (Exception e6) {
-                e6.printStackTrace();
-            }
-            try {
-                jSONObject.put("ctime", this.b.b());
-            } catch (Exception e7) {
-                e7.printStackTrace();
-            }
-            try {
-                jSONObject.put("ua", this.b.a(this.e));
-            } catch (Exception e8) {
-                e8.printStackTrace();
-            }
-            try {
-                jSONObject.put("ut", this.b.a());
-            } catch (Exception e9) {
-                e9.printStackTrace();
-            }
-            try {
-                jSONObject.put("iid", this.a.g(this.e));
-            } catch (Exception e10) {
-                e10.printStackTrace();
-            }
-            try {
-                jSONObject.put(Config.SID, this.a.b(this.e));
-            } catch (Exception e11) {
-                e11.printStackTrace();
-            }
-            try {
-                jSONObject.put("oid", this.a.d(this.e));
-            } catch (Exception e12) {
-                e12.printStackTrace();
-            }
-            try {
-                jSONObject.put(Config.GAID, this.a.c(this.e));
-            } catch (Exception e13) {
-                e13.printStackTrace();
-            }
-            try {
-                jSONObject.put("cver", this.a.a());
-            } catch (Exception e14) {
-                e14.printStackTrace();
-            }
-            try {
-                jSONObject.put("sappinfos", this.a.e(this.e).toString());
-            } catch (Exception e15) {
-                e15.printStackTrace();
-            }
-            try {
-                jSONObject.put("cstoreext", this.a.f(this.e).toString());
-            } catch (Exception e16) {
-                e16.printStackTrace();
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String e = e("https://mbd.baidu.com/store");
+            a40 a40Var = this.d;
+            JSONObject a3 = e40.a((a40Var == null || (a2 = a40Var.a()) == null) ? null : a2.a(e, "POST", this.e, this.c.a()));
+            return a3 != null && a3.optInt("errno", -1) == 0;
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final void c(Context context) {
+    public final void m() {
+        y30 y30Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            if (context == null) {
-                throw new NullPointerException("ctx should not be null");
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (y30Var = this.g) == null) {
+            return;
+        }
+        y30Var.b(this.c.a());
+    }
+
+    public final void o() {
+        AtomicInteger atomicInteger;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (atomicInteger = this.b) == null) {
+            return;
+        }
+        atomicInteger.set(2);
+    }
+
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            synchronized (q30.class) {
+                if (this.b.get() == 0) {
+                    if (this.h == null) {
+                        throw new NullPointerException("context should not be null");
+                    }
+                    this.b.set(1);
+                    if (this.a == null) {
+                        this.a = new Thread(h());
+                    }
+                    this.a.start();
+                }
             }
-            if (this.e == null) {
-                this.e = context.getApplicationContext();
-            }
-            this.d = b();
         }
     }
 }

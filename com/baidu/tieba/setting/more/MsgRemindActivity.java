@@ -15,15 +15,15 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bg5;
-import com.baidu.tieba.k45;
-import com.baidu.tieba.lo5;
-import com.baidu.tieba.p35;
-import com.baidu.tieba.r35;
+import com.baidu.tieba.b45;
+import com.baidu.tieba.es4;
+import com.baidu.tieba.fp5;
+import com.baidu.tieba.pq8;
+import com.baidu.tieba.qg5;
 import com.baidu.tieba.setting.model.MsgRemindModel;
-import com.baidu.tieba.ur4;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.yl8;
+import com.baidu.tieba.v45;
+import com.baidu.tieba.z35;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -33,13 +33,13 @@ import java.util.Date;
 public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implements BdSwitchView.b, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yl8 a;
+    public pq8 a;
     public MsgRemindModel b;
-    public final lo5 c;
+    public final fp5 c;
     public MsgRemindModel.f d;
 
     /* loaded from: classes6.dex */
-    public class a implements lo5 {
+    public class a implements fp5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MsgRemindActivity a;
@@ -62,11 +62,11 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
             this.a = msgRemindActivity;
         }
 
-        @Override // com.baidu.tieba.lo5
+        @Override // com.baidu.tieba.fp5
         public void a(Date date, View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, date, view2) == null) && this.a.a != null) {
-                p35.d().a0(date.getHours(), date.getMinutes());
+                z35.d().a0(date.getHours(), date.getMinutes());
                 this.a.a.Q();
                 this.a.a.P();
             }
@@ -178,7 +178,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onNetRefreshButtonClicked();
-            k45.e(getPageContext());
+            v45.e(getPageContext());
         }
     }
 
@@ -187,7 +187,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onStop();
-            p35.d().H();
+            z35.d().H();
         }
     }
 
@@ -205,27 +205,27 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            yl8 yl8Var = new yl8(this);
-            this.a = yl8Var;
-            yl8Var.C(this);
+            pq8 pq8Var = new pq8(this);
+            this.a = pq8Var;
+            pq8Var.C(this);
             this.b = new MsgRemindModel(getPageContext());
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
-    public void e0(View view2, BdSwitchView.SwitchState switchState) {
+    public void f0(View view2, BdSwitchView.SwitchState switchState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, view2, switchState) == null) {
             boolean z = false;
             if (view2 == this.a.y()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
-                    p35.d().Z(true);
+                    z35.d().Z(true);
                     TiebaStatic.log(new StatisticItem("c12939").param("obj_type", 2));
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_SWITCH).param("obj_type", 1));
                     this.a.Q();
                     this.a.N(true);
                 } else {
-                    p35.d().Z(false);
+                    z35.d().Z(false);
                     TiebaStatic.log(new StatisticItem("c12939").param("obj_type", 1));
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_SWITCH).param("obj_type", 0));
                     this.a.N(false);
@@ -311,9 +311,9 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             super.onClick(view2);
             if (view2 == this.a.x()) {
-                r35.c().k(3, getPageContext(), this.c, false);
+                b45.c().k(3, getPageContext(), this.c, false);
             } else if (view2 == this.a.s()) {
-                ur4.c().b();
+                es4.c().b();
             }
         }
     }
@@ -323,15 +323,15 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
-            boolean a2 = bg5.a(this);
+            boolean a2 = qg5.a(this);
             if (getIntent() != null && getIntent().getBooleanExtra("not_need_account", false)) {
                 return;
             }
             if (!a2) {
                 this.a.O(false);
-                showNetRefreshView(this.a.A(), getString(R.string.obfuscated_res_0x7f0f16ad), getString(R.string.obfuscated_res_0x7f0f0809), getString(R.string.go_to_open), true, getNetRefreshListener());
+                showNetRefreshView(this.a.A(), getString(R.string.obfuscated_res_0x7f0f16c0), getString(R.string.obfuscated_res_0x7f0f0811), getString(R.string.go_to_open), true, getNetRefreshListener());
                 setNetRefreshViewPicResId(R.drawable.new_pic_emotion_03);
-                setNetRefreshViewEmotionMarginTop(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds530));
+                setNetRefreshViewEmotionMarginTop(zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds530));
                 return;
             }
             this.a.O(true);

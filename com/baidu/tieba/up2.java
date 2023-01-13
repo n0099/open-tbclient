@@ -1,123 +1,114 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.List;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.util.Pair;
+import android.view.View;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.aop.annotation.DebugTrace;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.console.property.SwanAppPropertyWindow;
+import com.baidu.swan.apps.res.ui.FullScreenFloatView;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.tieba.vp2;
 /* loaded from: classes6.dex */
-public class up2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static List<WeakReference<tp2>> a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface up2 extends vp2.b {
+    rq1 A(String str);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948218610, "Lcom/baidu/tieba/up2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948218610, "Lcom/baidu/tieba/up2;");
-                return;
-            }
-        }
-        a = new ArrayList();
-    }
+    View B(String str);
 
-    public static void a(mq1 mq1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, mq1Var) == null) {
-            for (int size = a.size() - 1; size >= 0; size--) {
-                tp2 tp2Var = a.get(size).get();
-                if (tp2Var == null) {
-                    a.remove(size);
-                } else {
-                    tp2Var.d(mq1Var);
-                }
-            }
-        }
-    }
+    String C();
 
-    public static void b(mq1 mq1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, mq1Var) == null) {
-            for (int size = a.size() - 1; size >= 0; size--) {
-                tp2 tp2Var = a.get(size).get();
-                if (tp2Var == null) {
-                    a.remove(size);
-                } else {
-                    tp2Var.b(mq1Var);
-                }
-            }
-        }
-    }
+    j43 D();
 
-    public static void c(mq1 mq1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, mq1Var) == null) {
-            for (int size = a.size() - 1; size >= 0; size--) {
-                tp2 tp2Var = a.get(size).get();
-                if (tp2Var == null) {
-                    a.remove(size);
-                } else {
-                    tp2Var.c(mq1Var);
-                }
-            }
-        }
-    }
+    void E(gp2 gp2Var, dn2 dn2Var);
 
-    public static void d(mq1 mq1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, mq1Var) == null) {
-            for (int size = a.size() - 1; size >= 0; size--) {
-                tp2 tp2Var = a.get(size).get();
-                if (tp2Var == null) {
-                    a.remove(size);
-                } else {
-                    tp2Var.a(mq1Var);
-                }
-            }
-        }
-    }
+    xl1 F();
 
-    public static void f(tp2 tp2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65542, null, tp2Var) != null) || tp2Var == null) {
-            return;
-        }
-        for (int size = a.size() - 1; size >= 0; size--) {
-            tp2 tp2Var2 = a.get(size).get();
-            if (tp2Var2 == null || tp2Var == tp2Var2) {
-                a.remove(size);
-            }
-        }
-    }
+    @NonNull
+    mc3 G();
 
-    public static void e(tp2 tp2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65541, null, tp2Var) != null) || tp2Var == null) {
-            return;
-        }
-        boolean z = false;
-        for (int size = a.size() - 1; size >= 0; size--) {
-            tp2 tp2Var2 = a.get(size).get();
-            if (tp2Var2 == null) {
-                a.remove(size);
-            } else if (tp2Var2 == tp2Var) {
-                z = true;
-            } else {
-                z = false;
-            }
-        }
-        if (!z) {
-            a.add(new WeakReference<>(tp2Var));
-        }
-    }
+    r32 H();
+
+    void I();
+
+    SwanAppPropertyWindow J(Activity activity);
+
+    void K(String str);
+
+    am1 L();
+
+    SwanCoreVersion M();
+
+    boolean N();
+
+    void O();
+
+    am1 P();
+
+    void a();
+
+    String b();
+
+    void c();
+
+    void d(gp2 gp2Var, dn2 dn2Var);
+
+    @NonNull
+    y43 e(String str, SwanAppConfigData swanAppConfigData, String str2);
+
+    void exit();
+
+    @NonNull
+    y43 f(String str);
+
+    String g();
+
+    SwanAppActivity getActivity();
+
+    qq1 i();
+
+    @NonNull
+    y43 j(String str);
+
+    boolean k();
+
+    void l(SwanAppActivity swanAppActivity);
+
+    void m(String str, je2 je2Var);
+
+    FullScreenFloatView n(Activity activity);
+
+    void o();
+
+    void p();
+
+    @DebugTrace
+    oq1 q();
+
+    @NonNull
+    Pair<Integer, Integer> r();
+
+    void registerReceiver(Context context);
+
+    SwanAppConfigData s();
+
+    void t(Intent intent);
+
+    void u(je2 je2Var);
+
+    void unregisterReceiver(Context context);
+
+    void v();
+
+    void w();
+
+    @NonNull
+    Pair<Integer, Integer> x();
+
+    void y(me2 me2Var, boolean z);
+
+    String z();
 }

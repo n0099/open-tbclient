@@ -54,10 +54,10 @@ public final class c implements Runnable {
                 }
             } catch (Exception unused) {
             } catch (Throwable th) {
-                this.a.b = null;
+                b.b(this.a);
                 throw th;
             }
-            this.a.b = null;
+            b.b(this.a);
         }
     }
 }

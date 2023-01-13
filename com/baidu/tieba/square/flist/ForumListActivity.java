@@ -29,23 +29,23 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.az4;
-import com.baidu.tieba.ch;
-import com.baidu.tieba.mp8;
-import com.baidu.tieba.mr8;
-import com.baidu.tieba.np8;
-import com.baidu.tieba.op8;
-import com.baidu.tieba.q9;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.dr4;
+import com.baidu.tieba.iu8;
+import com.baidu.tieba.iw8;
+import com.baidu.tieba.ju8;
+import com.baidu.tieba.ku8;
+import com.baidu.tieba.lz4;
+import com.baidu.tieba.pu8;
+import com.baidu.tieba.r9;
 import com.baidu.tieba.square.data.ForumInfoData;
 import com.baidu.tieba.square.flist.DirMenuModel;
 import com.baidu.tieba.square.flist.ForumListDetailModel;
 import com.baidu.tieba.square.flist.ForumListModel;
 import com.baidu.tieba.tbadkCore.LikeModel;
-import com.baidu.tieba.tp8;
-import com.baidu.tieba.tq4;
-import com.baidu.tieba.xg;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.yg;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -63,13 +63,13 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
     public static String K = "";
     public static String L = "";
     public transient /* synthetic */ FieldHolder $fh;
-    public np8 A;
+    public ju8 A;
     public DirMenuModel B;
     public ForumListDetailModel C;
     public final ForumListDetailModel.b D;
     public final DirMenuModel.c E;
     public final AdapterView.OnItemClickListener F;
-    public final az4.g G;
+    public final lz4.g G;
     public int a;
     public int b;
     public Drawable c;
@@ -91,11 +91,11 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
     public int s;
     public boolean t;
     public boolean u;
-    public op8 v;
+    public ku8 v;
     public ForumListModel.RequestParams w;
     public boolean x;
     public boolean y;
-    public np8 z;
+    public ju8 z;
 
     static {
         InterceptResult invokeClinit;
@@ -254,16 +254,16 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
         }
 
         @Override // com.baidu.tieba.square.flist.DirMenuModel.c
-        public void a(boolean z, int i, tp8 tp8Var, String str, boolean z2) {
+        public void a(boolean z, int i, pu8 pu8Var, String str, boolean z2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), tp8Var, str, Boolean.valueOf(z2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), pu8Var, str, Boolean.valueOf(z2)}) == null) {
                 if (z && i == 0) {
-                    tp8Var.e.add(0, tp8Var);
-                    mp8 mp8Var = this.a.v.y;
-                    if (mp8Var != null) {
-                        mp8Var.e(tp8Var);
+                    pu8Var.e.add(0, pu8Var);
+                    iu8 iu8Var = this.a.v.y;
+                    if (iu8Var != null) {
+                        iu8Var.e(pu8Var);
                         ForumListActivity forumListActivity = this.a;
-                        forumListActivity.h2(String.valueOf(forumListActivity.v.g.getText()));
+                        forumListActivity.i2(String.valueOf(forumListActivity.v.g.getText()));
                         ForumListActivity forumListActivity2 = this.a;
                         forumListActivity2.v.f.onChangeSkinType(forumListActivity2.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
                         this.a.v.y.notifyDataSetChanged();
@@ -308,18 +308,18 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
                 TiebaStatic.eventStat(this.a.getPageContext().getPageActivity(), "forumlist_catalog", "catalogclick", 1, new Object[0]);
                 ForumListActivity forumListActivity = this.a;
-                ch.d(forumListActivity.v.u, forumListActivity.getPageContext().getPageActivity());
+                dh.d(forumListActivity.v.u, forumListActivity.getPageContext().getPageActivity());
                 this.a.p = i;
                 this.a.v.e();
                 this.a.v.h();
-                ArrayList<tp8> arrayList = this.a.v.y.c().e;
-                this.a.d2(arrayList.get(i).b, arrayList.get(i).c, arrayList.get(i).a);
+                ArrayList<pu8> arrayList = this.a.v.y.c().e;
+                this.a.e2(arrayList.get(i).b, arrayList.get(i).c, arrayList.get(i).a);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class d implements az4.g {
+    public class d implements lz4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumListActivity a;
@@ -342,8 +342,8 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
             this.a = forumListActivity;
         }
 
-        @Override // com.baidu.tieba.az4.g
-        public void e(boolean z) {
+        @Override // com.baidu.tieba.lz4.g
+        public void f(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && !this.a.z.c() && !this.a.A.c()) {
                 if (this.a.t) {
@@ -435,12 +435,12 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
             if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
                 return;
             }
-            this.a.v1();
+            this.a.w1();
         }
     }
 
     /* loaded from: classes6.dex */
-    public class g extends q9 {
+    public class g extends r9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumInfoData[] a;
@@ -465,7 +465,7 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
             this.a = forumInfoDataArr;
         }
 
-        @Override // com.baidu.tieba.q9
+        @Override // com.baidu.tieba.r9
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
@@ -477,7 +477,7 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
                     if (this.b.n.getErrorCode() != 0) {
                         ForumListActivity forumListActivity2 = this.b;
                         forumListActivity2.showToast(forumListActivity2.n.getErrorString());
-                    } else if (((mr8) obj).m() == 1) {
+                    } else if (((iw8) obj).n() == 1) {
                         if (this.b.m == 0) {
                             this.b.z.notifyDataSetChanged();
                             TbadkCoreApplication.getInst().addLikeForum(this.a[this.b.z.b].forum_name);
@@ -640,14 +640,14 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
                         forumListActivity2.v.r.setImageDrawable(forumListActivity2.g);
                     } else {
                         ForumListActivity forumListActivity3 = this.b;
-                        forumListActivity3.v.q.setText(forumListActivity3.getPageContext().getString(R.string.obfuscated_res_0x7f0f065c));
+                        forumListActivity3.v.q.setText(forumListActivity3.getPageContext().getString(R.string.obfuscated_res_0x7f0f0664));
                         ForumListActivity forumListActivity4 = this.b;
                         forumListActivity4.v.r.setImageDrawable(forumListActivity4.h);
                         this.b.y = true;
                     }
                 } else {
                     ForumListActivity forumListActivity5 = this.b;
-                    forumListActivity5.showToast(forumListActivity5.getPageContext().getString(R.string.obfuscated_res_0x7f0f0cb8));
+                    forumListActivity5.showToast(forumListActivity5.getPageContext().getString(R.string.obfuscated_res_0x7f0f0cd1));
                     if (this.a) {
                         ForumListActivity forumListActivity6 = this.b;
                         forumListActivity6.v.q.setText(forumListActivity6.getPageContext().getString(R.string.flist_expand_list));
@@ -662,7 +662,7 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
                         forumListActivity9.v.r.setImageDrawable(forumListActivity9.g);
                     } else {
                         ForumListActivity forumListActivity10 = this.b;
-                        forumListActivity10.v.q.setText(forumListActivity10.getPageContext().getString(R.string.obfuscated_res_0x7f0f065c));
+                        forumListActivity10.v.q.setText(forumListActivity10.getPageContext().getString(R.string.obfuscated_res_0x7f0f0664));
                         ForumListActivity forumListActivity11 = this.b;
                         forumListActivity11.v.r.setImageDrawable(forumListActivity11.h);
                     }
@@ -758,14 +758,14 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
                         forumListActivity2.v.o.setImageDrawable(forumListActivity2.g);
                     } else {
                         ForumListActivity forumListActivity3 = this.b;
-                        forumListActivity3.v.n.setText(forumListActivity3.getPageContext().getString(R.string.obfuscated_res_0x7f0f065c));
+                        forumListActivity3.v.n.setText(forumListActivity3.getPageContext().getString(R.string.obfuscated_res_0x7f0f0664));
                         ForumListActivity forumListActivity4 = this.b;
                         forumListActivity4.v.o.setImageDrawable(forumListActivity4.h);
                         this.b.x = true;
                     }
                 } else {
                     ForumListActivity forumListActivity5 = this.b;
-                    forumListActivity5.showToast(forumListActivity5.getPageContext().getString(R.string.obfuscated_res_0x7f0f0cb8));
+                    forumListActivity5.showToast(forumListActivity5.getPageContext().getString(R.string.obfuscated_res_0x7f0f0cd1));
                     if (this.a) {
                         ForumListActivity forumListActivity6 = this.b;
                         forumListActivity6.v.n.setText(forumListActivity6.getPageContext().getString(R.string.flist_expand_list));
@@ -780,7 +780,7 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
                         forumListActivity9.v.o.setImageDrawable(forumListActivity9.g);
                     } else {
                         ForumListActivity forumListActivity10 = this.b;
-                        forumListActivity10.v.n.setText(forumListActivity10.getPageContext().getString(R.string.obfuscated_res_0x7f0f065c));
+                        forumListActivity10.v.n.setText(forumListActivity10.getPageContext().getString(R.string.obfuscated_res_0x7f0f0664));
                         ForumListActivity forumListActivity11 = this.b;
                         forumListActivity11.v.o.setImageDrawable(forumListActivity11.h);
                     }
@@ -833,7 +833,7 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
         this.G = new d(this);
     }
 
-    public final void v1() {
+    public final void w1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             if (this.y) {
@@ -877,7 +877,7 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
         }
     }
 
-    public static void g2(Context context, String str, String str2, String str3, String str4) {
+    public static void h2(Context context, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65565, null, context, str, str2, str3, str4) == null) {
             Intent intent = new Intent(context, ForumListActivity.class);
@@ -892,7 +892,7 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
         }
     }
 
-    public final BdListView b2() {
+    public final BdListView c2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -918,7 +918,7 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
             super.onDestroy();
             LikeModel likeModel = this.n;
             if (likeModel != null) {
-                likeModel.T();
+                likeModel.U();
             }
             this.v.d.setAdapter(null);
             this.v.j.setAdapter((ListAdapter) null);
@@ -946,40 +946,40 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
             if (H) {
                 H = false;
                 finish();
-                g2(getPageContext().getPageActivity(), I, K, J, L);
+                h2(getPageContext().getPageActivity(), I, K, J, L);
                 return;
             }
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount != null && currentAccount.length() > 0) {
-                np8 np8Var = this.z;
-                if (np8Var != null) {
-                    np8Var.k();
+                ju8 ju8Var = this.z;
+                if (ju8Var != null) {
+                    ju8Var.k();
                     this.z.notifyDataSetChanged();
                 }
-                np8 np8Var2 = this.A;
-                if (np8Var2 != null) {
-                    np8Var2.k();
+                ju8 ju8Var2 = this.A;
+                if (ju8Var2 != null) {
+                    ju8Var2.k();
                     this.A.notifyDataSetChanged();
                 }
             }
         }
     }
 
-    public final void c2(String str, String str2, String str3, String str4) {
+    public final void d2(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4) == null) {
-            if (xi.isEmpty(str4)) {
+            if (yi.isEmpty(str4)) {
                 str4 = str;
             }
             this.v.g.setText(str4);
             this.v.f.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             ForumListModel.RequestParams requestParams = new ForumListModel.RequestParams();
             this.w = requestParams;
-            requestParams.menu_id = xg.e(str2, 0);
+            requestParams.menu_id = yg.e(str2, 0);
             ForumListModel.RequestParams requestParams2 = this.w;
             requestParams2.menu_name = str4;
-            requestParams2.menu_type = xg.e(str3, 0);
-            this.w.parent_menu_id = xg.e(str2, 0);
+            requestParams2.menu_type = yg.e(str3, 0);
+            this.w.parent_menu_id = yg.e(str2, 0);
             ForumListModel.RequestParams requestParams3 = this.w;
             requestParams3.parent_menu_name = str;
             requestParams3.offset = 0;
@@ -1019,14 +1019,14 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
         }
     }
 
-    public final void d2(String str, String str2, String str3) {
+    public final void e2(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3) == null) {
-            this.w.menu_id = xg.e(str2, 0);
+            this.w.menu_id = yg.e(str2, 0);
             ForumListModel.RequestParams requestParams = this.w;
             requestParams.menu_name = str;
-            requestParams.menu_type = xg.e(str3, 0);
-            this.w.parent_menu_id = xg.e(getIntent().getStringExtra(ForumListActivityConfig.KEY_PARENT_MENU_ID), 0);
+            requestParams.menu_type = yg.e(str3, 0);
+            this.w.parent_menu_id = yg.e(getIntent().getStringExtra(ForumListActivityConfig.KEY_PARENT_MENU_ID), 0);
             this.w.parent_menu_name = getIntent().getStringExtra(ForumListActivityConfig.KEY_PARENT_MENU_NAME);
             ForumListModel.RequestParams requestParams2 = this.w;
             requestParams2.offset = 0;
@@ -1041,35 +1041,35 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
         }
     }
 
-    public final View e2() {
+    public final View f2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            this.v.j = b2();
+            this.v.j = c2();
             this.v.p.setOnClickListener(new f(this));
             return this.v.j;
         }
         return (View) invokeV.objValue;
     }
 
-    public final View f2() {
+    public final View g2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            this.v.i = b2();
+            this.v.i = c2();
             this.v.m.setOnClickListener(new e(this));
             return this.v.i;
         }
         return (View) invokeV.objValue;
     }
 
-    public final void h2(String str) {
-        tp8 c2;
+    public final void i2(String str) {
+        pu8 c2;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || (c2 = this.v.y.c()) == null) {
             return;
         }
-        ArrayList<tp8> arrayList = c2.e;
+        ArrayList<pu8> arrayList = c2.e;
         int size = arrayList.size();
         for (int i2 = 0; i2 < size; i2++) {
             if (arrayList.get(i2).b.equals(str)) {
@@ -1095,12 +1095,12 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
             if (this.m == 0) {
                 LikeModel likeModel = this.n;
                 int i4 = this.z.b;
-                likeModel.X(a2[i4].forum_name, String.valueOf(a2[i4].forum_id));
+                likeModel.Y(a2[i4].forum_name, String.valueOf(a2[i4].forum_id));
                 return;
             }
             LikeModel likeModel2 = this.n;
             int i5 = this.A.b;
-            likeModel2.X(a2[i5].forum_name, String.valueOf(a2[i5].forum_id));
+            likeModel2.Y(a2[i5].forum_name, String.valueOf(a2[i5].forum_id));
         }
     }
 
@@ -1110,7 +1110,7 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            tq4 layoutMode = getLayoutMode();
+            dr4 layoutMode = getLayoutMode();
             if (i2 == 1) {
                 z = true;
             } else {
@@ -1176,15 +1176,15 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f0920e3) {
+            if (id == R.id.obfuscated_res_0x7f092110) {
                 this.v.d.setCurrentItem(0);
                 this.m = 0;
                 TiebaStatic.eventStat(view2.getContext(), "recommend_list_click", "click", 1, new Object[0]);
-            } else if (id == R.id.obfuscated_res_0x7f0920dc) {
+            } else if (id == R.id.obfuscated_res_0x7f092109) {
                 this.v.d.setCurrentItem(1);
                 this.m = 1;
                 TiebaStatic.eventStat(view2.getContext(), "hot_list_click", "click", 1, new Object[0]);
-            } else if (id == R.id.obfuscated_res_0x7f0922f1) {
+            } else if (id == R.id.obfuscated_res_0x7f09231c) {
                 this.v.f(this.F);
             }
         }
@@ -1196,27 +1196,27 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d02b9);
+            setContentView(R.layout.obfuscated_res_0x7f0d02b5);
             String stringExtra = getIntent().getStringExtra(ForumListActivityConfig.KEY_PARENT_MENU_NAME);
             String stringExtra2 = getIntent().getStringExtra("level_2_menu_name");
             String stringExtra3 = getIntent().getStringExtra(ForumListActivityConfig.KEY_PARENT_MENU_ID);
             String stringExtra4 = getIntent().getStringExtra(ForumListActivityConfig.KEY_MENU_TYPE);
-            op8 op8Var = new op8(this);
-            this.v = op8Var;
-            op8Var.i = (BdListView) f2();
-            this.v.j = (BdListView) e2();
+            ku8 ku8Var = new ku8(this);
+            this.v = ku8Var;
+            ku8Var.i = (BdListView) g2();
+            this.v.j = (BdListView) f2();
             this.v.A.setVisibility(0);
             this.v.z.setOnClickListener(null);
             this.v.z.setClickable(false);
             this.v.d.setAdapter(new h(this));
-            op8 op8Var2 = this.v;
-            op8Var2.i.setPullRefresh(op8Var2.s);
-            op8 op8Var3 = this.v;
-            op8Var3.j.setPullRefresh(op8Var3.t);
-            if (xg.e(stringExtra3, 0) != 0) {
-                g2 = yi.g(getActivity(), R.dimen.obfuscated_res_0x7f070282);
+            ku8 ku8Var2 = this.v;
+            ku8Var2.i.setPullRefresh(ku8Var2.s);
+            ku8 ku8Var3 = this.v;
+            ku8Var3.j.setPullRefresh(ku8Var3.t);
+            if (yg.e(stringExtra3, 0) != 0) {
+                g2 = zi.g(getActivity(), R.dimen.obfuscated_res_0x7f070282);
             } else {
-                g2 = yi.g(getActivity(), R.dimen.obfuscated_res_0x7f07025d);
+                g2 = zi.g(getActivity(), R.dimen.obfuscated_res_0x7f07025d);
             }
             TextView textView = new TextView(getActivity());
             textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + g2));
@@ -1224,13 +1224,13 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
             TextView textView2 = new TextView(getActivity());
             textView2.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + g2));
             this.v.j.x(textView2, 0);
-            np8 np8Var = new np8(getPageContext(), 0);
-            this.z = np8Var;
-            this.v.i.setAdapter((ListAdapter) np8Var);
-            np8 np8Var2 = new np8(getPageContext(), 1);
-            this.A = np8Var2;
-            this.v.j.setAdapter((ListAdapter) np8Var2);
-            c2(stringExtra, stringExtra3, stringExtra4, stringExtra2);
+            ju8 ju8Var = new ju8(getPageContext(), 0);
+            this.z = ju8Var;
+            this.v.i.setAdapter((ListAdapter) ju8Var);
+            ju8 ju8Var2 = new ju8(getPageContext(), 1);
+            this.A = ju8Var2;
+            this.v.j.setAdapter((ListAdapter) ju8Var2);
+            d2(stringExtra, stringExtra3, stringExtra4, stringExtra2);
         }
     }
 

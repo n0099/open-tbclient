@@ -10,20 +10,20 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.AppletsCellView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h56;
-import com.baidu.tieba.sx;
-import com.baidu.tieba.vr4;
+import com.baidu.tieba.fs4;
+import com.baidu.tieba.ux;
+import com.baidu.tieba.z86;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class ShareSmartAppLayout extends LinearLayout implements sx<vr4> {
+public class ShareSmartAppLayout extends LinearLayout implements ux<fs4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AppletsCellView a;
-    public h56<vr4> b;
+    public z86<fs4> b;
 
     public void setFromCDN(boolean z) {
         Interceptable interceptable = $ic;
@@ -74,10 +74,10 @@ public class ShareSmartAppLayout extends LinearLayout implements sx<vr4> {
         b();
     }
 
-    public void setSubClickListener(h56<vr4> h56Var) {
+    public void setSubClickListener(z86<fs4> z86Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, h56Var) == null) {
-            this.b = h56Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, z86Var) == null) {
+            this.b = z86Var;
         }
     }
 
@@ -92,14 +92,14 @@ public class ShareSmartAppLayout extends LinearLayout implements sx<vr4> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sx
+    @Override // com.baidu.tieba.ux
     /* renamed from: c */
-    public void a(vr4 vr4Var) {
+    public void a(fs4 fs4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vr4Var) == null) {
-            if (vr4Var != null && vr4Var.getThreadData() != null && vr4Var.getThreadData().getSmartApp() != null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fs4Var) == null) {
+            if (fs4Var != null && fs4Var.getThreadData() != null && fs4Var.getThreadData().getSmartApp() != null) {
                 setVisibility(0);
-                ThreadData threadData = vr4Var.getThreadData();
+                ThreadData threadData = fs4Var.getThreadData();
                 this.a.setData(threadData.getSmartApp());
                 this.a.setForumId(String.valueOf(threadData.getFid()));
                 this.a.setFrom("frs_card");
@@ -109,12 +109,12 @@ public class ShareSmartAppLayout extends LinearLayout implements sx<vr4> {
         }
     }
 
-    public h56<vr4> getSubClickListener() {
+    public z86<fs4> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.b;
         }
-        return (h56) invokeV.objValue;
+        return (z86) invokeV.objValue;
     }
 }

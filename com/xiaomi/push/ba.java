@@ -38,7 +38,7 @@ public class ba implements au {
         }
         this.f153a = az.a(context);
         this.f152a = az.a;
-        com.xiaomi.channel.commonutils.logger.b.m99a("create id manager is: " + this.f152a);
+        com.xiaomi.channel.commonutils.logger.b.m103a("create id manager is: " + this.f152a);
     }
 
     public static ba a(Context context) {
@@ -64,13 +64,15 @@ public class ba implements au {
     }
 
     @Override // com.xiaomi.push.au
-    public String a() {
+    /* renamed from: a */
+    public String mo186a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a(this.f153a.a()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a(this.f153a.mo186a()) : (String) invokeV.objValue;
     }
 
-    @Override // com.xiaomi.push.au
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.au.a()Ljava/lang/String; */
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.au.a()Z */
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -86,9 +88,9 @@ public class ba implements au {
         if (!TextUtils.isEmpty(b)) {
             map.put("udid", b);
         }
-        String a2 = a();
-        if (!TextUtils.isEmpty(a2)) {
-            map.put("oaid", a2);
+        String mo186a = mo186a();
+        if (!TextUtils.isEmpty(mo186a)) {
+            map.put("oaid", mo186a);
         }
         String c = c();
         if (!TextUtils.isEmpty(c)) {
@@ -102,10 +104,11 @@ public class ba implements au {
     }
 
     @Override // com.xiaomi.push.au
-    public boolean a() {
+    /* renamed from: a */
+    public boolean mo187a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f153a.m183a() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f153a.mo187a() : invokeV.booleanValue;
     }
 
     public String b() {

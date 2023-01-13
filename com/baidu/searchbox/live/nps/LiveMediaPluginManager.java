@@ -41,9 +41,9 @@ import com.baidu.searchbox.live.ubc.FlowInfoHelper;
 import com.baidu.searchbox.live.ubc.MediaLivePlayLogger;
 import com.baidu.searchbox.live.ubc.MediaLivePluginLogger;
 import com.baidu.tieba.R;
-import com.baidu.tieba.r91;
-import com.baidu.tieba.t91;
-import com.baidu.tieba.u91;
+import com.baidu.tieba.w91;
+import com.baidu.tieba.y91;
+import com.baidu.tieba.z91;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -212,7 +212,7 @@ public class LiveMediaPluginManager {
                 dLog("preDownloadMediaBusinessPlugin 预加载媒体二级插件");
                 Log.d(TAG, "preDownloadYYPluginForCreateLive: + com.baidu.live.media.business start Download");
             }
-            NPSPackageManager.getInstance().downloadBundle("com.baidu.live.media.business", new r91(this) { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.10
+            NPSPackageManager.getInstance().downloadBundle("com.baidu.live.media.business", new w91(this) { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.10
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveMediaPluginManager this$0;
@@ -235,7 +235,7 @@ public class LiveMediaPluginManager {
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.r91
+                @Override // com.baidu.tieba.w91
                 public void onProgress(long j, long j2) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && this.this$0.isDebug()) {
@@ -245,7 +245,7 @@ public class LiveMediaPluginManager {
                     }
                 }
 
-                @Override // com.baidu.tieba.r91
+                @Override // com.baidu.tieba.w91
                 public void onResult(int i, String str) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && this.this$0.isDebug()) {
@@ -493,19 +493,19 @@ public class LiveMediaPluginManager {
     public void downloadUpdatePackage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65560, this) == null) {
-            NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.livenps", new r91(this) { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.17
+            NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.livenps", new w91(this) { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.17
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveMediaPluginManager this$0;
 
-                @Override // com.baidu.tieba.r91
+                @Override // com.baidu.tieba.w91
                 public void onProgress(long j, long j2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
                     }
                 }
 
-                @Override // com.baidu.tieba.r91
+                @Override // com.baidu.tieba.w91
                 public void onResult(int i, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -529,7 +529,7 @@ public class LiveMediaPluginManager {
                     }
                     this.this$0 = this;
                 }
-            }, new t91(this) { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.18
+            }, new y91(this) { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.18
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveMediaPluginManager this$0;
@@ -552,11 +552,11 @@ public class LiveMediaPluginManager {
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.t91
-                public void checkAuthorization(IBundleInfo iBundleInfo, int i, u91 u91Var) {
+                @Override // com.baidu.tieba.y91
+                public void checkAuthorization(IBundleInfo iBundleInfo, int i, z91 z91Var) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, u91Var) == null) && u91Var != null) {
-                        u91Var.onResult(1);
+                    if ((interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, z91Var) == null) && z91Var != null) {
+                        z91Var.onResult(1);
                     }
                 }
             }, 1);

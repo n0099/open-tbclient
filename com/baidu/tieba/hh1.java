@@ -1,9 +1,13 @@
 package com.baidu.tieba;
 
-import android.view.SurfaceHolder;
+import android.view.View;
 /* loaded from: classes4.dex */
 public interface hh1 {
-    void a();
+    void a(ih1 ih1Var);
 
-    void surfaceCreated(SurfaceHolder surfaceHolder);
+    void c(gh1 gh1Var);
+
+    View getAdView();
+
+    void load();
 }

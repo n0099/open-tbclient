@@ -6,8 +6,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.x66;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.pa6;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +20,7 @@ public class WriteTipBubbleController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public x66 b;
+    public pa6 b;
     public b c;
 
     /* loaded from: classes3.dex */
@@ -154,20 +154,20 @@ public class WriteTipBubbleController {
     }
 
     public void c() {
-        x66 x66Var;
+        pa6 pa6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (x66Var = this.b) != null) {
-            x66Var.h();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (pa6Var = this.b) != null) {
+            pa6Var.h();
         }
     }
 
     public void d(@NonNull View view2, @NonNull String str, @NonNull String str2, @NonNull ANCHOR_VIEW_FROM anchor_view_from) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, str, str2, anchor_view_from) == null) && this.a != null && view2 != null && !xi.isEmpty(str) && !xi.isEmpty(str2)) {
+        if ((interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, str, str2, anchor_view_from) == null) && this.a != null && view2 != null && !yi.isEmpty(str) && !yi.isEmpty(str2)) {
             if (this.b == null) {
-                x66 x66Var = new x66(this.a, view2);
-                this.b = x66Var;
-                x66Var.L(R.drawable.pic_post_findlink);
+                pa6 pa6Var = new pa6(this.a, view2);
+                this.b = pa6Var;
+                pa6Var.L(R.drawable.pic_post_findlink);
                 this.b.v(2);
                 this.b.r(true);
                 this.b.K(19);
@@ -180,20 +180,20 @@ public class WriteTipBubbleController {
                 int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.tbds32);
                 int dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224);
                 this.b.E(dimensionPixelSize, 0, dimensionPixelSize, dimensionPixelSize);
-                this.b.P(0);
-                this.b.Q(-dimensionPixelSize2);
+                this.b.Q(0);
+                this.b.R(-dimensionPixelSize2);
                 this.b.p(R.dimen.tbds177);
-                this.b.O(R.dimen.tbds484);
+                this.b.P(R.dimen.tbds484);
             } else if (anchor_view_from == ANCHOR_VIEW_FROM.FROM_EDIT_TEXT) {
                 this.b.o(32);
                 this.b.l(5);
                 int dimensionPixelSize3 = this.a.getResources().getDimensionPixelSize(R.dimen.tbds32);
                 int dimensionPixelSize4 = this.a.getResources().getDimensionPixelSize(R.dimen.tbds32);
                 this.b.E(dimensionPixelSize3, 0, dimensionPixelSize3, dimensionPixelSize3);
-                this.b.P(0);
-                this.b.Q(-dimensionPixelSize4);
+                this.b.Q(0);
+                this.b.R(-dimensionPixelSize4);
                 this.b.p(R.dimen.tbds177);
-                this.b.O(R.dimen.tbds484);
+                this.b.P(R.dimen.tbds484);
             } else if (anchor_view_from == ANCHOR_VIEW_FROM.FROM_PB_REPLY) {
                 int dimensionPixelSize5 = this.a.getResources().getDimensionPixelSize(R.dimen.M_W_X006);
                 int dimensionPixelSize6 = this.a.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
@@ -206,13 +206,13 @@ public class WriteTipBubbleController {
                 this.b.C(R.color.CAM_X0101);
                 int dimensionPixelSize8 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224);
                 this.b.E(dimensionPixelSize5, dimensionPixelSize6, dimensionPixelSize5, dimensionPixelSize7);
-                this.b.P(0);
-                this.b.Q(-dimensionPixelSize8);
+                this.b.Q(0);
+                this.b.R(-dimensionPixelSize8);
                 this.b.p(R.dimen.tbds112);
-                this.b.O(R.dimen.tbds536);
+                this.b.P(R.dimen.tbds536);
             }
             this.b.m(new a(this, str2));
-            this.b.R(str);
+            this.b.S(str);
             TiebaStatic.log("c13801");
         }
     }

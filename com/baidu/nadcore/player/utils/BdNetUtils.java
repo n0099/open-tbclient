@@ -7,8 +7,8 @@ import android.net.NetworkInfo;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tieba.R;
-import com.baidu.tieba.s21;
-import com.baidu.tieba.zi0;
+import com.baidu.tieba.ej0;
+import com.baidu.tieba.x21;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -137,7 +137,7 @@ public class BdNetUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             try {
-                return ((ConnectivityManager) zi0.b().getSystemService("connectivity")).getActiveNetworkInfo();
+                return ((ConnectivityManager) ej0.b().getSystemService("connectivity")).getActiveNetworkInfo();
             } catch (Exception unused) {
                 return null;
             }
@@ -217,7 +217,7 @@ public class BdNetUtils {
                 sb.append(str);
                 sb.append("MB");
             }
-            s21.a().showToast(context, sb.toString());
+            x21.a().showToast(context, sb.toString());
         }
     }
 }

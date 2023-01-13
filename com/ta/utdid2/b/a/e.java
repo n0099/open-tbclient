@@ -86,7 +86,7 @@ public class e {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static final HashMap m94a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
+    public static final HashMap m98a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, xmlPullParser, str, strArr)) == null) {
@@ -285,7 +285,7 @@ public class e {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static final int[] m95a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
+    public static final int[] m99a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, xmlPullParser, str, strArr)) == null) {
@@ -369,14 +369,14 @@ public class e {
                     obj = Boolean.valueOf(xmlPullParser.getAttributeValue(null, "value"));
                 } else if (name.equals("int-array")) {
                     xmlPullParser.next();
-                    int[] m95a = m95a(xmlPullParser, "int-array", strArr);
+                    int[] m99a = m99a(xmlPullParser, "int-array", strArr);
                     strArr[0] = attributeValue;
-                    return m95a;
+                    return m99a;
                 } else if (name.equals("map")) {
                     xmlPullParser.next();
-                    HashMap m94a = m94a(xmlPullParser, "map", strArr);
+                    HashMap m98a = m98a(xmlPullParser, "map", strArr);
                     strArr[0] = attributeValue;
-                    return m94a;
+                    return m98a;
                 } else if (name.equals("list")) {
                     xmlPullParser.next();
                     ArrayList a = a(xmlPullParser, "list", strArr);

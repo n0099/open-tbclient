@@ -1,80 +1,110 @@
 package com.baidu.tieba;
 
+import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IThreadManager;
-import com.baidu.nps.interfa.IThreadManager_ThreadManager_Provider;
+import com.baidu.nps.interfa.IPrivateReflectAbility;
+import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+@Autowired
 /* loaded from: classes5.dex */
 public class p91 {
     public static /* synthetic */ Interceptable $ic;
-    public static p91 b;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject
-    public lf1<IThreadManager> a;
 
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            jf1 b2 = jf1.b();
-            this.a = b2;
-            b2.a(new IThreadManager_ThreadManager_Provider());
-        }
-    }
+    /* loaded from: classes5.dex */
+    public static class a implements IPrivateReflectAbility {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948016769, "Lcom/baidu/tieba/p91;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948016769, "Lcom/baidu/tieba/p91;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        b = new p91();
+
+        @Override // com.baidu.nps.interfa.IPrivateReflectAbility
+        public Class<?> forName(String str) throws ClassNotFoundException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return ua1.a(str);
+            }
+            return (Class) invokeL.objValue;
+        }
+
+        @Override // com.baidu.nps.interfa.IPrivateReflectAbility
+        public Field getField(Class<?> cls, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls, str)) == null) {
+                return ua1.b(cls, str);
+            }
+            return (Field) invokeLL.objValue;
+        }
+
+        @Override // com.baidu.nps.interfa.IPrivateReflectAbility
+        public Method getMethod(Class<?> cls, String str, Class<?>... clsArr) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, cls, str, clsArr)) == null) {
+                return ua1.c(cls, str, clsArr);
+            }
+            return (Method) invokeLLL.objValue;
+        }
     }
 
-    public p91() {
+    public static Class<?> a(String str) throws ClassNotFoundException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            return c().forName(str);
         }
-        c();
+        return (Class) invokeL.objValue;
     }
 
-    public static p91 a() {
+    public static Method b(Class<?> cls, String str, Class<?>... clsArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, cls, str, clsArr)) == null) {
+            return c().getMethod(cls, str, clsArr);
+        }
+        return (Method) invokeLLL.objValue;
+    }
+
+    @Inject(force = false)
+    public static IPrivateReflectAbility c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+            return new a();
         }
-        return (p91) invokeV.objValue;
+        return (IPrivateReflectAbility) invokeV.objValue;
     }
 
-    public IThreadManager b() {
+    public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.get();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if ((c() instanceof a) && Build.VERSION.SDK_INT >= 28) {
+                return false;
+            }
+            return true;
         }
-        return (IThreadManager) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 }

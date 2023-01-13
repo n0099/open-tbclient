@@ -1,94 +1,35 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
 /* loaded from: classes5.dex */
 public interface ko2 {
+    boolean a(Context context, zq2 zq2Var, sq2 sq2Var, j43 j43Var);
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void b(ko2 ko2Var);
-    }
+    boolean b(Context context, uq2 uq2Var, sq2 sq2Var, j43 j43Var);
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        boolean f(ko2 ko2Var, int i, int i2);
-    }
+    boolean c(Context context, vq2 vq2Var, sq2 sq2Var, j43 j43Var);
 
-    /* loaded from: classes5.dex */
-    public interface c {
-        void c(ko2 ko2Var);
-    }
+    void d(pq1 pq1Var);
 
-    /* loaded from: classes5.dex */
-    public interface d {
-        void e(ko2 ko2Var);
-    }
+    boolean e(Context context, tq2 tq2Var, sq2 sq2Var, j43 j43Var);
 
-    /* loaded from: classes5.dex */
-    public interface e {
-        void a(ko2 ko2Var);
-    }
+    void f(pq1 pq1Var);
 
-    /* loaded from: classes5.dex */
-    public interface f {
-        void d(ko2 ko2Var);
-    }
+    boolean g(Context context, vq2 vq2Var, sq2 sq2Var, j43 j43Var);
 
-    void a(FrameLayout frameLayout);
+    boolean h(Context context, xq2 xq2Var, sq2 sq2Var, j43 j43Var);
 
-    void b();
+    void i(pq1 pq1Var);
 
-    void c();
+    boolean j(Context context, yq2 yq2Var, sq2 sq2Var, j43 j43Var);
 
-    void d(boolean z);
+    boolean k(Context context, vq2 vq2Var, sq2 sq2Var, j43 j43Var);
 
-    ko2 e(Context context, @NonNull ys2 ys2Var);
+    boolean l(Context context, vq2 vq2Var, sq2 sq2Var, j43 j43Var);
 
-    void f();
+    boolean m(Context context, vq2 vq2Var, sq2 sq2Var, j43 j43Var);
 
-    void g(a aVar);
+    boolean n(Context context, vq2 vq2Var, sq2 sq2Var, j43 j43Var);
 
-    int getCurrentPosition();
-
-    int getDuration();
-
-    void h(ys2 ys2Var, boolean z);
-
-    void i(String str);
-
-    boolean isEnd();
-
-    boolean isPlaying();
-
-    void j(e eVar);
-
-    void k(f fVar);
-
-    void l(boolean z, int i);
-
-    void m(d dVar);
-
-    void mute(boolean z);
-
-    void n(ys2 ys2Var);
-
-    void o(ys2 ys2Var);
-
-    boolean onBackPressed();
-
-    void p(b bVar);
-
-    void pause();
-
-    int q(String str);
-
-    void r(c cVar);
-
-    void resume();
-
-    void seekTo(int i);
-
-    void stop();
+    boolean update(Context context, vq2 vq2Var, sq2 sq2Var, j43 j43Var);
 }

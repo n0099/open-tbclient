@@ -59,8 +59,8 @@ public class t {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             if ("com.xiaomi.xmsf".equals(context)) {
                 if (TextUtils.isEmpty(null)) {
-                    String m568a = com.xiaomi.push.m.m568a("ro.miui.region");
-                    return TextUtils.isEmpty(m568a) ? com.xiaomi.push.m.m568a("ro.product.locale.region") : m568a;
+                    String m632a = com.xiaomi.push.m.m632a("ro.miui.region");
+                    return TextUtils.isEmpty(m632a) ? com.xiaomi.push.m.m632a("ro.product.locale.region") : m632a;
                 }
                 return null;
             }
@@ -83,7 +83,7 @@ public class t {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m689a(Context context) {
+    public static boolean m753a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? "com.xiaomi.xmsf".equals(context.getPackageName()) && a() : invokeL.booleanValue;
@@ -100,7 +100,7 @@ public class t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, xMPushService)) == null) {
             bg.b bVar = new bg.b(xMPushService);
-            a(bVar, xMPushService, xMPushService.m604b(), "c");
+            a(bVar, xMPushService, xMPushService.m668b(), "c");
             return bVar;
         }
         return (bg.b) invokeL.objValue;
@@ -118,7 +118,7 @@ public class t {
             bVar.d = "XMPUSH-PASS";
             bVar.f959a = false;
             w.a aVar = new w.a();
-            aVar.a("sdk_ver", 48).a("cpvn", "4_9_0").a("cpvc", 40090).a("country_code", a.a(context).b()).a("region", a.a(context).a()).a("miui_vn", com.xiaomi.push.m.c()).a("miui_vc", Integer.valueOf(com.xiaomi.push.m.a(context))).a("xmsf_vc", Integer.valueOf(com.xiaomi.push.h.a(context, "com.xiaomi.xmsf"))).a("android_ver", Integer.valueOf(Build.VERSION.SDK_INT)).a("n_belong_to_app", Boolean.valueOf(ax.m633a(context))).a("systemui_vc", Integer.valueOf(com.xiaomi.push.h.a(context)));
+            aVar.a("sdk_ver", 48).a("cpvn", "4_9_0").a("cpvc", 40090).a("country_code", a.a(context).b()).a("region", a.a(context).a()).a("miui_vn", com.xiaomi.push.m.c()).a("miui_vc", Integer.valueOf(com.xiaomi.push.m.a(context))).a("xmsf_vc", Integer.valueOf(com.xiaomi.push.h.a(context, "com.xiaomi.xmsf"))).a("android_ver", Integer.valueOf(Build.VERSION.SDK_INT)).a("n_belong_to_app", Boolean.valueOf(ax.m697a(context))).a("systemui_vc", Integer.valueOf(com.xiaomi.push.h.a(context)));
             String a = a(context);
             if (!TextUtils.isEmpty(a)) {
                 aVar.a("latest_country_code", a);
@@ -135,7 +135,7 @@ public class t {
             String str2 = b(context) ? "1000271" : this.d;
             w.a aVar2 = new w.a();
             aVar2.a("appid", str2).a("locale", Locale.getDefault().toString()).a(NativeConstants.COMPONENT_SYNC_TEXT_VIEW, 1);
-            if (m689a(context)) {
+            if (m753a(context)) {
                 aVar2.a(DI.AB_NAME, str);
             }
             bVar.f = aVar2.toString();

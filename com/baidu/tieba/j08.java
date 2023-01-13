@@ -1,130 +1,125 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.resourceLoaderProc.BigImageLoaderProc;
-import com.baidu.tbadk.coreExtra.view.ImageUrlData;
-import com.baidu.tbadk.widget.richText.TbRichTextData;
-import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
-import com.baidu.tieba.pb.pb.main.AbsPbActivity;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.newdetail.HotTopicDetailActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
 public class j08 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(TbRichTextData tbRichTextData) {
-        InterceptResult invokeL;
+    public static void a(String str, Object obj, int i, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbRichTextData)) == null) {
-            if (tbRichTextData == null) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder(150);
-            TbRichTextImageInfo M = tbRichTextData.M();
-            if (M == null) {
-                return null;
-            }
-            if (!StringUtils.isNull(M.G())) {
-                return M.G();
-            }
-            if (M.getHeight() * M.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
-                double sqrt = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / (M.getHeight() * M.getWidth()));
-                sb.append(BigImageLoaderProc.NCDN_PER);
-                sb.append(String.valueOf((int) (M.getWidth() * sqrt)));
-                sb.append("&height=");
-                sb.append(String.valueOf((int) (M.getHeight() * sqrt)));
-            } else {
-                double width = M.getWidth() / M.getHeight();
-                double sqrt2 = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / width);
-                sb.append(BigImageLoaderProc.NCDN_PER);
-                sb.append(String.valueOf((int) (width * sqrt2)));
-                sb.append("&height=");
-                sb.append(String.valueOf((int) sqrt2));
-            }
-            sb.append("&src=");
-            sb.append(xi.getUrlEncode(M.L()));
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void b(PostData postData, AbsPbActivity.e eVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, postData, eVar) != null) || postData == null || postData.X() == null || postData.X().I() == null || eVar == null || eVar.a == null || eVar.b == null || postData.X().I().size() == 0) {
-            return;
-        }
-        String str = (String) ListUtils.getItem(eVar.a, eVar.j);
-        if (StringUtils.isNull(str)) {
-            return;
-        }
-        eVar.a = new ArrayList<>();
-        ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = eVar.b;
-        eVar.b = new ConcurrentHashMap<>();
-        Iterator<TbRichTextData> it = postData.X().I().iterator();
-        while (it.hasNext()) {
-            TbRichTextData next = it.next();
-            if (next != null && next.getType() == 8) {
-                String a = a(next);
-                if (!StringUtils.isNull(a) && concurrentHashMap.get(a) != null) {
-                    eVar.a.add(a);
-                    eVar.b.put(a, concurrentHashMap.get(a));
+        if (interceptable == null || interceptable.invokeLLIL(65536, null, str, obj, i, str2) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            if (obj instanceof tu4) {
+                statisticItem.param("fid", ((tu4) obj).i());
+            } else if (obj instanceof a18) {
+                a18 a18Var = (a18) obj;
+                ThreadData threadData = a18Var.h;
+                if (threadData != null) {
+                    statisticItem.param("tid", threadData.getTid());
                 }
+                statisticItem.param("obj_locate", a18Var.a());
             }
+            statisticItem.param("topic_id", str2);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.eventStat();
         }
-        eVar.j = ListUtils.getPosition(eVar.a, str);
     }
 
-    public static PostData c(i08 i08Var, boolean z, int i) {
-        InterceptResult invokeCommon;
+    public static void b(m08 m08Var, fs4 fs4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{i08Var, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+        if (interceptable == null || interceptable.invokeLL(65537, null, m08Var, fs4Var) == null) {
+            d(m08Var, fs4Var, true);
+        }
+    }
+
+    public static void c(m08 m08Var, fs4 fs4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, m08Var, fs4Var) == null) {
+            d(m08Var, fs4Var, false);
+        }
+    }
+
+    public static void d(m08 m08Var, fs4 fs4Var, boolean z) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLZ(65539, null, m08Var, fs4Var, z) == null) && fs4Var != null && fs4Var.getThreadData() != null) {
+            ThreadData threadData = fs4Var.getThreadData();
+            boolean s = m08Var.s();
             if (z) {
-                if (i08Var != null && i08Var.H() != null && i08Var.H().size() > 0) {
-                    PostData postData = i08Var.H().get(0);
-                    if (postData.D() != 1) {
-                        return d(i08Var);
-                    }
-                    return postData;
+                if (s) {
+                    str = "c13823";
+                } else {
+                    str = "c13822";
                 }
-                return null;
+            } else if (s) {
+                str = "c13824";
+            } else {
+                str = "c13821";
             }
-            return d(i08Var);
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("tid", threadData.getTid());
+            statisticItem.param("fid", threadData.getFid());
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            if (m08Var.t().getOrignalPage() instanceof HotTopicDetailActivity) {
+                statisticItem.param("topic_id", ((HotTopicDetailActivity) m08Var.t().getOrignalPage()).y1());
+            }
+            statisticItem.eventStat();
         }
-        return (PostData) invokeCommon.objValue;
     }
 
-    public static PostData d(i08 i08Var) {
-        InterceptResult invokeL;
-        MetaData metaData;
+    public static void e(ThreadData threadData) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, i08Var)) == null) {
-            if (i08Var != null && i08Var.Q() != null && i08Var.Q().getAuthor() != null) {
-                PostData postData = new PostData();
-                MetaData author = i08Var.Q().getAuthor();
-                String userId = author.getUserId();
-                HashMap<String, MetaData> userMap = i08Var.Q().getUserMap();
-                if (userMap != null && (metaData = userMap.get(userId)) != null && metaData.getUserId() != null) {
-                    author = metaData;
-                }
-                postData.G0(1);
-                postData.M0(i08Var.Q().getFirstPostId());
-                postData.d1(i08Var.Q().getTitle());
-                postData.c1(i08Var.Q().getCreateTime());
-                postData.E0(author);
-                return postData;
-            }
-            return null;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData) != null) || threadData == null) {
+            return;
         }
-        return (PostData) invokeL.objValue;
+        StatisticItem addParam = new StatisticItem("c13022").addParam("tid", threadData.getTid()).addParam("fid", threadData.getFid()).addParam("fname", threadData.getForum_name()).addParam("uid", TbadkCoreApplication.getCurrentAccount());
+        if (UbsABTestHelper.isImgClickToPb()) {
+            i = 1;
+        } else {
+            i = 2;
+        }
+        addParam.addParam(TiebaStatic.Params.OBJ_TO, i).eventStat();
+    }
+
+    public static void f(TbPageContext<HotTopicDetailActivity> tbPageContext, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65541, null, tbPageContext, str) == null) && tbPageContext != null && !StringUtils.isNull(str)) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("topic_id", tbPageContext.getOrignalPage().y1());
+            statisticItem.eventStat();
+        }
+    }
+
+    public static void g(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("topic_id", str2);
+            statisticItem.eventStat();
+        }
+    }
+
+    public static void h(TbPageContext<HotTopicDetailActivity> tbPageContext, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65543, null, tbPageContext, str) == null) && tbPageContext != null && !StringUtils.isNull(str)) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("topic_id", tbPageContext.getOrignalPage().y1());
+            statisticItem.eventStat();
+        }
     }
 }

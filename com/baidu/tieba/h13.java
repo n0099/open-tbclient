@@ -1,35 +1,160 @@
 package com.baidu.tieba;
 
-import android.app.Application;
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Color;
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.StringRes;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.swan.apps.publisher.PublishParams;
-import com.baidu.tbadk.core.util.StringHelper;
+import android.webkit.WebView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.env.launch.SwanLauncher;
+import com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.tieba.ox2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
-import org.json.JSONArray;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public final class h13 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static final List<String> b;
-    public static final List<String> c;
+    public static String b;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes4.dex */
+    public static class a implements la2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ i13 b;
+        public final /* synthetic */ Bundle c;
+
+        public a(Context context, i13 i13Var, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, i13Var, bundle};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = i13Var;
+            this.c = bundle;
+        }
+
+        @Override // com.baidu.tieba.la2
+        public void onFail() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && h13.a) {
+                Log.d("SwanAppPreloadHelper", "SwanSailor：updateFail");
+            }
+        }
+
+        @Override // com.baidu.tieba.la2
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                if (h13.a) {
+                    Log.d("SwanAppPreloadHelper", "SwanSailor updateSuccess");
+                }
+                h13.i(this.a, this.b, this.c);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b implements l32 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ i13 b;
+        public final /* synthetic */ Bundle c;
+
+        public b(Context context, i13 i13Var, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, i13Var, bundle};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = i13Var;
+            this.c = bundle;
+        }
+
+        @Override // com.baidu.tieba.l32
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            boolean unused = h13.c = true;
+            h13.h(this.a, this.b, this.c);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class c implements cj3<Exception> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ i13 b;
+        public final /* synthetic */ Bundle c;
+
+        public c(Context context, i13 i13Var, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, i13Var, bundle};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = i13Var;
+            this.c = bundle;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.cj3
+        /* renamed from: b */
+        public void a(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                h13.g(this.a, this.b, this.c);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -44,154 +169,216 @@ public final class h13 {
                 return;
             }
         }
-        a = ok1.a;
-        b = CollectionsKt__CollectionsKt.listOf((Object[]) new String[]{"title", "image", "emoji", "video", "friends", "target"});
-        c = CollectionsKt__CollectionsKt.listOf((Object[]) new String[]{"image", "emoji"});
+        a = tk1.a;
+        c = false;
     }
 
-    public static final PublishParams a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        int i;
-        float f;
-        int i2;
-        int i3;
-        int i4;
+    public static void h(Context context, i13 i13Var, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeLLL(65544, null, context, i13Var, bundle) == null) {
+            SwanLauncher.j().l(new c(context, i13Var, bundle));
+        }
+    }
+
+    public static void j(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, bundle) == null) {
+            bundle.putBoolean("bundle_key_v8_ab", qn2.g0().x());
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("master", db2.U().k0());
+                jSONObject.put("slave", db2.U().n0());
+            } catch (JSONException e) {
+                if (a) {
+                    throw new RuntimeException(e);
+                }
             }
-            JSONArray optJSONArray = jSONObject.optJSONArray("moduleList");
-            ArrayList arrayList = new ArrayList(c);
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                arrayList.clear();
-                int length = optJSONArray.length();
-                for (int i5 = 0; i5 < length; i5++) {
+            String jSONObject2 = jSONObject.toString();
+            if (a) {
+                Log.d("SwanAppPreloadHelper", "createPreloadStatus -- preloadStatus : " + jSONObject2);
+            }
+            if (TextUtils.isEmpty(jSONObject2)) {
+                return "";
+            }
+            return jSONObject2;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void g(Context context, i13 i13Var, Bundle bundle) {
+        boolean z;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65543, null, context, i13Var, bundle) == null) {
+            if (qn2.g0() != null) {
+                z = qn2.g0().t();
+            } else {
+                z = false;
+            }
+            boolean isMainProcess = ProcessUtils.isMainProcess();
+            if (isMainProcess) {
+                str = "main";
+            } else {
+                str = "aiapp";
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            if (z) {
+                if (isMainProcess && TextUtils.isEmpty(b)) {
                     try {
-                        String string = optJSONArray.getString(i5);
-                        if (b.contains(string)) {
-                            arrayList.add(string);
-                        }
-                    } catch (JSONException e) {
+                        b = new WebView(context).getSettings().getUserAgentString();
+                    } catch (Exception e) {
+                        b = "exception::" + e.toString();
                         if (a) {
                             e.printStackTrace();
                         }
                     }
                 }
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("time", currentTimeMillis);
+                    jSONObject.put("process", i13Var.b.index);
+                    jSONObject.put("ua", b);
+                } catch (JSONException e2) {
+                    if (a) {
+                        e2.printStackTrace();
+                    }
+                }
+                ox2.d dVar = new ox2.d("812");
+                dVar.g("swan");
+                dVar.i("launch");
+                dVar.h(str);
+                dVar.e(jSONObject);
+                ox2.onEvent(dVar);
             }
-            if (arrayList.isEmpty() && a) {
-                Log.d("PublishParams", "展示列表为空");
+            long currentTimeMillis2 = System.currentTimeMillis();
+            if (z) {
+                JSONObject jSONObject2 = new JSONObject();
+                try {
+                    jSONObject2.put("time", currentTimeMillis2);
+                    jSONObject2.put("process", i13Var.b.index);
+                    jSONObject2.put("cost", currentTimeMillis2 - currentTimeMillis);
+                } catch (JSONException e3) {
+                    if (a) {
+                        e3.printStackTrace();
+                    }
+                }
+                ox2.d dVar2 = new ox2.d("812");
+                dVar2.g("swan");
+                dVar2.i("swan_updated");
+                dVar2.h(str);
+                dVar2.e(jSONObject2);
+                ox2.onEvent(dVar2);
             }
-            JSONObject optJSONObject = jSONObject.optJSONObject("imageConf");
-            if (optJSONObject != null) {
-                double d = 1.0f;
-                i = Math.min(9, optJSONObject.optInt("maxNum", 9));
-                f = (float) Math.min(d, jSONObject.optDouble(MapBundleKey.OfflineMapKey.OFFLINE_RATION, d));
+            if (bundle == null) {
+                bundle = new Bundle();
+            }
+            if (od3.j()) {
+                qd3.e();
+            }
+            bundle.putParcelable("bundle_key_swan_core", od3.e(0));
+            bundle.putParcelable("bundle_key_extension_core", se2.c(0));
+            bundle.putInt("bundle_key_preload_switch", qn2.g().a());
+            bundle.putLong("bundle_key_preload_launch_time", currentTimeMillis);
+            bundle.putBoolean("bundle_key_v8_ab", qn2.g0().x());
+            bundle.putLong("bundle_key_preload_swan_updated_time", currentTimeMillis2);
+            bundle.putString("bundle_key_preload_src", str);
+            bundle.putInt("bundle_key_process", i13Var.b.index);
+            bundle.setClassLoader(SwanCoreVersion.class.getClassLoader());
+            i13Var.n0(context, bundle);
+        }
+    }
+
+    public static void i(Context context, i13 i13Var, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65545, null, context, i13Var, bundle) == null) {
+            if (na2.a()) {
+                h(context, i13Var, bundle);
+            } else if (c) {
+                h(context, i13Var, bundle);
             } else {
-                i = 9;
-                f = 1.0f;
+                zq1.a().b().a().b(new b(context, i13Var, bundle));
             }
-            Application context = ln2.c();
-            Intrinsics.checkNotNullExpressionValue(context, "context");
-            String b2 = b(context, jSONObject, "contentPlaceholder", R.string.obfuscated_res_0x7f0f1378);
-            String e2 = e(b(context, jSONObject, "titlePlaceholder", R.string.obfuscated_res_0x7f0f1379), 20, null, 4, null);
-            String e3 = e(b(context, jSONObject, "confirmText", R.string.obfuscated_res_0x7f0f137a), 4, null, 4, null);
-            String e4 = e(b(context, jSONObject, "cancelText", R.string.obfuscated_res_0x7f0f0115), 4, null, 4, null);
-            String e5 = e(b(context, jSONObject, "navBarTitleText", R.string.obfuscated_res_0x7f0f137b), 8, null, 4, null);
-            String c2 = c(jSONObject, "navBarTextStyle", "");
-            if (!CollectionsKt__CollectionsKt.listOf((Object[]) new String[]{"black", "white"}).contains(c2)) {
-                c2 = "black";
-            }
-            int parseColor = Color.parseColor(c2);
-            try {
-                i2 = Color.parseColor(c(jSONObject, "navBarBackgroundColor", "#FFFFFF"));
-            } catch (Exception e6) {
-                if (a) {
-                    e6.printStackTrace();
-                }
-                i2 = -1;
-            }
-            int color = context.getResources().getColor(R.color.obfuscated_res_0x7f060abe);
-            try {
-                i3 = Color.parseColor(c(jSONObject, "confirmColor", "#3388FF"));
-            } catch (Exception e7) {
-                if (a) {
-                    e7.printStackTrace();
-                }
-                i3 = color;
+        }
+    }
+
+    public static void k(Context context, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65547, null, context, bundle) == null) {
+            Intent intent = new Intent(context, SwanAppMessengerService.class);
+            intent.setAction(SwanAppMessengerService.ACTION_PRELOAD_NEXT);
+            if (bundle != null) {
+                intent.putExtras(bundle);
             }
             try {
-                i4 = Color.parseColor(c(jSONObject, "cancelColor", "#000000"));
-            } catch (Exception e8) {
+                context.startService(intent);
+            } catch (Exception e) {
                 if (a) {
-                    e8.printStackTrace();
+                    e.printStackTrace();
                 }
-                i4 = -16777216;
             }
-            return new PublishParams(b2, e2, e5, parseColor, i2, e3, i3, e4, i4, jSONObject.optString("targetText", ""), jSONObject.optString("emojiPath", ""), jSONObject.optString("cb"), i, f, arrayList, null, null, 98304, null);
         }
-        return (PublishParams) invokeL.objValue;
     }
 
-    public static final String b(@NonNull Context context, @NonNull JSONObject obj, @NonNull String key, @StringRes int i) {
-        InterceptResult invokeLLLI;
+    public static void l(Context context, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65538, null, context, obj, key, i)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(obj, "obj");
-            Intrinsics.checkNotNullParameter(key, "key");
-            String optString = obj.optString(key);
-            Intrinsics.checkNotNullExpressionValue(optString, "obj.optString(key)");
-            if (StringsKt__StringsJVMKt.isBlank(optString)) {
-                String string = context.getString(i);
-                Intrinsics.checkNotNullExpressionValue(string, "context.getString(defaultStrRes)");
-                return string;
-            }
-            return optString;
+        if (interceptable == null || interceptable.invokeLL(65548, null, context, bundle) == null) {
+            m(context, k13.k().f(), bundle);
         }
-        return (String) invokeLLLI.objValue;
     }
 
-    public static final String c(@NonNull JSONObject obj, @NonNull String key, String str) {
-        InterceptResult invokeLLL;
+    public static void n(Context context, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, obj, key, str)) == null) {
-            Intrinsics.checkNotNullParameter(obj, "obj");
-            Intrinsics.checkNotNullParameter(key, "key");
-            Intrinsics.checkNotNullParameter(str, "default");
-            String optString = obj.optString(key);
-            Intrinsics.checkNotNullExpressionValue(optString, "obj.optString(key)");
-            if (!StringsKt__StringsJVMKt.isBlank(optString)) {
-                return optString;
+        if (interceptable == null || interceptable.invokeLL(65550, null, context, bundle) == null) {
+            fo1 g0 = qn2.g0();
+            if (!i03.Y()) {
+                g0.getSwitch("swan_preload_keep_alive", true);
             }
-            return str;
+            l(context, bundle);
         }
-        return (String) invokeLLL.objValue;
     }
 
-    public static final String d(String s, int i, String substitue) {
-        InterceptResult invokeLIL;
+    public static void m(Context context, i13 i13Var, Bundle bundle) {
+        String string;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, s, i, substitue)) == null) {
-            Intrinsics.checkNotNullParameter(s, "s");
-            Intrinsics.checkNotNullParameter(substitue, "substitue");
-            if (s.length() <= i) {
-                return s;
+        if (interceptable == null || interceptable.invokeLLL(65549, null, context, i13Var, bundle) == null) {
+            if (a) {
+                k13 k = k13.k();
+                k.u("b4 tryPreload client=" + i13Var);
             }
-            StringBuilder sb = new StringBuilder();
-            String substring = s.substring(0, i - 1);
-            Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
-            sb.append(substring);
-            sb.append(substitue);
-            return sb.toString();
+            if (ProcessUtils.isMainProcess() && i13Var != null && i13Var.b.isSwanAppProcess() && !i13Var.E()) {
+                if (bundle == null) {
+                    string = "";
+                } else {
+                    string = bundle.getString("bundle_key_preload_preload_scene");
+                }
+                if (TextUtils.isEmpty(string)) {
+                    string = "0";
+                }
+                if (a) {
+                    Log.d("SwanAppPreloadHelper", "SwanSailor：preloadScene:" + string);
+                }
+                if (qn2.w0().c()) {
+                    i(context, i13Var, bundle);
+                    return;
+                }
+                na2 na2Var = new na2();
+                if (TextUtils.equals(string, "0")) {
+                    str = "by_host_launch";
+                } else {
+                    str = "by_preload";
+                }
+                na2Var.a = str;
+                qn2.w0().b(na2Var, new a(context, i13Var, bundle));
+            }
         }
-        return (String) invokeLIL.objValue;
-    }
-
-    public static /* synthetic */ String e(String str, int i, String str2, int i2, Object obj) {
-        if ((i2 & 4) != 0) {
-            str2 = StringHelper.STRING_MORE;
-        }
-        return d(str, i, str2);
     }
 }

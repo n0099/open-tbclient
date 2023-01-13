@@ -1,162 +1,116 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class rx2 implements qx2 {
+public class rx2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static volatile rx2 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile px2 a;
-    public volatile py2 b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948136925, "Lcom/baidu/tieba/rx2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948136925, "Lcom/baidu/tieba/rx2;");
-                return;
-            }
-        }
-        c = ok1.a;
-    }
+    public String a;
+    public long b;
+    public long c;
+    public int d;
 
     public rx2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        i();
+        this.d = 0;
     }
 
-    public static rx2 h() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (rx2.class) {
-                    if (d == null) {
-                        d = new rx2();
-                    }
-                }
-            }
-            return d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (rx2) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public px2 g() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return this.d;
         }
-        return (px2) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.a == null) {
-                this.a = new nx2();
-            }
-            if (this.b == null) {
-                this.b = new ry2();
-            }
-        }
-    }
-
-    public boolean k() {
+    public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return j();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c - this.b;
         }
-        return invokeV.booleanValue;
+        return invokeV.longValue;
     }
 
-    public py2 l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return (py2) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qx2
-    public void end(long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeJ(1048576, this, j) != null) || !k()) {
-            return;
-        }
-        if (c) {
-            Log.d("StartUpInfoMarker", "aiapp start cost at - " + j);
-        }
-        this.a.end(j);
-        this.b.end(j);
-        m(j);
-    }
-
-    @Override // com.baidu.tieba.qx2
-    public void start(long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeJ(1048583, this, j) != null) || !k()) {
-            return;
-        }
-        if (c) {
-            Log.d("StartUpInfoMarker", "aiapp start at - " + j);
-        }
-        this.a.start(j);
-        this.b.start(j);
-    }
-
-    public final boolean j() {
+    public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (c) {
-                return true;
-            }
-            e43 b0 = e43.b0();
-            if (b0 == null) {
-                return false;
-            }
-            String appId = b0.getAppId();
-            if (!TextUtils.isEmpty(appId) && gw1.b(appId) != 0) {
-                return true;
-            }
-            return false;
+            return this.c;
         }
-        return invokeV.booleanValue;
+        return invokeV.longValue;
     }
 
-    public final void m(long j) {
+    public long e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            ag3.i.update((zf3<Long>) Long.valueOf(j));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
         }
+        return invokeV.longValue;
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void h(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.c = j;
+        }
+    }
+
+    public void i(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.b = j;
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return "ApiCalledInfo{mApiName='" + this.a + "', mStart=" + this.b + ", mEnd=" + this.c + ", cost = " + (this.c - this.b) + "ms}";
+        }
+        return (String) invokeV.objValue;
     }
 }

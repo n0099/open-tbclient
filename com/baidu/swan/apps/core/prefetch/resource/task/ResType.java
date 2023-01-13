@@ -3,7 +3,7 @@ package com.baidu.swan.apps.core.prefetch.resource.task;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.ok1;
+import com.baidu.tieba.tk1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -86,7 +86,7 @@ public final class ResType {
                 }
                 i++;
             }
-            if (ok1.a) {
+            if (tk1.a) {
                 Log.d("ResType", "res type - " + resType.name());
             }
             return resType;

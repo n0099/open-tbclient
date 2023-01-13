@@ -7,8 +7,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rz4;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.c05;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PbFirstFloorMessageButton extends TBSpecificationBtn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rz4 o;
+    public c05 o;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbFirstFloorMessageButton(Context context) {
@@ -37,7 +37,7 @@ public class PbFirstFloorMessageButton extends TBSpecificationBtn {
                 return;
             }
         }
-        m();
+        init();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -59,7 +59,7 @@ public class PbFirstFloorMessageButton extends TBSpecificationBtn {
                 return;
             }
         }
-        m();
+        init();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -81,26 +81,26 @@ public class PbFirstFloorMessageButton extends TBSpecificationBtn {
                 return;
             }
         }
-        m();
+        init();
     }
 
-    private void m() {
+    public final void init() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            rz4 rz4Var = new rz4();
-            this.o = rz4Var;
-            rz4Var.q(R.color.CAM_X0903);
-            this.o.g(yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X006));
-            this.o.u(R.drawable.icon_mask_messageline, TBSpecificationButtonConfig.IconType.WEBP);
-            this.o.o(TBSpecificationButtonConfig.WebpType.PURE);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            c05 c05Var = new c05();
+            this.o = c05Var;
+            c05Var.r(R.color.CAM_X0903);
+            this.o.g(zi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X006));
+            this.o.v(R.drawable.icon_mask_messageline, TBSpecificationButtonConfig.IconType.WEBP);
+            this.o.p(TBSpecificationButtonConfig.WebpType.PURE);
             this.o.h(R.color.CAM_X0304);
             setConfig(this.o);
         }
     }
 
-    public void r(int i) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             k();
         }
     }
@@ -108,7 +108,7 @@ public class PbFirstFloorMessageButton extends TBSpecificationBtn {
     @Override // android.view.View
     public void setVisibility(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.setVisibility(i);
         }
     }

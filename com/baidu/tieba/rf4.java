@@ -1,76 +1,43 @@
 package com.baidu.tieba;
 
 import androidx.annotation.Nullable;
-import com.baidu.swan.pms.node.Node;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class rf4 {
+public abstract class rf4 implements uf4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static JSONObject a(@Nullable of4<JSONArray> of4Var, @Nullable of4<JSONObject> of4Var2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.uf4
+    public void a(JSONArray jSONArray, ec4 ec4Var, @Nullable ec4 ec4Var2, @Nullable ec4 ec4Var3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, of4Var, of4Var2)) == null) {
-            return b(Node.values(), of4Var, of4Var2);
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, jSONArray, ec4Var, ec4Var2, ec4Var3) == null) {
         }
-        return (JSONObject) invokeLL.objValue;
     }
 
-    public static JSONObject b(Node[] nodeArr, @Nullable of4<JSONArray> of4Var, @Nullable of4<JSONObject> of4Var2) {
-        InterceptResult invokeLLL;
-        qf4 provider;
+    @Override // com.baidu.tieba.uf4
+    public void b(JSONObject jSONObject, ec4 ec4Var, @Nullable ec4 ec4Var2, @Nullable ec4 ec4Var3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, nodeArr, of4Var, of4Var2)) == null) {
-            if (nodeArr == null) {
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                for (Node node : nodeArr) {
-                    if (node != null && (provider = Node.getProvider(node)) != null) {
-                        if (node.isDataArray()) {
-                            jSONObject.put(node.getName(), provider.b(of4Var));
-                        } else {
-                            jSONObject.put(node.getName(), provider.a(of4Var2));
-                        }
-                    }
-                }
-                return jSONObject;
-            } catch (JSONException unused) {
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, ec4Var, ec4Var2, ec4Var3) == null) {
         }
-        return (JSONObject) invokeLLL.objValue;
     }
 
-    public static void c(JSONObject jSONObject, zb4 zb4Var, @Nullable zb4 zb4Var2, @Nullable zb4 zb4Var3) {
-        nb4 b;
-        pf4 a;
+    public rf4() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(65538, null, jSONObject, zb4Var, zb4Var2, zb4Var3) != null) || jSONObject == null) {
-            return;
-        }
-        Iterator<String> keys = jSONObject.keys();
-        while (keys.hasNext()) {
-            String next = keys.next();
-            Node nodeByConfigName = Node.getNodeByConfigName(next);
-            if (nodeByConfigName != null && (a = sf4.a(nodeByConfigName)) != null) {
-                if (nodeByConfigName.isDataArray()) {
-                    a.a(jSONObject.optJSONArray(next), zb4Var, zb4Var2, zb4Var3);
-                } else {
-                    a.b(jSONObject.optJSONObject(next), zb4Var, zb4Var2, zb4Var3);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-        if (kg4.a && (b = pb4.b()) != null) {
-            b.C();
         }
     }
 }

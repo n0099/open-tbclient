@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import com.baidu.tieba.kg5;
+import com.baidu.tieba.zg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
     public RelevanceItemSearchView k;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public void Z0() {
+    public void b1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
@@ -41,7 +41,7 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
         }
     }
 
-    public RelevanceItemSearchView e1() {
+    public RelevanceItemSearchView g1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -63,7 +63,7 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public kg5 N0(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public zg5 P0(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
@@ -71,7 +71,7 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
             this.k = relevanceItemSearchView;
             return relevanceItemSearchView;
         }
-        return (kg5) invokeLL.objValue;
+        return (zg5) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.Window.Callback
@@ -82,7 +82,7 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
             if (motionEvent.getAction() == 0) {
                 View currentFocus = getCurrentFocus();
-                if (f1(currentFocus, motionEvent) && (inputMethodManager = (InputMethodManager) getSystemService("input_method")) != null) {
+                if (h1(currentFocus, motionEvent) && (inputMethodManager = (InputMethodManager) getSystemService("input_method")) != null) {
                     inputMethodManager.hideSoftInputFromWindow(currentFocus.getWindowToken(), 0);
                 }
                 return super.dispatchTouchEvent(motionEvent);
@@ -95,7 +95,7 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
         return invokeL.booleanValue;
     }
 
-    public boolean f1(View view2, MotionEvent motionEvent) {
+    public boolean h1(View view2, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, view2, motionEvent)) == null) {

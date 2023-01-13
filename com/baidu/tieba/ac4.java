@@ -1,44 +1,26 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
-import java.util.HashSet;
+import java.io.File;
+import java.io.IOException;
+import java.nio.channels.ReadableByteChannel;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public final class ac4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ac4<T> extends cc4 {
+    void a(T t);
 
-    @NonNull
-    @SuppressLint({"LambdaLast"})
-    public static Bundle a(@NonNull xb4 xb4Var, @Nullable Bundle bundle, String... strArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, xb4Var, bundle, strArr)) == null) {
-            if (bundle == null) {
-                bundle = new Bundle();
-            }
-            if (bundle.getLong("timestamp", -1L) < 0) {
-                bundle.putLong("timestamp", System.currentTimeMillis());
-            }
-            return xb4Var.m(bundle, new HashSet(Arrays.asList(strArr)));
-        }
-        return (Bundle) invokeLLL.objValue;
-    }
+    void c(T t);
 
-    @NonNull
-    @SuppressLint({"LambdaLast"})
-    public static Bundle b(@NonNull xb4 xb4Var, @NonNull String... strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, xb4Var, strArr)) == null) {
-            return a(xb4Var, null, strArr);
-        }
-        return (Bundle) invokeLL.objValue;
-    }
+    String d(T t);
+
+    void e(T t, dd4 dd4Var);
+
+    void f(T t);
+
+    dd4 h(T t, File file, long j, ReadableByteChannel readableByteChannel) throws IOException;
+
+    void i(T t);
+
+    void j(T t);
+
+    Map<String, Object> k();
 }

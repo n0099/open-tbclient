@@ -1,7 +1,7 @@
 package rx.exceptions;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.j7a;
+import com.baidu.tieba.rca;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,14 +60,14 @@ public final class AssemblyStackTraceException extends RuntimeException {
             while (th.getCause() != null) {
                 th = th.getCause();
                 if (!hashSet.add(th)) {
-                    j7a.j(this);
+                    rca.j(this);
                     return;
                 }
             }
             try {
                 th.initCause(this);
             } catch (IllegalStateException unused) {
-                j7a.j(new RuntimeException("Received an exception with a cause set to null, instead of being unset. To fix this, look down the chain of causes. The last exception had a cause explicitly set to null. It should be unset instead.", th));
+                rca.j(new RuntimeException("Received an exception with a cause set to null, instead of being unset. To fix this, look down the chain of causes. The last exception had a cause explicitly set to null. It should be unset instead.", th));
             }
         }
     }

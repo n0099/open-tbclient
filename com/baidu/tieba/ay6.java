@@ -1,25 +1,85 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.View;
+import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.compatible.EditorHelper;
-import com.baidu.tieba.funAd.strategy.FunAdSidConfigData;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
+import com.baidu.tieba.frs.shrinkhead.LogicField;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Collections;
 /* loaded from: classes3.dex */
-public class ay6 {
+public class ay6 extends xx6 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ay6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, FunAdSidConfigData> a;
+    public TBSpecificationBtn d;
+    public TBSpecificationBtn e;
+    public ImageView f;
+
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-931828050, "Lcom/baidu/tieba/ay6$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-931828050, "Lcom/baidu/tieba/ay6$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[LogicField.values().length];
+            a = iArr;
+            try {
+                iArr[LogicField.LIKE_BTN.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[LogicField.SIGN_BTN.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[LogicField.SPEED_ICON.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[LogicField.SERVICE_AREA.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                a[LogicField.TOP_AREA.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[LogicField.ROUND_CORNER_STYLE.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                a[LogicField.TOP_DIVIDER.ordinal()] = 7;
+            } catch (NoSuchFieldError unused7) {
+            }
+            try {
+                a[LogicField.BANNER_AND_BOTTOM_VIEW.ordinal()] = 8;
+            } catch (NoSuchFieldError unused8) {
+            }
+        }
+    }
 
     public ay6() {
         Interceptable interceptable = $ic;
@@ -31,110 +91,111 @@ public class ay6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.xx6
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            n();
+            o();
+            this.f = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092016);
+        }
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.c.findViewById(R.id.obfuscated_res_0x7f090ba0).setVisibility(8);
+            this.c.findViewById(R.id.obfuscated_res_0x7f092771).setVisibility(8);
+        }
+    }
+
+    @Override // com.baidu.tieba.xx6, com.baidu.tieba.zx6
+    @Nullable
+    public <T> T a(@NonNull LogicField logicField) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, logicField)) == null) {
+            int i = a.a[logicField.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return (T) super.a(logicField);
+                    }
+                    return (T) this.f;
+                }
+                return (T) Collections.singletonList(this.e);
+            }
+            return (T) Collections.singletonList(this.d);
+        }
+        return (T) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.xx6, com.baidu.tieba.zx6
+    public int l(@NonNull LogicField logicField) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, logicField)) == null) {
+            switch (a.a[logicField.ordinal()]) {
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                    return 0;
+                case 8:
+                    return 8;
+                default:
+                    return super.l(logicField);
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // com.baidu.tieba.fy6
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            if (z) {
+                this.d.setVisibility(8);
+                this.e.setVisibility(0);
                 return;
             }
+            this.d.setVisibility(0);
+            this.e.setVisibility(8);
         }
-        HashMap hashMap = new HashMap();
-        this.a = hashMap;
-        hashMap.clear();
-        this.a.putAll(c());
     }
 
-    public final Map<String, FunAdSidConfigData> c() {
-        InterceptResult invokeV;
-        FunAdSidConfigData d;
+    @Override // com.baidu.tieba.fy6
+    public void h(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            HashMap hashMap = new HashMap();
-            for (String str : by6.e().c()) {
-                if (!TextUtils.isEmpty(str) && (d = d(str)) != null) {
-                    hashMap.put(str, d);
-                }
-            }
-            return hashMap;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+            this.d.setOnClickListener(onClickListener);
+            this.e.setOnClickListener(onClickListener);
         }
-        return (Map) invokeV.objValue;
     }
 
-    public static ay6 e() {
-        InterceptResult invokeV;
+    public final void o() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (ay6.class) {
-                    if (b == null) {
-                        b = new ay6();
-                    }
-                }
-            }
-            return b;
-        }
-        return (ay6) invokeV.objValue;
-    }
-
-    public final FunAdSidConfigData a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            FunAdSidConfigData funAdSidConfigData = new FunAdSidConfigData();
-            funAdSidConfigData.parserJson(jSONObject);
-            return funAdSidConfigData;
-        }
-        return (FunAdSidConfigData) invokeL.objValue;
-    }
-
-    public FunAdSidConfigData b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.a != null && !TextUtils.isEmpty(str) && this.a.containsKey(str)) {
-                return this.a.get(str);
-            }
-            return null;
-        }
-        return (FunAdSidConfigData) invokeL.objValue;
-    }
-
-    public final FunAdSidConfigData d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            JSONObject jSONObject = null;
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            String string = by6.g().getString(str, "");
-            if (TextUtils.isEmpty(string)) {
-                return null;
-            }
-            try {
-                jSONObject = new JSONObject(string);
-            } catch (JSONException e) {
-                BdLog.detailException(e);
-            }
-            return a(jSONObject);
-        }
-        return (FunAdSidConfigData) invokeL.objValue;
-    }
-
-    public final void g(String str) {
-        FunAdSidConfigData funAdSidConfigData;
-        JSONObject json;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || this.a == null || TextUtils.isEmpty(str) || !this.a.containsKey(str) || (funAdSidConfigData = this.a.get(str)) == null || (json = funAdSidConfigData.toJson()) == null) {
-            return;
-        }
-        EditorHelper.putString(by6.g(), str, json.toString());
-    }
-
-    public void f(String str, FunAdSidConfigData funAdSidConfigData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, funAdSidConfigData) == null) && this.a != null && !TextUtils.isEmpty(str)) {
-            this.a.put(str, funAdSidConfigData);
-            g(str);
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f0924af);
+            this.d = tBSpecificationBtn;
+            tBSpecificationBtn.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f02ba));
+            this.d.setTextSize(R.dimen.T_X08);
+            a05 a05Var = new a05();
+            a05Var.r(R.color.CAM_X0901, R.color.CAM_X0105);
+            this.d.setConfig(a05Var);
+            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f0924f3);
+            this.e = tBSpecificationBtn2;
+            tBSpecificationBtn2.setTextSize(R.dimen.T_X08);
+            a05 a05Var2 = new a05();
+            a05Var2.w(R.color.CAM_X0105);
+            a05Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds39));
+            a05Var2.i(R.drawable.obfuscated_res_0x7f0809a8, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            this.e.setConfig(a05Var2);
+            this.e.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f1220));
         }
     }
 }

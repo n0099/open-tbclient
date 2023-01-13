@@ -1,29 +1,27 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public interface eo2 {
+public class eo2 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile do2 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void a(d73 d73Var);
-
-        void onFailed(int i);
+    public static synchronized do2 a() {
+        InterceptResult invokeV;
+        do2 do2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (eo2.class) {
+                if (a == null) {
+                    a = new do2();
+                }
+                do2Var = a;
+            }
+            return do2Var;
+        }
+        return (do2) invokeV.objValue;
     }
-
-    void a();
-
-    void b(String str, boolean z, boolean z2, a aVar);
-
-    void c();
-
-    void d();
-
-    void e();
-
-    void f(a aVar);
-
-    double[] g(@NonNull d73 d73Var, @NonNull String str);
-
-    d73 h();
 }

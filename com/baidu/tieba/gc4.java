@@ -1,19 +1,75 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class gc4 extends ec4<zc4> {
+public abstract class gc4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile gc4 a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract boolean a(id4 id4Var, PMSAppInfo pMSAppInfo);
+
+    public abstract boolean b(id4 id4Var, List<jd4> list, gd4 gd4Var, ed4 ed4Var, PMSAppInfo pMSAppInfo);
+
+    public abstract void c(String str);
+
+    public abstract void d(String str, String str2);
+
+    public abstract <T extends hd4> boolean e(Class<T> cls, String str);
+
+    public abstract boolean f(kd4 kd4Var);
+
+    public abstract boolean g(List<kd4> list);
+
+    public abstract boolean h(String str);
+
+    @WorkerThread
+    public abstract int j(@NonNull String str);
+
+    @NonNull
+    @WorkerThread
+    public abstract List<jd4> k(@NonNull String str, int i);
+
+    public abstract boolean l(PMSAppInfo pMSAppInfo);
+
+    public abstract <T extends hd4> boolean m(T t);
+
+    public abstract boolean n(String str, String str2, String str3);
+
+    public abstract <T extends hd4> T o(Class<T> cls, String str);
+
+    public abstract Map<String, id4> p();
+
+    public abstract kd4 q(String str, long j, long j2);
+
+    public abstract List<kd4> r(String str, String[] strArr);
+
+    public abstract List<kd4> s(String str, long j, long j2);
+
+    @Nullable
+    public abstract ld4 t(String str);
+
+    public abstract PMSAppInfo u(String str);
+
+    public abstract Map<String, PMSAppInfo> v();
+
+    public abstract List<kd4> w(String str);
+
+    public abstract boolean x(kd4 kd4Var);
+
+    public abstract boolean y(PMSAppInfo pMSAppInfo);
+
+    public abstract boolean z(String str, int i);
 
     public gc4() {
         Interceptable interceptable = $ic;
@@ -29,54 +85,19 @@ public class gc4 extends ec4<zc4> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ec4
-    /* renamed from: f */
-    public ContentValues c(zc4 zc4Var) {
-        InterceptResult invokeL;
+    public static gc4 i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, zc4Var)) == null) {
-            return a(zc4Var);
-        }
-        return (ContentValues) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ec4
-    /* renamed from: g */
-    public zc4 d(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                zc4 zc4Var = new zc4();
-                if (b(cursor, zc4Var)) {
-                    return zc4Var;
-                }
-                return null;
-            }
-            return null;
-        }
-        return (zc4) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ec4
-    public List<zc4> e(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                do {
-                    zc4 zc4Var = new zc4();
-                    if (b(cursor, zc4Var)) {
-                        arrayList.add(zc4Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (gc4.class) {
+                    if (a == null) {
+                        a = new hc4();
                     }
-                } while (cursor.moveToNext());
-                return arrayList;
+                }
             }
-            return arrayList;
+            return a;
         }
-        return (List) invokeL.objValue;
+        return (gc4) invokeV.objValue;
     }
 }

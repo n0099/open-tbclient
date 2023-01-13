@@ -1,112 +1,98 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import androidx.annotation.Nullable;
+import com.baidu.nadcore.net.request.BodyStyle;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class e11 extends c11 {
+public class e11 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String b;
 
-    public e11() {
+    /* loaded from: classes4.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k11 a;
+        public final /* synthetic */ hr0 b;
+
+        public a(k11 k11Var, hr0 hr0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k11Var, hr0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = k11Var;
+            this.b = hr0Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                e11.d(this.a, this.b);
+            }
+        }
+    }
+
+    public static <T> void c(@NonNull k11 k11Var, @Nullable hr0<T> hr0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65538, null, k11Var, hr0Var) == null) {
+            k11Var.a();
+            f21.c(new a(k11Var, hr0Var), "als_async_executor", 2);
+        }
+    }
+
+    public static void b(@NonNull k11 k11Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, k11Var) == null) {
+            c(k11Var, null);
+        }
+    }
+
+    public static <T> void d(k11 k11Var, @Nullable hr0<T> hr0Var) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65539, null, k11Var, hr0Var) == null) && k11Var != null && k11Var.isValid()) {
+            String k11Var2 = k11Var.toString();
+            if (k11Var instanceof ClogBuilder) {
+                if (sg0.a) {
+                    str = "http://x1250658afd00.als.nativeads-afd.otp.baidu.com/clog/clog";
+                } else {
+                    str = "https://als.baidu.com/clog/clog";
+                }
+            } else if (k11Var instanceof l11) {
+                if (sg0.a) {
+                    str = "http://x1250658afd00.als.nativeads-afd.otp.baidu.com/elog/plog";
+                } else {
+                    str = "https://als.baidu.com/elog/plog";
+                }
+            } else if (k11Var instanceof i11) {
+                str = "https://afd.baidu.com/afd/close";
+            } else {
                 return;
             }
+            or0 or0Var = new or0();
+            or0Var.h(k11Var2);
+            or0Var.k(BodyStyle.STRING);
+            or0Var.i("application/x-www-form-urlencoded");
+            pr0 pr0Var = new pr0();
+            pr0Var.l(str);
+            pr0Var.f(or0Var);
+            wq0.b().a().a(pr0Var, hr0Var);
         }
-        this.b = null;
-    }
-
-    @Override // com.baidu.tieba.f11
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                return f();
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void e(StringBuilder sb, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, sb, str, str2) == null) {
-            if (sb.length() > 0) {
-                sb.append('&');
-            }
-            sb.append(str);
-            sb.append(com.alipay.sdk.encrypt.a.h);
-            sb.append(str2);
-        }
-    }
-
-    public final boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            hj0 d = zi0.d();
-            StringBuilder sb = new StringBuilder();
-            e(sb, "productId", d.r());
-            e(sb, HttpRequest.CLIENT_TYPE, "2");
-            e(sb, "_os_type", "2");
-            String h = pj0.c().h(false);
-            if (!TextUtils.isEmpty(h)) {
-                e(sb, "_os_version", h);
-            }
-            e(sb, "_client_version", d.v());
-            e(sb, "_sdk_version", "5.10.0.26");
-            String e = pj0.c().e(false);
-            if (!TextUtils.isEmpty(e)) {
-                e(sb, "model", e);
-            }
-            e(sb, "cuid", d.g());
-            e(sb, "net_type", String.valueOf(new zq0().c()));
-            if (ng0.a) {
-                e(sb, "rd", d.w());
-                e(sb, "qa", d.x());
-                e(sb, "story_id", d.t());
-            }
-            String sb2 = sb.toString();
-            this.b = sb2;
-            return !TextUtils.isEmpty(sb2);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.c11, com.baidu.tieba.f11
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                f();
-            }
-            if (this.a.toString().contains(this.b)) {
-                return this.a.toString();
-            }
-            if (this.a.length() > 0) {
-                this.a.append('&');
-            }
-            this.a.append(this.b);
-            return this.a.toString();
-        }
-        return (String) invokeV.objValue;
     }
 }

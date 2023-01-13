@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import java.util.List;
+import android.content.Context;
+import android.view.View;
 /* loaded from: classes3.dex */
 public interface ap4 {
-    void a(List<yo4> list);
-
-    void onPreLoad();
+    View a(Context context);
 }

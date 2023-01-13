@@ -1,5 +1,11 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
+
+import java.net.MalformedURLException;
+/* loaded from: classes6.dex */
 public interface ql1 {
-    ps1 getInstance();
+    String a();
+
+    boolean b();
+
+    String c(String str) throws MalformedURLException;
 }

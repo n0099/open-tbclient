@@ -4,7 +4,8 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.nadcore.exp.ADConfigError;
+import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -86,8 +87,8 @@ public class p2 {
                 }
                 jSONObject.put("68", o0Var.c() ? 1 : 0);
                 jSONObject.put("69", o0Var.b());
-                jSONObject.put("101", o0Var.d() ? 1 : 0);
-                jSONObject.put("102", o0Var.a() ? 1 : 0);
+                jSONObject.put(ADConfigError.REQUEST_HAS_SUCCESS_BEFORE, o0Var.d() ? 1 : 0);
+                jSONObject.put(WorkPostNotifyFlutterData.FAIL_POST, o0Var.a() ? 1 : 0);
                 jSONObject.put("99", new g0().a());
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("03007", v1.c(this.a));
@@ -95,7 +96,7 @@ public class p2 {
                 jSONObject2.put("03020", v1.a(this.a));
                 jSONObject2.put("03030", g1.f(this.a));
                 jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_LINK_ITEM_CLICK, jSONObject2);
-                jSONObject.put(TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP, new p0().b());
+                jSONObject.put("107", new p0().b());
                 jSONObject.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_FAIL_AMOUNT_ITEM_CLICK, c0.b(this.a) ? 1 : 0);
                 try {
                     jSONObject.put("11028", WeaponHI.sKSSdkver);

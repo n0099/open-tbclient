@@ -104,7 +104,7 @@ public final /* synthetic */ class FlowKt__CountKt {
                     ResultKt.throwOnFailure(obj);
                     Ref.IntRef intRef2 = new Ref.IntRef();
                     intRef2.element = 0;
-                    FlowCollector<? super Object> flowKt__CountKt$count$$inlined$collect$2 = new FlowKt__CountKt$count$$inlined$collect$2(function2, intRef2);
+                    FlowCollector<? super Object> flowKt__CountKt$count$$inlined$collect$2 = new FlowKt__CountKt$count$$inlined$collect$2<>(function2, intRef2);
                     flowKt__CountKt$count$3.L$0 = flow;
                     flowKt__CountKt$count$3.L$1 = function2;
                     flowKt__CountKt$count$3.L$2 = intRef2;

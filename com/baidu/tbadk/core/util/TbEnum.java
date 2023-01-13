@@ -56,29 +56,6 @@ public abstract class TbEnum {
     }
 
     /* loaded from: classes3.dex */
-    public static class CreateGroupSource {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final String FROM_BAR_GROUP = "bargp";
-        public static final String FROM_MY_GROUP = "mygp";
-        public static final String FROM_NEAR_GROUP = "neargp";
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public CreateGroupSource() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
     public static class CustomGroupId {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String GROUP_UPDATE = "-1002";
@@ -105,7 +82,6 @@ public abstract class TbEnum {
     /* loaded from: classes3.dex */
     public static class CustomGroupType {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int GROUP = 1;
         public static final int GROUP_VALIDATION = -4;
         public static final int NEWGROUP = 9;
         public static final int NOTIFICATION = 5;
@@ -167,41 +143,11 @@ public abstract class TbEnum {
     }
 
     /* loaded from: classes3.dex */
-    public static class GroupInfoSource {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final String FROM_FORUM_GROUP_HOT = "forumgroup_hot";
-        public static final String FROM_FORUM_GROUP_OFFICIAL = "forumgroup_official";
-        public static final String FROM_FORUM_GROUP_RECOMMEND = "forumgroup_recommend";
-        public static final String FROM_GROUP_TALK = "grouptalk";
-        public static final String FROM_INVITE_TALK = "invitetalk";
-        public static final String FROM_USER_GROUP = "usergroup";
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public GroupInfoSource() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
     public static abstract class GroupType {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int FORUM_FRIEND_GROUP = 3;
         public static final int GROUP_TYPE_NOTIFY = 8;
         public static final int OFFICIAL_CHAT = 30;
-        public static final int OFFICIAL_GROUP = 4;
-        public static final int OPERATING = 5;
         public static final int PERSONAL_CHAT = 6;
-        public static final int PRIVATE_GROUP = 2;
         public static final int SYSTEM_MSG = 1;
         public static final int YY_BROADCAST_NOTIFY = 12;
         public static final int YY_IMEI_NOTIFY = 11;
@@ -270,6 +216,7 @@ public abstract class TbEnum {
         public static final int MSG_CONTENT_TYPE_SYSTEM_MUZZLE = 7003;
         public static final int MSG_CONTENT_TYPE_SYSTEM_MUZZLE_ALL = 7005;
         public static final short MSG_CONTENT_TYPE_SYSTEM_NOTICE_MODIFY = 7001;
+        public static final int MSG_CONTENT_TYPE_SYSTEM_ONLY_MANAGER_CAN_TALK = 7013;
         public static final short MSG_CONTENT_TYPE_SYSTEM_RECALL_MSG = 7002;
         public static final int MSG_CONTENT_TYPE_SYSTEM_SHARE_FORUM = 7009;
         public static final int MSG_CONTENT_TYPE_SYSTEM_SHARE_THREAD = 7010;
@@ -279,7 +226,9 @@ public abstract class TbEnum {
         public static final int MSG_CONTENT_TYPE_SYSTEM_UN_FROZEN = 7008;
         public static final int MSG_CONTENT_TYPE_SYSTEM_UN_MUZZLE = 7004;
         public static final int MSG_CONTENT_TYPE_SYSTEM_UN_MUZZLE_ALL = 7006;
+        public static final int MSG_CONTENT_TYPE_SYSTEM_UPDATE_TXT_GEN_IMAGE = 7014;
         public static final short MSG_CONTENT_TYPE_TEXT = 1;
+        public static final short MSG_CONTENT_TYPE_TEXT_GEN_IMAGE = 101;
         public static final short MSG_CONTENT_TYPE_VOICE = 3;
         public static final short MSG_SYSTEM = 11;
         public static final short MSG_TOPIC_UPDATE = 12;
@@ -412,24 +361,10 @@ public abstract class TbEnum {
         public static final String EVENT_ID_APPLY_FRIEND = "401";
         public static final String EVENT_ID_APPLY_PASS_FRIEND = "411";
         public static final String EVENT_ID_APPLY_REPLY_MESSAGE = "412";
-        public static final String EVENT_ID_APPLY_SUC = "002";
-        public static final String EVENT_ID_APPLY_VERIFY = "001";
         public static final String EVENT_ID_COMMON = "110";
         public static final String EVENT_ID_CYBER_VIOLENCE = "416";
         public static final String EVENT_ID_DELETE_FRIEND = "405";
-        public static final String EVENT_ID_DISMISS_GROUP = "107";
         public static final String EVENT_ID_FAKE = "-10001";
-        public static final String EVENT_ID_GROUP_ACTIVITYS_IN_CHAT = "123";
-        public static final String EVENT_ID_GROUP_JOIN = "105";
-        public static final String EVENT_ID_GROUP_NAME_MODIFY = "101";
-        public static final String EVENT_ID_GROUP_QUIT = "106";
-        public static final String EVENT_ID_GROUP_UPGRADE = "104";
-        public static final String EVENT_ID_HIDE_GROUP = "122";
-        public static final String EVENT_ID_HIDE_GROUP_WARN = "121";
-        public static final String EVENT_ID_INTRO_MODIFY = "103";
-        public static final String EVENT_ID_INVITE_GROUP = "109";
-        public static final String EVENT_ID_KICKED_OUT = "003";
-        public static final String EVENT_ID_NOTICE_MODIFY = "102";
         public static final String EVENT_ID_OFFLINE_DEBUG = "503";
         public static final String EVENT_ID_PASSED_FRIEND = "402";
         public static final String EVENT_ID_PLUGIN_CONFIG_SYNC = "502";

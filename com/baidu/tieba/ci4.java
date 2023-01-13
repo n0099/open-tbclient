@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import androidx.annotation.AnimRes;
+import android.view.View;
 import androidx.annotation.IdRes;
 import androidx.annotation.Nullable;
-import com.baidu.swan.support.v4.app.Fragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,25 +12,10 @@ public abstract class ci4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract ci4 a(@IdRes int i, Fragment fragment);
+    @Nullable
+    public abstract View a(@IdRes int i);
 
-    public abstract ci4 b(@IdRes int i, Fragment fragment, @Nullable String str);
-
-    public abstract ci4 c(Fragment fragment, String str);
-
-    public abstract ci4 d(@Nullable String str);
-
-    public abstract int e();
-
-    public abstract int f();
-
-    public abstract ci4 g(Fragment fragment);
-
-    public abstract ci4 h(Fragment fragment);
-
-    public abstract ci4 i(@AnimRes int i, @AnimRes int i2);
-
-    public abstract ci4 j(Fragment fragment);
+    public abstract boolean b();
 
     public ci4() {
         Interceptable interceptable = $ic;

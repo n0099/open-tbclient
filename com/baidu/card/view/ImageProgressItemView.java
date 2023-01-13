@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.RoundTbImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ru4;
-import com.baidu.tieba.rw4;
+import com.baidu.tieba.cv4;
+import com.baidu.tieba.cx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ImageProgressItemView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ru4 a;
+    public cv4 a;
     public TbImageView b;
     public RoundTbImageView c;
     public TbImageView d;
@@ -51,15 +51,15 @@ public class ImageProgressItemView extends FrameLayout {
         }
     }
 
-    public void b(ru4 ru4Var) {
+    public void b(cv4 cv4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ru4Var) == null) {
-            this.a = ru4Var;
-            if (ru4Var == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cv4Var) == null) {
+            this.a = cv4Var;
+            if (cv4Var == null) {
                 return;
             }
-            this.c.K(ru4Var.a(), 10, false);
-            this.e.setText(String.format("%s人", ru4Var.b()));
+            this.c.K(cv4Var.a(), 10, false);
+            this.e.setText(String.format("%s人", cv4Var.b()));
             d();
         }
     }
@@ -131,17 +131,17 @@ public class ImageProgressItemView extends FrameLayout {
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            rw4.d(this.e).v(R.color.CAM_X0105);
+            cx4.d(this.e).v(R.color.CAM_X0105);
         }
     }
 
     public final void d() {
-        ru4 ru4Var;
+        cv4 cv4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (ru4Var = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (cv4Var = this.a) == null) {
             return;
         }
-        if (ru4Var.c()) {
+        if (cv4Var.c()) {
             setAlpha(1.0f);
         } else {
             setAlpha(0.4f);

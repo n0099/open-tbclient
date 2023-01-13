@@ -1,83 +1,33 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.SparseIntArray;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.ar.auth.FeatureCodes;
+import com.baidu.android.common.others.IStringUtil;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.GregorianCalendar;
-import java.util.TimeZone;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import com.baidu.webkit.net.WebAddress;
+import com.facebook.common.internal.Sets;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Set;
+import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes4.dex */
-public final class gd3 {
+public class gd3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern a;
-    public static final Pattern b;
-    public static final SparseIntArray c;
+    public static final boolean a;
+    public static final int b;
+    public static final int c;
+    public static final Set<String> d;
+    public static final String[] e;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-        public int d;
-        public int e;
-        public int f;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = -1;
-            this.b = -1;
-            this.c = -1;
-            this.d = -1;
-            this.e = -1;
-            this.f = -1;
-        }
-
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a != -1 && this.b != -1 && this.c != -1 && this.d != -1 && this.e != -1 && this.f != -1) {
-                    return false;
-                }
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -92,166 +42,415 @@ public final class gd3 {
                 return;
             }
         }
-        a = Pattern.compile("([0-9]{1,2})[- ]([A-Za-z]{3,9})[- ]([0-9]{2,4})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])");
-        b = Pattern.compile("[ ]([A-Za-z]{3,9})[ ]+([0-9]{1,2})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])[ ]([0-9]{2,4})");
-        SparseIntArray sparseIntArray = new SparseIntArray();
-        c = sparseIntArray;
-        sparseIntArray.put(d("jan"), 0);
-        c.put(d("feb"), 1);
-        c.put(d("mar"), 2);
-        c.put(d("apr"), 3);
-        c.put(d("may"), 4);
-        c.put(d("jun"), 5);
-        c.put(d("jul"), 6);
-        c.put(d("aug"), 7);
-        c.put(d("sep"), 8);
-        c.put(d("oct"), 9);
-        c.put(d("nov"), 10);
-        c.put(d("dec"), 11);
+        a = tk1.a;
+        b = 6;
+        c = 8;
+        d = Sets.newHashSet("https", "http", "wss");
+        String[] strArr = {"ac", "co", "com", Config.EVENT_PATH_MAPPING, "edu", "go", "gouv", "gov", "info", "lg", "ne", "net", "or", "org"};
+        e = strArr;
+        Arrays.sort(strArr);
     }
 
-    public static int a(@NonNull Matcher matcher, int i) {
-        InterceptResult invokeLI;
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, matcher, i)) == null) {
-            try {
-                String group = matcher.group(i);
-                if (TextUtils.isEmpty(group)) {
-                    return -1;
-                }
-                if (group.length() == 2) {
-                    return ((group.charAt(0) - '0') * 10) + (group.charAt(1) - '0');
-                }
-                return group.charAt(0) - '0';
-            } catch (Exception unused) {
-                return -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
+            for (String str2 : d) {
+                if (str.startsWith(str2)) {
+                    return true;
+                }
+            }
+            return false;
         }
-        return invokeLI.intValue;
+        return invokeL.booleanValue;
     }
 
-    public static int b(@NonNull Matcher matcher, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, matcher, i)) == null) {
-            try {
-                return c.get(d(matcher.group(i)), -1);
-            } catch (Exception unused) {
-                return -1;
-            }
-        }
-        return invokeLI.intValue;
-    }
-
-    public static int c(@NonNull Matcher matcher, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, matcher, i)) == null) {
-            try {
-                String group = matcher.group(i);
-                if (TextUtils.isEmpty(group)) {
-                    return -1;
-                }
-                if (group.length() == 2) {
-                    int charAt = ((group.charAt(0) - '0') * 10) + (group.charAt(1) - '0');
-                    if (charAt >= 70) {
-                        return charAt + FeatureCodes.SKY_SEG;
-                    }
-                    return charAt + 2000;
-                } else if (group.length() == 3) {
-                    return ((group.charAt(0) - '0') * 100) + ((group.charAt(1) - '0') * 10) + (group.charAt(2) - '0') + FeatureCodes.SKY_SEG;
-                } else {
-                    if (group.length() == 4) {
-                        return ((group.charAt(0) - '0') * 1000) + ((group.charAt(1) - '0') * 100) + ((group.charAt(2) - '0') * 10) + (group.charAt(3) - '0');
-                    }
-                    return 1970;
-                }
-            } catch (Exception unused) {
-                return -1;
-            }
-        }
-        return invokeLI.intValue;
-    }
-
-    public static int d(String str) {
+    public static String d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            int i = -1;
-            if (!TextUtils.isEmpty(str) && str.length() >= 3) {
-                for (int i2 = 0; i2 < 3; i2++) {
-                    i += Character.toLowerCase(str.charAt(i2)) - 'a';
+            if (str == null) {
+                return null;
+            }
+            int i = 0;
+            int indexOf = str.indexOf(46);
+            int lastIndexOf = str.lastIndexOf(46);
+            while (indexOf < lastIndexOf) {
+                i = indexOf + 1;
+                indexOf = str.indexOf(46, i);
+            }
+            if (i > 0) {
+                return str.substring(i);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b(Collection<ed3> collection, String str) {
+        InterceptResult invokeLL;
+        String trim;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, collection, str)) == null) {
+            if (collection != null && !collection.isEmpty()) {
+                if (str == null) {
+                    trim = "";
+                } else {
+                    trim = str.trim();
                 }
+                int length = trim.length();
+                if (!TextUtils.isEmpty(trim)) {
+                    int i = length - 1;
+                    if (trim.charAt(i) == ';') {
+                        trim = trim.substring(0, i);
+                    }
+                }
+                StringBuilder sb = new StringBuilder(trim);
+                for (ed3 ed3Var : collection) {
+                    if (ed3Var != null) {
+                        if (sb.length() > 0) {
+                            sb.append(WebvttCueParser.CHAR_SEMI_COLON);
+                            sb.append(WebvttCueParser.CHAR_SPACE);
+                        }
+                        sb.append(ed3Var.c);
+                        if (ed3Var.d != null) {
+                            sb.append(com.alipay.sdk.encrypt.a.h);
+                            sb.append(ed3Var.d);
+                        }
+                    }
+                }
+                if (!TextUtils.isEmpty(sb)) {
+                    return sb.toString();
+                }
+                return str;
+            }
+            return str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static int c(@NonNull String str, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, str, i, i2)) == null) {
+            int indexOf = str.indexOf(59, i);
+            int indexOf2 = str.indexOf(44, i);
+            if (indexOf != -1 || indexOf2 != -1) {
+                if (indexOf == -1) {
+                    return indexOf2;
+                }
+                if (indexOf2 == -1) {
+                    return indexOf;
+                }
+                return Math.min(indexOf, indexOf2);
+            }
+            return i2;
+        }
+        return invokeLII.intValue;
+    }
+
+    public static String[] e(WebAddress webAddress) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, webAddress)) == null) {
+            if (webAddress == null || TextUtils.isEmpty(webAddress.getHost()) || TextUtils.isEmpty(webAddress.getPath()) || md3.b(webAddress.getHost())) {
+                return null;
+            }
+            String[] strArr = {webAddress.getHost().toLowerCase(), webAddress.getPath()};
+            int indexOf = strArr[0].indexOf(46);
+            if (indexOf == -1) {
+                return null;
+            }
+            if (indexOf == strArr[0].lastIndexOf(46)) {
+                strArr[0] = IStringUtil.EXTENSION_SEPARATOR + strArr[0];
+            }
+            if (strArr[1].charAt(0) != '/') {
+                return null;
+            }
+            int indexOf2 = strArr[1].indexOf(63);
+            if (indexOf2 != -1) {
+                strArr[1] = strArr[1].substring(0, indexOf2);
+            }
+            return strArr;
+        }
+        return (String[]) invokeL.objValue;
+    }
+
+    public static int f(ed3 ed3Var, String str, int i, int i2, String str2) {
+        InterceptResult invokeCommon;
+        int indexOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{ed3Var, str, Integer.valueOf(i), Integer.valueOf(i2), str2})) == null) {
+            if (ed3Var != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                while (i >= 0 && i < i2) {
+                    if (str.charAt(i) != ' ' && str.charAt(i) != ';') {
+                        if (str.charAt(i) == ',') {
+                            return i + 1;
+                        }
+                        int i3 = i2 - i;
+                        int i4 = b;
+                        if (i3 >= i4 && str.substring(i, i4 + i).equalsIgnoreCase(ClientCookie.SECURE_ATTR)) {
+                            int i5 = b + i;
+                            if (i5 == i2) {
+                                ed3Var.f = true;
+                                return i5;
+                            } else if (str.charAt(i5) == ';' || str.charAt(i5) == '=' || str.charAt(i5) == ',') {
+                                ed3Var.f = true;
+                                i = c(str, i5, i2);
+                            }
+                        }
+                        int i6 = c;
+                        if (i3 >= i6 && str.substring(i, i6 + i).equalsIgnoreCase("httponly")) {
+                            int i7 = c + i;
+                            if (i7 == i2) {
+                                return i7;
+                            }
+                            if (str.charAt(i7) == ';' || str.charAt(i7) == '=' || str.charAt(i7) == ',') {
+                                i = c(str, i7, i2);
+                            }
+                        }
+                        int indexOf2 = str.indexOf(61, i);
+                        if (indexOf2 <= 0) {
+                            return i2;
+                        }
+                        String lowerCase = str.substring(i, indexOf2).toLowerCase();
+                        i = c(str, n(str, lowerCase, i, indexOf2), i2);
+                        if (i >= indexOf2) {
+                            String substring = str.substring(indexOf2 + 1, i);
+                            if (substring.length() > 2 && substring.charAt(0) == '\"' && (indexOf = substring.indexOf(34, 1)) > 0) {
+                                substring = substring.substring(1, indexOf);
+                            }
+                            i(ed3Var, lowerCase, substring, str2);
+                        }
+                    } else {
+                        i++;
+                    }
+                }
+                return i;
+            }
+            return i2;
+        }
+        return invokeCommon.intValue;
+    }
+
+    public static ArrayList<ed3> g(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, str, str2, str3)) == null) {
+            if (a) {
+                Log.d("SwanCookieParser", "parseCookie: host=" + str + "; path=" + str2 + "; cookieString=" + str3);
+            }
+            ArrayList<ed3> arrayList = new ArrayList<>();
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str3)) {
+                int i = 0;
+                int length = str3.length();
+                while (i >= 0 && i < length) {
+                    if (str3.charAt(i) == ' ') {
+                        i++;
+                    } else {
+                        ed3 ed3Var = new ed3(str, str2);
+                        i = f(ed3Var, str3, h(ed3Var, str3, i, length), length, str);
+                        if (!TextUtils.isEmpty(ed3Var.a) && !TextUtils.isEmpty(ed3Var.c) && ed3Var.d != null) {
+                            arrayList.add(ed3Var);
+                            if (a) {
+                                Log.d("SwanCookieParser", "parseCookies result: " + ed3Var.toString());
+                            }
+                        }
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeLLL.objValue;
+    }
+
+    public static void j(@NonNull ed3 ed3Var, @NonNull String str, @NonNull String str2) {
+        String str3;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(65546, null, ed3Var, str, str2) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        int lastIndexOf = str.lastIndexOf(46);
+        if (lastIndexOf <= 0) {
+            ed3Var.a = null;
+            return;
+        }
+        if (str.startsWith(".")) {
+            str3 = str.substring(1);
+        } else {
+            str3 = str;
+        }
+        if (md3.b(str3)) {
+            ed3Var.a = null;
+            return;
+        }
+        String lowerCase = str.toLowerCase();
+        if (lowerCase.charAt(0) != '.') {
+            lowerCase = IStringUtil.EXTENSION_SEPARATOR + lowerCase;
+            lastIndexOf++;
+        }
+        if (!str2.endsWith(lowerCase.substring(1))) {
+            ed3Var.a = null;
+            return;
+        }
+        int length = lowerCase.length();
+        int length2 = str2.length();
+        if (length2 > length - 1 && str2.charAt(length2 - length) != '.') {
+            ed3Var.a = null;
+            return;
+        }
+        if (length == lastIndexOf + 3 && length >= 6 && length <= 8) {
+            if (Arrays.binarySearch(e, lowerCase.substring(1, lastIndexOf)) >= 0) {
+                ed3Var.a = null;
+                return;
+            }
+        }
+        ed3Var.a = lowerCase;
+    }
+
+    public static int h(ed3 ed3Var, String str, int i, int i2) {
+        InterceptResult invokeLLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65544, null, ed3Var, str, i, i2)) == null) {
+            if (ed3Var != null && !TextUtils.isEmpty(str)) {
+                int indexOf = str.indexOf(59, i);
+                int indexOf2 = str.indexOf(61, i);
+                if (indexOf > indexOf2 && indexOf2 != -1) {
+                    ed3Var.c = str.substring(i, indexOf2);
+                    int i3 = indexOf2 + 1;
+                    if (str.charAt(i3) == '\"' && (i = str.indexOf(34, indexOf2 + 2)) == -1) {
+                        ed3Var.a = null;
+                        return i2;
+                    }
+                    int indexOf3 = str.indexOf(59, i);
+                    if (indexOf3 != -1) {
+                        i2 = indexOf3;
+                    }
+                    if (i3 != i2 && i2 >= indexOf2) {
+                        ed3Var.d = str.substring(i3, i2);
+                    } else {
+                        ed3Var.d = "";
+                    }
+                    return i2;
+                }
+                if (indexOf != -1) {
+                    i2 = indexOf;
+                }
+                ed3Var.c = str.substring(i, i2);
+                ed3Var.d = null;
+            }
+            return i2;
+        }
+        return invokeLLII.intValue;
+    }
+
+    public static void i(ed3 ed3Var, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(65545, null, ed3Var, str, str2, str3) == null) && ed3Var != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str3)) {
+            char c2 = 65535;
+            switch (str.hashCode()) {
+                case -1326197564:
+                    if (str.equals("domain")) {
+                        c2 = 3;
+                        break;
+                    }
+                    break;
+                case -1309235404:
+                    if (str.equals("expires")) {
+                        c2 = 0;
+                        break;
+                    }
+                    break;
+                case 3433509:
+                    if (str.equals("path")) {
+                        c2 = 2;
+                        break;
+                    }
+                    break;
+                case 842940694:
+                    if (str.equals(ClientCookie.MAX_AGE_ATTR)) {
+                        c2 = 1;
+                        break;
+                    }
+                    break;
+            }
+            if (c2 != 0) {
+                if (c2 != 1) {
+                    if (c2 != 2) {
+                        if (c2 == 3) {
+                            j(ed3Var, str2, str3);
+                            return;
+                        }
+                        return;
+                    }
+                    m(ed3Var, str2);
+                    return;
+                }
+                l(ed3Var, str2);
+                return;
+            }
+            k(ed3Var, str2);
+        }
+    }
+
+    public static void k(@NonNull ed3 ed3Var, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65547, null, ed3Var, str) == null) {
+            if (a) {
+                Log.d("SwanCookieParser", "setExpires value: " + str);
+            }
+            if (ed3Var.e != -1) {
+                return;
+            }
+            long e2 = ld3.e(str);
+            if (a) {
+                Log.d("SwanCookieParser", "setExpires result: " + e2);
+            }
+            if (e2 != -1) {
+                ed3Var.e = e2;
+            }
+        }
+    }
+
+    public static void l(@NonNull ed3 ed3Var, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65548, null, ed3Var, str) == null) {
+            try {
+                long currentTimeMillis = System.currentTimeMillis();
+                long parseLong = Long.parseLong(str);
+                Long.signum(parseLong);
+                ed3Var.e = currentTimeMillis + (parseLong * 1000);
+            } catch (NumberFormatException unused) {
+                if (a) {
+                    Log.e("SwanCookieParser", "illegal max-age: " + str);
+                }
+            }
+        }
+    }
+
+    public static void m(@NonNull ed3 ed3Var, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65549, null, ed3Var, str) == null) && !TextUtils.isEmpty(str) && str.charAt(0) == '/') {
+            ed3Var.b = str;
+        }
+    }
+
+    public static int n(@NonNull String str, String str2, int i, int i2) {
+        InterceptResult invokeLLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65550, null, str, str2, i, i2)) == null) {
+            if (!TextUtils.equals("expires", str2)) {
+                return i;
+            }
+            int indexOf = str.indexOf(44, i2);
+            if (indexOf != -1 && indexOf - i2 <= 10) {
+                return indexOf + 1;
             }
             return i;
         }
-        return invokeL.intValue;
-    }
-
-    public static long e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return -1L;
-            }
-            b bVar = new b(null);
-            Matcher matcher = a.matcher(str);
-            if (matcher.find()) {
-                bVar.c = a(matcher, 1);
-                bVar.b = b(matcher, 2);
-                bVar.a = c(matcher, 3);
-                f(bVar, matcher, 4);
-            } else {
-                Matcher matcher2 = b.matcher(str);
-                if (!matcher2.find()) {
-                    return -1L;
-                }
-                bVar.b = b(matcher2, 1);
-                bVar.c = a(matcher2, 2);
-                f(bVar, matcher2, 3);
-                bVar.a = c(matcher2, 4);
-            }
-            if (bVar.a()) {
-                return -1L;
-            }
-            if (bVar.a >= 2038) {
-                bVar.a = 2038;
-                bVar.b = 0;
-                bVar.c = 1;
-            }
-            GregorianCalendar gregorianCalendar = new GregorianCalendar();
-            gregorianCalendar.setTimeZone(TimeZone.getTimeZone("UTC"));
-            gregorianCalendar.set(bVar.a, bVar.b, bVar.c, bVar.d, bVar.e, bVar.f);
-            return gregorianCalendar.getTimeInMillis();
-        }
-        return invokeL.longValue;
-    }
-
-    public static void f(@NonNull b bVar, @NonNull Matcher matcher, int i) {
-        int i2;
-        int i3;
-        int i4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65542, null, bVar, matcher, i) == null) {
-            try {
-                String group = matcher.group(i);
-                if (TextUtils.isEmpty(group)) {
-                    return;
-                }
-                int charAt = group.charAt(0) - '0';
-                if (group.charAt(1) != ':') {
-                    i2 = 2;
-                    charAt = (charAt * 10) + (group.charAt(1) - '0');
-                } else {
-                    i2 = 1;
-                }
-                bVar.d = charAt;
-                bVar.e = ((group.charAt(i3) - '0') * 10) + (group.charAt(i4) - '0');
-                int i5 = i2 + 1 + 1 + 1 + 1;
-                bVar.f = ((group.charAt(i5) - '0') * 10) + (group.charAt(i5 + 1) - '0');
-            } catch (Exception unused) {
-            }
-        }
+        return invokeLLII.intValue;
     }
 }

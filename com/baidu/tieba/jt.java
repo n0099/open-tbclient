@@ -1,21 +1,27 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.os.Build;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
 /* loaded from: classes5.dex */
-public class jt {
+public final class jt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Closeable closeable) {
+    public static boolean a(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
-            try {
-                closeable.close();
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
+            if (activity == null || activity.isFinishing()) {
+                return true;
             }
+            if (Build.VERSION.SDK_INT >= 17 && activity.isDestroyed()) {
+                return true;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 }

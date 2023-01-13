@@ -1,237 +1,271 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
+import android.util.SparseArray;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.atomData.GuildActivityConfig;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.pageInfo.TbPageTag;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tbadk.mvc.core.ViewEventCenter;
+import com.baidu.tieba.oe5;
+import com.baidu.tieba.te5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ue5 {
+public abstract class ue5<D, S extends oe5, H extends te5<D, S>> extends BaseAdapter implements fw8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<D> a;
+    public final List<H> b;
+    public final SparseArray<H> c;
+    public final TbPageContext<?> d;
+    public S e;
+    public final ViewEventCenter f;
+    public boolean g;
+    public NoDataView h;
+    public FrameLayout i;
+    public NoDataViewFactory.e j;
+    public NoDataViewFactory.d k;
+    public NoDataViewFactory.c l;
+    public FrameLayout.LayoutParams m;
 
-    public static StatisticItem a(StatisticItem statisticItem, TbPageTag tbPageTag) {
-        InterceptResult invokeLL;
+    public ue5(TbPageContext<?> tbPageContext, ViewEventCenter viewEventCenter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, statisticItem, tbPageTag)) == null) {
-            if (tbPageTag != null && statisticItem != null) {
-                if (!TextUtils.isEmpty(tbPageTag.locatePage)) {
-                    if (statisticItem.hasParam(TiebaStatic.Params.OBJ_TAB)) {
-                        statisticItem.delete(TiebaStatic.Params.OBJ_TAB);
-                    }
-                    statisticItem.param(TiebaStatic.Params.OBJ_TAB, tbPageTag.locatePage);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, viewEventCenter};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = new ArrayList();
+        this.c = new SparseArray<>();
+        this.g = true;
+        this.d = tbPageContext;
+        this.f = viewEventCenter;
+    }
+
+    @Override // com.baidu.tieba.fw8
+    public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, tbPageContext, i)) == null) {
+            int size = this.b.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                H h = this.b.get(i2);
+                if (h != null) {
+                    h.onChangeSkinType(tbPageContext, i);
                 }
-                statisticItem.param("sort_tab", tbPageTag.sortType);
-                return statisticItem;
             }
-            return null;
+            NoDataView noDataView = this.h;
+            if (noDataView != null) {
+                noDataView.f(this.d, i);
+                return true;
+            }
+            return true;
         }
-        return (StatisticItem) invokeLL.objValue;
+        return invokeLI.booleanValue;
     }
 
-    public static StatisticItem h(Context context, StatisticItem statisticItem) {
-        InterceptResult invokeLL;
+    public View a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, statisticItem)) == null) {
-            if (context != null && statisticItem != null) {
-                TbPageTag l = l(context);
-                if (l != null) {
-                    if (!TextUtils.isEmpty(l.locatePage)) {
-                        if (statisticItem.hasParam(TiebaStatic.Params.OBJ_TAB)) {
-                            statisticItem.delete(TiebaStatic.Params.OBJ_TAB);
-                        }
-                        statisticItem.param(TiebaStatic.Params.OBJ_TAB, l.locatePage);
-                    }
-                    statisticItem.param("sort_tab", l.sortType);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.i == null) {
+                this.i = new FrameLayout(this.d.getPageActivity());
+            }
+            if (this.h == null) {
+                this.h = NoDataViewFactory.a(this.d.getPageActivity(), this.i, this.k, this.j, this.l);
+            }
+            this.h.setVisibility(0);
+            FrameLayout.LayoutParams layoutParams = this.m;
+            if (layoutParams != null) {
+                this.h.setLayoutParams(layoutParams);
+            }
+            this.i.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
+            this.h.f(this.d, TbadkCoreApplication.getInst().getSkinType());
+            return this.i;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void b() {
+        FrameLayout frameLayout;
+        NoDataView noDataView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (frameLayout = this.i) != null && (noDataView = this.h) != null) {
+            frameLayout.removeView(noDataView);
+            this.h = null;
+        }
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            List<D> list = this.a;
+            if (list != null && list.size() == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            List<D> list = this.a;
+            if (list == null) {
+                return 0;
+            }
+            if (list.size() == 0 && this.g) {
+                return 1;
+            }
+            return this.a.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public final View d(View view2, int i, Class<?> cls, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{view2, Integer.valueOf(i), cls, Integer.valueOf(i2)})) == null) {
+            H e = e(view2, cls, i2);
+            if (this.c.indexOfValue(e) >= 0) {
+                this.c.remove(e.i());
+            }
+            this.c.put(i, e);
+            i(e, i);
+            return e.c();
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public final H e(View view2, Class<?> cls, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, view2, cls, i)) == null) {
+            if (view2 != null && view2.getTag() != null) {
+                return (H) view2.getTag();
+            }
+            View inflate = this.d.getPageActivity().getLayoutInflater().inflate(i, (ViewGroup) null);
+            try {
+                H h = (H) cls.getConstructor(TbPageContext.class, View.class, ViewEventCenter.class).newInstance(this.d, inflate, this.f);
+                h.onChangeSkinType(this.d, TbadkCoreApplication.getInst().getSkinType());
+                inflate.setTag(h);
+                this.b.add(h);
+                return h;
+            } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+            } catch (IllegalArgumentException e2) {
+                throw e2;
+            } catch (InstantiationException e3) {
+                throw new RuntimeException(e3);
+            } catch (NoSuchMethodException e4) {
+                throw new RuntimeException(e4);
+            } catch (SecurityException e5) {
+                throw e5;
+            } catch (InvocationTargetException e6) {
+                throw new RuntimeException(e6);
+            }
+        }
+        return (H) invokeLLI.objValue;
+    }
+
+    public void f(NoDataViewFactory.d dVar, NoDataViewFactory.e eVar, NoDataViewFactory.c cVar, FrameLayout.LayoutParams layoutParams) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048581, this, dVar, eVar, cVar, layoutParams) == null) {
+            this.k = dVar;
+            this.j = eVar;
+            this.l = cVar;
+            this.m = layoutParams;
+            NoDataView noDataView = this.h;
+            if (noDataView != null) {
+                noDataView.setTextOption(eVar);
+                this.h.setImgOption(dVar);
+                this.h.setButtonOption(cVar);
+                if (layoutParams != null) {
+                    this.h.setLayoutParams(layoutParams);
                 }
-                return statisticItem;
             }
-            return null;
         }
-        return (StatisticItem) invokeLL.objValue;
     }
 
-    public static StatisticItem b(Context context, StatisticItem statisticItem) {
-        InterceptResult invokeLL;
+    public void g(List<D> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, statisticItem)) == null) {
-            if (context != null && statisticItem != null) {
-                return c(statisticItem, j(context));
-            }
-            return statisticItem;
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+            h(list);
+            notifyDataSetChanged();
         }
-        return (StatisticItem) invokeLL.objValue;
     }
 
-    public static StatisticItem c(StatisticItem statisticItem, te5 te5Var) {
-        InterceptResult invokeLL;
+    @Override // android.widget.Adapter
+    public D getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, statisticItem, te5Var)) == null) {
-            if (te5Var != null && statisticItem != null) {
-                return d(statisticItem, te5Var.b(), te5Var.a());
-            }
-            return statisticItem;
-        }
-        return (StatisticItem) invokeLL.objValue;
-    }
-
-    public static StatisticItem e(Context context, StatisticItem statisticItem) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, statisticItem)) == null) {
-            if (context != null && statisticItem != null) {
-                return f(statisticItem, j(context));
-            }
-            return statisticItem;
-        }
-        return (StatisticItem) invokeLL.objValue;
-    }
-
-    public static StatisticItem f(StatisticItem statisticItem, te5 te5Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, statisticItem, te5Var)) == null) {
-            if (te5Var != null && statisticItem != null) {
-                return g(statisticItem, te5Var.b(), te5Var.a());
-            }
-            return statisticItem;
-        }
-        return (StatisticItem) invokeLL.objValue;
-    }
-
-    public static StatisticItem d(StatisticItem statisticItem, TbPageTag tbPageTag, TbPageTag tbPageTag2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, statisticItem, tbPageTag, tbPageTag2)) == null) {
-            if (statisticItem == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            List<D> list = this.a;
+            if (list == null || list.size() == 0 || i < 0 || i >= this.a.size()) {
                 return null;
             }
-            if (tbPageTag2 != null) {
-                if (!TextUtils.isEmpty(tbPageTag2.locatePage)) {
-                    if (statisticItem.hasParam(TiebaStatic.Params.OBJ_TAB)) {
-                        statisticItem.delete(TiebaStatic.Params.OBJ_TAB);
-                    }
-                    statisticItem.param(TiebaStatic.Params.OBJ_TAB, tbPageTag2.locatePage);
-                }
-                statisticItem.param("sort_tab", tbPageTag2.sortType);
-            }
-            if (tbPageTag != null && !TextUtils.isEmpty(tbPageTag.locatePage)) {
-                statisticItem.param(GuildActivityConfig.FROM_PAGE, tbPageTag.locatePage);
-            }
-            return statisticItem;
+            return this.a.get(i);
         }
-        return (StatisticItem) invokeLLL.objValue;
+        return (D) invokeI.objValue;
     }
 
-    public static StatisticItem g(StatisticItem statisticItem, TbPageTag tbPageTag, TbPageTag tbPageTag2) {
-        InterceptResult invokeLLL;
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, statisticItem, tbPageTag, tbPageTag2)) == null) {
-            if (statisticItem == null) {
-                return null;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            List<D> list = this.a;
+            if (list == null || list.size() == 0 || i < 0 || i >= this.a.size()) {
+                return 0L;
             }
-            if (tbPageTag2 != null) {
-                if (!TextUtils.isEmpty(tbPageTag2.locatePage)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_PAGE, tbPageTag2.locatePage);
-                }
-                statisticItem.param("sort_tab", tbPageTag2.sortType);
-            }
-            if (tbPageTag != null && !TextUtils.isEmpty(tbPageTag.locatePage)) {
-                if (statisticItem.hasParam(TiebaStatic.Params.OBJ_TAB)) {
-                    statisticItem.delete(TiebaStatic.Params.OBJ_TAB);
-                }
-                statisticItem.param(TiebaStatic.Params.OBJ_TAB, tbPageTag.locatePage);
-            }
-            return statisticItem;
+            return i;
         }
-        return (StatisticItem) invokeLLL.objValue;
+        return invokeI.longValue;
     }
 
-    public static StatisticItem i(Context context, ThreadData threadData, String str) {
-        InterceptResult invokeLLL;
-        String str2;
+    public void h(List<D> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, threadData, str)) == null) {
-            if (context != null && threadData != null && !StringUtils.isNull(str)) {
-                StatisticItem statisticItem = new StatisticItem(str);
-                statisticItem.param("tid", threadData.getId()).param("fid", threadData.getFid()).param("thread_type", threadData.getThreadType()).param("card_type", threadData.getRecomCardType()).param("nid", threadData.getNid());
-                if (threadData.getBaijiahaoData() != null && !xi.isEmpty(threadData.getBaijiahaoData().oriUgcVid)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, threadData.getBaijiahaoData().oriUgcVid);
-                }
-                StatisticItem param = statisticItem.param("weight", threadData.mRecomWeight).param("ab_tag", threadData.mRecomAbTag).param("extra", threadData.mRecomExtra);
-                if (threadData.isSubPb) {
-                    str2 = "2";
-                } else {
-                    str2 = "1";
-                }
-                param.param("obj_type", str2).param("source", threadData.mRecomSource);
-                h(context, statisticItem);
-                return statisticItem;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, list) == null) && list != null) {
+            if (this.a == null) {
+                this.a = new ArrayList();
             }
-            return null;
+            this.a.clear();
+            this.a.addAll(list);
+            this.c.clear();
         }
-        return (StatisticItem) invokeLLL.objValue;
     }
 
-    public static te5 j(Context context) {
-        InterceptResult invokeL;
+    public final void i(H h, int i) {
+        D item;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            s9<?> b = x9.b(context);
-            if (!(b instanceof se5)) {
-                return null;
-            }
-            return ((se5) b).getTbPageInfo();
+        if ((interceptable == null || interceptable.invokeLI(1048587, this, h, i) == null) && (item = getItem(i)) != null) {
+            h.e = i;
+            h.g(item, this.e);
         }
-        return (te5) invokeL.objValue;
-    }
-
-    public static TbPageTag k(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            te5 j = j(context);
-            if (j == null) {
-                return null;
-            }
-            return j.a();
-        }
-        return (TbPageTag) invokeL.objValue;
-    }
-
-    public static TbPageTag m(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, intent)) == null) {
-            if (intent != null) {
-                return (TbPageTag) intent.getParcelableExtra("tb_page_tag_source_trace");
-            }
-            return null;
-        }
-        return (TbPageTag) invokeL.objValue;
-    }
-
-    public static TbPageTag l(Context context) {
-        InterceptResult invokeL;
-        s9<?> b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            if (context != null && (b = x9.b(context)) != null && b.getPageContext() != null && b.getPageContext().getPageActivity() != null) {
-                return m(b.getPageContext().getPageActivity().getIntent());
-            }
-            return null;
-        }
-        return (TbPageTag) invokeL.objValue;
     }
 }

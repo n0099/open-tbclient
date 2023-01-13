@@ -15,7 +15,7 @@ import io.reactivex.disposables.Disposable;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class SingleCache<T> extends Single<T> implements SingleObserver<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final CacheDisposable[] EMPTY;
@@ -34,7 +34,7 @@ public final class SingleCache<T> extends Single<T> implements SingleObserver<T>
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class CacheDisposable<T> extends AtomicBoolean implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7514387411091976596L;

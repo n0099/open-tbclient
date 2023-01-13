@@ -15,18 +15,18 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.data.CommitVoteReqMsg;
 import com.baidu.tbadk.data.CommitVoteResMsg;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ah;
 import com.baidu.tieba.barselect.data.VoteElectionHttpResMessage;
 import com.baidu.tieba.barselect.data.VoteElectionRequestMessage;
 import com.baidu.tieba.barselect.data.VoteElectionSocketResMessage;
-import com.baidu.tieba.k36;
-import com.baidu.tieba.m36;
-import com.baidu.tieba.qb;
-import com.baidu.tieba.qt8;
+import com.baidu.tieba.bh;
+import com.baidu.tieba.e46;
+import com.baidu.tieba.g46;
+import com.baidu.tieba.my8;
+import com.baidu.tieba.p46;
+import com.baidu.tieba.rb;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.v36;
-import com.baidu.tieba.xi;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,16 +40,16 @@ public class BarVoteModel extends BdBaseModel {
     public final BdUniqueId RELOAD_TYPE;
     public final BdUniqueId SWITCH_TYPE;
     public BarVoteActivity a;
-    public m36 b;
+    public g46 b;
     public c c;
     public long d;
-    public qb e;
+    public rb e;
     public HttpMessageListener f;
     public int mPn;
 
     /* loaded from: classes3.dex */
     public interface c {
-        void a(int i, String str, m36 m36Var);
+        void a(int i, String str, g46 g46Var);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -73,19 +73,19 @@ public class BarVoteModel extends BdBaseModel {
     }
 
     /* loaded from: classes3.dex */
-    public class a extends qb {
+    public class a extends rb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BarVoteModel a;
 
         /* renamed from: com.baidu.tieba.barselect.BarVoteModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0227a implements Runnable {
+        public class RunnableC0232a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0227a(a aVar) {
+            public RunnableC0232a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -167,9 +167,9 @@ public class BarVoteModel extends BdBaseModel {
             this.a = barVoteModel;
         }
 
-        @Override // com.baidu.tieba.qb
+        @Override // com.baidu.tieba.rb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            m36 voteData;
+            g46 voteData;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
                 if (responsedMessage instanceof VoteElectionHttpResMessage) {
@@ -209,9 +209,9 @@ public class BarVoteModel extends BdBaseModel {
                     }
                 } else if (responsedMessage.getOrginalMessage().getTag() == this.a.SWITCH_TYPE) {
                     if (voteData != null && voteData.a() != null) {
-                        if (voteData.a().h() != v36.c) {
+                        if (voteData.a().h() != p46.c) {
                             if (this.a.a != null) {
-                                ah.a().postDelayed(new RunnableC0227a(this), 5000L);
+                                bh.a().postDelayed(new RunnableC0232a(this), 5000L);
                                 return;
                             }
                             return;
@@ -223,7 +223,7 @@ public class BarVoteModel extends BdBaseModel {
                             this.a.c.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.b);
                         }
                     } else if (this.a.a != null) {
-                        ah.a().postDelayed(new b(this), 5000L);
+                        bh.a().postDelayed(new b(this), 5000L);
                     }
                 }
             }
@@ -271,9 +271,9 @@ public class BarVoteModel extends BdBaseModel {
                     if ((orginalMessage instanceof CommitVoteReqMsg) && this.a.b.b() != null) {
                         CommitVoteReqMsg commitVoteReqMsg = (CommitVoteReqMsg) orginalMessage;
                         if (commitVoteReqMsg.candidate_uid != 0) {
-                            for (k36 k36Var : this.a.b.b()) {
-                                if (k36Var.l() == commitVoteReqMsg.candidate_uid) {
-                                    k36Var.D(k36Var.m() + 1);
+                            for (e46 e46Var : this.a.b.b()) {
+                                if (e46Var.l() == commitVoteReqMsg.candidate_uid) {
+                                    e46Var.D(e46Var.m() + 1);
                                     z = true;
                                 }
                             }
@@ -282,27 +282,27 @@ public class BarVoteModel extends BdBaseModel {
                                 z = true;
                             }
                             if (this.a.c != null && z) {
-                                yi.P(TbadkCoreApplication.getInst(), R.string.bar_manager_vote_success);
+                                zi.P(TbadkCoreApplication.getInst(), R.string.bar_manager_vote_success);
                                 this.a.c.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.b);
                             }
                         }
                     }
                 } else if (error == 3250023) {
-                    qt8.b(error, "", null);
+                    my8.b(error, "", null);
                 } else if (error == 3250021) {
-                    qt8.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
+                    my8.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
                 } else if (error != 3250002 && error != 3250004) {
-                    yi.Q(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
+                    zi.Q(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
                 } else {
                     BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
-                    if (xi.isEmpty(httpResponsedMessage.getErrorString())) {
+                    if (yi.isEmpty(httpResponsedMessage.getErrorString())) {
                         errorString = TbadkCoreApplication.getInst().getString(R.string.block_user_tip);
                     } else {
                         errorString = httpResponsedMessage.getErrorString();
                     }
                     blockPopInfoData.block_info = errorString;
                     blockPopInfoData.ahead_info = TbadkCoreApplication.getInst().getString(R.string.block_user_feed);
-                    blockPopInfoData.ok_info = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0a07);
+                    blockPopInfoData.ok_info = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0a21);
                     blockPopInfoData.ahead_url = AntiHelper.a;
                     AntiHelper.s(this.a.a, blockPopInfoData);
                 }

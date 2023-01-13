@@ -1,140 +1,71 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class cg4 {
     public static /* synthetic */ Interceptable $ic;
-    public static cg4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public String b;
-    public String c;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
 
-    /* loaded from: classes3.dex */
-    public static class a extends ok4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a() {
-            super("updatecore_node_tipmsgs");
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
-
-    public cg4() {
+    public cg4(int i, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i6 = newInitContext.flag;
+            if ((i6 & 1) != 0) {
+                int i7 = i6 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new a();
-        this.b = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f1302);
-        this.c = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f1303);
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
+        this.d = i5;
+        this.e = i4;
     }
 
-    public static cg4 b() {
+    @NonNull
+    public static cg4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == null) {
-                synchronized (cg4.class) {
-                    if (d == null) {
-                        d = new cg4();
-                    }
-                }
-            }
-            return d;
+            return new cg4(24, 70, 1440, 720, 30);
         }
         return (cg4) invokeV.objValue;
     }
 
-    public String d() {
-        InterceptResult invokeV;
+    @NonNull
+    public static cg4 b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a.getString("tips_config_version", "0");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String a(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            return this.a.getString(String.format("%04d", Long.valueOf(j)), this.b);
-        }
-        return (String) invokeJ.objValue;
-    }
-
-    public String c(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            return this.a.getString(String.format("%04d", Long.valueOf(j)), this.c);
-        }
-        return (String) invokeJ.objValue;
-    }
-
-    public void e(JSONObject jSONObject) {
-        JSONArray optJSONArray;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONArray = jSONObject.optJSONArray("data")) == null) {
-            return;
-        }
-        HashMap<String, String> hashMap = new HashMap<>(optJSONArray.length());
-        for (int i = 0; i < optJSONArray.length(); i++) {
-            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-            hashMap.put(optJSONObject.optString("tipno"), optJSONObject.optString("tipmsg"));
-        }
-        f(hashMap, optString);
-    }
-
-    public void f(HashMap<String, String> hashMap, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, hashMap, str) == null) && hashMap != null && !hashMap.isEmpty() && !TextUtils.isEmpty(str)) {
-            SharedPreferences.Editor edit = this.a.edit();
-            edit.clear();
-            edit.putString("tips_config_version", str);
-            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                edit.putString(entry.getKey(), entry.getValue());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return a();
             }
-            edit.apply();
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                return new cg4(jSONObject.optInt("clean_check_hour", 24), jSONObject.optInt("hold_history_max_count", 70), jSONObject.optInt("history_force_clean_hour", 1440), jSONObject.optInt("force_clean_hour", 720), jSONObject.optInt("hold_max_count", 30));
+            } catch (JSONException unused) {
+                return a();
+            }
         }
+        return (cg4) invokeL.objValue;
     }
 }

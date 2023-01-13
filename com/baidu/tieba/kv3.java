@@ -1,9 +1,5 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,9 +9,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class kv3 extends kw3 {
+public class kv3 extends pw3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,12 +26,12 @@ public class kv3 extends kw3 {
                 return;
             }
         }
-        c = ok1.a;
+        boolean z = tk1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public kv3() {
-        super("openApp");
+        super("getDownloadConfig");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,34 +47,30 @@ public class kv3 extends kw3 {
         }
     }
 
-    @Override // com.baidu.tieba.kw3
-    public ew1 a(@NonNull JSONObject jSONObject, @NonNull ih2 ih2Var) {
+    @Override // com.baidu.tieba.pw3
+    public jw1 a(JSONObject jSONObject, nh2 nh2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ih2Var)) == null) {
-            if (c) {
-                Log.d("GameCenterOpenAppAction", "handle: " + jSONObject);
-            }
-            String optString = jSONObject.optString("packageName");
-            if (TextUtils.isEmpty(optString)) {
-                ih2Var.onFail(31010, "package name is empty");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, nh2Var)) == null) {
+            if (jSONObject == null) {
+                nh2Var.onFail(202, "params may be error");
                 return null;
             }
-            fw3.a(optString, "openApp", null, null, null);
-            if (!tv3.h(AppRuntime.getAppContext(), optString)) {
-                ih2Var.onFail(31011, "app is not installed");
-                fw3.a(optString, "openApp", com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(31011), null);
-                return null;
+            if (jSONObject.has("wifiResumeDownloadFlag")) {
+                tv3.a().c(jSONObject.optBoolean("wifiResumeDownloadFlag", false));
             }
-            if (tv3.l(AppRuntime.getAppContext(), optString)) {
-                ih2Var.a(null);
-                fw3.a(optString, "openApp", "success", null, null);
-            } else {
-                ih2Var.onFail(31019, "open app fail");
-                fw3.a(optString, "openApp", com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(31019), null);
+            if (jSONObject.has("install_guide_switch")) {
+                yv3.r(jSONObject.optBoolean("install_guide_switch"));
             }
+            if (jSONObject.has("install_guide_count")) {
+                yv3.q(jSONObject.optInt("install_guide_count"));
+            }
+            if (jSONObject.has("get_install_result")) {
+                yv3.s(jSONObject.optBoolean("get_install_result"));
+            }
+            nh2Var.a(null);
             return null;
         }
-        return (ew1) invokeLL.objValue;
+        return (jw1) invokeLL.objValue;
     }
 }

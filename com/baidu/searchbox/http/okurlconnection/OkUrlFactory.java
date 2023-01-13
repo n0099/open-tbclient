@@ -150,7 +150,7 @@ public final class OkUrlFactory implements URLStreamHandlerFactory, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public OkUrlFactory m39clone() {
+    public OkUrlFactory m41clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

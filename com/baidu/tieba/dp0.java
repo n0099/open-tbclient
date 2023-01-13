@@ -1,19 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.max.event.NestedEvent;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.widget.FrameLayout;
 /* loaded from: classes4.dex */
-public final /* synthetic */ class dp0 {
-    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface dp0 extends dj0 {
+    int getVideoHeight();
 
-    static {
-        int[] iArr = new int[NestedEvent.values().length];
-        $EnumSwitchMapping$0 = iArr;
-        iArr[NestedEvent.UP_SHOW_VIDEO.ordinal()] = 1;
-        $EnumSwitchMapping$0[NestedEvent.UP_SHOW_WEB.ordinal()] = 2;
-        $EnumSwitchMapping$0[NestedEvent.SCROLL_FINISH.ordinal()] = 3;
-    }
+    FrameLayout h();
+
+    boolean k();
+
+    int l();
 }

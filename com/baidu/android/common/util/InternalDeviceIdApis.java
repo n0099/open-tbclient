@@ -1,7 +1,7 @@
 package com.baidu.android.common.util;
 
 import android.content.Context;
-import com.baidu.tieba.jz;
+import com.baidu.tieba.oz;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,21 +48,21 @@ public class InternalDeviceIdApis {
         }
     }
 
-    public static jz a(Context context) {
+    public static oz a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             DeviceId.getCUID(context);
             return DeviceId.a(context).c();
         }
-        return (jz) invokeL.objValue;
+        return (oz) invokeL.objValue;
     }
 
     public static String getSelfC270Ids(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            jz.a k = a(context).k();
+            oz.a k = a(context).k();
             if (k != null) {
                 return k.r();
             }
@@ -75,13 +75,13 @@ public class InternalDeviceIdApis {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            jz a = a(context);
+            oz a = a(context);
             TargetPackageCuidV270Info targetPackageCuidV270Info = new TargetPackageCuidV270Info();
-            jz.a b = a.b(str, "upc");
+            oz.a b = a.b(str, "upc");
             if (b != null) {
                 targetPackageCuidV270Info.upcChannelCuid = b.r();
             }
-            jz.a b2 = a.b(str, "isc");
+            oz.a b2 = a.b(str, "isc");
             if (b2 != null) {
                 targetPackageCuidV270Info.iscChannelCuid = b2.r();
             }

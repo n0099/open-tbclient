@@ -1,19 +1,9 @@
 package com.baidu.tieba;
 
-import android.webkit.JavascriptInterface;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.dns.transmit.model.DnsModel;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.JsSerializeValue;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.games.view.desktopguide.DesktopGuideApi;
-import com.baidu.swan.games.view.recommend.proxy.RecommendButtonApiProxy;
+import com.baidu.searchbox.v8engine.JsArrayBuffer;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,35 +11,80 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Closeable;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 /* loaded from: classes5.dex */
-public final class ly3 extends EventTargetImpl {
+public class ly3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean u;
+    public static final boolean e;
+    public static volatile ly3 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public ob2 a;
-    public fg2 b;
-    public n34 c;
-    public l34 d;
-    @V8JavascriptField
-    public final String domain;
-    public JsObject e;
-    @V8JavascriptField
-    public bg2 env;
-    public o34 f;
-    public w14 g;
-    public x14 h;
-    public h54 i;
-    public n64 j;
-    public jx3 k;
-    public b34 l;
-    public xy3 m;
-    public z34 n;
-    public DesktopGuideApi o;
-    public v34 p;
-    public c84 q;
-    public px3 r;
-    public hz3 s;
-    public t34 t;
+    public HashMap<String, ArrayList<b>> a;
+    public final ExecutorService b;
+    public String c;
+    public Object d;
+
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(String str);
+
+        void b();
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ JsArrayBuffer a;
+        public final /* synthetic */ b b;
+        public final /* synthetic */ ly3 c;
+
+        public a(ly3 ly3Var, JsArrayBuffer jsArrayBuffer, b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ly3Var, jsArrayBuffer, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = ly3Var;
+            this.a = jsArrayBuffer;
+            this.b = bVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            String g = this.c.g(this.a.buffer());
+            File file = new File(g);
+            if (file.exists()) {
+                if (!file.isDirectory()) {
+                    this.b.a(g);
+                } else {
+                    this.b.b();
+                }
+            } else if (this.c.e(g, this.b)) {
+            } else {
+                this.c.i(g, this.a.buffer());
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -64,751 +99,172 @@ public final class ly3 extends EventTargetImpl {
                 return;
             }
         }
-        u = ok1.a;
+        e = tk1.a;
     }
 
-    @JavascriptInterface
-    public void clearStorageSync() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            o54.a(this.a, "clearStorageSync", "", x().a());
-        }
-    }
-
-    @JavascriptInterface
-    public by3 createInnerAudioContext() {
+    public static ly3 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return new by3(this.a);
-        }
-        return (by3) invokeV.objValue;
-    }
-
-    @JavascriptInterface
-    public RecommendButtonApiProxy createRecommendationButton() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return createRecommendationButton(null);
-        }
-        return (RecommendButtonApiProxy) invokeV.objValue;
-    }
-
-    @JavascriptInterface
-    public f64 createUDPSocket() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return i64.c.b(this.a);
-        }
-        return (f64) invokeV.objValue;
-    }
-
-    @JavascriptInterface
-    public px3 getAntiAddiction() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            if (this.r == null) {
-                this.r = new px3(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (f == null) {
+                synchronized (ly3.class) {
+                    if (f == null) {
+                        f = new ly3();
+                    }
+                }
             }
-            return this.r;
+            return f;
         }
-        return (px3) invokeV.objValue;
+        return (ly3) invokeV.objValue;
     }
 
-    @JavascriptInterface
-    public String getEnvVariables() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return oo2.a(this.a);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @JavascriptInterface
-    public fg2 getFileSystemManager() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            if (this.b == null) {
-                this.b = new fg2((mb2) this.a);
-            }
-            return this.b;
-        }
-        return (fg2) invokeV.objValue;
-    }
-
-    @JavascriptInterface
-    public n34 getOpenData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            if (this.c == null) {
-                this.c = new n34((mb2) this.a);
-            }
-            return this.c;
-        }
-        return (n34) invokeV.objValue;
-    }
-
-    @JavascriptInterface
-    public o34 getOpenDataContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            if (this.f == null) {
-                o34 o34Var = new o34(this.a);
-                this.f = o34Var;
-                o34Var.canvas = this.e;
-                this.e = null;
-            }
-            return this.f;
-        }
-        return (o34) invokeV.objValue;
-    }
-
-    @JavascriptInterface
-    public n54 getStorageInfoSync() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return x().b();
-        }
-        return (n54) invokeV.objValue;
-    }
-
-    @JavascriptInterface
-    public z34 getVideoRecorderManager() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            if (this.n == null) {
-                this.n = new z34(this.a);
-            }
-            return this.n;
-        }
-        return (z34) invokeV.objValue;
-    }
-
-    @JavascriptInterface
-    public c84 getWebViewManager() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            if (this.q == null) {
-                this.q = new c84(this.a);
-            }
-            return this.q;
-        }
-        return (c84) invokeV.objValue;
-    }
-
-    @JavascriptInterface
-    public void hideKeyboard() {
-        w14 w14Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048607, this) == null) && (w14Var = this.g) != null) {
-            w14Var.k(null);
-        }
-    }
-
-    @JavascriptInterface
-    public void reload() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
-            reload(null);
-        }
-    }
-
-    @JavascriptInterface
-    public void showAddToDesktopGuide() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048631, this) == null) {
-            showAddToDesktopGuide(null);
-        }
-    }
-
-    @JavascriptInterface
-    public void showKeyboard() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048633, this) == null) {
-            if (this.g == null) {
-                this.g = new w14(this.a, this.h);
-            }
-            this.g.l(null);
-        }
-    }
-
-    @JavascriptInterface
-    public void updateKeyboard() {
-        w14 w14Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048635, this) == null) && (w14Var = this.g) != null) {
-            w14Var.m(null);
-        }
-    }
-
-    @NonNull
-    public final h54 x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) {
-            if (this.i == null) {
-                this.i = new h54(this.a);
-            }
-            return this.i;
-        }
-        return (h54) invokeV.objValue;
-    }
-
-    public final void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048640, this) == null) {
-            this.h = new x14(this.a);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ly3(ob2 ob2Var) {
-        super(ob2Var);
+    public ly3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ob2Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((JSRuntime) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.domain = "main";
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.j = null;
-        this.k = null;
-        this.l = null;
-        this.m = null;
-        this.n = null;
-        this.o = null;
-        this.p = null;
-        this.q = null;
-        this.r = null;
-        this.s = null;
-        this.t = null;
-        this.a = ob2Var;
-        this.env = new bg2();
-        y();
+        this.a = new HashMap<>();
+        this.b = Executors.newCachedThreadPool();
+        this.d = new Object();
+        this.c = fy3.g() + fy3.f();
     }
 
-    @JavascriptInterface
-    public void exit(JsObject jsObject) {
+    public final boolean e(String str, b bVar) {
+        InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, jsObject) == null) {
-            if (u) {
-                this.a.y().b("exit from java side.");
-            }
-            if (jsObject == null) {
-                return;
-            }
-            ny3 ny3Var = new ny3();
-            my3 e = my3.e(lw1.F(jsObject));
-            SwanAppActivity activity = rp2.U().getActivity();
-            if (activity == null) {
-                ny3Var.errMsg = String.format("%s:%s", "exit", com.alipay.sdk.util.f.j);
-                e.b(ny3Var);
-                return;
-            }
-            ny3Var.errMsg = String.format("%s:%s", "exit", DnsModel.MSG_OK);
-            e.d(ny3Var);
-            activity.finishAndRemoveTask();
-        }
-    }
-
-    @JavascriptInterface
-    public void authorizeEval(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) {
-            qz3.b(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public void checkIsUserAdvisedToRest(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject) == null) {
-            if (this.d == null) {
-                this.d = new l34(this.a);
-            }
-            this.d.checkIsUserAdvisedToRest(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public void clearStorage(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject) == null) {
-            x().h(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public d34 connectSocket(JsObject jsObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jsObject)) == null) {
-            if (this.l == null) {
-                this.l = new b34(this.a);
-            }
-            return this.l.a(jsObject);
-        }
-        return (d34) invokeL.objValue;
-    }
-
-    @JavascriptInterface
-    public hx3 createBannerAd(JsObject jsObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jsObject)) == null) {
-            return new ex3(this.a, jsObject);
-        }
-        return (hx3) invokeL.objValue;
-    }
-
-    @JavascriptInterface
-    public RecommendButtonApiProxy createRecommendationButton(JsObject jsObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsObject)) == null) {
-            return new RecommendButtonApiProxy(this.a, jsObject);
-        }
-        return (RecommendButtonApiProxy) invokeL.objValue;
-    }
-
-    @JavascriptInterface
-    public jx3 createRewardedVideoAd(JsObject jsObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, jsObject)) == null) {
-            if (this.k == null) {
-                this.k = new mx3(this.a, jsObject);
-            }
-            return this.k;
-        }
-        return (jx3) invokeL.objValue;
-    }
-
-    @JavascriptInterface
-    public e74 createUserInfoButton(JsObject jsObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, jsObject)) == null) {
-            return new e74(jsObject, this.a);
-        }
-        return (e74) invokeL.objValue;
-    }
-
-    @JavascriptInterface
-    public void exitVoIPChat(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, jsObject) == null) {
-            if (this.t == null) {
-                this.t = u34.a.a();
-            }
-            this.t.d(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public String getAPIs(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
-            if (u) {
-                if (d03.p()) {
-                    return SchemeCollecter.getSchemesDes(SchemeCollecter.CLASSIFY_SWAN_V8, i);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bVar)) == null) {
+            synchronized (this.d) {
+                ArrayList<b> arrayList = this.a.get(str);
+                z = true;
+                if (arrayList == null) {
+                    arrayList = new ArrayList<>();
+                    this.a.put(str, arrayList);
+                    z = false;
                 }
-                return "";
+                arrayList.add(bVar);
             }
-            return SchemeCollecter.getSchemesDes(SchemeCollecter.CLASSIFY_SWAN_V8, i);
+            return z;
         }
-        return (String) invokeI.objValue;
+        return invokeLL.booleanValue;
     }
 
-    @JavascriptInterface
-    public hz3 getDownloadApp(JsObject jsObject) {
+    public void h(JsArrayBuffer jsArrayBuffer, b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, jsArrayBuffer, bVar) == null) {
+            this.b.execute(new a(this, jsArrayBuffer, bVar));
+        }
+    }
+
+    public final void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            synchronized (this.d) {
+                ArrayList<b> arrayList = this.a.get(str);
+                if (arrayList == null) {
+                    return;
+                }
+                boolean isEmpty = TextUtils.isEmpty(str);
+                Iterator<b> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    b next = it.next();
+                    if (!isEmpty) {
+                        if (e) {
+                            Log.e("AudioBufferManager", "save success path: " + str);
+                        }
+                        next.a(str);
+                    } else {
+                        next.b();
+                    }
+                }
+                this.a.remove(str);
+            }
+        }
+    }
+
+    public final String g(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, jsObject)) == null) {
-            if (this.s == null) {
-                this.s = new hz3(this.a, lw1.F(jsObject));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
+            String h = fy3.h(bArr);
+            StringBuilder sb = new StringBuilder();
+            sb.append(this.c);
+            sb.append(bArr.length);
+            if (TextUtils.isEmpty(h)) {
+                h = "";
             }
-            return this.s;
+            sb.append(h);
+            return sb.toString();
         }
-        return (hz3) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    @JavascriptInterface
-    public void getStorage(JsObject jsObject) {
+    public final void i(String str, byte[] bArr) {
+        FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, jsObject) == null) {
-            x().k(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public void getStorageInfo(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, jsObject) == null) {
-            x().l(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public Object getStorageSync(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
-            return o54.a(this.a, "getStorageSync", str, x().c(str));
-        }
-        return invokeL.objValue;
-    }
-
-    @JavascriptInterface
-    public void getSwanGameDuration(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, jsObject) == null) {
-            lz3.a(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public void getUUAPInfo(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, jsObject) == null) {
-            v64.d(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public n64 getUpdateManager(JsObject jsObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, jsObject)) == null) {
-            if (this.j == null) {
-                this.j = new n64(jsObject);
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, bArr) == null) {
+            File file = new File(this.c);
+            if (!file.exists()) {
+                file.mkdirs();
             }
-            return this.j;
-        }
-        return (n64) invokeL.objValue;
-    }
-
-    @JavascriptInterface
-    public void hideKeyboard(JsObject jsObject) {
-        w14 w14Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048608, this, jsObject) == null) && (w14Var = this.g) != null) {
-            w14Var.k(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public void joinVoIPChat(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, jsObject) == null) {
-            if (this.t == null) {
-                this.t = u34.a.a();
+            File file2 = new File(str + ".bdsave");
+            Closeable closeable = null;
+            try {
+                try {
+                    fileOutputStream = new FileOutputStream(file2);
+                    try {
+                        fileOutputStream.write(bArr);
+                        fileOutputStream.flush();
+                        File file3 = new File(str);
+                        if (file3.exists() && !file3.isDirectory()) {
+                            file3.delete();
+                        }
+                        if (file2.renameTo(file3)) {
+                            if (e) {
+                                Log.e("AudioBufferManager", "buffer load rename success path = " + str);
+                            }
+                            d(str);
+                        } else {
+                            if (e) {
+                                Log.e("AudioBufferManager", "buffer load rename error path = " + str);
+                            }
+                            file2.delete();
+                            d(null);
+                        }
+                    } catch (Exception e2) {
+                        e = e2;
+                        if (e) {
+                            e.printStackTrace();
+                        }
+                        if (file2.exists()) {
+                            file2.delete();
+                        }
+                        d(null);
+                        nk4.d(fileOutputStream);
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    closeable = ".bdsave";
+                    nk4.d(closeable);
+                    throw th;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                fileOutputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                nk4.d(closeable);
+                throw th;
             }
-            this.t.b(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public t54 loadSubpackage(JsObject jsObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, jsObject)) == null) {
-            t54 t54Var = new t54(this.a);
-            t54Var.E(jsObject);
-            return t54Var;
-        }
-        return (t54) invokeL.objValue;
-    }
-
-    @JavascriptInterface
-    public void menuItemCtrl(JsObject jsObject) {
-        sl1 F;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048611, this, jsObject) == null) && (F = rp2.U().F()) != null) {
-            F.a(lw1.F(jsObject));
-        }
-    }
-
-    @JavascriptInterface
-    public void offVoIPChatInterrupted(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, jsObject) == null) {
-            if (this.t == null) {
-                this.t = u34.a.a();
-            }
-            this.t.a(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public void offVoIPChatMembersChanged(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, jsObject) == null) {
-            if (this.t == null) {
-                this.t = u34.a.a();
-            }
-            this.t.g(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public void offVoIPChatSpeakersChanged(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048614, this, jsObject) == null) {
-            if (this.t == null) {
-                this.t = u34.a.a();
-            }
-            this.t.i(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public void onVoIPChatInterrupted(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048615, this, jsObject) == null) {
-            if (this.t == null) {
-                this.t = u34.a.a();
-            }
-            this.t.c(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public void onVoIPChatMembersChanged(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048616, this, jsObject) == null) {
-            if (this.t == null) {
-                this.t = u34.a.a();
-            }
-            this.t.h(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public void onVoIPChatSpeakersChanged(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, jsObject) == null) {
-            if (this.t == null) {
-                this.t = u34.a.a();
-            }
-            this.t.k(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public void openCustomerServiceConversation(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, jsObject) == null) {
-            dz3.a((ly3) this.a.n(), jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public void reload(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048620, this, jsObject) == null) {
-            if (this.p == null) {
-                this.p = new v34();
-            }
-            this.p.d(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public void removeStorage(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048621, this, jsObject) == null) {
-            x().o(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public void removeStorageSync(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, str) == null) {
-            o54.a(this.a, "removeStorageSync", str, x().e(str));
-        }
-    }
-
-    @JavascriptInterface
-    public void setEnableDebug(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, jsObject) == null) {
-            if (this.m == null) {
-                this.m = new xy3(this.a);
-            }
-            this.m.i(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public void setInnerAudioOption(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048625, this, jsObject) == null) {
-            new cy3(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public void setPreferredFramesPerSecond(short s) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048626, this, new Object[]{Short.valueOf(s)}) == null) && s >= 1 && s <= 60) {
-            this.a.setPreferredFramesPerSecond(s);
-        }
-    }
-
-    @JavascriptInterface
-    public void setStorage(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048627, this, jsObject) == null) {
-            x().p(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public void setStorageSync(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048628, this, str) == null) {
-            o54.a(this.a, "setStorageSync", str, x().f(str, null));
-        }
-    }
-
-    @JavascriptInterface
-    public void shareVideo(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048630, this, jsObject) == null) {
-            new q44(jsObject).m();
-        }
-    }
-
-    @JavascriptInterface
-    public void showAddToDesktopGuide(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048632, this, jsObject) == null) {
-            if (this.o == null) {
-                this.o = new DesktopGuideApi(this.a);
-            }
-            this.o.v(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public void showKeyboard(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048634, this, jsObject) == null) {
-            if (this.g == null) {
-                this.g = new w14(this.a, this.h);
-            }
-            this.g.l(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public void updateKeyboard(JsObject jsObject) {
-        w14 w14Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048636, this, jsObject) == null) && (w14Var = this.g) != null) {
-            w14Var.m(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public void updateVoIPChatMuteConfig(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048637, this, jsObject) == null) {
-            if (this.t == null) {
-                this.t = u34.a.a();
-            }
-            this.t.e(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public z24 uploadFile(JsObject jsObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048638, this, jsObject)) == null) {
-            z24 z24Var = new z24(this.a, lw1.F(jsObject));
-            z24Var.start();
-            return z24Var;
-        }
-        return (z24) invokeL.objValue;
-    }
-
-    public void z(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048641, this, jsObject) == null) {
-            this.e = jsObject;
-        }
-    }
-
-    @JavascriptInterface
-    public o24 downloadFile(JsObject jsObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, jsObject)) == null) {
-            lw1 F = lw1.F(jsObject);
-            k24 d = s24.b().d(this.a, F, 2);
-            if (d instanceof o24) {
-                o24 o24Var = (o24) d;
-                o24Var.H(F);
-                return o24Var;
-            }
-            o24 o24Var2 = new o24(this.a, F);
-            o24Var2.start();
-            return o24Var2;
-        }
-        return (o24) invokeL.objValue;
-    }
-
-    @JavascriptInterface
-    public v24 request(JsObject jsObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048623, this, jsObject)) == null) {
-            lw1 F = lw1.F(jsObject);
-            k24 d = s24.b().d(this.a, F, 1);
-            if (d instanceof v24) {
-                v24 v24Var = (v24) d;
-                v24Var.H(F);
-                return v24Var;
-            }
-            v24 v24Var2 = new v24(this.a, F);
-            v24Var2.start();
-            return v24Var2;
-        }
-        return (v24) invokeL.objValue;
-    }
-
-    @JavascriptInterface
-    public void setStorageSync(String str, JsSerializeValue jsSerializeValue) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048629, this, str, jsSerializeValue) == null) {
-            o54.a(this.a, "setStorageSync", str, x().f(str, jsSerializeValue));
+            nk4.d(fileOutputStream);
         }
     }
 }

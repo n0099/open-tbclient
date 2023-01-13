@@ -98,4 +98,46 @@ public final /* synthetic */ class FlowKt__ZipKt {
     public static final <T1, T2, T3, T4, T5, R> Flow<R> combineTransform(Flow<? extends T1> flow, Flow<? extends T2> flow2, Flow<? extends T3> flow3, Flow<? extends T4> flow4, Flow<? extends T5> flow5, @BuilderInference Function7<? super FlowCollector<? super R>, ? super T1, ? super T2, ? super T3, ? super T4, ? super T5, ? super Continuation<? super Unit>, ? extends Object> function7) {
         return FlowKt.flow(new FlowKt__ZipKt$combineTransform$$inlined$combineTransform$4(new Flow[]{flow, flow2, flow3, flow4, flow5}, null, function7));
     }
+
+    /*  JADX ERROR: IndexOutOfBoundsException in pass: MarkMethodsForInline
+        java.lang.IndexOutOfBoundsException: Index: 0
+        	at java.base/java.util.Collections$EmptyList.get(Collections.java:4807)
+        	at jadx.core.dex.nodes.InsnNode.getArg(InsnNode.java:104)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:117)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.visit(MarkMethodsForInline.java:37)
+        */
+    @kotlinx.coroutines.ExperimentalCoroutinesApi
+    public static final /* synthetic */ <T, R> kotlinx.coroutines.flow.Flow<R> combine(kotlinx.coroutines.flow.Flow<? extends T>[] r1, kotlin.jvm.functions.Function2<? super T[], ? super kotlin.coroutines.Continuation<? super R>, ? extends java.lang.Object> r2) {
+        /*
+            kotlin.jvm.internal.Intrinsics.needClassReification()
+            kotlinx.coroutines.flow.FlowKt__ZipKt$combine$$inlined$unsafeFlow$5 r0 = new kotlinx.coroutines.flow.FlowKt__ZipKt$combine$$inlined$unsafeFlow$5
+            r0.<init>(r1, r2)
+            return r0
+        */
+        throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.flow.FlowKt__ZipKt.combine(kotlinx.coroutines.flow.Flow[], kotlin.jvm.functions.Function2):kotlinx.coroutines.flow.Flow");
+    }
+
+    /*  JADX ERROR: IndexOutOfBoundsException in pass: MarkMethodsForInline
+        java.lang.IndexOutOfBoundsException: Index: 0
+        	at java.base/java.util.Collections$EmptyList.get(Collections.java:4807)
+        	at jadx.core.dex.nodes.InsnNode.getArg(InsnNode.java:104)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:117)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.visit(MarkMethodsForInline.java:37)
+        */
+    @kotlinx.coroutines.ExperimentalCoroutinesApi
+    public static final /* synthetic */ <T, R> kotlinx.coroutines.flow.Flow<R> combineTransform(kotlinx.coroutines.flow.Flow<? extends T>[] r2, @kotlin.BuilderInference kotlin.jvm.functions.Function3<? super kotlinx.coroutines.flow.FlowCollector<? super R>, ? super T[], ? super kotlin.coroutines.Continuation<? super kotlin.Unit>, ? extends java.lang.Object> r3) {
+        /*
+            kotlin.jvm.internal.Intrinsics.needClassReification()
+            kotlinx.coroutines.flow.FlowKt__ZipKt$combineTransform$6 r0 = new kotlinx.coroutines.flow.FlowKt__ZipKt$combineTransform$6
+            r1 = 0
+            r0.<init>(r2, r3, r1)
+            kotlinx.coroutines.flow.Flow r2 = kotlinx.coroutines.flow.FlowKt.flow(r0)
+            return r2
+        */
+        throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.flow.FlowKt__ZipKt.combineTransform(kotlinx.coroutines.flow.Flow[], kotlin.jvm.functions.Function3):kotlinx.coroutines.flow.Flow");
+    }
 }

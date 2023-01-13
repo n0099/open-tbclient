@@ -2,6 +2,7 @@ package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tieba.ad.AbsDataRecorder;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,22 +15,18 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class gs5 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile gs5 o;
+    public static volatile gs5 k;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public String c;
-    public String d;
+    public int c;
+    public int d;
     public int e;
     public int f;
     public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public long m;
-    public boolean n;
+    public boolean h;
+    public String i;
+    public String j;
 
     /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
@@ -64,6 +61,10 @@ public class gs5 {
                 a[AbsDataRecorder.Scene.FRS_NEW.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
+            try {
+                a[AbsDataRecorder.Scene.PB.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
         }
     }
 
@@ -81,18 +82,18 @@ public class gs5 {
         }
     }
 
-    public static gs5 h() {
+    public static gs5 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (o == null) {
+            if (k == null) {
                 synchronized (gs5.class) {
-                    if (o == null) {
-                        o = new gs5();
+                    if (k == null) {
+                        k = new gs5();
                     }
                 }
             }
-            return o;
+            return k;
         }
         return (gs5) invokeV.objValue;
     }
@@ -100,64 +101,56 @@ public class gs5 {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
             this.b = null;
-            this.c = null;
-            this.d = null;
+            this.c = 0;
+            this.d = 0;
             this.e = 0;
             this.f = 0;
             this.g = 0;
-            this.h = 0;
-            this.i = 0;
-            this.n = false;
+            this.h = false;
+            this.i = null;
+            this.j = null;
         }
     }
 
-    public long b() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.m;
+            return this.j;
         }
-        return invokeV.longValue;
+        return (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+            return this.i;
         }
         return (String) invokeV.objValue;
     }
 
-    public String d() {
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.c;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public String e() {
+    public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.k;
-        }
-        return invokeV.intValue;
-    }
-
-    public String g() {
+    public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -166,99 +159,68 @@ public class gs5 {
         return (String) invokeV.objValue;
     }
 
-    public int i() {
+    public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.l;
-        }
-        return invokeV.intValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.j;
-        }
-        return invokeV.intValue;
-    }
-
-    public int m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.n;
+            return this.h;
         }
         return invokeV.booleanValue;
     }
 
-    public int k(AbsDataRecorder.Scene scene) {
+    public int f(AbsDataRecorder.Scene scene) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, scene)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, scene)) == null) {
             int i = a.a[scene.ordinal()];
             if (i != 1) {
-                if (i != 2 && i != 3) {
-                    return 0;
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            return 0;
+                        }
+                        return this.g;
+                    }
+                    return this.f;
                 }
-                return this.h;
+                return this.e;
             }
-            return this.f;
+            return this.d;
         }
         return invokeL.intValue;
     }
 
-    public int l(AbsDataRecorder.Scene scene) {
-        InterceptResult invokeL;
+    public void j(JSONObject jSONObject) {
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, scene)) == null) {
-            int i = a.a[scene.ordinal()];
-            if (i != 1) {
-                if (i != 2 && i != 3) {
-                    return 0;
-                }
-                return this.i;
-            }
-            return this.g;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("slogan")) != null) {
+            this.i = optJSONObject.optString("text");
+            this.j = optJSONObject.optString("color");
         }
-        return invokeL.intValue;
     }
 
-    public void o(JSONObject jSONObject) {
+    public void k(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
             if (jSONObject != null) {
-                this.n = true;
-                this.a = jSONObject.optString("icon_url");
-                this.b = jSONObject.optString("title");
-                this.c = jSONObject.optString("desc");
-                this.d = jSONObject.optString("btn_text");
-                this.e = jSONObject.optInt("frequency");
-                jSONObject.optInt("index");
-                JSONObject optJSONObject = jSONObject.optJSONObject("display_after_refresh");
+                this.h = true;
+                JSONObject optJSONObject = jSONObject.optJSONObject("slogan");
                 if (optJSONObject != null) {
-                    this.f = optJSONObject.optInt("rec_refresh_times");
-                    this.g = optJSONObject.optInt("rec_refresh_times_interval");
-                    this.h = optJSONObject.optInt("frs_refresh_times");
-                    this.i = optJSONObject.optInt("frs_refresh_times_interval");
-                    this.j = optJSONObject.optInt("rec_frequency");
-                    this.k = optJSONObject.optInt("frs_frequency");
-                    this.l = optJSONObject.optInt("pb_frequency");
+                    this.a = optJSONObject.optString("text");
+                    this.b = optJSONObject.optString("color");
                 }
-                this.m = jSONObject.optLong("ad_free_remain_time");
+                this.c = jSONObject.optInt("display_frequency_control");
+                JSONObject optJSONObject2 = jSONObject.optJSONObject("display_after_refresh");
+                if (optJSONObject2 != null) {
+                    this.d = optJSONObject2.optInt(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_HOME);
+                    this.e = optJSONObject2.optInt("frs_hot");
+                    this.f = optJSONObject2.optInt("frs_new");
+                    this.g = optJSONObject2.optInt("pb");
+                    return;
+                }
                 return;
             }
-            this.n = false;
+            this.h = false;
         }
     }
 }

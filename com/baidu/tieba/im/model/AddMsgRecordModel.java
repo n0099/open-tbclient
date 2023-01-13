@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.RequestAddMsgRecordMessage;
-import com.baidu.tieba.pd7;
+import com.baidu.tieba.mh7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -81,10 +81,10 @@ public class AddMsgRecordModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            List<ImMessageCenterPojo> l = pd7.o().l();
+            List<ImMessageCenterPojo> k = mh7.n().k();
             ArrayList arrayList = null;
-            if (l != null && l.size() != 0) {
-                for (ImMessageCenterPojo imMessageCenterPojo : l) {
+            if (k != null && k.size() != 0) {
+                for (ImMessageCenterPojo imMessageCenterPojo : k) {
                     String taskId = imMessageCenterPojo.getTaskId();
                     if (taskId != null && taskId.length() != 0 && !"0".equals(taskId)) {
                         if (arrayList == null) {

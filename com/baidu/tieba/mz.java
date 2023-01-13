@@ -1,64 +1,216 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
-import kotlin.jvm.internal.ByteCompanionObject;
-import org.apache.commons.codec.binary4util.BaseNCodec;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.UnsupportedEncodingException;
+import java.util.Iterator;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class mz {
+public class mz {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public int c;
+    public int d;
 
-    public static byte[] a() {
-        InterceptResult invokeV;
+    public mz() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new byte[]{121, -75, ExifInterface.MARKER_SOF0, -117, -32, 4, -8, -19, -11, 84, -123, -65, -29, -73, 23, ByteCompanionObject.MAX_VALUE, 52, ExifInterface.MARKER_SOF10, 124, 29, 10, -105, -19, 73, 56, 100, ExifInterface.START_CODE, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, -13, 25, -76, -71} : (byte[]) invokeV.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = 2;
+        this.d = 0;
     }
 
-    public static byte[] b() {
-        InterceptResult invokeV;
+    public static mz a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new byte[]{-8, 55, 15, 115, 74, -108, -56, -37, -56, -80, -90, 107, 115, -78, 65, 82, ExifInterface.MARKER_SOF5, 2, -104, 65, 10, 21, 19, -71, -74, 114, -100, 1, 29, -66, 72, 72} : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? e(f(str)) : (mz) invokeL.objValue;
     }
 
-    public static byte[] c() {
-        InterceptResult invokeV;
+    public static mz b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new byte[]{ExifInterface.MARKER_SOI, ExifInterface.MARKER_SOF5, -7, 54, -86, 73, -69, 120, 54, -124, -45, -125, 120, -95, 68, 70} : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            mz mzVar = new mz();
+            mzVar.a = str;
+            int length = TextUtils.isEmpty(str2) ? 0 : str2.length();
+            mzVar.d = length;
+            if (length < 14) {
+                if (TextUtils.isEmpty(str2)) {
+                    str2 = "0";
+                }
+                mzVar.b = str2;
+            }
+            return mzVar;
+        }
+        return (mz) invokeLL.objValue;
     }
 
-    public static byte[] d() {
-        InterceptResult invokeV;
+    public static boolean d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new byte[]{10, 28, ExifInterface.MARKER_SOF11, -126, Constants.GZIP_CAST_TYPE, -111, 68, -11, -28, Constants.SHORT_PING_CMD_TYPE, 81, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 59, -1, 98, ExifInterface.MARKER_SOF6, -25, -60, ExifInterface.MARKER_SOF9, 70, 66, 51, ExifInterface.MARKER_SOF1, -79, -96, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 70, 7, 108, 59, -79, -65} : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i >= 14 : invokeI.booleanValue;
     }
 
-    public static byte[] e() {
-        InterceptResult invokeV;
+    public static mz e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new byte[]{-101, -5, -82, -122, -10, 77, ExifInterface.MARKER_SOF14, -88, 27, -103, -100, 67, 98, 89, -44, -92, -125, 65, -82, -74, 1, 92, -103, -116, 74, -60, 73, 78, 77, -42, 107, -109} : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                Iterator<String> keys = jSONObject.keys();
+                String str2 = "0";
+                String str3 = "0";
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    if (!k("ZGV2aWNlaWQ=").equals(next) && !k("dmVy").equals(next)) {
+                        str3 = jSONObject.optString(next, "0");
+                    }
+                }
+                String string = jSONObject.getString(k("ZGV2aWNlaWQ="));
+                int i = jSONObject.getInt(k("dmVy"));
+                int length = TextUtils.isEmpty(str3) ? 0 : str3.length();
+                if (!TextUtils.isEmpty(string)) {
+                    mz mzVar = new mz();
+                    mzVar.a = string;
+                    mzVar.c = i;
+                    mzVar.d = length;
+                    if (length < 14) {
+                        if (!TextUtils.isEmpty(str3)) {
+                            str2 = str3;
+                        }
+                        mzVar.b = str2;
+                    }
+                    mzVar.c();
+                    return mzVar;
+                }
+            } catch (JSONException e) {
+                b10.c(e);
+            }
+            return null;
+        }
+        return (mz) invokeL.objValue;
     }
 
-    public static byte[] f() {
-        InterceptResult invokeV;
+    public static String f(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? new byte[]{-71, 92, 64, -96, 123, 89, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 119, -7, 115, 0, 56, 80, 20, 16, ExifInterface.MARKER_SOF0, -23, -79, -32, ExifInterface.MARKER_SOF9, 2, 124, -48, -16, 14, -95, -96, -96, -56, -88, ExifInterface.MARKER_SOF9, 63} : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                byte[] a = h00.a();
+                return new String(d00.c(a, a, v00.b(str.getBytes())));
+            } catch (Exception e) {
+                b10.c(e);
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
     }
 
-    public static byte[] g() {
-        InterceptResult invokeV;
+    public static String h(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? new byte[]{-14, -21, -20, -77, 32, 107, ExifInterface.MARKER_SOF1, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, -44, -86, 57, ExifInterface.MARKER_APP1, 102, 90, 4, 13, 91, 22, 84, 30, -86, 4, -106, ExifInterface.MARKER_SOF2, 49, 108, BaseNCodec.PAD_DEFAULT, 48, -101, 90, -110, 88} : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                byte[] a = h00.a();
+                return v00.a(d00.d(a, a, str.getBytes()), IMAudioTransRequest.CHARSET);
+            } catch (UnsupportedEncodingException | Exception e) {
+                b10.c(e);
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
     }
 
-    public static byte[] h() {
+    public static String k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? new String(v00.b(str.getBytes())) : (String) invokeL.objValue;
+    }
+
+    public static boolean m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) ? TextUtils.isEmpty(str) : invokeL.booleanValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (g()) {
+                str = "O";
+            } else if (!i()) {
+                return false;
+            } else {
+                str = "0";
+            }
+            this.b = str;
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? new byte[]{-102, 65, ExifInterface.MARKER_SOF6, 79, -27, -122, 9, -80, 45, 79, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, -12, 70, -80, -110, 30} : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d(this.d) : invokeV.booleanValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? m(this.b) : invokeV.booleanValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? h(l()) : (String) invokeV.objValue;
+    }
+
+    public final String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            try {
+                return new JSONObject().put(k("ZGV2aWNlaWQ="), this.a).put(k("aW1laQ=="), this.b).put(k("dmVy"), this.c).toString();
+            } catch (JSONException e) {
+                b10.c(e);
+                return null;
+            }
+        }
+        return (String) invokeV.objValue;
     }
 }

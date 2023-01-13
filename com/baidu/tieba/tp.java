@@ -1,7 +1,5 @@
 package com.baidu.tieba;
 
-import com.baidu.bdtask.ctrl.model.TaskStatus;
-import com.baidu.bdtask.model.response.TaskProcessData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,17 +9,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class tp {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TaskStatus a;
-    public final qp b;
-    public final TaskProcessData c;
-    public final String d;
+    public final up a;
 
-    public tp(TaskStatus taskStatus, qp qpVar, TaskProcessData taskProcessData, String str) {
+    public tp(up upVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {taskStatus, qpVar, taskProcessData, str};
+            Object[] objArr = {upVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,17 +26,14 @@ public final class tp {
                 return;
             }
         }
-        this.a = taskStatus;
-        this.b = qpVar;
-        this.c = taskProcessData;
-        this.d = str;
+        this.a = upVar;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "taskStatus:" + this.a + "\n uiConfig:" + this.b + "\n totalProcess:" + this.c + "\n extra:" + this.d;
+            return "curProcess" + this.a;
         }
         return (String) invokeV.objValue;
     }

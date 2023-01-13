@@ -1,32 +1,29 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Page;
-import tbclient.RecommendForumInfo;
 /* loaded from: classes5.dex */
 public class jp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<xn> a;
-    public List<RecommendForumInfo> b;
-    public Page c;
-    public boolean d;
-    public int e;
-    public int f;
-    public int g;
+    public int a;
+    public final Context b;
+    public final ViewGroup c;
 
-    public jp8() {
+    public jp8(Context context, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,45 +33,59 @@ public class jp8 {
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.d = true;
-        this.e = 0;
-        this.f = 0;
-        this.g = 0;
+        this.a = 0;
+        this.b = context;
+        this.c = viewGroup;
     }
 
-    public List<xn> a() {
-        InterceptResult invokeV;
+    public final boolean a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if ("apk_download".equals(str)) {
+                return "apk_download".equals(str2);
+            }
+            if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(str)) {
+                return TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(str2);
+            }
+            return false;
         }
-        return (List) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public void b(gc6 gc6Var) {
+    public kp8 b(uo8 uo8Var, kp8 kp8Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gc6Var) == null) {
-            String str = gc6Var.d;
-            this.c = gc6Var.c;
-            List<RecommendForumInfo> list = gc6Var.a;
-            this.b = list;
-            if (!ListUtils.isEmpty(list)) {
-                for (RecommendForumInfo recommendForumInfo : this.b) {
-                    ip8 ip8Var = new ip8();
-                    ip8Var.o(recommendForumInfo);
-                    this.a.add(ip8Var);
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uo8Var, kp8Var)) == null) {
+            if (uo8Var == null) {
+                return kp8Var;
             }
-            Page page = this.c;
-            if (page != null) {
-                boolean z = true;
-                if (page.has_more.intValue() != 1) {
-                    z = false;
+            String str = uo8Var.a;
+            if (str == null) {
+                return kp8Var;
+            }
+            if (kp8Var != null && a(str, kp8Var.a)) {
+                return kp8Var;
+            }
+            ViewGroup viewGroup = this.c;
+            if (viewGroup == null) {
+                return null;
+            }
+            viewGroup.removeAllViews();
+            if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(uo8Var.a)) {
+                if (this.a == 2) {
+                    return new ip8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d08ff, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
                 }
-                this.d = z;
-                this.e = this.c.current_page.intValue();
+                return new gp8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0888, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+            } else if (!"apk_download".equals(uo8Var.a)) {
+                return null;
+            } else {
+                if (this.a == 2) {
+                    return new hp8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d08fe, this.c, true), "apk_download");
+                }
+                return new fp8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0887, this.c, true), "apk_download");
             }
         }
+        return (kp8) invokeLL.objValue;
     }
 }

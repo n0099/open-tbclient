@@ -2,8 +2,8 @@ package com.baidu.swan.bdtls.impl.model;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.in3;
-import com.baidu.tieba.jn3;
+import com.baidu.tieba.nn3;
+import com.baidu.tieba.on3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
 /* loaded from: classes3.dex */
-public final class Bdtls$Extension extends GeneratedMessageLite implements jn3 {
+public final class Bdtls$Extension extends GeneratedMessageLite implements on3 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DATA_FIELD_NUMBER = 2;
     public static Parser<Bdtls$Extension> PARSER = null;
@@ -72,7 +72,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements jn3 {
     }
 
     /* loaded from: classes3.dex */
-    public static final class b extends GeneratedMessageLite.Builder<Bdtls$Extension, b> implements jn3 {
+    public static final class b extends GeneratedMessageLite.Builder<Bdtls$Extension, b> implements on3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -100,6 +100,10 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements jn3 {
             }
             this.c = ByteString.EMPTY;
             maybeForceBuilderInitialization();
+        }
+
+        public static /* synthetic */ b l() {
+            return q();
         }
 
         public static b q() {
@@ -183,9 +187,9 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements jn3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+        @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
         /* renamed from: p */
-        public b clone() {
+        public b mo29clone() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
@@ -278,7 +282,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements jn3 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-                Bdtls$Extension bdtls$Extension = new Bdtls$Extension(this, (in3) null);
+                Bdtls$Extension bdtls$Extension = new Bdtls$Extension(this, (nn3) null);
                 int i = this.a;
                 int i2 = 1;
                 if ((i & 1) != 1) {
@@ -393,7 +397,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements jn3 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return b.q();
+            return b.l();
         }
         return (b) invokeV.objValue;
     }
@@ -569,7 +573,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements jn3 {
         }
     }
 
-    public /* synthetic */ Bdtls$Extension(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, in3 in3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$Extension(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, nn3 nn3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -595,7 +599,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements jn3 {
         this.memoizedSerializedSize = -1;
     }
 
-    public /* synthetic */ Bdtls$Extension(GeneratedMessageLite.Builder builder, in3 in3Var) {
+    public /* synthetic */ Bdtls$Extension(GeneratedMessageLite.Builder builder, nn3 nn3Var) {
         this(builder);
     }
 

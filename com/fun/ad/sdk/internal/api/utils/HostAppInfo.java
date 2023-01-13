@@ -14,8 +14,7 @@ import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobstat.Config;
-import com.baidu.tieba.oq9;
-import com.baidu.tieba.rq9;
+import com.baidu.tieba.zv9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,6 +27,7 @@ import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.internal.api.utils.HostAppInfo;
 import com.fun.n0;
 import com.fun.openid.sdk.FunOpenIDSdk;
+import com.fun.openid.sdk.OnGetOaidListener;
 import com.google.android.gms.ads.identifier.AdvertisingIdClient;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashSet;
@@ -128,7 +128,18 @@ public class HostAppInfo {
                         if (!TextUtils.isEmpty(imeiNew)) {
                             b.v = FunOpenIDSdk.getMD5(imeiNew);
                         }
-                        FunOpenIDSdk.getOaid(appContext, oq9.a);
+                        FunOpenIDSdk.getOaid(appContext, new OnGetOaidListener() { // from class: com.baidu.tieba.wv9
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+
+                            @Override // com.fun.openid.sdk.OnGetOaidListener
+                            public final void onGetOaid(String str) {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
+                                    HostAppInfo.a(str);
+                                }
+                            }
+                        });
                         if (FunAdSdk.isLogEnabled()) {
                             LogPrinter.d(b.toString(), new Object[0]);
                         }
@@ -257,7 +268,7 @@ public class HostAppInfo {
             jSONObject.put("model", a2.j);
             jSONObject.put("sysv", a2.k);
             jSONObject.put("h", a2.l);
-            jSONObject.put(Config.DEVICE_WIDTH, a2.m);
+            jSONObject.put("w", a2.m);
             jSONObject.put("locale", a2.r);
             jSONObject.put("opcode", a2.n);
             jSONObject.put("tk", a2.o);
@@ -366,7 +377,7 @@ public class HostAppInfo {
             }
             this.l = String.valueOf(displayMetrics.heightPixels);
             this.m = String.valueOf(displayMetrics.widthPixels);
-            this.o = rq9.c();
+            this.o = zv9.c();
         }
     }
 
@@ -383,7 +394,7 @@ public class HostAppInfo {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            n0.b bVar = new n0.b() { // from class: com.baidu.tieba.nq9
+            n0.b bVar = new n0.b() { // from class: com.baidu.tieba.vv9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

@@ -24,7 +24,7 @@ import io.reactivex.internal.util.ErrorMode;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.ArrayDeque;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ObservableConcatMapEager<T, R> extends AbstractObservableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public final class ObservableConcatMapEager<T, R> extends AbstractObservableWith
     public final int maxConcurrency;
     public final int prefetch;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class ConcatMapEagerMainObserver<T, R> extends AtomicInteger implements Observer<T>, Disposable, InnerQueuedObserverSupport<R> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8080567949447303262L;

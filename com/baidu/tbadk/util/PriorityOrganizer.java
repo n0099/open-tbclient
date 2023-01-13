@@ -10,7 +10,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bk5;
+import com.baidu.tieba.sk5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -377,7 +377,7 @@ public class PriorityOrganizer implements LifecycleObserver {
                 } else {
                     z = false;
                 }
-                bk5.e(z, "任务需先添加到 PriorityOrganizer");
+                sk5.e(z, "任务需先添加到 PriorityOrganizer");
                 return this.b;
             }
             return (PriorityOrganizer) invokeV.objValue;
@@ -634,15 +634,19 @@ public class PriorityOrganizer implements LifecycleObserver {
         }
     }
 
-    public static void m(@NonNull Task task, @NonNull Task... taskArr) {
+    public static Task m(@NonNull Task task, @NonNull Task... taskArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, task, taskArr) == null) {
-            for (Task task2 : taskArr) {
-                task2.j = task;
-                task.k = task2;
-                task = task.k;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, task, taskArr)) == null) {
+            Task task2 = task;
+            for (Task task3 : taskArr) {
+                task3.j = task2;
+                task2.k = task3;
+                task2 = task2.k;
             }
+            return task;
         }
+        return (Task) invokeLL.objValue;
     }
 
     @NonNull

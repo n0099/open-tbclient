@@ -1,16 +1,12 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.MalformedURLException;
-@Service
 /* loaded from: classes4.dex */
-public class h14 implements ll1 {
+public class h14 implements y14 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,41 +24,19 @@ public class h14 implements ll1 {
         }
     }
 
-    @Override // com.baidu.tieba.ll1
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.y14
+    public void a(x44 x44Var, w44 w44Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ay3.g();
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, x44Var, w44Var) == null) && w44Var != null) {
+            w44Var.a(x44Var, "Method 'shareVideo' is not implemented.");
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ll1
-    public boolean b() {
-        InterceptResult invokeV;
-        k32 m;
+    @Override // com.baidu.tieba.y14
+    public void b(o44 o44Var, n44 n44Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (e43.M() != null && e43.M().w0()) {
-                n32 V = rp2.U().V();
-                if (V == null || (m = V.m()) == null || !(m instanceof b04)) {
-                    return true;
-                }
-                return ((b04) m).D3();
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o44Var, n44Var) == null) && n44Var != null) {
+            n44Var.a(o44Var, "Method 'clipVideo' is not implemented.");
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ll1
-    public String c(String str) throws MalformedURLException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return ay3.d(str);
-        }
-        return (String) invokeL.objValue;
     }
 }

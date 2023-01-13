@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.db.CursorParse;
+import com.baidu.android.imsdk.db.CursorWrapper;
 import com.baidu.android.imsdk.db.DBBase;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
@@ -88,13 +89,13 @@ public class DialogRecordDBManager extends DBBase {
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor) == null) && (r1 = cursor) != null) {
                 this.result = new ArrayList();
                 while (cursor.moveToNext()) {
-                    int i = r1.getInt(r1.getColumnIndex("category"));
-                    long j = r1.getLong(r1.getColumnIndex("contacter"));
-                    long j2 = r1.getLong(r1.getColumnIndex(TableDefine.DRColumns.COLUMN_MAXMSGID));
-                    long j3 = r1.getLong(r1.getColumnIndex(TableDefine.DRColumns.COLUMN_DAILOGUE_MSGID));
-                    int i2 = r1.getInt(r1.getColumnIndex("state"));
-                    long j4 = r1.getLong(r1.getColumnIndex("update_time"));
-                    int i3 = r1.getInt(r1.getColumnIndex(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT));
+                    int i = CursorWrapper.getInt(r1, "category");
+                    long j = CursorWrapper.getLong(r1, "contacter");
+                    long j2 = CursorWrapper.getLong(r1, TableDefine.DRColumns.COLUMN_MAXMSGID);
+                    long j3 = CursorWrapper.getLong(r1, TableDefine.DRColumns.COLUMN_DAILOGUE_MSGID);
+                    int i2 = CursorWrapper.getInt(r1, "state");
+                    long j4 = CursorWrapper.getLong(r1, "update_time");
+                    int i3 = CursorWrapper.getInt(r1, TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
                     DialogRecord dialogRecord = new DialogRecord();
                     String str = DialogRecordDBManager.TAG;
                     LogUtils.i(str, "parseCursor dialogRecord : " + dialogRecord);

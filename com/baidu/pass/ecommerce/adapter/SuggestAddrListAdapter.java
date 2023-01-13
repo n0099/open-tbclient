@@ -27,7 +27,7 @@ public class SuggestAddrListAdapter extends CommonAdapter<JSONObject> {
     public int getItemLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d0523 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d0522 : invokeV.intValue;
     }
 
     /* loaded from: classes2.dex */
@@ -58,9 +58,9 @@ public class SuggestAddrListAdapter extends CommonAdapter<JSONObject> {
                 }
             }
             this.this$0 = suggestAddrListAdapter;
-            this.tvName = (TextView) findViewById(R.id.obfuscated_res_0x7f091e40);
-            this.tvAddress = (TextView) findViewById(R.id.obfuscated_res_0x7f091e3f);
-            this.bottomLine = findViewById(R.id.obfuscated_res_0x7f091e3c);
+            this.tvName = (TextView) findViewById(R.id.obfuscated_res_0x7f091e5f);
+            this.tvAddress = (TextView) findViewById(R.id.obfuscated_res_0x7f091e5e);
+            this.bottomLine = findViewById(R.id.obfuscated_res_0x7f091e5b);
             Resources resources = view2.getContext().getResources();
             if (suggestAddrListAdapter.isDarkMode) {
                 view2.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060978));

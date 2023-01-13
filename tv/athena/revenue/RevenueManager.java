@@ -2,9 +2,9 @@ package tv.athena.revenue;
 
 import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b8a;
-import com.baidu.tieba.c8a;
-import com.baidu.tieba.uca;
+import com.baidu.tieba.cia;
+import com.baidu.tieba.jda;
+import com.baidu.tieba.kda;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,11 +20,11 @@ import tv.athena.revenue.api.IMiddleRevenue;
 import tv.athena.revenue.api.MiddleRevenueConfig;
 @Keep
 /* loaded from: classes9.dex */
-public class RevenueManager implements b8a {
+public class RevenueManager implements jda {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String TAG;
-    public b8a revenueService;
+    public jda revenueService;
 
     /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
@@ -70,7 +70,7 @@ public class RevenueManager implements b8a {
         }
         this.TAG = "RevenueManager";
         RLog.info("RevenueManager", "create RevenueManager");
-        this.revenueService = new uca();
+        this.revenueService = new cia();
     }
 
     public static RevenueManager instance() {
@@ -82,7 +82,7 @@ public class RevenueManager implements b8a {
         return (RevenueManager) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.b8a
+    @Override // com.baidu.tieba.jda
     public List<IRevenue> getAllRevenue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -97,7 +97,7 @@ public class RevenueManager implements b8a {
         this();
     }
 
-    @Override // com.baidu.tieba.b8a
+    @Override // com.baidu.tieba.jda
     public void addLogDelegate(IRLogDelegate iRLogDelegate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iRLogDelegate) == null) {
@@ -106,7 +106,7 @@ public class RevenueManager implements b8a {
         }
     }
 
-    @Override // com.baidu.tieba.b8a
+    @Override // com.baidu.tieba.jda
     public void addRevenueConfig(MiddleRevenueConfig middleRevenueConfig) {
         String str;
         Interceptable interceptable = $ic;
@@ -121,7 +121,7 @@ public class RevenueManager implements b8a {
         }
     }
 
-    @Override // com.baidu.tieba.b8a
+    @Override // com.baidu.tieba.jda
     public IMiddleRevenue getMiddleRevenue(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
@@ -132,7 +132,7 @@ public class RevenueManager implements b8a {
         return (IMiddleRevenue) invokeII.objValue;
     }
 
-    @Override // com.baidu.tieba.b8a
+    @Override // com.baidu.tieba.jda
     public IRevenue getRevenue(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
@@ -142,17 +142,17 @@ public class RevenueManager implements b8a {
         return (IRevenue) invokeII.objValue;
     }
 
-    @Override // com.baidu.tieba.b8a
-    public c8a getYYPayMiddleService(int i, int i2) {
+    @Override // com.baidu.tieba.jda
+    public kda getYYPayMiddleService(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048581, this, i, i2)) == null) {
             return this.revenueService.getYYPayMiddleService(i, i2);
         }
-        return (c8a) invokeII.objValue;
+        return (kda) invokeII.objValue;
     }
 
-    @Override // com.baidu.tieba.b8a
+    @Override // com.baidu.tieba.jda
     public void removeRevenueConfig(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
@@ -161,7 +161,7 @@ public class RevenueManager implements b8a {
         }
     }
 
-    @Override // com.baidu.tieba.b8a
+    @Override // com.baidu.tieba.jda
     public void updateMiddleRevenueConfig(int i, int i2, Long l, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), l, str}) == null) {

@@ -86,10 +86,10 @@ public class LuckyHeaderBannerView extends FrameLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04cf, this);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04ce, this);
             inflate.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
             setClipChildren(false);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090f55);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090f61);
             this.a = tbImageView;
             tbImageView.setUseNightOrDarkMask(false);
             this.a.setPlaceHolderAutoChangeSkinType(3);

@@ -30,7 +30,7 @@ public final /* synthetic */ class FlowKt__MigrationKt {
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Flow analogue of 'onErrorXxx' is 'catch'. Use 'catch { e -> if (predicate(e)) emit(fallback) else throw e }'", replaceWith = @ReplaceWith(expression = "catch { e -> if (predicate(e)) emit(fallback) else throw e }", imports = {}))
     public static final <T> Flow<T> onErrorReturn(Flow<? extends T> flow, T t, Function1<? super Throwable, Boolean> function1) {
-        return FlowKt.m2108catch(flow, new FlowKt__MigrationKt$onErrorReturn$2(function1, t, null));
+        return FlowKt.m2172catch(flow, new FlowKt__MigrationKt$onErrorReturn$2(function1, t, null));
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Flow has less verbose 'scan' shortcut", replaceWith = @ReplaceWith(expression = "scan(initial, operation)", imports = {}))
@@ -57,7 +57,19 @@ public final /* synthetic */ class FlowKt__MigrationKt {
 
     public static /* synthetic */ Flow onErrorReturn$default(Flow flow, Object obj, Function1 function1, int i, Object obj2) {
         if ((i & 2) != 0) {
-            function1 = FlowKt__MigrationKt$onErrorReturn$1.INSTANCE;
+            function1 = new Function1<Throwable, Boolean>() { // from class: kotlinx.coroutines.flow.FlowKt__MigrationKt$onErrorReturn$1
+                /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                @Override // kotlin.jvm.functions.Function1
+                public /* bridge */ /* synthetic */ Boolean invoke(Throwable th) {
+                    return Boolean.valueOf(invoke2(th));
+                }
+
+                /* renamed from: invoke  reason: avoid collision after fix types in other method */
+                public final boolean invoke2(Throwable th) {
+                    return true;
+                }
+            };
         }
         return FlowKt.onErrorReturn(flow, obj, function1);
     }

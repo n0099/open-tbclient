@@ -6,18 +6,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetMoreMsg.DataRes;
+import tbclient.GetMoreMsg.MsgContent;
 /* loaded from: classes6.dex */
-public class wp8 implements vw4 {
+public class wp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vu4 a;
+    public boolean a;
+    public ArrayList<vp8> b;
 
-    public wp8(vu4 vu4Var) {
+    public wp8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vu4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,47 +30,43 @@ public class wp8 implements vw4 {
                 return;
             }
         }
-        this.a = vu4Var;
+        this.a = true;
+        this.b = null;
     }
 
-    public String a() {
+    public ArrayList<vp8> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            vu4 vu4Var = this.a;
-            if (vu4Var == null) {
-                return null;
-            }
-            return vu4Var.c();
+            return this.b;
         }
-        return (String) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vw4
-    public String getPicLinkUrl() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            vu4 vu4Var = this.a;
-            if (vu4Var == null) {
-                return null;
-            }
-            return vu4Var.b();
+            return this.a;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.vw4
-    public String getPicUrl() {
-        InterceptResult invokeV;
+    public void c(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            vu4 vu4Var = this.a;
-            if (vu4Var == null) {
-                return null;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) == null) && dataRes != null) {
+            boolean z = true;
+            if (dataRes.has_more.intValue() != 1) {
+                z = false;
             }
-            return vu4Var.a();
+            this.a = z;
+            List<MsgContent> list = dataRes.msg_content;
+            if (list != null && list.size() > 0) {
+                this.b = new ArrayList<>();
+                for (MsgContent msgContent : dataRes.msg_content) {
+                    this.b.add(new vp8(msgContent));
+                }
+            }
         }
-        return (String) invokeV.objValue;
     }
 }

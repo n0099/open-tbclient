@@ -1,105 +1,104 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import androidx.core.app.NotificationCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.legoBusiness.homeExtra.interviewLiveSquare.AlarmReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.SevenZipUtils;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetVipInfo.VipSpecialItem;
-import tbclient.GetVipInfo.VipSpecialList;
+import com.baidubce.auth.NTLMEngineImpl;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class yr7 implements xn {
+public class yr7 extends mo4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
-    public static int d;
-    public static boolean e;
-    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
-    public xr7 a;
-    public List<zr7> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948339851, "Lcom/baidu/tieba/yr7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948339851, "Lcom/baidu/tieba/yr7;");
-                return;
-            }
-        }
-        c = BdUniqueId.gen();
-        d = 3;
-        e = false;
-    }
-
-    @Override // com.baidu.tieba.xn
-    public BdUniqueId getType() {
+    @Override // com.baidu.tieba.mo4
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c;
-        }
-        return (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "interview/registerInterviewNotice" : (String) invokeV.objValue;
     }
 
-    public yr7(VipSpecialList vipSpecialList) {
-        List<VipSpecialItem> list;
-        String str;
+    public yr7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vipSpecialList};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        if (vipSpecialList != null && (list = vipSpecialList.item) != null && list.size() > 0) {
-            String str2 = vipSpecialList.card_id;
-            xr7 xr7Var = new xr7();
-            this.a = xr7Var;
-            xr7Var.e(4);
-            this.a.d(vipSpecialList.class_name);
-            this.a.f(vipSpecialList.class_url_name);
-            this.a.g(vipSpecialList.class_url);
-            if (TbadkCoreApplication.isLogin()) {
-                str = TbadkCoreApplication.getCurrentAccount();
-            } else {
-                str = SevenZipUtils.FILE_NAME_TEMP;
-            }
-            if (StringUtils.isNull(f) || !f.equals(str)) {
-                e = false;
-                f = str;
-            }
-            this.b = new ArrayList();
-            for (int i3 = 0; i3 < vipSpecialList.item.size(); i3++) {
-                this.b.add(new zr7(vipSpecialList.item.get(i3)));
-                if (e) {
-                    if (i3 == vipSpecialList.item.size() - 1 && vipSpecialList.item.size() > d) {
-                        this.b.add(new zr7(true, true));
-                    }
-                } else if (i3 == d - 1 && vipSpecialList.item.size() > d) {
-                    this.b.add(new zr7(true, false));
-                    return;
+    }
+
+    @Override // com.baidu.tieba.mo4, com.baidu.tieba.po4
+    public ro4 b(Object obj, HashMap<String, String> hashMap, String str) {
+        InterceptResult invokeLLL;
+        Map.Entry<String, String> next;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, hashMap, str)) == null) {
+            Context context = TbadkCoreApplication.getInst().getContext();
+            ro4 ro4Var = new ro4();
+            if (obj instanceof rq7) {
+                rq7 rq7Var = (rq7) obj;
+                boolean c = rq7Var.c();
+                AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+                Intent intent = new Intent(context, AlarmReceiver.class);
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                if (currentAccount == null) {
+                    currentAccount = "";
                 }
+                intent.putExtra("uid", TbadkCoreApplication.getCurrentAccount());
+                intent.setData(Uri.parse(currentAccount));
+                long j = 0;
+                Iterator<Map.Entry<String, String>> it = hashMap.entrySet().iterator();
+                int i = 0;
+                while (it.hasNext() && (next = it.next()) != null) {
+                    intent.putExtra(next.getKey(), next.getValue());
+                    if ("task_id".equals(next.getKey())) {
+                        i = Integer.parseInt(next.getValue());
+                    } else if ("s_time".equals(next.getKey())) {
+                        j = Long.parseLong(next.getValue()) * 1000;
+                    }
+                }
+                StatisticItem statisticItem = new StatisticItem(rq7Var.i());
+                statisticItem.param("obj_id", "");
+                if (c) {
+                    statisticItem.param("obj_type", "2");
+                    BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f09be)).k();
+                    PendingIntent broadcast = PendingIntent.getBroadcast(context, i, intent, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH);
+                    if (broadcast != null) {
+                        alarmManager.cancel(broadcast);
+                        broadcast.cancel();
+                    }
+                    ro4Var.a = false;
+                } else {
+                    statisticItem.param("obj_type", "1");
+                    BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f09c9)).k();
+                    alarmManager.set(0, j, PendingIntent.getBroadcast(context, i, intent, 134217728));
+                    ro4Var.a = true;
+                }
+                TiebaStatic.log(statisticItem);
+                rq7Var.l(ro4Var.a);
             }
+            return ro4Var;
         }
+        return (ro4) invokeLLL.objValue;
     }
 }

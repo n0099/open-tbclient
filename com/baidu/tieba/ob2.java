@@ -1,43 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
-import com.baidu.searchbox.v8engine.JSExceptionType;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.JsSerializeValue;
-import com.baidu.searchbox.v8engine.event.EventTarget;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import android.app.Application;
+import android.database.sqlite.SQLiteDatabase;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
+import com.baidu.swan.apps.database.subscribe.SwanAppSubscribeMsgProvider;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface ob2 extends JSRuntime, c32, TypedCallbackHandler {
-    JsSerializeValue B(byte[] bArr, boolean z);
+public final class ob2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    byte[] I(JsSerializeValue jsSerializeValue, boolean z);
+    public static void a(@NonNull SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS swanapp_subscribe_msg(_id INTEGER PRIMARY KEY AUTOINCREMENT,appKey varchar(100) NOT NULL,templateId varchar(50) NOT NULL,title varchar(100) NOT NULL,tips TEXT,result TINYINT default 0);");
+            } catch (Exception e) {
+                j12.d("SwanAppSubscribeMsg", "createTable", e);
+            }
+        }
+    }
 
-    void Z(String str, String str2);
-
-    bc2 d0();
-
-    boolean dispatchEvent(JSEvent jSEvent);
-
-    String getInitBasePath();
-
-    @Override // com.baidu.searchbox.unitedscheme.TypedCallbackHandler
-    int getInvokeSourceType();
-
-    EventTarget n();
-
-    boolean post(Runnable runnable);
-
-    @Override // com.baidu.searchbox.v8engine.JSRuntime
-    void postOnJSThread(Runnable runnable);
-
-    @Override // com.baidu.searchbox.v8engine.JSRuntime
-    void runOnJSThread(Runnable runnable);
-
-    void setPreferredFramesPerSecond(short s);
-
-    void throwJSException(JSExceptionType jSExceptionType, String str);
-
-    EventTarget x();
-
-    xb2 y();
+    @WorkerThread
+    public static void b(@Nullable String... strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, strArr) == null) {
+            Application c = qn2.c();
+            if (c != null && strArr != null) {
+                StringBuilder sb = new StringBuilder();
+                int length = strArr.length;
+                for (int i = 0; i < length; i++) {
+                    String str = strArr[i];
+                    if (!TextUtils.isEmpty(str)) {
+                        sb.append(str);
+                        if (i < length - 1) {
+                            sb.append(",");
+                        }
+                    }
+                }
+                int delete = c.getContentResolver().delete(SwanAppSubscribeMsgProvider.c, "appKey in (?)", new String[]{sb.toString()});
+                j12.i("SwanAppSubscribeMsg", "deleteAllByAppKey count=" + delete + ", appKey=" + sb.toString());
+                return;
+            }
+            j12.o("SwanAppSubscribeMsg", "deleteAllByAppKey fail");
+        }
+    }
 }

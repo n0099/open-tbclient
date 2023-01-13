@@ -79,6 +79,11 @@ public final class m extends a {
         this.qa = nVar;
     }
 
+    public static /* synthetic */ boolean a(m mVar, boolean z) {
+        mVar.ql = true;
+        return true;
+    }
+
     private synchronized void gY() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
@@ -176,7 +181,7 @@ public final class m extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onCreate();
-            KsToastView ksToastView = (KsToastView) findViewById(R.id.obfuscated_res_0x7f09129e);
+            KsToastView ksToastView = (KsToastView) findViewById(R.id.obfuscated_res_0x7f0912a9);
             this.qh = ksToastView;
             ksToastView.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.ad.reward.presenter.m.2
                 public static /* synthetic */ Interceptable $ic;
@@ -205,7 +210,7 @@ public final class m extends a {
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        this.qm.ql = true;
+                        m.a(this.qm, true);
                         this.qm.qh.setVisibility(8);
                         com.kwad.components.ad.reward.b.eV().a(PlayableSource.PENDANT_CLICK_AUTO);
                     }

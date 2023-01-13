@@ -587,21 +587,25 @@ public class PagerLayoutManager extends LinearLayoutManager implements View.OnTo
     }
 
     public void snapToNext() {
+        RecyclerView recyclerView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && this.mPosition + 1 < getItemCount()) {
-            this.mLastMoveY = -1;
-            this.mRecyclerView.smoothScrollToPosition(this.mPosition + 1);
+        if ((interceptable != null && interceptable.invokeV(1048590, this) != null) || this.mPosition + 1 >= getItemCount() || (recyclerView = this.mRecyclerView) == null) {
+            return;
         }
+        this.mLastMoveY = -1;
+        recyclerView.smoothScrollToPosition(this.mPosition + 1);
     }
 
     public void snapToPre() {
+        RecyclerView recyclerView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             int i = this.mPosition;
-            if (i - 1 >= 0) {
-                this.mLastMoveY = -1;
-                this.mRecyclerView.smoothScrollToPosition(i - 1);
+            if (i - 1 < 0 || (recyclerView = this.mRecyclerView) == null) {
+                return;
             }
+            this.mLastMoveY = -1;
+            recyclerView.smoothScrollToPosition(i - 1);
         }
     }
 

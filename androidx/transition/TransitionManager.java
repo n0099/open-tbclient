@@ -234,10 +234,10 @@ public class TransitionManager {
             if (transition == null) {
                 transition = sDefaultTransition;
             }
-            Transition m5clone = transition.m5clone();
-            sceneChangeSetup(viewGroup, m5clone);
+            Transition mo5clone = transition.mo5clone();
+            sceneChangeSetup(viewGroup, mo5clone);
             Scene.setCurrentScene(viewGroup, null);
-            sceneChangeRunTransition(viewGroup, m5clone);
+            sceneChangeRunTransition(viewGroup, mo5clone);
         }
     }
 
@@ -255,14 +255,14 @@ public class TransitionManager {
                     return;
                 }
                 sPendingTransitions.add(sceneRoot);
-                Transition m5clone = transition.m5clone();
-                m5clone.setSceneRoot(sceneRoot);
+                Transition mo5clone = transition.mo5clone();
+                mo5clone.setSceneRoot(sceneRoot);
                 if (currentScene != null && currentScene.isCreatedFromLayoutResource()) {
-                    m5clone.setCanRemoveViews(true);
+                    mo5clone.setCanRemoveViews(true);
                 }
-                sceneChangeSetup(sceneRoot, m5clone);
+                sceneChangeSetup(sceneRoot, mo5clone);
                 scene.enter();
-                sceneChangeRunTransition(sceneRoot, m5clone);
+                sceneChangeRunTransition(sceneRoot, mo5clone);
             }
         }
     }

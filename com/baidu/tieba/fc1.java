@@ -1,98 +1,127 @@
 package com.baidu.tieba;
 
 import android.graphics.Bitmap;
-import android.util.LruCache;
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.BitmapFactory;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 /* loaded from: classes4.dex */
 public class fc1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LruCache<String, Bitmap> a;
 
-    /* loaded from: classes4.dex */
-    public class a extends LruCache<String, Bitmap> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(fc1 fc1Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fc1Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:? */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:8:0x0029 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v2, types: [java.io.Closeable[]] */
+    /* JADX WARN: Type inference failed for: r3v1 */
+    /* JADX WARN: Type inference failed for: r3v2 */
+    /* JADX WARN: Type inference failed for: r3v3 */
+    /* JADX WARN: Type inference failed for: r3v5, types: [java.io.BufferedInputStream, java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r5v11, types: [java.io.Closeable[]] */
+    /* JADX WARN: Type inference failed for: r5v6, types: [java.io.Closeable[]] */
+    public static Bitmap a(String str) {
+        InterceptResult invokeL;
+        ?? r3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            Bitmap bitmap = null;
+            try {
+                r3 = new BufferedInputStream(((HttpURLConnection) new URL(str).openConnection()).getInputStream(), 8192);
+                try {
+                    try {
+                        bitmap = BitmapFactory.decodeStream(r3);
+                        gd1.a(new Closeable[]{r3});
+                    } catch (Exception e) {
+                        e = e;
+                        e.printStackTrace();
+                        gd1.a(new Closeable[]{r3});
+                        return bitmap;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    bitmap = r3;
+                    gd1.a(new Closeable[]{bitmap});
+                    throw th;
                 }
+            } catch (Exception e2) {
+                e = e2;
+                r3 = 0;
+            } catch (Throwable th2) {
+                th = th2;
+                gd1.a(new Closeable[]{bitmap});
+                throw th;
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.util.LruCache
-        /* renamed from: a */
-        public int sizeOf(String str, Bitmap bitmap) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bitmap)) == null) {
-                return bitmap.getByteCount() / 1024;
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    public fc1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new a(this, ((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8);
-    }
-
-    public void a(String str, Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
-            String b = kc1.b(str);
-            if (b(b) == null) {
-                this.a.put(b, bitmap);
-            }
-        }
-    }
-
-    public final Bitmap b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return this.a.get(str);
+            return bitmap;
         }
         return (Bitmap) invokeL.objValue;
     }
 
-    public Bitmap c(String str) {
-        InterceptResult invokeL;
+    public static boolean b(String str, OutputStream outputStream) {
+        InterceptResult invokeLL;
+        Throwable th;
+        BufferedOutputStream bufferedOutputStream;
+        IOException e;
+        BufferedInputStream bufferedInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return b(kc1.b(str));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, outputStream)) == null) {
+            BufferedInputStream bufferedInputStream2 = null;
+            try {
+                bufferedInputStream = new BufferedInputStream(((HttpURLConnection) new URL(str).openConnection()).getInputStream());
+                try {
+                    bufferedOutputStream = new BufferedOutputStream(outputStream);
+                } catch (IOException e2) {
+                    e = e2;
+                    bufferedOutputStream = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    bufferedOutputStream = null;
+                }
+            } catch (IOException e3) {
+                e = e3;
+                bufferedOutputStream = null;
+            } catch (Throwable th3) {
+                th = th3;
+                bufferedOutputStream = null;
+            }
+            try {
+                byte[] bArr = new byte[8192];
+                while (true) {
+                    int read = bufferedInputStream.read(bArr);
+                    if (read != -1) {
+                        bufferedOutputStream.write(bArr, 0, read);
+                    } else {
+                        gd1.a(bufferedInputStream, bufferedOutputStream);
+                        return true;
+                    }
+                }
+            } catch (IOException e4) {
+                e = e4;
+                bufferedInputStream2 = bufferedInputStream;
+                try {
+                    e.printStackTrace();
+                    gd1.a(bufferedInputStream2, bufferedOutputStream);
+                    return false;
+                } catch (Throwable th4) {
+                    th = th4;
+                    gd1.a(bufferedInputStream2, bufferedOutputStream);
+                    throw th;
+                }
+            } catch (Throwable th5) {
+                th = th5;
+                bufferedInputStream2 = bufferedInputStream;
+                gd1.a(bufferedInputStream2, bufferedOutputStream);
+                throw th;
+            }
+        } else {
+            return invokeLL.booleanValue;
         }
-        return (Bitmap) invokeL.objValue;
     }
 }

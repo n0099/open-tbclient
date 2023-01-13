@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,22 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public interface jj0 {
-    public static final ServiceReference b = new ServiceReference("nad.core", "deviceInfoInner");
-    public static final jj0 c = new a();
+    public static final ServiceReference a = new ServiceReference("nad.core", "config");
+    public static final jj0 b = new a();
 
-    String m();
+    @NonNull
+    lj0 a();
 
     /* loaded from: classes5.dex */
     public static class a implements jj0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.jj0
-        public String m() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
-        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -37,6 +32,17 @@ public interface jj0 {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
+        }
+
+        @Override // com.baidu.tieba.jj0
+        @NonNull
+        public lj0 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return lj0.a;
+            }
+            return (lj0) invokeV.objValue;
         }
     }
 }

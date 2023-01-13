@@ -1,33 +1,42 @@
 package com.baidu.tieba;
 
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.webrtc.CalledByNative;
-import org.webrtc.VideoEncoder;
-/* compiled from: VideoEncoder.java */
-/* loaded from: classes6.dex */
-public final /* synthetic */ class y2a {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.ar.core.InstallActivity;
+/* loaded from: classes7.dex */
+public final class y2a implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ InstallActivity a;
 
-    @CalledByNative
-    public static long $default$createNativeVideoEncoder(VideoEncoder videoEncoder) {
-        InterceptResult invokeL;
+    public y2a(InstallActivity installActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, videoEncoder)) == null) {
-            return 0L;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {installActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return invokeL.longValue;
+        this.a = installActivity;
     }
 
-    @CalledByNative
-    public static boolean $default$isHardwareEncoder(VideoEncoder videoEncoder) {
-        InterceptResult invokeL;
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, videoEncoder)) == null) {
-            return true;
+        if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+            return;
         }
-        return invokeL.booleanValue;
+        this.a.h();
+        this.a.n();
     }
 }

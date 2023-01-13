@@ -1,37 +1,32 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface c61 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "webViewInit");
-    public static final c61 b = new a();
+    public static final c61 a = new a();
 
-    /* loaded from: classes3.dex */
-    public interface b {
-        void a();
-    }
+    boolean a(int i);
 
-    int a(Context context, b bVar);
-
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements c61 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.tieba.c61
-        public int a(Context context, b bVar) {
-            InterceptResult invokeLL;
+        public boolean a(int i) {
+            InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, bVar)) == null) {
-                return 0;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                return false;
             }
-            return invokeLL.intValue;
+            return invokeI.booleanValue;
         }
 
         public a() {
@@ -46,6 +41,42 @@ public interface c61 {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static c61 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-936594579, "Lcom/baidu/tieba/c61$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-936594579, "Lcom/baidu/tieba/c61$b;");
+                    return;
+                }
+            }
+            a = a61.e();
+        }
+
+        @NonNull
+        public static c61 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                if (a == null) {
+                    a = c61.a;
+                }
+                return a;
+            }
+            return (c61) invokeV.objValue;
         }
     }
 }

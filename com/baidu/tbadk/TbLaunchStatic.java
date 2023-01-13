@@ -1,22 +1,10 @@
 package com.baidu.tbadk;
 
-import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.GroupMsgImageActivityConfig;
 import com.baidu.tbadk.core.atomData.WXEntryActivityConfig;
-import com.baidu.tieba.hf7;
-import com.baidu.tieba.if7;
-import com.baidu.tieba.im.chat.GroupMsgImageActivity;
-import com.baidu.tieba.im.message.ResponseAddGroupUserMessage;
 import com.baidu.tieba.im.message.ResponseCommitGroupMessage;
 import com.baidu.tieba.im.message.ResponseDelSystemMessage;
-import com.baidu.tieba.im.message.ResponseDismissGroupMessage;
-import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
-import com.baidu.tieba.im.message.ResponseUpdateGroupMessage;
-import com.baidu.tieba.im.message.ResponseUpgradeMemberGroupMessage;
-import com.baidu.tieba.im.message.ResponseUserPermissionMessage;
-import com.baidu.tieba.jf7;
-import com.baidu.tieba.ua7;
+import com.baidu.tieba.te7;
 import com.baidu.tieba.wxapi.WXEntryActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -65,7 +53,6 @@ public class TbLaunchStatic {
     public static void initRegisterIntent() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            TbadkApplication.getInst().RegisterIntent(GroupMsgImageActivityConfig.class, GroupMsgImageActivity.class);
             TbadkCoreApplication.getInst().RegisterOrUpdateIntent(WXEntryActivityConfig.class, WXEntryActivity.class);
         }
     }
@@ -73,17 +60,8 @@ public class TbLaunchStatic {
     public static void initRegisterTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            ua7.b(202004, ResponseDelSystemMessage.class, false);
-            ua7.b(103112, ResponseRemoveMembersMessage.class, false);
-            ua7.b(202001, ResponseCommitGroupMessage.class, false);
-            ua7.b(103111, ResponseAddGroupUserMessage.class, false);
-            ua7.b(103105, ResponseUpgradeMemberGroupMessage.class, false);
-            ua7.b(103008, ResponseUserPermissionMessage.class, false).f(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
-            ua7.b(103102, ResponseUpdateGroupMessage.class, false).f(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
-            ua7.b(103104, ResponseDismissGroupMessage.class, false);
-            ua7.a(2001142, hf7.class);
-            ua7.a(2001145, jf7.class);
-            ua7.a(2001148, if7.class);
+            te7.b(202004, ResponseDelSystemMessage.class, false);
+            te7.b(202001, ResponseCommitGroupMessage.class, false);
         }
     }
 }

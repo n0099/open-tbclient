@@ -1,7 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.fc5;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes4.dex */
-public interface gc5<T extends fc5> {
-    boolean onEvent(T t);
+public interface gc5 extends lc5 {
+    @NonNull
+    public static final ServiceReference a = new ServiceReference("ImMessageCenter", "ChatBoxDialogService");
+
+    void onChangeSkinType(int i);
+
+    void onDestroy();
+
+    void onPause();
+
+    void onResume();
 }

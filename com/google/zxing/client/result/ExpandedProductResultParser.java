@@ -12,7 +12,7 @@ import com.google.zxing.Result;
 import com.google.zxing.maxicode.decoder.DecodedBitStreamParser;
 import java.util.HashMap;
 import kotlin.text.Typography;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ExpandedProductResultParser extends ResultParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

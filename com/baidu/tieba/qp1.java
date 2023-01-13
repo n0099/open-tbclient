@@ -1,11 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface qp1 {
-    String a();
+    void a(boolean z);
 
-    String b();
-
-    String getAppName();
-
-    String getSchemeHeader();
+    boolean b();
 }

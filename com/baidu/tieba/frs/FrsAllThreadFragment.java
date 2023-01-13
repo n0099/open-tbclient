@@ -18,26 +18,26 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jl6;
-import com.baidu.tieba.mk6;
-import com.baidu.tieba.pe5;
+import com.baidu.tieba.ef5;
+import com.baidu.tieba.xo6;
+import com.baidu.tieba.zn6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class FrsAllThreadFragment extends BaseFragment implements jl6 {
+public class FrsAllThreadFragment extends BaseFragment implements xo6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
     public RecyclerView b;
     public String c;
 
-    @Override // com.baidu.tieba.jl6
-    public void j0(boolean z) {
+    @Override // com.baidu.tieba.xo6
+    public void l0(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
         }
     }
 
@@ -55,53 +55,78 @@ public class FrsAllThreadFragment extends BaseFragment implements jl6 {
         }
     }
 
-    @Override // com.baidu.tieba.jl6
+    @Override // com.baidu.tieba.xo6
     public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            t1();
-            mk6 mk6Var = new mk6();
-            mk6Var.a = 1;
-            mk6Var.b = true;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, mk6Var));
+            y1();
+            zn6 zn6Var = new zn6();
+            zn6Var.a = 1;
+            zn6Var.b = true;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, zn6Var));
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
-    public pe5 getTbPageExtra() {
+    public ef5 getTbPageExtra() {
         InterceptResult invokeV;
         Intent intent;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             BaseFragmentActivity baseFragmentActivity = getBaseFragmentActivity();
             if (baseFragmentActivity == null) {
                 intent = null;
             } else {
                 intent = baseFragmentActivity.getIntent();
             }
-            return new pe5(getUniqueId(), "a006", this.mTbPageExtraPageTabName, intent);
+            return new ef5(getUniqueId(), "a006", this.mTbPageExtraPageTabName, intent);
         }
-        return (pe5) invokeV.objValue;
+        return (ef5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLoad() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-                x1(2, "4");
+                C1(2, "4");
             } else {
-                x1(2, "5");
+                C1(2, "5");
             }
         }
     }
 
-    @Override // com.baidu.tieba.jl6
-    public void t1() {
+    @Override // com.baidu.tieba.xo6
+    public void y1() {
         RecyclerView recyclerView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (recyclerView = this.b) != null) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (recyclerView = this.b) != null) {
             recyclerView.scrollToPosition(0);
+        }
+    }
+
+    public final void C1(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+            TiebaStatic.log(new StatisticItem("c13008").param("fid", this.c).param("obj_type", str).param("obj_locate", i).param("uid", TbadkCoreApplication.getCurrentAccount()));
+        }
+    }
+
+    public final void D1() {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (view2 = this.a) != null && (view2.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.a.getParent()).removeView(this.a);
+            this.a.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        }
+    }
+
+    public void E1(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            this.a = view2;
+            this.b = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090bee);
+            D1();
         }
     }
 
@@ -110,39 +135,14 @@ public class FrsAllThreadFragment extends BaseFragment implements jl6 {
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, layoutInflater, viewGroup, bundle)) == null) {
             Bundle arguments = getArguments();
             if (arguments != null) {
                 this.c = arguments.getString("forum_id", "");
             }
-            y1();
+            D1();
             return this.a;
         }
         return (View) invokeLLL.objValue;
-    }
-
-    public final void x1(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048582, this, i, str) == null) {
-            TiebaStatic.log(new StatisticItem("c13008").param("fid", this.c).param("obj_type", str).param("obj_locate", i).param("uid", TbadkCoreApplication.getCurrentAccount()));
-        }
-    }
-
-    public final void y1() {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (view2 = this.a) != null && (view2.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.a.getParent()).removeView(this.a);
-            this.a.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        }
-    }
-
-    public void z1(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
-            this.a = view2;
-            this.b = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090be1);
-            y1();
-        }
     }
 }

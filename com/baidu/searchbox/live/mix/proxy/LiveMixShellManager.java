@@ -292,6 +292,7 @@ public final class LiveMixShellManager {
                     }
                     return;
                 }
+                ListUbc.getInstance().doEnterUbcByRequestEnter(str, "enter_room_plugin1_loaded", "", "", str2);
                 startMixLiveActivity(context, str, str2, str3, uri, z, z2);
                 return;
             }
@@ -427,10 +428,12 @@ public final class LiveMixShellManager {
                                     }
                                     return;
                                 }
+                                ListUbc.getInstance().doEnterUbcByRequestEnter(this.$roomId, "enter_room_plugin1_reloaded", "", "", this.$source);
                                 LiveMixShellManager.INSTANCE.startMixLiveActivity(this.$context, this.$roomId, this.$source, this.$params, this.$uri, this.$isYYMixLive, this.$preStartPlayer);
                                 return;
                             }
                             LiveMixShellManager.INSTANCE.enterFlowEnd();
+                            ListUbc.getInstance().doEnterUbcByRequestEnter(this.$roomId, "load_plugin1_error", "", "", this.$source);
                             ToastService toastService = MiniPluginManager.INSTANCE.getToastService();
                             if (toastService != null) {
                                 ToastService.DefaultImpls.showNormal$default(toastService, this.$context, "加载失败，请稍后重试", 0, 4, null);

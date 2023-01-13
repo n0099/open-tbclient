@@ -10,8 +10,8 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gh4;
-import com.baidu.tieba.vc4;
+import com.baidu.tieba.ad4;
+import com.baidu.tieba.lh4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,9 +23,9 @@ import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class PMSDBProviderProxy extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
-    public static final gh4 b;
+    public static final lh4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile vc4 a;
+    public volatile ad4 a;
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
@@ -50,7 +50,7 @@ public class PMSDBProviderProxy extends ContentProvider {
                 return;
             }
         }
-        b = gh4.c();
+        b = lh4.c();
     }
 
     public PMSDBProviderProxy() {
@@ -67,20 +67,20 @@ public class PMSDBProviderProxy extends ContentProvider {
         }
     }
 
-    public vc4 a() {
+    public ad4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.a == null) {
-                synchronized (vc4.class) {
+                synchronized (ad4.class) {
                     if (this.a == null) {
-                        this.a = new vc4(getContext());
+                        this.a = new ad4(getContext());
                     }
                 }
             }
             return this.a;
         }
-        return (vc4) invokeV.objValue;
+        return (ad4) invokeV.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:17:0x0040, code lost:

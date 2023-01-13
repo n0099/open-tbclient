@@ -251,7 +251,8 @@ public class gp extends gn {
     }
 
     @Override // com.xiaomi.push.gn
-    public String a() {
+    /* renamed from: a */
+    public String mo442a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -305,9 +306,9 @@ public class gp extends gn {
                 sb.append("</show>");
             }
             sb.append(o());
-            gr m379a = m379a();
-            if (m379a != null) {
-                sb.append(m379a.m383a());
+            gr m443a = m443a();
+            if (m443a != null) {
+                sb.append(m443a.m446a());
             }
             sb.append("</presence>");
             return sb.toString();
@@ -343,7 +344,8 @@ public class gp extends gn {
         }
     }
 
-    @Override // com.xiaomi.push.gn
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.gn.a(Ljava/lang/String;)Lcom/xiaomi/push/gk; */
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.gn.a(Ljava/lang/String;)Ljava/lang/Object; */
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {

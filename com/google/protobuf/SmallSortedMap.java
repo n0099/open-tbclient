@@ -22,7 +22,7 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
     public final int maxArraySize;
     public Map<K, V> overflowEntries;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class EmptySet {
         public static /* synthetic */ Interceptable $ic;
         public static final Iterable<Object> ITERABLE;
@@ -152,7 +152,7 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class Entry implements Map.Entry<K, V>, Comparable<SmallSortedMap<K, V>.Entry> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -316,7 +316,7 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class EntryIterator implements Iterator<Map.Entry<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -408,7 +408,7 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class EntrySet extends AbstractSet<Map.Entry<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -577,9 +577,7 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
                                     arrayEntryAt.setValue(Collections.unmodifiableList((List) arrayEntryAt.getValue()));
                                 }
                             }
-                            Iterator it = getOverflowEntries().iterator();
-                            while (it.hasNext()) {
-                                Map.Entry entry = (Map.Entry) it.next();
+                            for (Map.Entry<FieldDescriptorType, Object> entry : getOverflowEntries()) {
                                 if (((FieldSet.FieldDescriptorLite) entry.getKey()).isRepeated()) {
                                     entry.setValue(Collections.unmodifiableList((List) entry.getValue()));
                                 }
@@ -591,7 +589,7 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
 
                 @Override // com.google.protobuf.SmallSortedMap, java.util.AbstractMap, java.util.Map
                 public /* bridge */ /* synthetic */ Object put(Object obj, Object obj2) {
-                    return super.put((AnonymousClass1) ((FieldSet.FieldDescriptorLite) obj), (FieldSet.FieldDescriptorLite) obj2);
+                    return super.put((AnonymousClass1<FieldDescriptorType>) ((FieldSet.FieldDescriptorLite) obj), (FieldSet.FieldDescriptorLite) obj2);
                 }
             };
         }

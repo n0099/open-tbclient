@@ -1,69 +1,31 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import android.os.Build;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.themeCenter.background.BackgroundItemView;
-import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.android.util.io.ActionJsonData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.h5power.DescriptionTableInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class cy8 extends BaseAdapter {
+public class cy8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Object> a;
-    public TbPageContext<?> b;
-    public fy8 c;
+    public final ArrayList<xx8> a;
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
-    }
-
-    /* loaded from: classes4.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public BackgroundItemView b;
-        public BackgroundItemView c;
-        public BackgroundItemView d;
-        public View e;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public cy8(TbPageContext<?> tbPageContext, fy8 fy8Var) {
+    public cy8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, fy8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -73,121 +35,104 @@ public class cy8 extends BaseAdapter {
                 return;
             }
         }
-        this.b = tbPageContext;
-        this.c = fy8Var;
+        this.a = new ArrayList<>();
     }
 
-    public void a(List<Object> list) {
+    public void a(xx8 xx8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.a = list;
+        if (interceptable == null || interceptable.invokeL(1048576, this, xx8Var) == null) {
+            this.a.add(xx8Var);
         }
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
+    public final void b(WebView webView, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            List<Object> list = this.a;
-            if (list != null && list.size() > 0 && i >= 0 && i < this.a.size()) {
-                return this.a.get(i);
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2) == null) && webView != null && !yi.isEmpty(str) && !yi.isEmpty(str2)) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + str2 + "')", null);
+                return;
             }
-            return null;
+            webView.loadUrl("javascript:" + str + "&&" + str + "('" + str2 + "')");
         }
-        return invokeI.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public zx8 c(by8 by8Var, zx8 zx8Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (getItem(i) != null) {
-                return i;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, by8Var, zx8Var)) == null) {
+            if (zx8Var == null) {
+                zx8Var = new zx8();
             }
-            return -1L;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return getItem(i) instanceof List ? 1 : 0;
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<Object> list = this.a;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            Object item = getItem(i);
-            if (view2 != null) {
-                aVar = (a) view2.getTag();
-            } else if (getItemViewType(i) == 0) {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d012f, viewGroup, false);
-                aVar = new a();
-                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d79);
-                view2.setTag(aVar);
-            } else {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0135, viewGroup, false);
-                aVar = new a();
-                aVar.b = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f090399);
-                aVar.c = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f09039a);
-                aVar.d = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f09039b);
-                aVar.e = view2.findViewById(R.id.obfuscated_res_0x7f090840);
-                view2.setTag(aVar);
-            }
-            if (item != null) {
-                if (getItemViewType(i) == 0) {
-                    aVar.a.setText(item.toString());
-                } else {
-                    List list = (List) item;
-                    aVar.b.e((DressItemData) list.get(0));
-                    aVar.b.setController(this.c);
-                    if (list.size() > 2) {
-                        aVar.c.e((DressItemData) list.get(1));
-                        aVar.d.e((DressItemData) list.get(2));
-                        aVar.c.setController(this.c);
-                        aVar.d.setController(this.c);
-                    } else if (list.size() > 1) {
-                        aVar.c.e((DressItemData) list.get(1));
-                        aVar.c.setController(this.c);
-                        aVar.d.f();
-                    } else {
-                        aVar.c.f();
-                        aVar.d.f();
-                    }
-                    if (getItem(i + 1) instanceof List) {
-                        aVar.e.setVisibility(8);
-                    } else {
-                        aVar.e.setVisibility(0);
+            if (ActionJsonData.TAG_NOTIFICATION.equals(by8Var.c()) && "addObserver".equals(by8Var.a())) {
+                Iterator<xx8> it = this.a.iterator();
+                while (it.hasNext()) {
+                    zx8Var = it.next().addObserver(by8Var.d(), zx8Var, true);
+                    if (zx8Var.j()) {
+                        return zx8Var;
                     }
                 }
+                if (!zx8Var.j()) {
+                    zx8Var.y(202);
+                    zx8Var.u(TbadkCoreApplication.getInst().getString(R.string.can_find_notification_name));
+                }
+            } else {
+                String c = by8Var.c();
+                if (!yi.isEmpty(c) && DescriptionTableInfo.getModuleSet() != null && !DescriptionTableInfo.getModuleSet().contains(c)) {
+                    zx8Var.y(201);
+                    return zx8Var;
+                }
+                Iterator<xx8> it2 = this.a.iterator();
+                while (it2.hasNext()) {
+                    zx8Var = it2.next().dispatch(by8Var, zx8Var);
+                    if (zx8Var.i()) {
+                        return zx8Var;
+                    }
+                }
+                if (!zx8Var.i()) {
+                    zx8Var.y(202);
+                }
             }
-            this.b.getLayoutMode().k(view2);
-            return view2;
+            return zx8Var;
         }
-        return (View) invokeILL.objValue;
+        return (zx8) invokeLL.objValue;
+    }
+
+    public void d(WebView webView, zx8 zx8Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, webView, zx8Var) != null) || webView == null || zx8Var == null || !zx8Var.k()) {
+            return;
+        }
+        b(webView, zx8Var.c(), zx8Var.d());
+    }
+
+    public void e(WebView webView, List<zx8> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, webView, list) == null) && webView != null && !ListUtils.isEmpty(list)) {
+            for (zx8 zx8Var : list) {
+                if (zx8Var != null && zx8Var.k()) {
+                    b(webView, zx8Var.c(), zx8Var.d());
+                }
+            }
+        }
+    }
+
+    public List<zx8> f(WebView webView, String str, HashMap hashMap) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, webView, str, hashMap)) == null) {
+            List<zx8> list = null;
+            if (yi.isEmpty(str)) {
+                return null;
+            }
+            Iterator<xx8> it = this.a.iterator();
+            while (it.hasNext()) {
+                list = it.next().processNotification(webView, str, hashMap);
+                if (!ListUtils.isEmpty(list)) {
+                    break;
+                }
+            }
+            return list;
+        }
+        return (List) invokeLLL.objValue;
     }
 }

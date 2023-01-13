@@ -1,216 +1,96 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AlaInfoData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.card.ala.AlaVideoContainer;
-import com.baidu.tieba.mf8;
+import com.baidu.tieba.g66;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import java.util.Objects;
 /* loaded from: classes5.dex */
-public class j56 implements jf8 {
+public abstract class j56<T extends g66> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaVideoContainer a;
-    public ThreadData b;
-    public AlaInfoData c;
-    public boolean d;
-    public mf8 e;
-    public mf8.b f;
+    public int a;
+    public final T[] b;
 
-    @Override // com.baidu.tieba.jf8
-    public boolean isFullScreen() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.jf8
-    public boolean isPlaying() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.jf8
-    public void startPlay() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements mf8.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j56 a;
-
-        public a(j56 j56Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j56Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j56Var;
-        }
-
-        @Override // com.baidu.tieba.mf8.b
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b();
-            }
-        }
-    }
-
-    public j56(AlaVideoContainer alaVideoContainer) {
+    public j56(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {alaVideoContainer};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = false;
-        this.f = new a(this);
-        this.a = alaVideoContainer;
-        if (alaVideoContainer != null) {
-            mf8 mf8Var = new mf8();
-            this.e = mf8Var;
-            mf8Var.l(this.a.getVideoView());
-            this.e.i(this.f);
+        this.a = 0;
+        if (i > 0) {
+            this.b = (T[]) new g66[i];
+        } else {
+            this.b = (T[]) new g66[5];
         }
+        Arrays.fill(this.b, (Object) null);
     }
 
-    public final void b() {
-        ThreadData threadData;
+    public synchronized boolean c(T t) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (threadData = this.b) == null || threadData.getThreadVideoInfo() == null) {
-        }
-    }
-
-    public void c() {
-        AlaVideoContainer alaVideoContainer;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (alaVideoContainer = this.a) != null) {
-            alaVideoContainer.q();
-        }
-    }
-
-    @Override // com.baidu.tieba.jf8
-    public int getCurrentPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            AlaVideoContainer alaVideoContainer = this.a;
-            if (alaVideoContainer != null && alaVideoContainer.getVideoView() != null) {
-                return this.a.getVideoView().getCurrentPositionSync();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
+            synchronized (this) {
+                if (b(t)) {
+                    return true;
+                }
+                if (this.a < this.b.length) {
+                    T[] tArr = this.b;
+                    int i = this.a;
+                    this.a = i + 1;
+                    tArr[i] = t;
+                    return true;
+                }
+                return false;
             }
-            return 0;
         }
-        return invokeV.intValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.jf8
-    public String getPlayUrl() {
+    public synchronized T a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ThreadData threadData = this.b;
-            if (threadData != null && threadData.getThreadVideoInfo() != null) {
-                return this.b.getThreadVideoInfo().video_url;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.a <= 0) {
+                    return null;
+                }
+                T[] tArr = this.b;
+                int i = this.a - 1;
+                this.a = i;
+                T t = tArr[i];
+                this.b[i] = null;
+                return t;
             }
-            return null;
         }
-        return (String) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jf8
-    public View getVideoContainer() {
-        InterceptResult invokeV;
+    public boolean b(T t) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            AlaVideoContainer alaVideoContainer = this.a;
-            if (alaVideoContainer != null) {
-                return alaVideoContainer.getView();
-            }
-            return null;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.jf8
-    public boolean isPlayStarted() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.jf8
-    public void stopPlay() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            AlaVideoContainer alaVideoContainer = this.a;
-            if (alaVideoContainer != null && alaVideoContainer.getVideoView() != null) {
-                this.a.getVideoView().stopPlayback();
-                this.a.p();
-                mf8 mf8Var = this.e;
-                if (mf8Var != null) {
-                    mf8Var.n();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
+            for (int i = 0; i < this.a; i++) {
+                if (Objects.equals(this.b[i], t)) {
+                    return true;
                 }
             }
-            this.d = false;
+            return false;
         }
-    }
-
-    public void d(ThreadData threadData, String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{threadData, str, str2, Boolean.valueOf(z)}) != null) || threadData == null) {
-            return;
-        }
-        this.b = threadData;
-        if (this.a != null && threadData.getThreadAlaInfo() != null) {
-            AlaInfoData threadAlaInfo = this.b.getThreadAlaInfo();
-            this.c = threadAlaInfo;
-            this.a.setVideoThumbnail(threadAlaInfo.cover);
-            if (z) {
-                this.a.setTitle(this.b.getTitle());
-            } else {
-                this.a.setTitle("");
-            }
-            this.a.setPlayCount(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.ala_audience_count_prefix), StringHelper.numFormatOverWan(this.b.getThreadAlaInfo().audience_count)));
-        }
+        return invokeL.booleanValue;
     }
 }

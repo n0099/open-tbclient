@@ -1,84 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-@Service
 /* loaded from: classes7.dex */
-public class yq3 extends dm1 {
+public class yq3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static volatile xq3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948338766, "Lcom/baidu/tieba/yq3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948338766, "Lcom/baidu/tieba/yq3;");
-                return;
-            }
-        }
-        a = ok1.a;
-    }
-
-    public yq3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ao1
-    public boolean x() {
+    public static synchronized xq3 a() {
         InterceptResult invokeV;
+        xq3 xq3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (a && d03.G().booleanValue()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ao1
-    public JSONObject getRawSwitch() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (fm4.a()) {
-                    jSONObject.put("swanswitch_android_setdata", 1);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (yq3.class) {
+                if (a == null) {
+                    a = new xq3();
                 }
-                jSONObject.put("swanswitch_ab_inline_video", 1);
-                jSONObject.put("swanswitch_ab_inline_input", 1);
-                jSONObject.put("swanswitch_ab_inline_textarea", 1);
-            } catch (JSONException e) {
-                e.printStackTrace();
+                xq3Var = a;
             }
-            return jSONObject;
+            return xq3Var;
         }
-        return (JSONObject) invokeV.objValue;
+        return (xq3) invokeV.objValue;
     }
 }

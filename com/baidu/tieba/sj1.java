@@ -1,17 +1,22 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.annotation.SuppressLint;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
+import androidx.core.app.NotificationCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
 /* loaded from: classes6.dex */
-public final class sj1 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final String[] a;
+public class sj1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static long a = 60000;
+    public static long b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,96 +32,50 @@ public final class sj1 {
                 return;
             }
         }
-        a = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
+        b = a * 60;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:4:0x0004 */
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: byte */
-    /* JADX DEBUG: Multi-variable search result rejected for r4v1, resolved type: int */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r4v5, types: [int] */
-    public static String a(byte b) {
-        InterceptResult invokeB;
+    @SuppressLint({"WrongConstant"})
+    public static void a(Context context, long j) {
+        PendingIntent broadcast;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeB = interceptable.invokeB(65537, null, b)) == null) {
-            if (b < 0) {
-                b += 256;
-            }
-            return a[b / 16] + a[b % 16];
+        if ((interceptable != null && interceptable.invokeLJ(65537, null, context, j) != null) || j <= 0) {
+            return;
         }
-        return (String) invokeB.objValue;
+        try {
+            AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+            Intent intent = new Intent();
+            intent.setPackage(context.getPackageName());
+            intent.setAction("sso_action_t_m");
+            if (b(context)) {
+                broadcast = PendingIntent.getBroadcast(context, 101, intent, 201326592);
+            } else {
+                broadcast = PendingIntent.getBroadcast(context, 101, intent, 134217728);
+            }
+            alarmManager.cancel(broadcast);
+            alarmManager.set(0, System.currentTimeMillis() + j, broadcast);
+        } catch (Throwable th) {
+            tj1.d(th);
+        }
     }
 
-    public static String b(String str) {
+    public static boolean b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            String str2 = "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
-                if (TextUtils.isEmpty(str)) {
-                    return "";
+                if (context.getApplicationInfo().targetSdkVersion >= 31) {
+                    if (Build.VERSION.SDK_INT >= 31) {
+                        return true;
+                    }
+                    return false;
                 }
-                String str3 = new String(str);
-                try {
-                    return c(MessageDigest.getInstance("MD5").digest(str3.getBytes()));
-                } catch (Throwable th) {
-                    th = th;
-                    str2 = str3;
-                    oj1.d(th);
-                    return str2;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        } else {
-            return (String) invokeL.objValue;
-        }
-    }
-
-    public static String c(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            StringBuffer stringBuffer = new StringBuffer();
-            for (byte b : bArr) {
-                stringBuffer.append(a(b));
-            }
-            return stringBuffer.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
-            if (bArr == null || bArr.length <= 0) {
-                return "";
-            }
-            try {
-                return c(MessageDigest.getInstance("MD5").digest(bArr));
+                return false;
             } catch (Throwable th) {
-                oj1.d(th);
-                return "";
+                tj1.d(th);
+                return false;
             }
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static byte[] e(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
-            if (bArr == null || bArr.length <= 0) {
-                return null;
-            }
-            try {
-                return MessageDigest.getInstance("MD5").digest(bArr);
-            } catch (Throwable th) {
-                oj1.d(th);
-                return null;
-            }
-        }
-        return (byte[]) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

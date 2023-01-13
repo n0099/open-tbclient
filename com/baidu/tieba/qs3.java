@@ -1,9 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.game.ad.entity.AdElementInfo;
-/* loaded from: classes5.dex */
-public interface qs3 {
-    void a(String str);
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public class qs3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public DownloadState a;
+    public String b;
+    public int c;
 
-    void c(AdElementInfo adElementInfo);
+    public qs3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = DownloadState.NOT_START;
+        this.c = Integer.parseInt("0");
+    }
+
+    public static qs3 a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            qs3 qs3Var = new qs3();
+            qs3Var.b = str2;
+            return qs3Var;
+        }
+        return (qs3) invokeLL.objValue;
+    }
 }

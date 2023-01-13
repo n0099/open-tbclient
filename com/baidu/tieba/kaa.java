@@ -1,133 +1,321 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dca;
-import com.baidu.tieba.eca;
+import com.baidu.tieba.n8a;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.IYYPayResultView;
-import tv.athena.revenue.payui.view.IYYPayWayView;
-import tv.athena.revenue.payui.view.impl.YYPayAmountView;
-import tv.athena.revenue.payui.view.impl.YYPayCampaignView;
-import tv.athena.revenue.payui.view.impl.YYPayConfirmView;
-import tv.athena.revenue.payui.view.impl.YYPayGiftView;
-import tv.athena.revenue.payui.view.impl.YYPayResultView;
-import tv.athena.revenue.payui.view.impl.YYPaySignView;
-import tv.athena.revenue.payui.view.impl.YYPaySplitOrderView;
-import tv.athena.revenue.payui.view.impl.YYPayWayView;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.Iterator;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
+import rx.internal.schedulers.ScheduledAction;
+import rx.internal.util.RxThreadFactory;
 /* loaded from: classes5.dex */
-public class kaa implements e9a {
+public class kaa extends n8a.a implements r8a {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
+    public static final int d;
+    public static final ConcurrentHashMap<ScheduledThreadPoolExecutor, ScheduledThreadPoolExecutor> e;
+    public static final AtomicReference<ScheduledExecutorService> f;
+    public static volatile Object g;
+    public static final Object h;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public PayUIKitConfig c;
+    public final ScheduledExecutorService a;
+    public volatile boolean b;
 
-    public kaa(int i, int i2, PayUIKitConfig payUIKitConfig) {
+    /* loaded from: classes5.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                kaa.f();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        boolean z;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947907742, "Lcom/baidu/tieba/kaa;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947907742, "Lcom/baidu/tieba/kaa;");
+                return;
+            }
+        }
+        h = new Object();
+        e = new ConcurrentHashMap<>();
+        f = new AtomicReference<>();
+        d = Integer.getInteger("rx.scheduler.jdk6.purge-frequency-millis", 1000).intValue();
+        boolean z2 = Boolean.getBoolean("rx.scheduler.jdk6.purge-force");
+        int a2 = saa.a();
+        if (!z2 && (a2 == 0 || a2 >= 21)) {
+            z = true;
+        } else {
+            z = false;
+        }
+        c = z;
+    }
+
+    public kaa(ThreadFactory threadFactory) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), payUIKitConfig};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            Object[] objArr = {threadFactory};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        RLog.info("PayFlowViewImpl", "create PayViewImpl mAppId:" + i + " mUserChannel:" + i2);
-        this.a = i;
-        this.b = i2;
-        this.c = payUIKitConfig;
-    }
-
-    @Override // com.baidu.tieba.e9a
-    public IYYPayAmountView a(Activity activity, IYYPayAmountView.ViewParams viewParams, c9a c9aVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, viewParams, c9aVar)) == null) {
-            return new YYPayAmountView(activity, this.a, this.b, this.c, viewParams, c9aVar);
+        ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, threadFactory);
+        if (!k(newScheduledThreadPool) && (newScheduledThreadPool instanceof ScheduledThreadPoolExecutor)) {
+            g((ScheduledThreadPoolExecutor) newScheduledThreadPool);
         }
-        return (IYYPayAmountView) invokeLLL.objValue;
+        this.a = newScheduledThreadPool;
     }
 
-    @Override // com.baidu.tieba.e9a
-    public IYYPayResultView e(Activity activity, IYYPayResultView.c cVar, c9a c9aVar) {
-        InterceptResult invokeLLL;
+    public static Method e(ScheduledExecutorService scheduledExecutorService) {
+        InterceptResult invokeL;
+        Method[] methods;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, activity, cVar, c9aVar)) == null) {
-            return new YYPayResultView(activity, this.c, this.a, this.b, cVar, c9aVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, scheduledExecutorService)) == null) {
+            for (Method method : scheduledExecutorService.getClass().getMethods()) {
+                if (method.getName().equals("setRemoveOnCancelPolicy")) {
+                    Class<?>[] parameterTypes = method.getParameterTypes();
+                    if (parameterTypes.length == 1 && parameterTypes[0] == Boolean.TYPE) {
+                        return method;
+                    }
+                }
+            }
+            return null;
         }
-        return (IYYPayResultView) invokeLLL.objValue;
+        return (Method) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.e9a
-    public dca f(Activity activity, dca.b bVar, PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeLLL;
+    public static void d(ScheduledExecutorService scheduledExecutorService) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, activity, bVar, payUIKitConfig)) == null) {
-            return new YYPaySignView(activity, bVar, payUIKitConfig, this.a, this.b);
+        if (interceptable == null || interceptable.invokeL(65538, null, scheduledExecutorService) == null) {
+            e.remove(scheduledExecutorService);
         }
-        return (dca) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.e9a
-    public IYYPayWayView g(Activity activity, IYYPayWayView.b bVar, g9a g9aVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, activity, bVar, g9aVar)) == null) {
-            return new YYPayWayView(activity, this.a, this.b, bVar, this.c, g9aVar);
-        }
-        return (IYYPayWayView) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.e9a
-    public bca b(Activity activity) {
+    @Override // com.baidu.tieba.n8a.a
+    public r8a b(x8a x8aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
-            return new YYPayConfirmView(activity, this.a, this.b, this.c);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, x8aVar)) == null) {
+            return c(x8aVar, 0L, null);
         }
-        return (bca) invokeL.objValue;
+        return (r8a) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.e9a
-    public aca c(Activity activity) {
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            try {
+                Iterator<ScheduledThreadPoolExecutor> it = e.keySet().iterator();
+                while (it.hasNext()) {
+                    ScheduledThreadPoolExecutor next = it.next();
+                    if (!next.isShutdown()) {
+                        next.purge();
+                    } else {
+                        it.remove();
+                    }
+                }
+            } catch (Throwable th) {
+                w8a.e(th);
+                rca.j(th);
+            }
+        }
+    }
+
+    public static void g(ScheduledThreadPoolExecutor scheduledThreadPoolExecutor) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, scheduledThreadPoolExecutor) == null) {
+            while (true) {
+                if (f.get() != null) {
+                    break;
+                }
+                ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, new RxThreadFactory("RxSchedulerPurge-"));
+                if (f.compareAndSet(null, newScheduledThreadPool)) {
+                    a aVar = new a();
+                    int i = d;
+                    newScheduledThreadPool.scheduleAtFixedRate(aVar, i, i, TimeUnit.MILLISECONDS);
+                    break;
+                }
+                newScheduledThreadPool.shutdownNow();
+            }
+            e.putIfAbsent(scheduledThreadPoolExecutor, scheduledThreadPoolExecutor);
+        }
+    }
+
+    public static boolean k(ScheduledExecutorService scheduledExecutorService) {
         InterceptResult invokeL;
+        Method e2;
+        Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {
-            return new YYPayCampaignView(activity, this.a, this.b, this.c);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, scheduledExecutorService)) == null) {
+            if (c) {
+                if (scheduledExecutorService instanceof ScheduledThreadPoolExecutor) {
+                    Object obj2 = g;
+                    if (obj2 == h) {
+                        return false;
+                    }
+                    if (obj2 == null) {
+                        e2 = e(scheduledExecutorService);
+                        if (e2 != null) {
+                            obj = e2;
+                        } else {
+                            obj = h;
+                        }
+                        g = obj;
+                    } else {
+                        e2 = (Method) obj2;
+                    }
+                } else {
+                    e2 = e(scheduledExecutorService);
+                }
+                if (e2 != null) {
+                    try {
+                        e2.invoke(scheduledExecutorService, Boolean.TRUE);
+                        return true;
+                    } catch (IllegalAccessException e3) {
+                        rca.j(e3);
+                    } catch (IllegalArgumentException e4) {
+                        rca.j(e4);
+                    } catch (InvocationTargetException e5) {
+                        rca.j(e5);
+                    }
+                }
+            }
+            return false;
         }
-        return (aca) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.e9a
-    public cca d(Activity activity) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.n8a.a
+    public r8a c(x8a x8aVar, long j, TimeUnit timeUnit) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, activity)) == null) {
-            return new YYPayGiftView(activity, this.a, this.b, this.c);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{x8aVar, Long.valueOf(j), timeUnit})) == null) {
+            if (this.b) {
+                return hda.c();
+            }
+            return h(x8aVar, j, timeUnit);
         }
-        return (cca) invokeL.objValue;
+        return (r8a) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.e9a
-    public eca h(Activity activity, PayUIKitConfig payUIKitConfig, eca.b bVar, g9a g9aVar) {
-        InterceptResult invokeLLLL;
+    public ScheduledAction h(x8a x8aVar, long j, TimeUnit timeUnit) {
+        InterceptResult invokeCommon;
+        Future<?> schedule;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, activity, payUIKitConfig, bVar, g9aVar)) == null) {
-            return new YYPaySplitOrderView(activity, payUIKitConfig, this.a, this.b, bVar, g9aVar);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{x8aVar, Long.valueOf(j), timeUnit})) == null) {
+            ScheduledAction scheduledAction = new ScheduledAction(rca.q(x8aVar));
+            if (j <= 0) {
+                schedule = this.a.submit(scheduledAction);
+            } else {
+                schedule = this.a.schedule(scheduledAction, j, timeUnit);
+            }
+            scheduledAction.add(schedule);
+            return scheduledAction;
         }
-        return (eca) invokeLLLL.objValue;
+        return (ScheduledAction) invokeCommon.objValue;
+    }
+
+    public ScheduledAction i(x8a x8aVar, long j, TimeUnit timeUnit, vaa vaaVar) {
+        InterceptResult invokeCommon;
+        Future<?> schedule;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{x8aVar, Long.valueOf(j), timeUnit, vaaVar})) == null) {
+            ScheduledAction scheduledAction = new ScheduledAction(rca.q(x8aVar), vaaVar);
+            vaaVar.a(scheduledAction);
+            if (j <= 0) {
+                schedule = this.a.submit(scheduledAction);
+            } else {
+                schedule = this.a.schedule(scheduledAction, j, timeUnit);
+            }
+            scheduledAction.add(schedule);
+            return scheduledAction;
+        }
+        return (ScheduledAction) invokeCommon.objValue;
+    }
+
+    public ScheduledAction j(x8a x8aVar, long j, TimeUnit timeUnit, eda edaVar) {
+        InterceptResult invokeCommon;
+        Future<?> schedule;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{x8aVar, Long.valueOf(j), timeUnit, edaVar})) == null) {
+            ScheduledAction scheduledAction = new ScheduledAction(rca.q(x8aVar), edaVar);
+            edaVar.a(scheduledAction);
+            if (j <= 0) {
+                schedule = this.a.submit(scheduledAction);
+            } else {
+                schedule = this.a.schedule(scheduledAction, j, timeUnit);
+            }
+            scheduledAction.add(schedule);
+            return scheduledAction;
+        }
+        return (ScheduledAction) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.r8a
+    public boolean isUnsubscribed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.r8a
+    public void unsubscribe() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.b = true;
+            this.a.shutdownNow();
+            d(this.a);
+        }
     }
 }

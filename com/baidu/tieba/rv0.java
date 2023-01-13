@@ -1,25 +1,15 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import androidx.annotation.Nullable;
 /* loaded from: classes6.dex */
-public class rv0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface rv0 {
+    void a(@NonNull yr0 yr0Var);
 
     @NonNull
-    @Inject(force = false)
-    public static gv0 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return wv0.a();
-        }
-        return (gv0) invokeV.objValue;
-    }
+    lx0 b(@NonNull yr0 yr0Var, @Nullable lx0 lx0Var);
+
+    void c(@NonNull yr0 yr0Var, boolean z);
+
+    boolean d(@NonNull yr0 yr0Var, lx0 lx0Var);
 }

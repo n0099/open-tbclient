@@ -1,11 +1,24 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.SparseArray;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.android.imsdk.chatmessage.messages.UnSupportedMsg;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.Action;
+import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseChatMsg;
+import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseMsg;
+import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseSysMsg;
+import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.CommonMsgField;
+import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.repo.SizedSyncTreeSet;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,55 +27,351 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.SortedSet;
+import java.util.TreeSet;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class tl7 extends vl7 {
+public class tl7 implements vb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<vl7> c;
+    public final SparseArray<Class<? extends BaseMsg>> a;
+    @NonNull
+    public final ConcurrentHashMap<Long, SizedSyncTreeSet<BaseMsg>> b;
+    @NonNull
+    public final ConcurrentHashMap<Long, SizedSyncTreeSet<BaseMsg>> c;
+    @NonNull
+    public final ConcurrentHashMap<Long, SizedSyncTreeSet<BaseMsg>> d;
+    @Nullable
+    public h e;
+    @Nullable
+    public j f;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface h {
+        @MainThread
+        void a(long j, @NonNull List<BaseMsg> list, @NonNull i iVar);
     }
 
-    @Override // com.baidu.tieba.vl7
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+    /* loaded from: classes6.dex */
+    public interface j<T extends BaseSysMsg> {
+        @MainThread
+        void a(@NonNull T t);
+
+        @MainThread
+        void b(@NonNull ChatMsg chatMsg);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ TreeSet b;
+        public final /* synthetic */ boolean c;
+        public final /* synthetic */ boolean d;
+        public final /* synthetic */ boolean e;
+        public final /* synthetic */ tl7 f;
+
+        public a(tl7 tl7Var, long j, TreeSet treeSet, boolean z, boolean z2, boolean z3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tl7Var, Long.valueOf(j), treeSet, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = tl7Var;
+            this.a = j;
+            this.b = treeSet;
+            this.c = z;
+            this.d = z2;
+            this.e = z3;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.f.g(this.a, this.b, this.c, this.d, this.e);
         }
     }
 
-    @Override // com.baidu.tieba.vl7
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "lego_main" : (String) invokeV.objValue;
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ List b;
+        public final /* synthetic */ boolean c;
+        public final /* synthetic */ boolean d;
+        public final /* synthetic */ boolean e;
+        public final /* synthetic */ tl7 f;
+
+        public b(tl7 tl7Var, long j, List list, boolean z, boolean z2, boolean z3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tl7Var, Long.valueOf(j), list, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = tl7Var;
+            this.a = j;
+            this.b = list;
+            this.c = z;
+            this.d = z2;
+            this.e = z3;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f.e != null) {
+                this.f.e.a(this.a, this.b, i.a(this.c, this.d, this.e));
+            }
+        }
     }
 
     /* loaded from: classes6.dex */
-    public static class b {
+    public class c implements SizedSyncTreeSet.a<BaseMsg> {
         public static /* synthetic */ Interceptable $ic;
-        public static final tl7 a;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ tl7 b;
+
+        public c(tl7 tl7Var, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tl7Var, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = tl7Var;
+            this.a = j;
+        }
+
+        @Override // com.baidu.tieba.imMessageCenter.chatgroup.grouppage.repo.SizedSyncTreeSet.a
+        public void a(boolean z, Collection<BaseMsg> collection) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeZL(1048576, this, z, collection) != null) || z) {
+                return;
+            }
+            SizedSyncTreeSet r = this.b.r(this.a);
+            if (r.isEmpty()) {
+                r.addAll(collection);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BaseSysMsg a;
+        public final /* synthetic */ tl7 b;
+
+        public d(tl7 tl7Var, BaseSysMsg baseSysMsg) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tl7Var, baseSysMsg};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = tl7Var;
+            this.a = baseSysMsg;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.f != null) {
+                this.b.f.a(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ChatMsg a;
+        public final /* synthetic */ tl7 b;
+
+        public e(tl7 tl7Var, ChatMsg chatMsg) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tl7Var, chatMsg};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = tl7Var;
+            this.a = chatMsg;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.f != null) {
+                this.b.f.b(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class f implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ List b;
+        public final /* synthetic */ i c;
+        public final /* synthetic */ tl7 d;
+
+        public f(tl7 tl7Var, long j, List list, i iVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tl7Var, Long.valueOf(j), list, iVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = tl7Var;
+            this.a = j;
+            this.b = list;
+            this.c = iVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.d.e != null) {
+                this.d.e.a(this.a, this.b, this.c);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class g {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-399850132, "Lcom/baidu/tieba/tl7$b;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-399849977, "Lcom/baidu/tieba/tl7$g;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-399850132, "Lcom/baidu/tieba/tl7$b;");
+                    classClinitInterceptable.invokePostClinit(-399849977, "Lcom/baidu/tieba/tl7$g;");
                     return;
                 }
             }
-            a = new tl7(null);
+            int[] iArr = new int[Action.Op.values().length];
+            a = iArr;
+            try {
+                iArr[Action.Op.DELETE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[Action.Op.UPDATE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class i {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final boolean a;
+        public final boolean b;
+        public final boolean c;
+
+        public i(boolean z, boolean z2, boolean z3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z;
+            this.b = z2;
+            this.c = z3;
+        }
+
+        @NonNull
+        public static i a(boolean z, boolean z2, boolean z3) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+                return new i(z, z2, z3);
+            }
+            return (i) invokeCommon.objValue;
         }
     }
 
@@ -71,142 +380,577 @@ public class tl7 extends vl7 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new ArrayList(4);
+        this.a = new SparseArray<>();
+        this.b = new ConcurrentHashMap<>();
+        this.c = new ConcurrentHashMap<>();
+        this.d = new ConcurrentHashMap<>();
+        new ConcurrentHashMap();
     }
 
-    public static tl7 h() {
+    public static void I(@NonNull ChatMsg chatMsg) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, chatMsg) == null) {
+            long millis = TimeUnit.MICROSECONDS.toMillis(chatMsg.getMsgId());
+            if (millis == 0) {
+                millis = System.currentTimeMillis();
+            }
+            chatMsg.setMsgTime(millis);
+        }
+    }
+
+    public static TreeSet<ChatMsg> K(@NonNull ChatMsg chatMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, chatMsg)) == null) {
+            TreeSet<ChatMsg> treeSet = new TreeSet<>(qb5.b);
+            treeSet.add(chatMsg);
+            return treeSet;
+        }
+        return (TreeSet) invokeL.objValue;
+    }
+
+    public final void A(@NonNull BaseSysMsg baseSysMsg) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, baseSysMsg) == null) {
+            fh.c(new d(this, baseSysMsg));
+        }
+    }
+
+    public void F(long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+            G(j2, true);
+        }
+    }
+
+    public void H(@Nullable h hVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, hVar) == null) {
+            this.e = hVar;
+        }
+    }
+
+    public void J(@Nullable j jVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jVar) == null) {
+            this.f = jVar;
+        }
+    }
+
+    public void j(long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
+            SizedSyncTreeSet<BaseMsg> r = r(j2);
+            if (!r.isEmpty()) {
+                return;
+            }
+            SizedSyncTreeSet<BaseMsg> n = n(j2);
+            r.addAll(n);
+            n.clear();
+        }
+    }
+
+    @Nullable
+    public BaseMsg p(long j2) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048596, this, j2)) == null) {
+            SizedSyncTreeSet<BaseMsg> n = n(j2);
+            if (n.isEmpty()) {
+                return null;
+            }
+            return n.first();
+        }
+        return (BaseMsg) invokeJ.objValue;
+    }
+
+    public boolean u(long j2) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048601, this, j2)) == null) {
+            return !r(j2).isEmpty();
+        }
+        return invokeJ.booleanValue;
+    }
+
+    public final void z(@NonNull ChatMsg chatMsg) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, chatMsg) == null) {
+            fh.c(new e(this, chatMsg));
+        }
+    }
+
+    public void D(int i2, Class<? extends BaseMsg> cls) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, cls) == null) {
+            this.a.put(i2, cls);
+        }
+    }
+
+    public void E(List<Integer> list, Class<? extends BaseMsg> cls) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, list, cls) == null) {
+            for (Integer num : list) {
+                this.a.put(num.intValue(), cls);
+            }
+        }
+    }
+
+    @NonNull
+    public ChatMsg k(long j2, @NonNull String str) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048593, this, j2, str)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("managerTips", str);
+            return f(j2, -7014, l(), m(), hashMap);
+        }
+        return (ChatMsg) invokeJL.objValue;
+    }
+
+    public void w(long j2, @NonNull i iVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(1048603, this, j2, iVar) == null) {
+            fh.c(new f(this, j2, new ArrayList(n(j2)), iVar));
+        }
+    }
+
+    public void y(long j2, @NonNull TreeSet<ChatMsg> treeSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(1048605, this, j2, treeSet) == null) {
+            h(j2, treeSet, true, false, false);
+        }
+    }
+
+    public static long l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return TimeUnit.MILLISECONDS.toMicros(System.currentTimeMillis());
         }
-        return (tl7) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public /* synthetic */ tl7(a aVar) {
-        this();
-    }
-
-    public static ICardInfo j(JSONObject jSONObject) throws CardParseException {
-        InterceptResult invokeL;
+    @NonNull
+    public static String m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
-            return h().b(jSONObject, jSONObject.optInt("card_type"));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return String.valueOf(l());
         }
-        return (ICardInfo) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public synchronized void g(vl7 vl7Var) {
+    @NonNull
+    public final BaseMsg B(long j2, @NonNull ChatMsg chatMsg) {
+        InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, vl7Var) == null) {
-            synchronized (this) {
-                this.c.add(vl7Var);
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2, chatMsg)) == null) {
+            CommonMsgField commonMsgField = (CommonMsgField) DataExt.toEntity(chatMsg.getChatRoomContentExt(), CommonMsgField.class);
+            commonMsgField.setMsgId(chatMsg.getMsgId());
+            commonMsgField.setMsgKey(chatMsg.getMsgKey());
+            commonMsgField.setRoomId(j2);
+            commonMsgField.setUserId(Long.parseLong(chatMsg.getSenderUid()));
+            commonMsgField.setUserName(chatMsg.getNickName());
+            commonMsgField.setPortrait(chatMsg.getPortrait());
+            if (commonMsgField.getContent() == null) {
+                commonMsgField.setContent(new HashMap());
             }
+            BaseChatMsg baseChatMsg = (BaseChatMsg) DataExt.toEntity(commonMsgField.getContent(), this.a.get(commonMsgField.getType()));
+            baseChatMsg.parseSdkMsg4Base(chatMsg);
+            baseChatMsg.fromSdkMsg(chatMsg);
+            baseChatMsg.setCommonMsgField(commonMsgField);
+            baseChatMsg.setSdkMsg(chatMsg);
+            return baseChatMsg;
         }
+        return (BaseMsg) invokeJL.objValue;
     }
 
-    public static ICardInfo i(String str) {
-        InterceptResult invokeL;
+    public final boolean L(long j2, @NonNull BaseMsg baseMsg) {
+        InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            try {
-                ICardInfo j = j(new JSONObject(str));
-                if (j != null) {
-                    if (j.isValid()) {
-                        return j;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048585, this, j2, baseMsg)) == null) {
+            Action provideAction = baseMsg.provideAction();
+            boolean z = false;
+            if (provideAction == null) {
+                return false;
+            }
+            Action.a b2 = provideAction.b();
+            Action.Op c2 = provideAction.c();
+            String e2 = provideAction.e();
+            BaseMsg baseMsg2 = null;
+            int i2 = g.a[c2.ordinal()];
+            if (i2 != 1) {
+                if (i2 == 2) {
+                    BaseMsg o = o(t(j2), e2);
+                    if (o == null) {
+                        o = o(r(j2), e2);
                     }
+                    baseMsg2 = o;
+                    if (baseMsg2 == null) {
+                        baseMsg2 = o(n(j2), e2);
+                        z = true;
+                    }
+                } else {
+                    throw new IllegalStateException("Unexpected value: " + c2);
                 }
-                return null;
-            } catch (CardParseException e) {
-                BdLog.detailException("CardFactory.getPageCardInfo", e);
-                return null;
-            } catch (JSONException e2) {
-                BdLog.detailException("CardFactory.getPageCardInfo", e2);
-                return null;
-            }
-        }
-        return (ICardInfo) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.vl7
-    public <T> om7 a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, tbPageContext, iCardInfo, i)) == null) {
-            om7 e = e(tbPageContext, iCardInfo, i);
-            if (e != null) {
-                e.setBusinessType(i);
-            }
-            return e;
-        }
-        return (om7) invokeLLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.vl7
-    public ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, i)) == null) {
-            return f(jSONObject, i);
-        }
-        return (ICardInfo) invokeLI.objValue;
-    }
-
-    public final <T> om7 e(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
-        InterceptResult invokeLLI;
-        int cardType;
-        om7 a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, tbPageContext, iCardInfo, i)) == null) {
-            for (vl7 vl7Var : this.c) {
-                try {
-                    a2 = vl7Var.a(tbPageContext, iCardInfo, i);
-                } catch (Throwable th) {
-                    BdLog.detailException("factory <" + vl7Var.d() + "> respond exception", th);
-                }
-                if (a2 != null) {
-                    return a2;
-                }
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append("No card factory for card type ");
-            if (iCardInfo == null) {
-                cardType = -1;
             } else {
-                cardType = iCardInfo.getCardType();
-            }
-            sb.append(cardType);
-            BdLog.e(sb.toString());
-            return null;
-        }
-        return (om7) invokeLLI.objValue;
-    }
-
-    public final ICardInfo f(JSONObject jSONObject, int i) throws CardParseException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, jSONObject, i)) == null) {
-            for (vl7 vl7Var : this.c) {
-                try {
-                    ICardInfo b2 = vl7Var.b(jSONObject, i);
-                    if (b2 != null) {
-                        return b2;
-                    }
-                } catch (Throwable th) {
-                    throw new CardParseException("Card type " + i + ", factory <" + vl7Var.d() + "> respond exception", th);
+                BaseMsg createShadowMsg = BaseMsg.createShadowMsg(provideAction.d(), e2);
+                boolean remove = t(j2).remove(createShadowMsg);
+                if (!remove) {
+                    remove = r(j2).remove(createShadowMsg);
+                }
+                if (!remove) {
+                    z = n(j2).remove(createShadowMsg);
                 }
             }
-            BdLog.e("No card factory for card type " + i);
+            if (b2 != null) {
+                b2.a(c2, baseMsg2);
+            }
+            return z;
+        }
+        return invokeJL.booleanValue;
+    }
+
+    @NonNull
+    public final BaseSysMsg C(@NonNull ChatMsg chatMsg) throws JSONException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMsg)) == null) {
+            JSONObject jSONObject = new JSONObject(chatMsg.getMsgContent());
+            int optInt = jSONObject.optInt(TableDefine.MessageColumns.COLUME_SERVICE_TYPE);
+            BaseSysMsg baseSysMsg = (BaseSysMsg) DataExt.toEntity(jSONObject.optString("service_info"), this.a.get(optInt));
+            baseSysMsg.parseSdkMsg4Base(chatMsg);
+            baseSysMsg.setSdkMsg(chatMsg);
+            baseSysMsg.setSysMsg(!baseSysMsg.isConvertToNormalMsg());
+            CommonMsgField commonMsgField = new CommonMsgField();
+            commonMsgField.setMsgId(chatMsg.getMsgId());
+            commonMsgField.setMsgKey(chatMsg.getMsgKey());
+            commonMsgField.setType(optInt);
+            commonMsgField.setRoomId(baseSysMsg.getRoomId());
+            BaseSysMsg.User userFrom = baseSysMsg.getUserFrom();
+            if (userFrom != null) {
+                commonMsgField.setUserId(userFrom.getUserId());
+                commonMsgField.setUserName(userFrom.getUsername());
+                commonMsgField.setPortrait(userFrom.getPortrait());
+                commonMsgField.setRole(userFrom.getRole());
+                commonMsgField.setLevel(userFrom.getLevel());
+            }
+            baseSysMsg.setCommonMsgField(commonMsgField);
+            return baseSysMsg;
+        }
+        return (BaseSysMsg) invokeL.objValue;
+    }
+
+    public void G(long j2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+            SizedSyncTreeSet<BaseMsg> r = r(j2);
+            if (!r.isEmpty()) {
+                SizedSyncTreeSet<BaseMsg> n = n(j2);
+                if (z) {
+                    n.clear();
+                }
+                n.addAll(r, true);
+                r.clear();
+            }
+        }
+    }
+
+    @Nullable
+    public final BaseMsg o(@NonNull SizedSyncTreeSet<BaseMsg> sizedSyncTreeSet, @NonNull String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, sizedSyncTreeSet, str)) == null) {
+            Iterator<BaseMsg> descendingIterator = sizedSyncTreeSet.descendingIterator();
+            while (descendingIterator.hasNext()) {
+                BaseMsg next = descendingIterator.next();
+                if (TextUtils.equals(next.getCommonMsgField().getMsgKey(), str)) {
+                    BaseMsg shallowClone = next.shallowClone();
+                    if (shallowClone != null) {
+                        descendingIterator.remove();
+                        sizedSyncTreeSet.add(shallowClone);
+                    }
+                    return shallowClone;
+                }
+            }
             return null;
         }
-        return (ICardInfo) invokeLI.objValue;
+        return (BaseMsg) invokeLL.objValue;
+    }
+
+    public int s(long j2, @NonNull String str) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048599, this, j2, str)) == null) {
+            Iterator<BaseMsg> it = n(j2).iterator();
+            int i2 = 0;
+            while (it.hasNext()) {
+                if (TextUtils.equals(it.next().getCommonMsgField().getMsgKey(), str)) {
+                    return i2;
+                }
+                i2++;
+            }
+            return -1;
+        }
+        return invokeJL.intValue;
+    }
+
+    @Nullable
+    public final ChatMsg M(long j2, @NonNull ChatMsg chatMsg, @NonNull SortedSet<BaseMsg> sortedSet) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Long.valueOf(j2), chatMsg, sortedSet})) == null) {
+            if (chatMsg.getMsgType() == 10000) {
+                return null;
+            }
+            if (sortedSet.isEmpty()) {
+                I(chatMsg);
+            } else {
+                I(chatMsg);
+                ChatMsg sdkMsg = sortedSet.last().getSdkMsg();
+                I(sdkMsg);
+                if (chatMsg.getMsgTime() - sdkMsg.getMsgTime() <= TimeUnit.MINUTES.toMillis(3L)) {
+                    chatMsg = null;
+                }
+            }
+            if (chatMsg == null) {
+                return null;
+            }
+            long msgTime = chatMsg.getMsgTime();
+            long msgId = chatMsg.getMsgId();
+            HashMap hashMap = new HashMap();
+            hashMap.put("timestamp", Long.valueOf(msgTime));
+            return f(j2, -7013, msgId - 1, String.valueOf(msgTime), hashMap);
+        }
+        return (ChatMsg) invokeCommon.objValue;
+    }
+
+    @Nullable
+    public final BaseMsg i(long j2, @NonNull ChatMsg chatMsg, @NonNull i iVar) throws JSONException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{Long.valueOf(j2), chatMsg, iVar})) == null) {
+            if (chatMsg.getMsgType() == 10000) {
+                if (chatMsg.getNotifyCmd() == 109) {
+                    BaseSysMsg C = C(chatMsg);
+                    if (C.isNoUISysMsg()) {
+                        if (!iVar.b) {
+                            A(C);
+                            if (L(j2, C)) {
+                                w(j2, iVar);
+                            }
+                        }
+                        return null;
+                    }
+                    L(j2, C);
+                    return C;
+                }
+                if (!iVar.b) {
+                    z(chatMsg);
+                }
+                return null;
+            }
+            BaseMsg B = B(j2, chatMsg);
+            L(j2, B);
+            return B;
+        }
+        return (BaseMsg) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.vb5
+    public void a(int i2, long j2, @NonNull TreeSet<ChatMsg> treeSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), treeSet}) == null) {
+            h(j2, treeSet, false, false, true);
+        }
+    }
+
+    public void x(int i2, long j2, @NonNull TreeSet<ChatMsg> treeSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), treeSet}) == null) {
+            h(j2, treeSet, false, true, false);
+        }
+    }
+
+    @NonNull
+    public final ChatMsg f(long j2, int i2, long j3, @NonNull String str, @NonNull Map<String, Object> map) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), str, map})) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, Integer.valueOf(i2));
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("msg_type", Integer.valueOf(i2));
+            hashMap2.put("chatroom_id", Long.valueOf(j2));
+            hashMap2.putAll(map);
+            hashMap.put("service_info", hashMap2);
+            UnSupportedMsg unSupportedMsg = new UnSupportedMsg();
+            unSupportedMsg.setMsgContent(DataExt.toJson(hashMap));
+            unSupportedMsg.setMsgId(j3);
+            unSupportedMsg.setMsgKey(str);
+            unSupportedMsg.setNotifyCmd(109);
+            return unSupportedMsg;
+        }
+        return (ChatMsg) invokeCommon.objValue;
+    }
+
+    @WorkerThread
+    public final void g(long j2, @NonNull TreeSet<ChatMsg> treeSet, boolean z, boolean z2, boolean z3) {
+        SizedSyncTreeSet<BaseMsg> sizedSyncTreeSet;
+        BaseMsg i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Long.valueOf(j2), treeSet, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+            SizedSyncTreeSet<BaseMsg> n = n(j2);
+            SizedSyncTreeSet<BaseMsg> t = t(j2);
+            SizedSyncTreeSet<BaseMsg> r = r(j2);
+            t.clear();
+            i a2 = i.a(z, z2, z3);
+            Iterator<ChatMsg> it = treeSet.iterator();
+            while (it.hasNext()) {
+                ChatMsg next = it.next();
+                if (next != null) {
+                    try {
+                        BaseMsg i3 = i(j2, next, a2);
+                        if (i3 != null) {
+                            if (t.isEmpty()) {
+                                sizedSyncTreeSet = n;
+                            } else {
+                                sizedSyncTreeSet = t;
+                            }
+                            ChatMsg M = M(j2, next, sizedSyncTreeSet);
+                            if (M != null && (i2 = i(j2, M, a2)) != null) {
+                                t.add(i2);
+                            }
+                            t.add(i3);
+                        }
+                    } catch (Exception e2) {
+                        BdLog.e(e2);
+                    }
+                }
+            }
+            if (!t.isEmpty()) {
+                if (!r.isEmpty() && z3) {
+                    r.addAll(t);
+                    return;
+                }
+                n.addAll(t);
+                fh.c(new b(this, j2, new ArrayList(n), z, z2, z3));
+            }
+        }
+    }
+
+    public final void h(long j2, @NonNull TreeSet<ChatMsg> treeSet, boolean z, boolean z2, boolean z3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Long.valueOf(j2), treeSet, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+            fh.d(new a(this, j2, treeSet, z, z2, z3));
+        }
+    }
+
+    @NonNull
+    public final SizedSyncTreeSet<BaseMsg> n(long j2) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048594, this, j2)) == null) {
+            SizedSyncTreeSet<BaseMsg> sizedSyncTreeSet = this.b.get(Long.valueOf(j2));
+            if (sizedSyncTreeSet == null) {
+                SizedSyncTreeSet<BaseMsg> sizedSyncTreeSet2 = new SizedSyncTreeSet<>(600, new TreeSet(BaseMsg.CHAT_MSG_COMPARATOR));
+                sizedSyncTreeSet2.setCallback(new c(this, j2));
+                this.b.put(Long.valueOf(j2), sizedSyncTreeSet2);
+                return sizedSyncTreeSet2;
+            }
+            return sizedSyncTreeSet;
+        }
+        return (SizedSyncTreeSet) invokeJ.objValue;
+    }
+
+    @NonNull
+    public final SizedSyncTreeSet<BaseMsg> r(long j2) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048598, this, j2)) == null) {
+            SizedSyncTreeSet<BaseMsg> sizedSyncTreeSet = this.d.get(Long.valueOf(j2));
+            if (sizedSyncTreeSet == null) {
+                SizedSyncTreeSet<BaseMsg> sizedSyncTreeSet2 = new SizedSyncTreeSet<>(200, new TreeSet(BaseMsg.CHAT_MSG_COMPARATOR));
+                this.d.put(Long.valueOf(j2), sizedSyncTreeSet2);
+                return sizedSyncTreeSet2;
+            }
+            return sizedSyncTreeSet;
+        }
+        return (SizedSyncTreeSet) invokeJ.objValue;
+    }
+
+    @NonNull
+    public final SizedSyncTreeSet<BaseMsg> t(long j2) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048600, this, j2)) == null) {
+            SizedSyncTreeSet<BaseMsg> sizedSyncTreeSet = this.c.get(Long.valueOf(j2));
+            if (sizedSyncTreeSet == null) {
+                SizedSyncTreeSet<BaseMsg> sizedSyncTreeSet2 = new SizedSyncTreeSet<>(new TreeSet(BaseMsg.CHAT_MSG_COMPARATOR));
+                this.c.put(Long.valueOf(j2), sizedSyncTreeSet2);
+                return sizedSyncTreeSet2;
+            }
+            return sizedSyncTreeSet;
+        }
+        return (SizedSyncTreeSet) invokeJ.objValue;
+    }
+
+    @Nullable
+    public BaseMsg q(long j2) {
+        InterceptResult invokeJ;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048597, this, j2)) == null) {
+            Iterator<BaseMsg> descendingIterator = n(j2).descendingIterator();
+            while (descendingIterator.hasNext()) {
+                BaseMsg next = descendingIterator.next();
+                if (!(next instanceof BaseSysMsg)) {
+                    return next;
+                }
+                BaseSysMsg baseSysMsg = (BaseSysMsg) next;
+                int type = baseSysMsg.getCommonMsgField().getType();
+                if (baseSysMsg.getMsgConf() != null && baseSysMsg.getMsgConf().isVisible()) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (-7013 != type && -7014 != type && z) {
+                    return next;
+                }
+            }
+            return null;
+        }
+        return (BaseMsg) invokeJ.objValue;
+    }
+
+    public boolean v(long j2, @NonNull TreeSet<ChatMsg> treeSet) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048602, this, j2, treeSet)) == null) {
+            ChatMsg last = treeSet.last();
+            BaseMsg createShadowMsg = BaseMsg.createShadowMsg(last.getMsgId(), last.getMsgKey());
+            SizedSyncTreeSet<BaseMsg> r = r(j2);
+            Iterator<ChatMsg> descendingIterator = treeSet.descendingIterator();
+            while (descendingIterator.hasNext()) {
+                ChatMsg next = descendingIterator.next();
+                CommonMsgField commonMsgField = createShadowMsg.getCommonMsgField();
+                commonMsgField.setMsgId(next.getMsgId());
+                commonMsgField.setMsgKey(next.getMsgKey());
+                if (r.contains(createShadowMsg)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeJL.booleanValue;
     }
 }

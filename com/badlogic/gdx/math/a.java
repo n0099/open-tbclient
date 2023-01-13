@@ -2,8 +2,8 @@ package com.badlogic.gdx.math;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.g8;
-import com.baidu.tieba.m7;
+import com.baidu.tieba.h8;
+import com.baidu.tieba.n7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,12 +13,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final g8 a;
+    public final h8 a;
     public short[] b;
     public float[] c;
     public int d;
-    public final m7 e;
-    public final g8 f;
+    public final n7 e;
+    public final h8 f;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -33,9 +33,9 @@ public class a {
                 return;
             }
         }
-        this.a = new g8();
-        this.e = new m7();
-        this.f = new g8();
+        this.a = new h8();
+        this.e = new n7();
+        this.f = new h8();
     }
 
     public static int b(float f, float f2, float f3, float f4, float f5, float f6) {
@@ -65,23 +65,23 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             short[] sArr = this.b;
-            g8 g8Var = this.f;
-            g8Var.a(sArr[i(i)]);
-            g8Var.a(sArr[i]);
-            g8Var.a(sArr[h(i)]);
+            h8 h8Var = this.f;
+            h8Var.a(sArr[i(i)]);
+            h8Var.a(sArr[i]);
+            h8Var.a(sArr[h(i)]);
             this.a.d(i);
             this.e.f(i);
             this.d--;
         }
     }
 
-    public g8 c(float[] fArr) {
+    public h8 c(float[] fArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fArr)) == null) {
             return d(fArr, 0, fArr.length);
         }
-        return (g8) invokeL.objValue;
+        return (h8) invokeL.objValue;
     }
 
     public final int h(int i) {
@@ -105,7 +105,7 @@ public class a {
         return invokeI.intValue;
     }
 
-    public g8 d(float[] fArr, int i, int i2) {
+    public h8 d(float[] fArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, fArr, i, i2)) == null) {
@@ -113,11 +113,11 @@ public class a {
             int i3 = i2 / 2;
             this.d = i3;
             int i4 = i / 2;
-            g8 g8Var = this.a;
-            g8Var.b();
-            g8Var.c(i3);
-            g8Var.b = i3;
-            short[] sArr = g8Var.a;
+            h8 h8Var = this.a;
+            h8Var.b();
+            h8Var.c(i3);
+            h8Var.b = i3;
+            short[] sArr = h8Var.a;
             this.b = sArr;
             if (b.a(fArr, i, i2)) {
                 for (short s = 0; s < i3; s = (short) (s + 1)) {
@@ -129,19 +129,19 @@ public class a {
                     sArr[i6] = (short) ((i4 + i5) - i6);
                 }
             }
-            m7 m7Var = this.e;
-            m7Var.d();
-            m7Var.e(i3);
+            n7 n7Var = this.e;
+            n7Var.d();
+            n7Var.e(i3);
             for (int i7 = 0; i7 < i3; i7++) {
-                m7Var.a(a(i7));
+                n7Var.a(a(i7));
             }
-            g8 g8Var2 = this.f;
-            g8Var2.b();
-            g8Var2.c(Math.max(0, i3 - 2) * 3);
+            h8 h8Var2 = this.f;
+            h8Var2.b();
+            h8Var2.c(Math.max(0, i3 - 2) * 3);
             j();
-            return g8Var2;
+            return h8Var2;
         }
-        return (g8) invokeLII.objValue;
+        return (h8) invokeLII.objValue;
     }
 
     public final int f() {
@@ -226,11 +226,11 @@ public class a {
                 iArr[i2] = a(i2);
             }
             if (i == 3) {
-                g8 g8Var = this.f;
+                h8 h8Var = this.f;
                 short[] sArr = this.b;
-                g8Var.a(sArr[0]);
-                g8Var.a(sArr[1]);
-                g8Var.a(sArr[2]);
+                h8Var.a(sArr[0]);
+                h8Var.a(sArr[1]);
+                h8Var.a(sArr[2]);
             }
         }
     }

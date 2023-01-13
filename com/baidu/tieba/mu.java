@@ -1,13 +1,14 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.BDPTask;
+import com.baidu.bdtask.utils.UniqueId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class mu implements hs {
+public final class mu implements lu {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,25 +26,30 @@ public final class mu implements hs {
         }
     }
 
-    @Override // com.baidu.tieba.hs
-    public String a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.lu
+    public void a(String str) {
+        BDPTask t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Object b = com.baidu.bdtask.service.cache.storage.c.i.a().b(str);
-            if (!(b instanceof String)) {
-                b = null;
-            }
-            return (String) b;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (t = BDPTask.m.t()) != null) {
+            t.C(str);
         }
-        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.hs
-    public void a(String str, String str2) {
+    @Override // com.baidu.tieba.lu
+    public void b(String str, UniqueId uniqueId) {
+        BDPTask t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            com.baidu.bdtask.service.cache.storage.c.i.a().d(str2, str);
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, uniqueId) == null) && (t = BDPTask.m.t()) != null) {
+            t.G(str, uniqueId);
+        }
+    }
+
+    @Override // com.baidu.tieba.lu
+    public void c(String str, String str2) {
+        BDPTask t;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) && (t = BDPTask.m.t()) != null) {
+            t.u0(str, str2);
         }
     }
 }

@@ -115,7 +115,7 @@ public class ActionBarAppLandscape extends LinearLayout implements c {
     private void b(View view2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65541, this, view2, z) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0594a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(view2 == this.wI).ae(view2 == this.wJ ? 1 : 2).a(new a.b(this, z) { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarAppLandscape.2
+            com.kwad.components.core.c.a.a.a(new a.C0593a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(view2 == this.wI).ae(view2 == this.wJ ? 1 : 2).a(new a.b(this, z) { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarAppLandscape.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ boolean rl;
@@ -243,17 +243,17 @@ public class ActionBarAppLandscape extends LinearLayout implements c {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d048e, this);
-            this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910f7);
-            this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f0910fb);
-            this.dh = (TextView) findViewById(R.id.obfuscated_res_0x7f0910f3);
-            this.wH = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f0910fa);
-            this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f0910f6);
-            TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f0910f5);
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d048d, this);
+            this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f091102);
+            this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f091106);
+            this.dh = (TextView) findViewById(R.id.obfuscated_res_0x7f0910fe);
+            this.wH = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091105);
+            this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f091101);
+            TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091100);
             this.wI = textProgressBar;
             textProgressBar.setTextDimen(com.kwad.sdk.b.kwai.a.a(getContext(), 16.0f));
             this.wI.setTextColor(-1);
-            this.wJ = findViewById(R.id.obfuscated_res_0x7f09112e);
+            this.wJ = findViewById(R.id.obfuscated_res_0x7f091139);
         }
     }
 

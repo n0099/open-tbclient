@@ -8,16 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class vy1 extends kx1 {
+public class vy1 extends px1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.kx1
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-        }
-    }
+    public xx1 a;
 
     public vy1() {
         Interceptable interceptable = $ic;
@@ -33,14 +27,26 @@ public class vy1 extends kx1 {
         }
     }
 
-    @Override // com.baidu.tieba.kx1
-    public void a(lx1 lx1Var, Canvas canvas) {
+    @Override // com.baidu.tieba.px1
+    public void a(qx1 qx1Var, Canvas canvas) {
+        xx1 xx1Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, lx1Var, canvas) == null) {
-            int alpha = lx1Var.c.getAlpha();
-            lx1Var.c(lx1Var.c);
-            canvas.drawPath(lx1Var.f, lx1Var.c);
-            lx1Var.c.setAlpha(alpha);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, qx1Var, canvas) == null) && (xx1Var = this.a) != null && xx1Var.d()) {
+            if (this.a.c()) {
+                qx1Var.c.setShader(this.a.b());
+                return;
+            }
+            qx1Var.m = this.a.a();
+            qx1Var.c.setColor(this.a.a());
+            qx1Var.b.setShader(null);
+        }
+    }
+
+    @Override // com.baidu.tieba.px1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
+            this.a = new xx1(jSONArray);
         }
     }
 }

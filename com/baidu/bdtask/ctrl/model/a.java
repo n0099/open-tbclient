@@ -14,11 +14,11 @@ import com.baidu.bdtask.service.ubc.model.UBCRecoveryTaskQueue;
 import com.baidu.bdtask.service.ubc.model.UBCRegisterTaskInfo;
 import com.baidu.searchbox.cloudcontrol.request.CloudControlRequest;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tieba.av;
-import com.baidu.tieba.tt;
-import com.baidu.tieba.uq;
+import com.baidu.tieba.cv;
 import com.baidu.tieba.vt;
-import com.baidu.tieba.xv;
+import com.baidu.tieba.wq;
+import com.baidu.tieba.xt;
+import com.baidu.tieba.zv;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,6 +35,7 @@ import java.util.concurrent.locks.ReentrantLock;
 import kotlin.Metadata;
 import kotlin.Pair;
 import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
@@ -115,7 +116,7 @@ public final class a {
                 return;
             }
         }
-        this.b = uq.a(5);
+        this.b = wq.a(5);
     }
 
     public final boolean s() {
@@ -146,7 +147,7 @@ public final class a {
                 return;
             }
         }
-        this.b = uq.a(5);
+        this.b = wq.a(5);
         SubTaskState subTaskState2 = aVar.a;
         if (subTaskState2 != null) {
             subTaskState = subTaskState2.deepCopy();
@@ -154,12 +155,12 @@ public final class a {
             subTaskState = null;
         }
         this.a = subTaskState;
-        PriorityQueue<SubTaskState> a = uq.a(5);
+        PriorityQueue<SubTaskState> a = wq.a(5);
         a.addAll(aVar.b);
         while (!a.isEmpty()) {
             SubTaskState poll = a.poll();
             if (poll != null) {
-                uq.b(this.b, poll.deepCopy(), 5);
+                wq.b(this.b, poll.deepCopy(), 5);
             }
         }
     }
@@ -213,14 +214,64 @@ public final class a {
         return (SubTaskState) invokeL.objValue;
     }
 
-    public final SubTaskState c(String str) {
+    public final SubTaskState c(final String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             ReentrantLock a = d.a();
             a.lock();
             try {
-                return m(new TaskStateQueue$findSubTaskBySingleKey$$inlined$withLock$lambda$1(this, str));
+                return m(new Function1<TaskInfo, Boolean>(this, str) { // from class: com.baidu.bdtask.ctrl.model.TaskStateQueue$findSubTaskBySingleKey$$inlined$withLock$lambda$1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ String $singleKey$inlined;
+                    public final /* synthetic */ a this$0;
+
+                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                    {
+                        super(1);
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, str};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                super(((Integer) newInitContext.callArgs[0]).intValue());
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.$singleKey$inlined = str;
+                    }
+
+                    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                    @Override // kotlin.jvm.functions.Function1
+                    public /* synthetic */ Boolean invoke(TaskInfo taskInfo) {
+                        return Boolean.valueOf(invoke2(taskInfo));
+                    }
+
+                    /* renamed from: invoke  reason: avoid collision after fix types in other method */
+                    public final boolean invoke2(TaskInfo taskInfo) {
+                        InterceptResult invokeL2;
+                        String str2;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo)) == null) {
+                            if (taskInfo != null) {
+                                str2 = taskInfo.getSingleKey();
+                            } else {
+                                str2 = null;
+                            }
+                            return Intrinsics.areEqual(str2, this.$singleKey$inlined);
+                        }
+                        return invokeL2.booleanValue;
+                    }
+                });
             } finally {
                 a.unlock();
             }
@@ -232,23 +283,118 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, strArr)) == null) {
-            HashSet hashSet = new HashSet();
+            final HashSet hashSet = new HashSet();
             for (String str : strArr) {
                 hashSet.add(str);
             }
-            return e(new TaskStateQueue$getAllSubTaskByActionIds$1(hashSet));
+            return e(new Function1<TaskInfo, Boolean>(hashSet) { // from class: com.baidu.bdtask.ctrl.model.TaskStateQueue$getAllSubTaskByActionIds$1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ HashSet $hashSet;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(1);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {hashSet};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            super(((Integer) newInitContext.callArgs[0]).intValue());
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.$hashSet = hashSet;
+                }
+
+                /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                @Override // kotlin.jvm.functions.Function1
+                public /* synthetic */ Boolean invoke(TaskInfo taskInfo) {
+                    return Boolean.valueOf(invoke2(taskInfo));
+                }
+
+                /* renamed from: invoke  reason: avoid collision after fix types in other method */
+                public final boolean invoke2(TaskInfo taskInfo) {
+                    InterceptResult invokeL2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo)) == null) {
+                        if (taskInfo != null && this.$hashSet.contains(taskInfo.getActionId())) {
+                            return true;
+                        }
+                        return false;
+                    }
+                    return invokeL2.booleanValue;
+                }
+            });
         }
         return (List) invokeL.objValue;
     }
 
-    public final SubTaskState l(String str) {
+    public final SubTaskState l(final String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
             ReentrantLock a = d.a();
             a.lock();
             try {
-                return m(new TaskStateQueue$findSubTaskByActionId$$inlined$withLock$lambda$1(this, str));
+                return m(new Function1<TaskInfo, Boolean>(this, str) { // from class: com.baidu.bdtask.ctrl.model.TaskStateQueue$findSubTaskByActionId$$inlined$withLock$lambda$1
+                    public static /* synthetic */ Interceptable $ic;
+                    public final /* synthetic */ String $actionId$inlined;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ a this$0;
+
+                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                    {
+                        super(1);
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, str};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                super(((Integer) newInitContext.callArgs[0]).intValue());
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.$actionId$inlined = str;
+                    }
+
+                    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                    @Override // kotlin.jvm.functions.Function1
+                    public /* synthetic */ Boolean invoke(TaskInfo taskInfo) {
+                        return Boolean.valueOf(invoke2(taskInfo));
+                    }
+
+                    /* renamed from: invoke  reason: avoid collision after fix types in other method */
+                    public final boolean invoke2(TaskInfo taskInfo) {
+                        InterceptResult invokeL2;
+                        String str2;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo)) == null) {
+                            if (taskInfo != null) {
+                                str2 = taskInfo.getActionId();
+                            } else {
+                                str2 = null;
+                            }
+                            return Intrinsics.areEqual(str2, this.$actionId$inlined);
+                        }
+                        return invokeL2.booleanValue;
+                    }
+                });
             } finally {
                 a.unlock();
             }
@@ -265,14 +411,64 @@ public final class a {
         return (SubTaskState) invokeL.objValue;
     }
 
-    public final SubTaskState p(String str) {
+    public final SubTaskState p(final String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
             ReentrantLock a = d.a();
             a.lock();
             try {
-                return m(new TaskStateQueue$findSubTaskByActTaskId$$inlined$withLock$lambda$1(this, str));
+                return m(new Function1<TaskInfo, Boolean>(this, str) { // from class: com.baidu.bdtask.ctrl.model.TaskStateQueue$findSubTaskByActTaskId$$inlined$withLock$lambda$1
+                    public static /* synthetic */ Interceptable $ic;
+                    public final /* synthetic */ String $actTaskId$inlined;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ a this$0;
+
+                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                    {
+                        super(1);
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, str};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                super(((Integer) newInitContext.callArgs[0]).intValue());
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.$actTaskId$inlined = str;
+                    }
+
+                    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                    @Override // kotlin.jvm.functions.Function1
+                    public /* synthetic */ Boolean invoke(TaskInfo taskInfo) {
+                        return Boolean.valueOf(invoke2(taskInfo));
+                    }
+
+                    /* renamed from: invoke  reason: avoid collision after fix types in other method */
+                    public final boolean invoke2(TaskInfo taskInfo) {
+                        InterceptResult invokeL2;
+                        String str2;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo)) == null) {
+                            if (taskInfo != null) {
+                                str2 = taskInfo.getActTaskId();
+                            } else {
+                                str2 = null;
+                            }
+                            return Intrinsics.areEqual(str2, this.$actTaskId$inlined);
+                        }
+                        return invokeL2.booleanValue;
+                    }
+                });
             } finally {
                 a.unlock();
             }
@@ -351,12 +547,65 @@ public final class a {
         return (List) invokeL.objValue;
     }
 
-    public final Pair<Boolean, String> g(SubTaskState subTaskState, boolean z) {
+    public final Pair<Boolean, String> g(final SubTaskState subTaskState, final boolean z) {
         InterceptResult invokeLZ;
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048582, this, subTaskState, z)) == null) {
-            DebugTrace.a.c(new TaskStateQueue$passiveTaskCanActiveAble$1(subTaskState, z));
+            DebugTrace.a.c(new Function0<String>(subTaskState, z) { // from class: com.baidu.bdtask.ctrl.model.TaskStateQueue$passiveTaskCanActiveAble$1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ boolean $forceJudgeInterrupted;
+                public final /* synthetic */ SubTaskState $tempItem;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(0);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {subTaskState, Boolean.valueOf(z)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            super(((Integer) newInitContext.callArgs[0]).intValue());
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.$tempItem = subTaskState;
+                    this.$forceJudgeInterrupted = z;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // kotlin.jvm.functions.Function0
+                public final String invoke() {
+                    InterceptResult invokeV;
+                    boolean z3;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("isEnableActivated:");
+                        sb.append(this.$tempItem.getTaskInfo().isEnableActivated());
+                        sb.append(" isInterrupted ");
+                        if (this.$forceJudgeInterrupted && !this.$tempItem.getTaskStatus().isInterrupted()) {
+                            z3 = false;
+                        } else {
+                            z3 = true;
+                        }
+                        sb.append(z3);
+                        sb.append(" !isDone:");
+                        sb.append(!this.$tempItem.getTaskInfo().isDone());
+                        sb.append(" !hasFailed:");
+                        sb.append(!this.$tempItem.getTaskStatus().getTaskStatusRuntime().getHasFailed());
+                        return sb.toString();
+                    }
+                    return (String) invokeV.objValue;
+                }
+            });
             if (subTaskState.getTaskInfo().isEnableActivated() && ((!z || subTaskState.getTaskStatus().isInterrupted()) && !subTaskState.getTaskInfo().isDone() && !subTaskState.getTaskStatus().getTaskStatusRuntime().getHasFailed())) {
                 return new Pair<>(Boolean.TRUE, "");
             }
@@ -390,7 +639,7 @@ public final class a {
                     this.a = subTaskState;
                 } else if (taskInfo.isPassiveTask()) {
                     o(subTaskState.getTaskInfo());
-                    uq.b(this.b, subTaskState, 5);
+                    wq.b(this.b, subTaskState, 5);
                 }
                 Unit unit = Unit.INSTANCE;
             } finally {
@@ -441,7 +690,7 @@ public final class a {
 
     /* JADX WARN: Code restructure failed: missing block: B:19:0x005e, code lost:
         com.baidu.bdtask.framework.utils.DebugTrace.a.c(com.baidu.bdtask.ctrl.model.TaskStateQueue$peekPassiveTask$1$2.INSTANCE);
-        com.baidu.tieba.av.c.f(com.baidu.bdtask.service.ubc.model.UBCRegisterTaskInfo.a.e(com.baidu.bdtask.service.ubc.model.UBCRegisterTaskInfo.Companion, r3.getTaskInfo(), r3.getTaskStatus(), (java.lang.String) r4.getSecond(), 0, 8, null));
+        com.baidu.tieba.cv.c.f(com.baidu.bdtask.service.ubc.model.UBCRegisterTaskInfo.a.e(com.baidu.bdtask.service.ubc.model.UBCRegisterTaskInfo.Companion, r3.getTaskInfo(), r3.getTaskStatus(), (java.lang.String) r4.getSecond(), 0, 8, null));
         r2 = r3;
      */
     /*
@@ -449,7 +698,7 @@ public final class a {
     */
     public final SubTaskState k() {
         InterceptResult invokeV;
-        SubTaskState poll;
+        final SubTaskState poll;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             ReentrantLock a = d.a();
@@ -458,18 +707,54 @@ public final class a {
                 SubTaskState a2 = a();
                 SubTaskState subTaskState = null;
                 if (a2 == null || !a2.getTaskStatus().isActivated() || a2.getTaskStatus().isInterrupted()) {
-                    PriorityQueue<SubTaskState> d2 = uq.d(5);
+                    PriorityQueue<SubTaskState> d2 = wq.d(5);
                     d2.addAll(this.b);
                     while (true) {
                         if (d2.isEmpty() || (poll = d2.poll()) == null) {
                             break;
                         }
-                        DebugTrace.a.c(new TaskStateQueue$peekPassiveTask$1$1(poll));
+                        DebugTrace.a.c(new Function0<String>(poll) { // from class: com.baidu.bdtask.ctrl.model.TaskStateQueue$peekPassiveTask$1$1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ SubTaskState $tempItem;
+
+                            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                            {
+                                super(0);
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {poll};
+                                    interceptable2.invokeUnInit(65536, newInitContext);
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
+                                        super(((Integer) newInitContext.callArgs[0]).intValue());
+                                        newInitContext.thisArg = this;
+                                        interceptable2.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.$tempItem = poll;
+                            }
+
+                            /* JADX DEBUG: Method merged with bridge method */
+                            @Override // kotlin.jvm.functions.Function0
+                            public final String invoke() {
+                                InterceptResult invokeV2;
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                                    return "try active " + this.$tempItem.toJson();
+                                }
+                                return (String) invokeV2.objValue;
+                            }
+                        });
                         Pair h = h(this, poll, false, 2, null);
                         if (((Boolean) h.getFirst()).booleanValue()) {
                             break;
                         }
-                        av.c.f(UBCRegisterTaskInfo.Companion.d(poll.getTaskInfo(), poll.getTaskStatus(), (String) h.getSecond(), 0));
+                        cv.c.f(UBCRegisterTaskInfo.Companion.d(poll.getTaskInfo(), poll.getTaskStatus(), (String) h.getSecond(), 0));
                         DebugTrace.a.c(TaskStateQueue$peekPassiveTask$1$3.INSTANCE);
                         poll.getTaskStatus().reset2Interrupted();
                     }
@@ -538,66 +823,294 @@ public final class a {
             if (subTaskState == null) {
                 return new Pair<>(null, "taskState is null");
             }
-            TaskInfo taskInfo = subTaskState.getTaskInfo();
-            TaskStatus taskStatus = subTaskState.getTaskStatus();
-            Ref.ObjectRef objectRef = new Ref.ObjectRef();
+            final TaskInfo taskInfo = subTaskState.getTaskInfo();
+            final TaskStatus taskStatus = subTaskState.getTaskStatus();
+            final Ref.ObjectRef objectRef = new Ref.ObjectRef();
             objectRef.element = "";
-            if (!xv.a.c(taskInfo.getTaskRule().getExpireTime())) {
+            if (!zv.a.c(taskInfo.getTaskRule().getExpireTime())) {
                 objectRef.element = "skipCache by expireTime error";
-                DebugTrace.a.c(new TaskStateQueue$restoreTaskCheck$1(objectRef, taskInfo));
+                DebugTrace.a.c(new Function0<String>(objectRef, taskInfo) { // from class: com.baidu.bdtask.ctrl.model.TaskStateQueue$restoreTaskCheck$1
+                    public static /* synthetic */ Interceptable $ic;
+                    public final /* synthetic */ Ref.ObjectRef $errorMsg;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ TaskInfo $taskInfo;
+
+                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                    {
+                        super(0);
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {objectRef, taskInfo};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                super(((Integer) newInitContext.callArgs[0]).intValue());
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.$errorMsg = objectRef;
+                        this.$taskInfo = taskInfo;
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // kotlin.jvm.functions.Function0
+                    public final String invoke() {
+                        InterceptResult invokeV;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                            return "" + ((String) this.$errorMsg.element) + ", task info :" + this.$taskInfo;
+                        }
+                        return (String) invokeV.objValue;
+                    }
+                });
                 return new Pair<>(null, (String) objectRef.element);
             } else if (!taskStatus.isUnRegistered() && !subTaskState.isForceCleaned()) {
                 if (!taskInfo.isValid()) {
                     objectRef.element = "skipCache by taskinfo is invalid";
-                    DebugTrace.a.c(new TaskStateQueue$restoreTaskCheck$3(objectRef, taskInfo));
+                    DebugTrace.a.c(new Function0<String>(objectRef, taskInfo) { // from class: com.baidu.bdtask.ctrl.model.TaskStateQueue$restoreTaskCheck$3
+                        public static /* synthetic */ Interceptable $ic;
+                        public final /* synthetic */ Ref.ObjectRef $errorMsg;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ TaskInfo $taskInfo;
+
+                        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                        {
+                            super(0);
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {objectRef, taskInfo};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
+                                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.$errorMsg = objectRef;
+                            this.$taskInfo = taskInfo;
+                        }
+
+                        /* JADX DEBUG: Method merged with bridge method */
+                        @Override // kotlin.jvm.functions.Function0
+                        public final String invoke() {
+                            InterceptResult invokeV;
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                                return "" + ((String) this.$errorMsg.element) + " task info :" + this.$taskInfo;
+                            }
+                            return (String) invokeV.objValue;
+                        }
+                    });
                     return new Pair<>(null, (String) objectRef.element);
                 } else if (taskInfo.isDone() && taskInfo.isInitiActiveTask()) {
                     objectRef.element = "skipCache by initiactive task has done";
-                    DebugTrace.a.c(new TaskStateQueue$restoreTaskCheck$4(objectRef, taskInfo));
+                    DebugTrace.a.c(new Function0<String>(objectRef, taskInfo) { // from class: com.baidu.bdtask.ctrl.model.TaskStateQueue$restoreTaskCheck$4
+                        public static /* synthetic */ Interceptable $ic;
+                        public final /* synthetic */ Ref.ObjectRef $errorMsg;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ TaskInfo $taskInfo;
+
+                        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                        {
+                            super(0);
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {objectRef, taskInfo};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
+                                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.$errorMsg = objectRef;
+                            this.$taskInfo = taskInfo;
+                        }
+
+                        /* JADX DEBUG: Method merged with bridge method */
+                        @Override // kotlin.jvm.functions.Function0
+                        public final String invoke() {
+                            InterceptResult invokeV;
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                                return "" + ((String) this.$errorMsg.element) + " , task info :" + this.$taskInfo;
+                            }
+                            return (String) invokeV.objValue;
+                        }
+                    });
                     return new Pair<>(null, (String) objectRef.element);
                 } else if (subTaskState.isGotMaxNoClickTimes()) {
                     objectRef.element = "skipCache by get isGotMaxNoClickTimes";
-                    DebugTrace.a.c(new TaskStateQueue$restoreTaskCheck$5(objectRef, taskInfo, taskStatus));
+                    DebugTrace.a.c(new Function0<String>(objectRef, taskInfo, taskStatus) { // from class: com.baidu.bdtask.ctrl.model.TaskStateQueue$restoreTaskCheck$5
+                        public static /* synthetic */ Interceptable $ic;
+                        public final /* synthetic */ Ref.ObjectRef $errorMsg;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ TaskInfo $taskInfo;
+                        public final /* synthetic */ TaskStatus $taskStatus;
+
+                        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                        {
+                            super(0);
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {objectRef, taskInfo, taskStatus};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
+                                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.$errorMsg = objectRef;
+                            this.$taskInfo = taskInfo;
+                            this.$taskStatus = taskStatus;
+                        }
+
+                        /* JADX DEBUG: Method merged with bridge method */
+                        @Override // kotlin.jvm.functions.Function0
+                        public final String invoke() {
+                            InterceptResult invokeV;
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                                return "" + ((String) this.$errorMsg.element) + " , task info :" + this.$taskInfo + " errorno:" + this.$taskStatus + ".curStatusCode";
+                            }
+                            return (String) invokeV.objValue;
+                        }
+                    });
                     return new Pair<>(null, (String) objectRef.element);
                 } else {
                     return new Pair<>(subTaskState, (String) objectRef.element);
                 }
             } else {
                 objectRef.element = "skipCache by UnRegistered or ForceCleaned";
-                DebugTrace.a.c(new TaskStateQueue$restoreTaskCheck$2(objectRef, taskInfo));
+                DebugTrace.a.c(new Function0<String>(objectRef, taskInfo) { // from class: com.baidu.bdtask.ctrl.model.TaskStateQueue$restoreTaskCheck$2
+                    public static /* synthetic */ Interceptable $ic;
+                    public final /* synthetic */ Ref.ObjectRef $errorMsg;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ TaskInfo $taskInfo;
+
+                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                    {
+                        super(0);
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {objectRef, taskInfo};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                super(((Integer) newInitContext.callArgs[0]).intValue());
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.$errorMsg = objectRef;
+                        this.$taskInfo = taskInfo;
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // kotlin.jvm.functions.Function0
+                    public final String invoke() {
+                        InterceptResult invokeV;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                            return "" + ((String) this.$errorMsg.element) + ", task info :" + this.$taskInfo;
+                        }
+                        return (String) invokeV.objValue;
+                    }
+                });
                 return new Pair<>(null, (String) objectRef.element);
             }
         }
         return (Pair) invokeL.objValue;
     }
 
-    public final void r(String str) {
+    public final void r(final String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            DebugTrace.a.c(new TaskStateQueue$deserializeFromJson$1(str));
+            DebugTrace.a.c(new Function0<String>(str) { // from class: com.baidu.bdtask.ctrl.model.TaskStateQueue$deserializeFromJson$1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ String $rawString;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(0);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {str};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            super(((Integer) newInitContext.callArgs[0]).intValue());
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.$rawString = str;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // kotlin.jvm.functions.Function0
+                public final String invoke() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                        return "deserializeFromJson from " + this.$rawString;
+                    }
+                    return (String) invokeV.objValue;
+                }
+            });
             ReentrantLock a = d.a();
             a.lock();
             try {
                 try {
                     UBCRecoveryTaskQueue uBCRecoveryTaskQueue = new UBCRecoveryTaskQueue();
-                    vt vtVar = new vt();
+                    xt xtVar = new xt();
                     JSONObject jSONObject = new JSONObject(str);
                     a aVar = new a();
                     String initiativeTaskJsonStr = jSONObject.optString("initiativeTask");
                     if (!TextUtils.isEmpty(initiativeTaskJsonStr)) {
-                        tt a2 = vtVar.a(TaskState.key);
+                        vt a2 = xtVar.a(TaskState.key);
                         Intrinsics.checkExpressionValueIsNotNull(initiativeTaskJsonStr, "initiativeTaskJsonStr");
                         aVar.a = b((TaskState) a2.a(initiativeTaskJsonStr));
                     }
                     JSONArray optJSONArray = jSONObject.optJSONArray("passiveTaskQueue");
                     int i = 0;
                     if (optJSONArray != null) {
-                        PriorityQueue<SubTaskState> a3 = uq.a(5);
+                        PriorityQueue<SubTaskState> a3 = wq.a(5);
                         int length = optJSONArray.length();
                         for (int i2 = 0; i2 < length; i2++) {
-                            SubTaskState b = b((TaskState) vtVar.a(TaskState.key).a(optJSONArray.get(i2).toString()));
+                            SubTaskState b = b((TaskState) xtVar.a(TaskState.key).a(optJSONArray.get(i2).toString()));
                             if (b != null) {
-                                uq.b(a3, b, 5);
+                                wq.b(a3, b, 5);
                             }
                         }
                         aVar.b = a3;
@@ -636,7 +1149,7 @@ public final class a {
                             }
                         }
                     }
-                    av.c.e(uBCRecoveryTaskQueue);
+                    cv.c.e(uBCRecoveryTaskQueue);
                     SubTaskState a4 = a();
                     if (a4 != null && a4.getTaskInfo().isPassiveTask()) {
                         Pair<Boolean, String> g = g(a4, false);
@@ -644,14 +1157,105 @@ public final class a {
                             a4.getTaskStatus().reset2Interrupted();
                             i = 500;
                         }
-                        av.c.f(UBCRegisterTaskInfo.Companion.b(a4.getTaskInfo(), a4.getTaskStatus(), g.getSecond(), i));
+                        cv.c.f(UBCRegisterTaskInfo.Companion.b(a4.getTaskInfo(), a4.getTaskStatus(), g.getSecond(), i));
                     }
                     if (a4 != null && a4.getTaskInfo().isInitiActiveTask()) {
-                        av.c.f(UBCRegisterTaskInfo.a.c(UBCRegisterTaskInfo.Companion, a4.getTaskInfo(), a4.getTaskStatus(), null, 0, 12, null));
+                        cv.c.f(UBCRegisterTaskInfo.a.c(UBCRegisterTaskInfo.Companion, a4.getTaskInfo(), a4.getTaskStatus(), null, 0, 12, null));
                     }
-                    DebugTrace.a.c(new TaskStateQueue$deserializeFromJson$$inlined$withLock$lambda$1(this, str));
+                    DebugTrace.a.c(new Function0<String>(this, str) { // from class: com.baidu.bdtask.ctrl.model.TaskStateQueue$deserializeFromJson$$inlined$withLock$lambda$1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ String $rawString$inlined;
+                        public final /* synthetic */ a this$0;
+
+                        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                        {
+                            super(0);
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this, str};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
+                                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$0 = this;
+                            this.$rawString$inlined = str;
+                        }
+
+                        /* JADX DEBUG: Method merged with bridge method */
+                        @Override // kotlin.jvm.functions.Function0
+                        public final String invoke() {
+                            InterceptResult invokeV;
+                            TaskInfo taskInfo;
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                                StringBuilder sb = new StringBuilder();
+                                sb.append("curRestoreActive:taskInfo: ");
+                                SubTaskState a5 = this.this$0.a();
+                                TaskStatus taskStatus = null;
+                                if (a5 != null) {
+                                    taskInfo = a5.getTaskInfo();
+                                } else {
+                                    taskInfo = null;
+                                }
+                                sb.append(taskInfo);
+                                sb.append("\n taskStatus:");
+                                SubTaskState a6 = this.this$0.a();
+                                if (a6 != null) {
+                                    taskStatus = a6.getTaskStatus();
+                                }
+                                sb.append(taskStatus);
+                                return sb.toString();
+                            }
+                            return (String) invokeV.objValue;
+                        }
+                    });
                 } catch (Exception e) {
-                    DebugTrace.a.c(new TaskStateQueue$deserializeFromJson$2$4(e));
+                    DebugTrace.a.c(new Function0<String>(e) { // from class: com.baidu.bdtask.ctrl.model.TaskStateQueue$deserializeFromJson$2$4
+                        public static /* synthetic */ Interceptable $ic;
+                        public final /* synthetic */ Exception $e;
+                        public transient /* synthetic */ FieldHolder $fh;
+
+                        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                        {
+                            super(0);
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {e};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
+                                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.$e = e;
+                        }
+
+                        /* JADX DEBUG: Method merged with bridge method */
+                        @Override // kotlin.jvm.functions.Function0
+                        public final String invoke() {
+                            InterceptResult invokeV;
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                                return "deserializeFromJson error:" + this.$e.getMessage();
+                            }
+                            return (String) invokeV.objValue;
+                        }
+                    });
                 }
                 Unit unit = Unit.INSTANCE;
             } finally {

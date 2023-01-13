@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vh3;
+import com.baidu.tieba.ai3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -139,14 +139,14 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
             }
         }
         this.e = 0;
-        this.j = (RefreshingAnimView) findViewById(R.id.obfuscated_res_0x7f091c7e);
-        int f = vh3.f(getContext(), 29.0f);
+        this.j = (RefreshingAnimView) findViewById(R.id.obfuscated_res_0x7f091c8d);
+        int f = ai3.f(getContext(), 29.0f);
         this.e = f;
         this.f = (int) (f * 2.4f);
         int i3 = (int) (f * 1.5f);
         this.h = i3;
         this.g = i3;
-        HeaderRefreshIndicator headerRefreshIndicator = (HeaderRefreshIndicator) findViewById(R.id.obfuscated_res_0x7f091c7c);
+        HeaderRefreshIndicator headerRefreshIndicator = (HeaderRefreshIndicator) findViewById(R.id.obfuscated_res_0x7f091c8b);
         this.k = headerRefreshIndicator;
         headerRefreshIndicator.i();
     }
@@ -179,7 +179,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, viewGroup, attributeSet)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d009e, viewGroup, false);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d009d, viewGroup, false);
             this.i = inflate;
             return inflate;
         }
@@ -193,7 +193,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
             if (z) {
                 this.j.setAlpha(0.0f);
                 if (TextUtils.isEmpty(str)) {
-                    this.k.setText(getResources().getText(R.string.obfuscated_res_0x7f0f01b2));
+                    this.k.setText(getResources().getText(R.string.obfuscated_res_0x7f0f01b1));
                 } else {
                     this.k.setText(str);
                 }
@@ -237,7 +237,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
             if (view2 != null) {
                 return view2.getHeight();
             }
-            return vh3.f(getContext(), 50.0f);
+            return ai3.f(getContext(), 50.0f);
         }
         return invokeV.intValue;
     }

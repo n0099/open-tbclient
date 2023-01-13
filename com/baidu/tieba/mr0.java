@@ -1,124 +1,227 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.net.request.Headers;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.nadcore.net.request.BodyStyle;
+import com.baidu.nadcore.net.request.RequestMethod;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.channels.Channels;
-import java.nio.channels.FileChannel;
-import java.nio.channels.ReadableByteChannel;
+import java.util.Map;
+import okhttp3.FormBody;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 /* loaded from: classes5.dex */
-public final class mr0 {
+public class mr0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final MediaType a;
+    public static final MediaType b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void a(String str, int i);
-
-        void b();
-    }
-
-    /* loaded from: classes5.dex */
-    public static class a implements br0 {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public static final /* synthetic */ int[] b;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ File a;
-        public final /* synthetic */ b b;
 
-        public a(File file, b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {file, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-594921631, "Lcom/baidu/tieba/mr0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-594921631, "Lcom/baidu/tieba/mr0$a;");
                     return;
                 }
             }
-            this.a = file;
-            this.b = bVar;
-        }
-
-        @Override // com.baidu.tieba.br0
-        public void a(Exception exc, int i) {
-            b bVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) && (bVar = this.b) != null) {
-                bVar.a(exc.getMessage(), i);
+            int[] iArr = new int[BodyStyle.values().length];
+            b = iArr;
+            try {
+                iArr[BodyStyle.BYTE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                b[BodyStyle.STRING.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                b[BodyStyle.FILE.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                b[BodyStyle.FORM.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            int[] iArr2 = new int[RequestMethod.values().length];
+            a = iArr2;
+            try {
+                iArr2[RequestMethod.HEAD.ordinal()] = 1;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[RequestMethod.GET.ordinal()] = 2;
+            } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                a[RequestMethod.POST.ordinal()] = 3;
+            } catch (NoSuchFieldError unused7) {
+            }
+            try {
+                a[RequestMethod.PUT.ordinal()] = 4;
+            } catch (NoSuchFieldError unused8) {
+            }
+            try {
+                a[RequestMethod.DELETE.ordinal()] = 5;
+            } catch (NoSuchFieldError unused9) {
+            }
+            try {
+                a[RequestMethod.PATCH.ordinal()] = 6;
+            } catch (NoSuchFieldError unused10) {
+            }
+            try {
+                a[RequestMethod.OPTIONS.ordinal()] = 7;
+            } catch (NoSuchFieldError unused11) {
+            }
+            try {
+                a[RequestMethod.TRACE.ordinal()] = 8;
+            } catch (NoSuchFieldError unused12) {
             }
         }
+    }
 
-        @Override // com.baidu.tieba.br0
-        public void c(Headers headers, InputStream inputStream, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, headers, inputStream, i) == null) {
-                if (i == 200) {
-                    try {
-                        mr0.b(inputStream, this.a);
-                        if (this.b != null) {
-                            this.b.b();
-                            return;
-                        }
-                        return;
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        b bVar = this.b;
-                        if (bVar != null) {
-                            bVar.a(e.getMessage(), -1);
-                            return;
-                        }
-                        return;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947982142, "Lcom/baidu/tieba/mr0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947982142, "Lcom/baidu/tieba/mr0;");
+                return;
+            }
+        }
+        a = MediaType.parse("text/plain");
+        b = MediaType.parse("application/octet-stream");
+        MediaType.parse("application/x-www-form-urlencoded");
+    }
+
+    public static RequestBody a(@NonNull or0 or0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, or0Var)) == null) {
+            byte[] bArr = or0Var.d;
+            if (bArr != null && bArr.length > 0) {
+                return RequestBody.create(d(or0Var.b, b), or0Var.d);
+            }
+            return RequestBody.create((MediaType) null, new byte[0]);
+        }
+        return (RequestBody) invokeL.objValue;
+    }
+
+    public static RequestBody f(@NonNull or0 or0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, or0Var)) == null) {
+            if (!TextUtils.isEmpty(or0Var.c)) {
+                return RequestBody.create(d(or0Var.b, a), or0Var.c);
+            }
+            return RequestBody.create((MediaType) null, new byte[0]);
+        }
+        return (RequestBody) invokeL.objValue;
+    }
+
+    public static RequestBody b(@NonNull or0 or0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, or0Var)) == null) {
+            if (or0Var.e != null) {
+                return RequestBody.create(d(or0Var.b, b), or0Var.e);
+            }
+            return RequestBody.create((MediaType) null, new byte[0]);
+        }
+        return (RequestBody) invokeL.objValue;
+    }
+
+    public static RequestBody c(@NonNull or0 or0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, or0Var)) == null) {
+            if (!t01.h(or0Var.f)) {
+                FormBody.Builder builder = new FormBody.Builder();
+                for (Map.Entry<String, String> entry : or0Var.f.entrySet()) {
+                    if (!TextUtils.isEmpty(entry.getKey()) && !TextUtils.isEmpty(entry.getValue())) {
+                        builder.add(entry.getKey(), entry.getValue());
                     }
                 }
-                b bVar2 = this.b;
-                if (bVar2 != null) {
-                    bVar2.a("", i);
-                }
+                return builder.build();
             }
+            return RequestBody.create((MediaType) null, new byte[0]);
         }
+        return (RequestBody) invokeL.objValue;
     }
 
-    public static void a(@NonNull File file, @NonNull String str, @Nullable b bVar) {
+    public static MediaType d(@NonNull String str, MediaType mediaType) {
+        InterceptResult invokeLL;
+        MediaType mediaType2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, file, str, bVar) == null) {
-            vq0 a2 = rq0.b().a();
-            kr0 kr0Var = new kr0();
-            kr0Var.l(str);
-            kr0Var.c();
-            a2.b(kr0Var, new a(file, bVar));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, mediaType)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                mediaType2 = MediaType.parse(str);
+            } else {
+                mediaType2 = null;
+            }
+            if (mediaType2 != null || mediaType == null) {
+                return mediaType2;
+            }
+            return mediaType;
         }
+        return (MediaType) invokeLL.objValue;
     }
 
-    public static void b(@NonNull InputStream inputStream, @NonNull File file) throws IOException {
+    public static RequestBody e(@NonNull or0 or0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, inputStream, file) == null) {
-            FileOutputStream fileOutputStream = new FileOutputStream(file);
-            ReadableByteChannel newChannel = Channels.newChannel(inputStream);
-            FileChannel channel = fileOutputStream.getChannel();
-            long j = 4096;
-            long j2 = 0;
-            while (j > 0) {
-                try {
-                    j = channel.transferFrom(newChannel, j2, 4096L);
-                    j2 += j;
-                } finally {
-                    cj0.a(fileOutputStream);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, or0Var)) == null) {
+            int i = a.b[or0Var.a.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            return RequestBody.create((MediaType) null, new byte[0]);
+                        }
+                        return c(or0Var);
+                    }
+                    return b(or0Var);
                 }
+                return f(or0Var);
             }
+            return a(or0Var);
         }
+        return (RequestBody) invokeL.objValue;
+    }
+
+    public static RequestBody g(@NonNull String str, or0 or0Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, or0Var)) == null) {
+            if (or0Var == null) {
+                return null;
+            }
+            int i = a.a[RequestMethod.reverse(str).ordinal()];
+            if (i != 3 && i != 4 && i != 5 && i != 6) {
+                return null;
+            }
+            return e(or0Var);
+        }
+        return (RequestBody) invokeLL.objValue;
     }
 }

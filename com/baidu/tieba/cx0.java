@@ -1,15 +1,13 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.nadcore.player.strategy.IVideoUpdateStrategy;
-import com.baidu.nadcore.video.videoplayer.ui.full.BdThumbSeekBar;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public class cx0 extends lx0 {
+public class cx0 extends vw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,42 +25,23 @@ public class cx0 extends lx0 {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cx0(Activity activity) {
-        super(activity);
+    @Override // com.baidu.tieba.vw0, com.baidu.tieba.yw0
+    @NonNull
+    public rw0 create(@NonNull String str) {
+        InterceptResult invokeL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (str.hashCode() == -1843224545 && str.equals("InlineVideoKernel")) {
+                c = 0;
+            } else {
+                c = 65535;
             }
-        }
-        Intrinsics.checkNotNullParameter(activity, "activity");
-    }
-
-    @Override // com.baidu.tieba.lx0
-    public void Z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            tr0 bindPlayer = u();
-            Intrinsics.checkNotNullExpressionValue(bindPlayer, "bindPlayer");
-            IVideoUpdateStrategy n1 = bindPlayer.n1();
-            Intrinsics.checkNotNullExpressionValue(n1, "bindPlayer.strategy");
-            if (!n1.f()) {
-                BdThumbSeekBar mThumbSeekBar = this.l;
-                Intrinsics.checkNotNullExpressionValue(mThumbSeekBar, "mThumbSeekBar");
-                mThumbSeekBar.setVisibility(4);
-                return;
+            if (c != 0) {
+                return super.create(str);
             }
-            super.Z();
+            return new ax0();
         }
+        return (rw0) invokeL.objValue;
     }
 }

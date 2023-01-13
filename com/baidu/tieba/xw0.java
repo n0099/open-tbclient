@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class xw0 extends qw0 {
+public class xw0 implements yw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,23 +25,14 @@ public class xw0 extends qw0 {
         }
     }
 
-    @Override // com.baidu.tieba.qw0, com.baidu.tieba.tw0
+    @Override // com.baidu.tieba.yw0
     @NonNull
-    public mw0 create(@NonNull String str) {
+    public rw0 create(@NonNull String str) {
         InterceptResult invokeL;
-        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str.hashCode() == -1843224545 && str.equals("InlineVideoKernel")) {
-                c = 0;
-            } else {
-                c = 65535;
-            }
-            if (c != 0) {
-                return super.create(str);
-            }
-            return new vw0();
+            return new ww0();
         }
-        return (mw0) invokeL.objValue;
+        return (rw0) invokeL.objValue;
     }
 }

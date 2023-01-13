@@ -9,16 +9,20 @@ import androidx.annotation.Px;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.exifinterface.media.ExifInterface;
-import com.baidu.tieba.m31;
-import com.baidu.tieba.zi0;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ej0;
+import com.baidu.tieba.r31;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Set;
 import kotlin.Metadata;
 import kotlin.Result;
 import kotlin.ResultKt;
 import kotlin.collections.CollectionsKt___CollectionsKt;
+import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.sequences.SequencesKt___SequencesKt;
 import org.json.JSONObject;
@@ -28,17 +32,79 @@ public final class ExtensionsKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final JSONObject a(String cmdToJsonObj) {
+    public static final JSONObject a(final String cmdToJsonObj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cmdToJsonObj)) == null) {
             Intrinsics.checkNotNullParameter(cmdToJsonObj, "$this$cmdToJsonObj");
             JSONObject jSONObject = new JSONObject();
-            Uri uri = Uri.parse(cmdToJsonObj);
+            final Uri uri = Uri.parse(cmdToJsonObj);
             Intrinsics.checkNotNullExpressionValue(uri, "uri");
             Set<String> queryParameterNames = uri.getQueryParameterNames();
             Intrinsics.checkNotNullExpressionValue(queryParameterNames, "uri.queryParameterNames");
-            for (String str : SequencesKt___SequencesKt.filter(CollectionsKt___CollectionsKt.asSequence(queryParameterNames), new ExtensionsKt$cmdToJsonObj$1(cmdToJsonObj, uri))) {
+            for (String str : SequencesKt___SequencesKt.filter(CollectionsKt___CollectionsKt.asSequence(queryParameterNames), new Function1<String, Boolean>(cmdToJsonObj, uri) { // from class: com.baidu.nadcore.utils.ExtensionsKt$cmdToJsonObj$1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ String $this_cmdToJsonObj;
+                public final /* synthetic */ Uri $uri;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(1);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {cmdToJsonObj, uri};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            super(((Integer) newInitContext.callArgs[0]).intValue());
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.$this_cmdToJsonObj = cmdToJsonObj;
+                    this.$uri = uri;
+                }
+
+                /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                @Override // kotlin.jvm.functions.Function1
+                public /* bridge */ /* synthetic */ Boolean invoke(String str2) {
+                    return Boolean.valueOf(invoke2(str2));
+                }
+
+                /* renamed from: invoke  reason: avoid collision after fix types in other method */
+                public final boolean invoke2(String str2) {
+                    InterceptResult invokeL2;
+                    boolean z;
+                    boolean z2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2)) == null) {
+                        if (this.$this_cmdToJsonObj.length() > 0) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        if (z) {
+                            String queryParameter = this.$uri.getQueryParameter(str2);
+                            if (queryParameter != null && queryParameter.length() != 0) {
+                                z2 = false;
+                            } else {
+                                z2 = true;
+                            }
+                            if (!z2) {
+                                return true;
+                            }
+                        }
+                        return false;
+                    }
+                    return invokeL2.booleanValue;
+                }
+            })) {
                 String queryParameter = uri.getQueryParameter(str);
                 try {
                     jSONObject.put(str, new JSONObject(queryParameter));
@@ -68,7 +134,7 @@ public final class ExtensionsKt {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, context)) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
-            return m31.c.a(context, i);
+            return r31.c.a(context, i);
         }
         return invokeIL.intValue;
     }
@@ -93,22 +159,22 @@ public final class ExtensionsKt {
     @ColorInt
     public static final int e(String toColor, @ColorRes int i) {
         InterceptResult invokeLI;
-        Integer m708constructorimpl;
+        Integer m772constructorimpl;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, toColor, i)) == null) {
             Intrinsics.checkNotNullParameter(toColor, "$this$toColor");
             try {
                 Result.Companion companion = Result.Companion;
-                m708constructorimpl = Result.m708constructorimpl(Integer.valueOf(Color.parseColor(toColor)));
+                m772constructorimpl = Result.m772constructorimpl(Integer.valueOf(Color.parseColor(toColor)));
             } catch (Throwable th) {
                 Result.Companion companion2 = Result.Companion;
-                m708constructorimpl = Result.m708constructorimpl(ResultKt.createFailure(th));
+                m772constructorimpl = Result.m772constructorimpl(ResultKt.createFailure(th));
             }
-            Integer valueOf = Integer.valueOf(ContextCompat.getColor(zi0.b(), i));
-            if (Result.m714isFailureimpl(m708constructorimpl)) {
-                m708constructorimpl = valueOf;
+            Integer valueOf = Integer.valueOf(ContextCompat.getColor(ej0.b(), i));
+            if (Result.m778isFailureimpl(m772constructorimpl)) {
+                m772constructorimpl = valueOf;
             }
-            return ((Number) m708constructorimpl).intValue();
+            return ((Number) m772constructorimpl).intValue();
         }
         return invokeLI.intValue;
     }

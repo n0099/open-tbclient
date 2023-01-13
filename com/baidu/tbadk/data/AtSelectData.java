@@ -2,6 +2,7 @@ package com.baidu.tbadk.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,9 +14,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Objects;
 /* loaded from: classes3.dex */
 public class AtSelectData implements Parcelable {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String AT_ALL_FAKE_NAME = "全体成员";
+    public static final String AT_ALL_FAKE_UID = "-666";
     public static final Parcelable.Creator<AtSelectData> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
+    public int isRobot;
     public String mNameShow;
     public String mPortrait;
     public String mUid;
@@ -134,6 +138,18 @@ public class AtSelectData implements Parcelable {
         return invokeV.intValue;
     }
 
+    public boolean isRobot() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.isRobot == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public AtSelectData(Parcel parcel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -152,6 +168,7 @@ public class AtSelectData implements Parcelable {
         this.mPortrait = parcel.readString();
         this.mNameShow = parcel.readString();
         this.mUid = parcel.readString();
+        this.isRobot = parcel.readInt();
     }
 
     public boolean equals(Object obj) {
@@ -173,18 +190,39 @@ public class AtSelectData implements Parcelable {
         return invokeL.booleanValue;
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public AtSelectData(String str, String str2) {
+        this(str, str2, "0");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
     public AtSelectData(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, str3};
-            interceptable.invokeUnInit(65538, newInitContext);
+            interceptable.invokeUnInit(65539, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }
@@ -193,13 +231,35 @@ public class AtSelectData implements Parcelable {
         this.mUid = str3;
     }
 
+    public AtSelectData(String str, String str2, String str3, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                return;
+            }
+        }
+        this.mPortrait = str;
+        this.mNameShow = str2;
+        this.mUid = str3;
+        this.isRobot = z ? 1 : 0;
+    }
+
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i) == null) {
             parcel.writeString(this.mPortrait);
             parcel.writeString(this.mNameShow);
             parcel.writeString(this.mUid);
+            parcel.writeInt(this.isRobot);
         }
     }
 }

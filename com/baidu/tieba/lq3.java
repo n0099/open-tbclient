@@ -1,14 +1,13 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import android.database.MatrixCursor;
-import android.net.Uri;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.database.SwanAppDbControl;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.searchbox.http.HttpManager;
+import com.baidu.searchbox.http.callback.StringResponseCallback;
+import com.baidu.searchbox.unitedscheme.SchemeConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,72 +15,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
+import okhttp3.Response;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class lq3 extends kq3 {
+public class lq3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] a;
+    public static final boolean a;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public static class a extends StringResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public Response a;
+        public final /* synthetic */ String b;
 
-    /* loaded from: classes5.dex */
-    public static class b implements Comparator<c> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(c cVar, c cVar2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cVar, cVar2)) == null) {
-                return Long.compare(cVar2.b, cVar.b);
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public long b;
-
-        public c(lq3 lq3Var, String str, long j) {
+        public a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lq3Var, str, Long.valueOf(j)};
+                Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -91,8 +47,56 @@ public class lq3 extends kq3 {
                     return;
                 }
             }
-            this.a = str;
-            this.b = j;
+            this.b = str;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                lq3.d("get launch scheme fail: network err with exception: " + exc.getMessage(), this.b, "", true);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+                if (lq3.a) {
+                    Log.d("SwanAppExchanger", "startLaunchAction onSuccess result: " + str);
+                    Log.d("SwanAppExchanger", "startLaunchAction onSuccess status: " + i);
+                }
+                if (i == 200) {
+                    try {
+                        mq3.a(new JSONObject(str).optString("data"));
+                        return;
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        lq3.d("get launch scheme fail: " + e.getMessage(), this.b, str, false);
+                        return;
+                    }
+                }
+                String f = lq3.f(this.a);
+                if (!TextUtils.isEmpty(f)) {
+                    mq3.a(f);
+                    return;
+                }
+                lq3.d("get launch scheme fail: request fail with code " + i, this.b, str, true);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.StringResponseCallback, com.baidu.searchbox.http.callback.ResponseCallback
+        public String parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
+                this.a = response;
+                return super.parseResponse(response, i);
+            }
+            return (String) invokeLI.objValue;
         }
     }
 
@@ -109,77 +113,47 @@ public class lq3 extends kq3 {
                 return;
             }
         }
-        a = new String[]{"_id", "app_id", "app_key", "app_sign", "version_code", "version_name", "description", "app_status", "status_detail", "status_desc", "resume_date", "icon_url", "app_name", "service_category", "subject_info", "type", "pkg_size", "app_category", "orientation", "create_time", "favorite_time"};
+        a = tk1.a;
+        b = SchemeConfig.getSchemeHead() + "://";
     }
 
-    public final List<c> b() {
-        InterceptResult invokeV;
+    public static void d(String str, String str2, String str3, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Cursor l = SwanAppDbControl.f(AppRuntime.getAppContext()).l(null, null, null, null);
-            ArrayList arrayList = new ArrayList();
-            if (l != null && l.moveToFirst()) {
-                int columnIndex = l.getColumnIndex("app_id");
-                int columnIndex2 = l.getColumnIndex("favorite_time");
-                do {
-                    arrayList.add(new c(this, l.getString(columnIndex), l.getLong(columnIndex2)));
-                } while (l.moveToNext());
-                ik4.d(l);
-                return arrayList;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) {
+            if (z) {
+                b43.g(AppRuntime.getAppContext(), "打开失败，请检查网络设置").G();
             }
-            ik4.d(l);
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public lq3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+            cg3 cg3Var = new cg3();
+            cg3Var.k(1L);
+            cg3Var.i(12L);
+            cg3Var.f(str);
+            gg3.a().f(cg3Var);
+            if (a) {
+                Log.w("SwanAppExchanger", "open aiapp fail, url : " + str2);
             }
         }
     }
 
-    public final void a(MatrixCursor matrixCursor, int i, c cVar, PMSAppInfo pMSAppInfo) {
+    public static void e(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLILL(1048576, this, matrixCursor, i, cVar, pMSAppInfo) == null) && matrixCursor != null && i >= 0 && cVar != null && pMSAppInfo != null) {
-            matrixCursor.newRow().add("_id", Integer.valueOf(i)).add("app_id", pMSAppInfo.appId).add("app_key", pMSAppInfo.appKey).add("app_sign", Long.valueOf(pMSAppInfo.appSign)).add("version_code", Long.valueOf(pMSAppInfo.versionCode)).add("version_name", pMSAppInfo.versionName).add("description", pMSAppInfo.description).add("app_status", Integer.valueOf(pMSAppInfo.appStatus)).add("status_detail", pMSAppInfo.statusDetail).add("status_desc", pMSAppInfo.statusDesc).add("resume_date", pMSAppInfo.resumeDate).add("icon_url", pMSAppInfo.iconUrl).add("app_name", pMSAppInfo.appName).add("service_category", pMSAppInfo.serviceCategory).add("subject_info", pMSAppInfo.subjectInfo).add("type", Integer.valueOf(pMSAppInfo.type)).add("pkg_size", Long.valueOf(pMSAppInfo.pkgSize)).add("app_category", Integer.valueOf(pMSAppInfo.appCategory)).add("orientation", Integer.valueOf(pMSAppInfo.getOrientation())).add("create_time", Long.valueOf(pMSAppInfo.createTime)).add("favorite_time", Long.valueOf(cVar.b));
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().setHeader("Swan-Accept", "swan/json").userAgent(ig3.a()).url(str).build().executeAsyncOnUIBack(new a(str));
         }
     }
 
-    @Override // com.baidu.tieba.kq3
-    @Nullable
-    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        InterceptResult invokeLLLLL;
+    public static String f(Response response) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, uri, strArr, str, strArr2, str2)) == null) {
-            List<c> b2 = b();
-            if (b2.isEmpty()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, response)) == null) {
+            if (response == null) {
                 return null;
             }
-            HashMap<String, PMSAppInfo> a2 = oq3.a();
-            if (a2.isEmpty()) {
+            String header = response.header("Location");
+            if (TextUtils.isEmpty(header) || !header.startsWith("baiduboxapp://")) {
                 return null;
             }
-            Collections.sort(b2, new b(null));
-            MatrixCursor matrixCursor = new MatrixCursor(a, b2.size());
-            int i = 0;
-            for (c cVar : b2) {
-                PMSAppInfo pMSAppInfo = a2.get(cVar.a);
-                if (pMSAppInfo != null) {
-                    a(matrixCursor, i, cVar, pMSAppInfo);
-                    i++;
-                }
-            }
-            return matrixCursor;
+            return header.replace("baiduboxapp://", b);
         }
-        return (Cursor) invokeLLLLL.objValue;
+        return (String) invokeL.objValue;
     }
 }

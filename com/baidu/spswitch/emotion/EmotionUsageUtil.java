@@ -62,6 +62,10 @@ public class EmotionUsageUtil {
         }
     }
 
+    public static /* synthetic */ File access$300() {
+        return getRootDir();
+    }
+
     public static File getRootDir() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -109,7 +113,7 @@ public class EmotionUsageUtil {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         EmotionUsageUtil.makeRootDirIfNecessary();
-                        File file = new File(EmotionUsageUtil.getRootDir(), EmotionUsageUtil.EMOTION_USAGE_FILE_NAME);
+                        File file = new File(EmotionUsageUtil.access$300(), EmotionUsageUtil.EMOTION_USAGE_FILE_NAME);
                         if (!file.exists()) {
                             return;
                         }
@@ -157,7 +161,7 @@ public class EmotionUsageUtil {
                         String mapToJson = EmotionUsageUtil.mapToJson(EmotionUsageUtil.sUsageData.snapshot());
                         if (!TextUtils.isEmpty(mapToJson)) {
                             EmotionUsageUtil.makeRootDirIfNecessary();
-                            File file = new File(EmotionUsageUtil.getRootDir(), EmotionUsageUtil.EMOTION_USAGE_FILE_NAME);
+                            File file = new File(EmotionUsageUtil.access$300(), EmotionUsageUtil.EMOTION_USAGE_FILE_NAME);
                             FileUtils.deleteFile(file);
                             FileUtils.saveFile(mapToJson, file);
                         }

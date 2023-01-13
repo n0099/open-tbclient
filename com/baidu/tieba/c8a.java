@@ -1,27 +1,54 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.annotation.NonNull;
-import com.yy.mobile.framework.revenuesdk.baseapi.IResult;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.PayType;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
-import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.BannerConfigResult;
-import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.MyBalanceResult;
-import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.ProductListResult;
-import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.SplitOrderConfigResult;
-import java.util.Map;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.api.pay.params.PayFlowType;
-/* loaded from: classes3.dex */
-public interface c8a {
-    void a(int[] iArr, IResult<BannerConfigResult> iResult);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import javax.annotation.Nullable;
+import org.webrtc.EglBase;
+import org.webrtc.EglBase10;
+import org.webrtc.EglBase14;
+/* compiled from: EglBase.java */
+/* loaded from: classes4.dex */
+public final /* synthetic */ class c8a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(@NonNull Activity activity, @NonNull PayFlowType payFlowType, @NonNull PayType payType, @NonNull ProductInfo productInfo, AppCustomExpand appCustomExpand, Map<String, String> map, IPayCallback<String> iPayCallback, String str, String str2, String str3);
+    public static EglBase a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return c(null, EglBase.CONFIG_PLAIN);
+        }
+        return (EglBase) invokeV.objValue;
+    }
 
-    void c(IResult<MyBalanceResult> iResult);
+    public static EglBase b(EglBase.Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            return c(context, EglBase.CONFIG_PLAIN);
+        }
+        return (EglBase) invokeL.objValue;
+    }
 
-    void d(int i, String str, long j, IResult<SplitOrderConfigResult> iResult);
+    public static EglBase d(int[] iArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iArr)) == null) {
+            return new EglBase10(null, iArr);
+        }
+        return (EglBase) invokeL.objValue;
+    }
 
-    void e(Map<String, String> map, IResult<ProductListResult> iResult);
+    public static EglBase c(@Nullable EglBase.Context context, int[] iArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, iArr)) == null) {
+            if (EglBase14.isEGL14Supported() && (context == null || (context instanceof EglBase14.Context))) {
+                return new EglBase14((EglBase14.Context) context, iArr);
+            }
+            return new EglBase10((EglBase10.Context) context, iArr);
+        }
+        return (EglBase) invokeLL.objValue;
+    }
 }

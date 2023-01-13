@@ -11,7 +11,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class un0 {
     public static /* synthetic */ Interceptable $ic;
-    public static tn0 a;
+    public static wn0 a;
+    public static xn0 b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,22 +44,41 @@ public class un0 {
         }
     }
 
-    public static tn0 a() {
+    public static wn0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (a == null) {
                 synchronized (un0.class) {
                     if (a == null) {
-                        a = (tn0) ServiceManager.getService(tn0.a);
+                        a = (wn0) ServiceManager.getService(wn0.a);
                     }
                     if (a == null) {
-                        a = tn0.b;
+                        a = wn0.b;
                     }
                 }
             }
             return a;
         }
-        return (tn0) invokeV.objValue;
+        return (wn0) invokeV.objValue;
+    }
+
+    public static xn0 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == null) {
+                synchronized (un0.class) {
+                    if (b == null) {
+                        b = (xn0) ServiceManager.getService(xn0.a);
+                    }
+                    if (b == null) {
+                        b = xn0.b;
+                    }
+                }
+            }
+            return b;
+        }
+        return (xn0) invokeV.objValue;
     }
 }

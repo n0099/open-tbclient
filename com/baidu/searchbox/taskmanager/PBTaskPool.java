@@ -64,6 +64,7 @@ import com.baidu.searchbox.task.sync.appcreate.InitVersionTask;
 import com.baidu.searchbox.task.sync.appcreate.InitViewConfigTask;
 import com.baidu.searchbox.task.sync.appcreate.InitWebsocketBaseTask;
 import com.baidu.searchbox.task.sync.privacy.InitSDKWithPrivacyTask;
+import com.baidu.searchbox.task.view.appcreate.InitWebViewTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.DelayInitNightPluginSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -163,6 +164,7 @@ public class PBTaskPool extends BaseTaskPool {
                 arrayList.add(new InitArTask());
                 arrayList.add(new InitAbi64WebViewCompatTask());
                 arrayList.add(new ApplicationAsyncTask());
+                arrayList.add(new InitWebViewTask());
             } else if (i == 1) {
                 arrayList.add(new InitAppSettingTask());
                 arrayList.add(new InitViewConfigTask());

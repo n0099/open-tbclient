@@ -1,86 +1,183 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.tieba.cu9;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.PxUtils;
-import com.fun.ad.sdk.internal.api.utils.ViewUtils;
-import com.qq.e.ads.splash.SplashAD;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 /* loaded from: classes4.dex */
 public class gu9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public SplashAD g;
-    public View h;
-    public int i;
-    public int j;
-    public int[] k;
-    public int l;
-    public int m;
 
     /* loaded from: classes4.dex */
-    public interface a {
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
+        public File a;
+        @NonNull
+        public String b;
+
+        public a(@NonNull File file, @NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {file, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = file;
+            if (TextUtils.isEmpty(str)) {
+                this.b = this.a.getName();
+            } else {
+                this.b = str;
+            }
+        }
+
+        public a(@NonNull File file, @NonNull String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {file, str, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.a = file;
+            if (TextUtils.isEmpty(str)) {
+                this.b = this.a.getName();
+            } else {
+                this.b = str;
+            }
+        }
     }
 
-    public gu9(Context context) {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:38:0x007d */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:56:0x009c */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
+    /* JADX WARN: Type inference failed for: r2v2, types: [java.util.zip.ZipOutputStream] */
+    /* JADX WARN: Type inference failed for: r2v3 */
+    /* JADX WARN: Type inference failed for: r2v4 */
+    /* JADX WARN: Type inference failed for: r2v5, types: [java.util.zip.ZipOutputStream] */
+    /* JADX WARN: Type inference failed for: r2v6, types: [java.util.zip.ZipOutputStream] */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:54:0x0098 -> B:72:0x009b). Please submit an issue!!! */
+    public static void a(File file, List<a> list) throws IOException {
+        ?? r2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            r2 = interceptable;
+            if (r2.invokeLL(65536, null, file, list) != null) {
                 return;
             }
         }
-        this.k = new int[2];
-        int round = Math.round(Math.min(PxUtils.getDeviceHeightInPixel(context), PxUtils.getDeviceWidthInPixel(context)) * 0.3f);
-        this.a = round;
-        this.b = Math.round((round * 16) / 9);
-        this.c = PxUtils.dpToPx(context, 6);
-        this.d = PxUtils.dpToPx(context, 100);
-        this.e = 1;
-        this.f = 300;
-    }
-
-    public final void a(View view2, ViewGroup viewGroup, float f, float f2, int[] iArr, ViewGroup viewGroup2, a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, viewGroup, Float.valueOf(f), Float.valueOf(f2), iArr, viewGroup2, aVar}) == null) {
-            LogPrinter.d("zoomOut onAnimationEnd", new Object[0]);
-            ViewUtils.removeFromParent(view2);
-            view2.setScaleX(1.0f);
-            view2.setScaleY(1.0f);
-            view2.setX(0.0f);
-            view2.setY(0.0f);
-            int[] iArr2 = new int[2];
-            viewGroup.getLocationOnScreen(iArr2);
-            float f3 = (f - iArr2[0]) + iArr[0];
-            float f4 = (f2 - iArr2[1]) + iArr[1];
-            LogPrinter.d("zoomOut distX:" + f3 + " distY:" + f4, new Object[0]);
-            LogPrinter.d("zoomOut containerScreenX:" + iArr2[0] + " containerScreenY:" + iArr2[1], new Object[0]);
-            viewGroup2.addView(view2, -1, -1);
-            viewGroup.addView(viewGroup2, new FrameLayout.LayoutParams(this.a, this.b));
-            viewGroup2.setTranslationX(f3);
-            viewGroup2.setTranslationY(f4);
-            if (aVar != null) {
-                ((cu9.b.a) aVar).a.b.zoomOutAnimationFinish();
+        if (file != null && file.exists() && list != null && list.size() != 0) {
+            FileInputStream fileInputStream = null;
+            try {
+                try {
+                    try {
+                        byte[] bArr = new byte[8192];
+                        r2 = new ZipOutputStream(new FileOutputStream(file));
+                        try {
+                            r2.setComment(file.getName());
+                            for (a aVar : list) {
+                                File file2 = aVar.a;
+                                if (file2.canRead()) {
+                                    FileInputStream fileInputStream2 = new FileInputStream(file2);
+                                    try {
+                                        r2.putNextEntry(new ZipEntry(aVar.b));
+                                        while (true) {
+                                            int read = fileInputStream2.read(bArr);
+                                            if (read == -1) {
+                                                break;
+                                            }
+                                            r2.write(bArr, 0, read);
+                                        }
+                                        fileInputStream2.close();
+                                        fileInputStream = fileInputStream2;
+                                    } catch (FileNotFoundException e) {
+                                        e = e;
+                                        fileInputStream = fileInputStream2;
+                                        e.printStackTrace();
+                                        if (fileInputStream != null) {
+                                            try {
+                                                fileInputStream.close();
+                                            } catch (IOException e2) {
+                                                e2.printStackTrace();
+                                            }
+                                        }
+                                        if (r2 != 0) {
+                                            r2.close();
+                                        }
+                                        return;
+                                    } catch (Throwable th) {
+                                        th = th;
+                                        fileInputStream = fileInputStream2;
+                                        if (fileInputStream != null) {
+                                            try {
+                                                fileInputStream.close();
+                                            } catch (IOException e3) {
+                                                e3.printStackTrace();
+                                            }
+                                        }
+                                        if (r2 != 0) {
+                                            try {
+                                                r2.close();
+                                            } catch (IOException e4) {
+                                                e4.printStackTrace();
+                                            }
+                                        }
+                                        throw th;
+                                    }
+                                }
+                            }
+                            r2.flush();
+                            if (fileInputStream != null) {
+                                try {
+                                    fileInputStream.close();
+                                } catch (IOException e5) {
+                                    e5.printStackTrace();
+                                }
+                            }
+                            r2.close();
+                        } catch (FileNotFoundException e6) {
+                            e = e6;
+                        }
+                    } catch (IOException e7) {
+                        e7.printStackTrace();
+                    }
+                } catch (FileNotFoundException e8) {
+                    e = e8;
+                    r2 = 0;
+                } catch (Throwable th2) {
+                    th = th2;
+                    r2 = 0;
+                }
+            } catch (Throwable th3) {
+                th = th3;
             }
         }
     }

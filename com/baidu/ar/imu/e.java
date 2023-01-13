@@ -73,11 +73,11 @@ public class e extends j {
     private void a(Quaternion quaternion) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, quaternion) == null) {
-            Quaternion m29clone = quaternion.m29clone();
-            m29clone.w(-m29clone.w());
+            Quaternion m31clone = quaternion.m31clone();
+            m31clone.w(-m31clone.w());
             synchronized (this.sy) {
                 this.sB.copyVec4(quaternion);
-                SensorManager.getRotationMatrixFromVector(this.sA.matrix, m29clone.toArray());
+                SensorManager.getRotationMatrixFromVector(this.sA.matrix, m31clone.toArray());
                 int i = this.rB + 1;
                 this.rB = i;
                 if (i > 20) {

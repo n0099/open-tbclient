@@ -10,10 +10,10 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.searchbox.util.BaiduIdentityManager;
-import com.baidu.tieba.bw3;
-import com.baidu.tieba.dv3;
-import com.baidu.tieba.fw3;
-import com.baidu.tieba.ln2;
+import com.baidu.tieba.gw3;
+import com.baidu.tieba.iv3;
+import com.baidu.tieba.kw3;
+import com.baidu.tieba.qn2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -62,7 +62,7 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
             if (TextUtils.isEmpty(stringExtra)) {
                 return;
             }
-            dv3.n().q(stringExtra, this.mOpportunity);
+            iv3.n().q(stringExtra, this.mOpportunity);
         }
     }
 
@@ -70,9 +70,9 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, intent) == null) {
             if (!TextUtils.isEmpty(this.mOpportunity)) {
-                fw3.b("notifyList", this.mOpportunity);
+                kw3.b("notifyList", this.mOpportunity);
             }
-            SchemeRouter.invoke(ln2.c(), getInstallPageUrlScheme());
+            SchemeRouter.invoke(qn2.c(), getInstallPageUrlScheme());
         }
     }
 
@@ -108,7 +108,7 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            String a = ln2.n().a();
+            String a = qn2.n().a();
             if (!TextUtils.isEmpty(a)) {
                 if (a.equals(BaiduIdentityManager.VALUE_OSNAME)) {
                     return "baiduboxapp://swan/T43rINkXjgPfdKNXTuhQER2KdACVdB00/pages/download/index?_baiduboxapp=%7B%22from%22%3A%221151005410000000%22%2C%22ext%22%3A%7B%7D%7D";
@@ -154,20 +154,20 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
             if (c != 0) {
                 if (c != 1) {
                     if (c == 2) {
-                        bw3.f().l();
-                        bw3.f().n("todayfirst");
+                        gw3.f().l();
+                        gw3.f().n("todayfirst");
                         return;
                     }
                     return;
                 }
                 if (!TextUtils.isEmpty(this.mOpportunity)) {
-                    fw3.b("notifyClick", this.mOpportunity);
+                    kw3.b("notifyClick", this.mOpportunity);
                 }
                 startInstallPage(intent);
                 return;
             }
             if (!TextUtils.isEmpty(this.mOpportunity) && !TextUtils.isEmpty(stringExtra)) {
-                fw3.c("notifyClick", this.mOpportunity, stringExtra);
+                kw3.c("notifyClick", this.mOpportunity, stringExtra);
             }
             startInstall(intent);
         }

@@ -1,7 +1,7 @@
 package com.baidu.tieba;
-
-import android.view.MotionEvent;
 /* loaded from: classes5.dex */
 public interface kv0 {
-    boolean onTouchEvent(MotionEvent motionEvent);
+    boolean b(String str);
+
+    void c(ru0 ru0Var);
 }

@@ -1,85 +1,219 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.nadcore.exp.ADConfigError;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class pm0 extends yf1<vm0> {
+public class pm0 implements zm0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Object d;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public final om0 b;
+    public boolean c;
 
     /* loaded from: classes5.dex */
-    public class a implements vm0 {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+    }
 
-        public a(pm0 pm0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pm0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final pm0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-513651752, "Lcom/baidu/tieba/pm0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-513651752, "Lcom/baidu/tieba/pm0$b;");
+                    return;
                 }
             }
+            a = new pm0(null);
         }
+    }
 
-        @Override // com.baidu.tieba.vm0
-        @NonNull
-        public um0 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return km0.d();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948066710, "Lcom/baidu/tieba/pm0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return (um0) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.vm0
-        @NonNull
-        public wm0 request() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return nm0.c();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948066710, "Lcom/baidu/tieba/pm0;");
+                return;
             }
-            return (wm0) invokeV.objValue;
         }
+        d = new Object();
     }
 
     public pm0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.b = new om0();
+        this.c = false;
+    }
+
+    public static pm0 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (pm0) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b.d = true;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yf1
-    /* renamed from: a */
-    public vm0 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.d = false;
         }
-        return (vm0) invokeV.objValue;
+    }
+
+    public /* synthetic */ pm0(a aVar) {
+        this();
+    }
+
+    @Override // com.baidu.tieba.zm0
+    public int a(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return i;
+            }
+            g("global");
+            if (!v01.a(this.b.a(), str)) {
+                return i;
+            }
+            String str2 = (String) v01.b(this.b.a(), str);
+            if (str2 != null) {
+                try {
+                    return Integer.parseInt(str2);
+                } catch (NumberFormatException unused) {
+                }
+            }
+            return i;
+        }
+        return invokeLI.intValue;
+    }
+
+    @Override // com.baidu.tieba.zm0
+    public double b(String str, double d2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Double.valueOf(d2)})) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return d2;
+            }
+            g("global");
+            if (!v01.a(this.b.a(), str)) {
+                return d2;
+            }
+            String str2 = (String) v01.b(this.b.a(), str);
+            if (str2 != null) {
+                try {
+                    return Double.parseDouble(str2);
+                } catch (NumberFormatException unused) {
+                }
+            }
+            return d2;
+        }
+        return invokeCommon.doubleValue;
+    }
+
+    public void e(@Nullable String str) throws ADConfigError {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            if (str != null && !TextUtils.isEmpty(str)) {
+                JSONObject c = u01.c(str);
+                if (c.has("error_code")) {
+                    if (TextUtils.equals(c.optString("error_code"), "0")) {
+                        if (c.has("error_message")) {
+                            if (TextUtils.equals(c.optString("error_message"), "success")) {
+                                String optString = c.optString("data");
+                                if (!TextUtils.isEmpty(optString)) {
+                                    JSONObject c2 = u01.c(optString);
+                                    String optString2 = c2.optString("sign");
+                                    if (!TextUtils.isEmpty(optString2)) {
+                                        if (TextUtils.equals(optString2, b11.a().b("nad_app_quick_config").getString("_ad_adc_conf_sign", ""))) {
+                                            return;
+                                        }
+                                        b11.a().b("nad_app_quick_config").i("_ad_adc_conf_sign", optString2);
+                                        synchronized (d) {
+                                            this.b.update(c2);
+                                        }
+                                        return;
+                                    }
+                                    throw ADConfigError.error("2", ADConfigError.REASON_NULL_SIGN);
+                                }
+                                throw ADConfigError.error("7", ADConfigError.REASON_NULL_DATA);
+                            }
+                            throw ADConfigError.error("5", ADConfigError.REASON_WRONG_MSG);
+                        }
+                        throw ADConfigError.error("6", ADConfigError.REASON_NULL_MSG);
+                    }
+                    throw ADConfigError.error("3", ADConfigError.REASON_WRONG_CODE);
+                }
+                throw ADConfigError.error("4", ADConfigError.REASON_NULL_CODE);
+            }
+            throw ADConfigError.error("1", ADConfigError.REASON_NULL_RESPONSE_BODY);
+        }
+    }
+
+    public final void g(String str) {
+        Map<String, ?> all;
+        Map<String, ?> all2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            b11 a2 = b11.a();
+            y01 b2 = a2.b("nad.launch.config." + str);
+            if ("global".equals(str)) {
+                if (!this.c && (all2 = b2.getAll()) != null) {
+                    v01.f(this.b.a(), all2);
+                    this.c = true;
+                }
+            } else if (((Map) v01.b(this.b.b(), str)) == null && (all = b2.getAll()) != null) {
+                v01.e(this.b.b(), str, all);
+            }
+        }
     }
 }

@@ -41,12 +41,12 @@ public class SearchSuggestLiveViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = view2.findViewById(R.id.obfuscated_res_0x7f091d42);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ecf);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e9f);
-        this.d = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f091ec0);
-        this.e = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ebf);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091471);
-        this.g = view2.findViewById(R.id.obfuscated_res_0x7f091ed0);
+        this.a = view2.findViewById(R.id.obfuscated_res_0x7f091d61);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091eed);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ebe);
+        this.d = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f091ede);
+        this.e = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091edd);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09147c);
+        this.g = view2.findViewById(R.id.obfuscated_res_0x7f091eee);
     }
 }

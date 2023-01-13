@@ -74,7 +74,7 @@ public class dr {
             if (z) {
                 alVar.a((al.a) dvVar, a(baVar.a(ho.b.a(), 86400)));
             } else {
-                alVar.m176a((al.a) dvVar);
+                alVar.m180a((al.a) dvVar);
             }
         }
     }
@@ -115,7 +115,7 @@ public class dr {
                 int a4 = a(a3.a(ho.aJ.a(), 86400));
                 a2.a(new du(this.f254a, a4), a4, 0);
             }
-            if (m.m571a(this.f254a) && (aVar = this.f255a) != null) {
+            if (m.m635a(this.f254a) && (aVar = this.f255a) != null) {
                 aVar.a();
             }
             if (a3.a(ho.ap.a(), false)) {
@@ -126,7 +126,7 @@ public class dr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m280a() {
+    public void m286a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             al.a(this.f254a).a(new ds(this));

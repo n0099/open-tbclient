@@ -1,27 +1,33 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class mr3 {
+public class mr3 implements nr3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile lr3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized lr3 a() {
-        InterceptResult invokeV;
-        lr3 lr3Var;
+    @Override // com.baidu.tieba.nr3
+    public void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (mr3.class) {
-                if (a == null) {
-                    a = new lr3();
-                }
-                lr3Var = a;
-            }
-            return lr3Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
         }
-        return (lr3) invokeV.objValue;
+    }
+
+    public mr3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 }

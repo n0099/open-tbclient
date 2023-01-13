@@ -1,183 +1,171 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.res.Resources;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.Uri;
-import android.util.DisplayMetrics;
 import android.view.View;
-import android.view.WindowManager;
+import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.business.refresh.BdSwipeRefreshLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.text.DecimalFormat;
-import java.util.HashSet;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class da0 {
+public abstract class da0 implements BdSwipeRefreshLayout.h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public View b;
+    public boolean c;
 
-    public static String a(Context context, int i) {
-        InterceptResult invokeLI;
-        String string;
-        Float valueOf;
+    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
+    public void c(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, context, i)) == null) {
-            if (i < 0) {
-                return "";
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+        }
+    }
+
+    public abstract View f();
+
+    public abstract void g(boolean z);
+
+    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
+    public long getCompleteAnimTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
+
+    public abstract void j();
+
+    public abstract void k(boolean z);
+
+    public abstract void l(boolean z);
+
+    public abstract void m();
+
+    public abstract void n();
+
+    public da0(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            long j = i;
-            if (j < 10000) {
-                return i + context.getString(R.string.obfuscated_res_0x7f0f0a6c);
+        }
+        this.a = null;
+        this.b = null;
+        this.c = false;
+        this.a = context;
+    }
+
+    public final void i(View view2) {
+        int makeMeasureSpec;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            if (layoutParams == null) {
+                layoutParams = new ViewGroup.LayoutParams(-1, -2);
             }
-            if (j < 100000000) {
-                string = context.getString(R.string.obfuscated_res_0x7f0f0a69);
-                valueOf = Float.valueOf(i / 10000.0f);
+            int childMeasureSpec = ViewGroup.getChildMeasureSpec(0, 0, layoutParams.width);
+            int i = layoutParams.height;
+            if (i > 0) {
+                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i, 1073741824);
             } else {
-                string = context.getString(R.string.obfuscated_res_0x7f0f0a63);
-                valueOf = Float.valueOf(i / 1.0E8f);
+                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
             }
-            DecimalFormat decimalFormat = new DecimalFormat("####.#");
-            return decimalFormat.format(valueOf) + string;
+            view2.measure(childMeasureSpec, makeMeasureSpec);
         }
-        return (String) invokeLI.objValue;
     }
 
-    public static String j(String str, String... strArr) {
-        InterceptResult invokeLL;
-        int indexOf;
+    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, strArr)) == null) {
-            if (strArr == null) {
-                return str;
-            }
-            HashSet hashSet = new HashSet(Uri.parse(str).getQueryParameterNames());
-            for (String str2 : strArr) {
-                hashSet.remove(str2);
-            }
-            StringBuilder sb = new StringBuilder();
-            if (str.contains("?")) {
-                sb.append(str.substring(0, str.indexOf("?")));
-            } else {
-                sb.append(str);
-            }
-            sb.append("?");
-            if (hashSet.size() > 0 && (indexOf = str.indexOf("&")) > 0) {
-                sb.append(str.substring(indexOf));
-            }
-            return sb.toString();
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.c) {
+            return;
         }
-        return (String) invokeLL.objValue;
+        l(false);
     }
 
-    public static int b(Context context, float f) {
-        InterceptResult invokeLF;
+    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, context, f)) == null) {
-            return (int) ((f * context.getResources().getDisplayMetrics().density) + 0.5f);
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.c) {
+            return;
         }
-        return invokeLF.intValue;
+        n();
     }
 
-    public static float c(Resources resources, float f) {
-        InterceptResult invokeLF;
+    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65538, null, resources, f)) == null) {
-            return (f * resources.getDisplayMetrics().density) + 0.5f;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.c) {
+            return;
         }
-        return invokeLF.floatValue;
+        j();
     }
 
-    public static int i(Context context, float f) {
-        InterceptResult invokeLF;
+    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65544, null, context, f)) == null) {
-            return (int) ((f / context.getResources().getDisplayMetrics().density) + 0.5f);
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.c) {
+            return;
         }
-        return invokeLF.intValue;
+        m();
+        k(true);
     }
 
-    @SuppressLint({"MissingPermission"})
-    public static NetworkInfo d(Context context) {
-        InterceptResult invokeL;
-        ConnectivityManager connectivityManager;
+    public Context getContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            try {
-                connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
-            } catch (SecurityException e) {
-                e.printStackTrace();
-                connectivityManager = null;
-            }
-            if (connectivityManager == null) {
-                return null;
-            }
-            return connectivityManager.getActiveNetworkInfo();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a;
         }
-        return (NetworkInfo) invokeL.objValue;
+        return (Context) invokeV.objValue;
     }
 
-    public static int e(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
+    public final View getView() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
-            return displayMetrics.widthPixels;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (this.b == null) {
+                View f = f();
+                this.b = f;
+                i(f);
+            }
+            return this.b;
         }
-        return invokeL.intValue;
+        return (View) invokeV.objValue;
     }
 
-    public static boolean f(Context context) {
-        InterceptResult invokeL;
+    public boolean h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            NetworkInfo d = d(context);
-            if (d != null && d.isConnectedOrConnecting()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.c;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static boolean h(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
+    public void onFinish() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            NetworkInfo d = d(context);
-            if (d != null && d.isAvailable() && d.getType() == 1) {
-                return true;
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeV(1048593, this) != null) || this.c) {
+            return;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean g(View view2, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, view2, i, i2)) == null) {
-            if (view2 == null) {
-                return false;
-            }
-            int[] iArr = new int[2];
-            view2.getLocationOnScreen(iArr);
-            int i3 = iArr[0];
-            int i4 = iArr[1];
-            int measuredWidth = view2.getMeasuredWidth() + i3;
-            int measuredHeight = view2.getMeasuredHeight() + i4;
-            if (i2 < i4 || i2 > measuredHeight || i < i3 || i > measuredWidth) {
-                return false;
-            }
-            return true;
-        }
-        return invokeLII.booleanValue;
+        g(true);
     }
 }

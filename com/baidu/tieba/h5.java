@@ -1,132 +1,87 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.b7;
-import com.baidu.tieba.i5;
-import com.baidu.tieba.x7;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.c7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class h5 extends p1<g5, a> {
+public class h5 implements j7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b7<x7.b<String, i5<g5>>> b;
+    public c7<f5> a;
 
-    /* loaded from: classes4.dex */
-    public static class a extends l1<g5> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public b7<j5<?>> b;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.p1
-    /* renamed from: g */
-    public void c(n1 n1Var, String str, k3 k3Var, a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, n1Var, str, k3Var, aVar) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h5(s1 s1Var) {
-        super(s1Var);
+    public h5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {s1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((s1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new b7<>();
+        this.a = new c7<>(true, 3, f5.class);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: java.lang.String */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v4, types: [com.baidu.tieba.i5, V] */
-    @Override // com.baidu.tieba.o1
-    /* renamed from: f */
-    public b7<j1> a(String str, k3 k3Var, a aVar) {
-        InterceptResult invokeLLL;
-        b7<i5.a> b;
+    @Override // com.baidu.tieba.j7
+    public void dispose() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, k3Var, aVar)) == null) {
-            ?? r0 = (i5) new p7().d(i5.class, k3Var);
-            synchronized (this.b) {
-                x7.b<String, i5<g5>> bVar = new x7.b<>();
-                bVar.a = str;
-                bVar.b = r0;
-                this.b.a(bVar);
-                b = r0.b();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int i = this.a.b;
+            for (int i2 = 0; i2 < i; i2++) {
+                this.a.get(i2).b();
             }
-            b7<j1> b7Var = new b7<>();
-            b7.b<i5.a> it = b.iterator();
-            while (it.hasNext()) {
-                i5.a next = it.next();
-                if (!b(next.a).c()) {
-                    next.a = k3Var.i().a(f1.d.a(next.a).g()).j();
-                }
-                Class<T> cls = next.b;
-                if (cls == g5.class) {
-                    b7Var.a(new j1(next.a, cls, aVar));
-                } else {
-                    b7Var.a(new j1(next.a, cls));
-                }
-            }
-            return b7Var;
         }
-        return (b7) invokeLLL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.p1
-    /* renamed from: h */
-    public g5 d(n1 n1Var, String str, k3 k3Var, a aVar) {
-        InterceptResult invokeLLLL;
-        i5<g5> i5Var;
+    public void update() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, n1Var, str, k3Var, aVar)) == null) {
-            synchronized (this.b) {
-                int i = 0;
-                while (true) {
-                    if (i < this.b.b) {
-                        x7.b<String, i5<g5>> bVar = this.b.get(i);
-                        if (bVar.a.equals(str)) {
-                            i5Var = bVar.b;
-                            this.b.h(i);
-                            break;
-                        }
-                        i++;
-                    } else {
-                        i5Var = null;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            int i = this.a.b;
+            for (int i2 = 0; i2 < i; i2++) {
+                this.a.get(i2).update();
+            }
+        }
+    }
+
+    public void a(o1 o1Var, j5 j5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, o1Var, j5Var) == null) {
+            c7.b<f5> it = this.a.iterator();
+            while (it.hasNext()) {
+                it.next().c(o1Var, j5Var);
+            }
+        }
+    }
+
+    public void f(c7<k5<?>> c7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c7Var) == null) {
+            c7.b<f5> it = this.a.iterator();
+            while (it.hasNext()) {
+                f5 next = it.next();
+                c7.b<k5<?>> it2 = c7Var.iterator();
+                while (it2.hasNext()) {
+                    if (next.c.h(it2.next())) {
                         break;
                     }
                 }
             }
-            i5Var.d.a(n1Var, i5Var);
-            if (aVar != null) {
-                b7<j5<?>> b7Var = aVar.b;
-                if (b7Var != null) {
-                    b7.b<j5<?>> it = b7Var.iterator();
-                    while (it.hasNext()) {
-                        it.next().b(n1Var, i5Var);
-                    }
-                }
-                i5Var.d.f(aVar.b);
-            }
-            return i5Var.d;
         }
-        return (g5) invokeLLLL.objValue;
+    }
+
+    public void update(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
+            int i = this.a.b;
+            for (int i2 = 0; i2 < i; i2++) {
+                this.a.get(i2).update(f);
+            }
+        }
     }
 }

@@ -1,132 +1,18 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class yt5 extends yf1<ee1> {
+public class yt5 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONObject a;
-
-    /* loaded from: classes7.dex */
-    public class a implements ee1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yt5 c;
-
-        @Override // com.baidu.tieba.ee1
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "1099a" : (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.ee1
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return 120;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.ee1
-        @SuppressLint({"ResourceType"})
-        public int c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.drawable.pic_splash_logo : invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.ee1
-        @NonNull
-        public String e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "1481698145541" : (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.ee1
-        public String from() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "1099a" : (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.ee1
-        @SuppressLint({"ResourceType"})
-        public int g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? R.drawable.obfuscated_res_0x7f080248 : invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.ee1
-        @SuppressLint({"ResourceType"})
-        public int h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? R.drawable.obfuscated_res_0x7f080249 : invokeV.intValue;
-        }
-
-        public a(yt5 yt5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yt5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = yt5Var;
-        }
-
-        @Override // com.baidu.tieba.ee1
-        public JSONObject d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (this.c.a == null) {
-                    this.c.a = new JSONObject();
-                    try {
-                        this.c.a.put("query_response_thread", 1);
-                        this.c.a.put("query_unite_pid", "1640058553813");
-                        this.c.a.put("nad_splash_query_download_opt", qm0.b().a().a("nad_splash_query_download_opt", 0));
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-                return this.c.a;
-            }
-            return (JSONObject) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.ee1
-        public int f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return ti5.l();
-            }
-            return invokeV.intValue;
-        }
-    }
 
     public yt5() {
         Interceptable interceptable = $ic;
@@ -142,15 +28,30 @@ public class yt5 extends yf1<ee1> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yf1
-    /* renamed from: c */
-    public ee1 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        InterceptResult invokeL;
+        boolean d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage == null) {
+                return null;
+            }
+            int cmd = customMessage.getCmd();
+            if (customMessage.getData() != null && (cmd == 2001179 || cmd == 2001180)) {
+                k45 k45Var = (k45) customMessage.getData();
+                if (cmd == 2001179) {
+                    d = au5.f().a(k45Var);
+                } else {
+                    d = au5.f().d(k45Var.d());
+                }
+                if (!d) {
+                    cz4 l = cz4.l();
+                    l.v("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
+                }
+            }
+            return null;
         }
-        return (ee1) invokeV.objValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

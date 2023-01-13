@@ -1,73 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public abstract class yf1<T> implements zf1<T> {
+import com.bytedance.pangle.provider.ContentProviderManager;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class yf1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean DEBUG;
+    public static vf1 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public T mCachedInstance;
 
-    public abstract T createService() throws ServiceNotFoundException;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948328133, "Lcom/baidu/tieba/yf1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static JSONObject a(Exception exc) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, exc)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(ContentProviderManager.PLUGIN_PROCESS_NAME, sf1.b());
+                jSONObject.put("stack_trace", Log.getStackTraceString(exc));
+                jSONObject.put("process_info", sf1.a());
+                jSONObject.put("report_time", System.currentTimeMillis());
+            } catch (JSONException unused) {
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948328133, "Lcom/baidu/tieba/yf1;");
-                return;
-            }
+            return jSONObject;
         }
-        DEBUG = AppConfig.isDebug();
+        return (JSONObject) invokeL.objValue;
     }
 
-    public yf1() {
+    public static void b(Exception exc) {
+        vf1 vf1Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if ((interceptable == null || interceptable.invokeL(65537, null, exc) == null) && (vf1Var = a) != null) {
+            vf1Var.a(a(exc).toString());
         }
     }
 
-    @Override // com.baidu.tieba.zf1
-    public final T getService() {
-        InterceptResult invokeV;
+    public static void c(String str) {
+        vf1 vf1Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                if (this.mCachedInstance == null) {
-                    try {
-                        this.mCachedInstance = createService();
-                    } catch (ServiceNotFoundException e) {
-                        if (DEBUG) {
-                            e.printStackTrace();
-                            throw e;
-                        }
-                    }
-                }
-            }
-            return this.mCachedInstance;
+        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && (vf1Var = a) != null) {
+            vf1Var.a(str);
         }
-        return (T) invokeV.objValue;
     }
 }

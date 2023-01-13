@@ -29,6 +29,7 @@ import kotlin.internal.InlineOnly;
 import kotlin.jvm.JvmName;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
+import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.ranges.IntProgression;
 import kotlin.ranges.IntRange;
@@ -85,9 +86,30 @@ public class StringsKt__StringsKt extends StringsKt__StringsJVMKt {
         return padStart(charSequence, i, c);
     }
 
-    public static final Sequence<IntRange> rangesDelimitedBy$StringsKt__StringsKt(CharSequence charSequence, char[] cArr, int i, boolean z, int i2) {
+    public static final Sequence<IntRange> rangesDelimitedBy$StringsKt__StringsKt(CharSequence charSequence, final char[] cArr, int i, final boolean z, int i2) {
         requireNonNegativeLimit(i2);
-        return new DelimitedRangesSequence(charSequence, i, i2, new StringsKt__StringsKt$rangesDelimitedBy$1(cArr, z));
+        return new DelimitedRangesSequence(charSequence, i, i2, new Function2<CharSequence, Integer, Pair<? extends Integer, ? extends Integer>>() { // from class: kotlin.text.StringsKt__StringsKt$rangesDelimitedBy$1
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(2);
+            }
+
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function2
+            public /* bridge */ /* synthetic */ Pair<? extends Integer, ? extends Integer> invoke(CharSequence charSequence2, Integer num) {
+                return invoke(charSequence2, num.intValue());
+            }
+
+            public final Pair<Integer, Integer> invoke(CharSequence receiver, int i3) {
+                Intrinsics.checkNotNullParameter(receiver, "$receiver");
+                int indexOfAny = StringsKt__StringsKt.indexOfAny(receiver, cArr, i3, z);
+                if (indexOfAny < 0) {
+                    return null;
+                }
+                return TuplesKt.to(Integer.valueOf(indexOfAny), 1);
+            }
+        });
     }
 
     public static /* synthetic */ List split$default(CharSequence charSequence, Regex regex, int i, int i2, Object obj) {
@@ -558,9 +580,32 @@ public class StringsKt__StringsKt extends StringsKt__StringsJVMKt {
         return padStart(str, i, c);
     }
 
-    public static final Sequence<IntRange> rangesDelimitedBy$StringsKt__StringsKt(CharSequence charSequence, String[] strArr, int i, boolean z, int i2) {
+    public static final Sequence<IntRange> rangesDelimitedBy$StringsKt__StringsKt(CharSequence charSequence, String[] strArr, int i, final boolean z, int i2) {
         requireNonNegativeLimit(i2);
-        return new DelimitedRangesSequence(charSequence, i, i2, new StringsKt__StringsKt$rangesDelimitedBy$2(ArraysKt___ArraysJvmKt.asList(strArr), z));
+        final List asList = ArraysKt___ArraysJvmKt.asList(strArr);
+        return new DelimitedRangesSequence(charSequence, i, i2, new Function2<CharSequence, Integer, Pair<? extends Integer, ? extends Integer>>() { // from class: kotlin.text.StringsKt__StringsKt$rangesDelimitedBy$2
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(2);
+            }
+
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function2
+            public /* bridge */ /* synthetic */ Pair<? extends Integer, ? extends Integer> invoke(CharSequence charSequence2, Integer num) {
+                return invoke(charSequence2, num.intValue());
+            }
+
+            public final Pair<Integer, Integer> invoke(CharSequence receiver, int i3) {
+                Pair findAnyOf$StringsKt__StringsKt;
+                Intrinsics.checkNotNullParameter(receiver, "$receiver");
+                findAnyOf$StringsKt__StringsKt = StringsKt__StringsKt.findAnyOf$StringsKt__StringsKt(receiver, asList, i3, z, false);
+                if (findAnyOf$StringsKt__StringsKt != null) {
+                    return TuplesKt.to(findAnyOf$StringsKt__StringsKt.getFirst(), Integer.valueOf(((String) findAnyOf$StringsKt__StringsKt.getSecond()).length()));
+                }
+                return null;
+            }
+        });
     }
 
     public static /* synthetic */ boolean startsWith$default(CharSequence charSequence, CharSequence charSequence2, boolean z, int i, Object obj) {
@@ -825,10 +870,22 @@ public class StringsKt__StringsKt extends StringsKt__StringsJVMKt {
         throw new NullPointerException("null cannot be cast to non-null type kotlin.CharSequence");
     }
 
-    public static final Sequence<String> splitToSequence(CharSequence splitToSequence, char[] delimiters, boolean z, int i) {
+    public static final Sequence<String> splitToSequence(final CharSequence splitToSequence, char[] delimiters, boolean z, int i) {
         Intrinsics.checkNotNullParameter(splitToSequence, "$this$splitToSequence");
         Intrinsics.checkNotNullParameter(delimiters, "delimiters");
-        return SequencesKt___SequencesKt.map(rangesDelimitedBy$StringsKt__StringsKt$default(splitToSequence, delimiters, 0, z, i, 2, (Object) null), new StringsKt__StringsKt$splitToSequence$2(splitToSequence));
+        return SequencesKt___SequencesKt.map(rangesDelimitedBy$StringsKt__StringsKt$default(splitToSequence, delimiters, 0, z, i, 2, (Object) null), new Function1<IntRange, String>() { // from class: kotlin.text.StringsKt__StringsKt$splitToSequence$2
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(1);
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // kotlin.jvm.functions.Function1
+            public final String invoke(IntRange it) {
+                Intrinsics.checkNotNullParameter(it, "it");
+                return StringsKt__StringsKt.substring(splitToSequence, it);
+            }
+        });
     }
 
     public static final boolean startsWith(CharSequence startsWith, CharSequence prefix, int i, boolean z) {
@@ -1239,10 +1296,22 @@ public class StringsKt__StringsKt extends StringsKt__StringsJVMKt {
         return missingDelimiterValue;
     }
 
-    public static final Sequence<String> splitToSequence(CharSequence splitToSequence, String[] delimiters, boolean z, int i) {
+    public static final Sequence<String> splitToSequence(final CharSequence splitToSequence, String[] delimiters, boolean z, int i) {
         Intrinsics.checkNotNullParameter(splitToSequence, "$this$splitToSequence");
         Intrinsics.checkNotNullParameter(delimiters, "delimiters");
-        return SequencesKt___SequencesKt.map(rangesDelimitedBy$StringsKt__StringsKt$default(splitToSequence, delimiters, 0, z, i, 2, (Object) null), new StringsKt__StringsKt$splitToSequence$1(splitToSequence));
+        return SequencesKt___SequencesKt.map(rangesDelimitedBy$StringsKt__StringsKt$default(splitToSequence, delimiters, 0, z, i, 2, (Object) null), new Function1<IntRange, String>() { // from class: kotlin.text.StringsKt__StringsKt$splitToSequence$1
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(1);
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // kotlin.jvm.functions.Function1
+            public final String invoke(IntRange it) {
+                Intrinsics.checkNotNullParameter(it, "it");
+                return StringsKt__StringsKt.substring(splitToSequence, it);
+            }
+        });
     }
 
     public static final int indexOf$StringsKt__StringsKt(CharSequence charSequence, CharSequence charSequence2, int i, int i2, boolean z, boolean z2) {

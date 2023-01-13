@@ -17,6 +17,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import kotlin.Metadata;
 import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Ref;
@@ -271,16 +272,63 @@ public final class DeviceIdBagMap extends ConcurrentHashMap<Integer, DeviceIdBag
         return (DeviceIdBag) invokeL.objValue;
     }
 
-    public final boolean isSync(int i) {
+    public final boolean isSync(final int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
             if (((~getDeviceFlag()) & i) != 0) {
                 return false;
             }
-            Ref.BooleanRef booleanRef = new Ref.BooleanRef();
+            final Ref.BooleanRef booleanRef = new Ref.BooleanRef();
             booleanRef.element = true;
-            DeviceInfoUtilKt.forEachDevice(new DeviceIdBagMap$isSync$1(this, i, booleanRef));
+            DeviceInfoUtilKt.forEachDevice(new Function1<Integer, Unit>(this, i, booleanRef) { // from class: com.baidu.searchbox.common.security.DeviceIdBagMap$isSync$1
+                public static /* synthetic */ Interceptable $ic;
+                public final /* synthetic */ int $deviceFlag;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Ref.BooleanRef $isSync;
+                public final /* synthetic */ DeviceIdBagMap this$0;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(1);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, Integer.valueOf(i), booleanRef};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            super(((Integer) newInitContext.callArgs[0]).intValue());
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.$deviceFlag = i;
+                    this.$isSync = booleanRef;
+                }
+
+                /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                @Override // kotlin.jvm.functions.Function1
+                public /* bridge */ /* synthetic */ Unit invoke(Integer num) {
+                    invoke(num.intValue());
+                    return Unit.INSTANCE;
+                }
+
+                public final void invoke(int i2) {
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && (this.$deviceFlag & i2) != 0) {
+                        DeviceIdBag deviceIdBag = (DeviceIdBag) this.this$0.get((Object) Integer.valueOf(i2));
+                        if (deviceIdBag == null || deviceIdBag.errorCode != 3) {
+                            this.$isSync.element = false;
+                        }
+                    }
+                }
+            });
             return booleanRef.element;
         }
         return invokeI.booleanValue;

@@ -127,8 +127,8 @@ public class KsToastView extends LinearLayout {
     private void init(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, context) == null) {
-            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0453, this);
-            this.wC = (TextView) findViewById(R.id.obfuscated_res_0x7f0912a1);
+            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0452, this);
+            this.wC = (TextView) findViewById(R.id.obfuscated_res_0x7f0912ac);
         }
     }
 

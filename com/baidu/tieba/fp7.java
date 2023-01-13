@@ -1,16 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.AccountManagerService;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.interest.data.RecentClientInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class fp7 extends yf1<AccountManagerService> {
+public class fp7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public dp7 a;
+    public RecentClientInfo b;
 
     public fp7() {
         Interceptable interceptable = $ic;
@@ -26,15 +28,35 @@ public class fp7 extends yf1<AccountManagerService> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yf1
-    /* renamed from: a */
-    public AccountManagerService createService() throws ServiceNotFoundException {
+    public dp7 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new gp7();
+            return this.a;
         }
-        return (AccountManagerService) invokeV.objValue;
+        return (dp7) invokeV.objValue;
+    }
+
+    public RecentClientInfo b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (RecentClientInfo) invokeV.objValue;
+    }
+
+    public void c(dp7 dp7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dp7Var) == null) {
+            this.a = dp7Var;
+        }
+    }
+
+    public void d(RecentClientInfo recentClientInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, recentClientInfo) == null) {
+            this.b = recentClientInfo;
+        }
     }
 }

@@ -21,7 +21,7 @@ import com.baidu.nadcore.max.uicomponent.WebViewComponent;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vo0;
+import com.baidu.tieba.ap0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,16 +52,16 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void Z0(Bundle bundle) {
+    public void b1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            super.Z0(bundle);
+            super.b1(bundle);
             setContentView(R.layout.nad_max_activity);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091d42);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091d61);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.rootview)");
             this.v = (FrameLayout) findViewById;
             getWindow().setFormat(-3);
-            x1();
+            y1();
             ComponentArchManager componentArchManager = this.u;
             if (componentArchManager == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("componentManager");
@@ -82,21 +82,21 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
             if (componentArchManager3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("componentManager");
             }
-            vo0 vo0Var = (vo0) componentArchManager3.j(vo0.class);
-            if (vo0Var != null) {
+            ap0 ap0Var = (ap0) componentArchManager3.j(ap0.class);
+            if (ap0Var != null) {
                 String str = ClogBuilder.LogType.VIDEO_LP_PV.type;
                 Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.LogType.VIDEO_LP_PV.type");
-                vo0Var.a(str, "");
+                ap0Var.a(str, "");
             }
-            t1(false);
+            v1(false);
         }
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void c1(Intent intent) {
+    public void f1(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) {
-            super.c1(intent);
+            super.f1(intent);
             if (intent != null) {
                 ComponentArchManager componentArchManager = this.u;
                 if (componentArchManager == null) {
@@ -108,11 +108,11 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public boolean k1(Bundle bundle) {
+    public boolean m1(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle)) == null) {
-            if (!super.k1(bundle)) {
+            if (!super.m1(bundle)) {
                 return false;
             }
             getWindow().setSoftInputMode(19);
@@ -122,7 +122,7 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
                 setCurrentActivityNoTransparent();
             } else {
                 setEnableSliding(true);
-                t1(true);
+                v1(true);
             }
             return true;
         }
@@ -145,7 +145,7 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
         return invokeIL.booleanValue;
     }
 
-    public final void x1() {
+    public final void y1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             Lifecycle lifecycle = getLifecycle();

@@ -1,116 +1,72 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.ITaskModelData;
-import com.baidu.bdtask.model.guide.TaskGuideData;
+import com.baidu.bdtask.ctrl.model.TaskStatus;
 import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.bdtask.model.meter.TaskMeterData;
-import com.baidu.bdtask.model.response.TaskResponseData;
-import com.baidu.bdtask.model.rule.TaskRuleData;
+import com.baidu.bdtask.model.ui.TaskUIData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class zt extends tt<TaskInfo> {
+public final class zt {
     public static /* synthetic */ Interceptable $ic;
+    public static final zt a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final vt a;
 
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "info" : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zt(vt vtVar) {
-        super(vtVar);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vtVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((vt) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448324019, "Lcom/baidu/tieba/zt;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448324019, "Lcom/baidu/tieba/zt;");
                 return;
             }
         }
-        this.a = vtVar;
+        a = new zt();
     }
 
-    public final <T extends ITaskModelData> T b(vt vtVar, String str, String str2) {
-        InterceptResult invokeLLL;
+    public zt() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vtVar, str, str2)) == null) {
-            return vtVar.a(str).a(str2);
-        }
-        return (T) invokeLLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tt
-    /* renamed from: d */
-    public TaskInfo a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String id = jSONObject.optString("id");
-                String aid = jSONObject.optString("aid");
-                int optInt = jSONObject.optInt("type");
-                String token = jSONObject.optString("token");
-                int optInt2 = jSONObject.optInt(TaskInfo.keyBehavior, 0);
-                String actTaskId = jSONObject.optString(TaskInfo.keyActTaskId);
-                String fingerprint = jSONObject.optString(TaskInfo.keyFingerprint);
-                vt vtVar = this.a;
-                String optString = jSONObject.optString("rule");
-                Intrinsics.checkExpressionValueIsNotNull(optString, "infoObj.optString(TaskRuleData.key)");
-                TaskRuleData taskRuleData = (TaskRuleData) b(vtVar, "rule", optString);
-                if (taskRuleData != null) {
-                    vt vtVar2 = this.a;
-                    String optString2 = jSONObject.optString("guide");
-                    Intrinsics.checkExpressionValueIsNotNull(optString2, "infoObj.optString(TaskGuideData.key)");
-                    TaskGuideData taskGuideData = (TaskGuideData) b(vtVar2, "guide", optString2);
-                    if (taskGuideData != null) {
-                        vt vtVar3 = this.a;
-                        String optString3 = jSONObject.optString(TaskMeterData.key);
-                        Intrinsics.checkExpressionValueIsNotNull(optString3, "infoObj.optString(TaskMeterData.key)");
-                        TaskMeterData taskMeterData = (TaskMeterData) b(vtVar3, TaskMeterData.key, optString3);
-                        if (taskMeterData != null) {
-                            vt vtVar4 = this.a;
-                            String optString4 = jSONObject.optString("response");
-                            Intrinsics.checkExpressionValueIsNotNull(optString4, "infoObj.optString(TaskResponseData.key)");
-                            TaskResponseData taskResponseData = (TaskResponseData) b(vtVar4, "response", optString4);
-                            if (taskResponseData != null) {
-                                Intrinsics.checkExpressionValueIsNotNull(id, "id");
-                                Intrinsics.checkExpressionValueIsNotNull(aid, "aid");
-                                Intrinsics.checkExpressionValueIsNotNull(token, "token");
-                                Intrinsics.checkExpressionValueIsNotNull(actTaskId, "actTaskId");
-                                Intrinsics.checkExpressionValueIsNotNull(fingerprint, "fingerprint");
-                                return new TaskInfo(id, aid, optInt, token, optInt2, actTaskId, fingerprint, taskRuleData, taskGuideData, taskMeterData, taskResponseData);
-                            }
-                            return null;
-                        }
-                        return null;
-                    }
-                    return null;
-                }
-                return null;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        return (TaskInfo) invokeL.objValue;
+    }
+
+    public final yt a(TaskStatus taskStatus, TaskInfo taskInfo) {
+        InterceptResult invokeLL;
+        int i;
+        TaskUIData taskUIData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, taskStatus, taskInfo)) == null) {
+            if (taskStatus.isFinished()) {
+                taskUIData = taskInfo.getResponse().getUi();
+                i = taskInfo.getResponse().getUiType();
+            } else if (taskStatus.isRunning()) {
+                taskUIData = taskInfo.getTaskMeter().getUi();
+                i = taskInfo.getTaskMeter().getUiType();
+            } else if (taskStatus.isInited() | taskStatus.isRegistered()) {
+                taskUIData = taskInfo.getTaskGuide().getUi();
+                i = taskInfo.getTaskGuide().getUiType();
+            } else {
+                i = -1;
+                taskUIData = null;
+            }
+            return new yt(i, taskUIData);
+        }
+        return (yt) invokeLL.objValue;
     }
 }

@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
-import java.util.List;
+import android.view.View;
 /* loaded from: classes6.dex */
 public interface um5 {
-    void a();
+    void a(View view2);
 
-    void b(List<String> list);
+    void b(View view2);
+
+    View getView();
 }

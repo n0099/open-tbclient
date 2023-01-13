@@ -1,16 +1,12 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.AnyThread;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.an2;
-import com.baidu.tieba.dn2;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.mp2;
+import com.baidu.tieba.n43;
+import com.baidu.tieba.sd4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,69 +14,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import java.nio.channels.ReadableByteChannel;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class w72 {
+public final class w72 extends t72 implements sd4, cj3<n43.a> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static boolean b;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            File[] listFiles;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                File filesDir = AppRuntime.getAppContext().getFilesDir();
-                ik4.j(new File(filesDir, "aiapps_zip"));
-                ik4.i(filesDir, "aiapps_zip");
-                File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_zip");
-                if (file.isDirectory() && (listFiles = file.listFiles()) != null) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    for (File file2 : listFiles) {
-                        long lastModified = file2.lastModified();
-                        if (file2.isFile() && lastModified > 0 && currentTimeMillis - lastModified > 86400000) {
-                            ik4.L(file2);
-                        }
-                    }
-                }
-            }
-        }
+    public interface e {
+        void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, sd4.a aVar);
     }
 
     /* loaded from: classes6.dex */
-    public static class b {
+    public class a implements e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public boolean b;
-        public String c;
+        public final /* synthetic */ w72 a;
 
-        public b() {
+        public a(w72 w72Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w72Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -90,9 +49,168 @@ public final class w72 {
                     return;
                 }
             }
-            this.a = 0;
-            this.b = false;
-            this.c = "";
+            this.a = w72Var;
+        }
+
+        @Override // com.baidu.tieba.w72.e
+        public void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, sd4.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
+                this.a.z(str, map, map2, aVar);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ w72 a;
+
+        public b(w72 w72Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w72Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = w72Var;
+        }
+
+        @Override // com.baidu.tieba.w72.e
+        public void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, sd4.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
+                this.a.b(str, map, map2, jSONObject, aVar);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements sd4.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ w72 b;
+
+        public c(w72 w72Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w72Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = w72Var;
+            this.a = str;
+        }
+
+        @Override // com.baidu.tieba.sd4.a
+        public void b(String str, String str2, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeLLL(1048576, this, str, str2, jSONObject) != null) {
+                return;
+            }
+            this.b.P(this.a, "pms_http_with_ipc_action_stat_record", new mp2.a().z("pms_http_with_ipc_key_url", str).z("pms_http_with_ipc_key_response", str2).z("pms_http_with_ipc_key_stat_record", jSONObject.toString()));
+        }
+
+        @Override // com.baidu.tieba.sd4.a
+        public void c(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
+                this.b.P(this.a, "pms_http_with_ipc_action_success", new mp2.a().z("pms_http_with_ipc_key_response", str).w("pms_http_with_ipc_key_status_code", i));
+            }
+        }
+
+        @Override // com.baidu.tieba.sd4.a
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
+                w72 w72Var = this.b;
+                String str = this.a;
+                w72Var.Q(str, "http: " + exc);
+                if (w72.b) {
+                    exc.printStackTrace();
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.sd4.a
+        public void onStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.b.P(this.a, "pms_http_with_ipc_action_on_start", null);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ mp2.a c;
+        public final /* synthetic */ w72 d;
+
+        public d(w72 w72Var, String str, String str2, mp2.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w72Var, str, str2, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = w72Var;
+            this.a = str;
+            this.b = str2;
+            this.c = aVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (!v03.K(this.a, "pms_http_with_ipc")) {
+                    if (!w72.b) {
+                        return;
+                    }
+                    this.d.T("callbackIpcSession", "return by topic pms_http_with_ipc");
+                    return;
+                }
+                u03 z = v03.a0(this.a).z("pms_http_with_ipc_key_action", this.b);
+                mp2.a aVar = this.c;
+                if (aVar != null) {
+                    z.s(aVar.D());
+                }
+                if (w72.b) {
+                    w72 w72Var = this.d;
+                    w72Var.T("callbackIpcSession", "ipcSession= " + z);
+                }
+                z.call();
+            }
         }
     }
 
@@ -109,355 +227,151 @@ public final class w72 {
                 return;
             }
         }
-        a = ok1.a;
-        b = false;
+        b = tk1.a;
     }
 
-    public w72() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w72(q43 q43Var) {
+        super(q43Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {q43Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((i43) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @AnyThread
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) != null) || b) {
-            return;
-        }
-        synchronized (w72.class) {
-            if (b) {
                 return;
             }
-            b = true;
-            yg3.k(new a(), "deleteHistoryZipFile");
         }
+        g43 g43Var = new g43();
+        g43Var.f(this, "event_messenger_call");
+        u(g43Var);
     }
 
-    public static String d() {
-        InterceptResult invokeV;
+    public final void O(String str, @NonNull n43.a aVar, @NonNull e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return an2.e.h().getPath();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return mn2.g().c();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return mn2.g().c();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return an2.e.h().getPath();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return an2.e.h().getPath();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return mn2.g().c();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static xf3 a(ReadableByteChannel readableByteChannel, String str, wb4 wb4Var) throws IOException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, readableByteChannel, str, wb4Var)) == null) {
-            if (readableByteChannel == null) {
-                xf3 xf3Var = new xf3();
-                xf3Var.k(11L);
-                xf3Var.i(2300L);
-                xf3Var.f("empty source");
-                bg3.a().f(xf3Var);
-                if (a) {
-                    Log.i("PkgDownloadUtil", "checkPkgZipSign err: " + xf3Var);
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, aVar, eVar) == null) {
+            if (b) {
+                T("buildRequestForIpc", "session=" + str + " msg=" + aVar + " adapter=" + eVar);
+            }
+            if (!v03.K(str, "pms_http_with_ipc")) {
+                return;
+            }
+            String n = aVar.n("pms_http_with_ipc_key_url");
+            Map<String, String> I = t72.I(aVar.f("pms_http_with_ipc_key_url_param_map"));
+            Map<String, String> I2 = t72.I(aVar.f("pms_http_with_ipc_key_header_param_map"));
+            String n2 = aVar.n("pms_http_with_ipc_keyjson_body");
+            JSONObject jSONObject = null;
+            try {
+                if (!TextUtils.isEmpty(n2)) {
+                    jSONObject = new JSONObject(n2);
                 }
-                return xf3Var;
+            } catch (JSONException e2) {
+                if (b) {
+                    e2.printStackTrace();
+                }
             }
-            wb4Var.n("670", "aiapp_aps_check_sign_start_timestamp");
-            wb4Var.n("770", "na_pms_start_check_sign");
-            if (rh3.d(readableByteChannel, str, new li3())) {
-                wb4Var.n("670", "aiapp_aps_check_sign_end_timestamp");
-                wb4Var.n("770", "na_pms_end_check_sign");
-                return null;
-            }
-            xf3 xf3Var2 = new xf3();
-            xf3Var2.k(11L);
-            xf3Var2.i(2300L);
-            xf3Var2.f("check zip file sign fail.");
-            bg3.a().f(xf3Var2);
-            if (a) {
-                Log.i("PkgDownloadUtil", "checkPkgZipSign err: " + xf3Var2);
-            }
-            return xf3Var2;
-        }
-        return (xf3) invokeLLL.objValue;
-    }
-
-    public static boolean b(@Nullable cd4 cd4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cd4Var)) == null) {
-            if (cd4Var == null || TextUtils.isEmpty(cd4Var.a)) {
-                return false;
-            }
-            File file = new File(cd4Var.a);
-            if (!file.exists() || !file.isFile() || !file.delete()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean j(yc4 yc4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, yc4Var)) == null) {
-            if (yc4Var == null) {
-                return false;
-            }
-            int i = yc4Var.a;
-            if (i != 1013 && i != 1015) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void k(PMSAppInfo pMSAppInfo, dd4 dd4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65548, null, pMSAppInfo, dd4Var) == null) && pMSAppInfo != null && dd4Var != null) {
-            pMSAppInfo.copyMainPkgInfo(dd4Var);
-            if (dd4Var.h == 1) {
-                pMSAppInfo.setOrientation(mn2.i().u(dd4Var.g, dd4Var.i));
-            } else {
-                pMSAppInfo.setOrientation(0);
+            try {
+                eVar.a(n, I, I2, jSONObject, new c(this, str));
+            } catch (Exception e3) {
+                Q(str, "catch: " + e3);
+                if (b) {
+                    e3.printStackTrace();
+                }
             }
         }
     }
 
-    public static void l(PMSAppInfo pMSAppInfo, ed4 ed4Var) {
+    public final void P(String str, String str2, mp2.a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65549, null, pMSAppInfo, ed4Var) == null) && pMSAppInfo != null && ed4Var != null) {
-            pMSAppInfo.copySubPkgInfo(ed4Var);
-            if (ed4Var.h == 0) {
-                pMSAppInfo.setOrientation(0);
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, aVar) == null) {
+            if (b) {
+                T("callbackIpcSession", "session=" + str + " action=" + str2 + " msg=" + aVar);
             }
+            if (TextUtils.isEmpty(str)) {
+                return;
+            }
+            di3.e0(new d(this, str, str2, aVar));
         }
     }
 
-    public static xf3 m(cd4 cd4Var, wb4 wb4Var) {
-        InterceptResult invokeLL;
-        File i;
+    public final void Q(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, cd4Var, wb4Var)) == null) {
-            if (cd4Var == null) {
-                xf3 xf3Var = new xf3();
-                xf3Var.k(11L);
-                xf3Var.i(2320L);
-                xf3Var.f("pkg info is empty");
-                bg3.a().f(xf3Var);
-                return xf3Var;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            P(str, "pms_http_with_ipc_action_fail", new mp2.a().z("pms_http_with_ipc_key_error", str2));
+        }
+    }
+
+    public final void T(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
+            S(str + ": " + str2);
+        }
+    }
+
+    public final void R(n43.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            if (b) {
+                T("handleIpcMsg", "msg=" + aVar);
             }
-            File file = new File(cd4Var.a);
-            int i2 = cd4Var.h;
-            if (i2 == 1) {
-                i = mn2.g().a(cd4Var.g, String.valueOf(cd4Var.i));
-                if (i == null) {
-                    xf3 xf3Var2 = new xf3();
-                    xf3Var2.k(11L);
-                    xf3Var2.i(2320L);
-                    xf3Var2.f("获取解压目录失败");
-                    bg3.a().f(xf3Var2);
-                    return xf3Var2;
-                } else if (a) {
-                    Log.e("PkgDownloadUtil", "bundleZipFile:" + file);
+            if (aVar != null && v03.J(aVar.D(), "pms_http_with_ipc")) {
+                String n = aVar.n("ipc_session_id");
+                if (b) {
+                    T("handleIpcMsg", "session=" + n);
                 }
-            } else if (i2 == 0) {
-                i = an2.e.i(cd4Var.g, String.valueOf(cd4Var.i));
-            } else {
-                xf3 xf3Var3 = new xf3();
-                xf3Var3.k(11L);
-                xf3Var3.i(2320L);
-                xf3Var3.f("pkh category illegal");
-                bg3.a().f(xf3Var3);
-                return xf3Var3;
-            }
-            if (!file.exists()) {
-                xf3 xf3Var4 = new xf3();
-                xf3Var4.k(11L);
-                xf3Var4.i(2320L);
-                xf3Var4.f("解压失败：包不存在");
-                bg3.a().f(xf3Var4);
-                return xf3Var4;
-            } else if (i.isFile() && !i.delete()) {
-                e12.k("PkgDownloadUtil", "解压失败：解压目录被文件占用，且无法删除 path=" + i.getAbsolutePath());
-                xf3 xf3Var5 = new xf3();
-                xf3Var5.k(11L);
-                xf3Var5.i(2320L);
-                xf3Var5.f("解压失败：解压目录被文件占用，且无法删除");
-                bg3.a().f(xf3Var5);
-                return xf3Var5;
-            } else if (!i.exists() && !i.mkdirs()) {
-                if (a) {
-                    Log.e("PkgDownloadUtil", "解压失败：解压文件夹创建失败 " + i.getAbsolutePath());
+                if (TextUtils.isEmpty(n)) {
+                    return;
                 }
-                xf3 xf3Var6 = new xf3();
-                xf3Var6.k(11L);
-                xf3Var6.i(2320L);
-                xf3Var6.f("解压失败：解压文件夹创建失败");
-                bg3.a().f(xf3Var6);
-                return xf3Var6;
-            } else {
-                if (a) {
-                    Log.i("PkgDownloadUtil", "开始执行解压操作, bundle:" + file.getPath() + " , folder:" + i.getPath());
+                String n2 = aVar.n("pms_http_with_ipc_key_action");
+                if (b) {
+                    T("handleIpcMsg", "action=" + n2);
                 }
-                if (n(file, i, wb4Var).b) {
-                    return null;
+                if (TextUtils.isEmpty(n2)) {
+                    Q(n, "empty action");
+                    return;
                 }
-                b n = n(file, i, wb4Var);
-                if (n.b) {
-                    ta3.a(wb4Var, cd4Var.h, true);
-                    return null;
-                }
-                ta3.a(wb4Var, cd4Var.h, false);
-                e12.k("PkgDownloadUtil", "解压失败后删除解压目录: " + i.getAbsolutePath());
-                ik4.L(i);
-                xf3 xf3Var7 = new xf3();
-                int i3 = n.a;
-                if (i3 != 0) {
-                    if (i3 != 1 && i3 != 2) {
-                        xf3Var7.k(4L);
-                        xf3Var7.i(7L);
-                        xf3Var7.f("Unkown bundle type");
-                    } else {
-                        xf3Var7.k(11L);
-                        xf3Var7.i(2330L);
-                        xf3Var7.f("decryt failed:" + n.c + ", PkgType=" + n.a);
+                char c2 = 65535;
+                int hashCode = n2.hashCode();
+                if (hashCode != 646251642) {
+                    if (hashCode == 1779116731 && n2.equals("pms_http_with_ipc_action_build_json_post_request")) {
+                        c2 = 1;
                     }
-                } else {
-                    xf3Var7.k(11L);
-                    xf3Var7.i(2320L);
-                    xf3Var7.f("unzip failed");
+                } else if (n2.equals("pms_http_with_ipc_action_build_get_request")) {
+                    c2 = 0;
                 }
-                bg3.a().f(xf3Var7);
-                return xf3Var7;
-            }
-        }
-        return (xf3) invokeLL.objValue;
-    }
-
-    @NonNull
-    public static b n(@NonNull File file, @NonNull File file2, @NonNull wb4 wb4Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65551, null, file, file2, wb4Var)) == null) {
-            b bVar = new b();
-            long currentTimeMillis = System.currentTimeMillis();
-            dn2.c j = dn2.j(file);
-            int i = 0;
-            if (j.b != -1) {
-                wb4Var.n("670", "package_start_decrypt");
-                wb4Var.n("770", "na_package_start_decrypt");
-                dn2.b d = dn2.d(j.a, file2, j.b);
-                wb4Var.n("670", "package_end_decrypt");
-                wb4Var.n("770", "na_package_end_decrypt");
-                bVar.b = d.a;
-                bVar.c = d.b;
-                i = j.b;
-                bVar.a = i;
-            } else {
-                bVar.a = 0;
-                wb4Var.n("670", "package_start_unzip");
-                wb4Var.n("770", "na_package_start_unzip");
-                boolean U = ik4.U(file.getPath(), file2.getPath());
-                bVar.b = U;
-                if (U) {
-                    boolean B = ik4.B(file.getAbsolutePath(), file2.getAbsolutePath());
-                    bVar.b = B;
-                    if (!B) {
-                        fb3 fb3Var = new fb3();
-                        xf3 xf3Var = new xf3();
-                        xf3Var.k(4L);
-                        xf3Var.i(52L);
-                        fb3Var.p(xf3Var);
-                        fb3Var.l("path", file2.getAbsolutePath());
-                        fb3Var.l("eMsg", "unzip files not match zip content");
-                        fb3Var.l("decryptType", String.valueOf(j.b));
-                        fb3Var.l("stack", yh3.z(30));
-                        xa3.R(fb3Var);
+                if (c2 != 0) {
+                    if (c2 != 1) {
+                        Q(n, "no such action:" + n2);
+                        return;
                     }
+                    O(n, aVar, new b(this));
+                    return;
                 }
-                wb4Var.n("670", "package_end_unzip");
-                wb4Var.n("770", "na_package_end_unzip");
+                O(n, aVar, new a(this));
             }
-            long currentTimeMillis2 = System.currentTimeMillis();
-            if (a) {
-                dn2.h((int) (currentTimeMillis2 - currentTimeMillis));
-            }
-            Bundle bundle = new Bundle();
-            bundle.putInt("download_package_type_id", i);
-            ac4.a(wb4Var, bundle, "event_download_package_type");
-            return bVar;
         }
-        return (b) invokeLLL.objValue;
     }
 
-    public static void o(@Nullable PMSAppInfo pMSAppInfo) {
+    public final void S(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65552, null, pMSAppInfo) != null) || pMSAppInfo == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && b) {
+            Log.i("PmsHttpForService", str);
         }
-        if (!TextUtils.isEmpty(pMSAppInfo.webViewDomains)) {
-            w43.u(pMSAppInfo.appId, "", eh3.e(pMSAppInfo.webViewDomains));
-        }
-        if (!TextUtils.isEmpty(pMSAppInfo.webAction)) {
-            w43.t("", eh3.e(pMSAppInfo.webAction));
-        }
-        if (!TextUtils.isEmpty(pMSAppInfo.domains)) {
-            w43.s(pMSAppInfo.appId, eh3.d(pMSAppInfo.domains));
-        }
-        if (!TextUtils.isEmpty(pMSAppInfo.domainConfig)) {
-            w43.r(pMSAppInfo.appId, pMSAppInfo.domainConfig);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.cj3
+    /* renamed from: U */
+    public void a(n43.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
+            R(aVar);
         }
     }
 }

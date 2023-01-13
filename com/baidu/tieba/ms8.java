@@ -1,23 +1,21 @@
 package com.baidu.tieba;
 
-import androidx.core.app.NotificationCompat;
-import com.baidu.tbadk.core.data.AbstractData;
-import com.baidu.tbadk.data.MetaData;
+import android.os.Looper;
+import android.util.Printer;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.looper.ioc.ILooperNeedContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class ms8 {
+public class ms8 implements ILooperNeedContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MetaData a;
-    public List<AbstractData> b;
 
     public ms8() {
         Interceptable interceptable = $ic;
@@ -29,33 +27,23 @@ public class ms8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = new ArrayList();
     }
 
-    public void a(JSONObject jSONObject) {
+    @Override // com.baidu.searchbox.looper.ioc.ILooperNeedContext
+    public void addLooperPrinter(Printer printer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            try {
-                jSONObject.optString("id");
-                MetaData metaData = new MetaData();
-                this.a = metaData;
-                metaData.parserJson(jSONObject.optJSONObject(NotificationCompat.CarExtender.KEY_AUTHOR));
-                JSONArray optJSONArray = jSONObject.optJSONArray("abstract");
-                this.b = new ArrayList();
-                if (optJSONArray != null) {
-                    int length = optJSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        AbstractData abstractData = new AbstractData();
-                        abstractData.parserJson(optJSONArray.getJSONObject(i));
-                        this.b.add(abstractData);
-                    }
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, printer) == null) && printer != null) {
+            Looper.getMainLooper().setMessageLogging(printer);
+        }
+    }
+
+    @Override // com.baidu.searchbox.looper.ioc.ILooperNeedContext
+    public void removeLooperPrinter(Printer printer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, printer) == null) {
+            Looper.getMainLooper().setMessageLogging(null);
         }
     }
 }

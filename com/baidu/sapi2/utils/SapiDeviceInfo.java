@@ -5,7 +5,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import androidx.exifinterface.media.ExifInterface;
-import com.baidu.mobstat.Config;
 import com.baidu.pass.common.SecurityUtil;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.sapi2.NoProguard;
@@ -149,7 +148,7 @@ public class SapiDeviceInfo implements NoProguard {
             }
         }
         DELIMITER = Character.toString((char) 1);
-        AES_KEY = TextUtils.join("", new String[]{"O", "a", "L", "h", "z", "O", "K", ExifInterface.GPS_DIRECTION_TRUE, ExifInterface.GPS_DIRECTION_TRUE, "Q", "G", "L", Config.DEVICE_WIDTH, "8", "h", "P"});
+        AES_KEY = TextUtils.join("", new String[]{"O", "a", "L", "h", "z", "O", "K", ExifInterface.GPS_DIRECTION_TRUE, ExifInterface.GPS_DIRECTION_TRUE, "Q", "G", "L", "w", "8", "h", "P"});
     }
 
     public static String buildIV() {

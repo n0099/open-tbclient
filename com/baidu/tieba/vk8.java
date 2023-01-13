@@ -1,22 +1,45 @@
 package com.baidu.tieba;
 
-import androidx.annotation.ColorRes;
-import androidx.annotation.DimenRes;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.play.TbVideoViewContainer;
 /* loaded from: classes6.dex */
-public interface vk8 {
-    void a();
+public interface vk8 extends View.OnClickListener, CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnSeekCompleteListener, TbVideoViewContainer.a {
+    void changeRenderViewMode(int i);
 
-    void b();
+    int getCurrentPosition();
 
-    void setButtonText(String str, int i);
+    View getMainView();
 
-    void setButtonTextColor(@ColorRes int i);
+    boolean isFullScreen();
 
-    void setButtonTextNightColor(int i);
+    boolean isPlaying();
 
-    void setButtonTextSize(@DimenRes int i);
+    boolean onBackPress();
 
-    void setInitText(String str);
+    boolean onBackground(boolean z);
 
-    void setRatio(int i);
+    void onScroll();
+
+    boolean onVolumeUp();
+
+    void setAfterClickListener(View.OnClickListener onClickListener);
+
+    void setData(ThreadData threadData);
+
+    void setFrom(String str);
+
+    void setJumpToPbClickListener(View.OnClickListener onClickListener);
+
+    void setStageType(String str);
+
+    void setStatistic(qk8 qk8Var);
+
+    void setUniqueId(BdUniqueId bdUniqueId);
+
+    void startPlay();
+
+    void stopPlay();
 }

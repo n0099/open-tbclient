@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tieba.h61;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,10 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class v51 {
     public static /* synthetic */ Interceptable $ic;
-    public static y51 a;
-    public static b61 b;
-    public static c61 c;
-    public static f51 d;
+    public static volatile int a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,153 +30,100 @@ public class v51 {
         }
     }
 
-    public v51() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    /* loaded from: classes6.dex */
+    public static class a implements h61.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ h61.b a;
 
-    public static Context b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return zi0.b();
-        }
-        return (Context) invokeV.objValue;
-    }
+        /* renamed from: com.baidu.tieba.v51$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class RunnableC0454a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
 
-    public static z51 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return z51.a;
-        }
-        return (z51) invokeV.objValue;
-    }
-
-    public static w51 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return w51.a;
-        }
-        return (w51) invokeV.objValue;
-    }
-
-    public static x51 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return x51.a;
-        }
-        return (x51) invokeV.objValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (qm0.b().a().a("nad_web_view_forbid_kb_opt_switch", 0) != 1) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            if (qm0.b().a().a("nad_web_view_type_switch", 0) != 1) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static y51 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (v51.class) {
-                    if (a == null) {
-                        a = (y51) ServiceManager.getService(y51.a);
-                    }
-                    if (a == null) {
-                        a = y51.b;
+            public RunnableC0454a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
                     }
                 }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                h61.b bVar;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.a.a) != null) {
+                    bVar.a();
+                }
+            }
+        }
+
+        public a(h61.b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bVar;
+        }
+
+        @Override // com.baidu.tieba.h61.b
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int unused = v51.a = 3;
+                sj0.b(new RunnableC0454a(this));
+            }
+        }
+    }
+
+    public static int b(Context context, h61.b bVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, bVar)) == null) {
+            if (3 != a && 4 != a) {
+                int a2 = a61.j().a(context, new a(bVar));
+                if (3 != a2 && 1 != a2 && 2 != a2) {
+                    if (a2 == 0 || 4 == a2) {
+                        try {
+                            q51.a.c(context, a61.i(), 0);
+                            if (bVar != null) {
+                                bVar.a();
+                            }
+                            a = 3;
+                        } catch (Throwable unused) {
+                            a = 4;
+                        }
+                    }
+                    return a;
+                }
+                a = a2;
+                return a;
             }
             return a;
         }
-        return (y51) invokeV.objValue;
-    }
-
-    public static f51 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (d == null) {
-                synchronized (v51.class) {
-                    if (d == null) {
-                        d = (f51) ServiceManager.getService(f51.a);
-                    }
-                    if (d == null) {
-                        d = f51.b;
-                    }
-                }
-            }
-            return d;
-        }
-        return (f51) invokeV.objValue;
-    }
-
-    public static b61 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if (b == null) {
-                synchronized (v51.class) {
-                    if (b == null) {
-                        b = (b61) ServiceManager.getService(b61.a);
-                    }
-                    if (b == null) {
-                        b = b61.b;
-                    }
-                }
-            }
-            return b;
-        }
-        return (b61) invokeV.objValue;
-    }
-
-    public static c61 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (c == null) {
-                synchronized (v51.class) {
-                    if (c == null) {
-                        c = (c61) ServiceManager.getService(c61.a);
-                    }
-                    if (c == null) {
-                        c = c61.b;
-                    }
-                }
-            }
-            return c;
-        }
-        return (c61) invokeV.objValue;
+        return invokeLL.intValue;
     }
 }

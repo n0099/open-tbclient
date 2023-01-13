@@ -111,8 +111,24 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return false;
     }
 
+    @Deprecated(message = "This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
+    @DeprecatedSinceKotlin(errorSince = "1.4", hiddenSince = "1.5", warningSince = "1.3")
+    @JvmName(name = "doubleRangeContains")
+    public static final /* synthetic */ boolean doubleRangeContains(ClosedRange<Double> contains, byte b) {
+        Intrinsics.checkNotNullParameter(contains, "$this$contains");
+        return contains.contains(Double.valueOf(b));
+    }
+
     public static final CharProgression downTo(char c, char c2) {
         return CharProgression.Companion.fromClosedRange(c, c2, -1);
+    }
+
+    @Deprecated(message = "This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
+    @DeprecatedSinceKotlin(errorSince = "1.4", hiddenSince = "1.5", warningSince = "1.3")
+    @JvmName(name = "floatRangeContains")
+    public static final /* synthetic */ boolean floatRangeContains(ClosedRange<Float> contains, byte b) {
+        Intrinsics.checkNotNullParameter(contains, "$this$contains");
+        return contains.contains(Float.valueOf(b));
     }
 
     @JvmName(name = "intRangeContains")
@@ -318,8 +334,24 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return false;
     }
 
+    @Deprecated(message = "This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
+    @DeprecatedSinceKotlin(errorSince = "1.4", hiddenSince = "1.5", warningSince = "1.3")
+    @JvmName(name = "doubleRangeContains")
+    public static final /* synthetic */ boolean doubleRangeContains(ClosedRange<Double> contains, int i) {
+        Intrinsics.checkNotNullParameter(contains, "$this$contains");
+        return contains.contains(Double.valueOf(i));
+    }
+
     public static final IntProgression downTo(byte b, int i) {
         return IntProgression.Companion.fromClosedRange(b, i, -1);
+    }
+
+    @Deprecated(message = "This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
+    @DeprecatedSinceKotlin(errorSince = "1.4", hiddenSince = "1.5", warningSince = "1.3")
+    @JvmName(name = "floatRangeContains")
+    public static final /* synthetic */ boolean floatRangeContains(ClosedRange<Float> contains, int i) {
+        Intrinsics.checkNotNullParameter(contains, "$this$contains");
+        return contains.contains(Float.valueOf(i));
     }
 
     @Deprecated(message = "This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
@@ -415,8 +447,24 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return false;
     }
 
+    @Deprecated(message = "This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
+    @DeprecatedSinceKotlin(errorSince = "1.4", hiddenSince = "1.5", warningSince = "1.3")
+    @JvmName(name = "doubleRangeContains")
+    public static final /* synthetic */ boolean doubleRangeContains(ClosedRange<Double> contains, long j) {
+        Intrinsics.checkNotNullParameter(contains, "$this$contains");
+        return contains.contains(Double.valueOf(j));
+    }
+
     public static final IntProgression downTo(byte b, short s) {
         return IntProgression.Companion.fromClosedRange(b, s, -1);
+    }
+
+    @Deprecated(message = "This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
+    @DeprecatedSinceKotlin(errorSince = "1.4", hiddenSince = "1.5", warningSince = "1.3")
+    @JvmName(name = "floatRangeContains")
+    public static final /* synthetic */ boolean floatRangeContains(ClosedRange<Float> contains, long j) {
+        Intrinsics.checkNotNullParameter(contains, "$this$contains");
+        return contains.contains(Float.valueOf((float) j));
     }
 
     @JvmName(name = "intRangeContains")
@@ -459,8 +507,24 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return false;
     }
 
+    @Deprecated(message = "This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
+    @DeprecatedSinceKotlin(errorSince = "1.4", hiddenSince = "1.5", warningSince = "1.3")
+    @JvmName(name = "doubleRangeContains")
+    public static final /* synthetic */ boolean doubleRangeContains(ClosedRange<Double> contains, short s) {
+        Intrinsics.checkNotNullParameter(contains, "$this$contains");
+        return contains.contains(Double.valueOf(s));
+    }
+
     public static final IntProgression downTo(int i, byte b) {
         return IntProgression.Companion.fromClosedRange(i, b, -1);
+    }
+
+    @Deprecated(message = "This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
+    @DeprecatedSinceKotlin(errorSince = "1.4", hiddenSince = "1.5", warningSince = "1.3")
+    @JvmName(name = "floatRangeContains")
+    public static final /* synthetic */ boolean floatRangeContains(ClosedRange<Float> contains, short s) {
+        Intrinsics.checkNotNullParameter(contains, "$this$contains");
+        return contains.contains(Float.valueOf(s));
     }
 
     @JvmName(name = "intRangeContains")

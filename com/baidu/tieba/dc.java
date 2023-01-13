@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.gif.NSGif;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,87 +8,64 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface dc {
-    in a(byte[] bArr, int i, int i2);
+public class dc {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int[] a;
 
-    in get(String str);
-
-    /* loaded from: classes4.dex */
-    public static class a implements dc {
-        public static /* synthetic */ Interceptable $ic;
-        public static dc c;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public final gc b;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = 0;
-            this.b = new gc();
-            if (NSGif.f) {
-                this.a = 0;
-            } else {
-                this.a = 1;
+    public dc(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.a = r0;
+        int[] iArr = {i, i2, i3};
+    }
 
-        public static synchronized dc b() {
-            InterceptResult invokeV;
-            dc dcVar;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                synchronized (a.class) {
-                    if (c == null) {
-                        c = new a();
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int[] iArr = this.a;
+            if (iArr == null || iArr.length != 1) {
+                return 0;
+            }
+            return iArr[0];
+        }
+        return invokeV.intValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int[] iArr = this.a;
+            if (iArr == null || iArr.length != 3) {
+                return 0;
+            }
+            int netType = BdNetTypeUtil.netType();
+            if (netType != 1) {
+                if (netType != 2) {
+                    if (netType != 3) {
+                        return this.a[2];
                     }
-                    dcVar = c;
+                    return this.a[1];
                 }
-                return dcVar;
+                return this.a[0];
             }
-            return (dc) invokeV.objValue;
+            return this.a[2];
         }
-
-        @Override // com.baidu.tieba.dc
-        public in a(byte[] bArr, int i, int i2) {
-            InterceptResult invokeLII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
-                if (this.a == 0) {
-                    try {
-                        return this.b.a(bArr, i, i2);
-                    } catch (Exception unused) {
-                    }
-                }
-                return null;
-            }
-            return (in) invokeLII.objValue;
-        }
-
-        @Override // com.baidu.tieba.dc
-        public in get(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                if (this.a == 0) {
-                    try {
-                        return this.b.get(str);
-                    } catch (Exception unused) {
-                    }
-                }
-                return null;
-            }
-            return (in) invokeL.objValue;
-        }
+        return invokeV.intValue;
     }
 }

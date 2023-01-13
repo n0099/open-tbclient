@@ -1,25 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
 /* loaded from: classes5.dex */
-public class ma9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ma9 {
+    void D(boolean z);
 
-    public ma9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void E0(CloudMusicData.MusicTagList musicTagList);
+
+    void K();
+
+    void U0(int i);
+
+    void d0(la9 la9Var);
+
+    void j0(int i);
+
+    void m(boolean z);
+
+    void m0(int i);
 }

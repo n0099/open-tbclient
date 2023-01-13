@@ -1,84 +1,128 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.util.io.ActionJsonData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class s56 extends w56 {
+public class s56 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId O0;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<xx8> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948102453, "Lcom/baidu/tieba/s56;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948102453, "Lcom/baidu/tieba/s56;");
-                return;
-            }
-        }
-        O0 = BdUniqueId.gen();
-    }
-
-    @Override // com.baidu.tieba.w56, com.baidu.tieba.o56, com.baidu.tieba.vr4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.w56, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.xn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return O0;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public s56(ThreadData threadData) {
+    public s56() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {threadData};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = threadData;
+        this.a = new ArrayList<>();
     }
 
-    public static boolean Z(ThreadData threadData) {
-        InterceptResult invokeL;
+    public void a(xx8 xx8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) {
-            if (threadData == null) {
-                return false;
-            }
-            return threadData.isBJHNormalThreadType();
+        if (interceptable == null || interceptable.invokeL(1048576, this, xx8Var) == null) {
+            this.a.add(xx8Var);
         }
-        return invokeL.booleanValue;
+    }
+
+    public final void b(WebView webView, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2) == null) && webView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            o76.b("lt-log", "call javascript:" + str + "&&" + str + "('" + str2 + "')");
+            webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + str2 + "')", null);
+        }
+    }
+
+    public zx8 c(WebView webView, by8 by8Var, zx8 zx8Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, by8Var, zx8Var)) == null) {
+            if (zx8Var == null) {
+                zx8Var = new zx8();
+            }
+            if (ActionJsonData.TAG_NOTIFICATION.equals(by8Var.c()) && "addObserver".equals(by8Var.a())) {
+                Iterator<xx8> it = this.a.iterator();
+                while (it.hasNext()) {
+                    zx8Var = it.next().addObserver(by8Var.d(), zx8Var, true);
+                    if (zx8Var.j()) {
+                        return zx8Var;
+                    }
+                }
+                if (!zx8Var.j()) {
+                    zx8Var.y(202);
+                    zx8Var.u(d76.getContext().getString(R.string.can_find_notification_name));
+                }
+            } else {
+                Iterator<xx8> it2 = this.a.iterator();
+                while (it2.hasNext()) {
+                    zx8Var = it2.next().dispatch(webView, by8Var, zx8Var);
+                    if (zx8Var.i()) {
+                        return zx8Var;
+                    }
+                }
+                if (!zx8Var.i()) {
+                    zx8Var.y(202);
+                }
+            }
+            return zx8Var;
+        }
+        return (zx8) invokeLLL.objValue;
+    }
+
+    public void d(WebView webView, zx8 zx8Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, webView, zx8Var) != null) || webView == null || zx8Var == null || !zx8Var.k()) {
+            return;
+        }
+        b(webView, zx8Var.c(), zx8Var.d());
+    }
+
+    public void e(WebView webView, List<zx8> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, webView, list) == null) && webView != null && !ListUtils.isEmpty(list)) {
+            for (zx8 zx8Var : list) {
+                if (zx8Var != null && zx8Var.k()) {
+                    b(webView, zx8Var.c(), zx8Var.d());
+                }
+            }
+        }
+    }
+
+    public List<zx8> f(WebView webView, String str, HashMap hashMap) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, webView, str, hashMap)) == null) {
+            List<zx8> list = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            Iterator<xx8> it = this.a.iterator();
+            while (it.hasNext()) {
+                list = it.next().processNotification(webView, str, hashMap);
+                if (!ListUtils.isEmpty(list)) {
+                    break;
+                }
+            }
+            return list;
+        }
+        return (List) invokeLLL.objValue;
     }
 }

@@ -1,63 +1,84 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface vm0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "exp");
-    public static final vm0 b = new a();
+public class vm0 {
+    public static /* synthetic */ Interceptable $ic;
+    public static an0 a;
+    public static ym0 b;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    um0 a();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948245456, "Lcom/baidu/tieba/vm0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948245456, "Lcom/baidu/tieba/vm0;");
+        }
+    }
 
-    @NonNull
-    wm0 request();
+    public vm0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
-    /* loaded from: classes6.dex */
-    public static class a implements vm0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static ym0 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (vm0.class) {
+                    if (b == null) {
+                        b = (ym0) ServiceManager.getService(ym0.a);
+                    }
+                    if (b == null) {
+                        b = ym0.b;
+                    }
                 }
             }
+            return b;
         }
+        return (ym0) invokeV.objValue;
+    }
 
-        @Override // com.baidu.tieba.vm0
-        @NonNull
-        public um0 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return um0.a;
+    public static an0 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (a == null) {
+                synchronized (vm0.class) {
+                    if (a == null) {
+                        a = (an0) ServiceManager.getService(an0.a);
+                    }
+                    if (a == null) {
+                        a = an0.b;
+                    }
+                }
             }
-            return (um0) invokeV.objValue;
+            return a;
         }
-
-        @Override // com.baidu.tieba.vm0
-        @NonNull
-        public wm0 request() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return wm0.a;
-            }
-            return (wm0) invokeV.objValue;
-        }
+        return (an0) invokeV.objValue;
     }
 }

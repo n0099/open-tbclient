@@ -1,93 +1,28 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
 /* loaded from: classes5.dex */
-public class n68 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final View a;
-    public final View b;
-    public final TextView c;
-    public PbFragment d;
-    public View.OnClickListener e;
+public interface n68 {
+    void c(boolean z);
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n68 a;
+    void d(View.OnLongClickListener onLongClickListener);
 
-        public a(n68 n68Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n68Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = n68Var;
-        }
+    void e(View.OnClickListener onClickListener);
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                n68 n68Var = this.a;
-                if (view2 == n68Var.b && n68Var.d != null && this.a.d.getBaseFragmentActivity() != null) {
-                    this.a.d.getBaseFragmentActivity().finish();
-                }
-            }
-        }
-    }
+    void f(boolean z);
 
-    public n68(PbFragment pbFragment) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pbFragment};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = new a(this);
-        this.d = pbFragment;
-        this.b = pbFragment.getBaseFragmentActivity().findViewById(R.id.obfuscated_res_0x7f09153c);
-        this.c = (TextView) this.d.getBaseFragmentActivity().findViewById(R.id.obfuscated_res_0x7f09153d);
-        this.a = this.d.getBaseFragmentActivity().findViewById(R.id.obfuscated_res_0x7f091539);
-        this.b.setOnClickListener(this.e);
-    }
+    void k(View.OnClickListener onClickListener);
 
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.c.setText(str);
-        }
-    }
+    void l(int i);
 
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.setVisibility(0);
-        }
-    }
+    void n(TbRichTextView.a0 a0Var);
+
+    void o(String str);
+
+    void q(boolean z);
+
+    void r(y48 y48Var);
+
+    void setFromCDN(boolean z);
 }

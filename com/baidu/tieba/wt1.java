@@ -4,84 +4,76 @@ import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.tieba.n32;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.UUID;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class wt1 extends vt1 {
+public class wt1 extends pt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.hs1
+    @Override // com.baidu.tieba.ms1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "NavigateBackApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "NetworkApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ k32 b;
-        public final /* synthetic */ n32 c;
-        public final /* synthetic */ n32.b d;
-        public final /* synthetic */ wt1 e;
+        public final /* synthetic */ j43 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ wt1 c;
 
-        public a(wt1 wt1Var, int i, k32 k32Var, n32 n32Var, n32.b bVar) {
+        public a(wt1 wt1Var, j43 j43Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wt1Var, Integer.valueOf(i), k32Var, n32Var, bVar};
+                Object[] objArr = {wt1Var, j43Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.e = wt1Var;
-            this.a = i;
-            this.b = k32Var;
-            this.c = n32Var;
-            this.d = bVar;
+            this.c = wt1Var;
+            this.a = j43Var;
+            this.b = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a > 1 && !this.b.D0) {
-                    og3.b(this.c, this.e.getContext(), 1);
-                }
-                this.d.a();
+                this.a.a0().b(this.c.a().g(), this.b);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wt1(@NonNull fs1 fs1Var) {
-        super(fs1Var);
+    public wt1(@NonNull ks1 ks1Var) {
+        super(ks1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fs1Var};
+            Object[] objArr = {ks1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((fs1) newInitContext.callArgs[0]);
+                super((ks1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -89,98 +81,49 @@ public class wt1 extends vt1 {
         }
     }
 
-    public static void y() {
-        e43 b0;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && (b0 = e43.b0()) != null) {
-            b0.B().I(b0.getAppId());
-        }
-    }
-
-    public ew1 A() {
+    public jw1 x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            q("#hideModalPage", false);
-            y();
-            return z(1, "hideModalPage", 10);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            q("#getNetworkType", false);
+            String e = SwanAppNetworkUtils.e();
+            if (TextUtils.isEmpty(e)) {
+                e = "unknown";
+            } else if ("no".equals(e)) {
+                e = "none";
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("networkType", e);
+                return new jw1(0, jSONObject);
+            } catch (JSONException unused) {
+                return new jw1(202);
+            }
         }
-        return (ew1) invokeV.objValue;
+        return (jw1) invokeV.objValue;
     }
 
-    public ew1 B(String str) {
+    public jw1 y(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#navigateBack params=" + str, false);
-            y();
-            Pair<ew1, JSONObject> s = s(str);
-            ew1 ew1Var = (ew1) s.first;
-            if (!ew1Var.isSuccess()) {
-                return ew1Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#networkStatusChange", false);
+            j43 b0 = j43.b0();
+            if (b0 == null) {
+                return new jw1(202, "swan app is null");
             }
-            return z(((JSONObject) s.second).optInt("delta", 1), "navigateBack", 1);
+            Pair<jw1, JSONObject> s = s(str);
+            jw1 jw1Var = (jw1) s.first;
+            if (!jw1Var.isSuccess()) {
+                return jw1Var;
+            }
+            String optString = ((JSONObject) s.second).optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                return new jw1(1001, "cb is empty");
+            }
+            i43.M().post(new a(this, b0, optString));
+            return jw1.f();
         }
-        return (ew1) invokeL.objValue;
-    }
-
-    public final ew1 z(int i, String str, int i2) {
-        InterceptResult invokeCommon;
-        eu2 m3;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)})) == null) {
-            String uuid = UUID.randomUUID().toString();
-            kx2.b(uuid);
-            n32 V = rp2.U().V();
-            if (V == null) {
-                e12.c("NavigateBackApi", "manager is null");
-                return new ew1(1001, "manager is null");
-            }
-            int k = V.k();
-            if (k == 1) {
-                e12.c("NavigateBackApi", "navigateBack api can only work when slave's count greater than 1");
-                return new ew1(1001, "navigateBack api can only work when slave's count greater than 1");
-            }
-            if (i >= k) {
-                i = k - 1;
-            }
-            eu2 f = sa3.f(uuid, i);
-            k32 m = V.m();
-            if (m == null) {
-                e12.c("NavigateBackApi", "slave container is null");
-                return new ew1(1001, "slave container is null");
-            } else if (TextUtils.equals("hideModalPage", str) && !m.D0) {
-                e12.c("NavigateBackApi", "hideModalPage api can only work after showModalPage");
-                return new ew1(1001, "hideModalPage api can only work after showModalPage");
-            } else {
-                kx2.c(i2, uuid);
-                n32.b i3 = V.i(str);
-                i3.n(n32.i, n32.h);
-                i3.h(i);
-                yh3.a0(new a(this, k, m, V, i3));
-                m32 o = V.o();
-                if (o == null) {
-                    m3 = null;
-                } else {
-                    m3 = o.m3();
-                }
-                jx2.q("route", uuid).F(new UbcFlowEvent("na_push_page_end"));
-                kx2.a(uuid, m3);
-                if (!(V.m() instanceof m32)) {
-                    e12.c("NavigateBackApi", "top fragment error");
-                    sa3.i(f);
-                    return new ew1(1001, "top fragment error");
-                }
-                m32 m32Var = (m32) V.m();
-                if (m32Var != null) {
-                    str2 = m32Var.t3();
-                } else {
-                    str2 = "";
-                }
-                return new ew1(0, n73.c(str2));
-            }
-        }
-        return (ew1) invokeCommon.objValue;
+        return (jw1) invokeL.objValue;
     }
 }

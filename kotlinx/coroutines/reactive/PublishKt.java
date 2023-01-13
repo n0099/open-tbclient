@@ -2,6 +2,7 @@ package kotlinx.coroutines.reactive;
 
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
+import java.util.concurrent.CancellationException;
 import kotlin.BuilderInference;
 import kotlin.Deprecated;
 import kotlin.DeprecationLevel;
@@ -14,6 +15,7 @@ import kotlin.coroutines.EmptyCoroutineContext;
 import kotlin.internal.LowPriorityInOverloadResolution;
 import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.CoroutineContextKt;
+import kotlinx.coroutines.CoroutineExceptionHandlerKt;
 import kotlinx.coroutines.CoroutineScope;
 import kotlinx.coroutines.CoroutineStart;
 import kotlinx.coroutines.ExperimentalCoroutinesApi;
@@ -27,7 +29,22 @@ import org.reactivestreams.Subscriber;
 /* loaded from: classes9.dex */
 public final class PublishKt {
     public static final long CLOSED = -1;
-    public static final Function2<Throwable, CoroutineContext, Unit> DEFAULT_HANDLER = PublishKt$DEFAULT_HANDLER$1.INSTANCE;
+    public static final Function2<Throwable, CoroutineContext, Unit> DEFAULT_HANDLER = new Function2<Throwable, CoroutineContext, Unit>() { // from class: kotlinx.coroutines.reactive.PublishKt$DEFAULT_HANDLER$1
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // kotlin.jvm.functions.Function2
+        public /* bridge */ /* synthetic */ Unit invoke(Throwable th, CoroutineContext coroutineContext) {
+            invoke2(th, coroutineContext);
+            return Unit.INSTANCE;
+        }
+
+        /* renamed from: invoke  reason: avoid collision after fix types in other method */
+        public final void invoke2(Throwable th, CoroutineContext coroutineContext) {
+            if (!(th instanceof CancellationException)) {
+                CoroutineExceptionHandlerKt.handleCoroutineException(coroutineContext, th);
+            }
+        }
+    };
     public static final long SIGNALLED = -2;
 
     @ExperimentalCoroutinesApi

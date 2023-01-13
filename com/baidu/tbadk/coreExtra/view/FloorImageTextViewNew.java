@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.richText.TbRichText;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p49;
+import com.baidu.tieba.m99;
 import com.baidu.tieba.pb.pb.main.view.EditorScrollView;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,8 +47,8 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
                 return;
             }
         }
-        n = yi.g(TbadkApplication.getInst(), R.dimen.tbds348);
-        o = yi.g(TbadkApplication.getInst(), R.dimen.tbds308);
+        n = zi.g(TbadkApplication.getInst(), R.dimen.tbds348);
+        o = zi.g(TbadkApplication.getInst(), R.dimen.tbds308);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -138,10 +138,10 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
             int i = 0;
             if (imageUrlData != null && jSONArray != null && jSONArray.length() > 0) {
                 this.m = true;
-                p49.a().d(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
-                TbRichText V = TbRichTextView.V(jSONArray, false);
-                g(d(V.toString()));
-                this.j.setText(V);
+                m99.a().d(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                TbRichText Z = TbRichTextView.Z(jSONArray, false);
+                g(d(Z.toString()));
+                this.j.setText(Z);
             } else {
                 this.m = false;
             }
@@ -156,17 +156,17 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.floorimage_textview_layout_new, (ViewGroup) this, true);
-            TbRichTextView tbRichTextView = (TbRichTextView) findViewById(R.id.obfuscated_res_0x7f09221c);
+            TbRichTextView tbRichTextView = (TbRichTextView) findViewById(R.id.obfuscated_res_0x7f09224e);
             this.j = tbRichTextView;
             tbRichTextView.setVerticalScrollBarEnabled(true);
             this.j.setTextSize(AbsFloorImageTextView.i);
             this.j.setTextColor(SkinManager.getColor(R.color.white_alpha83));
-            this.j.R = true;
-            EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.obfuscated_res_0x7f091e97);
+            this.j.S = true;
+            EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.obfuscated_res_0x7f091eb6);
             this.k = editorScrollView;
-            editorScrollView.setPadding(0, yi.g(TbadkApplication.getInst(), R.dimen.tbds34), 0, AbsFloorImageTextView.e);
+            editorScrollView.setPadding(0, zi.g(TbadkApplication.getInst(), R.dimen.tbds34), 0, AbsFloorImageTextView.e);
             this.k.setOnTouchListener(this.c);
-            ((ViewGroup.MarginLayoutParams) this.k.getLayoutParams()).topMargin = yi.g(TbadkApplication.getInst(), R.dimen.tbds174);
+            ((ViewGroup.MarginLayoutParams) this.k.getLayoutParams()).topMargin = zi.g(TbadkApplication.getInst(), R.dimen.tbds174);
             setVisibility(8);
         }
     }
@@ -175,9 +175,9 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            float i = yi.i(getContext());
-            int j = yi.j(getContext());
-            int l = yi.l(getContext());
+            float i = zi.i(getContext());
+            int j = zi.j(getContext());
+            int l = zi.l(getContext());
             double d = i;
             int i2 = (d > 3.0d ? 1 : (d == 3.0d ? 0 : -1));
             if (i2 == 0 && l >= 1920 && j >= 2049) {

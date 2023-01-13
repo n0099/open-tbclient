@@ -1,78 +1,311 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.widget.FrameLayout;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.homepage.personalize.PersonalizePageView;
+import com.baidu.tieba.homepage.personalize.data.ConcernUnreadTipHttpResMsg;
+import com.baidu.tieba.homepage.personalize.data.ConcernUnreadTipSocketResMsg;
+import com.baidu.tieba.homepage.personalize.view.ConcernUnreadTipView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class w77 implements xn {
+public class w77 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
+    public j57 a;
+    public PersonalizePageView b;
+    public ConcernUnreadTipView c;
+    public TbPageContext d;
+    public BdUniqueId e;
+    public Runnable f;
+    public rb g;
+    public CustomMessageListener h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948223570, "Lcom/baidu/tieba/w77;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ w77 a;
+
+        public a(w77 w77Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w77Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948223570, "Lcom/baidu/tieba/w77;");
-                return;
+            this.a = w77Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
+                if (this.a.c != null) {
+                    this.a.b.removeView(this.a.c);
+                    TiebaStatic.log(new StatisticItem("c12632").param("obj_locate", 3));
+                }
+                this.a.b.setIsUnreadTipShow(false);
             }
         }
-        e = BdUniqueId.gen();
     }
 
-    public w77() {
+    /* loaded from: classes6.dex */
+    public class b extends rb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ w77 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(w77 w77Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w77Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = w77Var;
+        }
+
+        @Override // com.baidu.tieba.rb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                if (!(responsedMessage instanceof ConcernUnreadTipHttpResMsg)) {
+                    if (!(responsedMessage instanceof ConcernUnreadTipSocketResMsg)) {
+                        return;
+                    }
+                    this.a.e(((ConcernUnreadTipSocketResMsg) responsedMessage).mData);
+                    return;
+                }
+                this.a.e(((ConcernUnreadTipHttpResMsg) responsedMessage).mData);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ w77 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(w77 w77Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w77Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = w77Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                this.a.f(true);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ w77 a;
+
+        public d(w77 w77Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w77Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = w77Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.c != null && this.a.c.a != null) {
+                if (view2.getId() != this.a.c.a.getId()) {
+                    if (this.a.a != null) {
+                        this.a.a.setCurrentTab(0);
+                        return;
+                    }
+                    return;
+                }
+                this.a.f(false);
+                TiebaStatic.log(new StatisticItem("c12632").param("obj_locate", 1));
+            }
+        }
+    }
+
+    public w77(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f = new a(this);
+        this.g = new b(this, CmdConfigHttp.CMD_CONCERN_UNREAD_TIP, 309541);
+        this.h = new c(this, 2921064);
+        if (tbPageContext == null) {
+            return;
+        }
+        this.d = tbPageContext;
+        tbPageContext.registerListener(this.g);
+        tbPageContext.registerListener(this.h);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_UNREAD_TIP, qw8.a(TbConfig.URL_CONCERN_UNREAD_TIP, 309541));
+        tbHttpMessageTask.setIsNeedAddCommenParam(true);
+        tbHttpMessageTask.setResponsedClass(ConcernUnreadTipHttpResMsg.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        dh5 dh5Var = new dh5(309541);
+        dh5Var.setResponsedClass(ConcernUnreadTipSocketResMsg.class);
+        dh5Var.g(true);
+        MessageManager.getInstance().registerTask(dh5Var);
+    }
+
+    public void k(p97 p97Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, p97Var) != null) || this.b == null) {
+            return;
+        }
+        ConcernUnreadTipView concernUnreadTipView = new ConcernUnreadTipView(this.d.getContext());
+        this.c = concernUnreadTipView;
+        concernUnreadTipView.setBdUniqueId(this.e);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
+        layoutParams.gravity = 49;
+        this.c.setLayoutParams(layoutParams);
+        this.c.setData(p97Var);
+        this.c.setClickListener(new d(this));
+        this.b.setIsUnreadTipShow(true);
+        this.b.addView(this.c);
+        if (p97Var != null) {
+            TiebaStatic.log(new StatisticItem("c12631").param("obj_param1", p97Var.a).param(TiebaStatic.Params.OBJ_PARAM2, p97Var.e));
+        }
+        bh.a().postDelayed(this.f, 5000L);
+    }
+
+    public final void e(p97 p97Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, p97Var) == null) && p97Var != null && p97Var.a()) {
+            k(p97Var);
+        }
+    }
+
+    public void h(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
+            this.e = bdUniqueId;
+        }
+    }
+
+    public void i(PersonalizePageView personalizePageView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, personalizePageView) == null) {
+            this.b = personalizePageView;
+        }
+    }
+
+    public void j(j57 j57Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, j57Var) == null) {
+            this.a = j57Var;
+        }
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            bh.a().removeCallbacks(this.f);
+            PersonalizePageView personalizePageView = this.b;
+            if (personalizePageView != null) {
+                ConcernUnreadTipView concernUnreadTipView = this.c;
+                if (concernUnreadTipView != null) {
+                    personalizePageView.removeView(concernUnreadTipView);
+                    if (z && this.b.getIsUnreadTipShow()) {
+                        cz4.l().y(cz4.p("concern_unread_tip_next_show_time"), 0L);
+                        TiebaStatic.log(new StatisticItem("c12632").param("obj_locate", 2));
+                    }
+                }
+                this.b.setIsUnreadTipShow(false);
             }
         }
     }
 
-    @Override // com.baidu.tieba.xn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return e;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public static w77 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = null;
+            this.a = null;
+            if (this.f != null) {
+                bh.a().removeCallbacks(this.f);
             }
-            w77 w77Var = new w77();
-            w77Var.a = jSONObject.optString("title");
-            w77Var.b = jSONObject.optString("desc");
-            w77Var.c = jSONObject.optString("tag");
-            w77Var.d = jSONObject.optString("img");
-            return w77Var;
+            MessageManager.getInstance().unRegisterListener(this.g);
+            MessageManager.getInstance().unRegisterListener(this.h);
         }
-        return (w77) invokeL.objValue;
     }
 }

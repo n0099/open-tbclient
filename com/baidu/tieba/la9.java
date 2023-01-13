@@ -1,30 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
 /* loaded from: classes5.dex */
-public class la9 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface la9 {
+    void a();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947936293, "Lcom/baidu/tieba/la9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947936293, "Lcom/baidu/tieba/la9;");
-                return;
-            }
-        }
-        a = TbConfig.VIRTUAL_IMAGE_MAIN_URL;
-    }
+    void b(CloudMusicData.MusicTagList.MusicList musicList, int i);
+
+    void c();
+
+    void d(CloudMusicData.MusicTagList musicTagList);
+
+    void e(int i);
 }

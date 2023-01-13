@@ -1,27 +1,27 @@
 package rx.internal.producers;
 
-import com.baidu.tieba.e3a;
-import com.baidu.tieba.i3a;
-import com.baidu.tieba.o3a;
+import com.baidu.tieba.m8a;
+import com.baidu.tieba.q8a;
+import com.baidu.tieba.w8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes9.dex */
-public final class SingleProducer<T> extends AtomicBoolean implements e3a {
+public final class SingleProducer<T> extends AtomicBoolean implements m8a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -3353584923995471404L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final i3a<? super T> child;
+    public final q8a<? super T> child;
     public final T value;
 
-    public SingleProducer(i3a<? super T> i3aVar, T t) {
+    public SingleProducer(q8a<? super T> q8aVar, T t) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {i3aVar, t};
+            Object[] objArr = {q8aVar, t};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,31 +31,31 @@ public final class SingleProducer<T> extends AtomicBoolean implements e3a {
                 return;
             }
         }
-        this.child = i3aVar;
+        this.child = q8aVar;
         this.value = t;
     }
 
-    @Override // com.baidu.tieba.e3a
+    @Override // com.baidu.tieba.m8a
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i >= 0) {
                 if (i != 0 && compareAndSet(false, true)) {
-                    i3a<? super T> i3aVar = this.child;
-                    if (i3aVar.isUnsubscribed()) {
+                    q8a<? super T> q8aVar = this.child;
+                    if (q8aVar.isUnsubscribed()) {
                         return;
                     }
                     Object obj = (T) this.value;
                     try {
-                        i3aVar.onNext(obj);
-                        if (i3aVar.isUnsubscribed()) {
+                        q8aVar.onNext(obj);
+                        if (q8aVar.isUnsubscribed()) {
                             return;
                         }
-                        i3aVar.onCompleted();
+                        q8aVar.onCompleted();
                         return;
                     } catch (Throwable th) {
-                        o3a.g(th, i3aVar, obj);
+                        w8a.g(th, q8aVar, obj);
                         return;
                     }
                 }

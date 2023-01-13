@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-/* loaded from: classes6.dex */
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+/* loaded from: classes7.dex */
 public interface yb5 {
-    void a(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z);
-
-    void b(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z);
+    void onSendMessageResult(int i, @Nullable ChatMsg chatMsg);
 }

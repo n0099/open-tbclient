@@ -1,40 +1,35 @@
 package com.baidu.tieba;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Rect;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.DisplayCutout;
-import android.view.View;
-import android.view.WindowInsets;
-import android.view.WindowManager;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.webkit.sdk.PermissionRequest;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public class nh3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static final String b;
-    public static final String c;
-    public static boolean d;
-    public static String e;
-    public static String f;
+    public static final Map<String, String> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -50,405 +45,317 @@ public class nh3 {
                 return;
             }
         }
-        a = ok1.a;
-        b = mi3.b;
-        c = mi3.c;
-        d = false;
+        a = tk1.a;
+        HashMap hashMap = new HashMap(14);
+        b = hashMap;
+        hashMap.put(com.kuaishou.weapon.p0.h.g, "定位");
+        b.put(com.kuaishou.weapon.p0.h.h, "定位");
+        b.put(PermissionRequest.RESOURCE_AUDIO_CAPTURE, "录音");
+        b.put("android.permission.READ_CONTACTS", "读取联系人");
+        b.put("android.permission.ACCESS_NETWORK_STATE", "访问网络状态");
+        b.put("android.permission.REORDER_TASKS", "开机自启");
+        b.put(com.kuaishou.weapon.p0.h.a, "网络");
+        b.put("android.permission.REQUEST_INSTALL_PACKAGES", "安装软件包");
+        b.put("android.permission.READ_CALENDAR", "读取日历");
+        b.put("android.permission.WRITE_CALENDAR", "写入日历");
+        b.put("android.permission.WRITE_EXTERNAL_STORAGE", "存储");
+        b.put(com.kuaishou.weapon.p0.h.i, "存储");
+        b.put(PermissionRequest.RESOURCE_VIDEO_CAPTURE, "相机");
+        b.put("android.permission.WRITE_SETTINGS", "系统设置");
+        b.put("android.permission.SYSTEM_ALERT_WINDOW", "悬浮窗");
     }
 
-    public static boolean d() {
+    public static Map<String, ComponentName> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put(RomUtils.MANUFACTURER_HUAWEI, new ComponentName("com.huawei.systemmanager", "com.huawei.permissionmanager.ui.MainActivity"));
+            hashMap.put("letv", new ComponentName("com.letv.android.letvsafe", "com.letv.android.letvsafe.PermissionAndApps"));
+            hashMap.put("lg", new ComponentName("com.android.settings", "com.android.settings.Settings$AccessLockSummaryActivity"));
+            hashMap.put("sony", new ComponentName("com.sonymobile.cta", "com.sonymobile.cta.SomcCTAMainActivity"));
+            return hashMap;
         }
-        return invokeV.booleanValue;
+        return (Map) invokeV.objValue;
     }
 
-    public static boolean m() {
+    public static String c() {
         InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            return a("EMUI");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            return a("MIUI");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            return a(b);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
-            return a("VIVO");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String str2 = e;
-            if (str2 != null) {
-                return str2.equals(str);
-            }
-            String g = g("ro.miui.ui.version.name");
-            f = g;
-            if (!TextUtils.isEmpty(g)) {
-                e = "MIUI";
-            } else {
-                String g2 = g("ro.build.version.emui");
-                f = g2;
-                if (!TextUtils.isEmpty(g2)) {
-                    e = "EMUI";
-                } else {
-                    String g3 = g(c);
-                    f = g3;
-                    if (!TextUtils.isEmpty(g3)) {
-                        e = b;
-                    } else {
-                        String g4 = g("ro.vivo.os.version");
-                        f = g4;
-                        if (!TextUtils.isEmpty(g4)) {
-                            e = "VIVO";
-                        } else {
-                            String g5 = g("ro.smartisan.version");
-                            f = g5;
-                            if (!TextUtils.isEmpty(g5)) {
-                                e = "SMARTISAN";
-                            } else {
-                                String g6 = g(RomUtils.KEY_VERSION_GIONEE);
-                                f = g6;
-                                if (!TextUtils.isEmpty(g6)) {
-                                    e = "SMARTISAN";
-                                } else {
-                                    String g7 = g(RomUtils.KEY_VERSION_NUBIA);
-                                    f = g7;
-                                    if (!TextUtils.isEmpty(g7)) {
-                                        e = RomUtils.ROM_NUBIA;
-                                    } else {
-                                        String str3 = Build.DISPLAY;
-                                        f = str3;
-                                        if (str3.toUpperCase().contains("FLYME")) {
-                                            e = "FLYME";
-                                        } else {
-                                            f = "unknown";
-                                            e = Build.MANUFACTURER.toUpperCase();
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            return e.equals(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static int b(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
-            DisplayCutout c2 = c(activity);
-            if (c2 == null || Build.VERSION.SDK_INT < 28) {
-                return 0;
-            }
-            List<Rect> boundingRects = c2.getBoundingRects();
-            return boundingRects.get(0).right - boundingRects.get(0).left;
-        }
-        return invokeL.intValue;
-    }
-
-    public static DisplayCutout c(Activity activity) {
-        InterceptResult invokeL;
-        View decorView;
-        WindowInsets rootWindowInsets;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
-            if (activity == null || activity.getWindow() == null || Build.VERSION.SDK_INT < 28 || (decorView = activity.getWindow().getDecorView()) == null || (rootWindowInsets = decorView.getRootWindowInsets()) == null) {
-                return null;
-            }
-            return rootWindowInsets.getDisplayCutout();
-        }
-        return (DisplayCutout) invokeL.objValue;
-    }
-
-    public static boolean h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            if (context == null) {
-                return false;
-            }
-            if (m()) {
-                return i(context);
-            }
-            if (r()) {
-                return l(context);
-            }
-            if (o()) {
-                return k(context);
-            }
-            if (!n()) {
-                return false;
-            }
-            return j(context);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean i(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            try {
-                Class<?> loadClass = context.getClassLoader().loadClass("com.huawei.android.util.HwNotchSizeUtil");
-                return ((Boolean) loadClass.getMethod("hasNotchInScreen", new Class[0]).invoke(loadClass, new Object[0])).booleanValue();
-            } catch (Exception e2) {
-                if (!a) {
-                    return false;
-                }
-                e2.printStackTrace();
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static int e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i < 26) {
-                return 0;
-            }
-            if (i >= 28) {
-                return f();
-            }
-            if (!h(context)) {
-                return 0;
-            }
-            if (n()) {
-                Resources resources = context.getResources();
-                try {
-                    int identifier = resources.getIdentifier("notch_height", EMABTest.TYPE_DIMEN, "android");
-                    if (identifier > 0) {
-                        return resources.getDimensionPixelSize(identifier);
-                    }
-                } catch (Exception unused) {
-                    return 0;
-                }
-            }
-            if (m()) {
-                try {
-                    Class<?> loadClass = context.getClassLoader().loadClass("com.huawei.android.util.HwNotchSizeUtil");
-                    return ((int[]) loadClass.getMethod("getNotchSize", new Class[0]).invoke(loadClass, new Object[0]))[1];
-                } catch (Exception unused2) {
-                    return 0;
-                }
-            } else if (o()) {
-                return 80;
-            } else {
-                if (!r()) {
-                    return 0;
-                }
-                return vh3.g(32.0f);
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public static String g(String str) {
-        InterceptResult invokeL;
         BufferedReader bufferedReader;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             BufferedReader bufferedReader2 = null;
             try {
-                bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop " + str).getInputStream()));
+                bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop ro.miui.ui.version.name").getInputStream()), 1024);
                 try {
                     try {
                         String readLine = bufferedReader.readLine();
-                        ik4.d(bufferedReader);
+                        nk4.d(bufferedReader);
                         return readLine;
-                    } catch (IOException e2) {
-                        e = e2;
+                    } catch (IOException e) {
+                        e = e;
                         if (a) {
-                            Log.e("SwanAppRomUtils", "Unable to read prop " + str, e);
+                            e.printStackTrace();
                         }
-                        ik4.d(bufferedReader);
-                        ik4.d(bufferedReader);
+                        nk4.d(bufferedReader);
                         return null;
                     }
                 } catch (Throwable th) {
                     th = th;
                     bufferedReader2 = bufferedReader;
-                    ik4.d(bufferedReader2);
+                    nk4.d(bufferedReader2);
                     throw th;
                 }
-            } catch (IOException e3) {
-                e = e3;
+            } catch (IOException e2) {
+                e = e2;
                 bufferedReader = null;
             } catch (Throwable th2) {
                 th = th2;
-                ik4.d(bufferedReader2);
+                nk4.d(bufferedReader2);
                 throw th;
             }
         } else {
-            return (String) invokeL.objValue;
+            return (String) invokeV.objValue;
         }
     }
 
-    @RequiresApi(28)
-    public static int f() {
+    public static Map<String, String> b() {
         InterceptResult invokeV;
-        DisplayCutout displayCutout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            int i = 0;
-            if (e43.M() != null && e43.M().getActivity() != null) {
-                try {
-                    WindowInsets rootWindowInsets = e43.M().getActivity().getWindow().getDecorView().getRootWindowInsets();
-                    if (rootWindowInsets == null || (displayCutout = rootWindowInsets.getDisplayCutout()) == null) {
-                        return 0;
-                    }
-                    i = displayCutout.getSafeInsetTop();
-                    if (a) {
-                        Log.d("SwanAppRomUtils", "刘海屏高度:" + i);
-                    }
-                } catch (Exception e2) {
-                    if (a) {
-                        Log.w("SwanAppRomUtils", e2);
-                    }
-                }
-            }
-            return i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put(ri3.a, "com.coloros.safecenter");
+            hashMap.put("vivo", "com.bairenkeji.icaller");
+            hashMap.put("coolpad", "com.yulong.android.security:remote");
+            return hashMap;
         }
-        return invokeV.intValue;
+        return (Map) invokeV.objValue;
     }
 
-    @SuppressLint({"PrivateApi"})
-    public static boolean j(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            try {
-                Class<?> loadClass = context.getClassLoader().loadClass("android.os.SystemProperties");
-                if (((Integer) loadClass.getMethod("getInt", String.class, Integer.TYPE).invoke(loadClass, "ro.miui.notch", 0)).intValue() != 1) {
-                    return false;
-                }
-                return true;
-            } catch (Exception e2) {
-                if (!a) {
-                    return false;
-                }
-                e2.printStackTrace();
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @SuppressLint({"PrivateApi"})
-    public static boolean l(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
-            try {
-                Class<?> loadClass = context.getClassLoader().loadClass("android.util.FtFeature");
-                return ((Boolean) loadClass.getMethod("isFeatureSupport", Integer.TYPE).invoke(loadClass, 32)).booleanValue();
-            } catch (Exception e2) {
-                if (!a) {
-                    return false;
-                }
-                e2.printStackTrace();
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean k(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            return context.getPackageManager().hasSystemFeature(mi3.d);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean p(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, activity)) == null) {
-            if (c(activity) != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void s(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65555, null, activity) == null) && Build.VERSION.SDK_INT >= 28) {
-            WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
-            attributes.layoutInDisplayCutoutMode = 1;
-            activity.getWindow().setAttributes(attributes);
-        }
-    }
-
-    public static boolean q(Activity activity, View view2) {
+    public static PackageInfo d(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, activity, view2)) == null) {
-            DisplayCutout c2 = c(activity);
-            if (c2 != null && Build.VERSION.SDK_INT >= 28) {
-                List<Rect> boundingRects = c2.getBoundingRects();
-                int i = boundingRects.get(0).left;
-                int i2 = boundingRects.get(0).right;
-                int i3 = boundingRects.get(0).top;
-                int i4 = boundingRects.get(0).bottom;
-                int[] iArr = new int[2];
-                view2.getLocationOnScreen(iArr);
-                int width = view2.getWidth();
-                int height = view2.getHeight();
-                int i5 = iArr[0];
-                int i6 = iArr[0] + width;
-                int i7 = iArr[1];
-                int i8 = iArr[1] + height;
-                if (((i8 <= i4 && i8 > i3) || (i7 < i4 && i7 >= i3)) && ((i6 > i && i6 <= i2) || ((i5 >= i && i6 <= i2) || ((i5 >= i && i5 < i2) || (i5 < i && i6 > i2))))) {
-                    d = true;
-                    return true;
-                } else if (((i5 >= i && i5 < i2) || (i6 > i && i6 <= i2)) && ((i8 > i3 && i8 <= i4) || ((i7 >= i3 && i8 <= i4) || ((i7 >= i3 && i7 < i4) || (i7 < i3 && i8 > i4))))) {
-                    d = true;
-                    return true;
-                } else if (i5 <= i && i6 >= i2 && i7 <= i3 && i8 >= i4) {
-                    d = true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            try {
+                return context.getPackageManager().getPackageInfo(str, 0);
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+        }
+        return (PackageInfo) invokeLL.objValue;
+    }
+
+    public static void k(Context context, ComponentName componentName) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65547, null, context, componentName) == null) {
+            try {
+                Intent intent = new Intent(context.getPackageName());
+                intent.setComponent(componentName);
+                context.startActivity(intent);
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+                f(context);
+            }
+        }
+    }
+
+    public static void startActivity(Context context, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65550, null, context, intent) == null) {
+            if (context != null && intent != null) {
+                try {
+                    context.startActivity(intent);
+                } catch (Exception e) {
+                    if (a) {
+                        e.printStackTrace();
+                    }
+                }
+            } else if (a) {
+                Log.e("SwanAppPermissionHelper", "context or intent is null");
+            }
+        }
+    }
+
+    public static ResolveInfo e(Context context, PackageInfo packageInfo) {
+        InterceptResult invokeLL;
+        List<ResolveInfo> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, packageInfo)) == null) {
+            Intent intent = new Intent("android.intent.action.MAIN", (Uri) null);
+            intent.addCategory("android.intent.category.LAUNCHER");
+            intent.setPackage(packageInfo.packageName);
+            try {
+                list = context.getPackageManager().queryIntentActivities(intent, 0);
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+                list = null;
+            }
+            if (list == null || list.size() == 0) {
+                return null;
+            }
+            return list.get(0);
+        }
+        return (ResolveInfo) invokeLL.objValue;
+    }
+
+    public static void l(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65548, null, context, str) == null) {
+            PackageInfo d = d(context, str);
+            if (d == null) {
+                f(context);
+                return;
+            }
+            ResolveInfo e = e(context, d);
+            if (e == null) {
+                f(context);
+                return;
+            }
+            try {
+                Intent intent = new Intent("android.intent.action.MAIN");
+                intent.addCategory("android.intent.category.LAUNCHER");
+                intent.setComponent(new ComponentName(e.activityInfo.packageName, e.activityInfo.name));
+                context.startActivity(intent);
+            } catch (Exception e2) {
+                if (a) {
+                    e2.printStackTrace();
+                }
+                f(context);
+            }
+        }
+    }
+
+    public static void f(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
+            Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
+            intent.setData(Uri.fromParts("package", context.getPackageName(), null));
+            startActivity(context, intent);
+        }
+    }
+
+    public static String m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            String str2 = b.get(str);
+            if (str2 == null) {
+                return "";
+            }
+            return str2;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void g(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65543, null, context) != null) || context == null) {
+            return;
+        }
+        String str = Build.MANUFACTURER;
+        if (TextUtils.isEmpty(str)) {
+            f(context);
+            return;
+        }
+        String lowerCase = str.toLowerCase();
+        if (a) {
+            Log.d("SwanAppPermissionHelper", "goPermissionPage : " + lowerCase);
+        }
+        if (TextUtils.equals(lowerCase, RomUtils.MANUFACTURER_XIAOMI)) {
+            i(context);
+        } else if (TextUtils.equals(lowerCase, "meizu")) {
+            h(context);
+        } else {
+            Map<String, ComponentName> a2 = a();
+            if (a2.containsKey(lowerCase)) {
+                k(context, a2.get(lowerCase));
+                return;
+            }
+            Map<String, String> b2 = b();
+            if (b2.containsKey(lowerCase)) {
+                l(context, b2.get(lowerCase));
+            } else {
+                f(context);
+            }
+        }
+    }
+
+    public static void i(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
+            String c = c();
+            if (a) {
+                Log.d("SwanAppPermissionHelper", "goPermissionPageForXiaomi rom version : " + c);
+            }
+            Intent intent = new Intent();
+            if (!"V10".equals(c) && !"V9".equals(c) && !"V8".equals(c)) {
+                if (!"V7".equals(c) && !"V6".equals(c)) {
+                    f(context);
+                    return;
+                }
+                intent.setAction("miui.intent.action.APP_PERM_EDITOR");
+                intent.setClassName("com.miui.securitycenter", "com.miui.permcenter.permissions.AppPermissionsEditorActivity");
+                intent.putExtra("extra_pkgname", context.getPackageName());
+                startActivity(context, intent);
+                return;
+            }
+            intent.setAction("miui.intent.action.APP_PERM_EDITOR");
+            intent.setClassName("com.miui.securitycenter", "com.miui.permcenter.permissions.PermissionsEditorActivity");
+            intent.putExtra("extra_pkgname", context.getPackageName());
+            startActivity(context, intent);
+        }
+    }
+
+    public static void h(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, context) == null) {
+            try {
+                Intent intent = new Intent("com.meizu.safe.security.SHOW_APPSEC");
+                intent.addCategory("android.intent.category.DEFAULT");
+                intent.putExtra("packageName", context.getPackageName());
+                context.startActivity(intent);
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+                f(context);
+            }
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static boolean j(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, str)) == null) {
+            if (context != null && !TextUtils.isEmpty(str)) {
+                if (Build.VERSION.SDK_INT < 23) {
                     return true;
                 }
+                int i = -1;
+                try {
+                    i = ContextCompat.checkSelfPermission(context, str);
+                } catch (Exception e) {
+                    if (a) {
+                        throw e;
+                    }
+                }
+                if (i != 0) {
+                    return false;
+                }
+                return true;
+            } else if (!a) {
+                return false;
+            } else {
+                throw new IllegalArgumentException("context or permission is null");
             }
-            return false;
         }
         return invokeLL.booleanValue;
     }

@@ -1,9 +1,26 @@
 package com.baidu.tieba;
 
-import java.io.IOException;
-/* loaded from: classes5.dex */
-public interface qj9 {
-    void close() throws IOException;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.nio.ByteBuffer;
+/* loaded from: classes6.dex */
+public final class qj9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    int write(byte[] bArr, int i, int i2) throws IOException;
+    public static void a(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65536, null, byteBuffer) != null) || byteBuffer.isDirect()) {
+            return;
+        }
+        throw new IllegalArgumentException("byteBuffer must be a direct ByteBuffer.");
+    }
+
+    public static void b(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65537, null, byteBuffer) != null) || byteBuffer.hasRemaining()) {
+            return;
+        }
+        throw new IllegalArgumentException("ByteBuffer is already full.");
+    }
 }

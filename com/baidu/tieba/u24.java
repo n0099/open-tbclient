@@ -3,14 +3,19 @@ package com.baidu.tieba;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class u24 extends ny3 {
+public class u24 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @V8JavascriptField
+    public String filePath;
+    @V8JavascriptField
     public int statusCode;
+    @V8JavascriptField
+    public String tempFilePath;
 
     public u24() {
         Interceptable interceptable = $ic;
@@ -24,5 +29,14 @@ public class u24 extends ny3 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "ResponseData{statusCode=" + this.statusCode + ",tempFilePath=" + this.tempFilePath + ",filePath=" + this.filePath + "}";
+        }
+        return (String) invokeV.objValue;
     }
 }

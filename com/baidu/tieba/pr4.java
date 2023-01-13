@@ -1,118 +1,126 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
+import android.app.Application;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.bigday.GetBigdayInfoHttpResMessage;
-import com.baidu.tbadk.core.bigday.GetBigdayInfoReqMessage;
-import com.baidu.tbadk.core.bigday.GetBigdayInfoSocketResMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.TbMd5;
-import com.baidu.tbadk.core.util.resourceLoaderProc.BigdayImageLoaderProc;
-import com.baidu.tbadk.switchs.BigdaySwitch;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbadkSettings;
+import com.baidu.tbadk.TiebaDatabase;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.service.ChangeSkinReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import tbclient.GetBigday.BigdayInfo;
-import tbclient.GetBigday.GetBigdayResIdl;
+import java.io.Serializable;
 /* loaded from: classes5.dex */
 public class pr4 {
     public static /* synthetic */ Interceptable $ic;
-    public static pr4 h;
+    public static pr4 k;
     public transient /* synthetic */ FieldHolder $fh;
-    public or4 a;
-    public or4 b;
-    public SparseArray<Long> c;
-    public ArrayList<or4> d;
-    public BdUniqueId e;
-    public boolean f;
-    public qb g;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948071639, "Lcom/baidu/tieba/pr4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948071639, "Lcom/baidu/tieba/pr4;");
-        }
-    }
+    public AccountData a;
+    public boolean b;
+    public c c;
+    public int d;
+    public int e;
+    public int f;
+    public boolean g;
+    public int h;
+    public ChangeSkinReceiver i;
+    public boolean j;
 
     /* loaded from: classes5.dex */
-    public class a extends qb {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pr4 a;
+        public final /* synthetic */ AccountData a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ pr4 c;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(pr4 pr4Var, int i, int i2) {
-            super(i, i2);
+        public a(pr4 pr4Var, AccountData accountData, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pr4Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {pr4Var, accountData, context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = pr4Var;
+            this.c = pr4Var;
+            this.a = accountData;
+            this.b = context;
         }
 
-        @Override // com.baidu.tieba.qb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && !responsedMessage.hasError()) {
-                this.a.f = true;
-                ArrayList<or4> arrayList = null;
-                if (responsedMessage instanceof GetBigdayInfoSocketResMessage) {
-                    arrayList = ((GetBigdayInfoSocketResMessage) responsedMessage).bigdayInfos;
-                } else if (responsedMessage instanceof GetBigdayInfoHttpResMessage) {
-                    arrayList = ((GetBigdayInfoHttpResMessage) responsedMessage).bigdayInfos;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.c.L(this.a, this.b);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                this.a.m(arrayList);
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                gy8.a("", 7);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b extends BdAsyncTask<Void, Void, ArrayList<or4>> {
+    public class c extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pr4 a;
+        public final /* synthetic */ pr4 this$0;
 
-        public b(pr4 pr4Var) {
+        public c(pr4 pr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,112 +135,30 @@ public class pr4 {
                     return;
                 }
             }
-            this.a = pr4Var;
+            this.this$0 = pr4Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(ArrayList<or4> arrayList) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-                super.onPostExecute(arrayList);
-                if (arrayList == null) {
-                    return;
-                }
-                this.a.l(arrayList);
-            }
+        public /* synthetic */ c(pr4 pr4Var, a aVar) {
+            this(pr4Var);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public ArrayList<or4> doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            byte[] bArr;
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                ArrayList<or4> arrayList = new ArrayList<>();
-                kv4.f();
-                df<byte[]> d = kv4.d("tb.bigday_datas");
-                if (d != null && (bArr = d.get("tb.bigday_datas")) != null) {
-                    try {
-                        GetBigdayResIdl getBigdayResIdl = (GetBigdayResIdl) new Wire(new Class[0]).parseFrom(bArr, GetBigdayResIdl.class);
-                        if (getBigdayResIdl.data != null) {
-                            for (BigdayInfo bigdayInfo : getBigdayResIdl.data.bigday_list) {
-                                if (bigdayInfo != null) {
-                                    or4 or4Var = new or4();
-                                    or4Var.b(bigdayInfo);
-                                    if (or4Var.a()) {
-                                        arrayList.add(or4Var);
-                                    }
-                                }
-                            }
-                            return arrayList;
-                        }
-                        return arrayList;
-                    } catch (Exception unused) {
-                        return null;
-                    }
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && this.this$0.D() && intent != null && "com.baidu.tieba.action.accountChange".equals(intent.getAction())) {
+                Serializable serializableExtra = intent.getSerializableExtra("intent_data_accountData");
+                if (serializableExtra instanceof AccountData) {
+                    this.this$0.a = (AccountData) serializableExtra;
+                } else {
+                    this.this$0.a = null;
                 }
-                return arrayList;
-            }
-            return (ArrayList) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c extends DiskFileOperate implements ic {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public ArrayList<String> a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(String str, String str2, DiskFileOperate.Action action, ArrayList<or4> arrayList) {
-            super(str, str2, action);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, action, arrayList};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                yc5.o(this.this$0.B());
+                if (this.this$0.a != null) {
+                    yc5.n(this.this$0.a.getBDUSS());
+                    yc5.q(this.this$0.a.getTbs());
+                    yc5.p(this.this$0.a.getStoken());
                 }
             }
-            this.a = new ArrayList<>();
-            Iterator<or4> it = arrayList.iterator();
-            while (it.hasNext()) {
-                or4 next = it.next();
-                if (next != null) {
-                    String g = tg.h().g(next.a, 41);
-                    if (!StringUtils.isNULL(g)) {
-                        String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(g);
-                        if (!StringUtils.isNULL(nameMd5FromUrl)) {
-                            this.a.add(nameMd5FromUrl);
-                        }
-                    }
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ic
-        public boolean compare(File file) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
-                if (file != null && !StringUtils.isNULL(file.getName())) {
-                    return !this.a.contains(file.getName());
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
         }
     }
 
@@ -240,187 +166,584 @@ public class pr4 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = false;
-        this.g = new a(this, CmdConfigHttp.CMD_GET_BIGDAY_INFO, 309609);
-        ur8.h(309609, GetBigdayInfoSocketResMessage.class, false, false);
-        ur8.c(309609, CmdConfigHttp.CMD_GET_BIGDAY_INFO, "c/s/getBigday", GetBigdayInfoHttpResMessage.class, false, false, true, false);
-        MessageManager.getInstance().registerListener(this.g);
-        this.c = new SparseArray<>();
+        this.a = null;
+        this.b = false;
+        this.d = 0;
+        this.e = 0;
+        this.f = 0;
+        this.g = true;
+        this.j = false;
     }
 
-    public static pr4 i() {
+    public void z() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048611, this) == null) && !C(false) && D() && this.c == null) {
+            this.c = new c(this, null);
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("com.baidu.tieba.action.accountChange");
+            TbadkCoreApplication.getInst().registerReceiver(this.c, intentFilter);
+        }
+    }
+
+    public static void G() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            eh.a().b(new b());
+            cz4.l().y("app_inverval", System.currentTimeMillis());
+        }
+    }
+
+    public static pr4 s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (h == null) {
-                h = new pr4();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (k == null) {
+                synchronized (pr4.class) {
+                    if (k == null) {
+                        k = new pr4();
+                    }
+                }
             }
-            return h;
+            return k;
         }
         return (pr4) invokeV.objValue;
     }
 
-    public void e() {
+    public void A() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.g);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && D()) {
+            this.i = new ChangeSkinReceiver();
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction(TbConfig.getBroadcastActionChangeSkin());
+            TbadkCoreApplication.getInst().registerReceiver(this.i, intentFilter);
         }
     }
 
-    public void j() {
+    public boolean B() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            new b(this).execute(new Void[0]);
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f = false;
-            GetBigdayInfoReqMessage getBigdayInfoReqMessage = new GetBigdayInfoReqMessage();
-            getBigdayInfoReqMessage.setTag(this.e);
-            MessageManager.getInstance().sendMessage(getBigdayInfoReqMessage);
-        }
-    }
-
-    public final void d(ArrayList<or4> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
-            ArrayList arrayList2 = new ArrayList();
-            ListUtils.addAll(arrayList2, 0, arrayList);
-            ListUtils.add(arrayList2, this.a);
-            ListUtils.add(arrayList2, this.b);
-            c cVar = new c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, null, DiskFileOperate.Action.DELETE_FILES, arrayList2);
-            cVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
-            cVar.setSdCard(false);
-            cVar.setSavedCache(true);
-            lc.f().a(cVar);
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || ListUtils.isEmpty(this.d)) {
-            return;
-        }
-        Iterator<or4> it = this.d.iterator();
-        while (it.hasNext()) {
-            or4 next = it.next();
-            if (!BigdayImageLoaderProc.isImageFileExist(next.a)) {
-                tg.h().m(next.a, 41, null, this.e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String g = g();
+            if (g != null && g.length() > 0) {
+                return true;
             }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return TbadkCoreApplication.getInst().isRemoteProcess();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean E() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            TbSingleton.getInstance().clearVideoRecord();
         }
     }
 
-    public final or4 g(List<or4> list, int i) {
-        InterceptResult invokeLI;
+    public String g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, list, i)) == null) {
-            if (!ListUtils.isEmpty(list)) {
-                for (or4 or4Var : list) {
-                    if (or4Var.a() && or4Var.e == i) {
-                        long currentTimeMillis = System.currentTimeMillis() / 1000;
-                        long j = or4Var.f;
-                        if (j > currentTimeMillis) {
-                            this.c.put(i, Long.valueOf(j));
-                            return null;
-                        } else if (or4Var.g >= currentTimeMillis) {
-                            return or4Var;
-                        }
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            AccountData accountData = this.a;
+            if (accountData != null) {
+                return accountData.getID();
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            String g = g();
+            if (TextUtils.isEmpty(g)) {
+                AccountData e = qr4.e();
+                if (e != null) {
+                    return e.getID();
                 }
+                return "";
+            }
+            return g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            AccountData accountData = this.a;
+            if (accountData == null) {
+                return 0L;
+            }
+            return yg.g(accountData.getID(), 0L);
+        }
+        return invokeV.longValue;
+    }
+
+    public AccountData j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.a;
+        }
+        return (AccountData) invokeV.objValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            AccountData accountData = this.a;
+            if (accountData != null) {
+                return accountData.getAccount();
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            AccountData accountData = this.a;
+            if (accountData != null) {
+                return accountData.getAccountNameShow();
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public AccountData m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.a;
+        }
+        return (AccountData) invokeV.objValue;
+    }
+
+    public String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            AccountData m = m();
+            if (m == null) {
                 return null;
             }
-            return null;
+            if (!TextUtils.isEmpty(m.getAvatar())) {
+                return m.getAvatar();
+            }
+            return m.getPortrait();
         }
-        return (or4) invokeLI.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public or4 h(int i) {
-        InterceptResult invokeI;
+    public String o() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            if (i == 1) {
-                if (this.a == null && this.c.get(i, 0L).longValue() != 0 && this.c.get(i, 0L).longValue() < currentTimeMillis) {
-                    this.a = g(this.d, 1);
-                }
-                or4 or4Var = this.a;
-                if (or4Var != null && (currentTimeMillis < or4Var.f || currentTimeMillis > or4Var.g)) {
-                    this.a = g(this.d, 1);
-                }
-                or4 or4Var2 = this.a;
-                if (or4Var2 != null && BigdayImageLoaderProc.isImageFileExist(or4Var2.a)) {
-                    return this.a;
-                }
-            } else if (i == 3) {
-                if (this.b == null && this.c.get(i, 0L).longValue() != 0 && this.c.get(i, 0L).longValue() < currentTimeMillis) {
-                    this.a = g(this.d, 3);
-                }
-                or4 or4Var3 = this.b;
-                if (or4Var3 != null && (currentTimeMillis < or4Var3.f || currentTimeMillis > or4Var3.g)) {
-                    this.b = g(this.d, 3);
-                }
-                or4 or4Var4 = this.b;
-                if (or4Var4 != null && BigdayImageLoaderProc.isImageFileExist(or4Var4.a)) {
-                    return this.b;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            AccountData accountData = this.a;
+            if (accountData != null) {
+                return accountData.getBDUSS();
             }
             return null;
         }
-        return (or4) invokeI.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void l(ArrayList<or4> arrayList) {
+    public int p() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, arrayList) != null) || ListUtils.isEmpty(arrayList) || this.f) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            AccountData accountData = this.a;
+            if (accountData != null) {
+                return accountData.getMemberType();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public String q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            AccountData m = m();
+            if (m == null) {
+                return null;
+            }
+            return m.getPortrait();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            AccountData accountData = this.a;
+            if (accountData != null && accountData.getVipInfo() != null) {
+                return this.a.getVipInfo().getVipLevel();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public int t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
+    }
+
+    public int u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public String v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            AccountData accountData = this.a;
+            if (accountData != null) {
+                return accountData.getTbs();
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public int x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public static void H(AccountData accountData) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, accountData) == null) {
+            String str2 = null;
+            if (accountData != null) {
+                str2 = accountData.getID();
+                str = accountData.getAccount();
+            } else {
+                str = null;
+            }
+            String currentBduss = TbadkCoreApplication.getCurrentBduss();
+            Intent intent = new Intent();
+            intent.setAction("adp.bdstatisticsmanager.account_changed");
+            intent.putExtra("intent_data_userid", str2);
+            intent.putExtra("intent_data_username", str);
+            intent.putExtra("intent_data_bduss", currentBduss);
+            intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
+            try {
+                TbadkCoreApplication.getInst().sendStickyBroadcast(intent);
+            } catch (Throwable th) {
+                BdLog.detailException(th);
+            }
+            Intent intent2 = new Intent();
+            intent2.setAction("com.baidu.tieba.action.accountChange");
+            intent2.putExtra("intent_data_accountData", accountData);
+            intent2.setPackage(TbadkCoreApplication.getInst().getPackageName());
+            TbadkCoreApplication.getInst().sendBroadcast(intent2);
+            yc5.o(!TextUtils.isEmpty(str2));
+            if (accountData != null) {
+                yc5.n(accountData.getBDUSS());
+                yc5.q(accountData.getTbs());
+                yc5.p(accountData.getStoken());
+            }
+        }
+    }
+
+    public boolean C(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            return TbadkCoreApplication.getInst().isMainProcess(z);
+        }
+        return invokeZ.booleanValue;
+    }
+
+    public void M(int i) {
+        AccountData accountData;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048586, this, i) == null) && (accountData = this.a) != null) {
+            accountData.setMemberType(i);
+        }
+    }
+
+    public void O(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void P(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048589, this, str) == null) && str != null && str.length() > 0) {
+            synchronized (this) {
+                if (this.a != null) {
+                    this.a.setTbs(str);
+                }
+            }
+        }
+    }
+
+    public void K(AccountData accountData, Context context) {
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, accountData, context) == null) {
+            this.a = accountData;
+            String str3 = null;
+            if (accountData != null) {
+                str3 = accountData.getID();
+                str2 = accountData.getAccount();
+                str = accountData.getBDUSS();
+            } else {
+                str = null;
+                str2 = null;
+            }
+            BdStatisticsManager.getInstance().setUser(str3, str2, str);
+        }
+    }
+
+    public void F(AccountData accountData, Application application) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, accountData, application) == null) {
+            pj7.a("onAccountChanged()");
+            BdLog.e("账号切换");
+            cz4 l = cz4.l();
+            String r = l.r("current_used_theme_" + g(), null);
+            if (StringUtils.isNull(r)) {
+                this.e = 0;
+            } else {
+                String[] split = r.split("/");
+                if (split != null && split.length >= 2) {
+                    this.e = yg.e(split[0], 0);
+                } else {
+                    this.e = 0;
+                }
+            }
+            e();
+            MessageManager.getInstance().sendMessageFromBackground(new CustomMessage(2005006, accountData));
+            pj7.a("send METHOD_ACCOUNT_CHANGE");
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005016, accountData));
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2005019, accountData);
+            MessageManager.getInstance().registerStickyMode(2005019);
+            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
+            TbSingleton.getInstance().onAccountChange();
+        }
+    }
+
+    public void I(AccountData accountData, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, accountData, str, str2) == null) {
+            if (accountData == null && this.a != null) {
+                this.b = true;
+            } else if (this.a == null && accountData != null) {
+                this.b = true;
+            } else {
+                AccountData accountData2 = this.a;
+                if (accountData2 != null && accountData != null && !TextUtils.equals(accountData2.getAccount(), accountData.getAccount())) {
+                    this.b = true;
+                }
+            }
+            if (this.a == null && accountData != null) {
+                this.a = accountData;
+            }
+            if (this.a == null) {
+                return;
+            }
+            if (!TextUtils.isEmpty(str)) {
+                this.a.setBDUSS(str);
+            }
+            if (!TextUtils.isEmpty(str2)) {
+                this.a.setTbs(str2);
+            }
+        }
+    }
+
+    public void J(AccountData accountData, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, accountData, context) == null) {
+            String str = "set_application_account:";
+            if (accountData == null) {
+                str = "set_application_account:" + StringUtil.NULL_STRING;
+            } else if (!StringUtils.isNull(accountData.getID()) && !StringUtils.isNull(accountData.getBDUSS())) {
+                str = "set_application_account:valid_logined";
+            } else if (!StringUtils.isNull(accountData.getBDUSS())) {
+                str = "set_application_account:valid";
+            } else if (!StringUtils.isNull(accountData.getID())) {
+                str = "set_application_account:logined";
+            }
+            ry4.a(DI.ACCOUNT, -1L, 0, str, 0, "", new Object[0]);
+            if (!this.b) {
+                if (accountData == null && this.a != null) {
+                    this.b = true;
+                    pj7.a("account == null && mAccount != null");
+                } else if (this.a == null && accountData != null) {
+                    this.b = true;
+                    pj7.a("mAccount == null && account != null 初始化");
+                } else {
+                    AccountData accountData2 = this.a;
+                    if (accountData2 != null && accountData != null && !TextUtils.equals(accountData2.getAccount(), accountData.getAccount())) {
+                        this.b = true;
+                        pj7.a("mAccount != null && account != null");
+                    }
+                }
+            }
+            this.a = accountData;
+            gy8.n();
+            if (this.b) {
+                BdSocketLinkService.setHasAbsoluteClose(false);
+                BdSocketLinkService.setAvailable(true);
+                sa5.b(0, 0, 0, 1, 2);
+                BdSocketLinkService.startService(true, "account changed");
+            }
+            ic.b().a("setCurrentAccountInUI", new a(this, accountData, context));
+        }
+    }
+
+    public final void L(AccountData accountData, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, accountData, context) == null) {
+            if (context != null) {
+                if (TbadkCoreApplication.getInst().isPushServiceOpen()) {
+                    UtilHelper.startPushService(context);
+                } else {
+                    UtilHelper.stopPushService(context);
+                }
+            }
+            H(accountData);
+            if (this.b) {
+                F(accountData, TbadkCoreApplication.getInst());
+            }
+            MessageManager.getInstance().runTask(2004603, (Class) null);
+            if (BdNetTypeUtil.isWifiNet() && accountData != null) {
+                MessageManager.getInstance().runTask(2004611, (Class) null);
+            }
+            TbadkCoreApplication.getInst().setActivityPrizeData(null);
+        }
+    }
+
+    public void f(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(1048592, this, str, z) != null) || str == null) {
             return;
         }
-        this.a = g(arrayList, 1);
-        this.b = g(arrayList, 3);
-        this.d = arrayList;
-        f();
-        or4 or4Var = this.a;
-        if (or4Var != null && BigdayImageLoaderProc.isImageFileExist(or4Var.a) && SwitchManager.getInstance().findType(BigdaySwitch.BIGDAY_KEY) == 1 && System.currentTimeMillis() > ry4.l().n("key_bigday_next_showtime_home", 0L)) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, this.a));
+        aa mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        mainDBDatabaseManager.e("delete from cash_data where account=?", new String[]{str});
+        mainDBDatabaseManager.e("delete from mark_data where account=?", new String[]{str});
+        mainDBDatabaseManager.e("delete from draft_box where account=?", new Object[]{str});
+        mainDBDatabaseManager.e("delete from setting where account=?", new Object[]{str});
+        mainDBDatabaseManager.e("delete from search_data where account=?", new Object[]{str});
+        mainDBDatabaseManager.e("delete from search_post_data where account=?", new Object[]{str});
+        if (z) {
+            mainDBDatabaseManager.e("delete from account_data where id=?", new Object[]{str});
         }
     }
 
-    public final void m(ArrayList<or4> arrayList) {
+    public void N(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList) == null) {
-            or4 g = g(arrayList, 1);
-            or4 g2 = g(arrayList, 3);
-            d(arrayList);
-            this.d = arrayList;
-            if (g != null && g.a()) {
-                this.a = g;
-            }
-            if (g2 != null && g2.a()) {
-                this.b = g2;
-            }
-            f();
-            or4 or4Var = this.a;
-            if (or4Var != null && BigdayImageLoaderProc.isImageFileExist(or4Var.a) && SwitchManager.getInstance().findType(BigdaySwitch.BIGDAY_KEY) == 1 && System.currentTimeMillis() > ry4.l().n("key_bigday_next_showtime_home", 0L)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, this.a));
-            }
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.h = u();
+            G();
+            O(i);
+            TbadkSettings.getInst().saveInt("skin_", i);
+            a(i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001304, Integer.valueOf(i)));
         }
     }
 
-    public void n(BdUniqueId bdUniqueId) {
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bdUniqueId) == null) {
-            this.e = bdUniqueId;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            Intent intent = new Intent();
+            intent.setAction(TbConfig.getBroadcastActionChangeSkin());
+            intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
+            intent.putExtra("skin_type", i);
+            TbadkCoreApplication.getInst().getContext().sendBroadcast(intent);
+        }
+    }
+
+    public void y() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048610, this) != null) || this.j) {
+            return;
+        }
+        this.j = true;
+        long currentTimeMillis = System.currentTimeMillis();
+        if (C(true)) {
+            try {
+                if (TbadkCoreApplication.getInst().getDatabasePath(TbConfig.PHONE_DATEBASE_NAME).exists()) {
+                    AccountData e = qr4.e();
+                    if (e != null) {
+                        ry4.a(DI.ACCOUNT, -1L, 0, "application_init_account", 0, "", new Object[0]);
+                        J(e, TbadkCoreApplication.getInst());
+                    } else {
+                        ry4.a(DI.ACCOUNT, -1L, 0, "application_init_no_account", 0, "", new Object[0]);
+                    }
+                } else {
+                    ry4.a(DI.ACCOUNT, -1L, 0, "application_bd_no_account", 0, "", new Object[0]);
+                }
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+            }
+            jg5.b().i(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 }

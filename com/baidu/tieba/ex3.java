@@ -1,326 +1,71 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.webkit.JavascriptInterface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
-import com.baidu.searchbox.v8engine.JSExceptionType;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
-import com.baidu.searchbox.v8engine.event.JSEvent;
-import com.baidu.tieba.gx3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.TreeMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ex3 extends EventTargetImpl implements hx3, gx3.a {
+public class ex3 extends pw3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    @V8JavascriptField
-    public String adUnitId;
-    public ob2 b;
-    public String c;
-    public boolean d;
-    public pr3 e;
-    public us3 f;
-    public boolean g;
-    public Map<String, String> h;
-    public lx3 i;
-    public tr3 j;
-    @V8JavascriptField
-    public gx3 style;
 
-    /* loaded from: classes4.dex */
-    public class a implements tr3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ex3 a;
-
-        public a(ex3 ex3Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947749673, "Lcom/baidu/tieba/ex3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ex3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = ex3Var;
-        }
-
-        @Override // com.baidu.tieba.tr3
-        public void c(boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) != null) || this.a.i == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947749673, "Lcom/baidu/tieba/ex3;");
                 return;
             }
-            if (z) {
-                this.a.i.c();
-            } else {
-                this.a.i.b("3010010");
-            }
         }
-
-        @Override // com.baidu.tieba.tr3
-        public void onError(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-                JSEvent jSEvent = new JSEvent("error");
-                jSEvent.data = fx3.a(str);
-                this.a.dispatchEvent(jSEvent);
-                nt3.k(this.a.h, str);
-            }
-        }
-
-        @Override // com.baidu.tieba.tr3
-        public void b(boolean z, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
-                String str2 = "gdtbanner";
-                if (z) {
-                    this.a.dispatchEvent(new JSEvent("load"));
-                    if (!this.a.g) {
-                        str2 = SpeedStatsUtils.UBC_VALUE_BANNER;
-                    }
-                    cx3.b(str2, "success");
-                    return;
-                }
-                if (!this.a.g) {
-                    str2 = SpeedStatsUtils.UBC_VALUE_BANNER;
-                }
-                cx3.c(str2, com.baidu.pass.biometrics.face.liveness.b.a.g0, str);
-            }
-        }
-
-        @Override // com.baidu.tieba.tr3
-        public void d(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-                JSEvent jSEvent = new JSEvent("resize");
-                jSEvent.data = fx3.b(i, i2);
-                this.a.dispatchEvent(jSEvent);
-            }
-        }
-
-        @Override // com.baidu.tieba.tr3
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.a.g) {
-                cx3.b("gdtbanner", "click");
-            }
-        }
-
-        @Override // com.baidu.tieba.tr3
-        public void onClose() {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.a.destroy();
-                r64 A = r64.A();
-                String str2 = this.a.adUnitId;
-                A.K(str2, "" + System.currentTimeMillis());
-                if (this.a.g) {
-                    str = "gdtbanner";
-                } else {
-                    str = SpeedStatsUtils.UBC_VALUE_BANNER;
-                }
-                cx3.b(str, "close");
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ex3 a;
-
-        public b(ex3 ex3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ex3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ex3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                JSEvent jSEvent = new JSEvent("error");
-                jSEvent.data = fx3.a(this.a.c);
-                this.a.dispatchEvent(jSEvent);
-                nt3.k(this.a.h, this.a.c);
-            }
-        }
+        c = tk1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ex3(ob2 ob2Var, JsObject jsObject) {
-        super(ob2Var);
+    public ex3() {
+        super("getSid");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ob2Var, jsObject};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((JSRuntime) newInitContext.callArgs[0]);
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.style = null;
-        this.h = new TreeMap();
-        this.j = new a(this);
-        this.b = ob2Var;
-        lw1 F = lw1.F(jsObject);
-        if (F != null) {
-            this.adUnitId = F.B("adUnitId");
-            this.a = F.B("appSid");
-            lw1 w = F.w("style");
-            if (w != null) {
-                this.style = new gx3(w);
-            }
-        }
-        boolean e = yt3.e();
-        this.g = e;
-        if (e) {
-            this.a = yt3.a();
-            this.adUnitId = yt3.b();
-        }
-        String str = this.a;
-        String str2 = this.adUnitId;
-        boolean z = this.g;
-        String str3 = SpeedStatsUtils.UBC_VALUE_BANNER;
-        Map<String, String> a2 = nt3.a(SpeedStatsUtils.UBC_VALUE_BANNER, "game", str, str2, z);
-        this.h = a2;
-        nt3.m("loadApi", a2);
-        if (!B()) {
-            return;
-        }
-        if (F != null && !TextUtils.isEmpty(this.adUnitId) && !TextUtils.isEmpty(this.a) && this.style != null) {
-            ax3 ax3Var = new ax3();
-            this.f = ax3Var;
-            pr3 pr3Var = new pr3(this.a, this.adUnitId, this.j, ax3Var);
-            this.e = pr3Var;
-            pr3Var.F(this.h);
-            gx3 gx3Var = this.style;
-            if (gx3Var != null) {
-                this.e.E(gx3Var.left, gx3Var.top, gx3Var.width, gx3Var.height);
-                this.style.b(this);
-            }
-            cx3.b(this.g ? "gdtbanner" : str3, null);
-            return;
-        }
-        ob2Var.throwJSException(JSExceptionType.Error, "请求广告的必须参数为空,中断执行");
     }
 
-    @Override // com.baidu.tieba.gx3.a
-    public void i(String str) {
-        pr3 pr3Var;
+    @Override // com.baidu.tieba.pw3
+    public jw1 a(JSONObject jSONObject, nh2 nh2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && !this.d && !TextUtils.isEmpty(str) && !str.equals("height") && this.style != null && (pr3Var = this.e) != null) {
-            pr3Var.H(str);
-        }
-    }
-
-    public final boolean B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.c)) {
-                r64 A = r64.A();
-                if (!A.k()) {
-                    if (!A.l()) {
-                        if (A.t(this.adUnitId)) {
-                            this.c = "3010011";
-                        }
-                    } else {
-                        this.c = "3010013";
-                    }
-                } else {
-                    this.c = "3010012";
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, nh2Var)) == null) {
+            String k = qn2.g0().k();
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("sid", k);
+            } catch (JSONException e) {
+                if (c) {
+                    e.printStackTrace();
                 }
             }
-            if (!TextUtils.isEmpty(this.c)) {
-                this.b.postOnJSThread(new b(this));
-                cx3.c(SpeedStatsUtils.UBC_VALUE_BANNER, "reject", this.c);
-                return false;
-            }
-            return true;
+            nh2Var.a(jSONObject2);
+            return null;
         }
-        return invokeV.booleanValue;
-    }
-
-    @JavascriptInterface
-    public void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.d = true;
-            removeEventListener("error", null);
-            removeEventListener("load", null);
-            removeEventListener("resize", null);
-            pr3 pr3Var = this.e;
-            if (pr3Var != null) {
-                pr3Var.y();
-                this.e = null;
-            }
-        }
-    }
-
-    @JavascriptInterface
-    public void hide() {
-        pr3 pr3Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (pr3Var = this.e) != null) {
-            pr3Var.B();
-        }
-    }
-
-    @JavascriptInterface
-    public void showAd(JsObject jsObject) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jsObject) == null) {
-            if (this.g) {
-                str = "gdtbanner";
-            } else {
-                str = SpeedStatsUtils.UBC_VALUE_BANNER;
-            }
-            cx3.d(str);
-            nt3.m("showApi", this.h);
-            if (B() && this.e != null) {
-                r64.A().E();
-                this.i = lx3.d(lw1.F(jsObject));
-                this.e.G(jsObject);
-            }
-        }
+        return (jw1) invokeLL.objValue;
     }
 }

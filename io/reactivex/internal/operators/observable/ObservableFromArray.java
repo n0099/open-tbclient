@@ -11,13 +11,13 @@ import io.reactivex.Observer;
 import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.observers.BasicQueueDisposable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ObservableFromArray<T> extends Observable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final T[] array;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class FromArrayDisposable<T> extends BasicQueueDisposable<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

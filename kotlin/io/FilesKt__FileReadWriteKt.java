@@ -63,8 +63,27 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
     public static final List<String> readLines(File readLines, Charset charset) {
         Intrinsics.checkNotNullParameter(readLines, "$this$readLines");
         Intrinsics.checkNotNullParameter(charset, "charset");
-        ArrayList arrayList = new ArrayList();
-        forEachLine(readLines, charset, new FilesKt__FileReadWriteKt$readLines$1(arrayList));
+        final ArrayList arrayList = new ArrayList();
+        forEachLine(readLines, charset, new Function1<String, Unit>() { // from class: kotlin.io.FilesKt__FileReadWriteKt$readLines$1
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(1);
+            }
+
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function1
+            public /* bridge */ /* synthetic */ Unit invoke(String str) {
+                invoke2(str);
+                return Unit.INSTANCE;
+            }
+
+            /* renamed from: invoke  reason: avoid collision after fix types in other method */
+            public final void invoke2(String it) {
+                Intrinsics.checkNotNullParameter(it, "it");
+                arrayList.add(it);
+            }
+        });
         return arrayList;
     }
 
@@ -199,7 +218,7 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: java.io.FileInputStream */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v2, types: [byte[], java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r2v2, types: [java.lang.Object, byte[]] */
     public static final void forEachBlock(File forEachBlock, int i, Function2<? super byte[], ? super Integer, Unit> action) {
         Intrinsics.checkNotNullParameter(forEachBlock, "$this$forEachBlock");
         Intrinsics.checkNotNullParameter(action, "action");

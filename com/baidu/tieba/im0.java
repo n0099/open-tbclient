@@ -1,30 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes4.dex */
-public final class im0 extends cm0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+public interface im0 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "eventbus");
 
-    public im0(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = z;
-    }
+    <T extends hm0> void a(@Nullable T t);
+
+    <T extends hm0> void b(@NonNull Object obj, @NonNull km0<T> km0Var);
+
+    <T extends hm0> void c(@NonNull Object obj, int i, @NonNull km0<T> km0Var);
+
+    void unregister(@NonNull Object obj);
 }

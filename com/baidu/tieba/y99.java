@@ -1,572 +1,436 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.text.Editable;
-import android.text.InputFilter;
-import android.text.SpannableString;
-import android.text.TextUtils;
-import android.text.TextWatcher;
-import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.k89;
+import com.baidu.tieba.view.bubbleView.ArrowDirection;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class y99 extends da9<ya9> implements ja9 {
+/* loaded from: classes7.dex */
+public class y99 extends Drawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public View g;
-    @Nullable
-    public EditText h;
-    @Nullable
-    public TextView i;
-    @Nullable
-    public View j;
-    @Nullable
-    public ea9 k;
-    @NonNull
-    public final pb9 l;
-    @NonNull
-    public x89 m;
-    @Nullable
-    public String n;
-    public boolean o;
-    public final TextWatcher p;
-    public final View.OnFocusChangeListener q;
+    public RectF a;
+    public Path b;
+    public Paint c;
+    public Path d;
+    public Paint e;
+    public float f;
+    public float g;
+    public float h;
+    public float i;
+    public float j;
 
-    @Override // com.baidu.tieba.ja9
-    public int f() {
+    @Override // android.graphics.drawable.Drawable
+    public int getOpacity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return 1;
+            return -3;
         }
         return invokeV.intValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class a implements TextWatcher {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public final /* synthetic */ y99 b;
 
-        public a(y99 y99Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y99Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-303744397, "Lcom/baidu/tieba/y99$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-303744397, "Lcom/baidu/tieba/y99$a;");
                     return;
                 }
             }
-            this.b = y99Var;
-        }
-
-        @Override // android.text.TextWatcher
-        public void afterTextChanged(Editable editable) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, editable) == null) && editable != null && this.b.h != null && this.b.h.getText() != null) {
-                if (this.b.n != null && this.b.n.equals(editable.toString())) {
-                    this.b.h.setSelection(this.b.h.getSelectionEnd());
-                    return;
-                }
-                y99 y99Var = this.b;
-                y99Var.n = y99Var.h.getText().toString();
-                if (this.b.e != null) {
-                    this.b.e.setTitle(this.b.n);
-                }
-                if (this.b.b != null) {
-                    this.b.b.i();
-                }
-                y99 y99Var2 = this.b;
-                y99Var2.m.i(y99Var2.h, true);
-                this.b.O(editable);
+            int[] iArr = new int[ArrowDirection.values().length];
+            a = iArr;
+            try {
+                iArr[ArrowDirection.LEFT.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
             }
-        }
-
-        @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
-                if (charSequence != null) {
-                    str = charSequence.toString();
-                } else {
-                    str = "";
-                }
-                this.a = str;
+            try {
+                a[ArrowDirection.TOP.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
             }
-        }
-
-        @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            int i4;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
-                String str = this.a;
-                int i5 = 0;
-                if (str != null) {
-                    i4 = str.length();
-                } else {
-                    i4 = 0;
-                }
-                if (charSequence != null) {
-                    i5 = charSequence.toString().length();
-                }
-                if (i5 > i4) {
-                    this.b.l.c(charSequence, i, i3, "from_title");
-                }
+            try {
+                a[ArrowDirection.RIGHT.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[ArrowDirection.BOTTOM.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements View.OnFocusChangeListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y99 a;
-
-        public b(y99 y99Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y99Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = y99Var;
-        }
-
-        @Override // android.view.View.OnFocusChangeListener
-        public void onFocusChange(View view2, boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLZ(1048576, this, view2, z) == null) && this.a.k != null) {
-                this.a.k.q(this.a, z);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y99 a;
-
-        public c(y99 y99Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y99Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = y99Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.h.setPadding(this.a.h.getPaddingLeft(), this.a.h.getPaddingTop(), this.a.h.getPaddingRight(), this.a.h.getPaddingBottom() + this.a.i.getHeight());
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements k89.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y99 a;
-
-        public d(y99 y99Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y99Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = y99Var;
-        }
-
-        @Override // com.baidu.tieba.k89.c
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                yi.Q(TbadkCoreApplication.getInst(), String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f1675), 31));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y99(@NonNull TbPageContext<?> tbPageContext, @NonNull x89 x89Var, @NonNull pb9 pb9Var) {
-        super(tbPageContext, ya9.class);
+    public y99(RectF rectF, float f, float f2, float f3, float f4, float f5, int i, int i2, ArrowDirection arrowDirection) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, x89Var, pb9Var};
+            Object[] objArr = {rectF, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Integer.valueOf(i), Integer.valueOf(i2), arrowDirection};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.o = true;
-        this.p = new a(this);
-        this.q = new b(this);
-        this.m = x89Var;
-        this.l = pb9Var;
-    }
-
-    public void M(ea9 ea9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ea9Var) == null) {
-            this.k = ea9Var;
-        }
-    }
-
-    public void P(int i) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (view2 = this.j) != null) {
-            view2.setVisibility(i);
-        }
-    }
-
-    public void Q(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.o = z;
-        }
-    }
-
-    @Override // com.baidu.tieba.ja9
-    public void b(boolean z) {
-        EditText editText;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && !z && (editText = this.h) != null) {
-            editText.clearFocus();
-        }
-    }
-
-    @Override // com.baidu.tieba.ia9
-    public void e(@NonNull WriteData writeData) {
-        EditText editText;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, writeData) == null) && (editText = this.h) != null && editText.getText() != null) {
-            writeData.setTitle(this.h.getText().toString());
-        }
-    }
-
-    @Override // com.baidu.tieba.da9, com.baidu.tieba.ia9
-    public void j(@NonNull ka9 ka9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, ka9Var) == null) {
-            super.j(ka9Var);
-            ea9 ea9Var = this.k;
-            if (ea9Var != null) {
-                ea9Var.l(this);
-            }
-            if (this.o) {
-                l();
-                ka9Var.o(true);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.da9, com.baidu.tieba.ia9
-    public void h(@Nullable String str, @NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048587, this, str, writeData) != null) || StringUtils.isNull(str)) {
+        this.b = new Path();
+        Paint paint = new Paint(1);
+        this.c = paint;
+        this.a = rectF;
+        this.f = f;
+        this.g = f2;
+        this.h = f3;
+        this.i = f4;
+        this.j = f5;
+        paint.setColor(i2);
+        if (f5 > 0.0f) {
+            Paint paint2 = new Paint(1);
+            this.e = paint2;
+            paint2.setColor(i);
+            this.d = new Path();
+            e(arrowDirection, this.b, f5);
+            e(arrowDirection, this.d, 0.0f);
             return;
         }
-        try {
-            writeData.setTitle(new JSONObject(str).optString("t"));
-        } catch (JSONException e) {
-            e.printStackTrace();
+        e(arrowDirection, this.b, 0.0f);
+    }
+
+    public final void a(RectF rectF, Path path, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
+            path.moveTo(rectF.left + this.g + f, rectF.top + f);
+            path.lineTo((rectF.width() - this.g) - f, rectF.top + f);
+            float f2 = rectF.right;
+            float f3 = this.g;
+            float f4 = rectF.top;
+            path.arcTo(new RectF(f2 - f3, f4 + f, f2 - f, f3 + f4), 270.0f, 90.0f);
+            path.lineTo(rectF.right - f, ((rectF.bottom - this.h) - this.g) - f);
+            float f5 = rectF.right;
+            float f6 = this.g;
+            float f7 = rectF.bottom;
+            float f8 = this.h;
+            path.arcTo(new RectF(f5 - f6, (f7 - f6) - f8, f5 - f, (f7 - f8) - f), 0.0f, 90.0f);
+            float f9 = f / 2.0f;
+            path.lineTo(((rectF.left + this.f) + this.i) - f9, (rectF.bottom - this.h) - f);
+            path.lineTo(rectF.left + this.i + (this.f / 2.0f), (rectF.bottom - f) - f);
+            path.lineTo(rectF.left + this.i + f9, (rectF.bottom - this.h) - f);
+            path.lineTo(rectF.left + Math.min(this.g, this.i) + f, (rectF.bottom - this.h) - f);
+            float f10 = rectF.left;
+            float f11 = rectF.bottom;
+            float f12 = this.g;
+            float f13 = this.h;
+            path.arcTo(new RectF(f10 + f, (f11 - f12) - f13, f12 + f10, (f11 - f13) - f), 90.0f, 90.0f);
+            path.lineTo(rectF.left + f, rectF.top + this.g + f);
+            float f14 = rectF.left;
+            float f15 = rectF.top;
+            float f16 = this.g;
+            path.arcTo(new RectF(f14 + f, f + f15, f14 + f16, f16 + f15), 180.0f, 90.0f);
+            path.close();
         }
     }
 
-    public final void L(String str) {
-        EditText editText;
+    public final void c(RectF rectF, Path path, float f) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !StringUtils.isNull(str) && (editText = this.h) != null && editText.getText() != null) {
-            this.l.f("");
-            this.h.requestFocus();
-            if (this.h.getText() != null && this.h.getText().length() + str.length() > 31) {
-                this.a.showToast((int) R.string.over_limit_tip);
-                return;
-            }
-            int selectionStart = this.h.getSelectionStart();
-            Editable text = this.h.getText();
-            if (selectionStart >= 0 && selectionStart <= text.length()) {
-                text.insert(selectionStart, str);
-            }
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
+            path.moveTo(this.f + rectF.left + this.g + f, rectF.top + f);
+            path.lineTo((rectF.width() - this.g) - f, rectF.top + f);
+            float f2 = rectF.right;
+            float f3 = this.g;
+            float f4 = rectF.top;
+            path.arcTo(new RectF(f2 - f3, f4 + f, f2 - f, f3 + f4), 270.0f, 90.0f);
+            path.lineTo(rectF.right - f, (rectF.bottom - this.g) - f);
+            float f5 = rectF.right;
+            float f6 = this.g;
+            float f7 = rectF.bottom;
+            path.arcTo(new RectF(f5 - f6, f7 - f6, f5 - f, f7 - f), 0.0f, 90.0f);
+            path.lineTo(rectF.left + this.f + this.g + f, rectF.bottom - f);
+            float f8 = rectF.left;
+            float f9 = this.f;
+            float f10 = rectF.bottom;
+            float f11 = this.g;
+            path.arcTo(new RectF(f8 + f9 + f, f10 - f11, f11 + f8 + f9, f10 - f), 90.0f, 90.0f);
+            float f12 = f / 2.0f;
+            path.lineTo(rectF.left + this.f + f, (this.h + this.i) - f12);
+            path.lineTo(rectF.left + f + f, this.i + (this.h / 2.0f));
+            path.lineTo(rectF.left + this.f + f, this.i + f12);
+            path.lineTo(rectF.left + this.f + f, rectF.top + this.g + f);
+            float f13 = rectF.left;
+            float f14 = this.f;
+            float f15 = rectF.top;
+            float f16 = this.g;
+            path.arcTo(new RectF(f13 + f14 + f, f + f15, f13 + f16 + f14, f16 + f15), 180.0f, 90.0f);
+            path.close();
         }
     }
 
-    public final void O(Editable editable) {
+    public final void f(RectF rectF, Path path, float f) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, editable) != null) || this.i == null) {
-            return;
-        }
-        if (!TextUtils.isEmpty(editable)) {
-            SpannableString spannableString = new SpannableString(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f095b, new Object[]{Integer.valueOf(editable.length()), 31}));
-            if (editable.length() > 31) {
-                spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301)), 0, String.valueOf(editable.length()).length(), 17);
-            }
-            this.i.setText(spannableString);
-            return;
-        }
-        this.i.setText(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f095b, new Object[]{0, 31}));
-    }
-
-    @Override // com.baidu.tieba.ia9
-    public void a(@NonNull WriteData writeData) {
-        WriteData writeData2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, writeData) == null) {
-            WriteData writeData3 = this.e;
-            if (writeData3 != null && xi.isEmpty(writeData3.getTitle())) {
-                this.e.setTitle(writeData.getTitle());
-            }
-            if (this.h != null && (writeData2 = this.e) != null && !TextUtils.isEmpty(writeData2.getTitle())) {
-                SpannableString i = lj5.i(this.e.getTitle());
-                this.h.setText(i);
-                this.h.setSelection(Math.min(Math.min(this.e.getTitle().length(), i.length()), this.h.getText().length()));
-            }
-        }
-    }
-
-    public boolean N() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            EditText editText = this.h;
-            if (editText != null && editText.hasFocus()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ja9
-    public void l() {
-        EditText editText;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (editText = this.h) != null) {
-            editText.requestFocus();
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
+            path.moveTo(rectF.left + this.g + f, rectF.top + f);
+            path.lineTo(((rectF.width() - this.g) - this.f) - f, rectF.top + f);
+            float f2 = rectF.right;
+            float f3 = this.g;
+            float f4 = this.f;
+            float f5 = rectF.top;
+            path.arcTo(new RectF((f2 - f3) - f4, f5 + f, (f2 - f4) - f, f3 + f5), 270.0f, 90.0f);
+            float f6 = f / 2.0f;
+            path.lineTo((rectF.right - this.f) - f, this.i + f6);
+            path.lineTo((rectF.right - f) - f, this.i + (this.h / 2.0f));
+            path.lineTo((rectF.right - this.f) - f, (this.i + this.h) - f6);
+            path.lineTo((rectF.right - this.f) - f, (rectF.bottom - this.g) - f);
+            float f7 = rectF.right;
+            float f8 = this.g;
+            float f9 = this.f;
+            float f10 = rectF.bottom;
+            path.arcTo(new RectF((f7 - f8) - f9, f10 - f8, (f7 - f9) - f, f10 - f), 0.0f, 90.0f);
+            path.lineTo(rectF.left + this.f + f, rectF.bottom - f);
+            float f11 = rectF.left;
+            float f12 = rectF.bottom;
+            float f13 = this.g;
+            path.arcTo(new RectF(f11 + f, f12 - f13, f13 + f11, f12 - f), 90.0f, 90.0f);
+            float f14 = rectF.left;
+            float f15 = rectF.top;
+            float f16 = this.g;
+            path.arcTo(new RectF(f14 + f, f + f15, f14 + f16, f16 + f15), 180.0f, 90.0f);
+            path.close();
         }
     }
 
-    @Override // com.baidu.tieba.ja9
-    public void n() {
+    public final void h(RectF rectF, Path path, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.m.f(this.h, true);
-            this.m.a(this.h);
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
+            path.moveTo(rectF.left + Math.min(this.i, this.g) + f, rectF.top + this.h + f);
+            float f2 = f / 2.0f;
+            path.lineTo(rectF.left + this.i + f2, rectF.top + this.h + f);
+            path.lineTo(rectF.left + (this.f / 2.0f) + this.i, rectF.top + f + f);
+            path.lineTo(((rectF.left + this.f) + this.i) - f2, rectF.top + this.h + f);
+            path.lineTo((rectF.right - this.g) - f, rectF.top + this.h + f);
+            float f3 = rectF.right;
+            float f4 = this.g;
+            float f5 = rectF.top;
+            float f6 = this.h;
+            path.arcTo(new RectF(f3 - f4, f5 + f6 + f, f3 - f, f4 + f5 + f6), 270.0f, 90.0f);
+            path.lineTo(rectF.right - f, (rectF.bottom - this.g) - f);
+            float f7 = rectF.right;
+            float f8 = this.g;
+            float f9 = rectF.bottom;
+            path.arcTo(new RectF(f7 - f8, f9 - f8, f7 - f, f9 - f), 0.0f, 90.0f);
+            path.lineTo(rectF.left + this.g + f, rectF.bottom - f);
+            float f10 = rectF.left;
+            float f11 = rectF.bottom;
+            float f12 = this.g;
+            path.arcTo(new RectF(f10 + f, f11 - f12, f12 + f10, f11 - f), 90.0f, 90.0f);
+            path.lineTo(rectF.left + f, rectF.top + this.h + this.g + f);
+            float f13 = rectF.left;
+            float f14 = f13 + f;
+            float f15 = rectF.top;
+            float f16 = this.h;
+            float f17 = f15 + f16 + f;
+            float f18 = this.g;
+            path.arcTo(new RectF(f14, f17, f13 + f18, f18 + f15 + f16), 180.0f, 90.0f);
+            path.close();
         }
     }
 
-    @Override // com.baidu.tieba.ja9
-    public EditText p() {
-        InterceptResult invokeV;
+    public final void b(RectF rectF, Path path, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.h;
-        }
-        return (EditText) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.da9, com.baidu.tieba.ia9
-    public boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            EditText editText = this.h;
-            if (editText != null && editText.getText() != null && this.h.getText().length() > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ia9
-    public void c(WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, writeData) == null) {
-            EditText editText = this.h;
-            if (editText != null && editText.getVisibility() == 0 && this.h.getText() != null) {
-                String obj = this.h.getText().toString();
-                writeData.setTitle(obj);
-                writeData.setIsNoTitle(TextUtils.isEmpty(obj));
-                return;
-            }
-            writeData.setTitle("");
-            writeData.setIsNoTitle(true);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
+            path.moveTo(rectF.left + f, rectF.top + f);
+            path.lineTo(rectF.right - f, rectF.top + f);
+            path.lineTo(rectF.right - f, (rectF.bottom - this.h) - f);
+            float f2 = f / 2.0f;
+            path.lineTo(((rectF.left + this.f) + this.i) - f2, (rectF.bottom - this.h) - f);
+            path.lineTo(rectF.left + this.i + (this.f / 2.0f), (rectF.bottom - f) - f);
+            path.lineTo(rectF.left + this.i + f2, (rectF.bottom - this.h) - f);
+            path.lineTo(rectF.left + this.i + f, (rectF.bottom - this.h) - f);
+            path.lineTo(rectF.left + f, (rectF.bottom - this.h) - f);
+            path.lineTo(rectF.left + f, rectF.top + f);
+            path.close();
         }
     }
 
-    @Override // com.baidu.tieba.da9, com.baidu.tieba.ia9
-    public boolean o() {
-        InterceptResult invokeV;
-        EditText editText;
-        String string;
+    public final void e(ArrowDirection arrowDirection, Path path, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (this.e == null || (editText = this.h) == null || editText.getText() == null) {
-                return true;
-            }
-            if (14 == this.e.getType() && this.h.getText().toString().length() > 31) {
-                ka9 ka9Var = this.b;
-                if (ka9Var != null) {
-                    ka9Var.d(this.a.getString(R.string.obfuscated_res_0x7f0f0ff8));
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{arrowDirection, path, Float.valueOf(f)}) == null) {
+            int i = a.a[arrowDirection.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i == 4) {
+                            float f2 = this.g;
+                            if (f2 <= 0.0f) {
+                                b(this.a, path, f);
+                                return;
+                            } else if (f > 0.0f && f > f2) {
+                                b(this.a, path, f);
+                                return;
+                            } else {
+                                a(this.a, path, f);
+                                return;
+                            }
+                        }
+                        return;
+                    }
+                    float f3 = this.g;
+                    if (f3 <= 0.0f) {
+                        g(this.a, path, f);
+                        return;
+                    } else if (f > 0.0f && f > f3) {
+                        g(this.a, path, f);
+                        return;
+                    } else {
+                        f(this.a, path, f);
+                        return;
+                    }
                 }
-                return false;
-            } else if (!TextUtils.isEmpty(this.h.getText().toString()) && this.h.getText().toString().trim().length() >= 5) {
-                return true;
+                float f4 = this.g;
+                if (f4 <= 0.0f) {
+                    i(this.a, path, f);
+                    return;
+                } else if (f > 0.0f && f > f4) {
+                    i(this.a, path, f);
+                    return;
+                } else {
+                    h(this.a, path, f);
+                    return;
+                }
+            }
+            float f5 = this.g;
+            if (f5 <= 0.0f) {
+                d(this.a, path, f);
+            } else if (f > 0.0f && f > f5) {
+                d(this.a, path, f);
             } else {
-                if (this.b != null) {
-                    if (14 == this.e.getType()) {
-                        string = this.a.getString(R.string.obfuscated_res_0x7f0f0ffc);
-                    } else {
-                        string = this.a.getString(R.string.obfuscated_res_0x7f0f14bb);
-                    }
-                    this.b.d(string);
-                }
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.da9, com.baidu.tieba.ia9
-    public void onActivityResult(int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048592, this, i, i2, intent) == null) {
-            super.onActivityResult(i, i2, intent);
-            if (i2 == -1) {
-                if (i == 25004 && "from_title".equals(this.l.a())) {
-                    L(this.l.d(intent));
-                }
-            } else if (i2 == 0 && i == 25004 && "from_title".equals(this.l.a())) {
-                l();
+                c(this.a, path, f);
             }
         }
     }
 
-    @Override // com.baidu.tieba.ia9
-    public void onChangeSkinType(int i) {
+    public final void i(RectF rectF, Path path, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            EditText editText = this.h;
-            if (editText != null) {
-                SkinManager.setBackgroundColor(editText, R.color.CAM_X0205);
-                this.h.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
-                SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0105);
-                O(this.h.getEditableText());
-            }
-            rw4.d(this.j).f(R.color.CAM_X0210);
-            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0110);
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
+            path.moveTo(rectF.left + this.i + f, rectF.top + this.h + f);
+            float f2 = f / 2.0f;
+            path.lineTo(rectF.left + this.i + f2, rectF.top + this.h + f);
+            path.lineTo(rectF.left + (this.f / 2.0f) + this.i, rectF.top + f + f);
+            path.lineTo(((rectF.left + this.f) + this.i) - f2, rectF.top + this.h + f);
+            path.lineTo(rectF.right - f, rectF.top + this.h + f);
+            path.lineTo(rectF.right - f, rectF.bottom - f);
+            path.lineTo(rectF.left + f, rectF.bottom - f);
+            path.lineTo(rectF.left + f, rectF.top + this.h + f);
+            path.lineTo(rectF.left + this.i + f, rectF.top + this.h + f);
+            path.close();
         }
     }
 
-    @Override // com.baidu.tieba.ia9
-    public View s(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void d(RectF rectF, Path path, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0532, viewGroup, false);
-            this.g = inflate;
-            this.h = (EditText) inflate.findViewById(R.id.obfuscated_res_0x7f091b10);
-            this.i = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f091bee);
-            this.j = this.g.findViewById(R.id.obfuscated_res_0x7f092307);
-            EditText editText = this.h;
-            if (editText != null) {
-                editText.addTextChangedListener(this.p);
-                this.h.setOnFocusChangeListener(this.q);
-                WriteData writeData = this.e;
-                if (writeData != null) {
-                    if (14 == writeData.getType()) {
-                        this.h.setHint(this.a.getString(R.string.obfuscated_res_0x7f0f0ffb));
-                        this.h.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
-                        this.h.setSingleLine(false);
-                        TextView textView = this.i;
-                        if (textView != null) {
-                            textView.setVisibility(0);
-                            this.i.post(new c(this));
-                        }
-                    } else {
-                        this.h.setFilters(new InputFilter[]{new k89.b(this.h, 31, new d(this))});
-                        if (13 == this.e.getType()) {
-                            this.h.setHint(R.string.obfuscated_res_0x7f0f14ba);
-                        } else {
-                            this.h.setHint(R.string.obfuscated_res_0x7f0f14b9);
-                        }
-                    }
-                    if (this.e.getTitle() != null) {
-                        this.h.setText(this.e.getTitle());
-                        this.h.setSelection(this.e.getTitle().length());
-                    }
-                }
-            }
-            return this.g;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
+            path.moveTo(this.f + rectF.left + f, rectF.top + f);
+            path.lineTo(rectF.width() - f, rectF.top + f);
+            path.lineTo(rectF.right - f, rectF.bottom - f);
+            path.lineTo(rectF.left + this.f + f, rectF.bottom - f);
+            float f2 = f / 2.0f;
+            path.lineTo(rectF.left + this.f + f, (this.h + this.i) - f2);
+            path.lineTo(rectF.left + f + f, this.i + (this.h / 2.0f));
+            path.lineTo(rectF.left + this.f + f, this.i + f2);
+            path.lineTo(rectF.left + this.f + f, rectF.top + f);
+            path.close();
         }
-        return (View) invokeL.objValue;
+    }
+
+    public final void g(RectF rectF, Path path, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
+            path.moveTo(rectF.left + f, rectF.top + f);
+            path.lineTo((rectF.width() - this.f) - f, rectF.top + f);
+            float f2 = f / 2.0f;
+            path.lineTo((rectF.right - this.f) - f, this.i + f2);
+            path.lineTo((rectF.right - f) - f, this.i + (this.h / 2.0f));
+            path.lineTo((rectF.right - this.f) - f, (this.i + this.h) - f2);
+            path.lineTo((rectF.right - this.f) - f, rectF.bottom - f);
+            path.lineTo(rectF.left + f, rectF.bottom - f);
+            path.lineTo(rectF.left + f, rectF.top + f);
+            path.close();
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
+            if (this.j > 0.0f) {
+                canvas.drawPath(this.d, this.e);
+            }
+            canvas.drawPath(this.b, this.c);
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void onBoundsChange(Rect rect) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, rect) == null) {
+            super.onBoundsChange(rect);
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setAlpha(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.c.setAlpha(i);
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setColorFilter(ColorFilter colorFilter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, colorFilter) == null) {
+            this.c.setColorFilter(colorFilter);
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getIntrinsicHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return (int) this.a.height();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getIntrinsicWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return (int) this.a.width();
+        }
+        return invokeV.intValue;
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.swan.apps.view.SwanAppActionBar;
 import com.baidu.swan.bdprivate.activity.BaseActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yh3;
+import com.baidu.tieba.di3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -69,9 +69,9 @@ public class LoginServiceAgreementActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            int c0 = yh3.c0(this);
+            int c0 = di3.c0(this);
             super.onCreate(bundle);
-            yh3.g(this, c0);
+            di3.g(this, c0);
             Intent intent = getIntent();
             if (intent == null) {
                 finish();
@@ -79,15 +79,15 @@ public class LoginServiceAgreementActivity extends BaseActivity {
             }
             Bundle extras = intent.getExtras();
             setContentView(R.layout.obfuscated_res_0x7f0d0042);
-            NgWebView ngWebView = (NgWebView) findViewById(R.id.obfuscated_res_0x7f0901b5);
+            NgWebView ngWebView = (NgWebView) findViewById(R.id.obfuscated_res_0x7f0901ae);
             if (extras != null) {
                 ngWebView.loadUrl(extras.getString("url"));
             }
-            SwanAppActionBar swanAppActionBar = (SwanAppActionBar) findViewById(R.id.obfuscated_res_0x7f090189);
+            SwanAppActionBar swanAppActionBar = (SwanAppActionBar) findViewById(R.id.obfuscated_res_0x7f090182);
             this.b = swanAppActionBar;
             swanAppActionBar.setLeftBackViewVisibility(true);
             this.b.setLeftBackViewClickListener(new a(this));
-            this.b.setTitle(R.string.obfuscated_res_0x7f0f138a);
+            this.b.setTitle(R.string.obfuscated_res_0x7f0f13a1);
             this.b.setRightZoneVisibility(false);
         }
     }

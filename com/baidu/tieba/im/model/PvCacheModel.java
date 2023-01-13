@@ -4,8 +4,8 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.ng;
-import com.baidu.tieba.xg;
+import com.baidu.tieba.og;
+import com.baidu.tieba.yg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ public class PvCacheModel {
     public static /* synthetic */ Interceptable $ic;
     public static PvCacheModel mCacheModel;
     public transient /* synthetic */ FieldHolder $fh;
-    public ng<String, String> mCache;
+    public og<String, String> mCache;
 
     public PvCacheModel() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class PvCacheModel {
             }
         }
         this.mCache = null;
-        this.mCache = new ng<>(256);
+        this.mCache = new og<>(256);
     }
 
     public static synchronized PvCacheModel getInstance() {
@@ -55,8 +55,8 @@ public class PvCacheModel {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, str, l) == null) && str != null && str.length() > 0) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            ng<String, String> ngVar = this.mCache;
-            ngVar.h(currentAccount + str, String.valueOf(l));
+            og<String, String> ogVar = this.mCache;
+            ogVar.h(currentAccount + str, String.valueOf(l));
         }
     }
 
@@ -68,12 +68,12 @@ public class PvCacheModel {
                 return false;
             }
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            ng<String, String> ngVar = this.mCache;
-            String f = ngVar.f(currentAccount + str);
+            og<String, String> ogVar = this.mCache;
+            String f = ogVar.f(currentAccount + str);
             if (TextUtils.isEmpty(f)) {
                 return false;
             }
-            return UtilHelper.isSameDay(xg.g(f, 0L), System.currentTimeMillis());
+            return UtilHelper.isSameDay(yg.g(f, 0L), System.currentTimeMillis());
         }
         return invokeL.booleanValue;
     }
@@ -82,8 +82,8 @@ public class PvCacheModel {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && str != null && str.length() > 0) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            ng<String, String> ngVar = this.mCache;
-            ngVar.i(currentAccount + str);
+            og<String, String> ogVar = this.mCache;
+            ogVar.i(currentAccount + str);
         }
     }
 }

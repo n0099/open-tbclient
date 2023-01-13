@@ -4,24 +4,23 @@ import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.charset.StandardCharsets;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class jv1 extends dv1 {
+public class jv1 extends iv1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.hs1
+    @Override // com.baidu.tieba.ms1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "GetPerformanceLevelApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CalcMD5Api" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes5.dex */
@@ -29,14 +28,15 @@ public class jv1 extends dv1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-        public final /* synthetic */ jv1 b;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ jv1 c;
 
-        public a(jv1 jv1Var, String str) {
+        public a(jv1 jv1Var, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jv1Var, str};
+                Object[] objArr = {jv1Var, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,84 +46,70 @@ public class jv1 extends dv1 {
                     return;
                 }
             }
-            this.b = jv1Var;
+            this.c = jv1Var;
             this.a = str;
+            this.b = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.d(this.a, new ew1(0, this.b.y()));
+                byte[] bytes = this.a.getBytes(StandardCharsets.UTF_8);
+                if (bytes.length > 3145728) {
+                    this.c.d(this.b, new jw1(202, "Data Too Large."));
+                    return;
+                }
+                String d = pk4.d(bytes, false);
+                if (TextUtils.isEmpty(d)) {
+                    this.c.d(this.b, new jw1(1001, "Execute Fail."));
+                    return;
+                }
+                jw1 jw1Var = new jw1(0);
+                jw1Var.g("result", d);
+                this.c.d(this.b, jw1Var);
             }
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947896644, "Lcom/baidu/tieba/jv1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947896644, "Lcom/baidu/tieba/jv1;");
-                return;
-            }
-        }
-        boolean z = ok1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jv1(@NonNull fs1 fs1Var) {
-        super(fs1Var);
+    public jv1(@NonNull ks1 ks1Var) {
+        super(ks1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fs1Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {ks1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((fs1) newInitContext.callArgs[0]);
+                super((ks1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
     }
 
-    public ew1 x(String str) {
+    public jw1 x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#getPerformanceLevel", false);
-            Pair<ew1, JSONObject> s = s(str);
-            if (!((ew1) s.first).isSuccess()) {
-                return (ew1) s.first;
+            q("#calcMD5", false);
+            Pair<jw1, JSONObject> s = s(str);
+            jw1 jw1Var = (jw1) s.first;
+            if (!jw1Var.isSuccess()) {
+                return jw1Var;
             }
-            String optString = ((JSONObject) s.second).optString("cb");
+            JSONObject jSONObject = (JSONObject) s.second;
+            String optString = jSONObject.optString("data");
             if (TextUtils.isEmpty(optString)) {
-                return new ew1(202, "cb is empty");
+                return new jw1(202, "Empty Data.");
             }
-            yg3.k(new a(this, optString), "SWAN_DEVICE_PERFORMANCE_CHECK");
-            return new ew1(0);
+            dh3.k(new a(this, optString, jSONObject.optString("cb")), "CalcMD5Api");
+            return jw1.f();
         }
-        return (ew1) invokeL.objValue;
-    }
-
-    public JSONObject y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String b = ln2.u0().b();
-            e12.k("GetPerformanceLevelApi", "getPerformanceLevel: " + b);
-            JSONObject jSONObject = new JSONObject();
-            eh3.f(jSONObject, "performanceLevel", b);
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
+        return (jw1) invokeL.objValue;
     }
 }

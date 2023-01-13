@@ -1,24 +1,16 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Pair;
-import androidx.appcompat.widget.ActivityChooserModel;
-import androidx.collection.ArraySet;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.storage.swankv.SwanKV;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes4.dex */
-public class hd2 implements dd2 {
+public class hd2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile hd2 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String[] a;
-    public final Pair<String, String>[] b;
 
     public hd2() {
         Interceptable interceptable = $ic;
@@ -30,81 +22,42 @@ public class hd2 implements dd2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new String[]{"searchbox_webapps_sp", "swan_app_pms_sp", "key_pms_sp_name", "swan_config_sp_name", "swan_clean_stratey", "swan_preload_package", "updatecore_node_ceres", "updatecore_node_host", "swan_host_info_config_sp_name", "updatecore_node_tipmsgs", "swan_launch_tips_config_sp_name", "aiapps_favorite", "searchbox_sconsole_sp", "swan_about_page_sp", "aiapps_guide_dialog_sp", "swan.publisher", "sp_launch_behavior", "swan_app_debug", "swan_debug_feature", "light_info_debug", "swan_method_trace"};
-        this.b = new Pair[]{new Pair<>("aiapp_", ""), new Pair<>("aiapp_setting_", ""), new Pair<>("", "_domain_config")};
     }
 
-    @Override // com.baidu.tieba.dd2
-    public ArraySet<String> a() {
+    public static hd2 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArraySet<String> arraySet = new ArraySet<>();
-            arraySet.addAll((ArraySet<? extends String>) d());
-            arraySet.addAll((ArraySet<? extends String>) c());
-            arraySet.addAll((ArraySet<? extends String>) b());
-            return arraySet;
-        }
-        return (ArraySet) invokeV.objValue;
-    }
-
-    public final ArraySet<String> b() {
-        InterceptResult invokeV;
-        Pair<String, String>[] pairArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            File file = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/");
-            File file2 = new File(ok4.d());
-            ArraySet<String> arraySet = new ArraySet<>();
-            for (Pair<String, String> pair : this.b) {
-                arraySet.addAll((ArraySet<? extends String>) pc2.e(file, (String) pair.first, ((String) pair.second) + "shared_prefs/", null, true));
-                arraySet.addAll((ArraySet<? extends String>) pc2.e(file2, (String) pair.first, ((String) pair.second) + SwanKV.PREFS_SUFFIX, null, true));
-            }
-            e12.k("SwanSpCollector", "recovery renameAppsSp:" + arraySet.toString());
-            return arraySet;
-        }
-        return (ArraySet) invokeV.objValue;
-    }
-
-    public final ArraySet<String> c() {
-        InterceptResult invokeV;
-        String[] strArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            File file = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/");
-            String d = ok4.d();
-            ArraySet<String> arraySet = new ArraySet<>();
-            for (String str : this.a) {
-                String J = ik4.J(new File(d, str + SwanKV.PREFS_SUFFIX));
-                if (!TextUtils.isEmpty(J)) {
-                    arraySet.add(J);
-                }
-                String J2 = ik4.J(new File(file, str + ActivityChooserModel.HISTORY_FILE_EXTENSION));
-                if (!TextUtils.isEmpty(J2)) {
-                    arraySet.add(J2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (hd2.class) {
+                    if (a == null) {
+                        a = new hd2();
+                    }
                 }
             }
-            e12.k("SwanSpCollector", "recovery renameFrameSp:" + arraySet.toString());
-            return arraySet;
+            return a;
         }
-        return (ArraySet) invokeV.objValue;
+        return (hd2) invokeV.objValue;
     }
 
-    public final ArraySet<String> d() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArraySet<String> arraySet = new ArraySet<>();
-            String J = ik4.J(new File(vc3.e()));
-            if (!TextUtils.isEmpty(J)) {
-                arraySet.add(J);
-            }
-            e12.k("SwanSpCollector", "recovery renameSwanKVRoot:" + arraySet.toString());
-            return arraySet;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            j12.k("SwanRecoveryManager", "RecoverPlatform");
+            pd2 pd2Var = new pd2();
+            pd2Var.a = 1;
+            fd2.c(pd2Var);
         }
-        return (ArraySet) invokeV.objValue;
+    }
+
+    public int b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return nd2.c(i);
+        }
+        return invokeI.intValue;
     }
 }

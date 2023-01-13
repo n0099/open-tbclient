@@ -38,7 +38,7 @@ public final class d {
             if (!d.this.adk || sqrt < d.this.ads || d.this.adt == null) {
                 return;
             }
-            d.this.adk = false;
+            d.a(d.this, false);
             d.this.adt.a(sqrt);
         }
     }
@@ -49,6 +49,11 @@ public final class d {
         } else {
             this.ads = f;
         }
+    }
+
+    public static /* synthetic */ boolean a(d dVar, boolean z) {
+        dVar.adk = false;
+        return false;
     }
 
     public final void a(@Nullable b bVar) {

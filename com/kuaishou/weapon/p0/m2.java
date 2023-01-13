@@ -5,10 +5,11 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.adp.ApsConstants;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.exp.ADConfigError;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.searchbox.performance.speed.SpeedStats;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
-import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -169,10 +170,10 @@ public class m2 {
                 }
                 jSONObject.put("68", o0Var.c() ? 1 : 0);
                 jSONObject.put("69", o0Var.b());
-                jSONObject.put("101", o0Var.d() ? 1 : 0);
-                jSONObject.put("102", o0Var.a() ? 1 : 0);
+                jSONObject.put(ADConfigError.REQUEST_HAS_SUCCESS_BEFORE, o0Var.d() ? 1 : 0);
+                jSONObject.put(WorkPostNotifyFlutterData.FAIL_POST, o0Var.a() ? 1 : 0);
                 jSONObject.put("99", new g0().a());
-                jSONObject.put(TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY, new e0().a() ? 1 : 0);
+                jSONObject.put("103", new e0().a() ? 1 : 0);
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("03007", v1.c(this.a));
                 jSONObject2.put("03014", h1.B(this.a));
@@ -180,7 +181,7 @@ public class m2 {
                 jSONObject2.put("03030", g1.f(this.a));
                 jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_LINK_ITEM_CLICK, jSONObject2);
                 p0 p0Var2 = new p0();
-                jSONObject.put(TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP, p0Var2.b());
+                jSONObject.put("107", p0Var2.b());
                 jSONObject.put("155", p0Var2.c());
                 jSONObject.put("170", p0Var2.d());
                 jSONObject.put("190", p0Var2.a());
@@ -237,7 +238,7 @@ public class m2 {
                     jSONObject.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_LINK_ITEM_CLICK, t0Var.c(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_LINK_ITEM_CLICK));
                     jSONObject.put("73", t0Var.c("73"));
                     jSONObject.put("74", t0Var.c("74"));
-                    jSONObject.put(TbEnum.SystemMessage.EVENT_ID_GROUP_UPGRADE, t0Var.c(TbEnum.SystemMessage.EVENT_ID_GROUP_UPGRADE));
+                    jSONObject.put("104", t0Var.c("104"));
                     if (a.a(f3.X, 1) == 1 && Build.VERSION.SDK_INT < 23) {
                         s0 s0Var = new s0(this.a);
                         String a5 = s0Var.a(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_FAIL_PAGE_SHOW);
@@ -265,11 +266,11 @@ public class m2 {
                     jSONObject.put("95", t0Var.c("95"));
                     jSONObject.put("98", t0Var.c("98"));
                     jSONObject.put("100", t0Var.c("100"));
-                    jSONObject.put(TbEnum.SystemMessage.EVENT_ID_GROUP_JOIN, t0Var.c(TbEnum.SystemMessage.EVENT_ID_GROUP_JOIN));
+                    jSONObject.put("105", t0Var.c("105"));
                     if (a.a(f3.Z, 1) == 1) {
                         r0 r0Var = new r0(this.a, 0);
                         jSONObject.put("108", r0Var.b("108"));
-                        jSONObject.put(TbEnum.SystemMessage.EVENT_ID_INVITE_GROUP, r0Var.b(TbEnum.SystemMessage.EVENT_ID_INVITE_GROUP));
+                        jSONObject.put("109", r0Var.b("109"));
                         jSONObject.put("111", r0Var.b("111"));
                     }
                     if (a.a(f3.b0, 1) == 1) {
@@ -301,7 +302,7 @@ public class m2 {
                     if (a.a(f3.Y, 1) == 1) {
                         jSONObject.put("129", new f1(this.a, 4).a("129"));
                         f1 f1Var = new f1(this.a, 1);
-                        jSONObject.put(TbEnum.SystemMessage.EVENT_ID_HIDE_GROUP_WARN, f1Var.b(f1Var.a(), TbEnum.SystemMessage.EVENT_ID_HIDE_GROUP_WARN));
+                        jSONObject.put("121", f1Var.b(f1Var.a(), "121"));
                         f1 f1Var2 = new f1(this.a, 2);
                         jSONObject.put("137", f1Var2.a("137"));
                         jSONObject.put(UnitedSchemeMainDispatcher.UBC_OUTER_INVOKE_TO_TAYGET_ID, f1Var2.a(UnitedSchemeMainDispatcher.UBC_OUTER_INVOKE_TO_TAYGET_ID));

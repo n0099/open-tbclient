@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TBLazyLottieAnimationView extends TBLottieAnimationView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean h;
-    public int i;
+    public boolean i;
+    public int j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TBLazyLottieAnimationView(Context context) {
@@ -33,8 +33,8 @@ public class TBLazyLottieAnimationView extends TBLottieAnimationView {
                 return;
             }
         }
-        this.h = false;
-        this.i = -1;
+        this.i = false;
+        this.j = -1;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -56,8 +56,8 @@ public class TBLazyLottieAnimationView extends TBLottieAnimationView {
                 return;
             }
         }
-        this.h = false;
-        this.i = -1;
+        this.i = false;
+        this.j = -1;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -79,20 +79,20 @@ public class TBLazyLottieAnimationView extends TBLottieAnimationView {
                 return;
             }
         }
-        this.h = false;
-        this.i = -1;
+        this.i = false;
+        this.j = -1;
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            int i = this.i;
+            int i = this.j;
             if (i != -1) {
                 super.setAnimation(i);
-                this.i = -1;
+                this.j = -1;
             }
-            this.h = true;
+            this.i = true;
             super.onDraw(canvas);
         }
     }
@@ -101,10 +101,10 @@ public class TBLazyLottieAnimationView extends TBLottieAnimationView {
     public void setAnimation(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (this.h) {
+            if (this.i) {
                 super.setAnimation(i);
             } else {
-                this.i = i;
+                this.j = i;
             }
         }
     }

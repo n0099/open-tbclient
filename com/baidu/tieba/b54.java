@@ -1,123 +1,91 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.tieba.bp2;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes3.dex */
-public class b54 {
+public class b54 implements ul1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str) {
+    public b54() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, str) == null) && d43.K().k() == 1 && !d()) {
-            jx2.p("startup").F(new UbcFlowEvent(str));
-        }
-    }
-
-    public static void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, jSONArray) == null) && jSONArray != null && jSONArray.length() != 0) {
-            HybridUbcFlow p = jx2.p("startup");
-            for (int i = 0; i < jSONArray.length(); i++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    String optString = optJSONObject.optString("id");
-                    long optLong = optJSONObject.optLong("timestamp");
-                    if (!TextUtils.isEmpty(optString) && optJSONObject.has("timestamp")) {
-                        UbcFlowEvent ubcFlowEvent = new UbcFlowEvent(optString);
-                        ubcFlowEvent.d(UbcFlowEvent.RecordType.UPDATE_RECENT);
-                        ubcFlowEvent.h(optLong);
-                        p.F(ubcFlowEvent);
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static long c() {
+    @Override // com.baidu.tieba.ul1
+    public JSONObject a() {
         InterceptResult invokeV;
-        SwanAppActivity w;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            e43 M = e43.M();
-            if (M == null || (w = M.w()) == null) {
-                return 0L;
-            }
-            dh2 Q = w.Q();
-            if (!(Q instanceof f04)) {
-                return 0L;
-            }
-            return ((f04) Q).f1();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return a54.c().d();
         }
-        return invokeV.longValue;
+        return (JSONObject) invokeV.objValue;
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
-        SwanAppActivity w;
+    @Override // com.baidu.tieba.ul1
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            e43 M = e43.M();
-            if (M == null || (w = M.w()) == null) {
-                return false;
-            }
-            dh2 Q = w.Q();
-            if (!(Q instanceof f04)) {
-                return false;
-            }
-            return ((f04) Q).j1();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void e(String str, bp2.a aVar) {
-        Bundle P;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, aVar) == null) && aVar != null && !d() && (P = aVar.P()) != null && P.getLong("page_display_flag_for_statistic") > 0) {
-            long l = aVar.l("launch_time", 0L);
-            long currentTimeMillis = System.currentTimeMillis();
-            hb3 hb3Var = new hb3();
-            hb3Var.a = xa3.n(aVar.G());
-            hb3Var.f = aVar.H();
-            hb3Var.c = aVar.T();
-            hb3Var.b = "launch";
-            hb3Var.e = "realcancel";
-            hb3Var.q = String.valueOf(currentTimeMillis - l);
-            hb3Var.a("reason", str);
-            hb3Var.a("errorList", v44.c().d());
-            hb3Var.d(P.getString(UBCCloudControlProcessor.UBC_KEY));
-            xa3.onEvent(hb3Var);
-            P.remove("page_display_flag_for_statistic");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            d54.d(str);
         }
     }
 
-    public static void f(bp2.a aVar) {
-        Bundle P;
+    @Override // com.baidu.tieba.ul1
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, aVar) == null) && aVar != null && d() && (P = aVar.P()) != null && P.getLong("page_display_flag_for_statistic") > 0) {
-            long l = aVar.l("launch_time", 0L);
-            long currentTimeMillis = System.currentTimeMillis();
-            hb3 hb3Var = new hb3();
-            hb3Var.a = xa3.n(aVar.G());
-            hb3Var.f = aVar.H();
-            hb3Var.c = aVar.T();
-            hb3Var.b = "launch";
-            hb3Var.e = "realsuccess";
-            hb3Var.r = String.valueOf(currentTimeMillis - l);
-            hb3Var.d(P.getString(UBCCloudControlProcessor.UBC_KEY));
-            xa3.onEvent(hb3Var);
-            P.remove("page_display_flag_for_statistic");
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            d54.f(str);
+        }
+    }
+
+    @Override // com.baidu.tieba.ul1
+    public void c(CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, callbackHandler, str) == null) {
+            d54.e(callbackHandler, str);
+        }
+    }
+
+    @Override // com.baidu.tieba.ul1
+    public void d(CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, callbackHandler, str) == null) {
+            d54.a(callbackHandler, str);
+        }
+    }
+
+    @Override // com.baidu.tieba.ul1
+    public void f(CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, callbackHandler, str) == null) {
+            d54.g(callbackHandler, str);
+        }
+    }
+
+    @Override // com.baidu.tieba.ul1
+    public void g(CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, callbackHandler, str) == null) {
+            d54.b(callbackHandler, str);
         }
     }
 }

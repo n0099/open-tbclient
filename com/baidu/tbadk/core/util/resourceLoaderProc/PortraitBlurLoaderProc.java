@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import android.graphics.Bitmap;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tieba.in;
+import com.baidu.tieba.jn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ public class PortraitBlurLoaderProc extends PortraitLoaderProc {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
-    public in decodeToResourceWithWH(byte[] bArr, int i, int i2) {
+    public jn decodeToResourceWithWH(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
@@ -47,8 +47,8 @@ public class PortraitBlurLoaderProc extends PortraitLoaderProc {
             if (fastblur != p) {
                 p.recycle();
             }
-            return new in(fastblur);
+            return new jn(fastblur);
         }
-        return (in) invokeLII.objValue;
+        return (jn) invokeLII.objValue;
     }
 }

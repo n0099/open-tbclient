@@ -14,13 +14,13 @@ import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.BiPredicate;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ObservableRetryBiPredicate<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final BiPredicate<? super Integer, ? super Throwable> predicate;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class RetryBiObserver<T> extends AtomicInteger implements Observer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7098360935104053232L;

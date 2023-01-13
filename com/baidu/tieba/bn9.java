@@ -1,33 +1,53 @@
 package com.baidu.tieba;
 
-import android.os.Build;
+import android.content.Context;
+import com.baidu.tieba.an9;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.Date;
 /* loaded from: classes3.dex */
-public class bn9 {
+public final class bn9 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static an9.a b;
+    public static an9.a c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return b();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947650876, "Lcom/baidu/tieba/bn9;")) == null) {
+            return;
         }
-        return invokeV.booleanValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947650876, "Lcom/baidu/tieba/bn9;");
+        }
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    public static synchronized void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            String str = Build.MODEL;
-            if (hn9.a(str)) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
+            synchronized (bn9.class) {
+                if (!a) {
+                    nn9.b(" ActivityLifeTask   add  " + new Date().toLocaleString());
+                    b = new cn9();
+                    c = new mn9();
+                    an9.a().c();
+                    an9.a().d(c);
+                    an9.a().d(b);
+                    an9.a().e(context);
+                    a = true;
+                    return;
+                }
+                nn9.b(" ActivityLifeTask  is added  " + new Date().toLocaleString());
             }
-            return str.equalsIgnoreCase("OPPO R9sk");
         }
-        return invokeV.booleanValue;
     }
 }

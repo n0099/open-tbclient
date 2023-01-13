@@ -267,8 +267,11 @@ public final class FactoryPools {
                     }
                 }
 
-                /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.bumptech.glide.util.pool.FactoryPools.Resetter
+                public /* bridge */ /* synthetic */ void reset(@NonNull Object obj) {
+                    reset((List) ((List) obj));
+                }
+
                 public void reset(@NonNull List<T> list) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {

@@ -92,14 +92,14 @@ public class DBManager extends DBBase {
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor) == null) && cursor != null) {
                 while (cursor.moveToNext()) {
                     CmdQueueMsg cmdQueueMsg = new CmdQueueMsg();
-                    String string = cursor.getString(cursor.getColumnIndex("uuid"));
-                    String string2 = cursor.getString(cursor.getColumnIndex(TableDefine.PaCmdQueueColumns.COLUMN_PARAM));
+                    String string = CursorWrapper.getString(cursor, "uuid");
+                    String string2 = CursorWrapper.getString(cursor, TableDefine.PaCmdQueueColumns.COLUMN_PARAM);
                     if (!cursor.isNull(cursor.getColumnIndex("extra"))) {
-                        str = cursor.getString(cursor.getColumnIndex("extra"));
+                        str = CursorWrapper.getString(cursor, "extra");
                     } else {
                         str = "";
                     }
-                    int i = cursor.getInt(cursor.getColumnIndex(TableDefine.PaCmdQueueColumns.COLUMN_METHOD_ID));
+                    int i = CursorWrapper.getInt(cursor, TableDefine.PaCmdQueueColumns.COLUMN_METHOD_ID);
                     cmdQueueMsg.setUuid(string);
                     cmdQueueMsg.setBody(string2);
                     cmdQueueMsg.setMethodId(i);
@@ -153,14 +153,14 @@ public class DBManager extends DBBase {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor) == null) && cursor != null && cursor.moveToFirst()) {
                 this.msg = new CmdQueueMsg();
-                String string = cursor.getString(cursor.getColumnIndex("uuid"));
-                String string2 = cursor.getString(cursor.getColumnIndex(TableDefine.PaCmdQueueColumns.COLUMN_PARAM));
+                String string = CursorWrapper.getString(cursor, "uuid");
+                String string2 = CursorWrapper.getString(cursor, TableDefine.PaCmdQueueColumns.COLUMN_PARAM);
                 if (!cursor.isNull(cursor.getColumnIndex("extra"))) {
-                    str = cursor.getString(cursor.getColumnIndex("extra"));
+                    str = CursorWrapper.getString(cursor, "extra");
                 } else {
                     str = "";
                 }
-                int i = cursor.getInt(cursor.getColumnIndex(TableDefine.PaCmdQueueColumns.COLUMN_METHOD_ID));
+                int i = CursorWrapper.getInt(cursor, TableDefine.PaCmdQueueColumns.COLUMN_METHOD_ID);
                 this.msg.setUuid(string);
                 this.msg.setBody(string2);
                 this.msg.setMethodId(i);

@@ -108,7 +108,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
                 Context context = this.f96a;
-                return com.xiaomi.push.h.m394a(context, context.getPackageName());
+                return com.xiaomi.push.h.m457a(context, context.getPackageName());
             }
             return (String) invokeV.objValue;
         }
@@ -139,7 +139,7 @@ public class b {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public void m154a() {
+        public void m158a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 b.a(this.f96a).edit().clear().commit();
@@ -196,14 +196,14 @@ public class b {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m155a() {
+        public boolean m159a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? m156a(this.f97a, this.b) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? m160a(this.f97a, this.b) : invokeV.booleanValue;
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m156a(String str, String str2) {
+        public boolean m160a(String str, String str2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
@@ -285,7 +285,7 @@ public class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static b m141a(Context context) {
+    public static b m145a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
@@ -351,17 +351,17 @@ public class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m142a() {
+    public String m146a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f93a.f97a : (String) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m143a() {
+    public void m147a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f93a.m154a();
+            this.f93a.m158a();
         }
     }
 
@@ -374,7 +374,7 @@ public class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m144a(String str) {
+    public void m148a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             SharedPreferences.Editor edit = a(this.f92a).edit();
@@ -409,12 +409,12 @@ public class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m145a() {
+    public boolean m149a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             Context context = this.f92a;
-            return !TextUtils.equals(com.xiaomi.push.h.m394a(context, context.getPackageName()), this.f93a.e);
+            return !TextUtils.equals(com.xiaomi.push.h.m457a(context, context.getPackageName()), this.f93a.e);
         }
         return invokeV.booleanValue;
     }
@@ -422,11 +422,11 @@ public class b {
     public boolean a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, str2)) == null) ? this.f93a.m156a(str, str2) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, str2)) == null) ? this.f93a.m160a(str, str2) : invokeLL.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m146a(String str, String str2, String str3) {
+    public boolean m150a(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, str, str2, str3)) == null) {
@@ -443,7 +443,7 @@ public class b {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m147b() {
+    public void m151b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             this.f93a.b();
@@ -466,31 +466,31 @@ public class b {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m148b() {
+    public boolean m152b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            if (this.f93a.m155a()) {
+            if (this.f93a.m159a()) {
                 return true;
             }
-            com.xiaomi.channel.commonutils.logger.b.m99a("Don't send message before initialization succeeded!");
+            com.xiaomi.channel.commonutils.logger.b.m103a("Don't send message before initialization succeeded!");
             return false;
         }
         return invokeV.booleanValue;
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public String m149c() {
+    public String m153c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f93a.c : (String) invokeV.objValue;
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m150c() {
+    public boolean m154c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f93a.m155a() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f93a.m159a() : invokeV.booleanValue;
     }
 
     public String d() {
@@ -500,7 +500,7 @@ public class b {
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public boolean m151d() {
+    public boolean m155d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? (TextUtils.isEmpty(this.f93a.f97a) || TextUtils.isEmpty(this.f93a.b) || TextUtils.isEmpty(this.f93a.c) || TextUtils.isEmpty(this.f93a.d)) ? false : true : invokeV.booleanValue;
@@ -513,7 +513,7 @@ public class b {
     }
 
     /* renamed from: e  reason: collision with other method in class */
-    public boolean m152e() {
+    public boolean m156e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f93a.f99b : invokeV.booleanValue;
@@ -526,7 +526,7 @@ public class b {
     }
 
     /* renamed from: f  reason: collision with other method in class */
-    public boolean m153f() {
+    public boolean m157f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? !this.f93a.f98a : invokeV.booleanValue;

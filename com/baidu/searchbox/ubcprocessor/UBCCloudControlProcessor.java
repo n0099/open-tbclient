@@ -10,8 +10,8 @@ import com.baidu.searchbox.cloudcontrol.ICloudControlUBCCallBack;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlRequestInfo;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlResponseInfo;
 import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
-import com.baidu.tieba.lf9;
-import com.baidu.tieba.pf9;
+import com.baidu.tieba.tk9;
+import com.baidu.tieba.xk9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,6 +46,10 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public static /* synthetic */ SharedPrefsWrapper access$100() {
+        return sharedPrefsWrapper();
     }
 
     private JSONObject generateFailStatisticData() {
@@ -123,9 +127,9 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
                 str = option.optString("version_asc");
             }
             boolean z = !"0".equals(str);
-            pf9 pf9Var = new pf9("", serviceData);
-            if (pf9Var.l()) {
-                ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).registerConfig(pf9Var, z, new lf9(this, iCloudControlUBCCallBack, pf9Var.g()) { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
+            xk9 xk9Var = new xk9("", serviceData);
+            if (xk9Var.l()) {
+                ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).registerConfig(xk9Var, z, new tk9(this, iCloudControlUBCCallBack, xk9Var.g()) { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ UBCCloudControlProcessor this$0;
@@ -152,14 +156,14 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
                         this.val$step = r8;
                     }
 
-                    @Override // com.baidu.tieba.lf9
+                    @Override // com.baidu.tieba.tk9
                     public void setUBCConfigStatisticData(JSONObject jSONObject) {
                         ICloudControlUBCCallBack iCloudControlUBCCallBack2;
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && (iCloudControlUBCCallBack2 = this.val$cloudControlUBCCallBack) != null) {
                             iCloudControlUBCCallBack2.setServiceInfo(jSONObject);
                             if (this.this$0.checkStatisticData(jSONObject) && !TextUtils.isEmpty(this.val$step)) {
-                                UBCCloudControlProcessor.sharedPrefsWrapper().putString(UBCCloudControlProcessor.UBC_CLOUDCONFIG_VERSION, this.val$step);
+                                UBCCloudControlProcessor.access$100().putString(UBCCloudControlProcessor.UBC_CLOUDCONFIG_VERSION, this.val$step);
                             }
                         }
                     }

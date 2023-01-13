@@ -1,237 +1,65 @@
 package com.baidu.tieba;
 
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tieba.mainentrance.ForumSuggestModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class us7 {
+public class us7 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public h a;
-    public c b;
-    public b c;
+    public final BaseActivity<?> a;
+    public final boolean b;
+    public ArrayList<ForumSuggestModel.Forum> c;
+    public String d;
 
     /* loaded from: classes6.dex */
-    public static class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<e> a;
-        public List<g> b;
-        public String c;
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new ArrayList();
-            this.b = new ArrayList();
-        }
-
-        public void a(JSONObject jSONObject) throws Exception {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-                return;
-            }
-            this.c = jSONObject.optString("content");
-            jSONObject.optString("tip_text");
-            jSONObject.optString("img");
-            JSONArray optJSONArray = jSONObject.optJSONArray("money_info");
-            if (optJSONArray == null) {
-                return;
-            }
-            int length = optJSONArray.length();
-            for (int i = 0; i < length; i++) {
-                JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                e eVar = new e();
-                eVar.a(jSONObject2);
-                if (1 == eVar.g) {
-                    eVar.i = true;
-                } else {
-                    eVar.i = false;
-                }
-                this.a.add(eVar);
-            }
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("right");
-            if (optJSONArray2 == null) {
-                return;
-            }
-            int length2 = optJSONArray2.length();
-            for (int i2 = 0; i2 < length2; i2++) {
-                g gVar = new g();
-                gVar.a(optJSONArray2.optJSONObject(i2));
-                this.b.add(gVar);
-            }
-        }
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
     }
 
     /* loaded from: classes6.dex */
-    public static class b {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ArrayList<i> a;
+        public View a;
+        public TextView b;
+        public BarImageView c;
+        public TextView d;
+        public TextView e;
+        public TextView f;
 
-        public b() {
+        public b(us7 us7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new ArrayList<>();
-        }
-
-        public void a(JSONArray jSONArray) throws Exception {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONArray) != null) || jSONArray == null) {
-                return;
-            }
-            int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                JSONObject jSONObject = jSONArray.getJSONObject(i);
-                i iVar = new i();
-                iVar.a(jSONObject);
-                this.a.add(iVar);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public d a;
-        public a b;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new d();
-            this.b = new a();
-        }
-
-        public void a(JSONObject jSONObject) throws Exception {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-                return;
-            }
-            this.a.a(jSONObject.optJSONObject("member"));
-            this.b.a(jSONObject.optJSONObject("adv_member"));
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public List<e> a;
-        public List<g> b;
-        public String c;
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new ArrayList();
-            this.b = new ArrayList();
-        }
-
-        public void a(JSONObject jSONObject) throws Exception {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-                return;
-            }
-            this.c = jSONObject.optString("content");
-            jSONObject.optString("tip_text");
-            jSONObject.optString("img");
-            JSONArray optJSONArray = jSONObject.optJSONArray("money_info");
-            if (optJSONArray == null) {
-                return;
-            }
-            int length = optJSONArray.length();
-            for (int i = 0; i < length; i++) {
-                JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                e eVar = new e();
-                eVar.a(jSONObject2);
-                if (1 == eVar.g) {
-                    eVar.i = true;
-                } else {
-                    eVar.i = false;
-                }
-                this.a.add(eVar);
-            }
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("right");
-            if (optJSONArray2 == null) {
-                return;
-            }
-            int length2 = optJSONArray2.length();
-            for (int i2 = 0; i2 < length2; i2++) {
-                JSONObject jSONObject3 = optJSONArray2.getJSONObject(i2);
-                g gVar = new g();
-                gVar.a(jSONObject3);
-                this.b.add(gVar);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
-        public long e;
-        public long f;
-        public long g;
-        public long h;
-        public boolean i;
-        public int j;
-        public boolean k;
-
-        public e() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {us7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -242,189 +70,170 @@ public class us7 {
             }
         }
 
-        public void a(JSONObject jSONObject) throws Exception {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-                return;
-            }
-            this.a = jSONObject.optString("productId");
-            this.b = jSONObject.optString("title");
-            jSONObject.optString("desc");
-            this.c = jSONObject.optString("discount");
-            jSONObject.optString("original_cost");
-            jSONObject.optString("icon");
-            this.e = jSONObject.optLong("props_id");
-            this.f = jSONObject.optLong("money");
-            this.h = jSONObject.optLong("months");
-            this.g = jSONObject.optLong("default");
-            jSONObject.optString("packet_text");
-            this.j = jSONObject.optInt("is_autopay");
-            this.k = false;
-            jSONObject.optString("payment_pos_key");
-            this.d = jSONObject.optString("tag_name");
+        public /* synthetic */ b(us7 us7Var, a aVar) {
+            this(us7Var);
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-
-        public f() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public void a(JSONObject jSONObject) throws Exception {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-                return;
-            }
-            this.a = jSONObject.optLong("props_id");
-            jSONObject.optLong("end_time");
-            jSONObject.optString("pic_url");
-            jSONObject.optLong("upgrade_month");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class g {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public g() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public void a(JSONObject jSONObject) throws Exception {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-                return;
-            }
-            jSONObject.optString("name");
-            jSONObject.optLong("num");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class h {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public f a;
-
-        public h() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new f();
-        }
-
-        public void a(JSONObject jSONObject) throws Exception {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-                return;
-            }
-            jSONObject.optLong("id");
-            jSONObject.optString("name");
-            jSONObject.optString("name_show");
-            jSONObject.optString("portrait");
-            jSONObject.optLong("user_type");
-            jSONObject.optLong("is_verify");
-            this.a.a(jSONObject.optJSONObject("pay_member_info"));
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class i {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
-
-        public i() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public void a(JSONObject jSONObject) throws Exception {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-                return;
-            }
-            this.a = jSONObject.optString("equity_id");
-            this.b = jSONObject.optString("title");
-            this.c = jSONObject.optString("icon_url");
-            this.d = jSONObject.optString("link_url");
-        }
-    }
-
-    public us7() {
+    public us7(BaseActivity<?> baseActivity, ArrayList<ForumSuggestModel.Forum> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseActivity, arrayList};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new h();
-        this.b = new c();
-        this.c = new b();
+        this.a = baseActivity;
+        this.b = true;
+        this.c = arrayList;
     }
 
-    public void a(JSONObject jSONObject) throws Exception {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public ForumSuggestModel.Forum getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            int count = getCount();
+            if (count > 0 && i < count) {
+                return this.c.get(i);
+            }
+            return null;
         }
-        jSONObject.optInt("have_autopay", 0);
-        this.a.a(jSONObject.optJSONObject("user"));
-        this.b.a(jSONObject.optJSONObject("goods_info"));
-        jSONObject.optString("equal_cost");
-        this.c.a(jSONObject.optJSONArray("equity"));
+        return (ForumSuggestModel.Forum) invokeI.objValue;
+    }
+
+    public void d(ArrayList<ForumSuggestModel.Forum> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
+            this.c = arrayList;
+            if (arrayList != null) {
+                notifyDataSetChanged();
+            }
+        }
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    public String b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i >= 100000) {
+                return String.valueOf(i / 10000) + this.a.getPageContext().getString(R.string.member_count_unit);
+            }
+            return String.valueOf(i);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public void c(TextView textView, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, textView, str) == null) && textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.d)) {
+            String lowerCase = str.toLowerCase();
+            String lowerCase2 = this.d.toLowerCase();
+            if (!lowerCase.contains(lowerCase2)) {
+                textView.setText(str);
+                return;
+            }
+            int indexOf = lowerCase.indexOf(lowerCase2);
+            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301));
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
+            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.d.length() + indexOf, 33);
+            textView.setText(spannableStringBuilder);
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ArrayList<ForumSuggestModel.Forum> arrayList = this.c;
+            if (arrayList == null) {
+                return 0;
+            }
+            return arrayList.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
+            boolean z = false;
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0813, (ViewGroup) null);
+                bVar = new b(this, null);
+                BarImageView barImageView = (BarImageView) view2.findViewById(R.id.forum_avatar);
+                bVar.c = barImageView;
+                barImageView.setGifIconSupport(false);
+                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916cb);
+                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090aca);
+                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090af6);
+                bVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ff2);
+                bVar.a = view2.findViewById(R.id.obfuscated_res_0x7f0917cf);
+                view2.setTag(bVar);
+            } else {
+                bVar = (b) view2.getTag();
+            }
+            ForumSuggestModel.Forum item = getItem(i);
+            if (item == null) {
+                return view2;
+            }
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            String str2 = item.avatar;
+            bVar.c.setTag(str2);
+            bVar.c.K(str2, 10, false);
+            bVar.c.invalidate();
+            if (this.b) {
+                str = this.a.getPageContext().getPageActivity().getString(R.string.chosen_pb_original_bar, new Object[]{item.forum_name});
+            } else {
+                str = item.forum_name;
+            }
+            c(bVar.b, str);
+            bVar.c.setTag(item.avatar);
+            TextView textView = bVar.d;
+            textView.setText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f02ba) + " " + b(item.member_num));
+            TextView textView2 = bVar.e;
+            textView2.setText(this.a.getPageContext().getString(R.string.text_post) + " " + b(item.thread_num));
+            if (!this.b && TextUtils.isEmpty(item.slogan)) {
+                bVar.f.setVisibility(8);
+            } else {
+                bVar.f.setVisibility(0);
+                bVar.f.setText(item.slogan);
+            }
+            if (item.is_offical == 1) {
+                bVar.a.setVisibility(0);
+                SkinManager.setBackgroundResource(bVar.a, R.drawable.icon_search_official);
+            } else {
+                bVar.a.setVisibility(8);
+            }
+            dr4 layoutMode = this.a.getLayoutMode();
+            if (skinType == 1) {
+                z = true;
+            }
+            layoutMode.l(z);
+            this.a.getLayoutMode().k(view2);
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

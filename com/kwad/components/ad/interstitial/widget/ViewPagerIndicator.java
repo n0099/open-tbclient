@@ -194,6 +194,11 @@ public class ViewPagerIndicator extends View {
         }
     }
 
+    public static /* synthetic */ boolean a(ViewPagerIndicator viewPagerIndicator, boolean z) {
+        viewPagerIndicator.js = true;
+        return true;
+    }
+
     private void b(Canvas canvas) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65546, this, canvas) == null) && !this.js && this.ji == 0) {
@@ -288,7 +293,7 @@ public class ViewPagerIndicator extends View {
                 public final void onAnimationEnd(Animator animator) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
-                        this.jv.js = true;
+                        ViewPagerIndicator.a(this.jv, true);
                         if (this.jv.jt != null) {
                             this.jv.jt.dS();
                         }

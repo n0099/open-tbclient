@@ -14,13 +14,13 @@ import io.reactivex.functions.Function;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.ObjectHelper;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class MaybeFlatten<T, R> extends AbstractMaybeWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Function<? super T, ? extends MaybeSource<? extends R>> mapper;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class FlatMapMaybeObserver<T, R> extends AtomicReference<Disposable> implements MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4375739915521278546L;
@@ -29,7 +29,7 @@ public final class MaybeFlatten<T, R> extends AbstractMaybeWithUpstream<T, R> {
         public Disposable d;
         public final Function<? super T, ? extends MaybeSource<? extends R>> mapper;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public final class InnerObserver implements MaybeObserver<R> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

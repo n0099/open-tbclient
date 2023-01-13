@@ -1,8 +1,9 @@
 package com.xiaomi.push;
 /* loaded from: classes8.dex */
 public interface au {
-    String a();
+    /* renamed from: a */
+    String mo186a();
 
-    /* renamed from: a  reason: collision with other method in class */
-    boolean m183a();
+    /* renamed from: a */
+    boolean mo187a();
 }

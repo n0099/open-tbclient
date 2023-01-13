@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ps6;
-import com.baidu.tieba.rw4;
-import com.baidu.tieba.x9;
-import com.baidu.tieba.xi;
+import com.baidu.tieba.cx4;
+import com.baidu.tieba.fw6;
+import com.baidu.tieba.y9;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -144,8 +144,8 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !xi.isEmpty(this.a.d) && (x9.a(this.a.getContext()) instanceof TbPageContext)) {
-                UrlManager.getInstance().dealOneLink((TbPageContext) x9.a(this.a.getContext()), new String[]{this.a.d});
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !yi.isEmpty(this.a.d) && (y9.a(this.a.getContext()) instanceof TbPageContext)) {
+                UrlManager.getInstance().dealOneLink((TbPageContext) y9.a(this.a.getContext()), new String[]{this.a.d});
             }
         }
     }
@@ -215,12 +215,12 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         c();
     }
 
-    public void setData(ps6 ps6Var) {
+    public void setData(fw6 fw6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ps6Var) == null) {
-            this.a.setText(ps6Var.a);
-            this.b.setText(ps6Var.b);
-            this.d = ps6Var.c;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fw6Var) == null) {
+            this.a.setText(fw6Var.a);
+            this.b.setText(fw6Var.b);
+            this.d = fw6Var.c;
         }
     }
 
@@ -244,10 +244,10 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
             if (e == null) {
                 e = getContext().getString(R.string.limited_company);
             }
-            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0404, this);
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0916bb);
-            this.b = (LimitiedCoTextView) findViewById(R.id.obfuscated_res_0x7f0925ab);
-            this.c = findViewById(R.id.obfuscated_res_0x7f09082d);
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0403, this);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0916cb);
+            this.b = (LimitiedCoTextView) findViewById(R.id.obfuscated_res_0x7f0925db);
+            this.c = findViewById(R.id.obfuscated_res_0x7f09082e);
             this.b.setOnClickListener(new a(this));
         }
     }
@@ -255,13 +255,13 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            rw4.d(this.a).v(R.color.CAM_X0108);
-            if (xi.isEmpty(this.d)) {
-                rw4 d = rw4.d(this.b);
+            cx4.d(this.a).v(R.color.CAM_X0108);
+            if (yi.isEmpty(this.d)) {
+                cx4 d = cx4.d(this.b);
                 d.w(R.dimen.M_T_X002);
                 d.v(R.color.CAM_X0105);
             } else {
-                rw4 d2 = rw4.d(this.b);
+                cx4 d2 = cx4.d(this.b);
                 d2.w(R.dimen.M_T_X002);
                 d2.v(R.color.CAM_X0304);
             }

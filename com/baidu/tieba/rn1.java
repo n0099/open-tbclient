@@ -1,21 +1,33 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.tieba.hd4;
-import okhttp3.Callback;
-import org.json.JSONObject;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface rn1 {
-    void d(byte[] bArr);
+public class rn1 implements iq1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    <T> void e(String str, String str2, ResponseCallback<T> responseCallback);
+    @Override // com.baidu.tieba.iq1
+    public void a(HybridUbcFlow hybridUbcFlow) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, hybridUbcFlow) == null) {
+        }
+    }
 
-    void f(String str, String str2, hd4.c cVar);
-
-    boolean g(String str);
-
-    boolean h();
-
-    boolean i(@NonNull e43 e43Var, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, Callback callback, xi3<String> xi3Var);
+    public rn1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

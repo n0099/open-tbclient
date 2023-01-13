@@ -1,19 +1,29 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.Uri;
-import org.json.JSONObject;
+import androidx.annotation.NonNull;
 /* loaded from: classes5.dex */
 public interface jo2 {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void a();
+        void a(i73 i73Var);
 
-        void b();
+        void onFailed(int i);
     }
 
-    void a(Context context, JSONObject jSONObject, a aVar);
+    void a();
 
-    void b(Context context, String str, Uri uri);
+    void b(String str, boolean z, boolean z2, a aVar);
+
+    void c();
+
+    void d();
+
+    void e();
+
+    void f(a aVar);
+
+    double[] g(@NonNull i73 i73Var, @NonNull String str);
+
+    i73 h();
 }

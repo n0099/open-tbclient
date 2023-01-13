@@ -15,7 +15,7 @@ public class UComparisonsKt___UComparisonsKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: maxOf-5PvTz6A  reason: not valid java name */
-    public static final short m1871maxOf5PvTz6A(short s, short s2) {
+    public static final short m1935maxOf5PvTz6A(short s, short s2) {
         if (Intrinsics.compare(s & UShort.MAX_VALUE, 65535 & s2) < 0) {
             return s2;
         }
@@ -25,7 +25,7 @@ public class UComparisonsKt___UComparisonsKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: maxOf-J1ME1BU  reason: not valid java name */
-    public static final int m1872maxOfJ1ME1BU(int i, int i2) {
+    public static final int m1936maxOfJ1ME1BU(int i, int i2) {
         if (UnsignedKt.uintCompare(i, i2) < 0) {
             return i2;
         }
@@ -35,7 +35,7 @@ public class UComparisonsKt___UComparisonsKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: maxOf-Kr8caGY  reason: not valid java name */
-    public static final byte m1873maxOfKr8caGY(byte b, byte b2) {
+    public static final byte m1937maxOfKr8caGY(byte b, byte b2) {
         if (Intrinsics.compare(b & 255, b2 & 255) < 0) {
             return b2;
         }
@@ -45,10 +45,10 @@ public class UComparisonsKt___UComparisonsKt {
     @SinceKotlin(version = "1.4")
     @ExperimentalUnsignedTypes
     /* renamed from: maxOf-Md2H83M  reason: not valid java name */
-    public static final int m1874maxOfMd2H83M(int i, int... other) {
+    public static final int m1938maxOfMd2H83M(int i, int... other) {
         Intrinsics.checkNotNullParameter(other, "other");
         for (int i2 : other) {
-            i = m1872maxOfJ1ME1BU(i, i2);
+            i = m1936maxOfJ1ME1BU(i, i2);
         }
         return i;
     }
@@ -56,10 +56,10 @@ public class UComparisonsKt___UComparisonsKt {
     @SinceKotlin(version = "1.4")
     @ExperimentalUnsignedTypes
     /* renamed from: maxOf-R03FKyM  reason: not valid java name */
-    public static final long m1875maxOfR03FKyM(long j, long... other) {
+    public static final long m1939maxOfR03FKyM(long j, long... other) {
         Intrinsics.checkNotNullParameter(other, "other");
         for (long j2 : other) {
-            j = m1880maxOfeb3DHEI(j, j2);
+            j = m1944maxOfeb3DHEI(j, j2);
         }
         return j;
     }
@@ -67,10 +67,10 @@ public class UComparisonsKt___UComparisonsKt {
     @SinceKotlin(version = "1.4")
     @ExperimentalUnsignedTypes
     /* renamed from: maxOf-Wr6uiD8  reason: not valid java name */
-    public static final byte m1878maxOfWr6uiD8(byte b, byte... other) {
+    public static final byte m1942maxOfWr6uiD8(byte b, byte... other) {
         Intrinsics.checkNotNullParameter(other, "other");
         for (byte b2 : other) {
-            b = m1873maxOfKr8caGY(b, b2);
+            b = m1937maxOfKr8caGY(b, b2);
         }
         return b;
     }
@@ -78,7 +78,7 @@ public class UComparisonsKt___UComparisonsKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: maxOf-eb3DHEI  reason: not valid java name */
-    public static final long m1880maxOfeb3DHEI(long j, long j2) {
+    public static final long m1944maxOfeb3DHEI(long j, long j2) {
         if (UnsignedKt.ulongCompare(j, j2) < 0) {
             return j2;
         }
@@ -88,10 +88,10 @@ public class UComparisonsKt___UComparisonsKt {
     @SinceKotlin(version = "1.4")
     @ExperimentalUnsignedTypes
     /* renamed from: maxOf-t1qELG4  reason: not valid java name */
-    public static final short m1882maxOft1qELG4(short s, short... other) {
+    public static final short m1946maxOft1qELG4(short s, short... other) {
         Intrinsics.checkNotNullParameter(other, "other");
         for (short s2 : other) {
-            s = m1871maxOf5PvTz6A(s, s2);
+            s = m1935maxOf5PvTz6A(s, s2);
         }
         return s;
     }
@@ -99,7 +99,7 @@ public class UComparisonsKt___UComparisonsKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: minOf-5PvTz6A  reason: not valid java name */
-    public static final short m1883minOf5PvTz6A(short s, short s2) {
+    public static final short m1947minOf5PvTz6A(short s, short s2) {
         if (Intrinsics.compare(s & UShort.MAX_VALUE, 65535 & s2) > 0) {
             return s2;
         }
@@ -109,7 +109,7 @@ public class UComparisonsKt___UComparisonsKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: minOf-J1ME1BU  reason: not valid java name */
-    public static final int m1884minOfJ1ME1BU(int i, int i2) {
+    public static final int m1948minOfJ1ME1BU(int i, int i2) {
         if (UnsignedKt.uintCompare(i, i2) > 0) {
             return i2;
         }
@@ -119,7 +119,7 @@ public class UComparisonsKt___UComparisonsKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: minOf-Kr8caGY  reason: not valid java name */
-    public static final byte m1885minOfKr8caGY(byte b, byte b2) {
+    public static final byte m1949minOfKr8caGY(byte b, byte b2) {
         if (Intrinsics.compare(b & 255, b2 & 255) > 0) {
             return b2;
         }
@@ -129,10 +129,10 @@ public class UComparisonsKt___UComparisonsKt {
     @SinceKotlin(version = "1.4")
     @ExperimentalUnsignedTypes
     /* renamed from: minOf-Md2H83M  reason: not valid java name */
-    public static final int m1886minOfMd2H83M(int i, int... other) {
+    public static final int m1950minOfMd2H83M(int i, int... other) {
         Intrinsics.checkNotNullParameter(other, "other");
         for (int i2 : other) {
-            i = m1884minOfJ1ME1BU(i, i2);
+            i = m1948minOfJ1ME1BU(i, i2);
         }
         return i;
     }
@@ -140,10 +140,10 @@ public class UComparisonsKt___UComparisonsKt {
     @SinceKotlin(version = "1.4")
     @ExperimentalUnsignedTypes
     /* renamed from: minOf-R03FKyM  reason: not valid java name */
-    public static final long m1887minOfR03FKyM(long j, long... other) {
+    public static final long m1951minOfR03FKyM(long j, long... other) {
         Intrinsics.checkNotNullParameter(other, "other");
         for (long j2 : other) {
-            j = m1892minOfeb3DHEI(j, j2);
+            j = m1956minOfeb3DHEI(j, j2);
         }
         return j;
     }
@@ -151,10 +151,10 @@ public class UComparisonsKt___UComparisonsKt {
     @SinceKotlin(version = "1.4")
     @ExperimentalUnsignedTypes
     /* renamed from: minOf-Wr6uiD8  reason: not valid java name */
-    public static final byte m1890minOfWr6uiD8(byte b, byte... other) {
+    public static final byte m1954minOfWr6uiD8(byte b, byte... other) {
         Intrinsics.checkNotNullParameter(other, "other");
         for (byte b2 : other) {
-            b = m1885minOfKr8caGY(b, b2);
+            b = m1949minOfKr8caGY(b, b2);
         }
         return b;
     }
@@ -162,7 +162,7 @@ public class UComparisonsKt___UComparisonsKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: minOf-eb3DHEI  reason: not valid java name */
-    public static final long m1892minOfeb3DHEI(long j, long j2) {
+    public static final long m1956minOfeb3DHEI(long j, long j2) {
         if (UnsignedKt.ulongCompare(j, j2) > 0) {
             return j2;
         }
@@ -172,10 +172,10 @@ public class UComparisonsKt___UComparisonsKt {
     @SinceKotlin(version = "1.4")
     @ExperimentalUnsignedTypes
     /* renamed from: minOf-t1qELG4  reason: not valid java name */
-    public static final short m1894minOft1qELG4(short s, short... other) {
+    public static final short m1958minOft1qELG4(short s, short... other) {
         Intrinsics.checkNotNullParameter(other, "other");
         for (short s2 : other) {
-            s = m1883minOf5PvTz6A(s, s2);
+            s = m1947minOf5PvTz6A(s, s2);
         }
         return s;
     }
@@ -184,63 +184,63 @@ public class UComparisonsKt___UComparisonsKt {
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     /* renamed from: maxOf-VKSA0NQ  reason: not valid java name */
-    public static final short m1876maxOfVKSA0NQ(short s, short s2, short s3) {
-        return m1871maxOf5PvTz6A(s, m1871maxOf5PvTz6A(s2, s3));
+    public static final short m1940maxOfVKSA0NQ(short s, short s2, short s3) {
+        return m1935maxOf5PvTz6A(s, m1935maxOf5PvTz6A(s2, s3));
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     /* renamed from: maxOf-WZ9TVnA  reason: not valid java name */
-    public static final int m1877maxOfWZ9TVnA(int i, int i2, int i3) {
-        return m1872maxOfJ1ME1BU(i, m1872maxOfJ1ME1BU(i2, i3));
+    public static final int m1941maxOfWZ9TVnA(int i, int i2, int i3) {
+        return m1936maxOfJ1ME1BU(i, m1936maxOfJ1ME1BU(i2, i3));
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     /* renamed from: maxOf-b33U2AM  reason: not valid java name */
-    public static final byte m1879maxOfb33U2AM(byte b, byte b2, byte b3) {
-        return m1873maxOfKr8caGY(b, m1873maxOfKr8caGY(b2, b3));
+    public static final byte m1943maxOfb33U2AM(byte b, byte b2, byte b3) {
+        return m1937maxOfKr8caGY(b, m1937maxOfKr8caGY(b2, b3));
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     /* renamed from: maxOf-sambcqE  reason: not valid java name */
-    public static final long m1881maxOfsambcqE(long j, long j2, long j3) {
-        return m1880maxOfeb3DHEI(j, m1880maxOfeb3DHEI(j2, j3));
+    public static final long m1945maxOfsambcqE(long j, long j2, long j3) {
+        return m1944maxOfeb3DHEI(j, m1944maxOfeb3DHEI(j2, j3));
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     /* renamed from: minOf-VKSA0NQ  reason: not valid java name */
-    public static final short m1888minOfVKSA0NQ(short s, short s2, short s3) {
-        return m1883minOf5PvTz6A(s, m1883minOf5PvTz6A(s2, s3));
+    public static final short m1952minOfVKSA0NQ(short s, short s2, short s3) {
+        return m1947minOf5PvTz6A(s, m1947minOf5PvTz6A(s2, s3));
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     /* renamed from: minOf-WZ9TVnA  reason: not valid java name */
-    public static final int m1889minOfWZ9TVnA(int i, int i2, int i3) {
-        return m1884minOfJ1ME1BU(i, m1884minOfJ1ME1BU(i2, i3));
+    public static final int m1953minOfWZ9TVnA(int i, int i2, int i3) {
+        return m1948minOfJ1ME1BU(i, m1948minOfJ1ME1BU(i2, i3));
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     /* renamed from: minOf-b33U2AM  reason: not valid java name */
-    public static final byte m1891minOfb33U2AM(byte b, byte b2, byte b3) {
-        return m1885minOfKr8caGY(b, m1885minOfKr8caGY(b2, b3));
+    public static final byte m1955minOfb33U2AM(byte b, byte b2, byte b3) {
+        return m1949minOfKr8caGY(b, m1949minOfKr8caGY(b2, b3));
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     /* renamed from: minOf-sambcqE  reason: not valid java name */
-    public static final long m1893minOfsambcqE(long j, long j2, long j3) {
-        return m1892minOfeb3DHEI(j, m1892minOfeb3DHEI(j2, j3));
+    public static final long m1957minOfsambcqE(long j, long j2, long j3) {
+        return m1956minOfeb3DHEI(j, m1956minOfeb3DHEI(j2, j3));
     }
 }

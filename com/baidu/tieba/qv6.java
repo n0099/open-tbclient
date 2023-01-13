@@ -1,143 +1,118 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tbadk.widget.LinearGradientView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.frs.headerimage.FrsHeaderBannerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class qv6 {
+public class qv6 extends ln<zv6, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public RelativeLayout b;
-    public LinearGradientView c;
-    public BarImageView d;
-    public TextView e;
-    public FrsHeaderBannerView f;
-    public LinearLayout g;
-    public ImageView h;
-    public View i;
-    public TbImageView j;
-    public ImageView k;
-    public ImageView l;
-    public ImageView m;
-    public ImageView n;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public class a extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
+        public TextView a;
 
-        public a(qv6 qv6Var, Context context) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(qv6 qv6Var, View view2) {
+            super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qv6Var, context};
+                Object[] objArr = {qv6Var, view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = context;
+            if (view2 instanceof TextView) {
+                this.a = (TextView) view2;
+                ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
+                marginLayoutParams.topMargin = zi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
+                this.a.setLayoutParams(marginLayoutParams);
+                this.a.setText(R.string.obfuscated_res_0x7f0f0748);
+                this.a.setPadding(zi.g(qv6Var.mContext, R.dimen.M_W_X005), zi.g(qv6Var.mContext, R.dimen.M_H_X005), 0, 0);
+                cx4 d = cx4.d(this.a);
+                d.z(R.dimen.T_X07);
+                d.A(R.string.F_X02);
+            }
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        public void a() {
+            TextView textView;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                Context context = this.a;
-                if (context instanceof Activity) {
-                    ((Activity) context).finish();
-                }
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (textView = this.a) != null) {
+                cx4 d = cx4.d(textView);
+                d.v(R.color.CAM_X0105);
+                d.m(1);
+                d.n(R.string.J_X06);
+                d.f(R.color.CAM_X0205);
             }
         }
     }
 
-    public qv6(Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qv6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        UtilHelper.getDimenPixelSize(R.dimen.tbds42);
-        UtilHelper.getStatusBarHeight();
-        UtilHelper.getDimenPixelSize(R.dimen.tbds50);
-        UtilHelper.getStatusBarHeight();
-        UtilHelper.getDimenPixelSize(R.dimen.tbds51);
-        UtilHelper.getStatusBarHeight();
-        if (context == null) {
-            return;
+        this.mPageId = bdUniqueId2;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ln
+    /* renamed from: u */
+    public a onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new a(this, new TextView(this.mContext));
         }
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d030c, (ViewGroup) null);
-        this.a = inflate;
-        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090db6);
-        this.c = (LinearGradientView) this.a.findViewById(R.id.obfuscated_res_0x7f090db9);
-        TbImageView tbImageView = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090db7);
-        this.j = tbImageView;
-        tbImageView.setDefaultBgResource(R.color.transparent);
-        this.j.setDefaultResource(R.drawable.obfuscated_res_0x7f080f9f);
-        this.d = (BarImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090b99);
-        TextView textView = (TextView) this.a.findViewById(R.id.forum_name);
-        this.e = textView;
-        SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
-        this.f = (FrsHeaderBannerView) this.a.findViewById(R.id.obfuscated_res_0x7f090b88);
-        this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0909c0);
-        this.h = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909bf);
-        this.i = this.a.findViewById(R.id.obfuscated_res_0x7f090dcf);
-        this.k = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909c2);
-        this.l = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909c4);
-        this.m = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909c1);
-        this.n = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909c3);
-        this.k.setOnClickListener(new a(this, context));
-        this.d.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.d.setContentDescription(context.getResources().getString(R.string.obfuscated_res_0x7f0f02ec));
-        this.d.setStrokeWith(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds4));
-        this.d.setShowOval(true);
-        this.d.setBorderColor(SkinManager.getColor(R.color.black_alpha15));
-        this.d.setStrokeColorResId(R.color.CAM_X0201);
-        SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
-        rw4 d = rw4.d(this.i);
-        d.m(1);
-        d.n(R.string.J_X14);
-        d.f(R.color.CAM_X0201);
-        SkinManager.setBackgroundResource(this.h, R.color.CAM_X0201);
-        SkinManager.setImageResource(this.k, R.drawable.ic_icon_pure_topbar_return40_svg);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.ic_icon_pure_topbar_share40_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-        this.m.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_information40, SkinManager.getColor(R.color.CAM_X0101), null));
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.n, R.drawable.ic_icon_pure_topbar_search40_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.obfuscated_res_0x7f0802e1, R.color.CAM_X0204, SvgManager.SvgResourceStateType.NORMAL);
+        return (a) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ln
+    /* renamed from: v */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, zv6 zv6Var, a aVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, zv6Var, aVar})) == null) {
+            aVar.a();
+            return aVar.getView();
+        }
+        return (View) invokeCommon.objValue;
     }
 }

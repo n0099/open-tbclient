@@ -110,15 +110,15 @@ public final class j extends d implements com.kwad.sdk.widget.c {
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (viewGroup = this.vl) == null) {
             return;
         }
-        this.it = (KSCornerImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09120f);
-        this.eQ = (TextView) this.vl.findViewById(R.id.obfuscated_res_0x7f091211);
-        this.iu = (TextView) this.vl.findViewById(R.id.obfuscated_res_0x7f09120e);
-        this.nI = (KsPriceView) this.vl.findViewById(R.id.obfuscated_res_0x7f091210);
-        this.vm = (KsStyledTextButton) this.vl.findViewById(R.id.obfuscated_res_0x7f09120b);
-        this.vn = (KsStyledTextButton) this.vl.findViewById(R.id.obfuscated_res_0x7f09120a);
-        this.uO = (TextView) this.vl.findViewById(R.id.obfuscated_res_0x7f0911fe);
-        this.uQ = this.vl.findViewById(R.id.obfuscated_res_0x7f0911ff);
-        this.uP = (TextView) this.vl.findViewById(R.id.obfuscated_res_0x7f091200);
+        this.it = (KSCornerImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09121a);
+        this.eQ = (TextView) this.vl.findViewById(R.id.obfuscated_res_0x7f09121c);
+        this.iu = (TextView) this.vl.findViewById(R.id.obfuscated_res_0x7f091219);
+        this.nI = (KsPriceView) this.vl.findViewById(R.id.obfuscated_res_0x7f09121b);
+        this.vm = (KsStyledTextButton) this.vl.findViewById(R.id.obfuscated_res_0x7f091216);
+        this.vn = (KsStyledTextButton) this.vl.findViewById(R.id.obfuscated_res_0x7f091215);
+        this.uO = (TextView) this.vl.findViewById(R.id.obfuscated_res_0x7f091209);
+        this.uQ = this.vl.findViewById(R.id.obfuscated_res_0x7f09120a);
+        this.uP = (TextView) this.vl.findViewById(R.id.obfuscated_res_0x7f09120b);
         new com.kwad.sdk.widget.f(this.vm, this);
         new com.kwad.sdk.widget.f(this.vn, this);
         new com.kwad.sdk.widget.f(this.vl, this);

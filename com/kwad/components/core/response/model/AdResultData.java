@@ -141,7 +141,7 @@ public class AdResultData extends BaseResultData implements b {
     /* JADX DEBUG: Method merged with bridge method */
     @NonNull
     /* renamed from: clone */
-    public AdResultData m84clone() {
+    public AdResultData m88clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

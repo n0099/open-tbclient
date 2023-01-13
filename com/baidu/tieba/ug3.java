@@ -1,176 +1,82 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.os.Build;
-import android.os.StatFs;
+import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.xd3;
+import android.util.Log;
+import com.baidu.android.util.io.AssetUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.DecimalFormat;
-import org.json.JSONObject;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes6.dex */
-public class ug3 {
+public final class ug3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ xi3 c;
-
-        public a(int i, long j, xi3 xi3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), xi3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static boolean a(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            if (context == null || TextUtils.isEmpty(str)) {
+                return false;
             }
-            this.a = i;
-            this.b = j;
-            this.c = xi3Var;
+            try {
+                nk4.d(context.getAssets().open(str, 0));
+                return true;
+            } catch (IOException unused) {
+                nk4.d(null);
+                return false;
+            } catch (Throwable th) {
+                nk4.d(null);
+                throw th;
+            }
         }
+        return invokeLL.booleanValue;
+    }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                JSONObject jSONObject = new JSONObject();
+    public static String b(Context context, String str) {
+        InterceptResult invokeLL;
+        InputStream inputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            InputStream inputStream2 = null;
+            r0 = null;
+            String str2 = null;
+            try {
+                inputStream = context.getAssets().open(str);
+            } catch (IOException e) {
+                e = e;
+                inputStream = null;
+            } catch (Throwable th) {
+                th = th;
+                nk4.d(inputStream2);
+                throw th;
+            }
+            if (inputStream == null) {
+                nk4.d(inputStream);
+                return null;
+            }
+            try {
                 try {
-                    ug3.f(jSONObject, rv2.c(), this.a, this.b);
-                } catch (Exception e) {
-                    eh3.f(jSONObject, "errorMsg", e.getMessage());
+                    str2 = qk4.b(inputStream);
+                } catch (IOException e2) {
+                    e = e2;
+                    if (tk1.a) {
+                        Log.w(AssetUtils.TAG, "loadPresetDatas", e);
+                    }
+                    nk4.d(inputStream);
+                    return str2;
                 }
-                this.c.a(jSONObject);
+                nk4.d(inputStream);
+                return str2;
+            } catch (Throwable th2) {
+                th = th2;
+                inputStream2 = inputStream;
+                nk4.d(inputStream2);
+                throw th;
             }
         }
-    }
-
-    public ug3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (TextUtils.isEmpty(a)) {
-                synchronized (ug3.class) {
-                    a = e();
-                }
-            }
-            return a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String b(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
-            return new DecimalFormat("#.##").format(j / 1.073741824E9d);
-        }
-        return (String) invokeJ.objValue;
-    }
-
-    public static void d(@NonNull bp2 bp2Var, @NonNull xi3<JSONObject> xi3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bp2Var, xi3Var) == null) {
-            ExecutorUtilsExt.postOnElastic(new a(bp2Var.i("host_launch_type"), bp2Var.k("box_cold_launch"), xi3Var), "getDeviceInfoAsync", 2);
-        }
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        String replace;
-        String replace2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            String str = Build.MODEL;
-            String str2 = "NUL";
-            if (TextUtils.isEmpty(str)) {
-                replace = "NUL";
-            } else {
-                replace = str.replace("_", "-");
-            }
-            String str3 = Build.VERSION.RELEASE;
-            if (TextUtils.isEmpty(str3)) {
-                replace2 = "0.0";
-            } else {
-                replace2 = str3.replace("_", "-");
-            }
-            int i = Build.VERSION.SDK_INT;
-            String str4 = Build.MANUFACTURER;
-            if (!TextUtils.isEmpty(str4)) {
-                str2 = str4.replace("_", "-");
-            }
-            return replace + "_" + replace2 + "_" + i + "_" + str2;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void f(@NonNull JSONObject jSONObject, int i, int i2, long j) {
-        int i3;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{jSONObject, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            eh3.f(jSONObject, "model", Build.MODEL);
-            eh3.f(jSONObject, "systemVersion", Build.VERSION.RELEASE);
-            eh3.f(jSONObject, "netStatus", Integer.valueOf(i));
-            xd3.a a2 = xd3.a(ln2.c());
-            if (a2 == null) {
-                i3 = -1;
-            } else {
-                i3 = a2.a;
-            }
-            eh3.f(jSONObject, "batteryLevel", Integer.valueOf(i3));
-            eh3.f(jSONObject, "appCurVersion", yh3.D());
-            eh3.f(jSONObject, "startupType", String.valueOf(i2));
-            eh3.f(jSONObject, "coldLaunchTime", Long.valueOf(j));
-            StatFs statFs = new StatFs(an2.i());
-            eh3.f(jSONObject, "totalDiskSpace", b(statFs.getTotalBytes()));
-            eh3.f(jSONObject, "freeDiskSpace", b(statFs.getAvailableBytes()));
-            ActivityManager activityManager = (ActivityManager) d43.K().getSystemService("activity");
-            if (activityManager != null) {
-                ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-                activityManager.getMemoryInfo(memoryInfo);
-                eh3.f(jSONObject, "totalMemory", b(memoryInfo.totalMem));
-                eh3.f(jSONObject, "freeMemory", b(memoryInfo.availMem));
-                if (memoryInfo.lowMemory) {
-                    str = "1";
-                } else {
-                    str = "0";
-                }
-                eh3.f(jSONObject, "lowMemory", str);
-            }
-        }
+        return (String) invokeLL.objValue;
     }
 }

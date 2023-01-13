@@ -9,25 +9,25 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pz4;
-import com.baidu.tieba.r05;
+import com.baidu.tieba.a05;
+import com.baidu.tieba.c15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements r05 {
+public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements c15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String o;
     public String p;
-    public pz4 q;
-    public pz4 r;
+    public a05 q;
+    public a05 r;
     public View.OnClickListener s;
     public View.OnClickListener t;
     public boolean u;
 
-    @Override // com.baidu.tieba.r05
+    @Override // com.baidu.tieba.c15
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -52,7 +52,7 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements r0
                 return;
             }
         }
-        m();
+        init();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -74,7 +74,7 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements r0
                 return;
             }
         }
-        m();
+        init();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -96,24 +96,7 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements r0
                 return;
             }
         }
-        m();
-    }
-
-    private void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.o = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-            this.p = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b6);
-            setTextSize(R.dimen.T_X08);
-            setText(this.p);
-            pz4 pz4Var = new pz4();
-            this.q = pz4Var;
-            pz4Var.r(R.color.CAM_X0304);
-            pz4 pz4Var2 = new pz4();
-            this.r = pz4Var2;
-            pz4Var2.t(R.color.CAM_X0109);
-            setConfig(this.q);
-        }
+        init();
     }
 
     public void a(View view2) {
@@ -124,7 +107,7 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements r0
         }
     }
 
-    @Override // com.baidu.tieba.r05
+    @Override // com.baidu.tieba.c15
     public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
@@ -132,30 +115,30 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements r0
         }
     }
 
-    public void r(int i) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             k();
         }
     }
 
     public void setAfterStatusUpdateListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, onClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) {
             this.t = onClickListener;
         }
     }
 
     public void setFollowIconSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             this.q.g(i);
         }
     }
 
     public void setIsShowIcon(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
             this.u = z;
         }
     }
@@ -163,17 +146,17 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements r0
     @Override // android.view.View
     public void setVisibility(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             super.setVisibility(i);
         }
     }
 
-    @Override // com.baidu.tieba.r05
+    @Override // com.baidu.tieba.c15
     public void b(boolean z, int i, boolean z2) {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
-            s(z);
+            q(z);
             setVisibility(0);
             if (z && (onClickListener = this.t) != null) {
                 onClickListener.onClick(this);
@@ -181,21 +164,38 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements r0
         }
     }
 
-    @Override // com.baidu.tieba.r05
+    @Override // com.baidu.tieba.c15
     public void d(boolean z, int i) {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            s(z);
+            q(z);
             if (z && (onClickListener = this.t) != null) {
                 onClickListener.onClick(this);
             }
         }
     }
 
-    public void s(boolean z) {
+    public final void init() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.o = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+            this.p = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ba);
+            setTextSize(R.dimen.T_X08);
+            setText(this.p);
+            a05 a05Var = new a05();
+            this.q = a05Var;
+            a05Var.t(R.color.CAM_X0304);
+            a05 a05Var2 = new a05();
+            this.r = a05Var2;
+            a05Var2.v(R.color.CAM_X0109);
+            setConfig(this.q);
+        }
+    }
+
+    public void q(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             Object obj = this.a;
             if ((obj instanceof Boolean) && ((Boolean) obj).booleanValue() == z) {
                 return;
@@ -215,7 +215,7 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements r0
                 }
                 setConfig(this.q);
             }
-            r(TbadkCoreApplication.getInst().getSkinType());
+            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 }

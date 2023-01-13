@@ -1,104 +1,68 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.imMessageCenter.chatgroup.chatbox.adapter.ChatRoomRecycleAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import tbclient.BroadcastInfo;
+import tbclient.RecommendForumInfo;
+import tbclient.ThreadInfo;
 /* loaded from: classes4.dex */
-public class fh7 extends wg7 {
+public class fh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean a;
-    public final String b;
+    public String a;
+    public String b;
     public String c;
-    public List<wg7> d;
-    public RecyclerView.Adapter e;
-    public boolean f;
+    public long d;
+    public int e;
+    public long f;
+    public int g;
+    public String h;
+    public int i;
+    public RecommendForumInfo j;
+    public ThreadInfo k;
 
-    @Override // com.baidu.tieba.wg7
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public fh7(List<gh7> list, String str, String str2, boolean z, boolean z2, @NonNull TbPageContext tbPageContext, ch7 ch7Var) {
-        this(list, str, str2, z, false, z2, tbPageContext, ch7Var);
+    public fh7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), tbPageContext, ch7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((List) objArr2[0], (String) objArr2[1], (String) objArr2[2], ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue(), ((Boolean) objArr2[5]).booleanValue(), (TbPageContext) objArr2[6], (ch7) objArr2[7]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public fh7(List<gh7> list, String str, String str2, boolean z, boolean z2, boolean z3, @NonNull TbPageContext tbPageContext, ch7 ch7Var) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), tbPageContext, ch7Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.i;
         }
-        this.a = z2;
-        this.b = str;
-        this.c = str2;
-        this.f = z;
-        tg7 tg7Var = new tg7(tbPageContext, -1L, !z2, z3);
-        this.d = new ArrayList();
-        if (!ListUtils.isEmpty(list)) {
-            this.d.addAll(list);
-        }
-        this.e = new ChatRoomRecycleAdapter(new ug7(ch7Var), tg7Var, tbPageContext);
-        tg7Var.h(e());
+        return invokeV.intValue;
     }
 
-    public RecyclerView.Adapter b() {
+    public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
+            return this.f;
         }
-        return (RecyclerView.Adapter) invokeV.objValue;
+        return invokeV.longValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+            return this.b;
         }
         return (String) invokeV.objValue;
     }
@@ -107,63 +71,89 @@ public class fh7 extends wg7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
+            return this.h;
         }
         return (String) invokeV.objValue;
     }
 
-    public List<wg7> e() {
+    public RecommendForumInfo e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return Collections.unmodifiableList(this.d);
+            return this.j;
         }
-        return (List) invokeV.objValue;
+        return (RecommendForumInfo) invokeV.objValue;
     }
 
-    public final int f() {
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List<wg7> list = this.d;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
+        }
+        return invokeV.longValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.e;
         }
         return invokeV.intValue;
     }
 
-    public boolean g() {
+    public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.g;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public boolean h() {
+    public ThreadInfo j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.k;
+        }
+        return (ThreadInfo) invokeV.objValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.a;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public void i() {
-        RecyclerView.Adapter adapter;
+    public void l(BroadcastInfo broadcastInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (adapter = this.e) != null) {
-            adapter.notifyItemRangeChanged(0, f());
+        if ((interceptable != null && interceptable.invokeL(1048587, this, broadcastInfo) != null) || broadcastInfo == null) {
+            return;
         }
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f = z;
-        }
+        this.f = broadcastInfo.bcast_id.longValue();
+        this.a = broadcastInfo.title;
+        this.b = broadcastInfo.content;
+        this.c = broadcastInfo.pic_url;
+        this.d = broadcastInfo.publish_time.intValue();
+        this.e = broadcastInfo.pushuser_cnt.intValue();
+        this.j = broadcastInfo.forum_info;
+        this.k = broadcastInfo.thread_infos;
+        this.h = broadcastInfo.ctr;
+        this.g = broadcastInfo.pv.intValue();
+        this.i = broadcastInfo.audit_status.intValue();
     }
 }

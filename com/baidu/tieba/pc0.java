@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.graphics.Color;
-import com.baidu.live.LiveFeedPageSdk;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.asynctask.BdAsyncTask;
+import com.baidu.live.asynctask.BdAsyncTaskParallelType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,12 +10,70 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class pc0 extends oc0 {
+public class pc0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, String[]> b;
+    public static final bd0 a;
+    public static final v90 b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes5.dex */
+    public static class a<T> extends BdAsyncTask<String, Object, T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public qc0<T> m;
+        public rc0<T> n;
+
+        public a(qc0<T> qc0Var, rc0<T> rc0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qc0Var, rc0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.m = null;
+            this.n = null;
+            this.m = qc0Var;
+            this.n = rc0Var;
+        }
+
+        @Override // com.baidu.live.asynctask.BdAsyncTask
+        public void q(T t) {
+            rc0<T> rc0Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) && (rc0Var = this.n) != null) {
+                rc0Var.onReturnDataInUI(t);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.live.asynctask.BdAsyncTask
+        /* renamed from: z */
+        public T f(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
+                try {
+                    if (this.m == null) {
+                        return null;
+                    }
+                    return this.m.a();
+                } catch (Throwable th) {
+                    ad0.c(th);
+                    return null;
+                }
+            }
+            return (T) invokeL.objValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -31,82 +88,33 @@ public class pc0 extends oc0 {
                 return;
             }
         }
-        b = new HashMap<>();
+        a = bd0.a();
+        b = new v90(BdAsyncTaskParallelType.SERIAL, a);
     }
 
-    public pc0() {
+    public static <T> BdAsyncTask a(qc0<T> qc0Var, rc0<T> rc0Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, qc0Var, rc0Var)) == null) {
+            return b(qc0Var, rc0Var, 2);
         }
-        b.put("color_1F1F1F", new String[]{"#1F1F1F", "", "#CCFFFFFF", ""});
-        b.put("color_white1", new String[]{"#FFFFFF", "", "#1C1C1C", ""});
-        b.put("color_white2", new String[]{"#FFFFFF", "", "#333333", ""});
-        b.put("color_white3", new String[]{"#FFFFFF", "", "#FFFFFF", ""});
-        b.put("color_F5F5F51", new String[]{"#F4F5F6", "", "#1C1C1C", ""});
-        b.put("color_F5F5F52", new String[]{"#F4F5F6", "", "#000000", ""});
-        b.put("color_F5F5F53", new String[]{"#F4F5F6", "", "#292929", ""});
-        b.put("color_FF33551", new String[]{"#FF3355", "", "#F63B68", ""});
-        b.put("color_FF33552", new String[]{"#1AFF3355", "", "#26F63B68", ""});
-        b.put("color_858585", new String[]{"#858585", "", "#80FFFFFF", ""});
-        b.put("color_525252", new String[]{"#525252", "", "#80FFFFFF", ""});
-        b.put("color_FF3333", new String[]{"#FF3333", "", "#FF3333", ""});
-        b.put("color_768CAE", new String[]{"#768CAE", "", "#768CAE", ""});
-        b.put("color_4E6EF2", new String[]{"#4E6EF2", "", "#4E6EF2", ""});
-        b.put("color_8585852", new String[]{"#858585", "", "#66FFFFFF", ""});
-        b.put("color_5252522", new String[]{"#525252", "", "#1AFFFFFF", ""});
-        b.put("color_btn_stroke", new String[]{"#EEEEEE", "", "#00FFFFFF", ""});
-        b.put("color_btn_fill", new String[]{"#00000000", "", "#1AFFFFFF", ""});
-        b.put("color_sub_tab_normal", new String[]{"#888888", "", "#CCFFFFFF", ""});
-        b.put("color_main_bg", new String[]{"#FFFFFF", "", "#1C1C1C", ""});
-        b.put("color_white4", new String[]{"#1F1F1F", "", "#CCFFFFFF", ""});
-        b.put("color_gradient_1", new String[]{"#FFFFFF", "", "#1C1C1C", ""});
-        b.put("color_gradient_2", new String[]{"#00FFFFFF", "", "#001C1C1C", ""});
-        b.put("color_E0E0E0", new String[]{"#E0E0E0", "", "", ""});
-        b.put("color_EEEEEE", new String[]{"#eeeeee", "", "", ""});
+        return (BdAsyncTask) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.oc0
-    @SuppressLint({"Range"})
-    public int a(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
+    public static <T> BdAsyncTask b(qc0<T> qc0Var, rc0<T> rc0Var, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, str2)) == null) {
-            if (!b.containsKey(str2)) {
-                return -16777216;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, qc0Var, rc0Var, i)) == null) {
+            if (qc0Var != null) {
+                a aVar = new a(qc0Var, rc0Var);
+                aVar.v(b);
+                aVar.x(a);
+                aVar.w(i);
+                aVar.g(new String[0]);
+                return aVar;
             }
-            String str3 = "";
-            try {
-                str3 = b.get(str2)[0];
-            } catch (Exception e) {
-                LiveFeedPageSdk.liveLog("getColor Exception: " + e.getMessage());
-            }
-            if ("recommend".equals(str)) {
-                return sc0.c().a(context, str, str2);
-            }
-            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
-                str3 = b.get(str2)[3];
-            } else if ("dark".equals(this.a)) {
-                str3 = b.get(str2)[2];
-            }
-            if (ic0.a(str3)) {
-                return -16777216;
-            }
-            try {
-                return Color.parseColor(str3);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return -16777216;
-            }
+            return null;
         }
-        return invokeLLL.intValue;
+        return (BdAsyncTask) invokeLLI.objValue;
     }
 }

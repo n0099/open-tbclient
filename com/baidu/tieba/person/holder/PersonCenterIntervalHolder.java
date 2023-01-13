@@ -33,6 +33,6 @@ public class PersonCenterIntervalHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = -1;
-        this.b = view2.findViewById(R.id.obfuscated_res_0x7f091992);
+        this.b = view2.findViewById(R.id.obfuscated_res_0x7f0919a1);
     }
 }

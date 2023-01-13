@@ -168,20 +168,18 @@ public class DataSources {
                     }
                 }
 
-                /* JADX WARN: Type inference failed for: r5v2, types: [java.lang.Throwable, T] */
                 @Override // com.facebook.datasource.DataSubscriber
                 public void onFailure(DataSource<T> dataSource2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource2) == null) {
                         try {
-                            this.val$pendingException.value = dataSource2.getFailureCause();
+                            this.val$pendingException.value = (T) dataSource2.getFailureCause();
                         } finally {
                             this.val$latch.countDown();
                         }
                     }
                 }
 
-                /* JADX WARN: Type inference failed for: r5v2, types: [T, java.lang.Object] */
                 @Override // com.facebook.datasource.DataSubscriber
                 public void onNewResult(DataSource<T> dataSource2) {
                     Interceptable interceptable2 = $ic;

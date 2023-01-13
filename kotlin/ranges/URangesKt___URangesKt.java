@@ -27,7 +27,7 @@ public class URangesKt___URangesKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: coerceAtLeast-5PvTz6A  reason: not valid java name */
-    public static final short m1925coerceAtLeast5PvTz6A(short s, short s2) {
+    public static final short m1989coerceAtLeast5PvTz6A(short s, short s2) {
         if (Intrinsics.compare(s & UShort.MAX_VALUE, 65535 & s2) < 0) {
             return s2;
         }
@@ -37,7 +37,7 @@ public class URangesKt___URangesKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: coerceAtLeast-J1ME1BU  reason: not valid java name */
-    public static final int m1926coerceAtLeastJ1ME1BU(int i, int i2) {
+    public static final int m1990coerceAtLeastJ1ME1BU(int i, int i2) {
         if (UnsignedKt.uintCompare(i, i2) < 0) {
             return i2;
         }
@@ -47,7 +47,7 @@ public class URangesKt___URangesKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: coerceAtLeast-Kr8caGY  reason: not valid java name */
-    public static final byte m1927coerceAtLeastKr8caGY(byte b, byte b2) {
+    public static final byte m1991coerceAtLeastKr8caGY(byte b, byte b2) {
         if (Intrinsics.compare(b & 255, b2 & 255) < 0) {
             return b2;
         }
@@ -57,7 +57,7 @@ public class URangesKt___URangesKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: coerceAtLeast-eb3DHEI  reason: not valid java name */
-    public static final long m1928coerceAtLeasteb3DHEI(long j, long j2) {
+    public static final long m1992coerceAtLeasteb3DHEI(long j, long j2) {
         if (UnsignedKt.ulongCompare(j, j2) < 0) {
             return j2;
         }
@@ -67,7 +67,7 @@ public class URangesKt___URangesKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: coerceAtMost-5PvTz6A  reason: not valid java name */
-    public static final short m1929coerceAtMost5PvTz6A(short s, short s2) {
+    public static final short m1993coerceAtMost5PvTz6A(short s, short s2) {
         if (Intrinsics.compare(s & UShort.MAX_VALUE, 65535 & s2) > 0) {
             return s2;
         }
@@ -77,7 +77,7 @@ public class URangesKt___URangesKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: coerceAtMost-J1ME1BU  reason: not valid java name */
-    public static final int m1930coerceAtMostJ1ME1BU(int i, int i2) {
+    public static final int m1994coerceAtMostJ1ME1BU(int i, int i2) {
         if (UnsignedKt.uintCompare(i, i2) > 0) {
             return i2;
         }
@@ -87,7 +87,7 @@ public class URangesKt___URangesKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: coerceAtMost-Kr8caGY  reason: not valid java name */
-    public static final byte m1931coerceAtMostKr8caGY(byte b, byte b2) {
+    public static final byte m1995coerceAtMostKr8caGY(byte b, byte b2) {
         if (Intrinsics.compare(b & 255, b2 & 255) > 0) {
             return b2;
         }
@@ -97,7 +97,7 @@ public class URangesKt___URangesKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: coerceAtMost-eb3DHEI  reason: not valid java name */
-    public static final long m1932coerceAtMosteb3DHEI(long j, long j2) {
+    public static final long m1996coerceAtMosteb3DHEI(long j, long j2) {
         if (UnsignedKt.ulongCompare(j, j2) > 0) {
             return j2;
         }
@@ -107,18 +107,18 @@ public class URangesKt___URangesKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: contains-68kG9v0  reason: not valid java name */
-    public static final boolean m1939contains68kG9v0(UIntRange contains, byte b) {
+    public static final boolean m2003contains68kG9v0(UIntRange contains, byte b) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
-        return contains.m1916containsWZ4Q5Ns(UInt.m802constructorimpl(b & 255));
+        return contains.m1980containsWZ4Q5Ns(UInt.m866constructorimpl(b & 255));
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     /* renamed from: contains-GYNo2lE  reason: not valid java name */
-    public static final boolean m1940containsGYNo2lE(ULongRange contains, ULong uLong) {
+    public static final boolean m2004containsGYNo2lE(ULongRange contains, ULong uLong) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
-        if (uLong != null && contains.m1922containsVKZWuLQ(uLong.m931unboximpl())) {
+        if (uLong != null && contains.m1986containsVKZWuLQ(uLong.m995unboximpl())) {
             return true;
         }
         return false;
@@ -127,34 +127,34 @@ public class URangesKt___URangesKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: contains-Gab390E  reason: not valid java name */
-    public static final boolean m1941containsGab390E(ULongRange contains, int i) {
+    public static final boolean m2005containsGab390E(ULongRange contains, int i) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
-        return contains.m1922containsVKZWuLQ(ULong.m880constructorimpl(i & 4294967295L));
+        return contains.m1986containsVKZWuLQ(ULong.m944constructorimpl(i & 4294967295L));
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: contains-ULb-yJY  reason: not valid java name */
-    public static final boolean m1942containsULbyJY(ULongRange contains, byte b) {
+    public static final boolean m2006containsULbyJY(ULongRange contains, byte b) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
-        return contains.m1922containsVKZWuLQ(ULong.m880constructorimpl(b & 255));
+        return contains.m1986containsVKZWuLQ(ULong.m944constructorimpl(b & 255));
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: contains-ZsK3CEQ  reason: not valid java name */
-    public static final boolean m1943containsZsK3CEQ(UIntRange contains, short s) {
+    public static final boolean m2007containsZsK3CEQ(UIntRange contains, short s) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
-        return contains.m1916containsWZ4Q5Ns(UInt.m802constructorimpl(s & UShort.MAX_VALUE));
+        return contains.m1980containsWZ4Q5Ns(UInt.m866constructorimpl(s & UShort.MAX_VALUE));
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     /* renamed from: contains-biwQdVI  reason: not valid java name */
-    public static final boolean m1944containsbiwQdVI(UIntRange contains, UInt uInt) {
+    public static final boolean m2008containsbiwQdVI(UIntRange contains, UInt uInt) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
-        if (uInt != null && contains.m1916containsWZ4Q5Ns(uInt.m853unboximpl())) {
+        if (uInt != null && contains.m1980containsWZ4Q5Ns(uInt.m917unboximpl())) {
             return true;
         }
         return false;
@@ -163,9 +163,9 @@ public class URangesKt___URangesKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: contains-fz5IDCE  reason: not valid java name */
-    public static final boolean m1945containsfz5IDCE(UIntRange contains, long j) {
+    public static final boolean m2009containsfz5IDCE(UIntRange contains, long j) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
-        if (ULong.m880constructorimpl(j >>> 32) == 0 && contains.m1916containsWZ4Q5Ns(UInt.m802constructorimpl((int) j))) {
+        if (ULong.m944constructorimpl(j >>> 32) == 0 && contains.m1980containsWZ4Q5Ns(UInt.m866constructorimpl((int) j))) {
             return true;
         }
         return false;
@@ -174,37 +174,37 @@ public class URangesKt___URangesKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: contains-uhHAxoY  reason: not valid java name */
-    public static final boolean m1946containsuhHAxoY(ULongRange contains, short s) {
+    public static final boolean m2010containsuhHAxoY(ULongRange contains, short s) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
-        return contains.m1922containsVKZWuLQ(ULong.m880constructorimpl(s & WebSocketProtocol.PAYLOAD_SHORT_MAX));
+        return contains.m1986containsVKZWuLQ(ULong.m944constructorimpl(s & WebSocketProtocol.PAYLOAD_SHORT_MAX));
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: downTo-5PvTz6A  reason: not valid java name */
-    public static final UIntProgression m1947downTo5PvTz6A(short s, short s2) {
-        return UIntProgression.Companion.m1915fromClosedRangeNkh28Cs(UInt.m802constructorimpl(s & UShort.MAX_VALUE), UInt.m802constructorimpl(s2 & UShort.MAX_VALUE), -1);
+    public static final UIntProgression m2011downTo5PvTz6A(short s, short s2) {
+        return UIntProgression.Companion.m1979fromClosedRangeNkh28Cs(UInt.m866constructorimpl(s & UShort.MAX_VALUE), UInt.m866constructorimpl(s2 & UShort.MAX_VALUE), -1);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: downTo-J1ME1BU  reason: not valid java name */
-    public static final UIntProgression m1948downToJ1ME1BU(int i, int i2) {
-        return UIntProgression.Companion.m1915fromClosedRangeNkh28Cs(i, i2, -1);
+    public static final UIntProgression m2012downToJ1ME1BU(int i, int i2) {
+        return UIntProgression.Companion.m1979fromClosedRangeNkh28Cs(i, i2, -1);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: downTo-Kr8caGY  reason: not valid java name */
-    public static final UIntProgression m1949downToKr8caGY(byte b, byte b2) {
-        return UIntProgression.Companion.m1915fromClosedRangeNkh28Cs(UInt.m802constructorimpl(b & 255), UInt.m802constructorimpl(b2 & 255), -1);
+    public static final UIntProgression m2013downToKr8caGY(byte b, byte b2) {
+        return UIntProgression.Companion.m1979fromClosedRangeNkh28Cs(UInt.m866constructorimpl(b & 255), UInt.m866constructorimpl(b2 & 255), -1);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: downTo-eb3DHEI  reason: not valid java name */
-    public static final ULongProgression m1950downToeb3DHEI(long j, long j2) {
-        return ULongProgression.Companion.m1921fromClosedRange7ftBX0g(j, j2, -1L);
+    public static final ULongProgression m2014downToeb3DHEI(long j, long j2) {
+        return ULongProgression.Companion.m1985fromClosedRange7ftBX0g(j, j2, -1L);
     }
 
     @SinceKotlin(version = "1.5")
@@ -227,7 +227,7 @@ public class URangesKt___URangesKt {
         if (randomOrNull.isEmpty()) {
             return null;
         }
-        return UInt.m796boximpl(URandomKt.nextUInt(random, randomOrNull));
+        return UInt.m860boximpl(URandomKt.nextUInt(random, randomOrNull));
     }
 
     @SinceKotlin(version = "1.5")
@@ -242,70 +242,70 @@ public class URangesKt___URangesKt {
         }
         RangesKt__RangesKt.checkStepIsPositive(z, Integer.valueOf(i));
         UIntProgression.Companion companion = UIntProgression.Companion;
-        int m1913getFirstpVg5ArA = step.m1913getFirstpVg5ArA();
-        int m1914getLastpVg5ArA = step.m1914getLastpVg5ArA();
+        int m1977getFirstpVg5ArA = step.m1977getFirstpVg5ArA();
+        int m1978getLastpVg5ArA = step.m1978getLastpVg5ArA();
         if (step.getStep() <= 0) {
             i = -i;
         }
-        return companion.m1915fromClosedRangeNkh28Cs(m1913getFirstpVg5ArA, m1914getLastpVg5ArA, i);
+        return companion.m1979fromClosedRangeNkh28Cs(m1977getFirstpVg5ArA, m1978getLastpVg5ArA, i);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: until-5PvTz6A  reason: not valid java name */
-    public static final UIntRange m1951until5PvTz6A(short s, short s2) {
+    public static final UIntRange m2015until5PvTz6A(short s, short s2) {
         int i = s2 & UShort.MAX_VALUE;
         if (Intrinsics.compare(i, 0) <= 0) {
             return UIntRange.Companion.getEMPTY();
         }
-        return new UIntRange(UInt.m802constructorimpl(s & UShort.MAX_VALUE), UInt.m802constructorimpl(UInt.m802constructorimpl(i) - 1), null);
+        return new UIntRange(UInt.m866constructorimpl(s & UShort.MAX_VALUE), UInt.m866constructorimpl(UInt.m866constructorimpl(i) - 1), null);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: until-J1ME1BU  reason: not valid java name */
-    public static final UIntRange m1952untilJ1ME1BU(int i, int i2) {
+    public static final UIntRange m2016untilJ1ME1BU(int i, int i2) {
         if (UnsignedKt.uintCompare(i2, 0) <= 0) {
             return UIntRange.Companion.getEMPTY();
         }
-        return new UIntRange(i, UInt.m802constructorimpl(i2 - 1), null);
+        return new UIntRange(i, UInt.m866constructorimpl(i2 - 1), null);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: until-Kr8caGY  reason: not valid java name */
-    public static final UIntRange m1953untilKr8caGY(byte b, byte b2) {
+    public static final UIntRange m2017untilKr8caGY(byte b, byte b2) {
         int i = b2 & 255;
         if (Intrinsics.compare(i, 0) <= 0) {
             return UIntRange.Companion.getEMPTY();
         }
-        return new UIntRange(UInt.m802constructorimpl(b & 255), UInt.m802constructorimpl(UInt.m802constructorimpl(i) - 1), null);
+        return new UIntRange(UInt.m866constructorimpl(b & 255), UInt.m866constructorimpl(UInt.m866constructorimpl(i) - 1), null);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: until-eb3DHEI  reason: not valid java name */
-    public static final ULongRange m1954untileb3DHEI(long j, long j2) {
+    public static final ULongRange m2018untileb3DHEI(long j, long j2) {
         if (UnsignedKt.ulongCompare(j2, 0L) <= 0) {
             return ULongRange.Companion.getEMPTY();
         }
-        return new ULongRange(j, ULong.m880constructorimpl(j2 - ULong.m880constructorimpl(1 & 4294967295L)), null);
+        return new ULongRange(j, ULong.m944constructorimpl(j2 - ULong.m944constructorimpl(1 & 4294967295L)), null);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: coerceIn-JPwROB0  reason: not valid java name */
-    public static final long m1933coerceInJPwROB0(long j, ClosedRange<ULong> range) {
+    public static final long m1997coerceInJPwROB0(long j, ClosedRange<ULong> range) {
         Intrinsics.checkNotNullParameter(range, "range");
         if (range instanceof ClosedFloatingPointRange) {
-            return ((ULong) RangesKt___RangesKt.coerceIn(ULong.m874boximpl(j), (ClosedFloatingPointRange<ULong>) range)).m931unboximpl();
+            return ((ULong) RangesKt___RangesKt.coerceIn(ULong.m938boximpl(j), (ClosedFloatingPointRange<ULong>) range)).m995unboximpl();
         }
         if (!range.isEmpty()) {
-            if (UnsignedKt.ulongCompare(j, range.getStart().m931unboximpl()) < 0) {
-                return range.getStart().m931unboximpl();
+            if (UnsignedKt.ulongCompare(j, range.getStart().m995unboximpl()) < 0) {
+                return range.getStart().m995unboximpl();
             }
-            if (UnsignedKt.ulongCompare(j, range.getEndInclusive().m931unboximpl()) > 0) {
-                return range.getEndInclusive().m931unboximpl();
+            if (UnsignedKt.ulongCompare(j, range.getEndInclusive().m995unboximpl()) > 0) {
+                return range.getEndInclusive().m995unboximpl();
             }
             return j;
         }
@@ -315,17 +315,17 @@ public class URangesKt___URangesKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: coerceIn-wuiCnnA  reason: not valid java name */
-    public static final int m1938coerceInwuiCnnA(int i, ClosedRange<UInt> range) {
+    public static final int m2002coerceInwuiCnnA(int i, ClosedRange<UInt> range) {
         Intrinsics.checkNotNullParameter(range, "range");
         if (range instanceof ClosedFloatingPointRange) {
-            return ((UInt) RangesKt___RangesKt.coerceIn(UInt.m796boximpl(i), (ClosedFloatingPointRange<UInt>) range)).m853unboximpl();
+            return ((UInt) RangesKt___RangesKt.coerceIn(UInt.m860boximpl(i), (ClosedFloatingPointRange<UInt>) range)).m917unboximpl();
         }
         if (!range.isEmpty()) {
-            if (UnsignedKt.uintCompare(i, range.getStart().m853unboximpl()) < 0) {
-                return range.getStart().m853unboximpl();
+            if (UnsignedKt.uintCompare(i, range.getStart().m917unboximpl()) < 0) {
+                return range.getStart().m917unboximpl();
             }
-            if (UnsignedKt.uintCompare(i, range.getEndInclusive().m853unboximpl()) > 0) {
-                return range.getEndInclusive().m853unboximpl();
+            if (UnsignedKt.uintCompare(i, range.getEndInclusive().m917unboximpl()) > 0) {
+                return range.getEndInclusive().m917unboximpl();
             }
             return i;
         }
@@ -335,7 +335,7 @@ public class URangesKt___URangesKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: coerceIn-VKSA0NQ  reason: not valid java name */
-    public static final short m1934coerceInVKSA0NQ(short s, short s2, short s3) {
+    public static final short m1998coerceInVKSA0NQ(short s, short s2, short s3) {
         int i = s2 & UShort.MAX_VALUE;
         int i2 = s3 & UShort.MAX_VALUE;
         if (Intrinsics.compare(i, i2) <= 0) {
@@ -348,13 +348,13 @@ public class URangesKt___URangesKt {
             }
             return s;
         }
-        throw new IllegalArgumentException("Cannot coerce value to an empty range: maximum " + UShort.m1029toStringimpl(s3) + " is less than minimum " + UShort.m1029toStringimpl(s2) + IStringUtil.EXTENSION_SEPARATOR);
+        throw new IllegalArgumentException("Cannot coerce value to an empty range: maximum " + UShort.m1093toStringimpl(s3) + " is less than minimum " + UShort.m1093toStringimpl(s2) + IStringUtil.EXTENSION_SEPARATOR);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: coerceIn-b33U2AM  reason: not valid java name */
-    public static final byte m1936coerceInb33U2AM(byte b, byte b2, byte b3) {
+    public static final byte m2000coerceInb33U2AM(byte b, byte b2, byte b3) {
         int i = b2 & 255;
         int i2 = b3 & 255;
         if (Intrinsics.compare(i, i2) <= 0) {
@@ -367,13 +367,13 @@ public class URangesKt___URangesKt {
             }
             return b;
         }
-        throw new IllegalArgumentException("Cannot coerce value to an empty range: maximum " + UByte.m769toStringimpl(b3) + " is less than minimum " + UByte.m769toStringimpl(b2) + IStringUtil.EXTENSION_SEPARATOR);
+        throw new IllegalArgumentException("Cannot coerce value to an empty range: maximum " + UByte.m833toStringimpl(b3) + " is less than minimum " + UByte.m833toStringimpl(b2) + IStringUtil.EXTENSION_SEPARATOR);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: coerceIn-WZ9TVnA  reason: not valid java name */
-    public static final int m1935coerceInWZ9TVnA(int i, int i2, int i3) {
+    public static final int m1999coerceInWZ9TVnA(int i, int i2, int i3) {
         if (UnsignedKt.uintCompare(i2, i3) <= 0) {
             if (UnsignedKt.uintCompare(i, i2) < 0) {
                 return i2;
@@ -383,13 +383,13 @@ public class URangesKt___URangesKt {
             }
             return i;
         }
-        throw new IllegalArgumentException("Cannot coerce value to an empty range: maximum " + UInt.m847toStringimpl(i3) + " is less than minimum " + UInt.m847toStringimpl(i2) + IStringUtil.EXTENSION_SEPARATOR);
+        throw new IllegalArgumentException("Cannot coerce value to an empty range: maximum " + UInt.m911toStringimpl(i3) + " is less than minimum " + UInt.m911toStringimpl(i2) + IStringUtil.EXTENSION_SEPARATOR);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: coerceIn-sambcqE  reason: not valid java name */
-    public static final long m1937coerceInsambcqE(long j, long j2, long j3) {
+    public static final long m2001coerceInsambcqE(long j, long j2, long j3) {
         if (UnsignedKt.ulongCompare(j2, j3) <= 0) {
             if (UnsignedKt.ulongCompare(j, j2) < 0) {
                 return j2;
@@ -399,7 +399,7 @@ public class URangesKt___URangesKt {
             }
             return j;
         }
-        throw new IllegalArgumentException("Cannot coerce value to an empty range: maximum " + ULong.m925toStringimpl(j3) + " is less than minimum " + ULong.m925toStringimpl(j2) + IStringUtil.EXTENSION_SEPARATOR);
+        throw new IllegalArgumentException("Cannot coerce value to an empty range: maximum " + ULong.m989toStringimpl(j3) + " is less than minimum " + ULong.m989toStringimpl(j2) + IStringUtil.EXTENSION_SEPARATOR);
     }
 
     @SinceKotlin(version = "1.5")
@@ -420,7 +420,7 @@ public class URangesKt___URangesKt {
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final UIntProgression reversed(UIntProgression reversed) {
         Intrinsics.checkNotNullParameter(reversed, "$this$reversed");
-        return UIntProgression.Companion.m1915fromClosedRangeNkh28Cs(reversed.m1914getLastpVg5ArA(), reversed.m1913getFirstpVg5ArA(), -reversed.getStep());
+        return UIntProgression.Companion.m1979fromClosedRangeNkh28Cs(reversed.m1978getLastpVg5ArA(), reversed.m1977getFirstpVg5ArA(), -reversed.getStep());
     }
 
     @SinceKotlin(version = "1.5")
@@ -441,7 +441,7 @@ public class URangesKt___URangesKt {
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final ULongProgression reversed(ULongProgression reversed) {
         Intrinsics.checkNotNullParameter(reversed, "$this$reversed");
-        return ULongProgression.Companion.m1921fromClosedRange7ftBX0g(reversed.m1920getLastsVKNKU(), reversed.m1919getFirstsVKNKU(), -reversed.getStep());
+        return ULongProgression.Companion.m1985fromClosedRange7ftBX0g(reversed.m1984getLastsVKNKU(), reversed.m1983getFirstsVKNKU(), -reversed.getStep());
     }
 
     @SinceKotlin(version = "1.5")
@@ -464,7 +464,7 @@ public class URangesKt___URangesKt {
         if (randomOrNull.isEmpty()) {
             return null;
         }
-        return ULong.m874boximpl(URandomKt.nextULong(random, randomOrNull));
+        return ULong.m938boximpl(URandomKt.nextULong(random, randomOrNull));
     }
 
     @SinceKotlin(version = "1.5")
@@ -479,11 +479,11 @@ public class URangesKt___URangesKt {
         }
         RangesKt__RangesKt.checkStepIsPositive(z, Long.valueOf(j));
         ULongProgression.Companion companion = ULongProgression.Companion;
-        long m1919getFirstsVKNKU = step.m1919getFirstsVKNKU();
-        long m1920getLastsVKNKU = step.m1920getLastsVKNKU();
+        long m1983getFirstsVKNKU = step.m1983getFirstsVKNKU();
+        long m1984getLastsVKNKU = step.m1984getLastsVKNKU();
         if (step.getStep() <= 0) {
             j = -j;
         }
-        return companion.m1921fromClosedRange7ftBX0g(m1919getFirstsVKNKU, m1920getLastsVKNKU, j);
+        return companion.m1985fromClosedRange7ftBX0g(m1983getFirstsVKNKU, m1984getLastsVKNKU, j);
     }
 }

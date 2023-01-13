@@ -61,7 +61,7 @@ public class bg {
         public XMPushService f953a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final C0737b f954a;
+        public final C0736b f954a;
 
         /* renamed from: a  reason: collision with other field name */
         public c f955a;
@@ -99,7 +99,7 @@ public class bg {
 
         /* renamed from: com.xiaomi.push.service.bg$b$b  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0737b extends XMPushService.j {
+        public class C0736b extends XMPushService.j {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
@@ -113,7 +113,7 @@ public class bg {
             public int c;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0737b(b bVar) {
+            public C0736b(b bVar) {
                 super(0);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -147,14 +147,16 @@ public class bg {
             }
 
             @Override // com.xiaomi.push.service.XMPushService.j
-            public String a() {
+            /* renamed from: a */
+            public String mo673a() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "notify job" : (String) invokeV.objValue;
             }
 
             @Override // com.xiaomi.push.service.XMPushService.j
-            public void a() {
+            /* renamed from: a */
+            public void mo394a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                     if (this.a.a(this.b, this.c, this.f963b)) {
@@ -229,7 +231,7 @@ public class bg {
             this.f961b = false;
             this.f952a = new XMPushService.c(this);
             this.f950a = null;
-            this.f954a = new C0737b(this);
+            this.f954a = new C0736b(this);
         }
 
         public b(XMPushService xMPushService) {
@@ -254,7 +256,7 @@ public class bg {
             this.f961b = false;
             this.f952a = new XMPushService.c(this);
             this.f950a = null;
-            this.f954a = new C0737b(this);
+            this.f954a = new C0736b(this);
             this.f953a = xMPushService;
             a(new bh(this));
         }
@@ -329,14 +331,14 @@ public class bg {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65545, this, i, i2, str)) == null) {
                 if (i == 1) {
-                    return (this.f955a == c.c || !this.f953a.m607c() || i2 == 21 || (i2 == 7 && "wait".equals(str))) ? false : true;
+                    return (this.f955a == c.c || !this.f953a.m671c() || i2 == 21 || (i2 == 7 && "wait".equals(str))) ? false : true;
                 } else if (i != 2) {
                     if (i != 3) {
                         return false;
                     }
                     return !"wait".equals(str);
                 } else {
-                    return this.f953a.m607c();
+                    return this.f953a.m671c();
                 }
             }
             return invokeIIL.booleanValue;
@@ -355,7 +357,7 @@ public class bg {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public void m653a() {
+        public void m717a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 try {
@@ -372,7 +374,7 @@ public class bg {
         public void a(Messenger messenger) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, messenger) == null) {
-                m653a();
+                m717a();
                 try {
                     if (messenger != null) {
                         this.f951a = messenger;
@@ -411,7 +413,7 @@ public class bg {
                 c cVar2 = this.f955a;
                 int i3 = 0;
                 if (cVar2 != cVar) {
-                    com.xiaomi.channel.commonutils.logger.b.m99a(String.format("update the client %7$s status. %1$s->%2$s %3$s %4$s %5$s %6$s", cVar2, cVar, a(i), bk.a(i2), str, str2, this.g));
+                    com.xiaomi.channel.commonutils.logger.b.m103a(String.format("update the client %7$s status. %1$s->%2$s %3$s %4$s %5$s %6$s", cVar2, cVar, a(i), bk.a(i2), str, str2, this.g));
                     this.f955a = cVar;
                 }
                 if (this.f956a == null) {
@@ -551,7 +553,7 @@ public class bg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized int m645a() {
+    public synchronized int m709a() {
         InterceptResult invokeV;
         int size;
         Interceptable interceptable = $ic;
@@ -580,7 +582,7 @@ public class bg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized ArrayList<b> m646a() {
+    public synchronized ArrayList<b> m710a() {
         InterceptResult invokeV;
         ArrayList<b> arrayList;
         Interceptable interceptable = $ic;
@@ -597,7 +599,7 @@ public class bg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized Collection<b> m647a(String str) {
+    public synchronized Collection<b> m711a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
@@ -609,7 +611,7 @@ public class bg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized List<String> m648a(String str) {
+    public synchronized List<String> m712a(String str) {
         InterceptResult invokeL;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
@@ -630,13 +632,13 @@ public class bg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m649a() {
+    public synchronized void m713a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             synchronized (this) {
-                Iterator<b> it = m646a().iterator();
+                Iterator<b> it = m710a().iterator();
                 while (it.hasNext()) {
-                    it.next().m653a();
+                    it.next().m717a();
                 }
                 this.f948a.clear();
             }
@@ -688,7 +690,7 @@ public class bg {
                     this.f948a.put(bVar.g, hashMap);
                 }
                 hashMap.put(a(bVar.f960b), bVar);
-                com.xiaomi.channel.commonutils.logger.b.m99a("add active client. " + bVar.f957a);
+                com.xiaomi.channel.commonutils.logger.b.m103a("add active client. " + bVar.f957a);
                 for (a aVar : this.f947a) {
                     aVar.a();
                 }
@@ -697,14 +699,14 @@ public class bg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m650a(String str) {
+    public synchronized void m714a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             synchronized (this) {
                 HashMap<String, b> hashMap = this.f948a.get(str);
                 if (hashMap != null) {
                     for (b bVar : hashMap.values()) {
-                        bVar.m653a();
+                        bVar.m717a();
                     }
                     hashMap.clear();
                     this.f948a.remove(str);
@@ -717,7 +719,7 @@ public class bg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m651a(String str, String str2) {
+    public synchronized void m715a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
             synchronized (this) {
@@ -725,7 +727,7 @@ public class bg {
                 if (hashMap != null) {
                     b bVar = hashMap.get(a(str2));
                     if (bVar != null) {
-                        bVar.m653a();
+                        bVar.m717a();
                     }
                     hashMap.remove(a(str2));
                     if (hashMap.isEmpty()) {

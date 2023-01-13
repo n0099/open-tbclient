@@ -60,7 +60,7 @@ public final class e {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     com.kwad.sdk.core.config.d.aV(e.ab);
-                    boolean unused = e.HK = true;
+                    e.access$102(true);
                     for (a aVar : e.HM) {
                         if (aVar != null) {
                             aVar.no();
@@ -118,6 +118,16 @@ public final class e {
                 aVar.a(com.kwad.sdk.core.config.d.rZ());
             }
         }
+    }
+
+    public static /* synthetic */ boolean access$102(boolean z) {
+        HK = true;
+        return true;
+    }
+
+    public static /* synthetic */ boolean av(boolean z) {
+        HL = true;
+        return true;
     }
 
     public static void ok() {
@@ -228,7 +238,7 @@ public final class e {
                     if (interceptable2 == null || interceptable2.invokeL(65539, null, sdkConfigData) == null) {
                         com.kwad.sdk.core.config.b.aT(e.ab);
                         com.kwad.sdk.core.config.d.c(sdkConfigData);
-                        boolean unused = e.HL = true;
+                        e.av(true);
                         for (a aVar : e.HM) {
                             if (aVar != null) {
                                 aVar.a(sdkConfigData);

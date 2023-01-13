@@ -28,7 +28,7 @@ import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.ubc.CaseUbc;
 import com.baidu.android.imsdk.ubc.ScreenUbc;
 import com.baidu.down.utils.Utils;
-import com.baidu.tieba.b80;
+import com.baidu.tieba.g80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,9 +42,9 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
@@ -55,7 +55,6 @@ import org.json.JSONObject;
 public final class Utility {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALGORITHM_NAME = "AES";
-    public static final String API_KEY = "BD_IM_API_KEY";
     public static final String APPID = "BD_IM_APPID";
     public static final String TAG = "Utility";
     public static final String TRANSFORMATION = "AES/CBC/PKCS5Padding";
@@ -73,7 +72,7 @@ public final class Utility {
     public static boolean availableNotificationPaType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? 32 <= i && 56 >= i : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? 32 <= i && 56 >= i : invokeI.booleanValue;
     }
 
     public static boolean getBdDnsEnable(Context context) {
@@ -178,7 +177,7 @@ public final class Utility {
                 return;
             }
         }
-        mScreenMethodMap = new ConcurrentHashMap();
+        mScreenMethodMap = new HashMap();
         hexDigits = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     }
 
@@ -256,8 +255,25 @@ public final class Utility {
             }
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("timestmap", "" + System.currentTimeMillis());
+                jSONObject.put("timestamp_ms", "" + System.currentTimeMillis());
                 jSONObject.put("id", str);
+                jSONArray.put(jSONObject);
+            } catch (JSONException unused) {
+                LogUtils.e("Utility", "addEventList exception");
+            }
+        }
+    }
+
+    public static void addEventListMs(JSONArray jSONArray, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, jSONArray, str) == null) {
+            if (jSONArray == null) {
+                jSONArray = new JSONArray();
+            }
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("event", str);
+                jSONObject.put("timestamp_ms", "" + System.currentTimeMillis());
                 jSONArray.put(jSONObject);
             } catch (JSONException unused) {
                 LogUtils.e("Utility", "addEventList exception");
@@ -267,7 +283,7 @@ public final class Utility {
 
     public static void deleteFolderFile(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65551, null, str, z) == null) && !TextUtils.isEmpty(str)) {
+        if ((interceptable == null || interceptable.invokeLZ(65552, null, str, z) == null) && !TextUtils.isEmpty(str)) {
             try {
                 File file = new File(str);
                 if (file.isDirectory()) {
@@ -362,31 +378,26 @@ public final class Utility {
 
     public static String appendEventList(String str, String str2) {
         InterceptResult invokeLL;
-        JSONObject jSONObject;
+        JSONArray jSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            JSONObject jSONObject2 = new JSONObject();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject = new JSONObject(str);
-                try {
-                    JSONArray optJSONArray = jSONObject.optJSONArray(Constants.EXTRA_EVENT_LIST);
-                    if (optJSONArray == null) {
-                        optJSONArray = new JSONArray();
-                    }
-                    JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put("event", str2);
-                    jSONObject3.put("timestmap", "" + System.currentTimeMillis());
-                    optJSONArray.put(jSONObject3);
-                    jSONObject.put(Constants.EXTRA_EVENT_LIST, optJSONArray);
-                } catch (JSONException e) {
-                    e = e;
-                    jSONObject2 = jSONObject;
-                    LogUtils.i("Utility", "appendEventList JSONException:" + e.getMessage());
-                    jSONObject = jSONObject2;
-                    return jSONObject.toString();
+                if (!TextUtils.isEmpty(str)) {
+                    jSONArray = new JSONObject(str).optJSONArray("event_list");
+                } else {
+                    jSONArray = null;
                 }
-            } catch (JSONException e2) {
-                e = e2;
+                if (jSONArray == null) {
+                    jSONArray = new JSONArray();
+                }
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("event", str2);
+                jSONObject2.put("timestamp_ms", System.currentTimeMillis());
+                jSONArray.put(jSONObject2);
+                jSONObject.put("event_list", jSONArray);
+            } catch (JSONException e) {
+                LogUtils.i("Utility", "appendEventList JSONException:" + e.getMessage());
             }
             return jSONObject.toString();
         }
@@ -450,7 +461,7 @@ public final class Utility {
     public static String byte2Hex(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
             if (bArr == null) {
                 return Constants.ERROR_MSG_MD5_NULL;
             }
@@ -472,7 +483,7 @@ public final class Utility {
 
     public static void clearFileCache(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
             try {
                 String str = null;
                 if (Environment.getExternalStorageState().equals("mounted")) {
@@ -517,7 +528,7 @@ public final class Utility {
 
     public static void clear(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65543, null, context) == null) {
             context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit().clear().commit();
         }
     }
@@ -525,7 +536,7 @@ public final class Utility {
     public static boolean clearAccessToken(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             return context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit().remove("access_token").commit();
         }
         return invokeL.booleanValue;
@@ -534,7 +545,7 @@ public final class Utility {
     public static Intent creatEmptyMethodIntent(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
             Intent intent = new Intent(Constants.ACTION_METHOD);
             intent.addFlags(32);
             return intent;
@@ -545,21 +556,8 @@ public final class Utility {
     public static String getAccessToken(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, context)) == null) {
-            return context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).getString("access_token", "");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String getApiKey(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, context)) == null) {
-            Object metadata = getMetadata(context, API_KEY);
-            if (metadata != null) {
-                return String.valueOf(metadata);
-            }
-            return "";
+            return context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).getString("access_token", "");
         }
         return (String) invokeL.objValue;
     }
@@ -767,7 +765,10 @@ public final class Utility {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65589, null, str)) == null) {
-            return mScreenMethodMap.get(str);
+            if (mScreenMethodMap.containsKey(str)) {
+                return mScreenMethodMap.get(str);
+            }
+            return new ScreenUbc.MethodInfo();
         }
         return (ScreenUbc.MethodInfo) invokeL.objValue;
     }
@@ -953,7 +954,7 @@ public final class Utility {
         if (interceptable == null || interceptable.invokeL(65636, null, context) == null) {
             LogUtils.i("Utility", "--- Start IM Service ---");
             try {
-                b80.e(context).d(context, new Intent(context, b80.class));
+                g80.e(context).d(context, new Intent(context, g80.class));
             } catch (Exception e) {
                 LogUtils.e("Utility", "Exception ", e);
             }
@@ -969,7 +970,7 @@ public final class Utility {
 
     public static void clearCache(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
             SyncAllMessage.getInstance(context).reset();
             ChatObjectCache.getInstance().removeAll();
             SyncGroupMessageService.getInstance().clear();
@@ -1067,7 +1068,7 @@ public final class Utility {
 
     public static void clearExpiredMsg(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65546, null, context) == null) {
             try {
                 JSONArray reliableMaxMsg = getReliableMaxMsg(context);
                 if (reliableMaxMsg != null && reliableMaxMsg.length() > 0) {
@@ -1093,7 +1094,7 @@ public final class Utility {
     public static boolean deletePushCUID(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) {
             SharedPreferences.Editor edit = context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit();
             SharedPreferences.Editor remove = edit.remove(Constants.KEY_PUSH_CHANNEL_ID + AccountManager.getUid(context));
             SharedPreferences.Editor remove2 = remove.remove(Constants.KEY_PUSH_USER_ID + AccountManager.getUid(context));
@@ -1105,8 +1106,8 @@ public final class Utility {
     public static Intent creatMethodIntent(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, context, i)) == null) {
-            Intent intent = new Intent(context, b80.class);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, context, i)) == null) {
+            Intent intent = new Intent(context, g80.class);
             intent.putExtra("method", i);
             intent.putExtra("service_id", 2);
             intent.setPackage(context.getPackageName());
@@ -1118,8 +1119,8 @@ public final class Utility {
     public static Intent createMcastMethodIntent(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, context, i)) == null) {
-            Intent intent = new Intent(context, b80.class);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, context, i)) == null) {
+            Intent intent = new Intent(context, g80.class);
             intent.putExtra("method", i);
             intent.putExtra("service_id", 3);
             intent.setPackage(context.getPackageName());
@@ -1410,7 +1411,7 @@ public final class Utility {
     public static byte[] decrypt(String str, String str2, byte[] bArr) throws Exception {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65550, null, str, str2, bArr)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65551, null, str, str2, bArr)) == null) {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && bArr != null) {
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
                 Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
@@ -1431,7 +1432,7 @@ public final class Utility {
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, str);
             }
             try {
-                b80.e(context).d(context, creatMethodIntent);
+                g80.e(context).d(context, creatMethodIntent);
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(str);
                 LogUtils.e("Utility", "Exception ", e);
@@ -1499,7 +1500,7 @@ public final class Utility {
     public static byte[] encrypt(String str, String str2, byte[] bArr) throws Exception {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65553, null, str, str2, bArr)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65554, null, str, str2, bArr)) == null) {
             SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
             cipher.init(1, secretKeySpec, new IvParameterSpec(str.getBytes()));

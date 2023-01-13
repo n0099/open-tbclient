@@ -1,45 +1,84 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.nd4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class qe4 extends ne4 {
+public class qe4 extends vd4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public le4 a;
+    public boolean b;
 
-    public qe4() {
+    public qe4(le4 le4Var, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {le4Var, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = le4Var;
+        this.b = z;
     }
 
-    @Override // com.baidu.tieba.nd4
-    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, nd4.a aVar) {
+    @Override // com.baidu.tieba.vd4
+    public le4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
-            pe4.b(str, map, map2, jSONObject, new od4(aVar));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (le4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.nd4
-    public void z(String str, Map<String, String> map, Map<String, String> map2, nd4.a aVar) {
+    @Override // com.baidu.tieba.vd4
+    public boolean b(le4 le4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, map2, aVar) == null) {
-            pe4.a(str, map, map2, new od4(aVar));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, le4Var)) == null) {
+            le4 le4Var2 = this.a;
+            if (le4Var2 == le4Var) {
+                return true;
+            }
+            return le4Var2.d(le4Var);
         }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.vd4
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || this.b) {
+            return;
+        }
+        if (z) {
+            le4 le4Var = this.a;
+            le4Var.a.b.b = 0L;
+            le4Var.b(0);
+        }
+        je4.b().f(this.a);
+    }
+
+    @Override // com.baidu.tieba.vd4
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "isAttached=" + this.b + " " + super.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

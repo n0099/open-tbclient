@@ -10,10 +10,62 @@ import kotlinx.coroutines.ThreadContextElement;
 /* loaded from: classes9.dex */
 public final class ThreadContextKt {
     public static final Symbol ZERO = new Symbol("ZERO");
-    public static final Function2<Object, CoroutineContext.Element, Object> countAll = ThreadContextKt$countAll$1.INSTANCE;
-    public static final Function2<ThreadContextElement<?>, CoroutineContext.Element, ThreadContextElement<?>> findOne = ThreadContextKt$findOne$1.INSTANCE;
-    public static final Function2<ThreadState, CoroutineContext.Element, ThreadState> updateState = ThreadContextKt$updateState$1.INSTANCE;
-    public static final Function2<ThreadState, CoroutineContext.Element, ThreadState> restoreState = ThreadContextKt$restoreState$1.INSTANCE;
+    public static final Function2<Object, CoroutineContext.Element, Object> countAll = new Function2<Object, CoroutineContext.Element, Object>() { // from class: kotlinx.coroutines.internal.ThreadContextKt$countAll$1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // kotlin.jvm.functions.Function2
+        public final Object invoke(Object obj, CoroutineContext.Element element) {
+            int i;
+            if (element instanceof ThreadContextElement) {
+                if (!(obj instanceof Integer)) {
+                    obj = null;
+                }
+                Integer num = (Integer) obj;
+                if (num != null) {
+                    i = num.intValue();
+                } else {
+                    i = 1;
+                }
+                if (i != 0) {
+                    return Integer.valueOf(i + 1);
+                }
+                return element;
+            }
+            return obj;
+        }
+    };
+    public static final Function2<ThreadContextElement<?>, CoroutineContext.Element, ThreadContextElement<?>> findOne = new Function2<ThreadContextElement<?>, CoroutineContext.Element, ThreadContextElement<?>>() { // from class: kotlinx.coroutines.internal.ThreadContextKt$findOne$1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // kotlin.jvm.functions.Function2
+        public final ThreadContextElement<?> invoke(ThreadContextElement<?> threadContextElement, CoroutineContext.Element element) {
+            if (threadContextElement != null) {
+                return threadContextElement;
+            }
+            if (!(element instanceof ThreadContextElement)) {
+                element = null;
+            }
+            return (ThreadContextElement) element;
+        }
+    };
+    public static final Function2<ThreadState, CoroutineContext.Element, ThreadState> updateState = new Function2<ThreadState, CoroutineContext.Element, ThreadState>() { // from class: kotlinx.coroutines.internal.ThreadContextKt$updateState$1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // kotlin.jvm.functions.Function2
+        public final ThreadState invoke(ThreadState threadState, CoroutineContext.Element element) {
+            if (element instanceof ThreadContextElement) {
+                threadState.append(((ThreadContextElement) element).updateThreadContext(threadState.getContext()));
+            }
+            return threadState;
+        }
+    };
+    public static final Function2<ThreadState, CoroutineContext.Element, ThreadState> restoreState = new Function2<ThreadState, CoroutineContext.Element, ThreadState>() { // from class: kotlinx.coroutines.internal.ThreadContextKt$restoreState$1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // kotlin.jvm.functions.Function2
+        public final ThreadState invoke(ThreadState threadState, CoroutineContext.Element element) {
+            if (element instanceof ThreadContextElement) {
+                ((ThreadContextElement) element).restoreThreadContext(threadState.getContext(), threadState.take());
+            }
+            return threadState;
+        }
+    };
 
     public static final void restoreThreadContext(CoroutineContext coroutineContext, Object obj) {
         if (obj == ZERO) {

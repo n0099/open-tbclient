@@ -8,10 +8,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class iy1 extends kx1 {
+public class iy1 extends px1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+
+    @Override // com.baidu.tieba.px1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+        }
+    }
 
     public iy1() {
         Interceptable interceptable = $ic;
@@ -27,27 +33,15 @@ public class iy1 extends kx1 {
         }
     }
 
-    @Override // com.baidu.tieba.kx1
-    public void a(lx1 lx1Var, Canvas canvas) {
-        int i;
+    @Override // com.baidu.tieba.px1
+    public void a(qx1 qx1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, lx1Var, canvas) == null) && (i = this.a) > 0) {
-            lx1Var.e.setTextSize(i);
-        }
-    }
-
-    @Override // com.baidu.tieba.kx1
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, qx1Var, canvas) == null) {
+            qx1Var.e();
             try {
-                if (jSONArray.length() > 0) {
-                    this.a = vh3.g((float) jSONArray.optDouble(0));
-                }
-            } catch (Exception e) {
-                if (ok1.a) {
-                    e.printStackTrace();
-                }
+                canvas.restore();
+            } catch (IllegalStateException e) {
+                j12.d("Canvas", "Underflow in restore - more restores than saves, please check", e);
             }
         }
     }

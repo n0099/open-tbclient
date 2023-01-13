@@ -2,243 +2,103 @@ package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c3a;
-import com.baidu.tieba.z2a;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicLong;
-import rx.exceptions.MissingBackpressureException;
-import rx.internal.operators.NotificationLite;
-import rx.internal.util.BackpressureDrainManager;
+import com.squareup.wire2.FieldEncoding;
+import java.io.IOException;
+import kotlinx.coroutines.scheduling.CoroutineScheduler;
+import okio.BufferedSink;
+import okio.ByteString;
 /* loaded from: classes5.dex */
-public class j4a<T> implements c3a.b<T, T> {
+public final class j4a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Long a;
-    public final p3a b;
-    public final z2a.d c;
+    public final BufferedSink a;
 
-    /* loaded from: classes5.dex */
-    public static final class a<T> extends i3a<T> implements BackpressureDrainManager.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final ConcurrentLinkedQueue<Object> e;
-        public final AtomicLong f;
-        public final i3a<? super T> g;
-        public final AtomicBoolean h;
-        public final BackpressureDrainManager i;
-        public final p3a j;
-        public final z2a.d k;
-
-        public a(i3a<? super T> i3aVar, Long l, p3a p3aVar, z2a.d dVar) {
-            AtomicLong atomicLong;
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i3aVar, l, p3aVar, dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = new ConcurrentLinkedQueue<>();
-            this.h = new AtomicBoolean(false);
-            this.g = i3aVar;
-            if (l != null) {
-                atomicLong = new AtomicLong(l.longValue());
-            } else {
-                atomicLong = null;
-            }
-            this.f = atomicLong;
-            this.j = p3aVar;
-            this.i = new BackpressureDrainManager(this);
-            this.k = dVar;
-        }
-
-        @Override // rx.internal.util.BackpressureDrainManager.a
-        public void a(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                if (th != null) {
-                    this.g.onError(th);
-                } else {
-                    this.g.onCompleted();
-                }
-            }
-        }
-
-        @Override // rx.internal.util.BackpressureDrainManager.a
-        public boolean accept(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-                return NotificationLite.a(this.g, obj);
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.d3a
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048582, this, th) == null) && !this.h.get()) {
-                this.i.terminateAndDrain(th);
-            }
-        }
-
-        @Override // com.baidu.tieba.d3a
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048583, this, t) != null) || !g()) {
-                return;
-            }
-            this.e.offer(NotificationLite.h(t));
-            this.i.drain();
-        }
-
-        @Override // com.baidu.tieba.i3a
-        public void d() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                e(Long.MAX_VALUE);
-            }
-        }
-
-        public e3a h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.i;
-            }
-            return (e3a) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.d3a
-        public void onCompleted() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !this.h.get()) {
-                this.i.terminateAndDrain();
-            }
-        }
-
-        @Override // rx.internal.util.BackpressureDrainManager.a
-        public Object peek() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                return this.e.peek();
-            }
-            return invokeV.objValue;
-        }
-
-        @Override // rx.internal.util.BackpressureDrainManager.a
-        public Object poll() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                Object poll = this.e.poll();
-                AtomicLong atomicLong = this.f;
-                if (atomicLong != null && poll != null) {
-                    atomicLong.incrementAndGet();
-                }
-                return poll;
-            }
-            return invokeV.objValue;
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:36:0x003d A[EXC_TOP_SPLITTER, SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:40:0x004d A[SYNTHETIC] */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public final boolean g() {
-            InterceptResult invokeV;
-            long j;
-            boolean z;
-            p3a p3aVar;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (this.f == null) {
-                    return true;
-                }
-                do {
-                    j = this.f.get();
-                    if (j <= 0) {
-                        try {
-                        } catch (MissingBackpressureException e) {
-                            if (this.h.compareAndSet(false, true)) {
-                                unsubscribe();
-                                this.g.onError(e);
-                            }
-                        }
-                        if (this.k.a() && poll() != null) {
-                            z = true;
-                            p3aVar = this.j;
-                            if (p3aVar != null) {
-                                try {
-                                    p3aVar.call();
-                                } catch (Throwable th) {
-                                    o3a.e(th);
-                                    this.i.terminateAndDrain(th);
-                                    return false;
-                                }
-                            }
-                            if (!z) {
-                                return false;
-                            }
-                        }
-                        z = false;
-                        p3aVar = this.j;
-                        if (p3aVar != null) {
-                        }
-                        if (!z) {
-                        }
-                    }
-                } while (!this.f.compareAndSet(j, j - 1));
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
+    public static int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? (-(i & 1)) ^ (i >>> 1) : invokeI.intValue;
     }
 
-    /* loaded from: classes5.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final j4a<?> a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-736607596, "Lcom/baidu/tieba/j4a$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-736607596, "Lcom/baidu/tieba/j4a$b;");
-                    return;
-                }
-            }
-            a = new j4a<>();
-        }
+    public static long b(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? (-(j & 1)) ^ (j >>> 1) : invokeJ.longValue;
     }
 
-    public j4a() {
+    public static int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? (i >> 31) ^ (i << 1) : invokeI.intValue;
+    }
+
+    public static long d(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j)) == null) ? (j >> 63) ^ (j << 1) : invokeJ.longValue;
+    }
+
+    public static int i(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) {
+            if ((i & com.alipay.sdk.encrypt.a.g) == 0) {
+                return 1;
+            }
+            if ((i & (-16384)) == 0) {
+                return 2;
+            }
+            if (((-2097152) & i) == 0) {
+                return 3;
+            }
+            return (i & (-268435456)) == 0 ? 4 : 5;
+        }
+        return invokeI.intValue;
+    }
+
+    public static int j(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65546, null, j)) == null) {
+            if (((-128) & j) == 0) {
+                return 1;
+            }
+            if (((-16384) & j) == 0) {
+                return 2;
+            }
+            if ((CoroutineScheduler.PARKED_VERSION_MASK & j) == 0) {
+                return 3;
+            }
+            if (((-268435456) & j) == 0) {
+                return 4;
+            }
+            if (((-34359738368L) & j) == 0) {
+                return 5;
+            }
+            if (((-4398046511104L) & j) == 0) {
+                return 6;
+            }
+            if (((-562949953421312L) & j) == 0) {
+                return 7;
+            }
+            if (((-72057594037927936L) & j) == 0) {
+                return 8;
+            }
+            return (j & Long.MIN_VALUE) == 0 ? 9 : 10;
+        }
+        return invokeJ.intValue;
+    }
+
+    public j4a(BufferedSink bufferedSink) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bufferedSink};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -248,34 +108,135 @@ public class j4a<T> implements c3a.b<T, T> {
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = z2a.b;
+        this.a = bufferedSink;
     }
 
-    public static <T> j4a<T> a() {
-        InterceptResult invokeV;
+    public static int e(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return (j4a<T>) b.a;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            if (i >= 0) {
+                return i(i);
+            }
+            return 10;
         }
-        return (j4a) invokeV.objValue;
+        return invokeI.intValue;
     }
 
-    public i3a<? super T> call(i3a<? super T> i3aVar) {
+    public static int g(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
+            return i(f(i, FieldEncoding.VARINT));
+        }
+        return invokeI.intValue;
+    }
+
+    public void k(ByteString byteString) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, byteString) == null) {
+            this.a.write(byteString);
+        }
+    }
+
+    public void l(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a.writeIntLe(i);
+        }
+    }
+
+    public void m(long j) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.a.writeLongLe(j);
+        }
+    }
+
+    public void n(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            if (i >= 0) {
+                q(i);
+            } else {
+                r(i);
+            }
+        }
+    }
+
+    public void o(String str) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.a.writeUtf8(str);
+        }
+    }
+
+    public void q(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            while ((i & com.alipay.sdk.encrypt.a.g) != 0) {
+                this.a.writeByte((i & 127) | 128);
+                i >>>= 7;
+            }
+            this.a.writeByte(i);
+        }
+    }
+
+    public void r(long j) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            while (((-128) & j) != 0) {
+                this.a.writeByte((((int) j) & 127) | 128);
+                j >>>= 7;
+            }
+            this.a.writeByte((int) j);
+        }
+    }
+
+    public static int f(int i, FieldEncoding fieldEncoding) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65542, null, i, fieldEncoding)) == null) {
+            return (i << 3) | fieldEncoding.value;
+        }
+        return invokeIL.intValue;
+    }
+
+    public void p(int i, FieldEncoding fieldEncoding) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, fieldEncoding) == null) {
+            q(f(i, fieldEncoding));
+        }
+    }
+
+    public static int h(String str) {
         InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, i3aVar)) == null) {
-            a aVar = new a(i3aVar, this.a, this.b, this.c);
-            i3aVar.b(aVar);
-            i3aVar.f(aVar.h());
-            return aVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            int length = str.length();
+            int i2 = 0;
+            int i3 = 0;
+            while (i2 < length) {
+                char charAt = str.charAt(i2);
+                if (charAt >= 128) {
+                    if (charAt < 2048) {
+                        i3 += 2;
+                    } else if (charAt >= 55296 && charAt <= 57343) {
+                        if (charAt <= 56319 && (i = i2 + 1) < length && str.charAt(i) >= 56320 && str.charAt(i) <= 57343) {
+                            i3 += 4;
+                            i2 = i;
+                        }
+                    } else {
+                        i3 += 3;
+                    }
+                    i2++;
+                }
+                i3++;
+                i2++;
+            }
+            return i3;
         }
-        return (i3a) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.c3a.b, com.baidu.tieba.u3a
-    public /* bridge */ /* synthetic */ Object call(Object obj) {
-        return call((i3a) ((i3a) obj));
+        return invokeL.intValue;
     }
 }

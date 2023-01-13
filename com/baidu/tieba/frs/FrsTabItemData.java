@@ -11,7 +11,9 @@ import tbclient.FrsTabInfo;
 public class FrsTabItemData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean hideWriteEntrance;
     public int isGeneralTab;
+    public boolean isNoShowInPublisher;
     public boolean isSelected;
     public String name;
     public String tabCode;
@@ -33,6 +35,7 @@ public class FrsTabItemData extends OrmObject implements Serializable {
     }
 
     public FrsTabItemData(FrsTabInfo frsTabInfo) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,5 +55,12 @@ public class FrsTabItemData extends OrmObject implements Serializable {
         this.tabType = frsTabInfo.tab_type.intValue();
         this.tabCode = frsTabInfo.tab_code;
         this.isGeneralTab = frsTabInfo.is_general_tab.intValue();
+        if (frsTabInfo.is_no_show_publisher.intValue() == 1) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.hideWriteEntrance = z;
+        this.isNoShowInPublisher = frsTabInfo.is_no_show_in_publisher.intValue() == 1;
     }
 }

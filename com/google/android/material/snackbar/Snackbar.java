@@ -250,9 +250,9 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
             if (findSuitableParent != null) {
                 LayoutInflater from = LayoutInflater.from(findSuitableParent.getContext());
                 if (hasSnackbarContentStyleAttrs(findSuitableParent.getContext())) {
-                    i2 = R.layout.obfuscated_res_0x7f0d05dc;
+                    i2 = R.layout.obfuscated_res_0x7f0d05da;
                 } else {
-                    i2 = R.layout.obfuscated_res_0x7f0d021c;
+                    i2 = R.layout.obfuscated_res_0x7f0d0219;
                 }
                 SnackbarContentLayout snackbarContentLayout = (SnackbarContentLayout) from.inflate(i2, findSuitableParent, false);
                 Snackbar snackbar = new Snackbar(findSuitableParent, snackbarContentLayout, snackbarContentLayout);

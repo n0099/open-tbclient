@@ -22,14 +22,14 @@ import com.baidu.searchbox.track.Track;
 import com.baidu.searchbox.util.TBCrashHandler;
 import com.baidu.searchbox.util.TBCrashHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.d20;
-import com.baidu.tieba.iy4;
-import com.baidu.tieba.jy4;
-import com.baidu.tieba.ky4;
-import com.baidu.tieba.nf1;
-import com.baidu.tieba.oy4;
-import com.baidu.tieba.um;
-import com.baidu.tieba.vq4;
+import com.baidu.tieba.fr4;
+import com.baidu.tieba.i20;
+import com.baidu.tieba.sf1;
+import com.baidu.tieba.ty4;
+import com.baidu.tieba.uy4;
+import com.baidu.tieba.vm;
+import com.baidu.tieba.vy4;
+import com.baidu.tieba.zy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -87,10 +87,10 @@ public class InitLokiTask extends LaunchTask {
 
     private void initLoki() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && !vq4.e() && !userIgnore()) {
-            if (Loki.isLokiService(nf1.b())) {
+        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && !fr4.e() && !userIgnore()) {
+            if (Loki.isLokiService(sf1.b())) {
                 ForwardingDeviceEventSceneHandler forwardingDeviceEventSceneHandler = new ForwardingDeviceEventSceneHandler();
-                forwardingDeviceEventSceneHandler.addEventHandleCallback(new jy4());
+                forwardingDeviceEventSceneHandler.addEventHandleCallback(new uy4());
                 LinkedList linkedList = new LinkedList();
                 linkedList.add(new LogSystemUploaderStrategy(true, true));
                 Loki.initService(new LogSystemProcessor(forwardingDeviceEventSceneHandler, linkedList));
@@ -185,7 +185,7 @@ public class InitLokiTask extends LaunchTask {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                         LinkedList linkedList = new LinkedList();
-                        linkedList.add(new ky4());
+                        linkedList.add(new vy4());
                         return linkedList;
                     }
                     return (List) invokeV.objValue;
@@ -272,9 +272,9 @@ public class InitLokiTask extends LaunchTask {
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context2, jSONObject) == null) {
                         super.onAttachExtra(context2, jSONObject);
                         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                            oy4.q().h();
+                            zy4.q().h();
                         }
-                        iy4.a(jSONObject);
+                        ty4.a(jSONObject);
                     }
                 }
 
@@ -329,7 +329,7 @@ public class InitLokiTask extends LaunchTask {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                             LinkedList linkedList2 = new LinkedList();
-                            linkedList2.add(new ky4());
+                            linkedList2.add(new vy4());
                             return linkedList2;
                         }
                         return (List) invokeV.objValue;
@@ -338,7 +338,7 @@ public class InitLokiTask extends LaunchTask {
             } else {
                 supplier = null;
             }
-            BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>(this, new d20(this, context, supplier) { // from class: com.baidu.searchbox.task.sync.appcreate.InitLokiTask.6
+            BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>(this, new i20(this, context, supplier) { // from class: com.baidu.searchbox.task.sync.appcreate.InitLokiTask.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitLokiTask this$0;
@@ -365,19 +365,19 @@ public class InitLokiTask extends LaunchTask {
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.d20
+                @Override // com.baidu.tieba.i20
                 public void onAttachExtra(@NonNull Context context2, @NonNull JSONObject jSONObject) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context2, jSONObject) == null) {
                         super.onAttachExtra(context2, jSONObject);
                         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                            oy4.q().h();
+                            zy4.q().h();
                         }
-                        iy4.a(jSONObject);
+                        ty4.a(jSONObject);
                     }
                 }
 
-                @Override // com.baidu.tieba.d20
+                @Override // com.baidu.tieba.i20
                 public void onDisasterRecovery(@NonNull Context context2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context2) == null) {
@@ -385,7 +385,7 @@ public class InitLokiTask extends LaunchTask {
                     }
                 }
 
-                @Override // com.baidu.tieba.d20
+                @Override // com.baidu.tieba.i20
                 public void onReport(@NonNull Context context2, @NonNull String str, @Nullable File file, @Nullable LogExtra logExtra) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 != null && interceptable2.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context2, str, file, logExtra) != null) || TBCrashHelper.checkIsUploadOverMax()) {
@@ -397,7 +397,7 @@ public class InitLokiTask extends LaunchTask {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitLokiTask this$0;
-                public final /* synthetic */ d20 val$nativeCrashHandler;
+                public final /* synthetic */ i20 val$nativeCrashHandler;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -433,7 +433,7 @@ public class InitLokiTask extends LaunchTask {
             bdAsyncTask.setSelfExecute(true);
             bdAsyncTask.setPriority(4);
             bdAsyncTask.execute(new Void[0]);
-            Thread.setDefaultUncaughtExceptionHandler(new TBCrashHandler(new um(Thread.getDefaultUncaughtExceptionHandler())));
+            Thread.setDefaultUncaughtExceptionHandler(new TBCrashHandler(new vm(Thread.getDefaultUncaughtExceptionHandler())));
         }
     }
 }

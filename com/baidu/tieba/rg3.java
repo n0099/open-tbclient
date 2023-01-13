@@ -1,12 +1,23 @@
 package com.baidu.tieba;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.graphics.Color;
+import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
-import com.baidu.searchbox.v8engine.V8Engine;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.widget.SlideHelper;
+import com.baidu.searchbox.widget.SlideInterceptor;
+import com.baidu.searchbox.widget.SlidingPaneLayout;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.gp2;
+import com.baidu.tieba.pushdialog.PushDialogActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,31 +25,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public class rg3 {
+public class rg3 implements SlideInterceptor {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static List<String> b;
-    public static List<String> c;
-    public static final Object d;
-    public static int e;
-    public static int f;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public SlideHelper a;
+    public WeakReference<SwanAppActivity> b;
+    public y93 c;
+    public BroadcastReceiver d;
 
     /* loaded from: classes6.dex */
-    public static abstract class a {
+    public class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final boolean a;
+        public final /* synthetic */ rg3 this$0;
 
-        public a(boolean z) {
+        public a(rg3 rg3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z)};
+                Object[] objArr = {rg3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,7 +57,85 @@ public class rg3 {
                     return;
                 }
             }
-            this.a = z;
+            this.this$0 = rg3Var;
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && "android.intent.action.CLOSE_SYSTEM_DIALOGS".equals(intent.getAction())) {
+                String stringExtra = intent.getStringExtra("reason");
+                if (TextUtils.isEmpty(stringExtra)) {
+                    return;
+                }
+                if ((PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_HOME_KEY.equals(stringExtra) || stringExtra.equals(PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_RECENT_APPS)) && this.this$0.a != null) {
+                    this.this$0.a.closePane();
+                    this.this$0.a.setCanSlide(false);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements SlidingPaneLayout.PanelSlideListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SwanAppActivity a;
+        public final /* synthetic */ rg3 b;
+
+        @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
+        public void onPanelClosed(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            }
+        }
+
+        public b(rg3 rg3Var, SwanAppActivity swanAppActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rg3Var, swanAppActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = rg3Var;
+            this.a = swanAppActivity;
+        }
+
+        @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
+        public void onPanelOpened(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+                this.a.p0(3);
+                this.b.i();
+                this.a.overridePendingTransition(0, 0);
+                xu2.e().g();
+            }
+        }
+
+        @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
+        public void onPanelSlide(View view2, float f) {
+            View maskView;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, view2, f) == null) && (maskView = this.b.a.getMaskView()) != null) {
+                maskView.setAlpha(1.0f - f);
+                if (this.a.Z()) {
+                    this.a.Q().t0();
+                }
+                if (f == 0.0f) {
+                    maskView.setBackgroundColor(Color.parseColor("#40000000"));
+                }
+                if (f == 1.0f) {
+                    maskView.setBackgroundColor(0);
+                }
+            }
         }
     }
 
@@ -65,267 +152,218 @@ public class rg3 {
                 return;
             }
         }
-        a = ok1.a;
-        b = new ArrayList();
-        c = new ArrayList();
-        d = new Object();
-        e = 0;
-        f = 0;
+        e = tk1.a;
     }
 
-    public static boolean a() {
+    public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (e()) {
-                if (a) {
-                    Log.d("SwanAppCompat", "has used ab description");
-                }
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            SwanAppActivity swanAppActivity = this.b.get();
+            if (swanAppActivity == null || swanAppActivity.getResources().getConfiguration().orientation == 2 || Build.VERSION.SDK_INT == 26) {
+                return false;
             }
-            return !sc3.a().getBoolean("swan_app_js_native_ab_update_key", false);
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    public static void h() {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            if (a) {
-                Log.d("SwanAppCompat", "on App upgrade");
-            }
-            if (pb4.b() != null && lg4.b()) {
-                pb4.b().i().putString("key_online_description_fix_version", "0");
-            }
-            sc3.a().putBoolean("swan_app_js_native_ab_update_key", true);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.closePane();
         }
     }
 
-    public static void j() {
+    public final void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            if (a) {
-                Log.d("SwanAppCompat", "start release descriptions");
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && qn2.M().a()) {
+            this.c.c(8);
+        }
+    }
+
+    public void o() {
+        SwanAppActivity swanAppActivity;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || (swanAppActivity = this.b.get()) == null) {
+            return;
+        }
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("android.intent.action.CLOSE_SYSTEM_DIALOGS");
+        swanAppActivity.registerReceiver(this.d, intentFilter);
+    }
+
+    public void p() {
+        WeakReference<SwanAppActivity> weakReference;
+        SwanAppActivity swanAppActivity;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || (weakReference = this.b) == null || (swanAppActivity = weakReference.get()) == null) {
+            return;
+        }
+        swanAppActivity.unregisterReceiver(this.d);
+    }
+
+    public void q() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || this.b.get() == null) {
+            return;
+        }
+        this.a.setCanSlide(d());
+    }
+
+    public void t() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && bp2.c(true).booleanValue()) {
+            this.c.c(0);
+        }
+    }
+
+    public rg3(SwanAppActivity swanAppActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {swanAppActivity};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            synchronized (d) {
-                e = 0;
-                b = new ArrayList();
-                c = new ArrayList();
+        }
+        this.d = new a(this);
+        this.b = new WeakReference<>(swanAppActivity);
+        this.a = new SlideHelper();
+    }
+
+    public void u(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.a.setCanSlide(z);
+        }
+    }
+
+    public void f() {
+        SwanAppActivity swanAppActivity;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (swanAppActivity = this.b.get()) != null && !swanAppActivity.isDestroyed()) {
+            this.a.attachSlideView(swanAppActivity, swanAppActivity.findViewById(16908290), new SlidingPaneLayout.LayoutParams(-1, -1));
+            this.a.attachActivity(swanAppActivity);
+            this.a.setEnableReleaseWhenNoTranslucent(false);
+            this.a.setFadeColor(0);
+            this.a.setSlideInterceptor(this);
+            this.a.setSlideListener(new b(this, swanAppActivity));
+            pq1 g = g();
+            if (g != null) {
+                this.a.setRegionFactor(g.A());
             }
         }
     }
 
-    public static void k() {
+    public final pq1 g() {
+        InterceptResult invokeV;
+        s32 X;
+        p32 m;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            if (a) {
-                Log.d("SwanAppCompat", "start prepare ab description");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            SwanAppActivity swanAppActivity = this.b.get();
+            if (swanAppActivity == null || (X = swanAppActivity.X()) == null || (m = X.m()) == null || !(m instanceof r32)) {
+                return null;
             }
-            synchronized (d) {
-                l(true);
-                l(false);
-            }
-            if (a) {
-                Log.d("SwanAppCompat", "end prepare ab description");
-            }
+            return ((r32) m).o3();
+        }
+        return (pq1) invokeV.objValue;
+    }
+
+    public void n() {
+        SwanAppActivity swanAppActivity;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || (swanAppActivity = this.b.get()) == null) {
+            return;
+        }
+        y93 w = swanAppActivity.w();
+        this.c = w;
+        if (w == null) {
+            return;
+        }
+        if (bp2.c(false).booleanValue()) {
+            this.c.c(0);
+        }
+        f();
+    }
+
+    public void r() {
+        SwanAppActivity swanAppActivity;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || (swanAppActivity = this.b.get()) == null) {
+            return;
+        }
+        gp2.a S = swanAppActivity.S();
+        if ((S != null && "1230000000000000".equals(S.T())) || swanAppActivity.R() == 1) {
+            this.a.setCanSlide(false);
+        } else {
+            this.a.setCanSlide(d());
         }
     }
 
-    public static String b(String str) {
+    /* JADX WARN: Type inference failed for: r3v3, types: [com.baidu.tieba.qq1] */
+    @Override // com.baidu.searchbox.widget.SlideInterceptor
+    public boolean isSlidable(MotionEvent motionEvent) {
         InterceptResult invokeL;
+        s32 X;
+        pq1 g;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            e12.c("JsNative", f + "-true");
-            return f + "-true-" + str + "-" + c();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            StringBuilder sb = new StringBuilder();
-            synchronized (d) {
-                if (b != null) {
-                    sb.append("v8list:{");
-                    for (String str : b) {
-                        if (!TextUtils.isEmpty(str)) {
-                            if (str.length() > 100) {
-                                sb.append(str.substring(0, 99));
-                                sb.append(StringHelper.STRING_MORE);
-                            } else {
-                                sb.append(str);
-                            }
-                            sb.append(";");
-                        }
-                    }
-                    sb.append("},");
-                }
-                if (c != null) {
-                    sb.append("weblist:{");
-                    for (String str2 : c) {
-                        if (!TextUtils.isEmpty(str2)) {
-                            if (str2.length() > 100) {
-                                sb.append(str2.substring(0, 99));
-                                sb.append(StringHelper.STRING_MORE);
-                            } else {
-                                sb.append(str2);
-                            }
-                            sb.append(";");
-                        }
-                    }
-                    sb.append("}");
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
+            SwanAppActivity swanAppActivity = this.b.get();
+            if (swanAppActivity == null || !swanAppActivity.Z() || (X = swanAppActivity.X()) == null || (g = g()) == null) {
+                return false;
             }
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String d(int i, String str) {
-        InterceptResult invokeIL;
-        List<String> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str)) == null) {
-            f = 0;
-            if (e == 1) {
-                e12.i("SwanAppCompat", "type support default");
-                f = 1;
-                return SchemeCollecter.getSchemesDes(str, i);
-            } else if (TextUtils.equals(str, "swan/web")) {
-                return SchemeCollecter.getSchemesDes(str, i);
+            sq1 k = g.k();
+            if (k != null && k.r() != 0 && k.r().canGoBack()) {
+                z = true;
             } else {
-                if (a() && !so2.b().isEmpty()) {
-                    synchronized (d) {
-                        if (TextUtils.equals(str, SchemeCollecter.CLASSIFY_SWAN_V8)) {
-                            list = b;
-                        } else {
-                            list = c;
-                        }
-                        if (list != null && list.size() > 0) {
-                            if (a) {
-                                Log.d("SwanAppCompat", "support ab js native descriptions");
-                            }
-                            e = 2;
-                            f = 2;
-                            return list.get(i);
-                        } else if (list != null) {
-                            f = 3;
-                        } else {
-                            f = 4;
-                        }
-                    }
-                }
-                if (a) {
-                    Log.d("SwanAppCompat", "use default descriptions");
-                }
-                e = 1;
-                return SchemeCollecter.getSchemesDes(str, i);
+                z = false;
             }
+            if (X.k() > 1 || !g.isSlidable(motionEvent) || z || !l()) {
+                return false;
+            }
+            return true;
         }
-        return (String) invokeIL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static boolean e() {
+    public final boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (e == 2) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            SwanAppActivity swanAppActivity = this.b.get();
+            if (swanAppActivity != null && !swanAppActivity.isDestroyed() && swanAppActivity.Z()) {
+                r32 o = swanAppActivity.X().o();
+                if (o != null) {
+                    y43 G1 = o.G1();
+                    if (G1 == null) {
+                        return true;
+                    }
+                    if (G1.l || G1.m) {
+                        j93 j93Var = hw2.g(true).get("scope_disable_swipe_back");
+                        if (j93Var == null || j93Var.d) {
+                            return false;
+                        }
+                        SlideHelper slideHelper = this.a;
+                        if (slideHelper != null) {
+                            slideHelper.setRegionFactor(0.1d);
+                        }
+                    }
+                    return true;
+                } else if (e) {
+                    Log.d("SwanActivitySlideHelper", "topFragment = null; return false");
+                }
             }
             return false;
         }
         return invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return !th3.f("3.320.0");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return !th3.f("3.120.2");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void i() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65545, null) == null) && a) {
-            Log.e("JsNative", f + "-true");
-        }
-    }
-
-    public static void l(boolean z) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65548, null, z) == null) {
-            if (a) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("start prepare ab description :");
-                if (z) {
-                    str = V8Engine.TYPE_V8;
-                } else {
-                    str = AlbumActivityConfig.FROM_WEB_VIEW;
-                }
-                sb.append(str);
-                Log.d("SwanAppCompat", sb.toString());
-            }
-            pi3 pi3Var = new pi3(z);
-            String a2 = so2.a();
-            String string = sc3.a().getString("swan_app_js_native_ab_sign", null);
-            if (!TextUtils.equals(a2, string)) {
-                if (a) {
-                    Log.w("SwanAppCompat", "js desc sign change: old=" + string + ", new=" + a2);
-                }
-                if (!pi3Var.a(3)) {
-                    return;
-                }
-                sc3.a().putString("swan_app_js_native_ab_sign", a2);
-            } else if (sc3.a().getBoolean("swan_app_js_native_ab_update_key", false)) {
-                if (!pi3Var.a(3)) {
-                    return;
-                }
-                sc3.a().putBoolean("swan_app_js_native_ab_update_key", false);
-            }
-            List<String> d2 = pi3Var.d();
-            if (d2 != null) {
-                m(d2, z);
-            }
-        }
-    }
-
-    public static void m(List<String> list, boolean z) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(65549, null, list, z) != null) || list == null || e != 0) {
-            return;
-        }
-        if (z) {
-            b = list;
-        } else {
-            c = list;
-        }
-        if (a) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("has update descriptions, list :");
-            sb.append(list.toString());
-            sb.append(" type :");
-            if (z) {
-                str = V8Engine.TYPE_V8;
-            } else {
-                str = AlbumActivityConfig.FROM_WEB_VIEW;
-            }
-            sb.append(str);
-            Log.d("SwanAppCompat", sb.toString());
-        }
     }
 }

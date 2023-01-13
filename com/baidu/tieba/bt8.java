@@ -1,26 +1,20 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public abstract class bt8 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String PROXY_CLASS_NAME_SUFFIX = "_Proxy";
-    public static final String PROXY_CLASS_PACKAGE_NAME = "com.baidu.tieba.h5power";
+public class bt8 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, List<ct8>> mAsyncCallBackMethodList;
-    public HashSet<String> mNotificationNameList;
-
-    public abstract dt8 dispatch(ft8 ft8Var, dt8 dt8Var);
-
-    public abstract List<dt8> processNotification(String str, HashMap hashMap);
+    public int a;
+    public String b;
 
     public bt8() {
         Interceptable interceptable = $ic;
@@ -32,33 +26,42 @@ public abstract class bt8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = -1;
+        this.b = null;
     }
 
-    public dt8 addObserver(String str, dt8 dt8Var, boolean z) {
-        InterceptResult invokeLLZ;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, str, dt8Var, z)) == null) {
-            if (dt8Var == null) {
-                dt8Var = new dt8();
-            }
-            if (this.mNotificationNameList.contains(str)) {
-                dt8Var.n(false);
-                dt8Var.s(true);
-                List<ct8> list = this.mAsyncCallBackMethodList.get(str);
-                if (list == null) {
-                    list = new ArrayList<>();
-                }
-                ct8 ct8Var = new ct8();
-                ct8Var.e(dt8Var.c());
-                ct8Var.d(z);
-                ct8Var.f(dt8Var.e());
-                list.add(ct8Var);
-                this.mAsyncCallBackMethodList.put(str, list);
-            }
-            return dt8Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (dt8) invokeLLZ.objValue;
+        return invokeV.intValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            this.a = jSONObject.optInt("errno");
+            jSONObject.optString("errmsg");
+            this.b = jSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
     }
 }

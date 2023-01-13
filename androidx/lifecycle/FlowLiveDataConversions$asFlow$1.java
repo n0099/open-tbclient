@@ -25,10 +25,11 @@ import kotlinx.coroutines.channels.Channel;
 import kotlinx.coroutines.channels.ChannelIterator;
 import kotlinx.coroutines.channels.ChannelKt;
 import kotlinx.coroutines.flow.FlowCollector;
+/* JADX INFO: Add missing generic type declarations: [T] */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0003H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "Lkotlinx/coroutines/flow/FlowCollector;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "androidx.lifecycle.FlowLiveDataConversions$asFlow$1", f = "FlowLiveData.kt", i = {0, 0, 0, 1, 1, 1, 2, 2, 2, 2}, l = {91, 95, 96}, m = "invokeSuspend", n = {"$this$flow", "channel", "observer", "$this$flow", "channel", "observer", "$this$flow", "channel", "observer", "value"}, s = {"L$0", "L$1", "L$2", "L$0", "L$1", "L$2", "L$0", "L$1", "L$2", "L$3"})
 /* loaded from: classes.dex */
-public final class FlowLiveDataConversions$asFlow$1 extends SuspendLambda implements Function2<FlowCollector<? super T>, Continuation<? super Unit>, Object> {
+public final class FlowLiveDataConversions$asFlow$1<T> extends SuspendLambda implements Function2<FlowCollector<? super T>, Continuation<? super Unit>, Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ LiveData $this_asFlow;
@@ -247,8 +248,8 @@ public final class FlowLiveDataConversions$asFlow$1 extends SuspendLambda implem
         InterceptResult invokeL;
         FlowCollector flowCollector;
         Channel channel;
-        Observer observer;
-        FlowLiveDataConversions$asFlow$1 flowLiveDataConversions$asFlow$1;
+        Observer<T> observer;
+        FlowLiveDataConversions$asFlow$1<T> flowLiveDataConversions$asFlow$1;
         Throwable th;
         FlowCollector flowCollector2;
         Channel channel2;
@@ -268,12 +269,12 @@ public final class FlowLiveDataConversions$asFlow$1 extends SuspendLambda implem
                                 if (i != 2) {
                                     if (i == 3) {
                                         channelIterator = (ChannelIterator) this.L$4;
-                                        Observer observer2 = (Observer) this.L$2;
+                                        Observer<T> observer2 = (Observer) this.L$2;
                                         channel2 = (Channel) this.L$1;
                                         flowCollector2 = (FlowCollector) this.L$0;
                                         ResultKt.throwOnFailure(obj);
                                         flowLiveDataConversions$asFlow$1 = this;
-                                        Observer observer3 = observer2;
+                                        Observer<T> observer3 = observer2;
                                         FlowCollector flowCollector3 = flowCollector2;
                                         channelIterator2 = channelIterator;
                                         observer = observer3;
@@ -359,7 +360,7 @@ public final class FlowLiveDataConversions$asFlow$1 extends SuspendLambda implem
                         ResultKt.throwOnFailure(obj);
                         flowCollector = this.p$;
                         final Channel Channel = ChannelKt.Channel(-1);
-                        Observer observer5 = new Observer<T>(Channel) { // from class: androidx.lifecycle.FlowLiveDataConversions$asFlow$1$observer$1
+                        Observer<T> observer5 = new Observer<T>(Channel) { // from class: androidx.lifecycle.FlowLiveDataConversions$asFlow$1$observer$1
                             public static /* synthetic */ Interceptable $ic;
                             public final /* synthetic */ Channel $channel;
                             public transient /* synthetic */ FieldHolder $fh;

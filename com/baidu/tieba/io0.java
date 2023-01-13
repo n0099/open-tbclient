@@ -1,113 +1,100 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.nadcore.model.MonitorUrl;
-import com.baidu.nadcore.stats.request.ClogBuilder;
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
-/* loaded from: classes4.dex */
-public final class io0 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
+@Service
+/* loaded from: classes5.dex */
+public class io0 extends oi0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(ClogBuilder.LogType logType, String str, String str2, String str3, String str4, String str5) {
+    @Override // com.baidu.tieba.oi0
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{logType, str, str2, str3, str4, str5}) == null) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(logType);
-            clogBuilder.j(str2);
-            clogBuilder.u(ClogBuilder.Page.WELFAREMAXLP);
-            clogBuilder.p(str);
-            clogBuilder.k(str3);
-            clogBuilder.l(str4);
-            clogBuilder.m(str5);
-            z01.b(clogBuilder);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "reward" : (String) invokeV.objValue;
     }
 
-    public static /* synthetic */ void b(ClogBuilder.LogType logType, String str, String str2, String str3, String str4, String str5, int i, Object obj) {
-        String str6;
-        String str7;
-        String str8;
-        String str9;
-        if ((i & 4) != 0) {
-            str6 = "";
-        } else {
-            str6 = str2;
-        }
-        if ((i & 8) != 0) {
-            str7 = "";
-        } else {
-            str7 = str3;
-        }
-        if ((i & 16) != 0) {
-            str8 = "";
-        } else {
-            str8 = str4;
-        }
-        if ((i & 32) != 0) {
-            str9 = "";
-        } else {
-            str9 = str5;
-        }
-        a(logType, str, str6, str7, str8, str9);
-    }
-
-    public static final void c(String str, String coin, String sessionInfo) {
+    public io0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, str, coin, sessionInfo) == null) {
-            Intrinsics.checkNotNullParameter(coin, "coin");
-            Intrinsics.checkNotNullParameter(sessionInfo, "sessionInfo");
-            if (str != null) {
-                b(ClogBuilder.LogType.FREE_SHOW, str, "popper", coin, sessionInfo, null, 32, null);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static final void d(String str, boolean z) {
-        String str2;
+    @Override // com.baidu.tieba.oi0
+    public boolean b(@NonNull Context context, @NonNull si0 si0Var, @Nullable Map<String, Object> map, @Nullable wi0 wi0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65539, null, str, z) == null) && str != null) {
-            ClogBuilder.LogType logType = ClogBuilder.LogType.FREE_CLICK;
-            if (z) {
-                str2 = "1";
-            } else {
-                str2 = "0";
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, si0Var, map, wi0Var)) == null) {
+            super.b(context, si0Var, map, wi0Var);
+            String str = si0Var.d().get("task_params");
+            if (TextUtils.isEmpty(str)) {
+                c(wi0Var, si0Var, 202, false);
+                return true;
             }
-            b(logType, str, "close", str2, null, null, 48, null);
+            HashMap<String, String> e = e(str);
+            if (e != null && !e.isEmpty() && !TextUtils.isEmpty(e.get("android_pid"))) {
+                e.remove("android_pid");
+                e.remove("ios_pid");
+                i71 i71Var = new i71(context);
+                i71Var.e(context.getString(R.string.nad_reward_video_lp_task_loading));
+                i71Var.c(false);
+                i71Var.d(false);
+                ko0 ko0Var = new ko0(e);
+                l31.b(i71Var);
+                ko0Var.e(i71Var, e.get("android_pid"));
+                c(wi0Var, si0Var, 0, true);
+                return true;
+            }
+            c(wi0Var, si0Var, 202, false);
+            return true;
         }
+        return invokeLLLL.booleanValue;
     }
 
-    public static final void e(wp0 model) {
-        boolean z;
+    @Nullable
+    public final HashMap<String, String> e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, model) == null) {
-            Intrinsics.checkNotNullParameter(model, "model");
-            String ext = model.f.d;
-            ClogBuilder.LogType logType = ClogBuilder.LogType.SHOW;
-            Intrinsics.checkNotNullExpressionValue(ext, "ext");
-            b(logType, ext, null, null, null, null, 60, null);
-            List<MonitorUrl> list = model.e;
-            Intrinsics.checkNotNullExpressionValue(list, "model.monitorUrls");
-            ArrayList<MonitorUrl> arrayList = new ArrayList();
-            for (Object obj : list) {
-                String str = ((MonitorUrl) obj).showUrl;
-                if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
-                    z = false;
-                } else {
-                    z = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                HashMap<String, String> hashMap = new HashMap<>();
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    hashMap.put(next, jSONObject.optString(next));
                 }
-                if (!z) {
-                    arrayList.add(obj);
-                }
-            }
-            for (MonitorUrl monitorUrl : arrayList) {
-                a11.b(monitorUrl.showUrl);
+                return hashMap;
+            } catch (JSONException unused) {
+                return null;
             }
         }
+        return (HashMap) invokeL.objValue;
     }
 }

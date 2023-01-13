@@ -1,43 +1,55 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.math.BigInteger;
 /* loaded from: classes7.dex */
-public class z40 {
+public class z40 implements w40 {
     public static /* synthetic */ Interceptable $ic;
-    public static byte[] a;
-    public static byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
+    public BigInteger a;
+    public BigInteger b;
 
-    public static byte[] a() {
-        InterceptResult invokeV;
+    public z40(byte[] bArr, byte[] bArr2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            byte[] bArr = b;
-            if (bArr != null) {
-                return bArr;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bArr, bArr2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            byte[] byteArray = new BigInteger(y40.c).modPow(new BigInteger(y40.d), new BigInteger(y40.e)).toByteArray();
-            b = byteArray;
-            return byteArray;
         }
-        return (byte[]) invokeV.objValue;
+        this.a = new BigInteger(bArr);
+        this.b = new BigInteger(bArr2);
     }
 
-    public static byte[] b() {
+    @Override // com.baidu.tieba.w40
+    public BigInteger a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            byte[] bArr = a;
-            if (bArr != null) {
-                return bArr;
-            }
-            byte[] byteArray = new BigInteger(y40.a).modPow(new BigInteger(y40.b), new BigInteger(y40.e)).toByteArray();
-            a = byteArray;
-            return byteArray;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (byte[]) invokeV.objValue;
+        return (BigInteger) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.w40
+    public BigInteger b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (BigInteger) invokeV.objValue;
     }
 }

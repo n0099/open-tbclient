@@ -1,191 +1,55 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
+import android.util.SparseArray;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.f3a;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicReference;
-import rx.internal.util.RxThreadFactory;
+import com.yy.open.activity.AssistActivity;
+import com.yy.open.activity.BridgeActivity;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class x4a extends f3a implements d5a {
+public final class x4a {
     public static /* synthetic */ Interceptable $ic;
-    public static final int c;
-    public static final c d;
-    public static final b e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ThreadFactory a;
-    public final AtomicReference<b> b;
+    public SparseArray<c> a;
+    public Handler b;
+    public Context c;
+    public String d;
+    public b5a e;
 
-    /* loaded from: classes6.dex */
-    public static final class a extends f3a.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final n5a a;
-        public final w7a b;
-        public final n5a c;
-        public final c d;
-
-        /* renamed from: com.baidu.tieba.x4a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0484a implements p3a {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ p3a a;
-            public final /* synthetic */ a b;
-
-            public C0484a(a aVar, p3a p3aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, p3aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = p3aVar;
-            }
-
-            @Override // com.baidu.tieba.p3a
-            public void call() {
-                Interceptable interceptable = $ic;
-                if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b.isUnsubscribed()) {
-                    return;
-                }
-                this.a.call();
-            }
-        }
-
-        /* loaded from: classes6.dex */
-        public class b implements p3a {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ p3a a;
-            public final /* synthetic */ a b;
-
-            public b(a aVar, p3a p3aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, p3aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = p3aVar;
-            }
-
-            @Override // com.baidu.tieba.p3a
-            public void call() {
-                Interceptable interceptable = $ic;
-                if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b.isUnsubscribed()) {
-                    return;
-                }
-                this.a.call();
-            }
-        }
-
-        public a(c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new n5a();
-            w7a w7aVar = new w7a();
-            this.b = w7aVar;
-            this.c = new n5a(this.a, w7aVar);
-            this.d = cVar;
-        }
-
-        @Override // com.baidu.tieba.f3a.a
-        public j3a b(p3a p3aVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, p3aVar)) == null) {
-                if (isUnsubscribed()) {
-                    return z7a.c();
-                }
-                return this.d.i(new C0484a(this, p3aVar), 0L, null, this.a);
-            }
-            return (j3a) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.f3a.a
-        public j3a c(p3a p3aVar, long j, TimeUnit timeUnit) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{p3aVar, Long.valueOf(j), timeUnit})) == null) {
-                if (isUnsubscribed()) {
-                    return z7a.c();
-                }
-                return this.d.j(new b(this, p3aVar), j, timeUnit, this.b);
-            }
-            return (j3a) invokeCommon.objValue;
-        }
-
-        @Override // com.baidu.tieba.j3a
-        public boolean isUnsubscribed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.c.isUnsubscribed();
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.j3a
-        public void unsubscribe() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.c.unsubscribe();
-            }
+    public final void h(int i, Intent intent, u4a u4aVar, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), intent, u4aVar, Long.valueOf(j)}) == null) {
         }
     }
 
     /* loaded from: classes6.dex */
-    public static final class b {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final int a;
-        public final c[] b;
-        public long c;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ u4a b;
+        public final /* synthetic */ Intent c;
+        public final /* synthetic */ long d;
+        public final /* synthetic */ x4a e;
 
-        public b(ThreadFactory threadFactory, int i) {
+        public a(x4a x4aVar, int i, u4a u4aVar, Intent intent, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {threadFactory, Integer.valueOf(i)};
+                Object[] objArr = {x4aVar, Integer.valueOf(i), u4aVar, intent, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -195,154 +59,315 @@ public final class x4a extends f3a implements d5a {
                     return;
                 }
             }
+            this.e = x4aVar;
             this.a = i;
-            this.b = new c[i];
-            for (int i4 = 0; i4 < i; i4++) {
-                this.b[i4] = new c(threadFactory);
-            }
+            this.b = u4aVar;
+            this.c = intent;
+            this.d = j;
         }
 
-        public c a() {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
+            String str;
+            int i;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i = this.a;
-                if (i == 0) {
-                    return x4a.d;
-                }
-                c[] cVarArr = this.b;
-                long j = this.c;
-                this.c = 1 + j;
-                return cVarArr[(int) (j % i)];
-            }
-            return (c) invokeV.objValue;
-        }
-
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                for (c cVar : this.b) {
-                    cVar.unsubscribe();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (this.a == 0) {
+                        this.b.onCancel();
+                        return;
+                    }
+                    String stringExtra = this.c.getStringExtra("resjson");
+                    this.e.e.a(stringExtra);
+                    JSONObject jSONObject = new JSONObject(stringExtra);
+                    if (jSONObject.has("resCode") && jSONObject.has("resMsg")) {
+                        String optString = jSONObject.optString("resMsg");
+                        int optInt = jSONObject.optInt("resCode");
+                        if (optInt != 1000006 && optInt != 1290001) {
+                            optInt = this.a;
+                            this.e.f(this.c, this.b, this.d, optInt, optString);
+                            return;
+                        }
+                        Log.e("chenqiang", "resCode:" + optInt);
+                        this.e.f(this.c, this.b, this.d, optInt, optString);
+                        return;
+                    }
+                    Log.e("chenqiang", "please update yy new version！");
+                    if (jSONObject.has("openid") && jSONObject.has("access_code")) {
+                        i = this.a;
+                        str = "success";
+                    } else {
+                        str = "handleAuthLoginResult--default error!";
+                        i = 444222199;
+                    }
+                    this.e.f(this.c, this.b, this.d, i, str);
+                } catch (Exception unused) {
+                    this.b.onError(new v4a(444222105, a5a.h(444222105)));
                 }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static final class c extends c5a {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u4a a;
+        public final /* synthetic */ v4a b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(ThreadFactory threadFactory) {
-            super(threadFactory);
+        public b(x4a x4aVar, u4a u4aVar, v4a v4aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {threadFactory};
+                Object[] objArr = {x4aVar, u4aVar, v4aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((ThreadFactory) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = u4aVar;
+            this.b = v4aVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.onError(this.b);
+            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948251780, "Lcom/baidu/tieba/x4a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public final class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public u4a a;
+        public long b;
+
+        public c(x4a x4aVar, u4a u4aVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x4aVar, u4aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948251780, "Lcom/baidu/tieba/x4a;");
-                return;
-            }
+            this.a = u4aVar;
+            this.b = System.currentTimeMillis();
         }
-        int intValue = Integer.getInteger("rx.scheduler.max-computation-threads", 0).intValue();
-        int availableProcessors = Runtime.getRuntime().availableProcessors();
-        if (intValue <= 0 || intValue > availableProcessors) {
-            intValue = availableProcessors;
-        }
-        c = intValue;
-        c cVar = new c(RxThreadFactory.NONE);
-        d = cVar;
-        cVar.unsubscribe();
-        e = new b(null, 0);
     }
 
-    public x4a(ThreadFactory threadFactory) {
+    public x4a(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {threadFactory};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = threadFactory;
-        this.b = new AtomicReference<>(e);
-        start();
+        this.e = b5a.b();
+        this.c = context;
+        this.d = str;
+        this.a = new SparseArray<>();
+        this.b = new Handler(Looper.getMainLooper());
     }
 
-    public j3a a(p3a p3aVar) {
-        InterceptResult invokeL;
+    public final void c(Activity activity, String str, u4a u4aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, p3aVar)) == null) {
-            return this.b.get().a().h(p3aVar, -1L, TimeUnit.NANOSECONDS);
-        }
-        return (j3a) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.f3a
-    public f3a.a createWorker() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new a(this.b.get().a());
-        }
-        return (f3a.a) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.d5a
-    public void shutdown() {
-        b bVar;
-        b bVar2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            do {
-                bVar = this.b.get();
-                bVar2 = e;
-                if (bVar == bVar2) {
-                    return;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, u4aVar) == null) {
+            if (z4a.d(activity, BridgeActivity.class) && z4a.d(activity, AssistActivity.class)) {
+                int a2 = a5a.a(activity);
+                if (a2 != 0) {
+                    try {
+                        this.a.put(62345, new c(this, u4aVar));
+                        String c2 = a5a.c(this.c, this.d, str, true);
+                        Intent intent = new Intent(activity, AssistActivity.class);
+                        intent.putExtra("type", "type_web");
+                        intent.putExtra("url", c2);
+                        activity.startActivityForResult(intent, 62345);
+                        return;
+                    } catch (Exception unused) {
+                        g(new v4a(a2), u4aVar);
+                        return;
+                    }
                 }
-            } while (!this.b.compareAndSet(bVar, bVar2));
-            bVar.b();
+                Intent e = a5a.e(activity);
+                this.a.put(62345, new c(this, u4aVar));
+                Bundle d = a5a.d(activity, this.d);
+                e.putExtra("action", "action_login");
+                e.putExtra("bundle", d);
+                i(activity, e, 62345);
+                return;
+            }
+            g(new v4a(3), u4aVar);
         }
     }
 
-    @Override // com.baidu.tieba.d5a
-    public void start() {
+    public final boolean d(int i, int i2, Intent intent, u4a u4aVar) {
+        InterceptResult invokeCommon;
+        long currentTimeMillis;
+        u4a u4aVar2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            b bVar = new b(this.a, c);
-            if (!this.b.compareAndSet(e, bVar)) {
-                bVar.b();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent, u4aVar})) == null) {
+            if (i != 62345 && i != 62347) {
+                return false;
             }
+            c cVar = this.a.get(i);
+            if (cVar != null) {
+                currentTimeMillis = cVar.b;
+                u4aVar2 = cVar.a;
+                this.a.remove(i);
+            } else {
+                currentTimeMillis = System.currentTimeMillis();
+                u4aVar2 = u4aVar;
+            }
+            if (i == 62345) {
+                e(i2, intent, u4aVar2, currentTimeMillis);
+                return true;
+            } else if (i != 62347) {
+                return false;
+            } else {
+                h(i2, intent, u4aVar2, currentTimeMillis);
+                return true;
+            }
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public final void e(int i, Intent intent, u4a u4aVar, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), intent, u4aVar, Long.valueOf(j)}) == null) {
+            this.b.postDelayed(new a(this, i, u4aVar, intent, j), 10L);
+        }
+    }
+
+    public final void f(Intent intent, u4a u4aVar, long j, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{intent, u4aVar, Long.valueOf(j), Integer.valueOf(i), str}) == null) {
+            switch (i) {
+                case 1000006:
+                    u4aVar.onError(new v4a(1000006, str));
+                    return;
+                case 1290001:
+                    u4aVar.onError(new v4a(1290001, str));
+                    return;
+                case 444111001:
+                    try {
+                        String stringExtra = intent.getStringExtra("resjson");
+                        this.e.a(stringExtra);
+                        JSONObject jSONObject = new JSONObject(stringExtra);
+                        jSONObject.optString("openid");
+                        jSONObject.optString("uid");
+                        jSONObject.optString("access_code");
+                        u4aVar.onComplete(jSONObject);
+                        return;
+                    } catch (Exception unused) {
+                        u4aVar.onError(new v4a(444222105, a5a.h(444222105)));
+                        return;
+                    }
+                case 444111002:
+                    u4aVar.onCancel();
+                    return;
+                case 444111003:
+                    try {
+                        JSONObject jSONObject2 = new JSONObject(intent.getStringExtra("resjson"));
+                        if ("1".equals(jSONObject2.optString("appType"))) {
+                            jSONObject2.optString("uid");
+                        } else {
+                            jSONObject2.optString("openid");
+                        }
+                        u4aVar.onComplete(jSONObject2);
+                        return;
+                    } catch (Exception unused2) {
+                        u4aVar.onError(new v4a(444222105, a5a.h(444222105)));
+                        return;
+                    }
+                case 444222000:
+                    u4aVar.onError(new v4a(444222000, str));
+                    return;
+                case 444222001:
+                    u4aVar.onError(new v4a(444222001, str));
+                    return;
+                case 444222002:
+                    u4aVar.onError(new v4a(444222002, str));
+                    return;
+                case 444222003:
+                    u4aVar.onError(new v4a(444222003, str));
+                    return;
+                case 444222104:
+                    u4aVar.onError(new v4a(444222104, str));
+                    return;
+                case 444222105:
+                    u4aVar.onError(new v4a(444222105, str));
+                    return;
+                case 444222106:
+                    try {
+                        new JSONObject(intent.getStringExtra("resjson"));
+                        u4aVar.onError(new v4a(444222106, str));
+                        return;
+                    } catch (Exception unused3) {
+                        u4aVar.onError(new v4a(444222105, a5a.h(444222105)));
+                        return;
+                    }
+                case 444222108:
+                    try {
+                        u4aVar.onComplete(new JSONObject(intent.getStringExtra("resjson")));
+                        return;
+                    } catch (Exception unused4) {
+                        u4aVar.onError(new v4a(444222105, a5a.h(444222105)));
+                        return;
+                    }
+                case 444222110:
+                    try {
+                        new JSONObject(intent.getStringExtra("resjson"));
+                        u4aVar.onError(new v4a(444222110, str));
+                        return;
+                    } catch (Exception unused5) {
+                        u4aVar.onError(new v4a(444222105, a5a.h(444222105)));
+                        return;
+                    }
+                default:
+                    Log.e("chenqiang", "default  error");
+                    u4aVar.onError(new v4a(i, a5a.h(i)));
+                    return;
+            }
+        }
+    }
+
+    public final void g(v4a v4aVar, u4a u4aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, v4aVar, u4aVar) == null) && u4aVar != null) {
+            this.b.postDelayed(new b(this, u4aVar, v4aVar), 50L);
+        }
+    }
+
+    public final void i(Activity activity, Intent intent, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048582, this, activity, intent, i) == null) {
+            intent.putExtra("request_code", i);
+            Intent intent2 = new Intent(activity.getApplicationContext(), BridgeActivity.class);
+            intent2.putExtra(IntentData.KEY, intent);
+            activity.startActivityForResult(intent2, i);
         }
     }
 }

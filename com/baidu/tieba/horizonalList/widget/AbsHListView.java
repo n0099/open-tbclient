@@ -43,11 +43,11 @@ import androidx.core.widget.EdgeEffectCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.tieba.horizonalList.widget.AdapterView;
-import com.baidu.tieba.j97;
-import com.baidu.tieba.k97;
-import com.baidu.tieba.l97;
-import com.baidu.tieba.r97;
-import com.baidu.tieba.su8;
+import com.baidu.tieba.id7;
+import com.baidu.tieba.jd7;
+import com.baidu.tieba.kd7;
+import com.baidu.tieba.oz8;
+import com.baidu.tieba.qd7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -170,7 +170,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
     public int mTranscriptMode;
     public float mVelocityScale;
     public VelocityTracker mVelocityTracker;
-    public j97.a mViewHelper;
+    public id7.a mViewHelper;
 
     /* loaded from: classes4.dex */
     public interface i {
@@ -518,7 +518,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
     public class g implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final r97 a;
+        public final qd7 a;
         public int b;
         public final Runnable c;
         public final /* synthetic */ AbsHListView d;
@@ -555,11 +555,11 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                 }
                 int i = this.a.d.mActivePointerId;
                 VelocityTracker velocityTracker = this.a.d.mVelocityTracker;
-                r97 r97Var = this.a.a;
+                qd7 qd7Var = this.a.a;
                 if (velocityTracker != null && i != -1) {
                     velocityTracker.computeCurrentVelocity(1000, this.a.d.mMaximumVelocity);
                     float f = -velocityTracker.getXVelocity(i);
-                    if (Math.abs(f) >= this.a.d.mMinimumVelocity && r97Var.h(f, 0.0f)) {
+                    if (Math.abs(f) >= this.a.d.mMinimumVelocity && qd7Var.h(f, 0.0f)) {
                         this.a.d.postDelayed(this, 40L);
                         return;
                     }
@@ -588,7 +588,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
             }
             this.d = absHListView;
             this.c = new a(this);
-            this.a = new r97(absHListView.getContext());
+            this.a = new qd7(absHListView.getContext());
         }
 
         public void e(int i) {
@@ -695,13 +695,13 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                     i3 = 0;
                 }
                 this.b = i3;
-                r97 r97Var = this.a;
+                qd7 qd7Var = this.a;
                 if (z) {
                     interpolator = AbsHListView.sLinearInterpolator;
                 } else {
                     interpolator = null;
                 }
-                r97Var.k(interpolator);
+                qd7Var.k(interpolator);
                 this.a.m(i3, 0, i, 0, i2);
                 AbsHListView absHListView = this.d;
                 absHListView.mTouchMode = 4;
@@ -724,10 +724,10 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                             c();
                             return;
                         }
-                        r97 r97Var = this.a;
-                        if (r97Var.b()) {
+                        qd7 qd7Var = this.a;
+                        if (qd7Var.b()) {
                             int scrollX = this.d.getScrollX();
-                            int f = r97Var.f();
+                            int f = qd7Var.f();
                             AbsHListView absHListView = this.d;
                             if (absHListView.overScrollBy(f - scrollX, 0, scrollX, 0, 0, 0, absHListView.mOverflingDistance, 0, false)) {
                                 if (scrollX <= 0 && f > 0) {
@@ -742,11 +742,11 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                                     h();
                                     return;
                                 }
-                                int e = (int) r97Var.e();
+                                int e = (int) qd7Var.e();
                                 if (z2) {
                                     e = -e;
                                 }
-                                r97Var.a();
+                                qd7Var.a();
                                 e(e);
                                 return;
                             }
@@ -766,9 +766,9 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                 }
                 AbsHListView absHListView3 = this.d;
                 if (absHListView3.mItemCount != 0 && absHListView3.getChildCount() != 0) {
-                    r97 r97Var2 = this.a;
-                    boolean b = r97Var2.b();
-                    int f2 = r97Var2.f();
+                    qd7 qd7Var2 = this.a;
+                    boolean b = qd7Var2.b();
+                    int f2 = qd7Var2.f();
                     int i3 = this.b - f2;
                     if (i3 > 0) {
                         AbsHListView absHListView4 = this.d;
@@ -2827,7 +2827,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
             }
             this.mCheckedItemCount = savedState.checkedItemCount;
             if (Build.VERSION.SDK_INT >= 11 && savedState.inActionMode && this.mChoiceMode == 3 && (obj = this.mMultiChoiceModeCallback) != null) {
-                this.mChoiceActionMode = startActionMode((l97) obj);
+                this.mChoiceActionMode = startActionMode((kd7) obj);
             }
             requestLayout();
         }
@@ -2980,7 +2980,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         this.mActivePointerId = -1;
         this.mDirection = 0;
         initAbsListView();
-        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, su8.HListView, i2, 0);
+        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, oz8.HListView, i2, 0);
         if (obtainStyledAttributes != null) {
             drawable = obtainStyledAttributes.getDrawable(0);
             boolean z5 = obtainStyledAttributes.getBoolean(1, false);
@@ -3067,7 +3067,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                     }
                     Object obj = this.mChoiceActionMode;
                     if (obj != null) {
-                        ((l97) this.mMultiChoiceModeCallback).a((ActionMode) obj, i2, j2, z4);
+                        ((kd7) this.mMultiChoiceModeCallback).a((ActionMode) obj, i2, j2, z4);
                     } else {
                         z2 = true;
                     }
@@ -3272,13 +3272,13 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
     }
 
     @TargetApi(11)
-    public void setMultiChoiceModeListener(k97 k97Var) {
+    public void setMultiChoiceModeListener(jd7 jd7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048675, this, k97Var) == null) && Build.VERSION.SDK_INT >= 11) {
+        if ((interceptable == null || interceptable.invokeL(1048675, this, jd7Var) == null) && Build.VERSION.SDK_INT >= 11) {
             if (this.mMultiChoiceModeCallback == null) {
-                this.mMultiChoiceModeCallback = new l97(this);
+                this.mMultiChoiceModeCallback = new kd7(this);
             }
-            ((l97) this.mMultiChoiceModeCallback).c(k97Var);
+            ((kd7) this.mMultiChoiceModeCallback).c(jd7Var);
         }
     }
 
@@ -3660,7 +3660,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
             this.mMaximumVelocity = viewConfiguration.getScaledMaximumFlingVelocity();
             this.mOverscrollDistance = viewConfiguration.getScaledOverscrollDistance();
             this.mOverflingDistance = viewConfiguration.getScaledOverflingDistance();
-            this.mViewHelper = j97.a(this);
+            this.mViewHelper = id7.a(this);
         }
     }
 
@@ -4314,7 +4314,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                         i2--;
                         this.mCheckedItemCount--;
                         if (Build.VERSION.SDK_INT > 11 && (obj2 = this.mChoiceActionMode) != null && (obj3 = this.mMultiChoiceModeCallback) != null) {
-                            ((l97) obj3).a((ActionMode) obj2, intValue, keyAt, false);
+                            ((kd7) obj3).a((ActionMode) obj2, intValue, keyAt, false);
                         }
                         z2 = true;
                     }
@@ -5350,7 +5350,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048654, this, new Object[]{view2, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
             if (Build.VERSION.SDK_INT >= 11 && this.mChoiceMode == 3) {
                 if (this.mChoiceActionMode == null) {
-                    ActionMode startActionMode = startActionMode((l97) this.mMultiChoiceModeCallback);
+                    ActionMode startActionMode = startActionMode((kd7) this.mMultiChoiceModeCallback);
                     this.mChoiceActionMode = startActionMode;
                     if (startActionMode != null) {
                         setItemChecked(i2, true);
@@ -5410,8 +5410,8 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         }
         if (Build.VERSION.SDK_INT >= 11 && z && i3 == 3 && this.mChoiceActionMode == null) {
             Object obj = this.mMultiChoiceModeCallback;
-            if (obj != null && ((l97) obj).b()) {
-                this.mChoiceActionMode = startActionMode((l97) this.mMultiChoiceModeCallback);
+            if (obj != null && ((kd7) obj).b()) {
+                this.mChoiceActionMode = startActionMode((kd7) this.mMultiChoiceModeCallback);
             } else {
                 throw new IllegalStateException("AbsListView: attempted to start selection mode for CHOICE_MODE_MULTIPLE_MODAL but no choice mode callback was supplied. Call setMultiChoiceModeListener to set a callback.");
             }
@@ -5456,7 +5456,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                 }
             }
             if (this.mChoiceActionMode != null) {
-                ((l97) this.mMultiChoiceModeCallback).a((ActionMode) this.mChoiceActionMode, i2, this.mAdapter.getItemId(i2), z);
+                ((kd7) this.mMultiChoiceModeCallback).a((ActionMode) this.mChoiceActionMode, i2, this.mAdapter.getItemId(i2), z);
             }
         }
         if (!this.mInLayout && !this.mBlockLayoutRequests) {

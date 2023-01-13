@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Metadata;
+import kotlin.Result;
 import kotlin.ResultKt;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
@@ -16,6 +17,7 @@ import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.DebugProbesKt;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
+import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.CancellableContinuationImpl;
 import kotlinx.coroutines.CoroutineScope;
@@ -80,10 +82,53 @@ public final class SClient$sendHandShake$$inlined$suspendCoroutineWithTimeout$1 
             } else {
                 ResultKt.throwOnFailure(obj);
                 this.label = 1;
-                CancellableContinuationImpl cancellableContinuationImpl = new CancellableContinuationImpl(IntrinsicsKt__IntrinsicsJvmKt.intercepted(this), 1);
+                final CancellableContinuationImpl cancellableContinuationImpl = new CancellableContinuationImpl(IntrinsicsKt__IntrinsicsJvmKt.intercepted(this), 1);
                 cancellableContinuationImpl.initCancellability();
                 SClient sClient = SClient.INSTANCE;
-                SClient.onHandShakeSuccess = new SClient$sendHandShake$ok$1$1(cancellableContinuationImpl);
+                SClient.onHandShakeSuccess = new Function1<Boolean, Unit>(cancellableContinuationImpl) { // from class: com.baidu.tun2tornadolite.booster.sclient.SClient$sendHandShake$ok$1$1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ Continuation<Boolean> $it;
+
+                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                    {
+                        super(1);
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {cancellableContinuationImpl};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                super(((Integer) newInitContext.callArgs[0]).intValue());
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.$it = cancellableContinuationImpl;
+                    }
+
+                    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                    @Override // kotlin.jvm.functions.Function1
+                    public /* bridge */ /* synthetic */ Unit invoke(Boolean bool) {
+                        invoke(bool.booleanValue());
+                        return Unit.INSTANCE;
+                    }
+
+                    public final void invoke(boolean z) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+                            Continuation<Boolean> continuation = this.$it;
+                            Boolean valueOf = Boolean.valueOf(z);
+                            Result.Companion companion = Result.Companion;
+                            continuation.resumeWith(Result.m772constructorimpl(valueOf));
+                        }
+                    }
+                };
                 obj = cancellableContinuationImpl.getResult();
                 if (obj == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
                     DebugProbesKt.probeCoroutineSuspended(this);

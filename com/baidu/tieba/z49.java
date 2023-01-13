@@ -1,111 +1,128 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Environment;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.VideoTemplate.DataRes;
-import tbclient.VideoTemplateContent;
+import java.io.File;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class z49 {
-    public static /* synthetic */ Interceptable $ic;
+public final class z49 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "databases";
+    public static final String b = "shared_prefs";
     public transient /* synthetic */ FieldHolder $fh;
-    public List<y49> a;
-    public int b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
 
-    public z49() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948310122, "Lcom/baidu/tieba/z49;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948310122, "Lcom/baidu/tieba/z49;");
+        }
+    }
+
+    public static final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            c(h59.f());
+            e();
+            d();
+            h59.a();
+        }
+    }
+
+    public static final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            a();
+            f();
+            h();
+            g();
+        }
+    }
+
+    public static final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (Intrinsics.areEqual("mounted", Environment.getExternalStorageState()) && h59.c(h59.d().getExternalCacheDir())) {
+                return true;
             }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public String a() {
+    public static final boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return h59.c(h59.d().getCacheDir());
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public String b() {
+    public static final boolean f() {
         InterceptResult invokeV;
+        String parent;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public List<y49> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void g(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, dataRes) == null) {
-            this.b = dataRes.topic_id.intValue();
-            this.c = dataRes.topic_name;
-            this.d = dataRes.back_url;
-            this.e = dataRes.video_template_url;
-            this.f = dataRes.activity_url;
-            List<VideoTemplateContent> list = dataRes.video_template_content;
-            if (list != null) {
-                this.a = new ArrayList();
-                for (int i = 0; i < list.size(); i++) {
-                    y49 y49Var = new y49();
-                    y49Var.a(list.get(i));
-                    this.a.add(y49Var);
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            File filesDir = h59.d().getFilesDir();
+            if (filesDir == null) {
+                parent = null;
+            } else {
+                parent = filesDir.getParent();
             }
+            return h59.c(new File(parent, a));
         }
+        return invokeV.booleanValue;
+    }
+
+    public static final boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return h59.c(h59.d().getFilesDir());
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static final boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return h59.c(h59.g(str));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static final boolean h() {
+        InterceptResult invokeV;
+        String parent;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            File filesDir = h59.d().getFilesDir();
+            if (filesDir == null) {
+                parent = null;
+            } else {
+                parent = filesDir.getParent();
+            }
+            boolean c = h59.c(new File(parent, b));
+            if (c) {
+                h59.b();
+            }
+            return c;
+        }
+        return invokeV.booleanValue;
     }
 }

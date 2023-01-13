@@ -1,28 +1,304 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
+import android.os.Bundle;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.mp2;
+import com.baidu.tieba.n43;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.nio.ByteBuffer;
-import java.nio.channels.Channels;
-import java.nio.channels.FileChannel;
-import java.nio.channels.FileLock;
-import java.nio.charset.Charset;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.channels.Pipe;
+import java.nio.channels.ReadableByteChannel;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes4.dex */
-public class hn2 {
+public class hn2 extends r43 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, f> b;
+    public final mp2 c;
+    public final mp2 d;
+
+    /* loaded from: classes4.dex */
+    public class a implements cj3<f> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hn2 a;
+
+        public a(hn2 hn2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hn2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hn2Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.cj3
+        /* renamed from: b */
+        public void a(f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) != null) {
+                return;
+            }
+            fVar.h(this.a);
+            this.a.b.put(fVar.a, fVar);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements cj3<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vi3 a;
+        public final /* synthetic */ hn2 b;
+
+        public b(hn2 hn2Var, vi3 vi3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hn2Var, vi3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = hn2Var;
+            this.a = vi3Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.cj3
+        /* renamed from: b */
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                if ("on_progress".equals(str)) {
+                    this.b.A((n43.a) new n43.a("installer_on_progress").v(" event_params_installer_progress", this.a.j()));
+                } else if ("pump_finish".equals(str)) {
+                    this.b.p("installer_on_pump_finish");
+                } else if ("finish".equals(str)) {
+                    this.b.p("installer_on_finish");
+                } else if ("start".equals(str)) {
+                    this.b.p("installer_on_start");
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements cj3<f> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vi3 a;
+
+        public c(hn2 hn2Var, vi3 vi3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hn2Var, vi3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vi3Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.cj3
+        /* renamed from: b */
+        public void a(f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
+                this.a.d(fVar);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class d implements cj3<f> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d(hn2 hn2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hn2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.cj3
+        /* renamed from: b */
+        public void a(f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
+                fVar.f();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class e implements cj3<f> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean[] a;
+
+        public e(hn2 hn2Var, boolean[] zArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hn2Var, zArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zArr;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.cj3
+        /* renamed from: b */
+        public void a(f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
+                boolean[] zArr = this.a;
+                zArr[0] = fVar.d() & zArr[0];
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static abstract class f implements cj3<Pipe.SourceChannel> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final Bundle b;
+        public hn2 c;
+
+        public void f() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            }
+        }
+
+        public abstract boolean g(Pipe.SourceChannel sourceChannel, Bundle bundle);
+
+        public f(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = new Bundle();
+            this.a = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.cj3
+        /* renamed from: e */
+        public void a(Pipe.SourceChannel sourceChannel) {
+            hn2 hn2Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, sourceChannel) == null) && (hn2Var = this.c) != null && g(sourceChannel, hn2Var.c.D())) {
+                i();
+            }
+        }
+
+        public final void h(hn2 hn2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, hn2Var) == null) {
+                this.c = hn2Var;
+            }
+        }
+
+        public Bundle c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.b;
+            }
+            return (Bundle) invokeV.objValue;
+        }
+
+        public boolean d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return c().getBoolean("flag_is_ok");
+            }
+            return invokeV.booleanValue;
+        }
+
+        public final void i() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                this.b.putBoolean("flag_is_ok", true);
+            }
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return this.a;
+            }
+            return (String) invokeV.objValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -37,226 +313,102 @@ public class hn2 {
                 return;
             }
         }
-        a = ok1.a;
+        e = tk1.a;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:53:0x00bd A[Catch: all -> 0x00f4, TryCatch #2 {, blocks: (B:6:0x0007, B:8:0x0012, B:10:0x0016, B:13:0x001f, B:23:0x0078, B:24:0x007b, B:51:0x00b5, B:53:0x00bd, B:54:0x00d9, B:27:0x0080, B:28:0x0086, B:59:0x00e2, B:60:0x00e5, B:64:0x00f3, B:63:0x00ea, B:46:0x00a6, B:47:0x00a9, B:50:0x00ae), top: B:74:0x0007, inners: #0, #5, #7 }] */
-    /* JADX WARN: Removed duplicated region for block: B:72:0x00e2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    @SuppressLint({"SwanDebugLog"})
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static synchronized String a(String str) {
+    public hn2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = new HashMap();
+        this.c = new mp2.a();
+        this.d = new mp2.a();
+    }
+
+    public boolean N() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.b.isEmpty() || this.d.e("flag_is_ok", false)) {
+                return true;
+            }
+            boolean[] zArr = {true};
+            L(new e(this, zArr));
+            this.d.t("flag_is_ok", zArr[0]);
+            return zArr[0];
+        }
+        return invokeV.booleanValue;
+    }
+
+    public hn2 J(f... fVarArr) {
         InterceptResult invokeL;
-        BufferedReader bufferedReader;
-        String str2;
-        String stackTraceString;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            synchronized (hn2.class) {
-                long currentTimeMillis = System.currentTimeMillis();
-                FileLock fileLock = null;
-                if (TextUtils.isEmpty(str) && a) {
-                    Log.w("SwanAppFile", "path name is empty");
-                    return null;
-                }
-                StringBuffer stringBuffer = new StringBuffer();
-                try {
-                    FileChannel channel = new RandomAccessFile(str, "rw").getChannel();
-                    FileLock lock = channel.lock(0L, Long.MAX_VALUE, true);
-                    try {
-                        bufferedReader = new BufferedReader(Channels.newReader(channel, Charset.defaultCharset().name()));
-                        while (true) {
-                            try {
-                                String readLine = bufferedReader.readLine();
-                                if (readLine == null) {
-                                    break;
-                                }
-                                stringBuffer.append(readLine);
-                            } catch (IOException e) {
-                                e = e;
-                                fileLock = lock;
-                                try {
-                                    Log.e("SwanAppFile", Log.getStackTraceString(e));
-                                    if (fileLock != null) {
-                                        try {
-                                            fileLock.release();
-                                        } catch (IOException e2) {
-                                            str2 = "SwanAppFile";
-                                            stackTraceString = Log.getStackTraceString(e2);
-                                            Log.e(str2, stackTraceString);
-                                            long currentTimeMillis2 = System.currentTimeMillis();
-                                            if (a) {
-                                            }
-                                            return stringBuffer.toString();
-                                        }
-                                    }
-                                    ik4.d(bufferedReader);
-                                    long currentTimeMillis22 = System.currentTimeMillis();
-                                    if (a) {
-                                    }
-                                    return stringBuffer.toString();
-                                } catch (Throwable th) {
-                                    th = th;
-                                    if (fileLock != null) {
-                                        try {
-                                            fileLock.release();
-                                        } catch (IOException e3) {
-                                            Log.e("SwanAppFile", Log.getStackTraceString(e3));
-                                            throw th;
-                                        }
-                                    }
-                                    ik4.d(bufferedReader);
-                                    throw th;
-                                }
-                            } catch (Throwable th2) {
-                                th = th2;
-                                fileLock = lock;
-                                if (fileLock != null) {
-                                }
-                                ik4.d(bufferedReader);
-                                throw th;
-                            }
-                        }
-                        if (a) {
-                            Log.d("SwanAppFile", "Read file: " + stringBuffer.toString());
-                        }
-                        if (lock != null) {
-                            try {
-                                lock.release();
-                            } catch (IOException e4) {
-                                str2 = "SwanAppFile";
-                                stackTraceString = Log.getStackTraceString(e4);
-                                Log.e(str2, stackTraceString);
-                                long currentTimeMillis222 = System.currentTimeMillis();
-                                if (a) {
-                                }
-                                return stringBuffer.toString();
-                            }
-                        }
-                        ik4.d(bufferedReader);
-                    } catch (IOException e5) {
-                        e = e5;
-                        bufferedReader = null;
-                    } catch (Throwable th3) {
-                        th = th3;
-                        bufferedReader = null;
-                    }
-                } catch (IOException e6) {
-                    e = e6;
-                    bufferedReader = null;
-                } catch (Throwable th4) {
-                    th = th4;
-                    bufferedReader = null;
-                }
-                long currentTimeMillis2222 = System.currentTimeMillis();
-                if (a) {
-                    Log.d("SwanAppFile", "Read file done: cost time = " + (currentTimeMillis2222 - currentTimeMillis) + "ms");
-                }
-                return stringBuffer.toString();
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVarArr)) == null) {
+            bj3.d(new a(this), fVarArr);
+            return this;
         }
-        return (String) invokeL.objValue;
+        return (hn2) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:51:0x00c2 A[Catch: all -> 0x00f5, TRY_LEAVE, TryCatch #2 {, blocks: (B:6:0x0007, B:8:0x0012, B:10:0x0016, B:28:0x007d, B:32:0x008b, B:49:0x00ba, B:51:0x00c2, B:31:0x0082, B:56:0x00e3, B:60:0x00f1, B:61:0x00f4, B:59:0x00e8, B:44:0x00a9, B:48:0x00b7, B:47:0x00ae), top: B:73:0x0007, inners: #1, #4, #6 }] */
-    /* JADX WARN: Removed duplicated region for block: B:71:0x00e3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    @SuppressLint({"SwanDebugLog"})
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static synchronized boolean b(String str, String str2, boolean z) {
-        InterceptResult invokeLLZ;
-        FileChannel fileChannel;
+    public hn2 K(Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, str, str2, z)) == null) {
-            synchronized (hn2.class) {
-                long currentTimeMillis = System.currentTimeMillis();
-                boolean z2 = false;
-                if (TextUtils.isEmpty(str) && a) {
-                    Log.w("SwanAppFile", "path name is null");
-                    return false;
-                }
-                FileLock fileLock = null;
-                try {
-                    File file = new File(str);
-                    File file2 = new File(file.getParent());
-                    if (!file2.exists()) {
-                        file2.mkdirs();
-                    }
-                    if (!file.exists()) {
-                        file.createNewFile();
-                    }
-                    FileChannel channel = new FileOutputStream(file, z).getChannel();
-                    try {
-                        fileLock = channel.lock();
-                        if (TextUtils.isEmpty(str2)) {
-                            str2 = "";
-                        }
-                        channel.write(ByteBuffer.wrap(str2.getBytes()));
-                        z2 = true;
-                        if (a) {
-                            Log.d("SwanAppFile", "Write file：" + str2);
-                        }
-                        if (fileLock != null) {
-                            try {
-                                fileLock.release();
-                            } catch (IOException e) {
-                                Log.e("SwanAppFile", Log.getStackTraceString(e));
-                            }
-                        }
-                        ik4.d(channel);
-                    } catch (IOException e2) {
-                        fileChannel = channel;
-                        e = e2;
-                        try {
-                            Log.e("SwanAppFile", Log.getStackTraceString(e));
-                            if (fileLock != null) {
-                                try {
-                                    fileLock.release();
-                                } catch (IOException e3) {
-                                    Log.e("SwanAppFile", Log.getStackTraceString(e3));
-                                }
-                            }
-                            ik4.d(fileChannel);
-                            long currentTimeMillis2 = System.currentTimeMillis();
-                            if (a) {
-                            }
-                            return z2;
-                        } catch (Throwable th) {
-                            th = th;
-                            if (fileLock != null) {
-                                try {
-                                    fileLock.release();
-                                } catch (IOException e4) {
-                                    Log.e("SwanAppFile", Log.getStackTraceString(e4));
-                                }
-                            }
-                            ik4.d(fileChannel);
-                            throw th;
-                        }
-                    } catch (Throwable th2) {
-                        fileChannel = channel;
-                        th = th2;
-                        if (fileLock != null) {
-                        }
-                        ik4.d(fileChannel);
-                        throw th;
-                    }
-                } catch (IOException e5) {
-                    e = e5;
-                    fileChannel = null;
-                } catch (Throwable th3) {
-                    th = th3;
-                    fileChannel = null;
-                }
-                long currentTimeMillis22 = System.currentTimeMillis();
-                if (a) {
-                    Log.d("SwanAppFile", "Write file done: cost time =" + (currentTimeMillis22 - currentTimeMillis) + "ms");
-                }
-                return z2;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
+            this.c.update(bundle);
+            return this;
         }
-        return invokeLLZ.booleanValue;
+        return (hn2) invokeL.objValue;
+    }
+
+    public final void L(cj3<f> cj3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cj3Var) == null) {
+            bj3.c(cj3Var, this.b.values());
+        }
+    }
+
+    public final void O(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && e) {
+            op2.d(this.c.o("launch_id", "")).f(str).b("SwanInstaller");
+            Log.i("SwanInstaller", str);
+        }
+    }
+
+    public synchronized hn2 M(ReadableByteChannel readableByteChannel) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, readableByteChannel)) == null) {
+            synchronized (this) {
+                long currentTimeMillis = System.currentTimeMillis();
+                this.d.a();
+                vi3 vi3Var = new vi3();
+                vi3Var.o(32768);
+                vi3Var.q(30L, TimeUnit.SECONDS);
+                vi3Var.g(this.c.D());
+                vi3Var.p(new b(this, vi3Var));
+                L(new c(this, vi3Var));
+                O("connect: " + readableByteChannel + " at: " + currentTimeMillis);
+                vi3Var.h(readableByteChannel);
+                boolean N = N();
+                if (e) {
+                    O("allOk: " + N + " cost: " + (System.currentTimeMillis() - currentTimeMillis));
+                }
+                if (!N) {
+                    L(new d(this));
+                }
+            }
+            return this;
+        }
+        return (hn2) invokeL.objValue;
     }
 }

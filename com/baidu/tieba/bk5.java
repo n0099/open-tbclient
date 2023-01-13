@@ -1,62 +1,27 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes3.dex */
-public final class bk5 {
+public class bk5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(65536, null, z) != null) || z) {
-            return;
-        }
-        throw new IllegalArgumentException();
-    }
-
     @NonNull
-    public static <T> T b(@Nullable T t) {
-        InterceptResult invokeL;
+    public static Fragment a(@NonNull FragmentManager fragmentManager, int i, @NonNull Fragment fragment) {
+        InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, t)) == null) {
-            if (t != null) {
-                return t;
-            }
-            throw null;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, fragmentManager, i, fragment)) == null) {
+            FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
+            beginTransaction.add(i, fragment, fragment.getClass().getCanonicalName());
+            beginTransaction.commitAllowingStateLoss();
+            return fragment;
         }
-        return (T) invokeL.objValue;
-    }
-
-    public static void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
-            e(z, null);
-        }
-    }
-
-    @NonNull
-    public static <T> T c(@Nullable T t, @NonNull Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, t, obj)) == null) {
-            if (t != null) {
-                return t;
-            }
-            throw new NullPointerException(String.valueOf(obj));
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    public static void e(boolean z, @Nullable String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZL(InputDeviceCompat.SOURCE_TRACKBALL, null, z, str) != null) || z) {
-            return;
-        }
-        throw new IllegalStateException(str);
+        return (Fragment) invokeLIL.objValue;
     }
 }

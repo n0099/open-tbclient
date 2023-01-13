@@ -1,21 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.model.AdBaseModel;
+import android.content.Context;
+import android.view.View;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface n81 {
-    void a(AdBaseModel adBaseModel);
+    public static final ServiceReference a = new ServiceReference("nad.core", "crius");
 
-    void b(AdBaseModel adBaseModel);
+    Object a(JSONObject jSONObject);
 
-    void c(AdBaseModel adBaseModel);
-
-    void d(AdBaseModel adBaseModel);
-
-    void e(AdBaseModel adBaseModel, String str);
-
-    void f(AdBaseModel adBaseModel);
-
-    void g(boolean z, AdBaseModel adBaseModel);
-
-    void h(AdBaseModel adBaseModel);
+    b91<View> b(@NonNull Context context);
 }

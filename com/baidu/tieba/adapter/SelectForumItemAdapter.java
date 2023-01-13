@@ -21,9 +21,9 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.op5;
-import com.baidu.tieba.xq5;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.iq5;
+import com.baidu.tieba.rr5;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,13 +34,13 @@ import java.util.List;
 public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public op5 a;
+    public iq5 a;
     public int b;
     public List<SelectForumData> c;
     public View.OnClickListener d;
     public View.OnClickListener e;
     @Nullable
-    public xq5.e f;
+    public rr5.e f;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -146,20 +146,20 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
                     return;
                 }
             }
-            this.a = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905db);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905de);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905dd);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905dc);
-            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905df);
+            this.a = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905cf);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905d2);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905d1);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905d0);
+            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905d3);
         }
     }
 
-    public SelectForumItemAdapter(op5 op5Var) {
+    public SelectForumItemAdapter(iq5 iq5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {op5Var};
+            Object[] objArr = {iq5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -171,7 +171,7 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
         }
         this.d = new a(this);
         this.e = new b(this);
-        this.a = op5Var;
+        this.a = iq5Var;
     }
 
     public void i(List<SelectForumData> list) {
@@ -181,7 +181,7 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
         }
     }
 
-    public void j(xq5.e eVar) {
+    public void j(rr5.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) {
             this.f = eVar;
@@ -210,7 +210,7 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
         int i2 = 0;
         cVar.a.setShowInnerBorder(false);
         cVar.a.setStrokeColorResId(R.color.CAM_X0401);
-        cVar.a.setStrokeWith(yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+        cVar.a.setStrokeWith(zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
         cVar.a.K(selectForumData.avatarUrl, 10, false);
         cVar.b.setText(selectForumData.forumName);
         SkinManager.setViewTextColor(cVar.b, (int) R.color.CAM_X0105);
@@ -265,7 +265,7 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-            return new c(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01d1, viewGroup, false));
+            return new c(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01ce, viewGroup, false));
         }
         return (c) invokeLI.objValue;
     }

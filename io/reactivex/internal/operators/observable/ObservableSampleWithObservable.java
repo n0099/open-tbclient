@@ -14,14 +14,14 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.observers.SerializedObserver;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ObservableSampleWithObservable<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean emitLast;
     public final ObservableSource<?> other;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class SampleMainEmitLast<T> extends SampleMainObserver<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3029755663834015785L;
@@ -91,7 +91,7 @@ public final class ObservableSampleWithObservable<T> extends AbstractObservableW
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class SampleMainNoLast<T> extends SampleMainObserver<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3029755663834015785L;
@@ -143,7 +143,7 @@ public final class ObservableSampleWithObservable<T> extends AbstractObservableW
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class SampleMainObserver<T> extends AtomicReference<T> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3517602651313910099L;
@@ -273,7 +273,7 @@ public final class ObservableSampleWithObservable<T> extends AbstractObservableW
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class SamplerObserver<T> implements Observer<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

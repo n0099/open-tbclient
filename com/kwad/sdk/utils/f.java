@@ -44,7 +44,7 @@ public final class f {
                 Messenger messenger = new Messenger(iBinder);
                 Message obtain = Message.obtain();
                 obtain.what = 100;
-                if (!f.yW()) {
+                if (!f.access$000()) {
                     com.kwad.sdk.core.e.b.w("AppStatusHelper", "clientMessenger init error");
                     return;
                 }
@@ -407,6 +407,10 @@ public final class f {
                 }
             }
         });
+    }
+
+    public static /* synthetic */ boolean access$000() {
+        return yW();
     }
 
     @WorkerThread

@@ -1,168 +1,152 @@
 package com.baidu.tieba;
 
-import android.os.Process;
-import android.util.Log;
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTAdSdk;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class bx9 extends uw9 {
+public class bx9 extends nx9<tx9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public StringBuffer d;
-    public int e;
-    public long f;
-    public long g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bx9(long j) {
-        super(j);
+    public bx9(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.BANNER), pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Long) newInitContext.callArgs[0]).longValue());
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new StringBuffer();
-        this.e = 0;
-        this.f = 0L;
-        this.g = 0L;
     }
 
-    @Override // com.baidu.tieba.uw9
-    public void b() {
-        BufferedReader bufferedReader;
-        BufferedReader bufferedReader2;
-        String readLine;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d.setLength(0);
-            BufferedReader bufferedReader3 = null;
-            try {
-                try {
-                    bufferedReader2 = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/stat")), 1000);
-                    try {
-                        readLine = bufferedReader2.readLine();
-                        str = "";
-                        if (readLine == null) {
-                            readLine = "";
-                        }
-                        if (this.e == 0) {
-                            this.e = Process.myPid();
-                        }
-                        bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/" + this.e + "/stat")), 1000);
-                    } catch (Throwable th) {
-                        th = th;
-                        bufferedReader = null;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    bufferedReader = null;
+    /* loaded from: classes3.dex */
+    public class a implements TTAdNative.NativeExpressAdListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FunAdSlot a;
+        public final /* synthetic */ bx9 b;
+
+        public a(bx9 bx9Var, FunAdSlot funAdSlot) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bx9Var, funAdSlot};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                try {
-                    String readLine2 = bufferedReader.readLine();
-                    if (readLine2 != null) {
-                        str = readLine2;
-                    }
-                    f(readLine, str);
-                    bufferedReader2.close();
-                    bufferedReader.close();
-                } catch (Throwable th3) {
-                    th = th3;
-                    bufferedReader3 = bufferedReader2;
-                    try {
-                        Log.e("SampleCpuSampler", "doSample: ", th);
-                        if (bufferedReader3 != null) {
-                            bufferedReader3.close();
-                        }
-                        if (bufferedReader != null) {
-                            bufferedReader.close();
-                        }
-                    } catch (Throwable th4) {
-                        if (bufferedReader3 != null) {
-                            try {
-                                bufferedReader3.close();
-                            } catch (IOException e) {
-                                Log.e("SampleCpuSampler", "doSample: ", e);
-                                throw th4;
-                            }
-                        }
-                        if (bufferedReader != null) {
-                            bufferedReader.close();
-                        }
-                        throw th4;
-                    }
+            }
+            this.b = bx9Var;
+            this.a = funAdSlot;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
+                this.b.onError(i, str);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener
+        public void onNativeExpressAdLoad(List<TTNativeExpressAd> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                LogPrinter.e("CSJBannerExpressAd onNativeExpressAdLoad", new Object[0]);
+                if (list != null && !list.isEmpty()) {
+                    TTNativeExpressAd tTNativeExpressAd = list.get(0);
+                    bx9 bx9Var = this.b;
+                    tx9 tx9Var = new tx9(tTNativeExpressAd);
+                    this.a.getSid();
+                    bx9Var.getClass();
+                    tTNativeExpressAd.setExpressInteractionListener(new ex9(bx9Var, tx9Var));
+                    tTNativeExpressAd.render();
+                    return;
                 }
-            } catch (IOException e2) {
-                Log.e("SampleCpuSampler", "doSample: ", e2);
+                LogPrinter.e("CSJBannerExpressAd onError: adList is null or empty", new Object[0]);
+                this.b.onError(0, "NoFill");
             }
         }
     }
 
-    @Override // com.baidu.tieba.uw9
-    public void c() {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        tx9 tx9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.c();
-            g();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (tx9Var = (tx9) obj) != null) {
+            ((TTNativeExpressAd) tx9Var.a).destroy();
         }
     }
 
-    public String e() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d.toString();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, funAdSlot) == null) {
+            if (this.e == null) {
+                this.e = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
+            }
+            int expressWidth = funAdSlot.getExpressWidth();
+            int expressHeight = funAdSlot.getExpressHeight();
+            if (expressWidth == 0 && expressHeight == 0 && FunAdSdk.isLogEnabled()) {
+                throw new RuntimeException("Invalid expressWidth and expressHeight.");
+            }
+            AdSlot build = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setAdCount(1).setExpressViewAcceptedSize(expressWidth, expressHeight).build();
+            onLoadStart(funAdSlot);
+            this.e.loadBannerExpressAd(build, new a(this, funAdSlot));
         }
-        return (String) invokeV.objValue;
     }
 
-    public final void g() {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f = 0L;
-            this.g = 0L;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, activity, viewGroup, str, obj)) == null) {
+            tx9 tx9Var = (tx9) obj;
+            onShowStart(tx9Var);
+            ((TTNativeExpressAd) tx9Var.a).setSlideIntervalTime(this.mPid.interval);
+            View expressAdView = ((TTNativeExpressAd) tx9Var.a).getExpressAdView();
+            if (expressAdView.getParent() != null) {
+                ((ViewGroup) expressAdView.getParent()).removeView(expressAdView);
+            }
+            ((TTNativeExpressAd) tx9Var.a).setDislikeCallback(activity, new gx9(this, expressAdView, tx9Var));
+            ((TTNativeExpressAd) tx9Var.a).setDownloadListener(new fx9(null));
+            viewGroup.removeAllViews();
+            viewGroup.addView(expressAdView);
+            return true;
         }
-    }
-
-    public final void f(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            String[] split = str.split(" ");
-            if (split.length < 9) {
-                return;
-            }
-            long parseLong = Long.parseLong(split[2]);
-            long parseLong2 = Long.parseLong(split[3]);
-            long parseLong3 = Long.parseLong(split[4]);
-            long parseLong4 = Long.parseLong(split[5]);
-            long parseLong5 = parseLong + parseLong2 + parseLong3 + parseLong4 + Long.parseLong(split[6]) + Long.parseLong(split[7]) + Long.parseLong(split[8]);
-            if (str2.split(" ").length < 17) {
-                return;
-            }
-            if (parseLong5 != 0) {
-                long j = parseLong5 - this.g;
-                this.d.append(((j - (parseLong4 - this.f)) * 100) / j);
-            }
-            this.f = parseLong4;
-            this.g = parseLong5;
-        }
+        return invokeLLLL.booleanValue;
     }
 }

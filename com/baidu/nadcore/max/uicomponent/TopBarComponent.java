@@ -9,10 +9,10 @@ import com.baidu.nadcore.component.AbsComponentPlugin;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.to0;
-import com.baidu.tieba.uo0;
-import com.baidu.tieba.vo0;
-import com.baidu.tieba.wh0;
+import com.baidu.tieba.ap0;
+import com.baidu.tieba.bi0;
+import com.baidu.tieba.yo0;
+import com.baidu.tieba.zo0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -61,11 +61,11 @@ public final class TopBarComponent extends AbsComponentPlugin {
         public final void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                vo0 vo0Var = (vo0) this.a.b().j(vo0.class);
-                if (vo0Var != null) {
+                ap0 ap0Var = (ap0) this.a.b().j(ap0.class);
+                if (ap0Var != null) {
                     String str = ClogBuilder.LogType.FREE_CLICK.type;
                     Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.LogType.FREE_CLICK.type");
-                    vo0Var.a(str, "exit");
+                    ap0Var.a(str, "exit");
                 }
                 this.a.a().finish();
             }
@@ -128,9 +128,9 @@ public final class TopBarComponent extends AbsComponentPlugin {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onRelease();
-            wh0.e(this.d);
+            bi0.e(this.d);
             this.d = null;
-            wh0.e(this.e);
+            bi0.e(this.e);
             this.e = null;
         }
     }
@@ -150,7 +150,7 @@ public final class TopBarComponent extends AbsComponentPlugin {
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) != null) || this.d != null) {
             return;
         }
-        to0 a2 = uo0.a();
+        yo0 a2 = zo0.a();
         Intrinsics.checkNotNullExpressionValue(a2, "NadMaxRuntime.getUIProvider()");
         a2.b();
         View inflate = LayoutInflater.from(getContext()).inflate(R.layout.nad_max_top, viewGroup, true);

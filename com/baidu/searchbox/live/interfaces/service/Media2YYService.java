@@ -17,10 +17,12 @@ import com.baidu.webkit.sdk.WebChromeClient;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.uievent.PayUiEventContent;
 import java.util.Map;
 import kotlin.Metadata;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000@\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010$\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\bf\u0018\u0000 \u00152\u00020\u0001:\u0001\u0015J\u0085\u0001\u0010\u0013\u001a\u00020\u00122\b\u0010\u0003\u001a\u0004\u0018\u00010\u00022\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u00042\b\u0010\u0007\u001a\u0004\u0018\u00010\u00062\n\b\u0002\u0010\t\u001a\u0004\u0018\u00010\b2\n\b\u0002\u0010\u000b\u001a\u0004\u0018\u00010\n2\n\b\u0002\u0010\r\u001a\u0004\u0018\u00010\f2\u0016\b\u0002\u0010\u000f\u001a\u0010\u0012\u0004\u0012\u00020\b\u0012\u0004\u0012\u00020\b\u0018\u00010\u000e2\u0018\b\u0002\u0010\u0011\u001a\u0012\u0012\u0004\u0012\u00020\b\u0012\u0006\u0012\u0004\u0018\u00010\u0010\u0018\u00010\u000eH&¢\u0006\u0004\b\u0013\u0010\u0014¨\u0006\u0016"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/Media2YYService;", "Lkotlin/Any;", "Landroid/content/Context;", "context", "Lcom/baidu/searchbox/live/interfaces/payment/IPaymentStateCallback;", WebChromeClient.KEY_ARG_CALLBACK, "Lcom/baidu/searchbox/live/interfaces/payment/IPaymentLogDelegate;", "logDelegate", "", "title", "", PayUiEventContent.AMOUNT, "", "closeOnSuc", "", "extraParams", "", "customExpandParams", "", LiveYYPluginManager.USE_FROM_START_PAYMENT, "(Landroid/content/Context;Lcom/baidu/searchbox/live/interfaces/payment/IPaymentStateCallback;Lcom/baidu/searchbox/live/interfaces/payment/IPaymentLogDelegate;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/util/Map;Ljava/util/Map;)V", "Companion", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000@\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010$\n\u0002\u0010\u000e\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0006\bf\u0018\u0000 \u00172\u00020\u0001:\u0001\u0017J)\u0010\u0007\u001a\u00020\u00062\u0018\b\u0002\u0010\u0005\u001a\u0012\u0012\u0004\u0012\u00020\u0003\u0012\u0006\u0012\u0004\u0018\u00010\u0004\u0018\u00010\u0002H&¢\u0006\u0004\b\u0007\u0010\bJ\u0085\u0001\u0010\u0015\u001a\u00020\u00062\b\u0010\n\u001a\u0004\u0018\u00010\t2\n\b\u0002\u0010\f\u001a\u0004\u0018\u00010\u000b2\b\u0010\u000e\u001a\u0004\u0018\u00010\r2\n\b\u0002\u0010\u000f\u001a\u0004\u0018\u00010\u00032\n\b\u0002\u0010\u0011\u001a\u0004\u0018\u00010\u00102\n\b\u0002\u0010\u0013\u001a\u0004\u0018\u00010\u00122\u0016\b\u0002\u0010\u0005\u001a\u0010\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u0003\u0018\u00010\u00022\u0018\b\u0002\u0010\u0014\u001a\u0012\u0012\u0004\u0012\u00020\u0003\u0012\u0006\u0012\u0004\u0018\u00010\u0004\u0018\u00010\u0002H&¢\u0006\u0004\b\u0015\u0010\u0016¨\u0006\u0018"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/Media2YYService;", "Lkotlin/Any;", "", "", "", "extraParams", "", "release", "(Ljava/util/Map;)V", "Landroid/content/Context;", "context", "Lcom/baidu/searchbox/live/interfaces/payment/IPaymentStateCallback;", WebChromeClient.KEY_ARG_CALLBACK, "Lcom/baidu/searchbox/live/interfaces/payment/IPaymentLogDelegate;", "logDelegate", "title", "", PayUiEventContent.AMOUNT, "", "closeOnSuc", "customExpandParams", LiveYYPluginManager.USE_FROM_START_PAYMENT, "(Landroid/content/Context;Lcom/baidu/searchbox/live/interfaces/payment/IPaymentStateCallback;Lcom/baidu/searchbox/live/interfaces/payment/IPaymentLogDelegate;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/util/Map;Ljava/util/Map;)V", "Companion", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
 public interface Media2YYService {
     public static final Companion Companion = Companion.$$INSTANCE;
+
+    void release(Map<String, ? extends Object> map);
 
     void startPayment(Context context, IPaymentStateCallback iPaymentStateCallback, IPaymentLogDelegate iPaymentLogDelegate, String str, Long l, Boolean bool, Map<String, String> map, Map<String, ? extends Object> map2);
 
@@ -78,6 +80,19 @@ public interface Media2YYService {
     public static final class DefaultImpls {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.searchbox.live.interfaces.service.Media2YYService */
+        /* JADX WARN: Multi-variable type inference failed */
+        public static /* synthetic */ void release$default(Media2YYService media2YYService, Map map, int i, Object obj) {
+            if (obj == null) {
+                if ((i & 1) != 0) {
+                    map = null;
+                }
+                media2YYService.release(map);
+                return;
+            }
+            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: release");
+        }
 
         public static /* synthetic */ void startPayment$default(Media2YYService media2YYService, Context context, IPaymentStateCallback iPaymentStateCallback, IPaymentLogDelegate iPaymentLogDelegate, String str, Long l, Boolean bool, Map map, Map map2, int i, Object obj) {
             IPaymentStateCallback iPaymentStateCallback2;

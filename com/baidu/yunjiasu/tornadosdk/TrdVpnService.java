@@ -30,6 +30,7 @@ import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
 import kotlin.collections.ArraysKt___ArraysJvmKt;
+import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Reflection;
@@ -104,7 +105,48 @@ public final class TrdVpnService extends VpnService implements TrdVpnBinderInter
         Intrinsics.checkNotNullExpressionValue(newFixedThreadPool, "newFixedThreadPool(1)");
         this.executorService = newFixedThreadPool;
         this.binder = new TrdVpnAIDL(this);
-        this.connectivityManager$delegate = LazyKt__LazyJVMKt.lazy(new TrdVpnService$connectivityManager$2(this));
+        this.connectivityManager$delegate = LazyKt__LazyJVMKt.lazy(new Function0<ConnectivityManager>(this) { // from class: com.baidu.yunjiasu.tornadosdk.TrdVpnService$connectivityManager$2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ TrdVpnService this$0;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(0);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        super(((Integer) newInitContext2.callArgs[0]).intValue());
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // kotlin.jvm.functions.Function0
+            public final ConnectivityManager invoke() {
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                    Object systemService = this.this$0.getSystemService("connectivity");
+                    if (systemService != null) {
+                        return (ConnectivityManager) systemService;
+                    }
+                    throw new NullPointerException("null cannot be cast to non-null type android.net.ConnectivityManager");
+                }
+                return (ConnectivityManager) invokeV.objValue;
+            }
+        });
         this.broadcastReceiver = new TrdVpnBroadcast();
     }
 
@@ -165,7 +207,7 @@ public final class TrdVpnService extends VpnService implements TrdVpnBinderInter
             LogTo.INSTANCE.d("*****", Intrinsics.stringPlus("ENV_CUID:", tornadoSetting.getAuthCUID()));
             LogTo.INSTANCE.d("*****", Intrinsics.stringPlus("ENV_TOKEN:", tornadoSetting.getAuthToken()));
             LogTo.INSTANCE.d("*****", Intrinsics.stringPlus("ENV_CLIENT_VERSION:", tornadoSetting.getClientVersion()));
-            this.executorService.submit(new Runnable() { // from class: com.baidu.tieba.qp9
+            this.executorService.submit(new Runnable() { // from class: com.baidu.tieba.yu9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -173,7 +215,7 @@ public final class TrdVpnService extends VpnService implements TrdVpnBinderInter
                 public final void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        TrdVpnService.m74setupVPN$lambda0(TornadoSetting.this, this, trdVpnConfig);
+                        TrdVpnService.m78setupVPN$lambda0(TornadoSetting.this, this, trdVpnConfig);
                     }
                 }
             });
@@ -183,7 +225,7 @@ public final class TrdVpnService extends VpnService implements TrdVpnBinderInter
     }
 
     /* renamed from: setupVPN$lambda-0  reason: not valid java name */
-    public static final void m74setupVPN$lambda0(TornadoSetting setting, TrdVpnService this$0, TrdVpnConfig trdConf) {
+    public static final void m78setupVPN$lambda0(TornadoSetting setting, TrdVpnService this$0, TrdVpnConfig trdConf) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, setting, this$0, trdConf) == null) {

@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
@@ -11,138 +12,100 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* renamed from: com.baidu.tieba.if  reason: invalid class name */
 /* loaded from: classes4.dex */
-public class Cif extends ue<String> {
+public class Cif {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String h;
+    public final aa a;
 
-    @Override // com.baidu.tieba.ue
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ue
-    public void k(String str, String str2, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(1048579, this, str, str2, i, i2) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Cif(z9 z9Var, String str) {
-        super(z9Var);
+    public Cif(Context context, aa aaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {z9Var, str};
+            Object[] objArr = {context, aaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((z9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.h = str;
+        this.a = aaVar;
     }
 
-    @Override // com.baidu.tieba.ue
-    public Cursor q(SQLiteDatabase sQLiteDatabase, String str) {
-        InterceptResult invokeLL;
+    public void a(af afVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, sQLiteDatabase, str)) == null) {
-            return sQLiteDatabase.rawQuery("select * from " + this.b + " where m_ns = ?", new String[]{str});
-        }
-        return (Cursor) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ue
-    public boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, afVar) == null) {
             try {
-                this.a.f().delete(this.b, "m_ns = ?", new String[]{str});
-                return true;
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("nameSpace", afVar.a);
+                contentValues.put("tableName", afVar.b);
+                contentValues.put("maxSize", Integer.valueOf(afVar.c));
+                contentValues.put("cacheVersion", Integer.valueOf(afVar.e));
+                contentValues.put("cacheType", afVar.d);
+                contentValues.put("lastActiveTime", Long.valueOf(afVar.f));
+                SQLiteDatabase f = this.a.f();
+                if (f != null && f.update("cache_meta_info", contentValues, "nameSpace = ?", new String[]{afVar.a}) == 0) {
+                    f.insert("cache_meta_info", null, contentValues);
+                }
             } catch (Throwable th) {
-                this.a.i(th, "clearData");
-                return false;
+                this.a.i(th, "addOrUpdate");
             }
         }
-        return invokeL.booleanValue;
     }
 
-    /* JADX WARN: Type inference failed for: r0v14, types: [T, java.lang.String] */
-    @Override // com.baidu.tieba.ue
-    public ye<String> i(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
-        InterceptResult invokeLL;
+    public af b(String str) {
+        InterceptResult invokeL;
+        Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, str)) == null) {
-            Cursor cursor = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             try {
-                Cursor rawQuery = sQLiteDatabase.rawQuery("SELECT m_key, m_ns, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.b + " where m_key = ?", new String[]{str});
-                try {
-                    if (rawQuery.moveToNext()) {
-                        ye<String> yeVar = new ye<>();
-                        yeVar.a = rawQuery.getString(0);
-                        yeVar.c = rawQuery.getString(1);
-                        yeVar.d = rawQuery.getLong(2);
-                        yeVar.e = rawQuery.getLong(3);
-                        yeVar.f = rawQuery.getLong(4);
-                        yeVar.b = rawQuery.getString(5);
-                        wg.a(rawQuery);
-                        return yeVar;
-                    }
-                    wg.a(rawQuery);
-                    return null;
-                } catch (Throwable th) {
-                    th = th;
-                    cursor = rawQuery;
-                    wg.a(cursor);
-                    throw th;
+                cursor = this.a.f().rawQuery("SELECT nameSpace, tableName, maxSize, cacheType, cacheVersion, lastActiveTime FROM cache_meta_info where nameSpace = ?", new String[]{str});
+            } catch (Throwable th) {
+                th = th;
+                cursor = null;
+            }
+            try {
+                if (cursor.moveToNext()) {
+                    af afVar = new af();
+                    afVar.a = cursor.getString(0);
+                    afVar.b = cursor.getString(1);
+                    afVar.c = cursor.getInt(2);
+                    afVar.d = cursor.getString(3);
+                    afVar.e = cursor.getInt(4);
+                    afVar.f = cursor.getLong(5);
+                    return afVar;
                 }
             } catch (Throwable th2) {
                 th = th2;
+                try {
+                    this.a.i(th, "get");
+                    return null;
+                } finally {
+                    xg.a(cursor);
+                }
             }
-        } else {
-            return (ye) invokeLL.objValue;
+            return null;
         }
+        return (af) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ue
-    public String l(String str) {
+    public int delete(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.a.d("CREATE TABLE IF NOT EXISTS " + this.h + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
-            this.a.d("CREATE INDEX if not exists idx_mi_ns ON " + this.h + "(m_ns)");
-            return this.h;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            try {
+                if (b(str) == null) {
+                    return 0;
+                }
+                return this.a.f().delete("cache_meta_info", "nameSpace = ?", new String[]{str});
+            } catch (Throwable th) {
+                this.a.i(th, "delete");
+                return 0;
+            }
         }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ue
-    public ContentValues p(ye<String> yeVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, yeVar)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("m_key", yeVar.a);
-            contentValues.put("m_ns", yeVar.c);
-            contentValues.put("m_value", yeVar.b);
-            contentValues.put("saveTime", Long.valueOf(yeVar.d));
-            contentValues.put("lastHitTime", Long.valueOf(yeVar.e));
-            contentValues.put("timeToExpire", Long.valueOf(yeVar.f));
-            return contentValues;
-        }
-        return (ContentValues) invokeL.objValue;
+        return invokeL.intValue;
     }
 }

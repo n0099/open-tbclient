@@ -13,9 +13,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.List;
 import java.util.NavigableSet;
 import java.util.Objects;
 import java.util.SortedSet;
@@ -32,11 +34,33 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
     public a callback;
     public int maxSize;
     public final Object mutex;
-    public final float percent;
+    public float percent;
 
     /* loaded from: classes4.dex */
-    public interface a {
-        void a(boolean z);
+    public interface a<E> {
+        void a(boolean z, Collection<E> collection);
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public SizedSyncTreeSet(int i, float f, NavigableSet<E> navigableSet) {
+        this(navigableSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Float.valueOf(f), navigableSet};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                this((NavigableSet) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.maxSize = i;
+        this.percent = f;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -47,13 +71,13 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {Integer.valueOf(i), navigableSet};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 this((NavigableSet) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
@@ -66,12 +90,12 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {navigableSet};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
@@ -87,12 +111,12 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {navigableSet, obj};
-            interceptable.invokeUnInit(65538, newInitContext);
+            interceptable.invokeUnInit(65539, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }
@@ -102,15 +126,19 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         this.mutex = Objects.requireNonNull(obj);
     }
 
-    private void removeWithCount(@NonNull Iterator<E> it, int i) {
+    private List<E> removeWithCount(@NonNull Iterator<E> it, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65539, this, it, i) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, it, i)) == null) {
+            ArrayList arrayList = new ArrayList();
             while (it.hasNext() && i > 0) {
                 i--;
-                it.next();
+                arrayList.add(it.next());
                 it.remove();
             }
+            return arrayList;
         }
+        return (List) invokeLI.objValue;
     }
 
     @Override // java.util.NavigableSet
@@ -118,7 +146,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         InterceptResult invokeLZ;
         SizedSyncTreeSet sizedSyncTreeSet;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048591, this, e, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048592, this, e, z)) == null) {
             synchronized (this.mutex) {
                 sizedSyncTreeSet = new SizedSyncTreeSet(this.c.headSet(e, z), this.mutex);
             }
@@ -133,7 +161,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         InterceptResult invokeLL;
         SizedSyncTreeSet sizedSyncTreeSet;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048609, this, e, e2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048610, this, e, e2)) == null) {
             synchronized (this.mutex) {
                 sizedSyncTreeSet = new SizedSyncTreeSet(this.c.subSet(e, true, e2, false), this.mutex);
             }
@@ -147,7 +175,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         InterceptResult invokeLZ;
         SizedSyncTreeSet sizedSyncTreeSet;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048613, this, e, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048614, this, e, z)) == null) {
             synchronized (this.mutex) {
                 sizedSyncTreeSet = new SizedSyncTreeSet(this.c.tailSet(e, z), this.mutex);
             }
@@ -158,7 +186,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
 
     private void writeObject(ObjectOutputStream objectOutputStream) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, objectOutputStream) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, objectOutputStream) == null) {
             synchronized (this.mutex) {
                 objectOutputStream.defaultWriteObject();
             }
@@ -179,12 +207,22 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         return invokeL.booleanValue;
     }
 
+    @Override // java.util.Set, java.util.Collection
+    public boolean addAll(@NonNull Collection<? extends E> collection) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection)) == null) {
+            return addAll(collection, false);
+        }
+        return invokeL.booleanValue;
+    }
+
     @Override // java.util.NavigableSet
     public E ceiling(E e) {
         InterceptResult invokeL;
         E ceiling;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, e)) == null) {
             synchronized (this.mutex) {
                 ceiling = this.c.ceiling(e);
             }
@@ -198,7 +236,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         InterceptResult invokeL;
         boolean contains;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
             synchronized (this.mutex) {
                 contains = this.c.contains(obj);
             }
@@ -212,7 +250,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         InterceptResult invokeL;
         boolean containsAll;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, collection)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, collection)) == null) {
             synchronized (this.mutex) {
                 containsAll = this.c.containsAll(collection);
             }
@@ -226,7 +264,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         InterceptResult invokeL;
         boolean equals;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, obj)) == null) {
             if (this == obj) {
                 return true;
             }
@@ -243,7 +281,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         InterceptResult invokeL;
         E floor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, e)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, e)) == null) {
             synchronized (this.mutex) {
                 floor = this.c.floor(e);
             }
@@ -256,7 +294,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
     @RequiresApi(api = 24)
     public void forEach(@NonNull Consumer<? super E> consumer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, consumer) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, consumer) == null) {
             synchronized (this.mutex) {
                 this.c.forEach(consumer);
             }
@@ -268,7 +306,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         InterceptResult invokeL;
         SizedSyncTreeSet sizedSyncTreeSet;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, e)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, e)) == null) {
             synchronized (this.mutex) {
                 sizedSyncTreeSet = new SizedSyncTreeSet(this.c.headSet(e, false), this.mutex);
             }
@@ -282,7 +320,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         InterceptResult invokeL;
         E higher;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, e)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, e)) == null) {
             synchronized (this.mutex) {
                 higher = this.c.higher(e);
             }
@@ -296,7 +334,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         InterceptResult invokeL;
         E lower;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, e)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, e)) == null) {
             synchronized (this.mutex) {
                 lower = this.c.lower(e);
             }
@@ -310,7 +348,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         InterceptResult invokeL;
         boolean remove;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, obj)) == null) {
             synchronized (this.mutex) {
                 remove = this.c.remove(obj);
             }
@@ -324,7 +362,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         InterceptResult invokeL;
         boolean removeAll;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, collection)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, collection)) == null) {
             synchronized (this.mutex) {
                 removeAll = this.c.removeAll(collection);
             }
@@ -339,7 +377,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         InterceptResult invokeL;
         boolean removeIf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, predicate)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, predicate)) == null) {
             synchronized (this.mutex) {
                 removeIf = this.c.removeIf(predicate);
             }
@@ -353,7 +391,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         InterceptResult invokeL;
         boolean retainAll;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, collection)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, collection)) == null) {
             synchronized (this.mutex) {
                 retainAll = this.c.retainAll(collection);
             }
@@ -364,7 +402,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
 
     public void setCallback(@Nullable a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048606, this, aVar) == null) {
             this.callback = aVar;
         }
     }
@@ -374,7 +412,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         InterceptResult invokeL;
         SizedSyncTreeSet sizedSyncTreeSet;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, e)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, e)) == null) {
             synchronized (this.mutex) {
                 sizedSyncTreeSet = new SizedSyncTreeSet(this.c.tailSet(e, true), this.mutex);
             }
@@ -389,7 +427,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         InterceptResult invokeL;
         T[] tArr2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, tArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048617, this, tArr)) == null) {
             synchronized (this.mutex) {
                 tArr2 = (T[]) this.c.toArray(tArr);
             }
@@ -398,13 +436,11 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         return (T[]) ((Object[]) invokeL.objValue);
     }
 
-    @Override // java.util.Set, java.util.Collection
-    public boolean addAll(@NonNull Collection<? extends E> collection) {
-        InterceptResult invokeL;
+    public boolean addAll(@NonNull Collection<? extends E> collection, boolean z) {
+        InterceptResult invokeLZ;
         E e;
-        boolean addAll;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, collection, z)) == null) {
             synchronized (this.mutex) {
                 E e2 = null;
                 if (!this.c.isEmpty()) {
@@ -413,33 +449,36 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
                 } else {
                     e = null;
                 }
-                addAll = this.c.addAll(collection);
-                if (this.c.size() > this.maxSize) {
+                boolean addAll = this.c.addAll(collection);
+                if (z) {
+                    return addAll;
+                }
+                if (e2 != null && e != null && this.c.size() > this.maxSize) {
                     E first = this.c.first();
                     E last = this.c.last();
-                    int size = (this.c.size() - this.maxSize) + ((int) (this.maxSize * 0.5f));
+                    int size = (this.c.size() - this.maxSize) + ((int) (this.maxSize * this.percent));
                     if (first != e2) {
-                        removeWithCount(this.c.descendingIterator(), size);
+                        List<E> removeWithCount = removeWithCount(this.c.descendingIterator(), size);
                         if (this.callback != null) {
-                            this.callback.a(false);
+                            this.callback.a(false, removeWithCount);
                         }
                     } else if (last != e) {
-                        removeWithCount(this.c.iterator(), size);
+                        List<E> removeWithCount2 = removeWithCount(this.c.iterator(), size);
                         if (this.callback != null) {
-                            this.callback.a(true);
+                            this.callback.a(true, removeWithCount2);
                         }
                     }
                 }
+                return addAll;
             }
-            return addAll;
         }
-        return invokeL.booleanValue;
+        return invokeLZ.booleanValue;
     }
 
     @Override // java.util.Set, java.util.Collection
     public void clear() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             synchronized (this.mutex) {
                 this.c.clear();
             }
@@ -451,7 +490,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         InterceptResult invokeV;
         Comparator<? super E> comparator;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this.mutex) {
                 comparator = this.c.comparator();
             }
@@ -465,7 +504,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         InterceptResult invokeV;
         Iterator<E> it;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             synchronized (this.mutex) {
                 it = descendingSet().iterator();
             }
@@ -479,7 +518,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         InterceptResult invokeV;
         SizedSyncTreeSet sizedSyncTreeSet;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             synchronized (this.mutex) {
                 sizedSyncTreeSet = new SizedSyncTreeSet(this.c.descendingSet(), this.mutex);
             }
@@ -493,7 +532,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         InterceptResult invokeV;
         E first;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             synchronized (this.mutex) {
                 first = this.c.first();
             }
@@ -507,7 +546,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         InterceptResult invokeV;
         int hashCode;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             synchronized (this.mutex) {
                 hashCode = this.c.hashCode();
             }
@@ -521,7 +560,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         InterceptResult invokeV;
         boolean isEmpty;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             synchronized (this.mutex) {
                 isEmpty = this.c.isEmpty();
             }
@@ -535,7 +574,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
     public Iterator<E> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             return this.c.iterator();
         }
         return (Iterator) invokeV.objValue;
@@ -546,7 +585,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         InterceptResult invokeV;
         E last;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             synchronized (this.mutex) {
                 last = this.c.last();
             }
@@ -561,7 +600,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
     public Stream<E> parallelStream() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
             return this.c.parallelStream();
         }
         return (Stream) invokeV.objValue;
@@ -572,7 +611,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         InterceptResult invokeV;
         E pollFirst;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
             synchronized (this.mutex) {
                 pollFirst = this.c.pollFirst();
             }
@@ -586,7 +625,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         InterceptResult invokeV;
         E pollLast;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
             synchronized (this.mutex) {
                 pollLast = this.c.pollLast();
             }
@@ -600,7 +639,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         InterceptResult invokeV;
         int size;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
             synchronized (this.mutex) {
                 size = this.c.size();
             }
@@ -615,7 +654,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
     public Spliterator<E> spliterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
             return this.c.spliterator();
         }
         return (Spliterator) invokeV.objValue;
@@ -627,7 +666,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
     public Stream<E> stream() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
             return this.c.stream();
         }
         return (Stream) invokeV.objValue;
@@ -639,7 +678,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         InterceptResult invokeV;
         Object[] array;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
             synchronized (this.mutex) {
                 array = this.c.toArray();
             }
@@ -652,7 +691,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         InterceptResult invokeV;
         String obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
             synchronized (this.mutex) {
                 obj = this.c.toString();
             }
@@ -680,7 +719,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
         InterceptResult invokeCommon;
         SizedSyncTreeSet sizedSyncTreeSet;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048610, this, new Object[]{e, Boolean.valueOf(z), e2, Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048611, this, new Object[]{e, Boolean.valueOf(z), e2, Boolean.valueOf(z2)})) == null) {
             synchronized (this.mutex) {
                 sizedSyncTreeSet = new SizedSyncTreeSet(this.c.subSet(e, z, e2, z2), this.mutex);
             }

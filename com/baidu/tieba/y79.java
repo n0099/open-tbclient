@@ -1,121 +1,171 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.widget.CompoundButton;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.write.editor.EditorInfoContainer;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
+import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class y79 extends x65 {
+import java.util.ArrayList;
+/* loaded from: classes7.dex */
+public class y79 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context t;
+    public boolean a;
+    public fr5 b;
+    public NEGFeedBackView.b c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y79(Context context, String str) {
-        super(context, (String) null, 15);
+    /* loaded from: classes7.dex */
+    public class a implements NEGFeedBackView.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y79 a;
+
+        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
+        public void b(cu4 cu4Var, CompoundButton compoundButton, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cu4Var, compoundButton, z) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
+        public void c(cu4 cu4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cu4Var) == null) {
+            }
+        }
+
+        public a(y79 y79Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y79Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = y79Var;
+        }
+
+        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
+        public void a(ArrayList<Integer> arrayList, String str, cu4 cu4Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLLL(1048576, this, arrayList, str, cu4Var) == null) && arrayList != null && cu4Var != null) {
+                StringBuilder sb = new StringBuilder();
+                int size = arrayList.size();
+                int i = 0;
+                for (int i2 = 0; i2 < size; i2++) {
+                    sb.append(arrayList.get(i2));
+                    sb.append(",");
+                }
+                if (sb.length() > 0) {
+                    sb.deleteCharAt(sb.length() - 1);
+                }
+                int i3 = cu4Var.n;
+                int i4 = 3;
+                if (i3 == 0) {
+                    i = 1;
+                } else if (i3 == 40) {
+                    i = 2;
+                } else if (i3 == 49 || i3 == 69) {
+                    i = 3;
+                }
+                boolean z = cu4Var.r;
+                if (this.a.a) {
+                    if (!z) {
+                        i4 = 2;
+                    }
+                } else if (z) {
+                    i4 = 5;
+                } else {
+                    i4 = 4;
+                }
+                StatisticItem.make(TbadkCoreStatisticKey.NEG_FEEDBACK_KEY).param("tid", cu4Var.f()).param("nid", cu4Var.e()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", cu4Var.c()).param("obj_param1", cu4Var.k).param("obj_source", cu4Var.l).param("obj_id", cu4Var.m).param("obj_type", sb.toString()).param("obj_name", str).param(TiebaStatic.Params.OBJ_PARAM2, i).param("obj_locate", i4).eventStat();
+            }
+        }
+    }
+
+    public y79() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.o = false;
-        this.t = context;
-        this.n = 3;
-        this.m = new EditorInfoContainer(context, str);
-        this.p = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54, 57, 65};
+        this.a = false;
+        this.c = new a(this);
     }
 
-    public void g() {
+    public void b() {
+        fr5 fr5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            y65 y65Var = this.m;
-            if (y65Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) y65Var).i();
-            }
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (fr5Var = this.b) != null) {
+            fr5Var.h();
         }
     }
 
-    public void h() {
+    public void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            y65 y65Var = this.m;
-            if (y65Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) y65Var).j();
-            }
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.a = z;
         }
     }
 
-    public void i() {
+    public void d(TbPageContext tbPageContext, VideoItemData videoItemData, boolean z) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            y65 y65Var = this.m;
-            if (y65Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) y65Var).k();
-            }
+        if ((interceptable != null && interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, videoItemData, z) != null) || tbPageContext == null || videoItemData == null || !ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity())) {
+            return;
         }
-    }
-
-    public void j(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
-            y65 y65Var = this.m;
-            if (y65Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) y65Var).p(str, i);
-            }
+        if (this.b == null) {
+            this.b = new fr5(tbPageContext);
         }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            y65 y65Var = this.m;
-            if (y65Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) y65Var).q(i);
-            }
+        cu4 negFeedBackData = videoItemData.getNegFeedBackData();
+        if (negFeedBackData == null) {
+            negFeedBackData = new cu4();
         }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            y65 y65Var = this.m;
-            if (y65Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) y65Var).r(z);
+        String str = videoItemData.thread_id;
+        String str2 = videoItemData.forum_id;
+        negFeedBackData.r = z;
+        negFeedBackData.o(str);
+        negFeedBackData.l(str2);
+        this.b.r(this.a);
+        this.b.p(this.c);
+        this.b.o(negFeedBackData);
+        this.b.q(true);
+        this.b.h();
+        this.b.s();
+        if (this.a) {
+            if (z) {
+                i = 3;
+            } else {
+                i = 2;
             }
+        } else if (z) {
+            i = 5;
+        } else {
+            i = 4;
         }
-    }
-
-    public void m(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            y65 y65Var = this.m;
-            if (y65Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) y65Var).setFrom(str);
-            }
-        }
-    }
-
-    public void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            y65 y65Var = this.m;
-            if (y65Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) y65Var).v(z);
-            }
-        }
+        StatisticItem.make(TbadkCoreStatisticKey.NEGATIVE_FEEDBACK_OPEN_CLICK).param("obj_locate", i).param("fid", str2).param("tid", str).param("uid", TbadkCoreApplication.getCurrentAccount()).eventStat();
     }
 }

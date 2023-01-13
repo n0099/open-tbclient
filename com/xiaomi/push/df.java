@@ -92,7 +92,7 @@ public class df {
             this.a = System.currentTimeMillis();
         }
 
-        @Override // com.xiaomi.push.ao.b
+        /* JADX DEBUG: Possible override for method com.xiaomi.push.ao.b.a()V */
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -109,8 +109,9 @@ public class df {
             }
         }
 
-        @Override // com.xiaomi.push.ao.b
-        public final boolean b() {
+        /* JADX DEBUG: Possible override for method com.xiaomi.push.ao.b.b()V */
+        /* renamed from: b  reason: collision with other method in class */
+        public final boolean m280b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? System.currentTimeMillis() - this.a > 172800000 : invokeV.booleanValue;
@@ -200,7 +201,8 @@ public class df {
             return invokeV.booleanValue;
         }
 
-        @Override // com.xiaomi.push.df.b, com.xiaomi.push.ao.b
+        /* JADX DEBUG: Possible override for method com.xiaomi.push.ao.b.a()V */
+        @Override // com.xiaomi.push.df.b
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -214,9 +216,9 @@ public class df {
                 try {
                     if (c()) {
                         HashMap hashMap = new HashMap();
-                        hashMap.put("uid", com.xiaomi.push.service.bv.m658a());
+                        hashMap.put("uid", com.xiaomi.push.service.bv.m722a());
                         hashMap.put("token", this.b);
-                        hashMap.put("net", bj.m204a(this.f232a.f230a));
+                        hashMap.put("net", bj.m209a(this.f232a.f230a));
                         bj.a(this.f234a, hashMap, this.f233a, "file");
                     }
                     this.f235a = true;
@@ -227,7 +229,7 @@ public class df {
 
         @Override // com.xiaomi.push.ao.b
         /* renamed from: c  reason: collision with other method in class */
-        public void mo275c() {
+        public void mo281c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 if (!this.f235a) {
@@ -311,7 +313,7 @@ public class df {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || ad.b() || ad.m172a()) {
+        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || ad.b() || ad.m176a()) {
             return;
         }
         try {
@@ -339,7 +341,7 @@ public class df {
             while (!this.f231a.isEmpty()) {
                 b peek = this.f231a.peek();
                 if (peek != null) {
-                    if (!peek.b() && this.f231a.size() <= 6) {
+                    if (!peek.m280b() && this.f231a.size() <= 6) {
                         return;
                     }
                     com.xiaomi.channel.commonutils.logger.b.c("remove Expired task");

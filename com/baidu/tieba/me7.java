@@ -1,45 +1,59 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.df;
-import com.baidu.tieba.im.pushNotify.ChatSetting;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public abstract class me7 {
+public class me7 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, ChatSetting> a;
-
-    public abstract ChatSetting a(String str, String str2);
-
-    public abstract df<String> b();
-
-    public abstract void h(ChatSetting chatSetting);
-
-    public abstract void i(ChatSetting chatSetting, mj5<Void> mj5Var);
+    public String a;
+    public final List<oe7> b;
+    public LayoutInflater c;
 
     /* loaded from: classes5.dex */
-    public class a extends ik5<Boolean> {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ me7 c;
+    }
 
-        public a(me7 me7Var, String str, String str2) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public TextView b;
+        public View c;
+        public View d;
+
+        public b(me7 me7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {me7Var, str, str2};
+                Object[] objArr = {me7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,32 +63,20 @@ public abstract class me7 {
                     return;
                 }
             }
-            this.c = me7Var;
-            this.a = str;
-            this.b = str2;
+            this.a = 3;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.ik5
-        public Boolean doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ChatSetting a = this.c.a(this.a, this.b);
-                if (a == null) {
-                    return Boolean.FALSE;
-                }
-                return Boolean.valueOf(a.isAcceptNotify());
-            }
-            return (Boolean) invokeV.objValue;
+        public /* synthetic */ b(me7 me7Var, a aVar) {
+            this(me7Var);
         }
     }
 
-    public me7() {
+    public me7(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -84,75 +86,104 @@ public abstract class me7 {
                 return;
             }
         }
-        this.a = new HashMap<>();
+        this.b = new ArrayList();
+        this.c = LayoutInflater.from(tbPageContext.getPageActivity());
     }
 
-    public boolean c(String str, String str2) {
-        InterceptResult invokeLL;
+    public final void a(b bVar, View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            ChatSetting a2 = a(str, str2);
-            if (a2 == null) {
-                return false;
+        if ((interceptable == null || interceptable.invokeLLI(1048576, this, bVar, view2, i) == null) && bVar != null && bVar.a != i) {
+            SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
+            SkinManager.setBackgroundColor(bVar.d, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(bVar.c, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(bVar.b, R.color.CAM_X0105, 1);
+            bVar.a = i;
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.clear();
+            notifyDataSetChanged();
+        }
+    }
+
+    public List<oe7> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b.size();
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: c */
+    public oe7 getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return this.b.get(i);
+        }
+        return (oe7) invokeI.objValue;
+    }
+
+    public void e(String str, List<oe7> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
+            this.a = str;
+            this.b.clear();
+            if (list != null) {
+                this.b.addAll(list);
             }
-            return a2.isAcceptNotify();
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public void d(String str, String str2, mj5<Boolean> mj5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, mj5Var) == null) {
-            mk5.c(new a(this, str, str2), mj5Var);
+            notifyDataSetChanged();
         }
     }
 
-    public void f(String str, String str2, boolean z) {
-        ChatSetting a2;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
+        int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLZ(1048581, this, str, str2, z) != null) || (a2 = a(str, str2)) == null) {
-            return;
-        }
-        a2.setAcceptNotify(z);
-        h(a2);
-    }
-
-    public void e(Class<? extends ChatSetting> cls) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, cls) == null) {
-            synchronized (this.a) {
-                this.a.clear();
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
+            oe7 item = getItem(i);
+            if (item == null) {
+                return view2;
             }
-            String str2 = "";
-            if (TbadkCoreApplication.getCurrentAccountObj() != null) {
-                str2 = TbadkCoreApplication.getCurrentAccountObj().getID();
+            if (view2 != null && (view2.getTag() instanceof b)) {
+                bVar = (b) view2.getTag();
+            } else {
+                view2 = this.c.inflate(R.layout.obfuscated_res_0x7f0d03b3, (ViewGroup) null);
+                bVar = new b(this, null);
+                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916cb);
+                bVar.c = view2.findViewById(R.id.divider_line_top);
+                bVar.d = view2.findViewById(R.id.divider_line_bottom);
+                view2.setTag(bVar);
             }
-            if (str2 != null && str2.length() != 0) {
-                String str3 = str2 + "@";
-                synchronized (this.a) {
-                    df<String> b = b();
-                    List<df.b<String>> b2 = ej.b(b);
-                    if (b2 != null) {
-                        for (df.b<String> bVar : b2) {
-                            String str4 = bVar.a;
-                            if (str4 != null && str4.startsWith(str3) && (str = b.get(str4)) != null) {
-                                this.a.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
-                            }
-                        }
-                    }
-                }
+            View view3 = bVar.c;
+            if (i == 0) {
+                i2 = 0;
+            } else {
+                i2 = 8;
             }
+            view3.setVisibility(i2);
+            bVar.b.setText(StringHelper.highLightText(ck5.a(StringHelper.cutStringWithEllipsisNew(item.b(), 18)), this.a, R.color.CAM_X0302));
+            a(bVar, view2, TbadkCoreApplication.getInst().getSkinType());
+            return view2;
         }
-    }
-
-    public void g(String str, String str2, boolean z, mj5<Void> mj5Var) {
-        ChatSetting a2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Boolean.valueOf(z), mj5Var}) != null) || (a2 = a(str, str2)) == null) {
-            return;
-        }
-        a2.setAcceptNotify(z);
-        i(a2, mj5Var);
+        return (View) invokeILL.objValue;
     }
 }

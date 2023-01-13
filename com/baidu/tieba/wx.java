@@ -6,23 +6,44 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.view.InterviewLiveLayout;
+import com.baidu.card.view.RoundCornerFrameLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.view.ThreadLinkView;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wx extends ax<vr4> {
+public class wx extends yy {
     public static /* synthetic */ Interceptable $ic;
+    public static final int B;
     public transient /* synthetic */ FieldHolder $fh;
-    public View f;
-    public ThreadLinkView g;
-    public TextView h;
-    public vr4 i;
+    public TextView A;
+    public InterviewLiveLayout y;
+    public int z;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448321260, "Lcom/baidu/tieba/wx;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448321260, "Lcom/baidu/tieba/wx;");
+                return;
+            }
+        }
+        B = zi.l(TbadkCoreApplication.getInst()) - ((zi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + zi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public wx(Context context) {
@@ -32,61 +53,111 @@ public class wx extends ax<vr4> {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        if (TbadkCoreApplication.getInst().getPersonalizeViewData().o != null && TbadkCoreApplication.getInst().getPersonalizeViewData().o.getParent() == null) {
-            this.f = TbadkCoreApplication.getInst().getPersonalizeViewData().o;
-        } else {
-            this.f = LayoutInflater.from(context).inflate(R.layout.card_link_layout, (ViewGroup) null, true);
-        }
-        this.g = (ThreadLinkView) this.f.findViewById(R.id.link_thread_root);
-        this.h = (TextView) this.f.findViewById(R.id.link_seg_title);
+        this.z = 3;
+        D();
     }
 
-    @Override // com.baidu.tieba.ax
+    public final void D() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.card_interview_layout, (ViewGroup) null, true);
+            this.f = inflate;
+            this.g = (TextView) inflate.findViewById(R.id.video_seg_title);
+            this.A = (TextView) this.f.findViewById(R.id.video_seg_abstract);
+            this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.frame_video);
+            this.y = (InterviewLiveLayout) this.f.findViewById(R.id.frame_interview_no_video);
+            vk8 t = t();
+            this.j = t;
+            t.getMainView().setBackgroundResource(R.color.transparent);
+        }
+    }
+
+    public void E(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.y.setFromCDN(z);
+        }
+    }
+
+    @Override // com.baidu.tieba.cx
+    public void p(z86<fs4> z86Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, z86Var) == null) {
+            this.y.setSubClickListener(z86Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.yy, com.baidu.tieba.cx
     public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.f;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.tx
+    @Override // com.baidu.tieba.yy
+    public vk8 t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            wk8 wk8Var = new wk8(this.b, this.i);
+            wk8Var.setStageType("2003");
+            return wk8Var;
+        }
+        return (vk8) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yy, com.baidu.tieba.vx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.g.b();
-            vr4 vr4Var = this.i;
-            if (vr4Var != null && vr4Var.getThreadData() != null) {
-                s46.l(this.h, this.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
+            if (this.z != i) {
+                SkinManager.setBackgroundResource(this.y, R.drawable.addresslist_item_bg);
+                this.y.l(this.z);
             }
+            this.z = i;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sx
-    /* renamed from: s */
-    public void a(vr4 vr4Var) {
+    @Override // com.baidu.tieba.yy, com.baidu.tieba.ux
+    /* renamed from: u */
+    public void a(fs4 fs4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, vr4Var) == null) {
-            if (vr4Var != null && vr4Var.getThreadData() != null) {
-                this.i = vr4Var;
-                ThreadData threadData = vr4Var.getThreadData();
-                s46.j(threadData, this.h);
-                this.g.setData(threadData);
-                return;
+        if (interceptable == null || interceptable.invokeL(1048583, this, fs4Var) == null) {
+            this.h = fs4Var;
+            if (fs4Var != null && fs4Var.getThreadData() != null) {
+                ThreadData threadData = fs4Var.getThreadData();
+                if (threadData.getThreadVideoInfo() != null) {
+                    this.y.setVisibility(8);
+                    this.i.setVisibility(0);
+                    this.A.setVisibility(8);
+                    super.a(fs4Var);
+                    return;
+                }
+                this.i.setVisibility(8);
+                this.A.setVisibility(0);
+                ThreadCardUtils.setTitle(this.g, threadData);
+                ThreadCardUtils.setAbstract(this.A, this.g, threadData, B);
+                if (threadData.getTaskInfoData() != null && threadData.getTaskInfoData().h() != 0) {
+                    this.y.setVisibility(8);
+                    return;
+                }
+                this.y.setVisibility(0);
+                this.y.a(fs4Var);
             }
-            k().setVisibility(8);
         }
     }
 }

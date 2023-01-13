@@ -157,8 +157,8 @@ public final class a extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.gc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f09111c);
-            this.ge = (KsAutoCloseView) findViewById(R.id.obfuscated_res_0x7f09115d);
+            this.gc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f091127);
+            this.ge = (KsAutoCloseView) findViewById(R.id.obfuscated_res_0x7f091168);
         }
     }
 

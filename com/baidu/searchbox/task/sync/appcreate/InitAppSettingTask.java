@@ -1,16 +1,20 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
 import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.n9;
-import com.baidu.tieba.p35;
-import com.baidu.tieba.qj5;
-import com.baidu.tieba.uf5;
-import com.baidu.tieba.w35;
-import com.baidu.tieba.y45;
+import com.baidu.tbadk.switchs.LooperBlockSwitch;
+import com.baidu.tieba.g45;
+import com.baidu.tieba.hk5;
+import com.baidu.tieba.jg5;
+import com.baidu.tieba.k55;
+import com.baidu.tieba.o9;
+import com.baidu.tieba.z35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,8 +61,8 @@ public class InitAppSettingTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             TbadkCoreApplication.getInst().mVoiceHeadsetMode = TbadkSettings.getInst().loadInt("voice_headset_mode", 0);
-            qj5.c();
-            uf5.b().r(System.currentTimeMillis() - currentTimeMillis);
+            hk5.c();
+            jg5.b().r(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
@@ -71,9 +75,12 @@ public class InitAppSettingTask extends LaunchTask {
             initSettings();
             TbadkCoreApplication.getInst().initSetting();
             long currentTimeMillis = System.currentTimeMillis();
-            p35.d().q();
-            uf5.b().y(System.currentTimeMillis() - currentTimeMillis);
-            n9.g().s(20);
+            z35.d().q();
+            jg5.b().y(System.currentTimeMillis() - currentTimeMillis);
+            o9.f().r(20);
+            if (ProcessUtils.isMainProcess() && LooperBlockSwitch.getIsOn()) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
+            }
         }
     }
 
@@ -82,18 +89,18 @@ public class InitAppSettingTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             String loadString = TbadkSettings.getInst().loadString("lcs_switch_strategy", null);
             if (!TextUtils.isEmpty(loadString)) {
-                w35 w35Var = new w35();
-                w35Var.e(loadString);
-                y45 a = y45.a();
+                g45 g45Var = new g45();
+                g45Var.e(loadString);
+                k55 a = k55.a();
                 boolean z = true;
-                if (w35Var.b() != 1) {
+                if (g45Var.b() != 1) {
                     z = false;
                 }
-                a.g(z);
-                a.h(w35Var.c());
-                a.i(w35Var.d() * 1000);
-                if (w35Var.a() != null) {
-                    a.j(w35Var.a());
+                a.h(z);
+                a.i(g45Var.c());
+                a.j(g45Var.d() * 1000);
+                if (g45Var.a() != null) {
+                    a.k(g45Var.a());
                 }
             }
         }

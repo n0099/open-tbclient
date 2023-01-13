@@ -16,8 +16,8 @@ import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.common.security.IDeviceInfoAppHost;
 import com.baidu.searchbox.common.security.IDeviceInfoService;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tieba.mn8;
-import com.baidu.tieba.nf1;
+import com.baidu.tieba.ds8;
+import com.baidu.tieba.sf1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +47,6 @@ import kotlin.jvm.JvmStatic;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function3;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.Ref;
 import kotlin.text.Charsets;
 import org.json.JSONObject;
@@ -148,24 +147,21 @@ public final class DeviceInfoManager {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                DeviceInfoManager deviceInfoManager = DeviceInfoManager.INSTANCE;
-                if (!DeviceInfoManager.mLaunchSyncStarted) {
-                    return;
-                }
-                DeviceInfoManager deviceInfoManager2 = DeviceInfoManager.INSTANCE;
-                DeviceInfoManager.mSyncingDeviceFlag = this.deviceFlag;
-                try {
-                    DeviceInfoManager.INSTANCE.syncMappingOfFixedDeviceFlag(this.deviceFlag);
-                } catch (Exception unused) {
-                } catch (Throwable th) {
-                    DeviceInfoManager deviceInfoManager3 = DeviceInfoManager.INSTANCE;
-                    DeviceInfoManager.mSyncingDeviceFlag = 0;
-                    throw th;
-                }
-                DeviceInfoManager deviceInfoManager4 = DeviceInfoManager.INSTANCE;
-                DeviceInfoManager.mSyncingDeviceFlag = 0;
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !DeviceInfoManager.access$getMLaunchSyncStarted$p(DeviceInfoManager.INSTANCE)) {
+                return;
             }
+            DeviceInfoManager deviceInfoManager = DeviceInfoManager.INSTANCE;
+            DeviceInfoManager.mSyncingDeviceFlag = this.deviceFlag;
+            try {
+                DeviceInfoManager.INSTANCE.syncMappingOfFixedDeviceFlag(this.deviceFlag);
+            } catch (Exception unused) {
+            } catch (Throwable th) {
+                DeviceInfoManager deviceInfoManager2 = DeviceInfoManager.INSTANCE;
+                DeviceInfoManager.mSyncingDeviceFlag = 0;
+                throw th;
+            }
+            DeviceInfoManager deviceInfoManager3 = DeviceInfoManager.INSTANCE;
+            DeviceInfoManager.mSyncingDeviceFlag = 0;
         }
     }
 
@@ -297,7 +293,7 @@ public final class DeviceInfoManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65565, this)) == null) {
-            return mn8.a();
+            return ds8.a();
         }
         return (IDeviceInfoAppHost) invokeV.objValue;
     }
@@ -321,6 +317,10 @@ public final class DeviceInfoManager {
             Intrinsics.throwUninitializedPropertyAccessException("mContext");
         }
         return context;
+    }
+
+    public static final /* synthetic */ boolean access$getMLaunchSyncStarted$p(DeviceInfoManager deviceInfoManager) {
+        return mLaunchSyncStarted;
     }
 
     private final boolean checkIPCService(IDeviceInfoService iDeviceInfoService) {
@@ -399,7 +399,7 @@ public final class DeviceInfoManager {
         if (interceptable == null || interceptable.invokeLZ(1048594, this, appContext, z) == null) {
             Intrinsics.checkNotNullParameter(appContext, "appContext");
             mContext = appContext;
-            if (nf1.g() && z) {
+            if (sf1.g() && z) {
                 DeviceInfoIPCServiceManager.Companion.addIPCService();
             }
         }
@@ -501,76 +501,6 @@ public final class DeviceInfoManager {
                     this.$deviceFlag = i;
                 }
 
-                @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\b\n\u0000\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\n¢\u0006\u0002\b\u0004"}, d2 = {"<anonymous>", "", "iterateDeviceFlag", "", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
-                /* renamed from: com.baidu.searchbox.common.security.DeviceInfoManager$init$1$1  reason: invalid class name */
-                /* loaded from: classes2.dex */
-                public static final class AnonymousClass1 extends Lambda implements Function1<Integer, Unit> {
-                    public static /* synthetic */ Interceptable $ic;
-                    public final /* synthetic */ Ref.IntRef $diffFlag;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ Ref.IntRef $finalDeviceFlag;
-
-                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                    public AnonymousClass1(Ref.IntRef intRef, Ref.IntRef intRef2) {
-                        super(1);
-                        Interceptable interceptable = $ic;
-                        if (interceptable != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {intRef, intRef2};
-                            interceptable.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                super(((Integer) newInitContext.callArgs[0]).intValue());
-                                newInitContext.thisArg = this;
-                                interceptable.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.$finalDeviceFlag = intRef;
-                        this.$diffFlag = intRef2;
-                    }
-
-                    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-                    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-                    @Override // kotlin.jvm.functions.Function1
-                    public /* bridge */ /* synthetic */ Unit invoke(Integer num) {
-                        invoke(num.intValue());
-                        return Unit.INSTANCE;
-                    }
-
-                    public final void invoke(int i) {
-                        DeviceIdBagMap deviceIdBagMap;
-                        CacheDeviceInfo cacheDeviceInfo;
-                        SparseArray sparseArray;
-                        DeviceIdBagMap deviceIdBagMap2;
-                        Interceptable interceptable = $ic;
-                        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (this.$finalDeviceFlag.element & i) != 0) {
-                            DeviceInfoManager deviceInfoManager = DeviceInfoManager.INSTANCE;
-                            deviceIdBagMap = DeviceInfoManager.mDeviceInfoMap;
-                            DeviceIdBag deviceIdBag = (DeviceIdBag) deviceIdBagMap.get((Object) Integer.valueOf(i));
-                            if (deviceIdBag == null) {
-                                sparseArray = DeviceInfoManager.DEVICE_READ_FUNC_MAP;
-                                ((Function3) sparseArray.get(i)).invoke(DeviceInfoManager.access$getMContext$p(DeviceInfoManager.INSTANCE), "launch", DeviceInfoManager.PURPOSE_LAUNCH_SYNC);
-                                DeviceInfoManager deviceInfoManager2 = DeviceInfoManager.INSTANCE;
-                                deviceIdBagMap2 = DeviceInfoManager.mDeviceInfoMap;
-                                deviceIdBag = (DeviceIdBag) deviceIdBagMap2.get((Object) Integer.valueOf(i));
-                            } else {
-                                DeviceInfoManager deviceInfoManager3 = DeviceInfoManager.INSTANCE;
-                                cacheDeviceInfo = DeviceInfoManager.mMappingCache;
-                                if (DeviceInfoUtilKt.isDeviceInfoSyncMapping(cacheDeviceInfo, i, deviceIdBag.deviceId)) {
-                                    deviceIdBag.errorCode = 3;
-                                }
-                            }
-                            if (deviceIdBag != null && deviceIdBag.errorCode != 3 && !TextUtils.isEmpty(deviceIdBag.deviceId)) {
-                                Ref.IntRef intRef = this.$diffFlag;
-                                intRef.element = i | intRef.element;
-                            }
-                        }
-                    }
-                }
-
                 /* JADX WARN: Removed duplicated region for block: B:12:0x005b  */
                 /* JADX WARN: Removed duplicated region for block: B:17:0x0084  */
                 @Override // java.lang.Runnable
@@ -600,7 +530,72 @@ public final class DeviceInfoManager {
                                 z = true;
                                 Ref.IntRef intRef2 = new Ref.IntRef();
                                 intRef2.element = 0;
-                                DeviceInfoUtilKt.forEachDevice(new AnonymousClass1(intRef, intRef2));
+                                DeviceInfoUtilKt.forEachDevice(new Function1<Integer, Unit>(intRef, intRef2) { // from class: com.baidu.searchbox.common.security.DeviceInfoManager$init$1.1
+                                    public static /* synthetic */ Interceptable $ic;
+                                    public final /* synthetic */ Ref.IntRef $diffFlag;
+                                    public transient /* synthetic */ FieldHolder $fh;
+                                    public final /* synthetic */ Ref.IntRef $finalDeviceFlag;
+
+                                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                                    {
+                                        super(1);
+                                        Interceptable interceptable3 = $ic;
+                                        if (interceptable3 != null) {
+                                            InitContext newInitContext = TitanRuntime.newInitContext();
+                                            newInitContext.initArgs = r2;
+                                            Object[] objArr = {intRef, intRef2};
+                                            interceptable3.invokeUnInit(65536, newInitContext);
+                                            int i2 = newInitContext.flag;
+                                            if ((i2 & 1) != 0) {
+                                                int i3 = i2 & 2;
+                                                super(((Integer) newInitContext.callArgs[0]).intValue());
+                                                newInitContext.thisArg = this;
+                                                interceptable3.invokeInitBody(65536, newInitContext);
+                                                return;
+                                            }
+                                        }
+                                        this.$finalDeviceFlag = intRef;
+                                        this.$diffFlag = intRef2;
+                                    }
+
+                                    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                                    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                                    @Override // kotlin.jvm.functions.Function1
+                                    public /* bridge */ /* synthetic */ Unit invoke(Integer num) {
+                                        invoke(num.intValue());
+                                        return Unit.INSTANCE;
+                                    }
+
+                                    public final void invoke(int i2) {
+                                        DeviceIdBagMap deviceIdBagMap;
+                                        CacheDeviceInfo cacheDeviceInfo3;
+                                        SparseArray sparseArray;
+                                        DeviceIdBagMap deviceIdBagMap2;
+                                        Interceptable interceptable3 = $ic;
+                                        if ((interceptable3 == null || interceptable3.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && (this.$finalDeviceFlag.element & i2) != 0) {
+                                            DeviceInfoManager deviceInfoManager3 = DeviceInfoManager.INSTANCE;
+                                            deviceIdBagMap = DeviceInfoManager.mDeviceInfoMap;
+                                            DeviceIdBag deviceIdBag = (DeviceIdBag) deviceIdBagMap.get((Object) Integer.valueOf(i2));
+                                            if (deviceIdBag == null) {
+                                                sparseArray = DeviceInfoManager.DEVICE_READ_FUNC_MAP;
+                                                ((Function3) sparseArray.get(i2)).invoke(DeviceInfoManager.access$getMContext$p(DeviceInfoManager.INSTANCE), "launch", DeviceInfoManager.PURPOSE_LAUNCH_SYNC);
+                                                DeviceInfoManager deviceInfoManager4 = DeviceInfoManager.INSTANCE;
+                                                deviceIdBagMap2 = DeviceInfoManager.mDeviceInfoMap;
+                                                deviceIdBag = (DeviceIdBag) deviceIdBagMap2.get((Object) Integer.valueOf(i2));
+                                            } else {
+                                                DeviceInfoManager deviceInfoManager5 = DeviceInfoManager.INSTANCE;
+                                                cacheDeviceInfo3 = DeviceInfoManager.mMappingCache;
+                                                if (DeviceInfoUtilKt.isDeviceInfoSyncMapping(cacheDeviceInfo3, i2, deviceIdBag.deviceId)) {
+                                                    deviceIdBag.errorCode = 3;
+                                                }
+                                            }
+                                            if (deviceIdBag != null && deviceIdBag.errorCode != 3 && !TextUtils.isEmpty(deviceIdBag.deviceId)) {
+                                                Ref.IntRef intRef3 = this.$diffFlag;
+                                                intRef3.element = i2 | intRef3.element;
+                                            }
+                                        }
+                                    }
+                                });
                                 DeviceInfoManager deviceInfoManager3 = DeviceInfoManager.INSTANCE;
                                 DeviceInfoManager.mLaunchSyncStarted = true;
                                 DeviceInfoManager deviceInfoManager4 = DeviceInfoManager.INSTANCE;
@@ -649,7 +644,72 @@ public final class DeviceInfoManager {
                         z = false;
                         Ref.IntRef intRef22 = new Ref.IntRef();
                         intRef22.element = 0;
-                        DeviceInfoUtilKt.forEachDevice(new AnonymousClass1(intRef, intRef22));
+                        DeviceInfoUtilKt.forEachDevice(new Function1<Integer, Unit>(intRef, intRef22) { // from class: com.baidu.searchbox.common.security.DeviceInfoManager$init$1.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public final /* synthetic */ Ref.IntRef $diffFlag;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ Ref.IntRef $finalDeviceFlag;
+
+                            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                            {
+                                super(1);
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = objArr;
+                                    Object[] objArr = {intRef, intRef22};
+                                    interceptable3.invokeUnInit(65536, newInitContext);
+                                    int i22 = newInitContext.flag;
+                                    if ((i22 & 1) != 0) {
+                                        int i3 = i22 & 2;
+                                        super(((Integer) newInitContext.callArgs[0]).intValue());
+                                        newInitContext.thisArg = this;
+                                        interceptable3.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.$finalDeviceFlag = intRef;
+                                this.$diffFlag = intRef22;
+                            }
+
+                            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                            @Override // kotlin.jvm.functions.Function1
+                            public /* bridge */ /* synthetic */ Unit invoke(Integer num) {
+                                invoke(num.intValue());
+                                return Unit.INSTANCE;
+                            }
+
+                            public final void invoke(int i22) {
+                                DeviceIdBagMap deviceIdBagMap;
+                                CacheDeviceInfo cacheDeviceInfo3;
+                                SparseArray sparseArray;
+                                DeviceIdBagMap deviceIdBagMap2;
+                                Interceptable interceptable3 = $ic;
+                                if ((interceptable3 == null || interceptable3.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i22) == null) && (this.$finalDeviceFlag.element & i22) != 0) {
+                                    DeviceInfoManager deviceInfoManager32 = DeviceInfoManager.INSTANCE;
+                                    deviceIdBagMap = DeviceInfoManager.mDeviceInfoMap;
+                                    DeviceIdBag deviceIdBag = (DeviceIdBag) deviceIdBagMap.get((Object) Integer.valueOf(i22));
+                                    if (deviceIdBag == null) {
+                                        sparseArray = DeviceInfoManager.DEVICE_READ_FUNC_MAP;
+                                        ((Function3) sparseArray.get(i22)).invoke(DeviceInfoManager.access$getMContext$p(DeviceInfoManager.INSTANCE), "launch", DeviceInfoManager.PURPOSE_LAUNCH_SYNC);
+                                        DeviceInfoManager deviceInfoManager42 = DeviceInfoManager.INSTANCE;
+                                        deviceIdBagMap2 = DeviceInfoManager.mDeviceInfoMap;
+                                        deviceIdBag = (DeviceIdBag) deviceIdBagMap2.get((Object) Integer.valueOf(i22));
+                                    } else {
+                                        DeviceInfoManager deviceInfoManager52 = DeviceInfoManager.INSTANCE;
+                                        cacheDeviceInfo3 = DeviceInfoManager.mMappingCache;
+                                        if (DeviceInfoUtilKt.isDeviceInfoSyncMapping(cacheDeviceInfo3, i22, deviceIdBag.deviceId)) {
+                                            deviceIdBag.errorCode = 3;
+                                        }
+                                    }
+                                    if (deviceIdBag != null && deviceIdBag.errorCode != 3 && !TextUtils.isEmpty(deviceIdBag.deviceId)) {
+                                        Ref.IntRef intRef3 = this.$diffFlag;
+                                        intRef3.element = i22 | intRef3.element;
+                                    }
+                                }
+                            }
+                        });
                         DeviceInfoManager deviceInfoManager32 = DeviceInfoManager.INSTANCE;
                         DeviceInfoManager.mLaunchSyncStarted = true;
                         DeviceInfoManager deviceInfoManager42 = DeviceInfoManager.INSTANCE;
@@ -824,7 +884,7 @@ public final class DeviceInfoManager {
             Intrinsics.checkNotNullParameter(context, "context");
             Intrinsics.checkNotNullParameter(scene, "scene");
             Intrinsics.checkNotNullParameter(purpose, "purpose");
-            if (!nf1.g()) {
+            if (!sf1.g()) {
                 IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
                 if (checkIPCService(iPCService)) {
                     try {
@@ -861,7 +921,7 @@ public final class DeviceInfoManager {
             Intrinsics.checkNotNullParameter(context, "context");
             Intrinsics.checkNotNullParameter(scene, "scene");
             Intrinsics.checkNotNullParameter(purpose, "purpose");
-            if (!nf1.g()) {
+            if (!sf1.g()) {
                 IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
                 if (checkIPCService(iPCService)) {
                     try {
@@ -898,7 +958,7 @@ public final class DeviceInfoManager {
             Intrinsics.checkNotNullParameter(context, "context");
             Intrinsics.checkNotNullParameter(scene, "scene");
             Intrinsics.checkNotNullParameter(purpose, "purpose");
-            if (!nf1.g()) {
+            if (!sf1.g()) {
                 IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
                 if (checkIPCService(iPCService)) {
                     try {
@@ -1031,7 +1091,7 @@ public final class DeviceInfoManager {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, scene, purpose)) == null) {
             Intrinsics.checkNotNullParameter(scene, "scene");
             Intrinsics.checkNotNullParameter(purpose, "purpose");
-            if (!nf1.g()) {
+            if (!sf1.g()) {
                 IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
                 if (checkIPCService(iPCService)) {
                     try {
@@ -1067,7 +1127,7 @@ public final class DeviceInfoManager {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, scene, purpose)) == null) {
             Intrinsics.checkNotNullParameter(scene, "scene");
             Intrinsics.checkNotNullParameter(purpose, "purpose");
-            if (!nf1.g()) {
+            if (!sf1.g()) {
                 IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
                 if (checkIPCService(iPCService)) {
                     try {
@@ -1103,7 +1163,7 @@ public final class DeviceInfoManager {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, scene, purpose)) == null) {
             Intrinsics.checkNotNullParameter(scene, "scene");
             Intrinsics.checkNotNullParameter(purpose, "purpose");
-            if (!nf1.g()) {
+            if (!sf1.g()) {
                 IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
                 if (checkIPCService(iPCService)) {
                     try {
@@ -1139,7 +1199,7 @@ public final class DeviceInfoManager {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, scene, purpose)) == null) {
             Intrinsics.checkNotNullParameter(scene, "scene");
             Intrinsics.checkNotNullParameter(purpose, "purpose");
-            if (!nf1.g()) {
+            if (!sf1.g()) {
                 IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
                 if (checkIPCService(iPCService)) {
                     try {
@@ -1174,7 +1234,7 @@ public final class DeviceInfoManager {
         if (interceptable == null || interceptable.invokeLZ(1048592, this, appContext, z) == null) {
             Intrinsics.checkNotNullParameter(appContext, "appContext");
             mContext = appContext;
-            if (!nf1.g()) {
+            if (!sf1.g()) {
                 return;
             }
             if (z) {
@@ -1341,7 +1401,7 @@ public final class DeviceInfoManager {
         if (interceptable == null || interceptable.invokeL(1048593, this, context) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
             mContext = context;
-            if (nf1.g() && getAppHost().useMapping()) {
+            if (sf1.g() && getAppHost().useMapping()) {
                 Context context2 = mContext;
                 if (context2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("mContext");
@@ -1403,14 +1463,14 @@ public final class DeviceInfoManager {
         }
     }
 
-    public final DeviceIdBagMap getDeviceInfo(Context context, String scene, String purpose, int i, boolean z) {
+    public final DeviceIdBagMap getDeviceInfo(final Context context, final String scene, final String purpose, final int i, final boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{context, scene, purpose, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
             Intrinsics.checkNotNullParameter(scene, "scene");
             Intrinsics.checkNotNullParameter(purpose, "purpose");
-            if (!nf1.g()) {
+            if (!sf1.g()) {
                 IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
                 if (checkIPCService(iPCService)) {
                     try {
@@ -1424,15 +1484,231 @@ public final class DeviceInfoManager {
                     } catch (Exception unused2) {
                     }
                 }
-                DeviceIdBagMap deviceIdBagMap = new DeviceIdBagMap();
-                DeviceInfoUtilKt.forEachDevice(new DeviceInfoManager$getDeviceInfo$$inlined$apply$lambda$1(deviceIdBagMap, i, z, context, scene, purpose));
+                final DeviceIdBagMap deviceIdBagMap = new DeviceIdBagMap();
+                DeviceInfoUtilKt.forEachDevice(new Function1<Integer, Unit>(deviceIdBagMap, i, z, context, scene, purpose) { // from class: com.baidu.searchbox.common.security.DeviceInfoManager$getDeviceInfo$$inlined$apply$lambda$1
+                    public static /* synthetic */ Interceptable $ic;
+                    public final /* synthetic */ Context $context$inlined;
+                    public final /* synthetic */ int $deviceFlag$inlined;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ boolean $forceApi$inlined;
+                    public final /* synthetic */ String $purpose$inlined;
+                    public final /* synthetic */ String $scene$inlined;
+                    public final /* synthetic */ DeviceIdBagMap $this_apply;
+
+                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                    {
+                        super(1);
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {deviceIdBagMap, Integer.valueOf(i), Boolean.valueOf(z), context, scene, purpose};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                super(((Integer) newInitContext.callArgs[0]).intValue());
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.$this_apply = deviceIdBagMap;
+                        this.$deviceFlag$inlined = i;
+                        this.$forceApi$inlined = z;
+                        this.$context$inlined = context;
+                        this.$scene$inlined = scene;
+                        this.$purpose$inlined = purpose;
+                    }
+
+                    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                    @Override // kotlin.jvm.functions.Function1
+                    public /* bridge */ /* synthetic */ Unit invoke(Integer num) {
+                        invoke(num.intValue());
+                        return Unit.INSTANCE;
+                    }
+
+                    public final void invoke(int i2) {
+                        boolean z2;
+                        DeviceIdBagMap deviceIdBagMap2;
+                        SparseArray sparseArray;
+                        DeviceIdBagMap deviceIdBagMap3;
+                        SparseArray sparseArray2;
+                        SparseArray sparseArray3;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+                            boolean z3 = true;
+                            if ((this.$deviceFlag$inlined & i2) != 0) {
+                                z2 = true;
+                            } else {
+                                z2 = false;
+                            }
+                            if ((i2 & 66) == 0) {
+                                z3 = false;
+                            }
+                            if (z2 && z3) {
+                                if (this.$forceApi$inlined) {
+                                    DeviceIdBagMap deviceIdBagMap4 = this.$this_apply;
+                                    sparseArray3 = DeviceInfoManager.DEVICE_READ_FUNC_MAP;
+                                    deviceIdBagMap4.put(i2, (DeviceIdBag) ((Function3) sparseArray3.get(i2)).invoke(this.$context$inlined, this.$scene$inlined, this.$purpose$inlined));
+                                    return;
+                                }
+                                DeviceIdBagMap deviceIdBagMap5 = this.$this_apply;
+                                DeviceInfoManager deviceInfoManager = DeviceInfoManager.INSTANCE;
+                                deviceIdBagMap3 = DeviceInfoManager.mDeviceInfoMap;
+                                DeviceIdBag deviceIdBag = (DeviceIdBag) deviceIdBagMap3.get((Object) Integer.valueOf(i2));
+                                if (deviceIdBag == null) {
+                                    sparseArray2 = DeviceInfoManager.DEVICE_READ_FUNC_MAP;
+                                    deviceIdBag = (DeviceIdBag) ((Function3) sparseArray2.get(i2)).invoke(this.$context$inlined, this.$scene$inlined, this.$purpose$inlined);
+                                }
+                                Intrinsics.checkNotNullExpressionValue(deviceIdBag, "mDeviceInfoMap[iterateDe…(context, scene, purpose)");
+                                deviceIdBagMap5.put(i2, deviceIdBag);
+                            } else if (z2) {
+                                DeviceIdBagMap deviceIdBagMap6 = this.$this_apply;
+                                DeviceInfoManager deviceInfoManager2 = DeviceInfoManager.INSTANCE;
+                                deviceIdBagMap2 = DeviceInfoManager.mDeviceInfoMap;
+                                DeviceIdBag deviceIdBag2 = (DeviceIdBag) deviceIdBagMap2.get((Object) Integer.valueOf(i2));
+                                if (deviceIdBag2 == null) {
+                                    sparseArray = DeviceInfoManager.DEVICE_READ_FUNC_MAP;
+                                    deviceIdBag2 = (DeviceIdBag) ((Function3) sparseArray.get(i2)).invoke(this.$context$inlined, this.$scene$inlined, this.$purpose$inlined);
+                                }
+                                Intrinsics.checkNotNullExpressionValue(deviceIdBag2, "mDeviceInfoMap[iterateDe…(context, scene, purpose)");
+                                deviceIdBagMap6.put(i2, deviceIdBag2);
+                            }
+                        }
+                    }
+                });
                 return deviceIdBagMap;
             }
-            boolean useMapping = getAppHost().useMapping();
-            DeviceIdBagMap deviceIdBagMap2 = new DeviceIdBagMap();
-            Ref.IntRef intRef = new Ref.IntRef();
+            final boolean useMapping = getAppHost().useMapping();
+            final DeviceIdBagMap deviceIdBagMap2 = new DeviceIdBagMap();
+            final Ref.IntRef intRef = new Ref.IntRef();
             intRef.element = 0;
-            DeviceInfoUtilKt.forEachDevice(new DeviceInfoManager$getDeviceInfo$$inlined$apply$lambda$2(deviceIdBagMap2, new Ref.ObjectRef(), intRef, i, z, context, scene, purpose, useMapping));
+            final Ref.ObjectRef objectRef = new Ref.ObjectRef();
+            DeviceInfoUtilKt.forEachDevice(new Function1<Integer, Unit>(deviceIdBagMap2, objectRef, intRef, i, z, context, scene, purpose, useMapping) { // from class: com.baidu.searchbox.common.security.DeviceInfoManager$getDeviceInfo$$inlined$apply$lambda$2
+                public static /* synthetic */ Interceptable $ic;
+                public final /* synthetic */ Context $context$inlined;
+                public final /* synthetic */ int $deviceFlag$inlined;
+                public final /* synthetic */ Ref.ObjectRef $deviceInfo;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ boolean $forceApi$inlined;
+                public final /* synthetic */ Ref.IntRef $needSyncDeviceFlag;
+                public final /* synthetic */ String $purpose$inlined;
+                public final /* synthetic */ String $scene$inlined;
+                public final /* synthetic */ DeviceIdBagMap $this_apply;
+                public final /* synthetic */ boolean $useMapping$inlined;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(1);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {deviceIdBagMap2, objectRef, intRef, Integer.valueOf(i), Boolean.valueOf(z), context, scene, purpose, Boolean.valueOf(useMapping)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            super(((Integer) newInitContext.callArgs[0]).intValue());
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.$this_apply = deviceIdBagMap2;
+                    this.$deviceInfo = objectRef;
+                    this.$needSyncDeviceFlag = intRef;
+                    this.$deviceFlag$inlined = i;
+                    this.$forceApi$inlined = z;
+                    this.$context$inlined = context;
+                    this.$scene$inlined = scene;
+                    this.$purpose$inlined = purpose;
+                    this.$useMapping$inlined = useMapping;
+                }
+
+                /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                @Override // kotlin.jvm.functions.Function1
+                public /* bridge */ /* synthetic */ Unit invoke(Integer num) {
+                    invoke(num.intValue());
+                    return Unit.INSTANCE;
+                }
+
+                /* JADX DEBUG: Multi-variable search result rejected for r1v31, resolved type: T */
+                /* JADX DEBUG: Multi-variable search result rejected for r1v46, resolved type: T */
+                /* JADX DEBUG: Multi-variable search result rejected for r1v47, resolved type: T */
+                /* JADX DEBUG: Multi-variable search result rejected for r1v50, resolved type: T */
+                /* JADX DEBUG: Multi-variable search result rejected for r1v51, resolved type: T */
+                /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: T */
+                /* JADX WARN: Multi-variable type inference failed */
+                public final void invoke(int i2) {
+                    boolean z2;
+                    DeviceIdBagMap deviceIdBagMap3;
+                    SparseArray sparseArray;
+                    DeviceIdBagMap deviceIdBagMap4;
+                    SparseArray sparseArray2;
+                    T t;
+                    SparseArray sparseArray3;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+                        boolean z3 = true;
+                        if ((this.$deviceFlag$inlined & i2) != 0) {
+                            z2 = true;
+                        } else {
+                            z2 = false;
+                        }
+                        if ((i2 & 66) == 0) {
+                            z3 = false;
+                        }
+                        if (z2 && z3) {
+                            Ref.ObjectRef objectRef2 = this.$deviceInfo;
+                            if (this.$forceApi$inlined) {
+                                sparseArray3 = DeviceInfoManager.DEVICE_READ_FUNC_MAP;
+                                t = (DeviceIdBag) ((Function3) sparseArray3.get(i2)).invoke(this.$context$inlined, this.$scene$inlined, this.$purpose$inlined);
+                            } else {
+                                DeviceInfoManager deviceInfoManager = DeviceInfoManager.INSTANCE;
+                                deviceIdBagMap4 = DeviceInfoManager.mDeviceInfoMap;
+                                DeviceIdBag deviceIdBag = (DeviceIdBag) deviceIdBagMap4.get((Object) Integer.valueOf(i2));
+                                DeviceIdBag deviceIdBag2 = deviceIdBag;
+                                if (deviceIdBag == null) {
+                                    sparseArray2 = DeviceInfoManager.DEVICE_READ_FUNC_MAP;
+                                    deviceIdBag2 = (DeviceIdBag) ((Function3) sparseArray2.get(i2)).invoke(this.$context$inlined, this.$scene$inlined, this.$purpose$inlined);
+                                }
+                                Intrinsics.checkNotNullExpressionValue(deviceIdBag2, "mDeviceInfoMap[iterateDe…(context, scene, purpose)");
+                                t = deviceIdBag2;
+                            }
+                            objectRef2.element = t;
+                            if (this.$useMapping$inlined) {
+                                T t2 = this.$deviceInfo.element;
+                                if (((DeviceIdBag) t2).errorCode != 3 && !TextUtils.isEmpty(((DeviceIdBag) t2).deviceId)) {
+                                    this.$needSyncDeviceFlag.element |= i2;
+                                }
+                            }
+                            this.$this_apply.put(i2, (DeviceIdBag) this.$deviceInfo.element);
+                        } else if (z2) {
+                            Ref.ObjectRef objectRef3 = this.$deviceInfo;
+                            DeviceInfoManager deviceInfoManager2 = DeviceInfoManager.INSTANCE;
+                            deviceIdBagMap3 = DeviceInfoManager.mDeviceInfoMap;
+                            DeviceIdBag deviceIdBag3 = (DeviceIdBag) deviceIdBagMap3.get((Object) Integer.valueOf(i2));
+                            T t3 = deviceIdBag3;
+                            if (deviceIdBag3 == null) {
+                                sparseArray = DeviceInfoManager.DEVICE_READ_FUNC_MAP;
+                                t3 = (DeviceIdBag) ((Function3) sparseArray.get(i2)).invoke(this.$context$inlined, this.$scene$inlined, this.$purpose$inlined);
+                            }
+                            objectRef3.element = t3;
+                            if (this.$useMapping$inlined) {
+                                T t4 = this.$deviceInfo.element;
+                                if (((DeviceIdBag) t4).errorCode != 3 && !TextUtils.isEmpty(((DeviceIdBag) t4).deviceId)) {
+                                    this.$needSyncDeviceFlag.element |= i2;
+                                }
+                            }
+                            this.$this_apply.put(i2, (DeviceIdBag) this.$deviceInfo.element);
+                        }
+                    }
+                }
+            });
             int i2 = intRef.element;
             if (i2 != 0) {
                 INSTANCE.postSyncTask(i2);
@@ -1450,7 +1726,7 @@ public final class DeviceInfoManager {
             Intrinsics.checkNotNullParameter(context, "context");
             Intrinsics.checkNotNullParameter(scene, "scene");
             Intrinsics.checkNotNullParameter(purpose, "purpose");
-            if (!nf1.g()) {
+            if (!sf1.g()) {
                 IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
                 if (checkIPCService(iPCService)) {
                     try {
@@ -1496,7 +1772,7 @@ public final class DeviceInfoManager {
             Intrinsics.checkNotNullParameter(context, "context");
             Intrinsics.checkNotNullParameter(scene, "scene");
             Intrinsics.checkNotNullParameter(purpose, "purpose");
-            if (!nf1.g()) {
+            if (!sf1.g()) {
                 IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
                 if (checkIPCService(iPCService)) {
                     try {

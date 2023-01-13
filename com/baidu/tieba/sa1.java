@@ -1,17 +1,23 @@
 package com.baidu.tieba;
 
+import android.os.Build;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class sa1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(boolean z, String str, Object... objArr) {
+    public static int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{Boolean.valueOf(z), str, objArr}) != null) || z) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if ("arm64-v8a".equalsIgnoreCase(Build.CPU_ABI)) {
+                return 2;
+            }
+            return 1;
         }
-        throw new IllegalArgumentException(String.format(str, objArr));
+        return invokeV.intValue;
     }
 }

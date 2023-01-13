@@ -9,10 +9,11 @@ import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function2;
+/* JADX INFO: Add missing generic type declarations: [V] */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003\"\u0004\b\u0002\u0010\u0004*\b\u0012\u0004\u0012\u0002H\u00040\u0005H\u008a@¢\u0006\u0004\b\u0006\u0010\u0007"}, d2 = {"<anonymous>", "", ExifInterface.LONGITUDE_EAST, "R", ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "Lkotlinx/coroutines/channels/ProducerScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$zip$2", f = "Channels.common.kt", i = {0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2}, l = {2201, 2191, 2193}, m = "invokeSuspend", n = {"$this$produce", "otherIterator", "$this$consumeEach$iv", "$this$consume$iv$iv", "cause$iv$iv", "$this$consume$iv", "$this$produce", "otherIterator", "$this$consumeEach$iv", "$this$consume$iv$iv", "cause$iv$iv", "$this$consume$iv", "e$iv", "element1", "$this$produce", "otherIterator", "$this$consumeEach$iv", "$this$consume$iv$iv", "cause$iv$iv", "$this$consume$iv", "e$iv", "element1", "element2"}, s = {"L$0", "L$1", "L$2", "L$4", "L$5", "L$6", "L$0", "L$1", "L$2", "L$4", "L$5", "L$6", "L$8", "L$9", "L$0", "L$1", "L$2", "L$4", "L$5", "L$6", "L$8", "L$9", "L$10"})
 /* loaded from: classes9.dex */
-public final class ChannelsKt__Channels_commonKt$zip$2 extends SuspendLambda implements Function2<ProducerScope<? super V>, Continuation<? super Unit>, Object> {
+public final class ChannelsKt__Channels_commonKt$zip$2<V> extends SuspendLambda implements Function2<ProducerScope<? super V>, Continuation<? super Unit>, Object> {
     public final /* synthetic */ ReceiveChannel $other;
     public final /* synthetic */ ReceiveChannel $this_zip;
     public final /* synthetic */ Function2 $transform;
@@ -66,20 +67,20 @@ public final class ChannelsKt__Channels_commonKt$zip$2 extends SuspendLambda imp
         Throwable th;
         ReceiveChannel receiveChannel;
         Throwable th2;
-        ChannelsKt__Channels_commonKt$zip$2 channelsKt__Channels_commonKt$zip$2;
+        ChannelsKt__Channels_commonKt$zip$2<V> channelsKt__Channels_commonKt$zip$2;
         ProducerScope producerScope;
         ChannelIterator channelIterator;
         ReceiveChannel receiveChannel2;
         ReceiveChannel receiveChannel3;
         ChannelIterator it;
-        ChannelsKt__Channels_commonKt$zip$2 channelsKt__Channels_commonKt$zip$22;
+        ChannelsKt__Channels_commonKt$zip$2<V> channelsKt__Channels_commonKt$zip$22;
         Object obj2;
         Object obj3;
         ChannelIterator channelIterator2;
-        ChannelsKt__Channels_commonKt$zip$2 channelsKt__Channels_commonKt$zip$23;
+        ChannelsKt__Channels_commonKt$zip$2<V> channelsKt__Channels_commonKt$zip$23;
         Throwable th3;
         Object obj4;
-        ChannelsKt__Channels_commonKt$zip$2 channelsKt__Channels_commonKt$zip$24;
+        ChannelsKt__Channels_commonKt$zip$2<V> channelsKt__Channels_commonKt$zip$24;
         Object obj5;
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
         int i = this.label;

@@ -1,31 +1,19 @@
 package com.baidu.tieba;
 
-import android.database.sqlite.SQLiteDatabase;
+import android.content.ContentValues;
+import android.database.Cursor;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class pc4 implements mc4<bd4> {
+public class pc4 extends jc4<kd4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "framework" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.mc4
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {
-        }
-    }
 
     public pc4() {
         Interceptable interceptable = $ic;
@@ -41,20 +29,79 @@ public class pc4 implements mc4<bd4> {
         }
     }
 
-    @Override // com.baidu.tieba.mc4
-    public void a(SQLiteDatabase sQLiteDatabase) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jc4
+    /* renamed from: g */
+    public kd4 d(Cursor cursor) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            sQLiteDatabase.execSQL(b());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
+            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
+                return h(cursor);
+            }
+            return null;
         }
+        return (kd4) invokeL.objValue;
     }
 
-    public final String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.jc4
+    public List<kd4> e(Cursor cursor) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "CREATE TABLE " + c() + "(_id INTEGER PRIMARY KEY AUTOINCREMENT,bundle_id TEXT UNIQUE,category INT NOT NULL,version_name TEXT NOT NULL,version_code INT DEFAULT 0,size LONG DEFAULT 0," + PackageTable.MD5 + " TEXT NOT NULL,sign TEXT NOT NULL," + TTDownloadField.TT_DOWNLOAD_URL + " TEXT NOT NULL," + PackageTable.FILE_PATH + " TEXT," + PackageTable.CURRENT_SIZE + " LONG DEFAULT 0,create_time LONG DEFAULT 0,update_time LONG DEFAULT 0,state INT DEFAULT 0);";
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
+                do {
+                    arrayList.add(h(cursor));
+                } while (cursor.moveToNext());
+                return arrayList;
+            }
+            return arrayList;
         }
-        return (String) invokeV.objValue;
+        return (List) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jc4
+    /* renamed from: f */
+    public ContentValues c(kd4 kd4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, kd4Var)) == null) {
+            ContentValues a = super.a(kd4Var);
+            a.put("max_age", Long.valueOf(kd4Var.o));
+            a.put("token", kd4Var.p);
+            a.put("domains", kd4Var.q);
+            a.put("app_key", kd4Var.r);
+            a.put("app_name", kd4Var.s);
+            return a;
+        }
+        return (ContentValues) invokeL.objValue;
+    }
+
+    public final kd4 h(Cursor cursor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cursor)) == null) {
+            if (cursor != null) {
+                int columnIndex = cursor.getColumnIndex("max_age");
+                int columnIndex2 = cursor.getColumnIndex("token");
+                int columnIndex3 = cursor.getColumnIndex("domains");
+                int columnIndex4 = cursor.getColumnIndex("app_key");
+                int columnIndex5 = cursor.getColumnIndex("app_name");
+                kd4 kd4Var = new kd4();
+                if (b(cursor, kd4Var)) {
+                    kd4Var.o = cursor.getLong(columnIndex);
+                    kd4Var.p = cursor.getString(columnIndex2);
+                    kd4Var.q = cursor.getString(columnIndex3);
+                    kd4Var.r = cursor.getString(columnIndex4);
+                    kd4Var.s = cursor.getString(columnIndex5);
+                    return kd4Var;
+                }
+                return null;
+            }
+            return null;
+        }
+        return (kd4) invokeL.objValue;
     }
 }

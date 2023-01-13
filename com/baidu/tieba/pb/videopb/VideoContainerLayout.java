@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,7 +39,7 @@ public class VideoContainerLayout extends FrameLayout {
                 return;
             }
         }
-        this.d = yi.l(context) / 10;
+        this.d = zi.l(context) / 10;
     }
 
     @Override // android.view.ViewGroup
@@ -74,7 +74,7 @@ public class VideoContainerLayout extends FrameLayout {
                 return;
             }
         }
-        this.d = yi.l(context) / 10;
+        this.d = zi.l(context) / 10;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -96,7 +96,7 @@ public class VideoContainerLayout extends FrameLayout {
                 return;
             }
         }
-        this.d = yi.l(context) / 10;
+        this.d = zi.l(context) / 10;
     }
 
     public int getMaxHeight() {

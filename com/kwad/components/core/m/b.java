@@ -45,6 +45,11 @@ public class b {
         init(context);
     }
 
+    public static /* synthetic */ boolean a(b bVar, boolean z) {
+        bVar.IO = true;
+        return true;
+    }
+
     public static b at(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -104,7 +109,7 @@ public class b {
                                 aVar.bk();
                             }
                         }
-                        this.IQ.IO = true;
+                        b.a(this.IQ, true);
                     }
                 }
 

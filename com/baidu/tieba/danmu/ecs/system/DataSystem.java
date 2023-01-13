@@ -7,33 +7,33 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.QuickPersistConfigConst;
-import com.baidu.tieba.a86;
-import com.baidu.tieba.a96;
-import com.baidu.tieba.b86;
-import com.baidu.tieba.c86;
-import com.baidu.tieba.d86;
-import com.baidu.tieba.e86;
-import com.baidu.tieba.j76;
-import com.baidu.tieba.o0;
-import com.baidu.tieba.o76;
-import com.baidu.tieba.o86;
+import com.baidu.tieba.bb6;
+import com.baidu.tieba.fr4;
+import com.baidu.tieba.gb6;
+import com.baidu.tieba.gc6;
+import com.baidu.tieba.hb6;
+import com.baidu.tieba.hc6;
+import com.baidu.tieba.ib6;
+import com.baidu.tieba.ic6;
+import com.baidu.tieba.jb6;
+import com.baidu.tieba.kc6;
+import com.baidu.tieba.kd6;
+import com.baidu.tieba.mb6;
+import com.baidu.tieba.mc6;
+import com.baidu.tieba.md6;
+import com.baidu.tieba.oc6;
 import com.baidu.tieba.p0;
-import com.baidu.tieba.p76;
-import com.baidu.tieba.p86;
-import com.baidu.tieba.q76;
-import com.baidu.tieba.q86;
-import com.baidu.tieba.r76;
-import com.baidu.tieba.s0;
-import com.baidu.tieba.s86;
-import com.baidu.tieba.s96;
-import com.baidu.tieba.u76;
-import com.baidu.tieba.u86;
-import com.baidu.tieba.u96;
-import com.baidu.tieba.vq4;
-import com.baidu.tieba.w86;
-import com.baidu.tieba.y86;
-import com.baidu.tieba.z76;
-import com.baidu.tieba.z86;
+import com.baidu.tieba.q0;
+import com.baidu.tieba.qc6;
+import com.baidu.tieba.rb6;
+import com.baidu.tieba.rc6;
+import com.baidu.tieba.sb6;
+import com.baidu.tieba.sc6;
+import com.baidu.tieba.t0;
+import com.baidu.tieba.tb6;
+import com.baidu.tieba.ub6;
+import com.baidu.tieba.vb6;
+import com.baidu.tieba.wb6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,15 +58,15 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000~\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010!\n\u0002\b\u0005\n\u0002\u0010 \n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0010\u001e\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\n\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\b\u0000\u0018\u0000 ;2\u00020\u00012\u00020\u0002:\u0001;B\r\u0012\u0006\u0010\u0003\u001a\u00020\u0004¢\u0006\u0002\u0010\u0005J\u000e\u0010\u001d\u001a\u00020\u001e2\u0006\u0010\u001f\u001a\u00020\u0010J\u0014\u0010 \u001a\u00020\u001e2\f\u0010!\u001a\b\u0012\u0004\u0012\u00020\u00100\"J\b\u0010#\u001a\u00020\u001eH\u0003J\u0016\u0010$\u001a\u00020%2\f\u0010&\u001a\b\u0012\u0004\u0012\u00020\u00100\u001bH\u0002J\u0010\u0010'\u001a\u00020\u001e2\u0006\u0010\u001f\u001a\u00020\u0010H\u0002J\b\u0010(\u001a\u00020\u001eH\u0002J\u0010\u0010)\u001a\u00020\u001e2\b\u0010\u001f\u001a\u0004\u0018\u00010\u0010J\u0016\u0010*\u001a\u00020\u001e2\f\u0010+\u001a\b\u0012\u0004\u0012\u00020\u00100\u001bH\u0016J\u0016\u0010,\u001a\u00020\u001e2\f\u0010-\u001a\b\u0012\u0004\u0012\u00020\u00100\u001bH\u0016J\u0018\u0010.\u001a\u00020\u001e2\u0006\u0010/\u001a\u0002002\u0006\u00101\u001a\u000202H\u0014J\u0010\u00103\u001a\u00020\u001e2\u0006\u00104\u001a\u000205H\u0016J\b\u00106\u001a\u00020\u001eH\u0002J\u0010\u00107\u001a\u00020\u001e2\u0006\u00101\u001a\u000202H\u0016J\b\u00108\u001a\u00020\u001eH\u0002J\u0006\u00109\u001a\u00020\u001eJ\u000e\u0010:\u001a\u00020\u001e2\u0006\u0010\u001f\u001a\u00020\u0010R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000f\u001a\u0004\u0018\u00010\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u001e\u0010\u0011\u001a\u0012\u0012\u0004\u0012\u00020\u000b0\u0012j\b\u0012\u0004\u0012\u00020\u000b`\u0013X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\u0014\u001a\b\u0012\u0004\u0012\u00020\u00100\u0015X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\u0016\u001a\b\u0012\u0004\u0012\u00020\u00100\u0015X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\u0017\u001a\b\u0012\u0004\u0012\u00020\u00100\u0015X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R2\u0010\u0019\u001a&\u0012\f\u0012\n \u001a*\u0004\u0018\u00010\u00100\u0010 \u001a*\u0012\u0012\f\u0012\n \u001a*\u0004\u0018\u00010\u00100\u0010\u0018\u00010\u001b0\u0015X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001c\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006<"}, d2 = {"Lcom/baidu/tieba/danmu/ecs/system/DataSystem;", "Lcom/baidu/tieba/danmu/ecs/base/DanmakuSortedSystem;", "Lcom/baidu/tieba/danmu/data/DataSource$DataChangeListener;", "context", "Lcom/baidu/tieba/danmu/ecs/DanmakuContext;", "(Lcom/baidu/tieba/danmu/ecs/DanmakuContext;)V", "comparator", "Lcom/baidu/tieba/danmu/ecs/system/DanmakuItemComparator;", "currentData", "Lcom/baidu/tieba/danmu/ecs/system/Danmakus;", "endTimeMills", "", "entityEntryTime", "forceUpdate", "", "holdingItem", "Lcom/baidu/tieba/danmu/data/DanmakuItem;", "idSet", "Ljava/util/HashSet;", "Lkotlin/collections/HashSet;", "pendingAddItems", "", "pendingCreateItems", "pendingUpdateItems", "shouldSort", "sortedData", "kotlin.jvm.PlatformType", "", "startTimeMills", "addItem", "", "item", "addItems", "items", "", "addPendingItems", "createEntityBeforeEntry", "", "data", "createItemEntity", "createPendingItems", "hold", "onDataAdded", "additionalItems", "onDataRemoved", "removalItems", "processEntity", "entity", "Lcom/badlogic/ashley/core/Entity;", "deltaTime", "", "removedFromEngine", "engine", "Lcom/badlogic/ashley/core/Engine;", QuickPersistConfigConst.KEY_SPLASH_SORT, StickerDataChangeType.UPDATE, "updateCurrentSlice", "updateEntities", "updateItem", "Companion", "danmu_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes4.dex */
-public final class DataSystem extends z76 implements r76.a {
+public final class DataSystem extends rb6 implements jb6.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<p76> i;
-    public u86 j;
-    public final s86 k;
-    public final List<p76> l;
-    public final List<p76> m;
-    public final List<p76> n;
+    public final List<hb6> i;
+    public mc6 j;
+    public final kc6 k;
+    public final List<hb6> l;
+    public final List<hb6> m;
+    public final List<hb6> n;
     public boolean o;
     public long p;
     public long q;
@@ -89,8 +89,8 @@ public final class DataSystem extends z76 implements r76.a {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DataSystem(u76 context) {
-        super(context, u96.a.a(), null, 4, null);
+    public DataSystem(mb6 context) {
+        super(context, md6.a.a(), null, 4, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,7 +101,7 @@ public final class DataSystem extends z76 implements r76.a {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((u76) objArr2[0], (s0) objArr2[1], (Comparator) objArr2[2], ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
+                super((mb6) objArr2[0], (t0) objArr2[1], (Comparator) objArr2[2], ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -109,52 +109,52 @@ public final class DataSystem extends z76 implements r76.a {
         }
         Intrinsics.checkNotNullParameter(context, "context");
         this.i = Collections.synchronizedList(new ArrayList());
-        List synchronizedList = Collections.synchronizedList(new o76());
+        List synchronizedList = Collections.synchronizedList(new gb6());
         Intrinsics.checkNotNullExpressionValue(synchronizedList, "synchronizedList(TreeList())");
-        this.j = new u86(synchronizedList, 0L, 0L, -1, -1, false, 32, null);
-        this.k = new s86();
+        this.j = new mc6(synchronizedList, 0L, 0L, -1, -1, false, 32, null);
+        this.k = new kc6();
         this.l = new ArrayList();
         this.m = new ArrayList();
         this.n = new ArrayList();
         this.s = new HashSet<>();
     }
 
-    public final void A(p76 p76Var) {
-        e86 e86Var;
+    public final void A(hb6 hb6Var) {
+        wb6 wb6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, p76Var) != null) || this.s.contains(Long.valueOf(p76Var.e().f()))) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, hb6Var) != null) || this.s.contains(Long.valueOf(hb6Var.e().f()))) {
             return;
         }
-        p0 entity = f().i();
+        q0 entity = f().i();
         Intrinsics.checkNotNullExpressionValue(entity, "entity");
-        if (((b86) y86.a(this, b86.class, entity, p76Var)) == null) {
+        if (((tb6) qc6.a(this, tb6.class, entity, hb6Var)) == null) {
             return;
         }
-        if (p76Var.e().j() > 0) {
-            if (((c86) y86.a(this, c86.class, entity, p76Var)) == null) {
+        if (hb6Var.e().j() > 0) {
+            if (((ub6) qc6.a(this, ub6.class, entity, hb6Var)) == null) {
                 return;
             }
-            int j = p76Var.e().j();
+            int j = hb6Var.e().j();
             if (j != 1) {
                 if (j != 4) {
                     if (j == 5) {
-                        entity.a(new p86());
+                        entity.a(new hc6());
                     }
                 } else {
-                    entity.a(new o86());
+                    entity.a(new gc6());
                 }
             } else {
-                entity.a(new q86());
+                entity.a(new ic6());
             }
         }
-        if (!p76Var.d().isEmpty() && (e86Var = (e86) y86.a(this, e86.class, entity, p76Var)) != null) {
-            for (d86 it : p76Var.d()) {
+        if (!hb6Var.d().isEmpty() && (wb6Var = (wb6) qc6.a(this, wb6.class, entity, hb6Var)) != null) {
+            for (vb6 it : hb6Var.d()) {
                 Intrinsics.checkNotNullExpressionValue(it, "it");
-                e86Var.d(it);
+                wb6Var.d(it);
             }
         }
         f().c(entity);
-        this.s.add(Long.valueOf(p76Var.e().f()));
+        this.s.add(Long.valueOf(hb6Var.e().f()));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -163,7 +163,7 @@ public final class DataSystem extends z76 implements r76.a {
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             if (this.o) {
                 synchronized (this) {
-                    List<p76> sortedData = this.i;
+                    List<hb6> sortedData = this.i;
                     Intrinsics.checkNotNullExpressionValue(sortedData, "sortedData");
                     CollectionsKt__MutableCollectionsJVMKt.sortWith(sortedData, this.k);
                     Unit unit = Unit.INSTANCE;
@@ -180,8 +180,8 @@ public final class DataSystem extends z76 implements r76.a {
         }
     }
 
-    @Override // com.baidu.tieba.z76, com.baidu.tieba.x76, com.baidu.tieba.r0
-    public void g(o0 engine) {
+    @Override // com.baidu.tieba.rb6, com.baidu.tieba.pb6, com.baidu.tieba.s0
+    public void g(p0 engine) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, engine) == null) {
             Intrinsics.checkNotNullParameter(engine, "engine");
@@ -190,7 +190,7 @@ public final class DataSystem extends z76 implements r76.a {
         }
     }
 
-    public final void w(p76 item) {
+    public final void w(hb6 item) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, item) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
@@ -200,7 +200,7 @@ public final class DataSystem extends z76 implements r76.a {
         }
     }
 
-    public final void x(Collection<? extends p76> items) {
+    public final void x(Collection<? extends hb6> items) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, items) == null) {
             Intrinsics.checkNotNullParameter(items, "items");
@@ -210,7 +210,7 @@ public final class DataSystem extends z76 implements r76.a {
         }
     }
 
-    public final int z(List<? extends p76> list) {
+    public final int z(List<? extends hb6> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, list)) == null) {
@@ -221,15 +221,15 @@ public final class DataSystem extends z76 implements r76.a {
     }
 
     public final void B() {
-        List<p76> list;
+        List<hb6> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
                 list = CollectionsKt___CollectionsKt.toList(this.m);
                 this.m.clear();
             }
-            for (p76 p76Var : list) {
-                A(p76Var);
+            for (hb6 hb6Var : list) {
+                A(hb6Var);
             }
         }
     }
@@ -240,75 +240,75 @@ public final class DataSystem extends z76 implements r76.a {
             return;
         }
         int i = 0;
-        if (!vq4.e()) {
-            a96.b("DataSystem_createNewSlice");
+        if (!fr4.e()) {
+            sc6.b("DataSystem_createNewSlice");
             synchronized (this) {
                 List sortedData = this.i;
                 Intrinsics.checkNotNullExpressionValue(sortedData, "sortedData");
-                int a = w86.a(sortedData, Long.valueOf(this.p), DataSystem$updateCurrentSlice$1$1$1.INSTANCE);
+                int a = oc6.a(sortedData, Long.valueOf(this.p), DataSystem$updateCurrentSlice$1$1$1.INSTANCE);
                 List sortedData2 = this.i;
                 Intrinsics.checkNotNullExpressionValue(sortedData2, "sortedData");
-                int b = w86.b(sortedData2, Long.valueOf(this.q), DataSystem$updateCurrentSlice$1$1$2.INSTANCE);
+                int b = oc6.b(sortedData2, Long.valueOf(this.q), DataSystem$updateCurrentSlice$1$1$2.INSTANCE);
                 if (a != -1 && b != -1 && b >= a) {
                     BdLog.w("DanmakuEngine [Data] update current slice [" + a + StringUtil.ARRAY_ELEMENT_SEPARATOR + b + "] in time (" + this.p + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.q + ')');
                     List subList = this.i.subList(a, b + 1);
-                    a96.a();
+                    sc6.a();
                     Unit unit = Unit.INSTANCE;
-                    a96.b(Intrinsics.stringPlus("DataSystem_getCurrentEntity_", Integer.valueOf(subList.size())));
-                    u86 u86Var = this.j;
-                    List synchronizedList = Collections.synchronizedList(w86.c(subList));
+                    sc6.b(Intrinsics.stringPlus("DataSystem_getCurrentEntity_", Integer.valueOf(subList.size())));
+                    mc6 mc6Var = this.j;
+                    List synchronizedList = Collections.synchronizedList(oc6.c(subList));
                     Intrinsics.checkNotNullExpressionValue(synchronizedList, "synchronizedList(newData.toTreeList())");
-                    this.j = new u86(synchronizedList, this.p, this.q, a, b, false, 32, null);
-                    a96.a();
-                    a96.b("DataSystem_diffAndCreateEntity");
-                    if (a <= u86Var.b() && b > u86Var.d()) {
+                    this.j = new mc6(synchronizedList, this.p, this.q, a, b, false, 32, null);
+                    sc6.a();
+                    sc6.b("DataSystem_diffAndCreateEntity");
+                    if (a <= mc6Var.b() && b > mc6Var.d()) {
                         z(subList);
                     } else {
                         i = 0 + subList.size();
                         z(subList);
                         BdLog.d("DanmakuEngine [Data] Add all new data [" + a + StringUtil.ARRAY_ELEMENT_SEPARATOR + b + ']');
                     }
-                    a96.a();
+                    sc6.a();
                     BdLog.d("DanmakuEngine [Data] Add " + i + " in [" + this.p + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.q + ']');
                 }
                 BdLog.w("DanmakuEngine [Data] update current slice failed: invalid start or end index.");
-                a96.a();
+                sc6.a();
             }
             return;
         }
         Trace.beginSection("DataSystem_updateCurrentSlice");
-        a96.b("DataSystem_createNewSlice");
+        sc6.b("DataSystem_createNewSlice");
         synchronized (this) {
             List sortedData3 = this.i;
             Intrinsics.checkNotNullExpressionValue(sortedData3, "sortedData");
-            int a2 = w86.a(sortedData3, Long.valueOf(this.p), DataSystem$updateCurrentSlice$1$1$1.INSTANCE);
+            int a2 = oc6.a(sortedData3, Long.valueOf(this.p), DataSystem$updateCurrentSlice$1$1$1.INSTANCE);
             List sortedData4 = this.i;
             Intrinsics.checkNotNullExpressionValue(sortedData4, "sortedData");
-            int b2 = w86.b(sortedData4, Long.valueOf(this.q), DataSystem$updateCurrentSlice$1$1$2.INSTANCE);
+            int b2 = oc6.b(sortedData4, Long.valueOf(this.q), DataSystem$updateCurrentSlice$1$1$2.INSTANCE);
             if (a2 != -1 && b2 != -1 && b2 >= a2) {
                 BdLog.w("DanmakuEngine [Data] update current slice [" + a2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + b2 + "] in time (" + this.p + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.q + ')');
                 List subList2 = this.i.subList(a2, b2 + 1);
-                a96.a();
+                sc6.a();
                 Unit unit2 = Unit.INSTANCE;
-                a96.b(Intrinsics.stringPlus("DataSystem_getCurrentEntity_", Integer.valueOf(subList2.size())));
-                u86 u86Var2 = this.j;
-                List synchronizedList2 = Collections.synchronizedList(w86.c(subList2));
+                sc6.b(Intrinsics.stringPlus("DataSystem_getCurrentEntity_", Integer.valueOf(subList2.size())));
+                mc6 mc6Var2 = this.j;
+                List synchronizedList2 = Collections.synchronizedList(oc6.c(subList2));
                 Intrinsics.checkNotNullExpressionValue(synchronizedList2, "synchronizedList(newData.toTreeList())");
-                this.j = new u86(synchronizedList2, this.p, this.q, a2, b2, false, 32, null);
-                a96.a();
-                a96.b("DataSystem_diffAndCreateEntity");
-                if (a2 <= u86Var2.b() && b2 > u86Var2.d()) {
+                this.j = new mc6(synchronizedList2, this.p, this.q, a2, b2, false, 32, null);
+                sc6.a();
+                sc6.b("DataSystem_diffAndCreateEntity");
+                if (a2 <= mc6Var2.b() && b2 > mc6Var2.d()) {
                     z(subList2);
                 } else {
                     i = 0 + subList2.size();
                     z(subList2);
                     BdLog.d("DanmakuEngine [Data] Add all new data [" + a2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + b2 + ']');
                 }
-                a96.a();
+                sc6.a();
                 BdLog.d("DanmakuEngine [Data] Add " + i + " in [" + this.p + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.q + ']');
             }
             BdLog.w("DanmakuEngine [Data] update current slice failed: invalid start or end index.");
-            a96.a();
+            sc6.a();
         }
         Unit unit3 = Unit.INSTANCE;
         Trace.endSection();
@@ -317,13 +317,13 @@ public final class DataSystem extends z76 implements r76.a {
     public final void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            j76 c = i().c();
+            bb6 c = i().c();
             long max = Math.max(c.k(), c.t());
-            long b = y86.b(this) - max;
-            long b2 = y86.b(this) + max;
-            y86.b(this);
+            long b = qc6.b(this) - max;
+            long b2 = qc6.b(this) + max;
+            qc6.b(this);
             y();
-            if (!vq4.e()) {
+            if (!fr4.e()) {
                 m();
             } else {
                 Trace.beginSection("DataSystem_sort");
@@ -331,7 +331,7 @@ public final class DataSystem extends z76 implements r76.a {
                 Unit unit = Unit.INSTANCE;
                 Trace.endSection();
             }
-            if (this.r || b < this.p || y86.b(this) > this.q - i().c().q()) {
+            if (this.r || b < this.p || qc6.b(this) > this.q - i().c().q()) {
                 this.p = b;
                 this.q = b2;
                 C();
@@ -341,14 +341,14 @@ public final class DataSystem extends z76 implements r76.a {
         }
     }
 
-    @Override // com.baidu.tieba.z76
-    public void l(p0 entity, float f) {
-        p76 a;
+    @Override // com.baidu.tieba.rb6
+    public void l(q0 entity, float f) {
+        hb6 a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLF(1048581, this, entity, f) == null) {
             Intrinsics.checkNotNullParameter(entity, "entity");
-            s96 d = y86.d(this);
-            b86 b = z86.b(entity);
+            kd6 d = qc6.d(this);
+            tb6 b = rc6.b(entity);
             if (b == null) {
                 a = null;
             } else {
@@ -357,58 +357,58 @@ public final class DataSystem extends z76 implements r76.a {
             if (a == null) {
                 return;
             }
-            a86 d2 = z86.d(entity);
-            if (d2 == null && (d2 = (a86) y86.a(this, a86.class, entity, a)) == null) {
+            sb6 d2 = rc6.d(entity);
+            if (d2 == null && (d2 = (sb6) qc6.a(this, sb6.class, entity, a)) == null) {
                 return;
             }
-            j76 c = i().c();
+            bb6 c = i().c();
             if (d2.c() != c.l()) {
                 d2.update(c.l(), i().e().a(a, d, c).a());
             }
         }
     }
 
-    @Override // com.baidu.tieba.z76, com.baidu.tieba.r0
+    @Override // com.baidu.tieba.rb6, com.baidu.tieba.s0
     public void update(float f) {
-        p76 a;
+        hb6 a;
         long k;
-        p76 a2;
+        hb6 a2;
         long k2;
-        p76 a3;
+        hb6 a3;
         long k3;
-        p76 a4;
+        hb6 a4;
         long k4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048582, this, f) == null) {
-            if (!vq4.e()) {
-                if (!vq4.e()) {
-                    j76 c = i().c();
-                    for (p0 p0Var : k()) {
-                        b86 b = z86.b(p0Var);
+            if (!fr4.e()) {
+                if (!fr4.e()) {
+                    bb6 c = i().c();
+                    for (q0 q0Var : k()) {
+                        tb6 b = rc6.b(q0Var);
                         if (b == null) {
                             a4 = null;
                         } else {
                             a4 = b.a();
                         }
                         if (a4 != null) {
-                            q76 e = a4.e();
+                            ib6 e = a4.e();
                             if (e.j() == 1) {
                                 k4 = c.t();
                             } else {
                                 k4 = c.k();
                             }
                             a4.m(k4);
-                            if (z86.h(p0Var, y86.b(this))) {
+                            if (rc6.h(q0Var, qc6.b(this))) {
                                 if (!this.j.a().isEmpty()) {
                                     this.j.a().remove(a4);
                                 }
                                 this.s.remove(Long.valueOf(e.f()));
-                                f().m(p0Var);
-                                u86 u86Var = this.j;
-                                u86Var.g(u86Var.d() + 1);
-                            } else if (z86.g(p0Var, this.q)) {
+                                f().m(q0Var);
+                                mc6 mc6Var = this.j;
+                                mc6Var.g(mc6Var.d() + 1);
+                            } else if (rc6.g(q0Var, this.q)) {
                                 this.s.remove(Long.valueOf(e.f()));
-                                f().m(p0Var);
+                                f().m(q0Var);
                             }
                         }
                     }
@@ -416,33 +416,33 @@ public final class DataSystem extends z76 implements r76.a {
                     return;
                 }
                 Trace.beginSection("DataSystem_processEntity");
-                j76 c2 = i().c();
-                for (p0 p0Var2 : k()) {
-                    b86 b2 = z86.b(p0Var2);
+                bb6 c2 = i().c();
+                for (q0 q0Var2 : k()) {
+                    tb6 b2 = rc6.b(q0Var2);
                     if (b2 == null) {
                         a3 = null;
                     } else {
                         a3 = b2.a();
                     }
                     if (a3 != null) {
-                        q76 e2 = a3.e();
+                        ib6 e2 = a3.e();
                         if (e2.j() == 1) {
                             k3 = c2.t();
                         } else {
                             k3 = c2.k();
                         }
                         a3.m(k3);
-                        if (z86.h(p0Var2, y86.b(this))) {
+                        if (rc6.h(q0Var2, qc6.b(this))) {
                             if (!this.j.a().isEmpty()) {
                                 this.j.a().remove(a3);
                             }
                             this.s.remove(Long.valueOf(e2.f()));
-                            f().m(p0Var2);
-                            u86 u86Var2 = this.j;
-                            u86Var2.g(u86Var2.d() + 1);
-                        } else if (z86.g(p0Var2, this.q)) {
+                            f().m(q0Var2);
+                            mc6 mc6Var2 = this.j;
+                            mc6Var2.g(mc6Var2.d() + 1);
+                        } else if (rc6.g(q0Var2, this.q)) {
                             this.s.remove(Long.valueOf(e2.f()));
-                            f().m(p0Var2);
+                            f().m(q0Var2);
                         }
                     }
                 }
@@ -452,67 +452,67 @@ public final class DataSystem extends z76 implements r76.a {
                 return;
             }
             Trace.beginSection("DataSystem_update");
-            if (!vq4.e()) {
-                j76 c3 = i().c();
-                for (p0 p0Var3 : k()) {
-                    b86 b3 = z86.b(p0Var3);
+            if (!fr4.e()) {
+                bb6 c3 = i().c();
+                for (q0 q0Var3 : k()) {
+                    tb6 b3 = rc6.b(q0Var3);
                     if (b3 == null) {
                         a2 = null;
                     } else {
                         a2 = b3.a();
                     }
                     if (a2 != null) {
-                        q76 e3 = a2.e();
+                        ib6 e3 = a2.e();
                         if (e3.j() == 1) {
                             k2 = c3.t();
                         } else {
                             k2 = c3.k();
                         }
                         a2.m(k2);
-                        if (z86.h(p0Var3, y86.b(this))) {
+                        if (rc6.h(q0Var3, qc6.b(this))) {
                             if (!this.j.a().isEmpty()) {
                                 this.j.a().remove(a2);
                             }
                             this.s.remove(Long.valueOf(e3.f()));
-                            f().m(p0Var3);
-                            u86 u86Var3 = this.j;
-                            u86Var3.g(u86Var3.d() + 1);
-                        } else if (z86.g(p0Var3, this.q)) {
+                            f().m(q0Var3);
+                            mc6 mc6Var3 = this.j;
+                            mc6Var3.g(mc6Var3.d() + 1);
+                        } else if (rc6.g(q0Var3, this.q)) {
                             this.s.remove(Long.valueOf(e3.f()));
-                            f().m(p0Var3);
+                            f().m(q0Var3);
                         }
                     }
                 }
                 super.update(f);
             } else {
                 Trace.beginSection("DataSystem_processEntity");
-                j76 c4 = i().c();
-                for (p0 p0Var4 : k()) {
-                    b86 b4 = z86.b(p0Var4);
+                bb6 c4 = i().c();
+                for (q0 q0Var4 : k()) {
+                    tb6 b4 = rc6.b(q0Var4);
                     if (b4 == null) {
                         a = null;
                     } else {
                         a = b4.a();
                     }
                     if (a != null) {
-                        q76 e4 = a.e();
+                        ib6 e4 = a.e();
                         if (e4.j() == 1) {
                             k = c4.t();
                         } else {
                             k = c4.k();
                         }
                         a.m(k);
-                        if (z86.h(p0Var4, y86.b(this))) {
+                        if (rc6.h(q0Var4, qc6.b(this))) {
                             if (!this.j.a().isEmpty()) {
                                 this.j.a().remove(a);
                             }
                             this.s.remove(Long.valueOf(e4.f()));
-                            f().m(p0Var4);
-                            u86 u86Var4 = this.j;
-                            u86Var4.g(u86Var4.d() + 1);
-                        } else if (z86.g(p0Var4, this.q)) {
+                            f().m(q0Var4);
+                            mc6 mc6Var4 = this.j;
+                            mc6Var4.g(mc6Var4.d() + 1);
+                        } else if (rc6.g(q0Var4, this.q)) {
                             this.s.remove(Long.valueOf(e4.f()));
-                            f().m(p0Var4);
+                            f().m(q0Var4);
                         }
                     }
                 }
@@ -554,7 +554,7 @@ public final class DataSystem extends z76 implements r76.a {
                 Iterator it = list.iterator();
                 i = 0;
                 while (it.hasNext()) {
-                    if (((p76) it.next()).e().k() < this.p) {
+                    if (((hb6) it.next()).e().k() < this.p) {
                         z = true;
                     } else {
                         z = false;
@@ -568,7 +568,7 @@ public final class DataSystem extends z76 implements r76.a {
             for (Object obj : list) {
                 long j = this.p;
                 long j2 = this.q;
-                long k = ((p76) obj).e().k();
+                long k = ((hb6) obj).e().k();
                 if (j <= k && k < j2) {
                     z4 = true;
                 } else {
@@ -578,15 +578,15 @@ public final class DataSystem extends z76 implements r76.a {
                     arrayList.add(obj);
                 }
             }
-            u86 u86Var = this.j;
-            u86Var.g(u86Var.d() + i);
-            u86 u86Var2 = this.j;
-            u86Var2.e(u86Var2.b() + i + arrayList.size());
+            mc6 mc6Var = this.j;
+            mc6Var.g(mc6Var.d() + i);
+            mc6 mc6Var2 = this.j;
+            mc6Var2.e(mc6Var2.b() + i + arrayList.size());
             ArrayList arrayList2 = new ArrayList();
             for (Object obj2 : list2) {
                 long j3 = this.p;
                 long j4 = this.q;
-                long k2 = ((p76) obj2).e().k();
+                long k2 = ((hb6) obj2).e().k();
                 if (j3 <= k2 && k2 < j4) {
                     z3 = true;
                 } else {
@@ -606,8 +606,8 @@ public final class DataSystem extends z76 implements r76.a {
                 z2 = true;
             }
             this.o = z2;
-            u86 u86Var3 = this.j;
-            u86Var3.f((u86Var3.c() || (arrayList.isEmpty() ^ true) || (arrayList2.isEmpty() ^ true)) ? true : true);
+            mc6 mc6Var3 = this.j;
+            mc6Var3.f((mc6Var3.c() || (arrayList.isEmpty() ^ true) || (arrayList2.isEmpty() ^ true)) ? true : true);
         }
     }
 }

@@ -1,229 +1,451 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.text.TextUtils;
+import androidx.core.app.NotificationCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.frs.game.strategy.FrsGameStrategyMainFragment;
-import com.baidu.tieba.frs.game.strategy.tab.ScrollLabelTabHost;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.tbadk.core.data.IMUserExtraData;
+import com.baidu.tbadk.core.util.videoPreload.IVideoData;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
+import com.baidu.tieba.tbadkCore.data.AgreeData;
+import com.baidu.tieba.tbadkCore.data.WorksInfoData;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class lq6 {
+public class lq6 extends BaseCardInfo implements IVideoData {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId u;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsGameStrategyMainFragment a;
-    public View b;
-    public NavigationBar c;
-    public NoNetworkView d;
-    public ScrollLabelTabHost e;
-    public ImageView f;
-    public String g;
+    public String a;
+    public String b;
+    public String c;
+    public long d;
+    public long e;
+    public long f;
+    public int g;
+    public boolean h;
+    public String i;
+    public List<String> j;
+    public List<String> k;
+    public String l;
+    public b m;
+    public c n;
+    public BaijiahaoData o;
+    public fv4 p;
+    public List<ix8> q;
+    public WorksInfoData r;
+    public boolean s;
+    public AgreeData t;
 
     /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lq6 a;
+        public String a;
+        public String b;
+        public String c;
+        public String d;
+        public boolean e;
+        public boolean f;
+        public a g;
 
-        public a(lq6 lq6Var) {
+        /* loaded from: classes5.dex */
+        public static class a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public String a;
+            public String b;
+            public String c;
+            public String d;
+            public Integer e;
+            public String f;
+
+            public a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+        }
+
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lq6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = lq6Var;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public long b;
+        public String c;
+        public String d;
+        public String e;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        public String toString() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || StringUtils.isNull(this.a.a.W())) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("startTime = " + this.a);
+                sb.append(",   ad_end_time = " + this.b);
+                sb.append(",   pic_url = " + this.c);
+                sb.append(",   card_title = " + this.d);
+                sb.append(",   button_title = " + this.e);
+                return sb.toString();
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+        public String d;
+        public int e;
+        public String f;
+        public String g;
+        public long h;
+        public String i;
+        public String j;
+        public String k;
+        public String l;
+        public String m;
+        public String n;
+        public a o;
+        public List<d> p;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947951576, "Lcom/baidu/tieba/lq6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947951576, "Lcom/baidu/tieba/lq6;");
                 return;
             }
-            this.a.a.sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(this.a.a.getPageContext().getPageActivity(), this.a.a.W(), ForumDetailActivityConfig.FromType.FRS_GAME_STRATEGY)));
         }
+        u = BdUniqueId.gen();
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lq6 a;
-
-        public b(lq6 lq6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lq6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lq6Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if ("from_single_act".equals(this.a.g)) {
-                    this.a.a.getActivity().finish();
-                    return;
-                }
-                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921342);
-                customResponsedMessage.setmOrginalMessage(new CustomMessage(2001627, this.a.a.getPageContext().getUniqueId()));
-                MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-            }
-        }
-    }
-
-    public lq6(FrsGameStrategyMainFragment frsGameStrategyMainFragment, View view2) {
+    public lq6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsGameStrategyMainFragment, view2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = frsGameStrategyMainFragment;
-        this.b = view2;
-        if (view2 != null) {
-            g();
-        }
+        this.q = new ArrayList();
+        this.t = new AgreeData();
     }
 
-    public void j(String str) {
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.g = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            BaijiahaoData baijiahaoData = this.o;
+            if (baijiahaoData == null) {
+                return 1;
+            }
+            int i = baijiahaoData.oriUgcType;
+            if (i == 2) {
+                return 3;
+            }
+            if (i != 4) {
+                return 1;
+            }
+            return 2;
         }
+        return invokeV.intValue;
     }
 
-    public void k(dq6 dq6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dq6Var) == null) {
-            this.e.setDelegateFrsGameTabDataLoadListener(dq6Var);
-        }
-    }
-
-    public void c(int i, int i2, List<xn> list, List<hq6> list2, boolean z, boolean z2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), list, list2, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i3)}) == null) {
-            this.e.j(i, i2, list, list2, z, z2, i3);
-        }
-    }
-
-    public void d() {
-        ScrollLabelTabHost scrollLabelTabHost;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (scrollLabelTabHost = this.e) != null) {
-            scrollLabelTabHost.k();
-        }
-    }
-
-    public NavigationBar e() {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yn
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+            return u;
         }
-        return (NavigationBar) invokeV.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public View f() {
+    @Override // com.baidu.tbadk.core.util.videoPreload.IVideoData
+    public String getVideoUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.e.n();
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.c = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.setMargins(0, 0, yi.g(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701e8), 0);
-            ImageView imageView = (ImageView) this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0949, (View.OnClickListener) null);
-            this.f = imageView;
-            imageView.setLayoutParams(layoutParams);
-            this.f.setOnClickListener(new a(this));
-            this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new b(this));
-            this.d = (NoNetworkView) this.b.findViewById(R.id.view_no_network);
-            ScrollLabelTabHost scrollLabelTabHost = (ScrollLabelTabHost) this.b.findViewById(R.id.obfuscated_res_0x7f090b6e);
-            this.e = scrollLabelTabHost;
-            scrollLabelTabHost.setPageId(this.a.getBaseFragmentActivity().getUniqueId());
-        }
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.c.onChangeSkinType(this.a.getPageContext(), i);
-            this.d.d(this.a.getPageContext(), i);
-            this.e.m(i);
-            ImageView imageView = this.f;
-            if (imageView != null) {
-                SkinManager.setNavbarIconSrc(imageView, R.drawable.btn_more_selector_s, R.drawable.btn_more_selector);
+            c cVar = this.n;
+            if (cVar != null) {
+                return cVar.d;
             }
+            return null;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void l(List<hq6> list, boolean z) {
+    public void f(String str) {
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048585, this, list, z) == null) {
-            this.e.setTabData(list, z);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
-    }
-
-    public void m(int i, int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048586, this, i, i2, str) == null) {
-            this.e.p(i, i2, str);
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            this.a = jSONObject.optString("forum_id");
+            this.b = jSONObject.optString("thread_id");
+            this.c = jSONObject.optString("nid");
+            jSONObject.optString("first_post_id");
+            jSONObject.optString("create_time");
+            jSONObject.optLong("play_count");
+            this.l = jSONObject.optString("title");
+            this.d = jSONObject.optLong("post_num");
+            jSONObject.optLong("share_num");
+            this.e = jSONObject.optLong("agree_num");
+            this.f = jSONObject.optLong("disagree_num");
+            this.g = jSONObject.optInt("agree_type");
+            boolean z3 = true;
+            if (jSONObject.optInt("has_agree") == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.h = z;
+            if (this.e < 0) {
+                this.e = 0L;
+            }
+            if (this.f < 0) {
+                this.f = 0L;
+            }
+            this.t.threadId = this.b;
+            this.t.agreeType = this.g;
+            this.t.hasAgree = this.h;
+            this.t.agreeNum = this.e;
+            this.t.disAgreeNum = this.f;
+            this.t.diffAgreeNum = jSONObject.optLong("diff_agree_num", 0L);
+            jSONObject.optString("source");
+            jSONObject.optString("extra");
+            jSONObject.optString("abtest_tag");
+            jSONObject.optString("weight");
+            this.j = new ArrayList();
+            String optString = jSONObject.optString("forum_id_shared");
+            if (!StringUtils.isNull(optString)) {
+                JSONArray jSONArray = new JSONArray(optString);
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    this.j.add(jSONArray.optString(i));
+                }
+            }
+            this.k = new ArrayList();
+            String optString2 = jSONObject.optString("forum_name_shared");
+            if (!StringUtils.isNull(optString2)) {
+                JSONArray jSONArray2 = new JSONArray(optString2);
+                for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                    this.k.add(jSONArray2.optString(i2));
+                }
+            }
+            String optString3 = jSONObject.optString(NotificationCompat.CarExtender.KEY_AUTHOR);
+            if (!TextUtils.isEmpty(optString3)) {
+                this.m = new b();
+                JSONObject jSONObject2 = new JSONObject(optString3);
+                this.m.a = jSONObject2.optString("user_id");
+                this.m.b = jSONObject2.optString("user_name");
+                this.m.c = jSONObject2.optString("user_nickname");
+                this.m.d = jSONObject2.optString("portrait");
+                b bVar = this.m;
+                if (jSONObject2.optInt(AddFriendActivityConfig.TYPE_FOCUS) == 1) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                bVar.e = z2;
+                b bVar2 = this.m;
+                if (jSONObject2.optInt(IMUserExtraData.KEY_IS_GOD) != 1) {
+                    z3 = false;
+                }
+                bVar2.f = z3;
+                String optString4 = jSONObject2.optString("baijiahao_info");
+                if (!TextUtils.isEmpty(optString4)) {
+                    JSONObject jSONObject3 = new JSONObject(optString4);
+                    this.m.g = new b.a();
+                    this.m.g.a = jSONObject3.optString("name");
+                    this.m.g.d = jSONObject3.optString(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
+                    this.m.g.b = jSONObject3.optString("avatar");
+                    this.m.g.c = jSONObject3.optString("avatar_h");
+                    this.m.g.e = Integer.valueOf(jSONObject3.optInt("auth_id"));
+                    this.m.g.f = jSONObject3.optString(IMUserExtraData.KEY_AUTH_DESC);
+                }
+            }
+            String optString5 = jSONObject.optString("video");
+            if (!TextUtils.isEmpty(optString5)) {
+                this.n = new c();
+                JSONObject jSONObject4 = new JSONObject(optString5);
+                this.n.a = jSONObject4.optString("thumbnail_width");
+                this.n.b = jSONObject4.optString("thumbnail_height");
+                this.n.c = jSONObject4.optString(VideoFinishResult.KEY_VIDEO_MD5);
+                this.n.d = jSONObject4.optString("video_url");
+                this.n.e = jSONObject4.optInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION);
+                this.n.f = jSONObject4.optString("video_width");
+                this.n.g = jSONObject4.optString("video_height");
+                this.n.h = jSONObject4.optLong("video_size");
+                this.n.i = jSONObject4.optString("video_type");
+                this.n.j = jSONObject4.optString("thumbnail_url");
+                this.n.k = jSONObject4.optString("video_format");
+                this.n.l = jSONObject4.optString("thumbnail_picid");
+                this.n.m = jSONObject4.optString("origin_video_url");
+                this.n.n = jSONObject4.optString("mcn_lead_page");
+                String optString6 = jSONObject4.optString("video_desc");
+                if (!TextUtils.isEmpty(optString6)) {
+                    this.n.p = new ArrayList();
+                    JSONArray jSONArray3 = new JSONArray(optString6);
+                    for (int i3 = 0; i3 < jSONArray3.length(); i3++) {
+                        d dVar = new d();
+                        jSONArray3.optJSONObject(i3).optString("video_id");
+                        jSONArray3.optJSONObject(i3).optString("video_url");
+                        jSONArray3.optJSONObject(i3).optString("video_width");
+                        jSONArray3.optJSONObject(i3).optString("video_height");
+                        this.n.p.add(dVar);
+                    }
+                }
+                JSONObject optJSONObject = jSONObject4.optJSONObject("mcn_ad_card");
+                if (optJSONObject != null) {
+                    a aVar = new a();
+                    aVar.a = optJSONObject.optLong("ad_start_time");
+                    aVar.b = optJSONObject.optLong("ad_end_time");
+                    aVar.c = optJSONObject.optString("pic_url");
+                    optJSONObject.optString(BigdayActivityConfig.JUMP_URL);
+                    aVar.d = optJSONObject.optString("card_title");
+                    aVar.e = optJSONObject.optString("button_title");
+                    optJSONObject.optLong("effect_time");
+                    optJSONObject.optLong("expire_time");
+                    this.n.o = aVar;
+                }
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject(Constants.PAGE_BAIJIAHAO_NAME);
+            if (optJSONObject2 != null) {
+                BaijiahaoData baijiahaoData = new BaijiahaoData();
+                this.o = baijiahaoData;
+                baijiahaoData.parseJson(optJSONObject2);
+            }
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("forum_info");
+            if (optJSONObject3 != null) {
+                fv4 fv4Var = new fv4();
+                this.p = fv4Var;
+                fv4Var.g(optJSONObject3);
+            }
+            jSONObject.optLong("last_time_int");
+            JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
+            if (optJSONArray != null) {
+                this.q = new ArrayList();
+                for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
+                    ix8 ix8Var = new ix8();
+                    ix8Var.a(optJSONArray.getJSONObject(i4));
+                    this.q.add(ix8Var);
+                }
+            }
+            JSONObject optJSONObject4 = jSONObject.optJSONObject("works_info");
+            if (optJSONObject4 != null) {
+                WorksInfoData worksInfoData = new WorksInfoData();
+                this.r = worksInfoData;
+                worksInfoData.parseJson(optJSONObject4);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

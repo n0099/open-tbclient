@@ -1,35 +1,294 @@
 package com.baidu.tieba;
 
-import android.graphics.Path;
-import android.graphics.RectF;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
 public class sw4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final List<DialogStrategiesData> c;
+    public static volatile sw4 d;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public Map<String, List<DialogStrategiesData>> a;
+    public final Set<String> b;
 
-    public static Path a(RectF rectF, float[] fArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, rectF, fArr)) == null) {
-            Path path = new Path();
-            path.addRoundRect(rectF, fArr, Path.Direction.CW);
-            return path;
-        }
-        return (Path) invokeLL.objValue;
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a(List<DialogStrategiesData> list);
     }
 
-    public static float[] b(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
-            float[] fArr = new float[8];
-            Arrays.fill(fArr, f);
-            return fArr;
+    /* loaded from: classes6.dex */
+    public class a extends zk5<List<DialogStrategiesData>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sw4 a;
+
+        public a(sw4 sw4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sw4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = sw4Var;
         }
-        return (float[]) invokeF.objValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.zk5
+        /* renamed from: a */
+        public List<DialogStrategiesData> doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a.i();
+            }
+            return (List) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements dk5<List<DialogStrategiesData>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ sw4 c;
+
+        public b(sw4 sw4Var, c cVar, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sw4Var, cVar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = sw4Var;
+            this.a = cVar;
+            this.b = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.dk5
+        /* renamed from: a */
+        public void onReturnDataInUI(List<DialogStrategiesData> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, list) != null) {
+                return;
+            }
+            this.c.k(list);
+            if (this.a != null) {
+                List<DialogStrategiesData> list2 = (List) this.c.a.get(this.b);
+                c cVar = this.a;
+                if (ListUtils.isEmpty(list2)) {
+                    list2 = sw4.c;
+                }
+                cVar.a(list2);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948165817, "Lcom/baidu/tieba/sw4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948165817, "Lcom/baidu/tieba/sw4;");
+                return;
+            }
+        }
+        c = Collections.emptyList();
+    }
+
+    public sw4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = new LinkedHashSet();
+    }
+
+    public static sw4 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (d == null) {
+                synchronized (sw4.class) {
+                    if (d == null) {
+                        d = new sw4();
+                    }
+                }
+            }
+            return d;
+        }
+        return (sw4) invokeV.objValue;
+    }
+
+    public static String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return "key_yun_dialog_strategies@" + TbadkCoreApplication.getCurrentAccount();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public void e(@NonNull String str, c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) {
+            if (this.a == null) {
+                this.a = new LinkedHashMap();
+            }
+            List<DialogStrategiesData> list = this.a.get(str);
+            if (list == null && this.a.isEmpty()) {
+                dl5.b(new a(this), new b(this, cVar, str));
+            } else if (cVar != null) {
+                if (ListUtils.isEmpty(list)) {
+                    list = c;
+                }
+                cVar.a(list);
+            }
+        }
+    }
+
+    public final void h(Map<String, List<DialogStrategiesData>> map, List<DialogStrategiesData> list, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, list, str) != null) || map == null) {
+            return;
+        }
+        for (DialogStrategiesData dialogStrategiesData : list) {
+            if (map.containsKey(str)) {
+                if (dialogStrategiesData.getDialogTime().contains(str)) {
+                    map.get(str).add(dialogStrategiesData);
+                }
+            } else if (dialogStrategiesData.getDialogTime().contains(str)) {
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(dialogStrategiesData);
+                map.put(str, arrayList);
+            }
+        }
+    }
+
+    public final List<DialogStrategiesData> i() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ef<String> g = vv4.g("tb.dialog_strategies_data", TbadkCoreApplication.getCurrentAccount(), g());
+            if (g != null) {
+                str = g.get(g());
+            } else {
+                str = null;
+            }
+            if (StringUtils.isNull(str)) {
+                return c;
+            }
+            try {
+                return DataExt.toEntityList(new JSONArray(str).toString(), DialogStrategiesData.class);
+            } catch (Exception e) {
+                BdLog.e(e);
+                return c;
+            }
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void j(JSONArray jSONArray) {
+        ef<String> g;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONArray) != null) || (g = vv4.g("tb.dialog_strategies_data", TbadkCoreApplication.getCurrentAccount(), g())) == null) {
+            return;
+        }
+        if (jSONArray != null && jSONArray.length() > 0) {
+            xw4.a.a(jSONArray.toString());
+            try {
+                k(DataExt.toEntityList(jSONArray.toString(), DialogStrategiesData.class));
+                return;
+            } catch (Exception e) {
+                BdLog.e(e);
+                return;
+            }
+        }
+        g.remove(g());
+        k(Collections.emptyList());
+    }
+
+    public final void k(List<DialogStrategiesData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            try {
+                if (!ListUtils.isEmpty(list)) {
+                    if (this.a == null) {
+                        this.a = new LinkedHashMap();
+                    }
+                    this.a.clear();
+                    for (DialogStrategiesData dialogStrategiesData : list) {
+                        List<String> dialogTime = dialogStrategiesData.getDialogTime();
+                        if (!ListUtils.isEmpty(dialogTime)) {
+                            this.b.addAll(dialogTime);
+                        }
+                    }
+                    for (String str : this.b) {
+                        h(this.a, list, str);
+                    }
+                    return;
+                }
+                if (this.a != null) {
+                    this.a.clear();
+                }
+                this.b.clear();
+            } catch (Exception e) {
+                BdLog.e(e);
+            }
+        }
     }
 }

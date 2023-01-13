@@ -249,7 +249,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
             showActionBarResult = RewardActionBarControl.ShowActionBarResult.SHOW_NATIVE_PLAYABLE_PORTRAIT;
         } else if (!com.kwad.sdk.core.response.a.a.bF(this.mAdInfo) || (viewGroup2 = this.rt) == null) {
             if (com.kwad.sdk.core.response.a.a.aK(this.mAdTemplate)) {
-                ViewGroup viewGroup3 = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09122b);
+                ViewGroup viewGroup3 = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091236);
                 this.ru = viewGroup3;
                 if (viewGroup3 != null) {
                     Resources resources = viewGroup3.getResources();
@@ -388,7 +388,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
             AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
             this.mAdInfo = bQ;
             if (com.kwad.sdk.core.response.a.a.bF(bQ)) {
-                this.rt = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091217);
+                this.rt = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091222);
             }
             this.pM.T(this.mAdTemplate);
             k kVar = this.nM;
@@ -674,11 +674,11 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910e8);
-            this.rn = (ActionBarAppLandscape) findViewById(R.id.obfuscated_res_0x7f0912ba);
-            this.ro = (ActionBarAppPortrait) findViewById(R.id.obfuscated_res_0x7f0912bb);
-            this.rp = (ActionBarAppPortraitForLive) findViewById(R.id.obfuscated_res_0x7f0912bc);
-            this.rq = (ActionBarH5) findViewById(R.id.obfuscated_res_0x7f0912bd);
+            this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910f3);
+            this.rn = (ActionBarAppLandscape) findViewById(R.id.obfuscated_res_0x7f0912c5);
+            this.ro = (ActionBarAppPortrait) findViewById(R.id.obfuscated_res_0x7f0912c6);
+            this.rp = (ActionBarAppPortraitForLive) findViewById(R.id.obfuscated_res_0x7f0912c7);
+            this.rq = (ActionBarH5) findViewById(R.id.obfuscated_res_0x7f0912c8);
         }
     }
 

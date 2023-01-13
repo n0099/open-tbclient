@@ -39,6 +39,7 @@ import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.searchbox.live.frame.ListInfo;
 import com.baidu.searchbox.live.frame.PageInfo;
 import com.baidu.searchbox.live.interfaces.mix.IMixActivityInterface;
+import com.baidu.searchbox.live.interfaces.mix.MixInvokeAbility;
 import com.baidu.searchbox.live.interfaces.mix.PluginInvokeService;
 import com.baidu.searchbox.live.interfaces.service.AbConfigService;
 import com.baidu.searchbox.live.interfaces.service.LiveSessionService;
@@ -67,7 +68,6 @@ import com.baidu.searchbox.live.widget.LiveContainer;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tbadk.core.atomData.GroupInfoActivityConfig;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -95,6 +95,7 @@ import kotlin.ResultKt;
 import kotlin.TypeCastException;
 import kotlin.Unit;
 import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.PropertyReference1Impl;
@@ -106,7 +107,7 @@ import kotlin.text.StringsKt__StringsKt;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000¶\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010!\n\u0002\b\u0007\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\b\n\u0002\b\u000b\n\u0002\u0010\t\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0011\n\u0000\n\u0002\u0010\u0015\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010$\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u000f\n\u0002\u0018\u0002\n\u0002\b\u0010\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006*\u0002¦\u0001\u0018\u0000 Û\u00012\u00020\u00012\u00020\u00022\u00020\u0003:\u0002Û\u0001B%\u0012\u0006\u0010n\u001a\u00020m\u0012\b\u0010¿\u0001\u001a\u00030¾\u0001\u0012\b\u0010¼\u0001\u001a\u00030»\u0001¢\u0006\u0006\bÙ\u0001\u0010Ú\u0001J!\u0010\t\u001a\u00020\b2\b\u0010\u0005\u001a\u0004\u0018\u00010\u00042\u0006\u0010\u0007\u001a\u00020\u0006H\u0002¢\u0006\u0004\b\t\u0010\nJ\u0017\u0010\r\u001a\u00020\b2\u0006\u0010\f\u001a\u00020\u000bH\u0002¢\u0006\u0004\b\r\u0010\u000eJ\u0019\u0010\u0011\u001a\u00020\b2\b\u0010\u0010\u001a\u0004\u0018\u00010\u000fH\u0016¢\u0006\u0004\b\u0011\u0010\u0012J\u000f\u0010\u0013\u001a\u00020\bH\u0002¢\u0006\u0004\b\u0013\u0010\u0014J\r\u0010\u0016\u001a\u00020\u0015¢\u0006\u0004\b\u0016\u0010\u0017J+\u0010\u001b\u001a\u00020\b2\f\u0010\u0019\u001a\b\u0012\u0004\u0012\u00020\u00040\u00182\f\u0010\u001a\u001a\b\u0012\u0004\u0012\u00020\u00040\u0018H\u0002¢\u0006\u0004\b\u001b\u0010\u001cJM\u0010%\u001a\u00020\b2\b\u0010\u001d\u001a\u0004\u0018\u00010\u00062\b\u0010\u001e\u001a\u0004\u0018\u00010\u00062\b\u0010\u001f\u001a\u0004\u0018\u00010\u00062\u0006\u0010!\u001a\u00020 2\n\b\u0002\u0010#\u001a\u0004\u0018\u00010\"2\n\b\u0002\u0010$\u001a\u0004\u0018\u00010\u0006H\u0002¢\u0006\u0004\b%\u0010&J\u0015\u0010(\u001a\u00020\b2\u0006\u0010'\u001a\u00020\"¢\u0006\u0004\b(\u0010)J\r\u0010*\u001a\u00020\b¢\u0006\u0004\b*\u0010\u0014JI\u00102\u001a\u00020\b2\u0006\u0010\u001d\u001a\u00020\u00062\u0006\u0010+\u001a\u00020\u00062\u0006\u0010,\u001a\u00020\u00062\u0006\u0010-\u001a\u00020\u00062\u0006\u0010/\u001a\u00020.2\u0006\u00100\u001a\u00020\u00062\b\b\u0002\u00101\u001a\u00020\u0006H\u0002¢\u0006\u0004\b2\u00103J\u000f\u00104\u001a\u00020\bH\u0002¢\u0006\u0004\b4\u0010\u0014J\u000f\u00105\u001a\u00020\bH\u0002¢\u0006\u0004\b5\u0010\u0014J)\u0010:\u001a\u00020\b2\u0006\u00106\u001a\u00020\"2\u0006\u00107\u001a\u00020\"2\b\u00109\u001a\u0004\u0018\u000108H\u0016¢\u0006\u0004\b:\u0010;J\u0017\u0010<\u001a\u00020\b2\u0006\u0010'\u001a\u00020\"H\u0016¢\u0006\u0004\b<\u0010)J\u0017\u0010=\u001a\u00020\b2\u0006\u0010'\u001a\u00020\"H\u0016¢\u0006\u0004\b=\u0010)J\u0017\u0010@\u001a\u00020\b2\u0006\u0010?\u001a\u00020>H\u0016¢\u0006\u0004\b@\u0010AJ\r\u0010B\u001a\u00020\b¢\u0006\u0004\bB\u0010\u0014J\r\u0010C\u001a\u00020\b¢\u0006\u0004\bC\u0010\u0014J\u001f\u0010F\u001a\u00020 2\u0006\u0010D\u001a\u00020\"2\u0006\u0010\u0010\u001a\u00020EH\u0016¢\u0006\u0004\bF\u0010GJ\u0017\u0010I\u001a\u00020\b2\u0006\u0010H\u001a\u000208H\u0016¢\u0006\u0004\bI\u0010JJ\u001d\u0010M\u001a\u00020\b2\f\u00109\u001a\b\u0012\u0004\u0012\u00020L0KH\u0002¢\u0006\u0004\bM\u0010NJ/\u0010S\u001a\u00020\b2\u0006\u00106\u001a\u00020\"2\u000e\u0010P\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u00060O2\u0006\u0010R\u001a\u00020QH\u0016¢\u0006\u0004\bS\u0010TJ'\u0010X\u001a\u0012\u0012\u0004\u0012\u00020\u0006\u0012\u0006\u0012\u0004\u0018\u00010\u0006\u0018\u00010W2\u0006\u0010V\u001a\u00020UH\u0002¢\u0006\u0004\bX\u0010YJ!\u0010\\\u001a\u00020\u00062\u0006\u0010,\u001a\u00020\u00062\b\u0010[\u001a\u0004\u0018\u00010ZH\u0002¢\u0006\u0004\b\\\u0010]J\u000f\u0010^\u001a\u00020\bH\u0002¢\u0006\u0004\b^\u0010\u0014J\u000f\u0010_\u001a\u00020\bH\u0002¢\u0006\u0004\b_\u0010\u0014J\u000f\u0010`\u001a\u00020\bH\u0002¢\u0006\u0004\b`\u0010\u0014J\u000f\u0010a\u001a\u00020\bH\u0002¢\u0006\u0004\ba\u0010\u0014J\u000f\u0010b\u001a\u00020\bH\u0002¢\u0006\u0004\bb\u0010\u0014J-\u0010e\u001a\u00020\b2\u0006\u0010c\u001a\u00020\u00062\u0006\u0010d\u001a\u00020\"2\f\u00109\u001a\b\u0012\u0004\u0012\u00020\u00040\u0018H\u0002¢\u0006\u0004\be\u0010fJ\u0017\u0010i\u001a\u00020\b2\u0006\u0010h\u001a\u00020gH\u0002¢\u0006\u0004\bi\u0010jJ\u000f\u0010k\u001a\u00020\bH\u0002¢\u0006\u0004\bk\u0010\u0014J\u000f\u0010l\u001a\u00020\bH\u0002¢\u0006\u0004\bl\u0010\u0014R\u0019\u0010n\u001a\u00020m8\u0006@\u0006¢\u0006\f\n\u0004\bn\u0010o\u001a\u0004\bp\u0010qR$\u0010r\u001a\u0004\u0018\u00010\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\br\u0010s\u001a\u0004\bt\u0010u\"\u0004\bv\u0010wR\"\u0010x\u001a\u00020\"8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bx\u0010y\u001a\u0004\bz\u0010{\"\u0004\b|\u0010)R(\u0010~\u001a\u0004\u0018\u00010}8\u0006@\u0006X\u0086\u000e¢\u0006\u0016\n\u0004\b~\u0010\u007f\u001a\u0006\b\u0080\u0001\u0010\u0081\u0001\"\u0006\b\u0082\u0001\u0010\u0083\u0001R)\u0010\u0084\u0001\u001a\u00020 8\u0006@\u0006X\u0086\u000e¢\u0006\u0018\n\u0006\b\u0084\u0001\u0010\u0085\u0001\u001a\u0006\b\u0084\u0001\u0010\u0086\u0001\"\u0006\b\u0087\u0001\u0010\u0088\u0001R\u0019\u0010\u0089\u0001\u001a\u00020 8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0089\u0001\u0010\u0085\u0001R$\u0010\u008a\u0001\u001a\b\u0012\u0004\u0012\u00020\u00040\u00188\u0006@\u0006¢\u0006\u0010\n\u0006\b\u008a\u0001\u0010\u008b\u0001\u001a\u0006\b\u008c\u0001\u0010\u008d\u0001R#\u0010\u0093\u0001\u001a\u00030\u008e\u00018B@\u0002X\u0082\u0084\u0002¢\u0006\u0010\n\u0006\b\u008f\u0001\u0010\u0090\u0001\u001a\u0006\b\u0091\u0001\u0010\u0092\u0001R\u0019\u0010\u0094\u0001\u001a\u00020.8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0094\u0001\u0010\u0095\u0001R\u0019\u0010\u0096\u0001\u001a\u00020.8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0096\u0001\u0010\u0095\u0001R$\u0010\u0099\u0001\u001a\r \u0098\u0001*\u0005\u0018\u00010\u0097\u00010\u0097\u00018\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\b\u0099\u0001\u0010\u009a\u0001R\u0018\u0010\u009b\u0001\u001a\u00020\"8\u0002@\u0002X\u0082D¢\u0006\u0007\n\u0005\b\u009b\u0001\u0010yR\u0019\u0010\u009c\u0001\u001a\u00020 8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u009c\u0001\u0010\u0085\u0001R\u001c\u0010\u009e\u0001\u001a\u0005\u0018\u00010\u009d\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u009e\u0001\u0010\u009f\u0001R\u001c\u0010¡\u0001\u001a\u0005\u0018\u00010 \u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b¡\u0001\u0010¢\u0001R\u001c\u0010¤\u0001\u001a\u0005\u0018\u00010£\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b¤\u0001\u0010¥\u0001R#\u0010ª\u0001\u001a\u00030¦\u00018B@\u0002X\u0082\u0084\u0002¢\u0006\u0010\n\u0006\b§\u0001\u0010\u0090\u0001\u001a\u0006\b¨\u0001\u0010©\u0001R\u001c\u0010¬\u0001\u001a\u0005\u0018\u00010«\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b¬\u0001\u0010\u00ad\u0001R,\u0010¯\u0001\u001a\u0005\u0018\u00010®\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0018\n\u0006\b¯\u0001\u0010°\u0001\u001a\u0006\b±\u0001\u0010²\u0001\"\u0006\b³\u0001\u0010´\u0001R\u001c\u0010¶\u0001\u001a\u0005\u0018\u00010µ\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b¶\u0001\u0010·\u0001R\u001c\u0010¹\u0001\u001a\u0005\u0018\u00010¸\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b¹\u0001\u0010º\u0001R\u001a\u0010¼\u0001\u001a\u00030»\u00018\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\b¼\u0001\u0010½\u0001R\u001a\u0010¿\u0001\u001a\u00030¾\u00018\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\b¿\u0001\u0010À\u0001R\u001b\u0010Á\u0001\u001a\u0004\u0018\u00010Z8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\bÁ\u0001\u0010Â\u0001R+\u0010Ã\u0001\u001a\u0004\u0018\u00010L8\u0006@\u0006X\u0086\u000e¢\u0006\u0018\n\u0006\bÃ\u0001\u0010Ä\u0001\u001a\u0006\bÅ\u0001\u0010Æ\u0001\"\u0006\bÇ\u0001\u0010È\u0001R,\u0010Ê\u0001\u001a\u0005\u0018\u00010É\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0018\n\u0006\bÊ\u0001\u0010Ë\u0001\u001a\u0006\bÌ\u0001\u0010Í\u0001\"\u0006\bÎ\u0001\u0010Ï\u0001R\u0019\u0010Ð\u0001\u001a\u00020 8\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\bÐ\u0001\u0010\u0085\u0001R\u0019\u0010Ñ\u0001\u001a\u00020 8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\bÑ\u0001\u0010\u0085\u0001R,\u0010Ô\u0001\u001a\u0010\u0012\f\u0012\n\u0012\u0005\u0012\u00030Ó\u00010Ò\u00010\u00188\u0006@\u0006¢\u0006\u0010\n\u0006\bÔ\u0001\u0010\u008b\u0001\u001a\u0006\bÕ\u0001\u0010\u008d\u0001R\u001a\u0010×\u0001\u001a\u00030Ö\u00018\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\b×\u0001\u0010Ø\u0001¨\u0006Ü\u0001"}, d2 = {"Lcom/baidu/searchbox/live/list/controller/ListController;", "Lcom/baidu/live/arch/api/IExtLifecycle;", "Lcom/baidu/searchbox/live/eventbus/EventAction;", "Lcom/baidu/searchbox/live/list/controller/IListListener;", "Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "model", "", "id", "", "bindHLReplayInfo", "(Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;Ljava/lang/String;)V", "Lorg/json/JSONArray;", "roomIdJSONArray", "cacheCloseRoomIdList", "(Lorg/json/JSONArray;)V", "Lcom/baidu/searchbox/live/action/AbstractEvent;", "event", NotificationCompat.CATEGORY_CALL, "(Lcom/baidu/searchbox/live/action/AbstractEvent;)V", "changeScrollState", "()V", "Landroid/view/View;", "createView", "()Landroid/view/View;", "", "origin", "addition", "distinct", "(Ljava/util/List;Ljava/util/List;)V", "roomId", "value", "status", "", "useCache", "", "error", StatConstants.KEY_EXT_ERR_MSG, "doEnterUbcByRequestEnter", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/Integer;Ljava/lang/String;)V", CriusAttrConstants.POSITION, "fetchMoreLiveIfNeed", "(I)V", "finish", AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, "scheme", "from", "", "clickTime", "clickFrom", "playUrl", "jumpToNewLiveRoom", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;)V", "loadLiveRoom", "logEventOnReach", GroupInfoActivityConfig.REQUEST_CODE, "resultCode", "Landroid/content/Intent;", "data", "onActivityResult", "(IILandroid/content/Intent;)V", "onAfterSelect", "onBeforeSelect", "Landroid/content/res/Configuration;", "newConfig", "onConfigurationChanged", "(Landroid/content/res/Configuration;)V", "onCreate", MissionEvent.MESSAGE_DESTROY, "keyCode", "Landroid/view/KeyEvent;", "onKeyDown", "(ILandroid/view/KeyEvent;)Z", IntentData.KEY, "onNewIntent", "(Landroid/content/Intent;)V", "Lcom/baidu/searchbox/live/model/res/MixResult;", "Lcom/baidu/searchbox/live/data/resp/LiveRoomEnterRespData;", "onPreRoomEnterDataLoaded", "(Lcom/baidu/searchbox/live/model/res/MixResult;)V", "", "permissions", "", "grantResults", "onRequestPermissionsResult", "(I[Ljava/lang/String;[I)V", "Lorg/json/JSONObject;", "input", "", "paramsJsonToMap", "(Lorg/json/JSONObject;)Ljava/util/Map;", "Lcom/baidu/searchbox/live/widget/LiveContainer$PlaySourceInfo;", "sourceInfo", "parseClickTime", "(Ljava/lang/String;Lcom/baidu/searchbox/live/widget/LiveContainer$PlaySourceInfo;)Ljava/lang/String;", "preReqRoomEnter", "queryLiveList", "registerMixRequestService", "registerYYLifeCyclePlugin", "reloadLiveRoom", "pageSession", "hasMore", "slideListSuccess", "(Ljava/lang/String;ILjava/util/List;)V", "Lcom/baidu/searchbox/live/data/pojo/LiveTypeData;", "itemLiveType", "templateIdSuccess", "(Lcom/baidu/searchbox/live/data/pojo/LiveTypeData;)V", "unBindHLReplayInfo", "unregisterMixRequestService", "Landroid/content/Context;", "context", "Landroid/content/Context;", "getContext", "()Landroid/content/Context;", "curRoomModel", "Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "getCurRoomModel", "()Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "setCurRoomModel", "(Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;)V", "currentPosition", "I", "getCurrentPosition", "()I", "setCurrentPosition", "Landroid/os/Handler;", "handler", "Landroid/os/Handler;", "getHandler", "()Landroid/os/Handler;", "setHandler", "(Landroid/os/Handler;)V", "isFromForward", "Z", "()Z", "setFromForward", "(Z)V", "isRegistYYActivityLifeCyclePlugin", "itemData", "Ljava/util/List;", "getItemData", "()Ljava/util/List;", "Lcom/baidu/searchbox/live/list/controller/IListManager;", "listManager$delegate", "Lkotlin/Lazy;", "getListManager", "()Lcom/baidu/searchbox/live/list/controller/IListManager;", "listManager", "listRequestDuration", "J", "listRequestTime", "Lcom/baidu/searchbox/live/interfaces/service/LiveSessionService;", "kotlin.jvm.PlatformType", "liveSessionService", "Lcom/baidu/searchbox/live/interfaces/service/LiveSessionService;", "loadMoreFraction", "localSwitchCanScroll", "Lcom/baidu/searchbox/live/frame/IntentData;", "mIntentData", "Lcom/baidu/searchbox/live/frame/IntentData;", "Lcom/baidu/searchbox/live/frame/ListInfo;", "mListInfo", "Lcom/baidu/searchbox/live/frame/ListInfo;", "Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin;", "mLiveRoomInfoStatPlugin", "Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin;", "com/baidu/searchbox/live/list/controller/ListController$mMixEventDispatcher$2$1", "mMixEventDispatcher$delegate", "getMMixEventDispatcher", "()Lcom/baidu/searchbox/live/list/controller/ListController$mMixEventDispatcher$2$1;", "mMixEventDispatcher", "Lcom/baidu/searchbox/live/model/MixModel;", "mNetModel", "Lcom/baidu/searchbox/live/model/MixModel;", "Lcom/baidu/searchbox/live/frame/PageInfo;", "mPageInfo", "Lcom/baidu/searchbox/live/frame/PageInfo;", "getMPageInfo", "()Lcom/baidu/searchbox/live/frame/PageInfo;", "setMPageInfo", "(Lcom/baidu/searchbox/live/frame/PageInfo;)V", "Lcom/baidu/searchbox/live/list/plugin/YYActivityLifeCyclePlugin;", "mYYLifeCyclePlugin", "Lcom/baidu/searchbox/live/list/plugin/YYActivityLifeCyclePlugin;", "Lcom/baidu/searchbox/live/list/plugin/YYLoadPluginPlugin;", "mYYLoadPluginPlugin", "Lcom/baidu/searchbox/live/list/plugin/YYLoadPluginPlugin;", "Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;", "mixActivity", "Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;", "Lcom/baidu/live/arch/utils/MiniUniqueId;", "mixUniqueId", "Lcom/baidu/live/arch/utils/MiniUniqueId;", "playSource", "Lcom/baidu/searchbox/live/widget/LiveContainer$PlaySourceInfo;", "preReqRoomEnterData", "Lcom/baidu/searchbox/live/data/resp/LiveRoomEnterRespData;", "getPreReqRoomEnterData", "()Lcom/baidu/searchbox/live/data/resp/LiveRoomEnterRespData;", "setPreReqRoomEnterData", "(Lcom/baidu/searchbox/live/data/resp/LiveRoomEnterRespData;)V", "Lcom/baidu/searchbox/live/model/res/MixResultStatData;", "preReqStatData", "Lcom/baidu/searchbox/live/model/res/MixResultStatData;", "getPreReqStatData", "()Lcom/baidu/searchbox/live/model/res/MixResultStatData;", "setPreReqStatData", "(Lcom/baidu/searchbox/live/model/res/MixResultStatData;)V", "prefetchEnterSwitch", "serverSwitchCanScroll", "Ljava/lang/ref/WeakReference;", "Lcom/baidu/searchbox/live/shell/list/basic/AbstractMixFakeShell;", "shellList", "getShellList", "Lcom/baidu/ubc/UBCManager;", "ubcManager", "Lcom/baidu/ubc/UBCManager;", "<init>", "(Landroid/content/Context;Lcom/baidu/live/arch/utils/MiniUniqueId;Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;)V", "Companion", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000¶\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010!\n\u0002\b\u0007\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\b\n\u0002\b\u000b\n\u0002\u0010\t\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0011\n\u0000\n\u0002\u0010\u0015\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010$\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u000f\n\u0002\u0018\u0002\n\u0002\b\u0016\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006*\u0002¬\u0001\u0018\u0000 á\u00012\u00020\u00012\u00020\u00022\u00020\u0003:\u0002á\u0001B%\u0012\u0006\u0010n\u001a\u00020m\u0012\b\u0010Å\u0001\u001a\u00030Ä\u0001\u0012\b\u0010Â\u0001\u001a\u00030Á\u0001¢\u0006\u0006\bß\u0001\u0010à\u0001J!\u0010\t\u001a\u00020\b2\b\u0010\u0005\u001a\u0004\u0018\u00010\u00042\u0006\u0010\u0007\u001a\u00020\u0006H\u0002¢\u0006\u0004\b\t\u0010\nJ\u0017\u0010\r\u001a\u00020\b2\u0006\u0010\f\u001a\u00020\u000bH\u0002¢\u0006\u0004\b\r\u0010\u000eJ\u0019\u0010\u0011\u001a\u00020\b2\b\u0010\u0010\u001a\u0004\u0018\u00010\u000fH\u0016¢\u0006\u0004\b\u0011\u0010\u0012J\u000f\u0010\u0013\u001a\u00020\bH\u0002¢\u0006\u0004\b\u0013\u0010\u0014J\r\u0010\u0016\u001a\u00020\u0015¢\u0006\u0004\b\u0016\u0010\u0017J+\u0010\u001b\u001a\u00020\b2\f\u0010\u0019\u001a\b\u0012\u0004\u0012\u00020\u00040\u00182\f\u0010\u001a\u001a\b\u0012\u0004\u0012\u00020\u00040\u0018H\u0002¢\u0006\u0004\b\u001b\u0010\u001cJM\u0010%\u001a\u00020\b2\b\u0010\u001d\u001a\u0004\u0018\u00010\u00062\b\u0010\u001e\u001a\u0004\u0018\u00010\u00062\b\u0010\u001f\u001a\u0004\u0018\u00010\u00062\u0006\u0010!\u001a\u00020 2\n\b\u0002\u0010#\u001a\u0004\u0018\u00010\"2\n\b\u0002\u0010$\u001a\u0004\u0018\u00010\u0006H\u0002¢\u0006\u0004\b%\u0010&J\u0015\u0010(\u001a\u00020\b2\u0006\u0010'\u001a\u00020\"¢\u0006\u0004\b(\u0010)J\r\u0010*\u001a\u00020\b¢\u0006\u0004\b*\u0010\u0014JI\u00102\u001a\u00020\b2\u0006\u0010\u001d\u001a\u00020\u00062\u0006\u0010+\u001a\u00020\u00062\u0006\u0010,\u001a\u00020\u00062\u0006\u0010-\u001a\u00020\u00062\u0006\u0010/\u001a\u00020.2\u0006\u00100\u001a\u00020\u00062\b\b\u0002\u00101\u001a\u00020\u0006H\u0002¢\u0006\u0004\b2\u00103J\u000f\u00104\u001a\u00020\bH\u0002¢\u0006\u0004\b4\u0010\u0014J\u000f\u00105\u001a\u00020\bH\u0002¢\u0006\u0004\b5\u0010\u0014J)\u0010:\u001a\u00020\b2\u0006\u00106\u001a\u00020\"2\u0006\u00107\u001a\u00020\"2\b\u00109\u001a\u0004\u0018\u000108H\u0016¢\u0006\u0004\b:\u0010;J\u0017\u0010<\u001a\u00020\b2\u0006\u0010'\u001a\u00020\"H\u0016¢\u0006\u0004\b<\u0010)J\u0017\u0010=\u001a\u00020\b2\u0006\u0010'\u001a\u00020\"H\u0016¢\u0006\u0004\b=\u0010)J\u0017\u0010@\u001a\u00020\b2\u0006\u0010?\u001a\u00020>H\u0016¢\u0006\u0004\b@\u0010AJ\r\u0010B\u001a\u00020\b¢\u0006\u0004\bB\u0010\u0014J\r\u0010C\u001a\u00020\b¢\u0006\u0004\bC\u0010\u0014J\u001f\u0010F\u001a\u00020 2\u0006\u0010D\u001a\u00020\"2\u0006\u0010\u0010\u001a\u00020EH\u0016¢\u0006\u0004\bF\u0010GJ\u0017\u0010I\u001a\u00020\b2\u0006\u0010H\u001a\u000208H\u0016¢\u0006\u0004\bI\u0010JJ\u001d\u0010M\u001a\u00020\b2\f\u00109\u001a\b\u0012\u0004\u0012\u00020L0KH\u0002¢\u0006\u0004\bM\u0010NJ/\u0010S\u001a\u00020\b2\u0006\u00106\u001a\u00020\"2\u000e\u0010P\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u00060O2\u0006\u0010R\u001a\u00020QH\u0016¢\u0006\u0004\bS\u0010TJ'\u0010X\u001a\u0012\u0012\u0004\u0012\u00020\u0006\u0012\u0006\u0012\u0004\u0018\u00010\u0006\u0018\u00010W2\u0006\u0010V\u001a\u00020UH\u0002¢\u0006\u0004\bX\u0010YJ!\u0010\\\u001a\u00020\u00062\u0006\u0010,\u001a\u00020\u00062\b\u0010[\u001a\u0004\u0018\u00010ZH\u0002¢\u0006\u0004\b\\\u0010]J\u000f\u0010^\u001a\u00020\bH\u0002¢\u0006\u0004\b^\u0010\u0014J\u000f\u0010_\u001a\u00020\bH\u0002¢\u0006\u0004\b_\u0010\u0014J\u000f\u0010`\u001a\u00020\bH\u0002¢\u0006\u0004\b`\u0010\u0014J\u000f\u0010a\u001a\u00020\bH\u0002¢\u0006\u0004\ba\u0010\u0014J\u000f\u0010b\u001a\u00020\bH\u0002¢\u0006\u0004\bb\u0010\u0014J-\u0010e\u001a\u00020\b2\u0006\u0010c\u001a\u00020\u00062\u0006\u0010d\u001a\u00020\"2\f\u00109\u001a\b\u0012\u0004\u0012\u00020\u00040\u0018H\u0002¢\u0006\u0004\be\u0010fJ\u0017\u0010i\u001a\u00020\b2\u0006\u0010h\u001a\u00020gH\u0002¢\u0006\u0004\bi\u0010jJ\u000f\u0010k\u001a\u00020\bH\u0002¢\u0006\u0004\bk\u0010\u0014J\u000f\u0010l\u001a\u00020\bH\u0002¢\u0006\u0004\bl\u0010\u0014R\u0019\u0010n\u001a\u00020m8\u0006@\u0006¢\u0006\f\n\u0004\bn\u0010o\u001a\u0004\bp\u0010qR$\u0010r\u001a\u0004\u0018\u00010\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\br\u0010s\u001a\u0004\bt\u0010u\"\u0004\bv\u0010wR\"\u0010x\u001a\u00020\"8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bx\u0010y\u001a\u0004\bz\u0010{\"\u0004\b|\u0010)R(\u0010~\u001a\u0004\u0018\u00010}8\u0006@\u0006X\u0086\u000e¢\u0006\u0016\n\u0004\b~\u0010\u007f\u001a\u0006\b\u0080\u0001\u0010\u0081\u0001\"\u0006\b\u0082\u0001\u0010\u0083\u0001R)\u0010\u0084\u0001\u001a\u00020 8\u0006@\u0006X\u0086\u000e¢\u0006\u0018\n\u0006\b\u0084\u0001\u0010\u0085\u0001\u001a\u0006\b\u0086\u0001\u0010\u0087\u0001\"\u0006\b\u0088\u0001\u0010\u0089\u0001R)\u0010\u008a\u0001\u001a\u00020 8\u0006@\u0006X\u0086\u000e¢\u0006\u0018\n\u0006\b\u008a\u0001\u0010\u0085\u0001\u001a\u0006\b\u008b\u0001\u0010\u0087\u0001\"\u0006\b\u008c\u0001\u0010\u0089\u0001R)\u0010\u008d\u0001\u001a\u00020 8\u0006@\u0006X\u0086\u000e¢\u0006\u0018\n\u0006\b\u008d\u0001\u0010\u0085\u0001\u001a\u0006\b\u008d\u0001\u0010\u0087\u0001\"\u0006\b\u008e\u0001\u0010\u0089\u0001R\u0019\u0010\u008f\u0001\u001a\u00020 8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u008f\u0001\u0010\u0085\u0001R$\u0010\u0090\u0001\u001a\b\u0012\u0004\u0012\u00020\u00040\u00188\u0006@\u0006¢\u0006\u0010\n\u0006\b\u0090\u0001\u0010\u0091\u0001\u001a\u0006\b\u0092\u0001\u0010\u0093\u0001R#\u0010\u0099\u0001\u001a\u00030\u0094\u00018B@\u0002X\u0082\u0084\u0002¢\u0006\u0010\n\u0006\b\u0095\u0001\u0010\u0096\u0001\u001a\u0006\b\u0097\u0001\u0010\u0098\u0001R\u0019\u0010\u009a\u0001\u001a\u00020.8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u009a\u0001\u0010\u009b\u0001R\u0019\u0010\u009c\u0001\u001a\u00020.8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u009c\u0001\u0010\u009b\u0001R$\u0010\u009f\u0001\u001a\r \u009e\u0001*\u0005\u0018\u00010\u009d\u00010\u009d\u00018\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\b\u009f\u0001\u0010 \u0001R\u0018\u0010¡\u0001\u001a\u00020\"8\u0002@\u0002X\u0082D¢\u0006\u0007\n\u0005\b¡\u0001\u0010yR\u0019\u0010¢\u0001\u001a\u00020 8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b¢\u0001\u0010\u0085\u0001R\u001c\u0010¤\u0001\u001a\u0005\u0018\u00010£\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b¤\u0001\u0010¥\u0001R\u001c\u0010§\u0001\u001a\u0005\u0018\u00010¦\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b§\u0001\u0010¨\u0001R\u001c\u0010ª\u0001\u001a\u0005\u0018\u00010©\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\bª\u0001\u0010«\u0001R#\u0010°\u0001\u001a\u00030¬\u00018B@\u0002X\u0082\u0084\u0002¢\u0006\u0010\n\u0006\b\u00ad\u0001\u0010\u0096\u0001\u001a\u0006\b®\u0001\u0010¯\u0001R\u001c\u0010²\u0001\u001a\u0005\u0018\u00010±\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b²\u0001\u0010³\u0001R,\u0010µ\u0001\u001a\u0005\u0018\u00010´\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0018\n\u0006\bµ\u0001\u0010¶\u0001\u001a\u0006\b·\u0001\u0010¸\u0001\"\u0006\b¹\u0001\u0010º\u0001R\u001c\u0010¼\u0001\u001a\u0005\u0018\u00010»\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b¼\u0001\u0010½\u0001R\u001c\u0010¿\u0001\u001a\u0005\u0018\u00010¾\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b¿\u0001\u0010À\u0001R\u001a\u0010Â\u0001\u001a\u00030Á\u00018\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\bÂ\u0001\u0010Ã\u0001R\u001a\u0010Å\u0001\u001a\u00030Ä\u00018\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\bÅ\u0001\u0010Æ\u0001R\u001b\u0010Ç\u0001\u001a\u0004\u0018\u00010Z8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\bÇ\u0001\u0010È\u0001R+\u0010É\u0001\u001a\u0004\u0018\u00010L8\u0006@\u0006X\u0086\u000e¢\u0006\u0018\n\u0006\bÉ\u0001\u0010Ê\u0001\u001a\u0006\bË\u0001\u0010Ì\u0001\"\u0006\bÍ\u0001\u0010Î\u0001R,\u0010Ð\u0001\u001a\u0005\u0018\u00010Ï\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0018\n\u0006\bÐ\u0001\u0010Ñ\u0001\u001a\u0006\bÒ\u0001\u0010Ó\u0001\"\u0006\bÔ\u0001\u0010Õ\u0001R\u0019\u0010Ö\u0001\u001a\u00020 8\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\bÖ\u0001\u0010\u0085\u0001R\u0019\u0010×\u0001\u001a\u00020 8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b×\u0001\u0010\u0085\u0001R,\u0010Ú\u0001\u001a\u0010\u0012\f\u0012\n\u0012\u0005\u0012\u00030Ù\u00010Ø\u00010\u00188\u0006@\u0006¢\u0006\u0010\n\u0006\bÚ\u0001\u0010\u0091\u0001\u001a\u0006\bÛ\u0001\u0010\u0093\u0001R\u001a\u0010Ý\u0001\u001a\u00030Ü\u00018\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\bÝ\u0001\u0010Þ\u0001¨\u0006â\u0001"}, d2 = {"Lcom/baidu/searchbox/live/list/controller/ListController;", "Lcom/baidu/live/arch/api/IExtLifecycle;", "Lcom/baidu/searchbox/live/eventbus/EventAction;", "Lcom/baidu/searchbox/live/list/controller/IListListener;", "Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "model", "", "id", "", "bindHLReplayInfo", "(Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;Ljava/lang/String;)V", "Lorg/json/JSONArray;", "roomIdJSONArray", "cacheCloseRoomIdList", "(Lorg/json/JSONArray;)V", "Lcom/baidu/searchbox/live/action/AbstractEvent;", "event", NotificationCompat.CATEGORY_CALL, "(Lcom/baidu/searchbox/live/action/AbstractEvent;)V", "changeScrollState", "()V", "Landroid/view/View;", "createView", "()Landroid/view/View;", "", "origin", "addition", "distinct", "(Ljava/util/List;Ljava/util/List;)V", "roomId", "value", "status", "", "useCache", "", "error", StatConstants.KEY_EXT_ERR_MSG, "doEnterUbcByRequestEnter", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/Integer;Ljava/lang/String;)V", CriusAttrConstants.POSITION, "fetchMoreLiveIfNeed", "(I)V", "finish", AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, "scheme", "from", "", "clickTime", "clickFrom", "playUrl", "jumpToNewLiveRoom", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;)V", "loadLiveRoom", "logEventOnReach", "requestCode", "resultCode", "Landroid/content/Intent;", "data", "onActivityResult", "(IILandroid/content/Intent;)V", "onAfterSelect", "onBeforeSelect", "Landroid/content/res/Configuration;", "newConfig", "onConfigurationChanged", "(Landroid/content/res/Configuration;)V", "onCreate", MissionEvent.MESSAGE_DESTROY, "keyCode", "Landroid/view/KeyEvent;", "onKeyDown", "(ILandroid/view/KeyEvent;)Z", IntentData.KEY, "onNewIntent", "(Landroid/content/Intent;)V", "Lcom/baidu/searchbox/live/model/res/MixResult;", "Lcom/baidu/searchbox/live/data/resp/LiveRoomEnterRespData;", "onPreRoomEnterDataLoaded", "(Lcom/baidu/searchbox/live/model/res/MixResult;)V", "", "permissions", "", "grantResults", "onRequestPermissionsResult", "(I[Ljava/lang/String;[I)V", "Lorg/json/JSONObject;", "input", "", "paramsJsonToMap", "(Lorg/json/JSONObject;)Ljava/util/Map;", "Lcom/baidu/searchbox/live/widget/LiveContainer$PlaySourceInfo;", "sourceInfo", "parseClickTime", "(Ljava/lang/String;Lcom/baidu/searchbox/live/widget/LiveContainer$PlaySourceInfo;)Ljava/lang/String;", "preReqRoomEnter", "queryLiveList", "registerMixRequestService", "registerYYLifeCyclePlugin", "reloadLiveRoom", "pageSession", "hasMore", "slideListSuccess", "(Ljava/lang/String;ILjava/util/List;)V", "Lcom/baidu/searchbox/live/data/pojo/LiveTypeData;", "itemLiveType", "templateIdSuccess", "(Lcom/baidu/searchbox/live/data/pojo/LiveTypeData;)V", "unBindHLReplayInfo", "unregisterMixRequestService", "Landroid/content/Context;", "context", "Landroid/content/Context;", "getContext", "()Landroid/content/Context;", "curRoomModel", "Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "getCurRoomModel", "()Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "setCurRoomModel", "(Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;)V", "currentPosition", "I", "getCurrentPosition", "()I", "setCurrentPosition", "Landroid/os/Handler;", "handler", "Landroid/os/Handler;", "getHandler", "()Landroid/os/Handler;", "setHandler", "(Landroid/os/Handler;)V", "hasReqEnd", "Z", "getHasReqEnd", "()Z", "setHasReqEnd", "(Z)V", "hasReqStart", "getHasReqStart", "setHasReqStart", "isFromForward", "setFromForward", "isRegistYYActivityLifeCyclePlugin", "itemData", "Ljava/util/List;", "getItemData", "()Ljava/util/List;", "Lcom/baidu/searchbox/live/list/controller/IListManager;", "listManager$delegate", "Lkotlin/Lazy;", "getListManager", "()Lcom/baidu/searchbox/live/list/controller/IListManager;", "listManager", "listRequestDuration", "J", "listRequestTime", "Lcom/baidu/searchbox/live/interfaces/service/LiveSessionService;", "kotlin.jvm.PlatformType", "liveSessionService", "Lcom/baidu/searchbox/live/interfaces/service/LiveSessionService;", "loadMoreFraction", "localSwitchCanScroll", "Lcom/baidu/searchbox/live/frame/IntentData;", "mIntentData", "Lcom/baidu/searchbox/live/frame/IntentData;", "Lcom/baidu/searchbox/live/frame/ListInfo;", "mListInfo", "Lcom/baidu/searchbox/live/frame/ListInfo;", "Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin;", "mLiveRoomInfoStatPlugin", "Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin;", "com/baidu/searchbox/live/list/controller/ListController$mMixEventDispatcher$2$1", "mMixEventDispatcher$delegate", "getMMixEventDispatcher", "()Lcom/baidu/searchbox/live/list/controller/ListController$mMixEventDispatcher$2$1;", "mMixEventDispatcher", "Lcom/baidu/searchbox/live/model/MixModel;", "mNetModel", "Lcom/baidu/searchbox/live/model/MixModel;", "Lcom/baidu/searchbox/live/frame/PageInfo;", "mPageInfo", "Lcom/baidu/searchbox/live/frame/PageInfo;", "getMPageInfo", "()Lcom/baidu/searchbox/live/frame/PageInfo;", "setMPageInfo", "(Lcom/baidu/searchbox/live/frame/PageInfo;)V", "Lcom/baidu/searchbox/live/list/plugin/YYActivityLifeCyclePlugin;", "mYYLifeCyclePlugin", "Lcom/baidu/searchbox/live/list/plugin/YYActivityLifeCyclePlugin;", "Lcom/baidu/searchbox/live/list/plugin/YYLoadPluginPlugin;", "mYYLoadPluginPlugin", "Lcom/baidu/searchbox/live/list/plugin/YYLoadPluginPlugin;", "Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;", "mixActivity", "Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;", "Lcom/baidu/live/arch/utils/MiniUniqueId;", "mixUniqueId", "Lcom/baidu/live/arch/utils/MiniUniqueId;", "playSource", "Lcom/baidu/searchbox/live/widget/LiveContainer$PlaySourceInfo;", "preReqRoomEnterData", "Lcom/baidu/searchbox/live/data/resp/LiveRoomEnterRespData;", "getPreReqRoomEnterData", "()Lcom/baidu/searchbox/live/data/resp/LiveRoomEnterRespData;", "setPreReqRoomEnterData", "(Lcom/baidu/searchbox/live/data/resp/LiveRoomEnterRespData;)V", "Lcom/baidu/searchbox/live/model/res/MixResultStatData;", "preReqStatData", "Lcom/baidu/searchbox/live/model/res/MixResultStatData;", "getPreReqStatData", "()Lcom/baidu/searchbox/live/model/res/MixResultStatData;", "setPreReqStatData", "(Lcom/baidu/searchbox/live/model/res/MixResultStatData;)V", "prefetchEnterSwitch", "serverSwitchCanScroll", "Ljava/lang/ref/WeakReference;", "Lcom/baidu/searchbox/live/shell/list/basic/AbstractMixFakeShell;", "shellList", "getShellList", "Lcom/baidu/ubc/UBCManager;", "ubcManager", "Lcom/baidu/ubc/UBCManager;", "<init>", "(Landroid/content/Context;Lcom/baidu/live/arch/utils/MiniUniqueId;Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;)V", "Companion", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
 public final class ListController implements IExtLifecycle, EventAction<AbstractEvent>, IListListener {
     public static final /* synthetic */ KProperty[] $$delegatedProperties;
@@ -118,6 +119,8 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
     public LiveContainer.LiveItemModel curRoomModel;
     public int currentPosition;
     public Handler handler;
+    public boolean hasReqEnd;
+    public boolean hasReqStart;
     public boolean isFromForward;
     public boolean isRegistYYActivityLifeCyclePlugin;
     public final List<LiveContainer.LiveItemModel> itemData;
@@ -254,8 +257,193 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
         this.localSwitchCanScroll = true;
         this.itemData = new ArrayList();
         this.shellList = new ArrayList();
-        this.listManager$delegate = LazyKt__LazyJVMKt.lazy(new ListController$listManager$2(this));
-        this.mMixEventDispatcher$delegate = LazyKt__LazyJVMKt.lazy(new ListController$mMixEventDispatcher$2(this));
+        this.listManager$delegate = LazyKt__LazyJVMKt.lazy(new Function0<IListManager>(this) { // from class: com.baidu.searchbox.live.list.controller.ListController$listManager$2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ListController this$0;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(0);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        super(((Integer) newInitContext2.callArgs[0]).intValue());
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // kotlin.jvm.functions.Function0
+            public final IListManager invoke() {
+                InterceptResult invokeV;
+                MiniUniqueId miniUniqueId2;
+                IMixActivityInterface iMixActivityInterface2;
+                MiniUniqueId miniUniqueId3;
+                IMixActivityInterface iMixActivityInterface3;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                    if (((AbConfigService) ServiceManager.getService(AbConfigService.Companion.getSERVICE_REFERENCE())).getSwitch("live_android_mixview_pager", false)) {
+                        ListController listController = this.this$0;
+                        Context context2 = listController.getContext();
+                        miniUniqueId3 = this.this$0.mixUniqueId;
+                        iMixActivityInterface3 = this.this$0.mixActivity;
+                        return new PagerController(listController, context2, miniUniqueId3, iMixActivityInterface3);
+                    }
+                    ListController listController2 = this.this$0;
+                    Context context3 = listController2.getContext();
+                    miniUniqueId2 = this.this$0.mixUniqueId;
+                    iMixActivityInterface2 = this.this$0.mixActivity;
+                    return new RecyleController(listController2, context3, miniUniqueId2, iMixActivityInterface2);
+                }
+                return (IListManager) invokeV.objValue;
+            }
+        });
+        this.mMixEventDispatcher$delegate = LazyKt__LazyJVMKt.lazy(new Function0<ListController$mMixEventDispatcher$2.AnonymousClass1>(this) { // from class: com.baidu.searchbox.live.list.controller.ListController$mMixEventDispatcher$2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ListController this$0;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(0);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        super(((Integer) newInitContext2.callArgs[0]).intValue());
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            /* JADX WARN: Type inference failed for: r0v2, types: [com.baidu.searchbox.live.list.controller.ListController$mMixEventDispatcher$2$1] */
+            @Override // kotlin.jvm.functions.Function0
+            public final AnonymousClass1 invoke() {
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                    return new MixInvokeAbility(this) { // from class: com.baidu.searchbox.live.list.controller.ListController$mMixEventDispatcher$2.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ ListController$mMixEventDispatcher$2 this$0;
+
+                        /* JADX DEBUG: Incorrect args count in method signature: ()V */
+                        {
+                            Interceptable interceptable3 = $ic;
+                            if (interceptable3 != null) {
+                                InitContext newInitContext2 = TitanRuntime.newInitContext();
+                                newInitContext2.initArgs = r2;
+                                Object[] objArr2 = {this};
+                                interceptable3.invokeUnInit(65536, newInitContext2);
+                                int i4 = newInitContext2.flag;
+                                if ((i4 & 1) != 0) {
+                                    int i5 = i4 & 2;
+                                    newInitContext2.thisArg = this;
+                                    interceptable3.invokeInitBody(65536, newInitContext2);
+                                    return;
+                                }
+                            }
+                            this.this$0 = this;
+                        }
+
+                        /* JADX WARN: Code restructure failed: missing block: B:36:0x0070, code lost:
+                            if (android.text.TextUtils.isEmpty(r5) != false) goto L34;
+                         */
+                        @Override // com.baidu.searchbox.live.interfaces.mix.MixInvokeAbility
+                        /*
+                            Code decompiled incorrectly, please refer to instructions dump.
+                        */
+                        public void onCommonEvent(String str, Object obj) {
+                            IntentData intentData;
+                            IntentData.SchemeModel schemeModel;
+                            String str2;
+                            IntentData intentData2;
+                            MixModel mixModel;
+                            String str3;
+                            String str4;
+                            Interceptable interceptable3 = $ic;
+                            if ((interceptable3 == null || interceptable3.invokeLL(1048576, this, str, obj) == null) && str.hashCode() == -179496859 && str.equals(MixConstants.KEY_NETWORK_CHANGED)) {
+                                String str5 = null;
+                                if (!(obj instanceof Boolean)) {
+                                    obj = null;
+                                }
+                                Boolean bool = (Boolean) obj;
+                                if (bool != null && bool.booleanValue()) {
+                                    boolean z3 = true;
+                                    if (this.this$0.this$0.getItemData().size() > 1) {
+                                        return;
+                                    }
+                                    intentData = this.this$0.this$0.mIntentData;
+                                    if (intentData != null) {
+                                        schemeModel = intentData.getModel();
+                                    } else {
+                                        schemeModel = null;
+                                    }
+                                    if (schemeModel != null) {
+                                        str2 = schemeModel.getRoomType();
+                                    } else {
+                                        str2 = null;
+                                    }
+                                    if (!TextUtils.isEmpty(str2)) {
+                                        if (schemeModel != null) {
+                                            str3 = schemeModel.getRoomType();
+                                        } else {
+                                            str3 = null;
+                                        }
+                                        if (Intrinsics.areEqual("0", str3)) {
+                                            if (schemeModel != null) {
+                                                str4 = schemeModel.getTemplateId();
+                                            } else {
+                                                str4 = null;
+                                            }
+                                        }
+                                        z3 = false;
+                                    }
+                                    if (this.this$0.this$0.getItemData().size() == 0) {
+                                        intentData2 = this.this$0.this$0.mIntentData;
+                                        if (intentData2 != null) {
+                                            str5 = intentData2.getId();
+                                        }
+                                        if (!TextUtils.isEmpty(str5) && z3) {
+                                            mixModel = this.this$0.this$0.mNetModel;
+                                            if (mixModel != null) {
+                                                mixModel.reqLiveType();
+                                                return;
+                                            }
+                                            return;
+                                        }
+                                    }
+                                    this.this$0.this$0.queryLiveList();
+                                }
+                            }
+                        }
+                    };
+                }
+                return (AnonymousClass1) invokeV.objValue;
+            }
+        });
         this.liveSessionService = (LiveSessionService) ServiceManager.getService(LiveSessionService.Companion.getSERVICE_REFERENCE());
         Object service = ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
         Intrinsics.checkExpressionValueIsNotNull(service, "ServiceManager.getServic…anager.SERVICE_REFERENCE)");
@@ -305,7 +493,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
     public void onAfterSelect(int i) {
         LiveRoomInfoStatPlugin liveRoomInfoStatPlugin;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
             this.isFromForward = false;
             fetchMoreLiveIfNeed(i);
             List<LiveContainer.LiveItemModel> list = this.itemData;
@@ -320,7 +508,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
         List<WeakReference<AbstractMixFakeShell>> list;
         AbstractMixFakeShell abstractMixFakeShell;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048594, this, configuration) == null) && (list = this.shellList) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048596, this, configuration) == null) && (list = this.shellList) != null) {
             Iterator<T> it = list.iterator();
             while (it.hasNext()) {
                 WeakReference weakReference = (WeakReference) it.next();
@@ -333,49 +521,63 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
 
     public final void setCurRoomModel(LiveContainer.LiveItemModel liveItemModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, liveItemModel) == null) {
+        if (interceptable == null || interceptable.invokeL(1048602, this, liveItemModel) == null) {
             this.curRoomModel = liveItemModel;
         }
     }
 
     public final void setCurrentPosition(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
             this.currentPosition = i;
         }
     }
 
     public final void setFromForward(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
             this.isFromForward = z;
         }
     }
 
     public final void setHandler(Handler handler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, handler) == null) {
+        if (interceptable == null || interceptable.invokeL(1048605, this, handler) == null) {
             this.handler = handler;
+        }
+    }
+
+    public final void setHasReqEnd(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048606, this, z) == null) {
+            this.hasReqEnd = z;
+        }
+    }
+
+    public final void setHasReqStart(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
+            this.hasReqStart = z;
         }
     }
 
     public final void setMPageInfo(PageInfo pageInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, pageInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048608, this, pageInfo) == null) {
             this.mPageInfo = pageInfo;
         }
     }
 
     public final void setPreReqRoomEnterData(LiveRoomEnterRespData liveRoomEnterRespData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, liveRoomEnterRespData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048609, this, liveRoomEnterRespData) == null) {
             this.preReqRoomEnterData = liveRoomEnterRespData;
         }
     }
 
     public final void setPreReqStatData(MixResultStatData mixResultStatData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, mixResultStatData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048610, this, mixResultStatData) == null) {
             this.preReqStatData = mixResultStatData;
         }
     }
@@ -400,7 +602,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
     public void onNewIntent(Intent intent) {
         AbstractMixFakeShell abstractMixFakeShell;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048600, this, intent) == null) {
             this.mIntentData = ListExtKt.parseLiveData(intent);
             reloadLiveRoom();
             List<WeakReference<AbstractMixFakeShell>> list = this.shellList;
@@ -478,44 +680,54 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                 @Override // com.baidu.searchbox.live.service.MixRequestService
                 public void requestRoomEnter(RoomEnterParams roomEnterParams, boolean z, OnMixDataLoaded<MixResult<LiveRoomEnterRespData>> onMixDataLoaded) {
                     MixModel mixModel;
-                    LiveRoomEnterRespData preReqRoomEnterData;
                     JSONObject jSONObject;
                     long j;
                     JSONObject optJSONObject;
                     JSONObject optJSONObject2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{roomEnterParams, Boolean.valueOf(z), onMixDataLoaded}) == null) {
-                        ListController.doEnterUbcByRequestEnter$default(this.this$0, roomEnterParams.getId(), "req_start", "", z, null, null, 48, null);
-                        if (z && (preReqRoomEnterData = this.this$0.getPreReqRoomEnterData()) != null) {
-                            JSONObject respJsonObj = preReqRoomEnterData.getRespJsonObj();
-                            String str = null;
-                            if (respJsonObj != null) {
-                                jSONObject = respJsonObj.optJSONObject("data");
-                            } else {
-                                jSONObject = null;
-                            }
-                            if (jSONObject != null && (optJSONObject2 = jSONObject.optJSONObject("room")) != null) {
-                                str = optJSONObject2.optString("room_id");
-                            }
-                            if (Intrinsics.areEqual(str, roomEnterParams.getId())) {
-                                long currentTimeMillis = System.currentTimeMillis() - preReqRoomEnterData.getConstructTimeMills();
-                                JSONObject optJSONObject3 = jSONObject.optJSONObject(SetImageWatermarkTypeReqMsg.SWITCH);
-                                if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject("sdk_loading")) != null) {
-                                    j = optJSONObject.optLong("enter_expire");
+                        if (!this.this$0.getHasReqStart()) {
+                            ListController.doEnterUbcByRequestEnter$default(this.this$0, roomEnterParams.getId(), "req_start", "", z, null, null, 48, null);
+                            this.this$0.setHasReqStart(true);
+                        }
+                        if (z) {
+                            LiveRoomEnterRespData preReqRoomEnterData = this.this$0.getPreReqRoomEnterData();
+                            if (preReqRoomEnterData != null) {
+                                JSONObject respJsonObj = preReqRoomEnterData.getRespJsonObj();
+                                String str = null;
+                                if (respJsonObj != null) {
+                                    jSONObject = respJsonObj.optJSONObject("data");
                                 } else {
-                                    j = 5000;
+                                    jSONObject = null;
                                 }
-                                if (currentTimeMillis <= j) {
-                                    LiveRoomEnterRespData liveRoomEnterRespData = new LiveRoomEnterRespData(preReqRoomEnterData.getRespJsonObj());
-                                    liveRoomEnterRespData.setHitCache(true);
-                                    liveRoomEnterRespData.setConstructTimeMills(preReqRoomEnterData.getConstructTimeMills());
-                                    if (onMixDataLoaded != null) {
-                                        onMixDataLoaded.onMixDataLoaded(new MixResult.MixSuccess(liveRoomEnterRespData, this.this$0.getPreReqStatData()));
+                                if (jSONObject != null && (optJSONObject2 = jSONObject.optJSONObject("room")) != null) {
+                                    str = optJSONObject2.optString("room_id");
+                                }
+                                if (Intrinsics.areEqual(str, roomEnterParams.getId())) {
+                                    long currentTimeMillis = System.currentTimeMillis() - preReqRoomEnterData.getConstructTimeMills();
+                                    JSONObject optJSONObject3 = jSONObject.optJSONObject(SetImageWatermarkTypeReqMsg.SWITCH);
+                                    if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject("sdk_loading")) != null) {
+                                        j = optJSONObject.optLong("enter_expire");
+                                    } else {
+                                        j = 5000;
                                     }
-                                    ListController.doEnterUbcByRequestEnter$default(this.this$0, roomEnterParams.getId(), "req_end", "success", z, null, null, 48, null);
-                                    return;
+                                    if (currentTimeMillis <= j) {
+                                        LiveRoomEnterRespData liveRoomEnterRespData = new LiveRoomEnterRespData(preReqRoomEnterData.getRespJsonObj());
+                                        liveRoomEnterRespData.setHitCache(true);
+                                        liveRoomEnterRespData.setConstructTimeMills(preReqRoomEnterData.getConstructTimeMills());
+                                        if (onMixDataLoaded != null) {
+                                            onMixDataLoaded.onMixDataLoaded(new MixResult.MixSuccess(liveRoomEnterRespData, this.this$0.getPreReqStatData()));
+                                        }
+                                        if (!this.this$0.getHasReqEnd()) {
+                                            ListController.doEnterUbcByRequestEnter$default(this.this$0, roomEnterParams.getId(), "req_end", "success", z, null, null, 48, null);
+                                            this.this$0.setHasReqEnd(true);
+                                            return;
+                                        }
+                                        return;
+                                    }
                                 }
                             }
+                            ListController.doEnterUbcByRequestEnter$default(this.this$0, roomEnterParams.getId(), "req_end_cache_invalid", "success", z, null, null, 48, null);
                         }
                         mixModel = this.this$0.mNetModel;
                         if (mixModel != null) {
@@ -603,10 +815,28 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
         return (Handler) invokeV.objValue;
     }
 
-    public final List<LiveContainer.LiveItemModel> getItemData() {
+    public final boolean getHasReqEnd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.hasReqEnd;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean getHasReqStart() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.hasReqStart;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final List<LiveContainer.LiveItemModel> getItemData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.itemData;
         }
         return (List) invokeV.objValue;
@@ -615,7 +845,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
     public final PageInfo getMPageInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.mPageInfo;
         }
         return (PageInfo) invokeV.objValue;
@@ -624,7 +854,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
     public final LiveRoomEnterRespData getPreReqRoomEnterData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.preReqRoomEnterData;
         }
         return (LiveRoomEnterRespData) invokeV.objValue;
@@ -633,7 +863,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
     public final MixResultStatData getPreReqStatData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return this.preReqStatData;
         }
         return (MixResultStatData) invokeV.objValue;
@@ -642,7 +872,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
     public final List<WeakReference<AbstractMixFakeShell>> getShellList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return this.shellList;
         }
         return (List) invokeV.objValue;
@@ -651,7 +881,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
     public final boolean isFromForward() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             return this.isFromForward;
         }
         return invokeV.booleanValue;
@@ -696,6 +926,10 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                     if (str4 != null) {
                         jSONObject2.put(StatConstants.KEY_EXT_ERR_MSG, str4);
                     }
+                    jSONObject2.put("live_version", String.valueOf(MiniPluginUtils.INSTANCE.getComponentInstalledVersion("com.baidu.searchbox.livenps")));
+                    if (this.liveSessionService != null) {
+                        jSONObject2.put("zhibo_sessionid", this.liveSessionService.getSessionId());
+                    }
                     jSONObject.put("ext", jSONObject2);
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -722,21 +956,21 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:100:0x0159  */
-    /* JADX WARN: Removed duplicated region for block: B:103:0x0163  */
-    /* JADX WARN: Removed duplicated region for block: B:107:0x01ad  */
-    /* JADX WARN: Removed duplicated region for block: B:111:0x01dc  */
-    /* JADX WARN: Removed duplicated region for block: B:113:0x01df  */
-    /* JADX WARN: Removed duplicated region for block: B:117:0x01e8  */
-    /* JADX WARN: Removed duplicated region for block: B:121:0x01f9  */
-    /* JADX WARN: Removed duplicated region for block: B:124:0x0202  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00a0  */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x00a3  */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x00c5  */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x00d5  */
-    /* JADX WARN: Removed duplicated region for block: B:72:0x00f3  */
-    /* JADX WARN: Removed duplicated region for block: B:76:0x00fe  */
-    /* JADX WARN: Removed duplicated region for block: B:80:0x010a  */
+    /* JADX WARN: Removed duplicated region for block: B:100:0x0158  */
+    /* JADX WARN: Removed duplicated region for block: B:103:0x0162  */
+    /* JADX WARN: Removed duplicated region for block: B:107:0x01ac  */
+    /* JADX WARN: Removed duplicated region for block: B:111:0x01db  */
+    /* JADX WARN: Removed duplicated region for block: B:113:0x01de  */
+    /* JADX WARN: Removed duplicated region for block: B:117:0x01e7  */
+    /* JADX WARN: Removed duplicated region for block: B:121:0x01f8  */
+    /* JADX WARN: Removed duplicated region for block: B:124:0x0201  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x009f  */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x00a2  */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x00c4  */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x00d4  */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x00f2  */
+    /* JADX WARN: Removed duplicated region for block: B:76:0x00fd  */
+    /* JADX WARN: Removed duplicated region for block: B:80:0x0109  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -799,7 +1033,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                     jSONObject4 = paramsToJson != null ? paramsToJson.toString() : null;
                 }
                 if (jSONObject4 != null) {
-                    IntentData.SchemeModel parseSchemeData = IntentData.Companion.parseSchemeData(jSONObject4);
+                    IntentData.SchemeModel parseSchemeData = IntentData.Companion.parseSchemeData(jSONObject4, str3);
                     str7 = parseSchemeData.getTemplateId();
                     try {
                         str8 = parseSchemeData.getRoomType();
@@ -810,11 +1044,11 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                                 if (intentData3 != null) {
                                     intentData3.setModel(parseSchemeData);
                                 }
-                                Result.m708constructorimpl(Unit.INSTANCE);
+                                Result.m772constructorimpl(Unit.INSTANCE);
                             } catch (Throwable th2) {
                                 th = th2;
                                 Result.Companion companion2 = Result.Companion;
-                                Result.m708constructorimpl(ResultKt.createFailure(th));
+                                Result.m772constructorimpl(ResultKt.createFailure(th));
                                 str10 = str7;
                                 str11 = str8;
                                 str12 = str9;
@@ -838,7 +1072,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                             th = th3;
                             str9 = "";
                             Result.Companion companion22 = Result.Companion;
-                            Result.m708constructorimpl(ResultKt.createFailure(th));
+                            Result.m772constructorimpl(ResultKt.createFailure(th));
                             str10 = str7;
                             str11 = str8;
                             str12 = str9;
@@ -863,7 +1097,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                         str8 = "";
                         str9 = str8;
                         Result.Companion companion222 = Result.Companion;
-                        Result.m708constructorimpl(ResultKt.createFailure(th));
+                        Result.m772constructorimpl(ResultKt.createFailure(th));
                         str10 = str7;
                         str11 = str8;
                         str12 = str9;
@@ -1043,7 +1277,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
             str7 = "";
             str8 = str7;
             str9 = str8;
-            Result.m708constructorimpl(Unit.INSTANCE);
+            Result.m772constructorimpl(Unit.INSTANCE);
             str10 = str7;
             str11 = str8;
             str12 = str9;
@@ -1106,7 +1340,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:47:0x0164  */
     /* JADX WARN: Removed duplicated region for block: B:51:0x01bb  */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x0254  */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x0275  */
     /* JADX WARN: Removed duplicated region for block: B:74:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -1205,6 +1439,9 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                                         liveItemModel.setShareTaskInfo(intentData.getModel().getShareTaskInfo());
                                         liveItemModel.setKabrSpts(intentData.getModel().getKabrSpts());
                                         liveItemModel.setCommonShareInfo(intentData.getModel().getCommonShareInfo());
+                                        liveItemModel.setMultiRate(intentData.getModel().getMultiRate());
+                                        liveItemModel.setFromIntent(intentData.getModel().getFromIntent());
+                                        liveItemModel.setVrParams(intentData.getModel().getVrParams());
                                         this.itemData.add(liveItemModel);
                                         if (this.itemData.indexOf(liveItemModel) < 0) {
                                         }
@@ -1251,6 +1488,9 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                     liveItemModel.setShareTaskInfo(intentData.getModel().getShareTaskInfo());
                     liveItemModel.setKabrSpts(intentData.getModel().getKabrSpts());
                     liveItemModel.setCommonShareInfo(intentData.getModel().getCommonShareInfo());
+                    liveItemModel.setMultiRate(intentData.getModel().getMultiRate());
+                    liveItemModel.setFromIntent(intentData.getModel().getFromIntent());
+                    liveItemModel.setVrParams(intentData.getModel().getVrParams());
                     this.itemData.add(liveItemModel);
                     if (this.itemData.indexOf(liveItemModel) < 0) {
                         this.curRoomModel = liveItemModel;
@@ -1380,7 +1620,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
         IntentData intentData;
         Intent intent;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             this.mixActivity.setMixInvokeAbility(getMMixEventDispatcher());
             MediaLivePluginLogger.Companion.getInstance().logListOnCreateStart();
             Context context = this.context;
@@ -2141,6 +2381,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
             liveItemModel.setIntroduceTips(intentData.getModel().getIntroduceTips());
             liveItemModel.setShareTaskInfo(intentData.getModel().getShareTaskInfo());
             liveItemModel.setCommonShareInfo(intentData.getModel().getCommonShareInfo());
+            liveItemModel.setVrParams(intentData.getModel().getVrParams());
             if (intentData.isHLReplay()) {
                 IntentData intentData2 = this.mIntentData;
                 if (intentData2 != null && (nidFromHLReplay = intentData2.getNidFromHLReplay()) != null) {
@@ -2196,7 +2437,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
         List<WeakReference<AbstractMixFakeShell>> list;
         AbstractMixFakeShell abstractMixFakeShell;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIL(1048591, this, i, i2, intent) == null) && (list = this.shellList) != null) {
+        if ((interceptable == null || interceptable.invokeIIL(1048593, this, i, i2, intent) == null) && (list = this.shellList) != null) {
             Iterator<T> it = list.iterator();
             while (it.hasNext()) {
                 WeakReference weakReference = (WeakReference) it.next();
@@ -2212,7 +2453,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
         List<WeakReference<AbstractMixFakeShell>> list;
         AbstractMixFakeShell abstractMixFakeShell;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeILL(1048599, this, i, strArr, iArr) == null) && (list = this.shellList) != null) {
+        if ((interceptable == null || interceptable.invokeILL(1048601, this, i, strArr, iArr) == null) && (list = this.shellList) != null) {
             Iterator<T> it = list.iterator();
             while (it.hasNext()) {
                 WeakReference weakReference = (WeakReference) it.next();
@@ -2233,7 +2474,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
         String roomId;
         LiveContainer.LiveItemModel liveItemModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
             LiveContainer.LiveItemModel liveItemModel2 = this.curRoomModel;
             String str5 = "";
             if (liveItemModel2 != null && (roomId = liveItemModel2.getRoomId()) != null) {
@@ -2297,7 +2538,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
         IMixActivityInterface iMixActivityInterface;
         Lifecycle lifeCycle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             MixEventBus.getInstance().unRegister(this);
             YYActivityLifeCyclePlugin yYActivityLifeCyclePlugin = this.mYYLifeCyclePlugin;
             if (yYActivityLifeCyclePlugin != null && (iMixActivityInterface = this.mixActivity) != null && (lifeCycle = iMixActivityInterface.getLifeCycle()) != null) {
@@ -2317,6 +2558,9 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
             if (mixModel != null) {
                 mixModel.setOnMixDataLoadedCallBack(null);
             }
+            ListUbc.getInstance().clearFlag();
+            this.hasReqStart = false;
+            this.hasReqEnd = false;
         }
     }
 
@@ -2325,7 +2569,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
         InterceptResult invokeIL;
         AbstractMixFakeShell abstractMixFakeShell;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048597, this, i, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048599, this, i, keyEvent)) == null) {
             for (WeakReference<AbstractMixFakeShell> weakReference : this.shellList) {
                 if (weakReference != null) {
                     abstractMixFakeShell = weakReference.get();

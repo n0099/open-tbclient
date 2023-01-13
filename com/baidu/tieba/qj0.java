@@ -1,47 +1,45 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class qj0 {
-    public static /* synthetic */ Interceptable $ic;
-    public static mj0 a;
-    public transient /* synthetic */ FieldHolder $fh;
+/* loaded from: classes6.dex */
+public interface qj0 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "host.scheme");
+    public static final qj0 b = new a();
 
-    public qj0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    String a(String str);
 
-    public static mj0 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (qj0.class) {
-                    if (a == null) {
-                        a = (mj0) ServiceManager.getService(mj0.a);
-                    }
-                    if (a == null) {
-                        a = mj0.b;
-                    }
+    /* loaded from: classes6.dex */
+    public static class a implements qj0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return a;
         }
-        return (mj0) invokeV.objValue;
+
+        @Override // com.baidu.tieba.qj0
+        public String a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return "nadcorevendor://vendor/ad/easybrowse?url=" + str + "&newbrowser=1";
+            }
+            return (String) invokeL.objValue;
+        }
     }
 }

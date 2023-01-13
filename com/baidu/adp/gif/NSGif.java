@@ -5,10 +5,10 @@ import android.graphics.Canvas;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.ec;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.eh;
+import com.baidu.tieba.fc;
 import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class NSGif implements ec {
+public class NSGif implements fc {
     public static /* synthetic */ Interceptable $ic;
     public static final String e;
     public static boolean f;
@@ -84,7 +84,7 @@ public class NSGif implements ec {
     }
 
     /* loaded from: classes.dex */
-    public static class b extends wi {
+    public static class b extends xi {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -102,7 +102,7 @@ public class NSGif implements ec {
             }
         }
 
-        @Override // com.baidu.tieba.wi
+        @Override // com.baidu.tieba.xi
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -125,7 +125,7 @@ public class NSGif implements ec {
             }
         }
         e = BdBaseApplication.getInst().getCacheDir().getAbsolutePath();
-        f = vi.d().i("nsgif_jni", 2, new b());
+        f = wi.d().i("nsgif_jni", 2, new b());
     }
 
     public NSGif(long j) {
@@ -162,7 +162,7 @@ public class NSGif implements ec {
         return (NSGif) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ec
+    @Override // com.baidu.tieba.fc
     public int b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -176,7 +176,7 @@ public class NSGif implements ec {
         return invokeI.intValue;
     }
 
-    @Override // com.baidu.tieba.ec
+    @Override // com.baidu.tieba.fc
     public boolean c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -199,7 +199,7 @@ public class NSGif implements ec {
         return (NSGif) invokeLII.objValue;
     }
 
-    @Override // com.baidu.tieba.ec
+    @Override // com.baidu.tieba.fc
     public boolean a(Bitmap bitmap, Canvas canvas) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -212,7 +212,7 @@ public class NSGif implements ec {
         return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ec
+    @Override // com.baidu.tieba.fc
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -221,7 +221,7 @@ public class NSGif implements ec {
                 return;
             }
             this.a = 0L;
-            dh.a().c(new a(this, j));
+            eh.a().c(new a(this, j));
         }
     }
 
@@ -236,7 +236,7 @@ public class NSGif implements ec {
         }
     }
 
-    @Override // com.baidu.tieba.ec
+    @Override // com.baidu.tieba.fc
     public int getFrameCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -246,7 +246,7 @@ public class NSGif implements ec {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ec
+    @Override // com.baidu.tieba.fc
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -256,7 +256,7 @@ public class NSGif implements ec {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ec
+    @Override // com.baidu.tieba.fc
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

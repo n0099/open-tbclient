@@ -51,7 +51,7 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicIntegerArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class TypeAdapters {
     public static /* synthetic */ Interceptable $ic;
     public static final TypeAdapter<AtomicBoolean> ATOMIC_BOOLEAN;
@@ -109,7 +109,7 @@ public final class TypeAdapters {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.gson.internal.bind.TypeAdapters$36  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass36 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$gson$stream$JsonToken;
         public static /* synthetic */ Interceptable $ic;
@@ -173,7 +173,7 @@ public final class TypeAdapters {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class EnumTypeAdapter<T extends Enum<T>> extends TypeAdapter<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2013,22 +2013,18 @@ public final class TypeAdapters {
                                 this.val$requestedType = rawType;
                             }
 
-                            /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: java.lang.Class */
-                            /* JADX WARN: Multi-variable type inference failed */
-                            /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Object, T1] */
-                            /* JADX WARN: Type inference failed for: r5v1, types: [java.lang.Object, T1] */
                             @Override // com.google.gson.TypeAdapter
                             public T1 read(JsonReader jsonReader) throws IOException {
                                 InterceptResult invokeL;
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || (invokeL = interceptable3.invokeL(1048576, this, jsonReader)) == null) {
-                                    ?? read = this.this$0.val$typeAdapter.read(jsonReader);
-                                    if (read != 0 && !this.val$requestedType.isInstance(read)) {
-                                        throw new JsonSyntaxException("Expected a " + this.val$requestedType.getName() + " but was " + read.getClass().getName());
+                                    T1 t1 = (T1) this.this$0.val$typeAdapter.read(jsonReader);
+                                    if (t1 != null && !this.val$requestedType.isInstance(t1)) {
+                                        throw new JsonSyntaxException("Expected a " + this.val$requestedType.getName() + " but was " + t1.getClass().getName());
                                     }
-                                    return read;
+                                    return t1;
                                 }
-                                return invokeL.objValue;
+                                return (T1) invokeL.objValue;
                             }
 
                             @Override // com.google.gson.TypeAdapter

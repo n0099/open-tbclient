@@ -194,7 +194,7 @@ public class bb implements au {
         if ((interceptable == null || interceptable.invokeL(65545, this, str) == null) && this.f154a == 1 && Looper.myLooper() != Looper.getMainLooper()) {
             synchronized (this.f158a) {
                 try {
-                    com.xiaomi.channel.commonutils.logger.b.m99a("oppo's " + str + " wait...");
+                    com.xiaomi.channel.commonutils.logger.b.m103a("oppo's " + str + " wait...");
                     this.f158a.wait(3000L);
                 } catch (Exception unused) {
                 }
@@ -245,7 +245,7 @@ public class bb implements au {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: b  reason: collision with other method in class */
-    public void m202b() {
+    public void m207b() {
         ServiceConnection serviceConnection;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65548, this) == null) || (serviceConnection = this.f156a) == null) {
@@ -258,7 +258,8 @@ public class bb implements au {
     }
 
     @Override // com.xiaomi.push.au
-    public String a() {
+    /* renamed from: a */
+    public String mo186a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -272,7 +273,8 @@ public class bb implements au {
     }
 
     @Override // com.xiaomi.push.au
-    public boolean a() {
+    /* renamed from: a */
+    public boolean mo187a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a : invokeV.booleanValue;

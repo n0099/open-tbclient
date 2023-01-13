@@ -23,7 +23,7 @@ import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ObservableFlatMapCompletableCompletable<T> extends Completable implements FuseToObservable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public final class ObservableFlatMapCompletableCompletable<T> extends Completabl
     public final Function<? super T, ? extends CompletableSource> mapper;
     public final ObservableSource<T> source;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class FlatMapCompletableMainObserver<T> extends AtomicInteger implements Disposable, Observer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8443155186132538303L;
@@ -44,7 +44,7 @@ public final class ObservableFlatMapCompletableCompletable<T> extends Completabl
         public final Function<? super T, ? extends CompletableSource> mapper;
         public final CompositeDisposable set;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public final class InnerObserver extends AtomicReference<Disposable> implements CompletableObserver, Disposable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 8606673141535671828L;

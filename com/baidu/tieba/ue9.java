@@ -1,537 +1,670 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListAdapter;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.AutoHeightListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.searchbox.logsystem.basic.upload.Constant;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.mutiprocess.event.GoodsEvent;
+import com.baidu.tieba.frs.FrsPublishFineGoodsDialogView;
+import com.baidu.tieba.frs.FrsTabItemData;
+import com.baidu.tieba.ge9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import org.json.JSONException;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ue9 {
+public class ue9 extends lf9<vf9> implements nf9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    @Nullable
+    public String g;
+    @Nullable
+    public FrsTabItemData h;
+    @Nullable
+    public AutoHeightListView i;
+    @Nullable
+    public ge9 j;
+    public final ge9.f k;
+    public final bd5<GoodsEvent> l;
+    public CustomMessageListener m;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948208256, "Lcom/baidu/tieba/ue9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948208256, "Lcom/baidu/tieba/ue9;");
-                return;
-            }
+    @Override // com.baidu.tieba.qf9
+    public void a(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, writeData) == null) {
         }
-        b = uf9.m();
     }
 
-    public ue9(Context context) {
+    @Override // com.baidu.tieba.qf9
+    public void c(WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, writeData) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.qf9
+    public void e(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, writeData) == null) {
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements ge9.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ue9 a;
+
+        public a(ue9 ue9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ue9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ue9Var;
+        }
+
+        @Override // com.baidu.tieba.ge9.f
+        public void a(List<ct4> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+                ((vf9) this.a.d).a = 3;
+                ((vf9) this.a.d).e = list;
+                ue9 ue9Var = this.a;
+                ue9Var.y(ue9Var.d);
+            }
+        }
+
+        @Override // com.baidu.tieba.ge9.f
+        public void b(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                ((vf9) this.a.d).a = 2;
+                ((vf9) this.a.d).d = i;
+                ue9 ue9Var = this.a;
+                ue9Var.y(ue9Var.d);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends bd5<GoodsEvent> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ue9 c;
+
+        public b(ue9 ue9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ue9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = ue9Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.uc5
+        /* renamed from: a */
+        public boolean onEvent(GoodsEvent goodsEvent) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, goodsEvent)) == null) {
+                if (goodsEvent == null) {
+                    return false;
+                }
+                this.c.i0(goodsEvent.getGoodsList());
+                goodsEvent.setDispost(true);
+                if (this.c.b != null) {
+                    this.c.b.w();
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ue9 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(ue9 ue9Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ue9Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ue9Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.e != null && this.a.e.isCanGoods()) {
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_COMMODITY_ENTRANCE_SHOW).param("obj_locate", 1).param("fid", this.a.e.getForumId()).param("fname", this.a.e.getForumName()));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements AdapterView.OnItemClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ue9 a;
+
+        public d(ue9 ue9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ue9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ue9Var;
+        }
+
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && this.a.j != null && (this.a.j.getItem(i) instanceof ct4)) {
+                ct4 ct4Var = (ct4) this.a.j.getItem(i);
+                int i2 = ct4Var.b;
+                if (i2 == 1) {
+                    int i3 = ct4Var.o;
+                    if (i3 != 1 && i3 != 5) {
+                        UrlManager urlManager = UrlManager.getInstance();
+                        TbPageContext<?> tbPageContext = this.a.a;
+                        urlManager.dealOneLink(tbPageContext, new String[]{zp4.a + yi.getUrlEncode(ct4Var.g)});
+                        return;
+                    }
+                    UrlManager.getInstance().dealOneLink(this.a.a, new String[]{ct4Var.g});
+                } else if (i2 == 2) {
+                    if (!TextUtils.isEmpty(ct4Var.j)) {
+                        if (ct4Var.j.startsWith("tiebaclient://")) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2921361, ct4Var.j));
+                            return;
+                        }
+                        Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(ct4Var.j));
+                        intent.addFlags(268468224);
+                        if (UtilHelper.isHaveActivityCanHandleIntent(intent) && this.a.a.getPageActivity() != null) {
+                            this.a.a.getPageActivity().startActivity(intent);
+                        } else if (!TextUtils.isEmpty(ct4Var.k)) {
+                            UrlManager urlManager2 = UrlManager.getInstance();
+                            TbPageContext<?> tbPageContext2 = this.a.a;
+                            urlManager2.dealOneLink(tbPageContext2, new String[]{zp4.a + yi.getUrlEncode(ct4Var.k)});
+                        }
+                    } else if (!TextUtils.isEmpty(ct4Var.k)) {
+                        UrlManager urlManager3 = UrlManager.getInstance();
+                        TbPageContext<?> tbPageContext3 = this.a.a;
+                        urlManager3.dealOneLink(tbPageContext3, new String[]{zp4.a + yi.getUrlEncode(ct4Var.k)});
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wv4 a;
+        public final /* synthetic */ ue9 b;
+
+        public e(ue9 ue9Var, wv4 wv4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ue9Var, wv4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ue9Var;
+            this.a = wv4Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.dismiss();
+                cz4.l().v("commodity_goods_show_first_dialog", true);
+                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_WRITE_GOODS_NEW_DIALOG_CLICK).param("obj_locate", 2);
+                String str2 = "";
+                if (this.b.e == null) {
+                    str = "";
+                } else {
+                    str = this.b.e.getForumId();
+                }
+                StatisticItem param2 = param.param("fid", str);
+                if (this.b.e != null) {
+                    str2 = this.b.e.getForumName();
+                }
+                TiebaStatic.log(param2.param("fname", str2));
+                this.b.f0();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ue9(TbPageContext<?> tbPageContext) {
+        super(tbPageContext, vf9.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
+        this.k = new a(this);
+        this.l = new b(this);
+        this.m = new c(this, 2921494);
     }
 
-    public void h(Exception exc) {
+    @Override // com.baidu.tieba.lf9, com.baidu.tieba.qf9
+    public void j(@NonNull sf9 sf9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, exc) == null) {
-            if (b) {
-                exc.printStackTrace();
-            }
-            wf9.a().h(Log.getStackTraceString(exc));
+        if (interceptable == null || interceptable.invokeL(1048588, this, sf9Var) == null) {
+            super.j(sf9Var);
+            this.a.registerListener(this.m);
+            this.l.setPriority(1);
+            ad5.f().n(GoodsEvent.class, this.l, this.a);
+            i0(this.g);
         }
     }
 
-    public final boolean a(eg9 eg9Var) {
-        InterceptResult invokeL;
-        File[] listFiles;
-        Throwable th;
+    @Override // com.baidu.tieba.qf9
+    public void onChangeSkinType(int i) {
+        ge9 ge9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eg9Var)) == null) {
-            File file = new File(this.a.getFilesDir() + File.separator + "ubcdir", "proc");
-            if (file.exists() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
-                for (File file2 : listFiles) {
-                    BufferedReader bufferedReader = null;
-                    try {
-                        try {
-                            BufferedReader bufferedReader2 = new BufferedReader(new FileReader(file2));
-                            long j = Long.MAX_VALUE;
-                            int i = 0;
-                            long j2 = 0;
-                            while (true) {
-                                try {
-                                    String readLine = bufferedReader2.readLine();
-                                    if (readLine == null) {
-                                        break;
-                                    }
-                                    JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
-                                    if (jSONObject.has("abtest")) {
-                                        eg9Var.K("1");
-                                    }
-                                    long j3 = jSONObject.getLong("timestamp");
-                                    if (j3 > 0) {
-                                        if (j3 < j) {
-                                            j = j3;
-                                        }
-                                        if (j3 > j2) {
-                                            j2 = j3;
-                                        }
-                                    }
-                                    if (b) {
-                                        Log.d("UBCFileData", jSONObject.toString());
-                                    }
-                                    eg9Var.b(jSONObject);
-                                    i++;
-                                    if (i >= 10) {
-                                        break;
-                                    }
-                                } catch (Exception e) {
-                                    e = e;
-                                    bufferedReader = bufferedReader2;
-                                    e.printStackTrace();
-                                    if (bufferedReader != null) {
-                                        bufferedReader.close();
-                                    }
-                                } catch (Throwable th2) {
-                                    th = th2;
-                                    bufferedReader = bufferedReader2;
-                                    if (bufferedReader != null) {
-                                        try {
-                                            bufferedReader.close();
-                                        } catch (Exception e2) {
-                                            e2.printStackTrace();
-                                        }
-                                    }
-                                    throw th;
-                                }
-                            }
-                            eg9Var.J(j, j2);
-                            if (b) {
-                                Log.d("UBCFileData", "line num " + i + " delete file ");
-                            }
-                            try {
-                                bufferedReader2.close();
-                            } catch (Exception e3) {
-                                e3.printStackTrace();
-                            }
-                        } catch (Exception e4) {
-                            e = e4;
-                        }
-                    } catch (Throwable th3) {
-                        th = th3;
-                    }
-                }
+        if ((interceptable == null || interceptable.invokeI(1048592, this, i) == null) && (ge9Var = this.j) != null) {
+            ge9Var.notifyDataSetChanged();
+        }
+    }
+
+    @Override // com.baidu.tieba.nf9
+    public void onUpdate(Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048593, this, obj) == null) && (obj instanceof ag9)) {
+            this.h = ((ag9) obj).b;
+        }
+    }
+
+    @Override // com.baidu.tieba.lf9, com.baidu.tieba.qf9
+    public void r(z65 z65Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, z65Var) == null) {
+            super.r(z65Var);
+            if (z65Var.a == 59) {
+                h0();
+            }
+        }
+    }
+
+    public final boolean a0() {
+        InterceptResult invokeV;
+        sf9 sf9Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            WriteData writeData = this.e;
+            if ((writeData != null && writeData.isCanGoods()) || (sf9Var = this.b) == null || sf9Var.g() <= 0) {
                 return true;
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x009a, code lost:
-        if (r5.exists() != false) goto L39;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:37:0x009c, code lost:
-        r5.delete();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:57:0x00c8, code lost:
-        if (r5.exists() != false) goto L39;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean e(eg9 eg9Var) {
-        InterceptResult invokeL;
+    public final int d0() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, eg9Var)) == null) {
-            File file = new File(this.a.getFilesDir(), "ubcdir");
-            if (!file.exists()) {
-                file.mkdirs();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            sf9 sf9Var = this.b;
+            if (sf9Var == null) {
+                return 0;
             }
-            File file2 = new File(file, "filequality");
-            boolean z = false;
-            if (!file2.exists()) {
+            return 10 - sf9Var.g();
+        }
+        return invokeV.intValue;
+    }
+
+    public final void e0() {
+        AutoHeightListView autoHeightListView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (autoHeightListView = this.i) != null) {
+            autoHeightListView.setAdapter((ListAdapter) this.j);
+            this.i.setOnItemClickListener(new d(this));
+        }
+    }
+
+    public void j0() {
+        LinkedList<ct4> d2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            g0();
+            D d3 = this.d;
+            ((vf9) d3).a = 3;
+            vf9 vf9Var = (vf9) d3;
+            ge9 ge9Var = this.j;
+            if (ge9Var == null) {
+                d2 = null;
+            } else {
+                d2 = ge9Var.d();
+            }
+            vf9Var.e = d2;
+            y(this.d);
+        }
+    }
+
+    @Override // com.baidu.tieba.lf9, com.baidu.tieba.qf9
+    public boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            ge9 ge9Var = this.j;
+            if (ge9Var != null && ge9Var.getCount() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean b0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            WriteData writeData = this.e;
+            if (writeData != null && writeData.getFrsTabInfoData() != null && !ListUtils.isEmpty(this.e.getFrsTabInfoData().tabList)) {
+                for (FrsTabItemData frsTabItemData : this.e.getFrsTabInfoData().tabList) {
+                    if (frsTabItemData != null && frsTabItemData.tabType == 3) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void g0() {
+        ge9 ge9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.i != null && (ge9Var = this.j) != null && this.b != null) {
+            if (ge9Var.f() == null) {
+                this.j.i(this.b.F());
+            }
+            this.j.h();
+            if (this.j.getCount() == 0) {
+                this.i.setVisibility(8);
+            } else {
+                this.i.setVisibility(0);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.lf9, com.baidu.tieba.qf9
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if (!a0()) {
+                TbPageContext<?> tbPageContext = this.a;
+                tbPageContext.showToast(tbPageContext.getString(R.string.toast_cant_but_commodity));
                 return false;
             }
-            BufferedReader bufferedReader = null;
-            try {
-                try {
-                    BufferedReader bufferedReader2 = new BufferedReader(new FileReader(file2));
-                    long j = Long.MAX_VALUE;
-                    long j2 = 0;
-                    while (true) {
-                        try {
-                            String readLine = bufferedReader2.readLine();
-                            if (readLine == null) {
-                                break;
-                            }
-                            JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
-                            if (jSONObject.has("abtest")) {
-                                eg9Var.K("1");
-                            }
-                            long j3 = jSONObject.getLong("timestamp");
-                            if (j3 > 0) {
-                                if (j3 < j) {
-                                    j = j3;
-                                }
-                                if (j3 > j2) {
-                                    j2 = j3;
-                                }
-                            }
-                            eg9Var.b(jSONObject);
-                            z = true;
-                        } catch (Exception e) {
-                            e = e;
-                            bufferedReader = bufferedReader2;
-                            if (b) {
-                                Log.d("UBCFileData", "getExceptionList read fail:", e);
-                            }
-                            if (bufferedReader != null) {
-                                try {
-                                    bufferedReader.close();
-                                } catch (Exception e2) {
-                                    if (b) {
-                                        Log.d("UBCFileData", "getExceptionList close fail:", e2);
-                                    }
-                                }
-                            }
-                            if (z) {
-                            }
-                            return z;
-                        } catch (Throwable th) {
-                            th = th;
-                            bufferedReader = bufferedReader2;
-                            Throwable th2 = th;
-                            if (bufferedReader != null) {
-                                try {
-                                    bufferedReader.close();
-                                } catch (Exception e3) {
-                                    if (b) {
-                                        Log.d("UBCFileData", "getExceptionList close fail:", e3);
-                                    }
-                                }
-                            }
-                            if (z && file2.exists()) {
-                                file2.delete();
-                            }
-                            throw th2;
-                        }
-                    }
-                    eg9Var.J(j, j2);
-                    try {
-                        bufferedReader2.close();
-                    } catch (Exception e4) {
-                        if (b) {
-                            Log.d("UBCFileData", "getExceptionList close fail:", e4);
-                        }
-                    }
-                    if (z) {
-                    }
-                } catch (Throwable th3) {
-                    th = th3;
+            if (b0()) {
+                int c0 = c0();
+                if (c0 == 1) {
+                    TbPageContext<?> tbPageContext2 = this.a;
+                    tbPageContext2.showToast(tbPageContext2.getString(R.string.toast_no_commodity));
+                    return false;
+                } else if (c0 == 2) {
+                    TbPageContext<?> tbPageContext3 = this.a;
+                    tbPageContext3.showToast(tbPageContext3.getString(R.string.toast_no_haowu_tab));
+                    return false;
                 }
-            } catch (Exception e5) {
-                e = e5;
             }
-            return z;
+            return true;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public final File b(String str, boolean z) {
-        InterceptResult invokeLZ;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
-            File file = new File(this.a.getFilesDir(), "ubcdir");
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            if (!TextUtils.isEmpty(str)) {
-                File file2 = new File(file, "proc");
-                if (!file2.exists()) {
-                    file2.mkdirs();
-                }
-                return new File(file2, str);
-            }
-            if (z) {
-                str2 = "filereal";
-            } else {
-                str2 = "filedata";
-            }
-            return new File(file, str2);
-        }
-        return (File) invokeLZ.objValue;
-    }
-
-    public void c(boolean z) {
-        String str;
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            File file = new File(this.a.getFilesDir(), "ubcdir");
-            if (!file.exists()) {
-                return;
-            }
-            if (z) {
-                str = "filereal";
-            } else {
-                str = "filedata";
-            }
-            File file2 = new File(file, str);
-            if (file2.exists()) {
-                file2.delete();
-            }
-            File file3 = new File(file, "proc");
-            if (file3.exists() && file3.isDirectory() && (listFiles = file3.listFiles()) != null && listFiles.length != 0) {
-                for (File file4 : listFiles) {
-                    if (file4.isFile()) {
-                        file4.delete();
-                    }
-                }
-            }
-        }
-    }
-
-    public void d(gf9 gf9Var, File file) {
-        FileOutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, gf9Var, file) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("id", gf9Var.l());
-                jSONObject.put("timestamp", gf9Var.p());
-                jSONObject.put("type", "0");
-                if (!TextUtils.isEmpty(gf9Var.f())) {
-                    jSONObject.put("content", gf9Var.f());
-                } else if (gf9Var.m() != null) {
-                    jSONObject.put("content", gf9Var.m().toString());
-                }
-                if (!TextUtils.isEmpty(gf9Var.h())) {
-                    jSONObject.put("abtest", gf9Var.h());
-                }
-                if (!TextUtils.isEmpty(gf9Var.e())) {
-                    jSONObject.put("c", gf9Var.e());
-                }
-                if (gf9Var.q()) {
-                    jSONObject.put(MapBundleKey.MapObjKey.OBJ_OFFSET, "1");
-                }
-                jSONObject.put(Constant.ID_TYPE, ze9.o().z(gf9Var.l()));
-                JSONObject d = gf9Var.d();
-                if (d != null) {
-                    jSONObject.put("bizInfo", d);
-                }
-            } catch (JSONException e) {
-                if (b) {
-                    Log.d("UBCFileData", e.getMessage());
-                }
-            }
-            if (b) {
-                Log.d("UBCFileData", "saveEvent:" + jSONObject.toString());
-            }
-            byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);
-            FileOutputStream fileOutputStream2 = null;
-            try {
-                try {
-                    fileOutputStream = new FileOutputStream(file, true);
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (Exception e2) {
-                e = e2;
-            }
-            try {
-                fileOutputStream.write(encode);
-                fileOutputStream.write("\n".getBytes());
-                fileOutputStream.flush();
-                try {
-                    fileOutputStream.close();
-                } catch (Exception e3) {
-                    e = e3;
-                    e.printStackTrace();
-                    qf9.f().a(gf9Var.l(), false);
-                }
-            } catch (Exception e4) {
-                e = e4;
-                fileOutputStream2 = fileOutputStream;
-                e.printStackTrace();
-                if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (Exception e5) {
-                        e = e5;
-                        e.printStackTrace();
-                        qf9.f().a(gf9Var.l(), false);
-                    }
-                }
-                qf9.f().a(gf9Var.l(), false);
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (Exception e6) {
-                        e6.printStackTrace();
-                    }
-                }
-                qf9.f().a(gf9Var.l(), false);
-                throw th;
-            }
-            qf9.f().a(gf9Var.l(), false);
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x0078, code lost:
-        if (com.baidu.tieba.ue9.b == false) goto L67;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x007a, code lost:
-        android.util.Log.d("UBCFileData", "getExceptionList close fail:", r14);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:49:0x0099, code lost:
-        if (com.baidu.tieba.ue9.b == false) goto L67;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean f(eg9 eg9Var, boolean z) {
-        InterceptResult invokeLZ;
+    public final int c0() {
+        InterceptResult invokeV;
+        boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048581, this, eg9Var, z)) == null) {
-            if (!z) {
-                z2 = a(eg9Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ge9 ge9Var = this.j;
+            if (ge9Var != null && !ge9Var.e()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            FrsTabItemData frsTabItemData = this.h;
+            if (frsTabItemData != null && frsTabItemData.tabType == 3) {
+                z2 = true;
             } else {
                 z2 = false;
             }
-            File b2 = b("", z);
-            if (b2.exists()) {
-                BufferedReader bufferedReader = null;
+            if (z && z2) {
+                return 1;
+            }
+            if (z || z2) {
+                return 0;
+            }
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void f0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            String uk = TbadkCoreApplication.getCurrentAccountInfo().getUk();
+            MessageManager.getInstance().sendMessage(new CustomMessage(2921361, "tiebaclient://swan/NazEnRDQ6crg3NRNiNtrB4uWEi6EFy4U/pages/shop-manage/index?subentry=3_2_1&uk=" + uk + "&max=" + d0()));
+        }
+    }
+
+    public final void h0() {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || this.e == null) {
+            return;
+        }
+        if (!b0()) {
+            BdToast b2 = BdToast.b(this.a.getPageActivity(), this.a.getString(R.string.post_goods_no_tab_tip));
+            b2.g(BdToast.ToastIcon.FAILURE);
+            b2.k();
+        } else if (!this.e.isCanGoods()) {
+            BdToast b3 = BdToast.b(this.a.getPageActivity(), this.a.getString(R.string.post_goods_tip));
+            b3.g(BdToast.ToastIcon.FAILURE);
+            b3.k();
+        } else {
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_COMMODITY_ENTRANCE_CLICK).param("obj_locate", 2).param("fid", this.e.getForumId()).param("fname", this.e.getForumName()));
+            if (!cz4.l().i("commodity_goods_show_first_dialog", false)) {
+                wv4 wv4Var = new wv4(this.a.getPageActivity());
+                wv4Var.setContentViewSize(2);
+                wv4Var.setCanceledOnTouchOutside(false);
+                FrsPublishFineGoodsDialogView frsPublishFineGoodsDialogView = new FrsPublishFineGoodsDialogView(this.a.getPageActivity());
+                frsPublishFineGoodsDialogView.setConfirmButtonListener(new e(this, wv4Var));
+                wv4Var.setContentView(frsPublishFineGoodsDialogView);
+                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_WRITE_GOODS_NEW_DIALOG_SHOW).param("obj_locate", 2);
+                WriteData writeData = this.e;
+                String str2 = "";
+                if (writeData == null) {
+                    str = "";
+                } else {
+                    str = writeData.getForumId();
+                }
+                StatisticItem param2 = param.param("fid", str);
+                WriteData writeData2 = this.e;
+                if (writeData2 != null) {
+                    str2 = writeData2.getForumName();
+                }
+                TiebaStatic.log(param2.param("fname", str2));
+                wv4Var.create(this.a).show();
+                return;
+            }
+            f0();
+        }
+    }
+
+    public final void i0(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            ((vf9) this.d).b = new ArrayList();
+            ((vf9) this.d).c = new ArrayList();
+            if (!StringUtils.isNull(str)) {
                 try {
-                    try {
-                        BufferedReader bufferedReader2 = new BufferedReader(new FileReader(b2));
-                        long j = Long.MAX_VALUE;
-                        long j2 = 0;
-                        while (true) {
-                            try {
-                                String readLine = bufferedReader2.readLine();
-                                if (readLine == null) {
-                                    break;
-                                }
-                                JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
-                                if (jSONObject.has("abtest")) {
-                                    eg9Var.K("1");
-                                }
-                                long j3 = jSONObject.getLong("timestamp");
-                                if (j3 > 0) {
-                                    if (j3 < j) {
-                                        j = j3;
-                                    }
-                                    if (j3 > j2) {
-                                        j2 = j3;
-                                    }
-                                }
-                                eg9Var.b(jSONObject);
-                                z2 = true;
-                            } catch (Exception e) {
-                                e = e;
-                                bufferedReader = bufferedReader2;
-                                if (b) {
-                                    Log.d("UBCFileData", "getExceptionList read fail:", e);
-                                }
-                                if (bufferedReader != null) {
-                                    try {
-                                        bufferedReader.close();
-                                    } catch (Exception e2) {
-                                        e = e2;
-                                    }
-                                }
-                                return z2;
-                            } catch (Throwable th) {
-                                th = th;
-                                bufferedReader = bufferedReader2;
-                                if (bufferedReader != null) {
-                                    try {
-                                        bufferedReader.close();
-                                    } catch (Exception e3) {
-                                        if (b) {
-                                            Log.d("UBCFileData", "getExceptionList close fail:", e3);
-                                        }
-                                    }
-                                }
-                                throw th;
-                            }
-                        }
-                        eg9Var.J(j, j2);
-                        try {
-                            bufferedReader2.close();
-                        } catch (Exception e4) {
-                            e = e4;
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
+                    JSONArray jSONArray = new JSONArray(str);
+                    for (int i = 0; i < jSONArray.length(); i++) {
+                        String string = jSONArray.getString(i);
+                        JSONObject jSONObject = jSONArray.getJSONObject(i);
+                        ((vf9) this.d).c.add(string);
+                        ((vf9) this.d).b.add(w27.g(jSONObject));
                     }
-                } catch (Exception e5) {
-                    e = e5;
+                    if (((vf9) this.d).b.size() > 0) {
+                        ((vf9) this.d).a = 1;
+                        y(this.d);
+                        g0();
+                    }
+                } catch (Exception e2) {
+                    BdLog.e(e2);
                 }
             }
-            return z2;
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    public void g(gf9 gf9Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048582, this, gf9Var, z) == null) {
-            d(gf9Var, b(gf9Var.i(), z));
         }
     }
 
-    public void i(gf9 gf9Var) {
+    @Override // com.baidu.tieba.lf9, com.baidu.tieba.qf9
+    public void m(Bundle bundle, Intent intent, @NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, gf9Var) == null) {
-            File file = new File(this.a.getFilesDir(), "ubcdir");
-            if (!file.exists()) {
-                file.mkdirs();
+        if (interceptable == null || interceptable.invokeLLL(1048590, this, bundle, intent, writeData) == null) {
+            super.m(bundle, intent, writeData);
+            if (intent != null) {
+                this.g = intent.getStringExtra(WriteActivityConfig.GOODS_LIST);
             }
-            File file2 = new File(file, "filequality");
-            if (file2.length() > ze9.o().p()) {
-                if (!file2.delete()) {
-                    return;
-                }
-                file2 = new File(file, "filequality");
-            }
-            d(gf9Var, file2);
         }
+    }
+
+    @Override // com.baidu.tieba.lf9, com.baidu.tieba.qf9
+    public void q(@NonNull List<qf9<?>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, list) == null) {
+            super.q(list);
+            for (qf9<?> qf9Var : list) {
+                if (qf9Var instanceof ve9) {
+                    w((ve9) qf9Var);
+                } else if (qf9Var instanceof cf9) {
+                    w((cf9) qf9Var);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.qf9
+    public View s(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04ae, viewGroup, false);
+            this.c = inflate;
+            this.i = (AutoHeightListView) inflate.findViewById(R.id.obfuscated_res_0x7f0906b9);
+            ge9 ge9Var = new ge9(this.a);
+            this.j = ge9Var;
+            ge9Var.j(this.k);
+            e0();
+            return this.c;
+        }
+        return (View) invokeL.objValue;
     }
 }

@@ -108,7 +108,7 @@ public final class t implements com.kwad.sdk.core.webview.kwai.a {
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                 u.b bVar = new u.b();
                                 bVar.Mn = this.Mq.My.Mn;
-                                com.kwad.components.core.c.a.a.a(new a.C0594a(this.Mt.Lk.Gl.getContext()).L(this.Mr).b(this.Ms).ae(this.Mq.Mx).aj(true).a(bVar).al(true).a(new a.b(this) { // from class: com.kwad.components.core.webview.jshandler.t.1.1
+                                com.kwad.components.core.c.a.a.a(new a.C0593a(this.Mt.Lk.Gl.getContext()).L(this.Mr).b(this.Ms).ae(this.Mq.Mx).aj(true).a(bVar).al(true).a(new a.b(this) { // from class: com.kwad.components.core.webview.jshandler.t.1.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
                                     public final /* synthetic */ AnonymousClass1 Mu;

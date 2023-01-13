@@ -1,7 +1,7 @@
 package com.baidu.searchbox.live.domain;
 
+import android.net.Uri;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -35,10 +35,12 @@ public class SlideListInfo {
         public boolean isBlurBg;
         public String kabrSpts;
         public String liveType;
+        public JSONObject multiRate;
         public JSONObject originJson;
         public String playUrl;
         public String quic;
         public String roomId;
+        public String rtcHevcUrl;
         public String rtcUrl;
         public String scheme;
         public String screen;
@@ -47,6 +49,7 @@ public class SlideListInfo {
         public String template;
         public String templateId;
         public String title;
+        public JSONObject vrParams;
 
         public SlideInfo() {
             Interceptable interceptable = $ic;
@@ -85,6 +88,7 @@ public class SlideListInfo {
                 this.avcUrl = jSONObject.optString("avc_url");
                 this.hevcUrl = jSONObject.optString("hevc_url");
                 this.rtcUrl = jSONObject.optString("rtc_url");
+                this.rtcHevcUrl = jSONObject.optString("rtc_hevc");
                 this.quic = jSONObject.optString("quic");
                 boolean z = true;
                 if (jSONObject.optInt("gaussian_blur") != 1) {
@@ -92,7 +96,20 @@ public class SlideListInfo {
                 }
                 this.isBlurBg = z;
                 this.highlightUrl = jSONObject.optString("high_light_url");
-                this.kabrSpts = jSONObject.optString(LivePreStartPlayServiceImpl.PARAM_KABR_SPTS);
+                this.kabrSpts = jSONObject.optString("kabr_spts");
+                this.multiRate = jSONObject.optJSONObject("multirate");
+                JSONObject optJSONObject = jSONObject.optJSONObject("vr");
+                this.vrParams = optJSONObject;
+                if (optJSONObject == null) {
+                    try {
+                        String queryParameter = Uri.parse(this.scheme).getQueryParameter("params");
+                        if (queryParameter != null) {
+                            this.vrParams = new JSONObject(queryParameter).optJSONObject("vr");
+                        }
+                    } catch (Throwable th) {
+                        th.printStackTrace();
+                    }
+                }
             }
         }
     }

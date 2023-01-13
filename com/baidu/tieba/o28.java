@@ -1,25 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.newinterest.fragment.BaseInterestSelectionFragment;
+import com.baidu.tieba.newinterest.model.InterestSelectionStyleAModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class o28 extends Thread {
+public class o28<V> implements y28<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final String c;
+    public InterestSelectionStyleAModel a;
+    public h28 b;
+    public BaseInterestSelectionFragment c;
 
-    public o28(String str, String str2, String str3) {
+    public o28(BaseInterestSelectionFragment baseInterestSelectionFragment, h28 h28Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
+            Object[] objArr = {baseInterestSelectionFragment, h28Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,21 +30,42 @@ public class o28 extends Thread {
                 return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
+        this.c = baseInterestSelectionFragment;
+        this.b = h28Var;
+        this.a = new InterestSelectionStyleAModel(h28Var, this);
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
+    @Override // com.baidu.tieba.y28
+    public void a(V v) {
+        BaseInterestSelectionFragment baseInterestSelectionFragment;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.run();
-            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/clientcall");
-            netWork.addPostData("tid", this.a);
-            netWork.addPostData("phonenum", this.b);
-            netWork.addPostData("optype", this.c);
-            netWork.postNetData();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, v) == null) && (baseInterestSelectionFragment = this.c) != null) {
+            baseInterestSelectionFragment.D1();
+        }
+    }
+
+    public void b() {
+        InterestSelectionStyleAModel interestSelectionStyleAModel;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (interestSelectionStyleAModel = this.a) != null) {
+            interestSelectionStyleAModel.onDestroy();
+        }
+    }
+
+    public void c() {
+        InterestSelectionStyleAModel interestSelectionStyleAModel;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (interestSelectionStyleAModel = this.a) != null) {
+            interestSelectionStyleAModel.L();
+        }
+    }
+
+    @Override // com.baidu.tieba.y28
+    public void onError(int i, String str) {
+        BaseInterestSelectionFragment baseInterestSelectionFragment;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) && (baseInterestSelectionFragment = this.c) != null) {
+            baseInterestSelectionFragment.E1(str);
         }
     }
 }

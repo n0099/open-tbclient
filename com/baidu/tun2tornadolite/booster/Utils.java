@@ -56,7 +56,7 @@ public final class Utils {
     }
 
     /* renamed from: amb$lambda-1$cancelAll  reason: not valid java name */
-    public static final <T> void m56amb$lambda1$cancelAll(List<? extends Deferred<? extends T>> list) {
+    public static final <T> void m60amb$lambda1$cancelAll(List<? extends Deferred<? extends T>> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, list) == null) {
             Iterator<T> it = list.iterator();

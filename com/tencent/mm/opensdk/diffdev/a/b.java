@@ -41,7 +41,7 @@ public final class b implements OAuthListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, oAuthErrCode, str) == null) {
             Log.d("MicroMsg.SDK.ListenerWrapper", String.format("onAuthFinish, errCode = %s, authCode = %s", oAuthErrCode.toString(), str));
-            this.f.d = null;
+            a.c(this.f);
             ArrayList<OAuthListener> arrayList = new ArrayList();
             list = this.f.c;
             arrayList.addAll(list);

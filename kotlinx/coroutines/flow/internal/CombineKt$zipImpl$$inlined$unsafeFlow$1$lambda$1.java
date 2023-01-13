@@ -1,6 +1,5 @@
 package kotlinx.coroutines.flow.internal;
 
-import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import java.util.concurrent.CancellationException;
 import kotlin.Metadata;
 import kotlin.ResultKt;
@@ -12,7 +11,6 @@ import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function3;
-import kotlin.jvm.internal.Lambda;
 import kotlinx.coroutines.CoroutineScope;
 import kotlinx.coroutines.channels.ChannelIterator;
 import kotlinx.coroutines.channels.ChannelsKt;
@@ -61,34 +59,6 @@ public final class CombineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1 extends Susp
         return ((CombineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\u0010\u0003\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003\"\u0004\b\u0002\u0010\u00042\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006H\n¢\u0006\u0002\b\u0007¨\u0006\b"}, d2 = {"<anonymous>", "", "T1", "T2", "R", AdvanceSetting.NETWORK_TYPE, "", "invoke", "kotlinx/coroutines/flow/internal/CombineKt$zipImpl$1$1$1"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
-    /* renamed from: kotlinx.coroutines.flow.internal.CombineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
-    public static final class AnonymousClass1 extends Lambda implements Function1<Throwable, Unit> {
-        public final /* synthetic */ ReceiveChannel $first;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public AnonymousClass1(ReceiveChannel receiveChannel) {
-            super(1);
-            this.$first = receiveChannel;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // kotlin.jvm.functions.Function1
-        public /* bridge */ /* synthetic */ Unit invoke(Throwable th) {
-            invoke2(th);
-            return Unit.INSTANCE;
-        }
-
-        /* renamed from: invoke  reason: avoid collision after fix types in other method */
-        public final void invoke2(Throwable th) {
-            if (!this.$first.isClosedForReceive()) {
-                this.$first.cancel((CancellationException) new AbortFlowException(CombineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1.this.$this_unsafeFlow));
-            }
-        }
-    }
-
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:96:0x02a3 */
     /* JADX DEBUG: Multi-variable search result rejected for r2v1, resolved type: kotlinx.coroutines.flow.internal.CombineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1 */
     /* JADX WARN: Multi-variable type inference failed */
@@ -110,7 +80,7 @@ public final class CombineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1 extends Susp
     */
     public final Object invokeSuspend(Object obj) {
         CombineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1 combineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1;
-        ReceiveChannel receiveChannel;
+        final ReceiveChannel receiveChannel;
         ReceiveChannel receiveChannel2;
         Object obj2;
         ReceiveChannel receiveChannel3;
@@ -498,7 +468,27 @@ public final class CombineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1 extends Susp
                 receiveChannel = CombineKt.asChannel(coroutineScope2, this.this$0.$flow$inlined);
                 receiveChannel2 = CombineKt.asChannel(coroutineScope2, this.this$0.$flow2$inlined);
                 if (receiveChannel2 != null) {
-                    ((SendChannel) receiveChannel2).invokeOnClose(new AnonymousClass1(receiveChannel));
+                    ((SendChannel) receiveChannel2).mo2191invokeOnClose(new Function1<Throwable, Unit>() { // from class: kotlinx.coroutines.flow.internal.CombineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1.1
+                        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                        {
+                            super(1);
+                        }
+
+                        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                        @Override // kotlin.jvm.functions.Function1
+                        public /* bridge */ /* synthetic */ Unit invoke(Throwable th17) {
+                            invoke2(th17);
+                            return Unit.INSTANCE;
+                        }
+
+                        /* renamed from: invoke  reason: avoid collision after fix types in other method */
+                        public final void invoke2(Throwable th17) {
+                            if (!receiveChannel.isClosedForReceive()) {
+                                receiveChannel.cancel((CancellationException) new AbortFlowException(CombineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1.this.$this_unsafeFlow));
+                            }
+                        }
+                    });
                     channelIterator3 = receiveChannel2.iterator();
                     try {
                         channelIterator = receiveChannel.iterator();

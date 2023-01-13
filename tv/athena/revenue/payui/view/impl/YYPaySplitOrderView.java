@@ -16,17 +16,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bba;
-import com.baidu.tieba.c8a;
-import com.baidu.tieba.eca;
-import com.baidu.tieba.fba;
-import com.baidu.tieba.g9a;
-import com.baidu.tieba.iba;
-import com.baidu.tieba.qba;
-import com.baidu.tieba.vaa;
-import com.baidu.tieba.vba;
-import com.baidu.tieba.wba;
-import com.baidu.tieba.xaa;
+import com.baidu.tieba.dga;
+import com.baidu.tieba.dha;
+import com.baidu.tieba.eha;
+import com.baidu.tieba.fga;
+import com.baidu.tieba.jga;
+import com.baidu.tieba.kda;
+import com.baidu.tieba.mha;
+import com.baidu.tieba.nga;
+import com.baidu.tieba.oea;
+import com.baidu.tieba.qga;
+import com.baidu.tieba.yga;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,19 +47,19 @@ import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.WindowParams;
 import tv.athena.revenue.payui.view.adapter.PaySplitOrderAdapter;
 /* loaded from: classes9.dex */
-public class YYPaySplitOrderView extends LinearLayout implements eca {
+public class YYPaySplitOrderView extends LinearLayout implements mha {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Activity a;
     public int b;
     public int c;
     public PayUIKitConfig d;
-    public eca.b e;
-    public eca.a f;
+    public mha.b e;
+    public mha.a f;
     public View g;
     public ImageView h;
-    public g9a i;
-    public vaa j;
+    public oea i;
+    public dga j;
     public RecyclerView k;
     public TextView l;
     public TextView m;
@@ -68,14 +68,14 @@ public class YYPaySplitOrderView extends LinearLayout implements eca {
     public List<SplitRecordItem> p;
     public PayFlowType q;
 
-    @Override // com.baidu.tieba.zba
+    @Override // com.baidu.tieba.hha
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zba
+    @Override // com.baidu.tieba.hha
     public void refreshWindow(WindowParams windowParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, windowParams) == null) {
@@ -113,7 +113,7 @@ public class YYPaySplitOrderView extends LinearLayout implements eca {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, splitRecordItem) == null) {
                 RLog.info("YYPaySplitOrderView", "onLinkItemClick mPayAmount:" + this.a.j + " item:" + splitRecordItem);
-                qba.a(this.a.a, splitRecordItem.value);
+                yga.a(this.a.a, splitRecordItem.value);
                 if (this.a.j != null) {
                     j = (long) this.a.j.c();
                 } else {
@@ -127,7 +127,7 @@ public class YYPaySplitOrderView extends LinearLayout implements eca {
                 String str2 = str;
                 int i = this.a.b;
                 int i2 = this.a.c;
-                bba.d(i, i2, str2, "", "", "" + j);
+                jga.d(i, i2, str2, "", "", "" + j);
             }
         }
 
@@ -139,7 +139,7 @@ public class YYPaySplitOrderView extends LinearLayout implements eca {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, splitRecordItem) == null) {
                 RLog.info("YYPaySplitOrderView", "onPayAmoyntItemClick mPayAmount:" + this.a.j + " item:" + splitRecordItem);
                 if (this.a.f != null) {
-                    vaa a = fba.a((int) (vba.d(splitRecordItem.value) * 100.0d), this.a.d);
+                    dga a = nga.a((int) (dha.d(splitRecordItem.value) * 100.0d), this.a.d);
                     a.d(splitRecordItem.id);
                     this.a.f.a(a);
                 }
@@ -156,7 +156,7 @@ public class YYPaySplitOrderView extends LinearLayout implements eca {
                 String str2 = str;
                 int i = this.a.b;
                 int i2 = this.a.c;
-                bba.d(i, i2, str2, "", "", "" + j);
+                jga.d(i, i2, str2, "", "", "" + j);
             }
         }
     }
@@ -207,7 +207,7 @@ public class YYPaySplitOrderView extends LinearLayout implements eca {
                 String str2 = str;
                 int i = this.a.b;
                 int i2 = this.a.c;
-                bba.d(i, i2, str2, "", "", "" + j);
+                jga.d(i, i2, str2, "", "", "" + j);
             }
         }
     }
@@ -294,16 +294,16 @@ public class YYPaySplitOrderView extends LinearLayout implements eca {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public YYPaySplitOrderView(Activity activity, PayUIKitConfig payUIKitConfig, int i, int i2, eca.b bVar, g9a g9aVar) {
+    public YYPaySplitOrderView(Activity activity, PayUIKitConfig payUIKitConfig, int i, int i2, mha.b bVar, oea oeaVar) {
         super(activity);
-        vaa vaaVar;
+        dga dgaVar;
         long j;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, payUIKitConfig, Integer.valueOf(i), Integer.valueOf(i2), bVar, g9aVar};
+            Object[] objArr = {activity, payUIKitConfig, Integer.valueOf(i), Integer.valueOf(i2), bVar, oeaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -320,19 +320,19 @@ public class YYPaySplitOrderView extends LinearLayout implements eca {
         this.e = bVar;
         this.b = i;
         this.c = i2;
-        this.i = g9aVar;
+        this.i = oeaVar;
         if (bVar != null) {
-            vaaVar = bVar.a;
+            dgaVar = bVar.a;
         } else {
-            vaaVar = null;
+            dgaVar = null;
         }
-        this.j = vaaVar;
-        eca.b bVar2 = this.e;
+        this.j = dgaVar;
+        mha.b bVar2 = this.e;
         this.q = bVar2 != null ? bVar2.c : null;
         o(activity);
-        vaa vaaVar2 = this.j;
-        if (vaaVar2 != null) {
-            j = (long) vaaVar2.c();
+        dga dgaVar2 = this.j;
+        if (dgaVar2 != null) {
+            j = (long) dgaVar2.c();
         } else {
             j = -1;
         }
@@ -343,10 +343,10 @@ public class YYPaySplitOrderView extends LinearLayout implements eca {
         }
         String str2 = str;
         RLog.debug("YYPaySplitOrderView", "mPayFlowType:" + this.q + " event:" + str2);
-        bba.d(this.b, this.c, str2, "", "", "" + j);
+        jga.d(this.b, this.c, str2, "", "", "" + j);
     }
 
-    @Override // com.baidu.tieba.zba
+    @Override // com.baidu.tieba.hha
     public void attachWindow(Window window) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, window) == null) {
@@ -354,8 +354,8 @@ public class YYPaySplitOrderView extends LinearLayout implements eca {
         }
     }
 
-    @Override // com.baidu.tieba.eca
-    public void setCallback(eca.a aVar) {
+    @Override // com.baidu.tieba.mha
+    public void setCallback(mha.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
             this.f = aVar;
@@ -363,22 +363,22 @@ public class YYPaySplitOrderView extends LinearLayout implements eca {
     }
 
     public final void q(int i, String str) {
-        eca.a aVar;
+        mha.a aVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048582, this, i, str) == null) && (aVar = this.f) != null) {
             aVar.onRefreshViewFail(i, str);
         }
     }
 
-    @Override // com.baidu.tieba.eca
+    @Override // com.baidu.tieba.mha
     public void a() {
         long j;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            vaa vaaVar = this.j;
-            if (vaaVar != null) {
-                j = (long) vaaVar.c();
+            dga dgaVar = this.j;
+            if (dgaVar != null) {
+                j = (long) dgaVar.c();
             } else {
                 j = -1;
             }
@@ -389,7 +389,7 @@ public class YYPaySplitOrderView extends LinearLayout implements eca {
             }
             int i = this.b;
             int i2 = this.c;
-            bba.d(i, i2, str, "", "", "" + j);
+            jga.d(i, i2, str, "", "", "" + j);
             RLog.info("YYPaySplitOrderView", "onBtnCloseClick mPayFlowType:" + this.q + " event:" + str);
         }
     }
@@ -399,13 +399,13 @@ public class YYPaySplitOrderView extends LinearLayout implements eca {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            eca.a aVar = this.f;
+            mha.a aVar = this.f;
             if (aVar != null) {
                 aVar.b();
             }
-            vaa vaaVar = this.j;
-            if (vaaVar != null) {
-                j = (long) vaaVar.c();
+            dga dgaVar = this.j;
+            if (dgaVar != null) {
+                j = (long) dgaVar.c();
             } else {
                 j = -1;
             }
@@ -417,7 +417,7 @@ public class YYPaySplitOrderView extends LinearLayout implements eca {
             String str2 = str;
             int i = this.b;
             int i2 = this.c;
-            bba.d(i, i2, str2, "", "", "" + j);
+            jga.d(i, i2, str2, "", "", "" + j);
         }
     }
 
@@ -425,16 +425,16 @@ public class YYPaySplitOrderView extends LinearLayout implements eca {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             RLog.info("YYPaySplitOrderView", "querySplitOrderConfig mPayAmount:" + this.j);
-            c8a yYPayMiddleService = RevenueManager.instance().getYYPayMiddleService(this.b, this.c);
+            kda yYPayMiddleService = RevenueManager.instance().getYYPayMiddleService(this.b, this.c);
             if (yYPayMiddleService == null) {
                 RLog.error("YYPaySplitOrderView", "querySplitOrderConfig error yyPayMiddleService null", new Object[0]);
                 return;
             }
-            vaa vaaVar = this.j;
-            if (vaaVar == null) {
+            dga dgaVar = this.j;
+            if (dgaVar == null) {
                 RLog.error("YYPaySplitOrderView", "querySplitOrderConfig error mPayAmount null", new Object[0]);
             } else {
-                yYPayMiddleService.d(1, "", (long) vaaVar.c(), new c(this));
+                yYPayMiddleService.d(1, "", (long) dgaVar.c(), new c(this));
             }
         }
     }
@@ -442,11 +442,11 @@ public class YYPaySplitOrderView extends LinearLayout implements eca {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            iba.a(this.g, this.h);
+            qga.a(this.g, this.h);
         }
     }
 
-    @Override // com.baidu.tieba.zba
+    @Override // com.baidu.tieba.hha
     public void refreshView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -459,21 +459,21 @@ public class YYPaySplitOrderView extends LinearLayout implements eca {
     public final void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            iba.b(this.g, this.h);
+            qga.b(this.g, this.h);
         }
     }
 
     public final void o(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {
-            LayoutInflater.from(new ContextThemeWrapper(activity, wba.a.a(this.d))).inflate(R.layout.pay_ui_layout_pay_split_order_view, (ViewGroup) this, true);
+            LayoutInflater.from(new ContextThemeWrapper(activity, eha.a.a(this.d))).inflate(R.layout.pay_ui_layout_pay_split_order_view, (ViewGroup) this, true);
             this.g = findViewById(R.id.root_loading);
             this.h = (ImageView) findViewById(R.id.iv_loading_circle);
             this.k = (RecyclerView) findViewById(R.id.grid_recharge_split_order);
             PaySplitOrderAdapter paySplitOrderAdapter = new PaySplitOrderAdapter(this.a, this.p, this.d);
             this.o = paySplitOrderAdapter;
             paySplitOrderAdapter.e(new a(this));
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09241c);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092449);
             this.l = textView;
             textView.getPaint().setFlags(8);
             this.l.setOnClickListener(new b(this));
@@ -511,9 +511,9 @@ public class YYPaySplitOrderView extends LinearLayout implements eca {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, splitOrderConfigResult) == null) {
             if (splitOrderConfigResult != null && (list = splitOrderConfigResult.splitRecordItemList) != null && !list.isEmpty()) {
-                g9a g9aVar = this.i;
-                if (g9aVar != null) {
-                    g9aVar.c(new xaa(splitOrderConfigResult, this.e));
+                oea oeaVar = this.i;
+                if (oeaVar != null) {
+                    oeaVar.c(new fga(splitOrderConfigResult, this.e));
                 }
                 v(splitOrderConfigResult);
                 return;
@@ -538,13 +538,13 @@ public class YYPaySplitOrderView extends LinearLayout implements eca {
     }
 
     public final void t() {
-        eca.b bVar;
-        vaa vaaVar;
+        mha.b bVar;
+        dga dgaVar;
         boolean z;
         String format;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (bVar = this.e) != null && (vaaVar = bVar.a) != null) {
-            double c2 = vaaVar.c();
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (bVar = this.e) != null && (dgaVar = bVar.a) != null) {
+            double c2 = dgaVar.c();
             if (c2 == ((long) c2)) {
                 z = true;
             } else {

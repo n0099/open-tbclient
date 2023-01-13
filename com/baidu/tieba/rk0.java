@@ -1,20 +1,39 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class rk0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public long e;
+    public boolean f;
+    public int g;
+    public int h;
+    public int i;
+    public String j;
+    public int k;
+    public int l;
+    public String m;
+    public String n;
+    public String o;
+    public long p;
+    public long q;
+    public boolean r;
+    public boolean s;
+    public int t;
+    public boolean u;
 
     public rk0() {
         Interceptable interceptable = $ic;
@@ -26,61 +45,116 @@ public class rk0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = "";
+        this.e = 0L;
+        this.f = false;
+        this.g = 0;
+        this.h = 0;
+        this.i = 0;
+        this.p = -1L;
+        this.q = -1L;
+        this.s = false;
+        this.t = 0;
+        this.u = true;
     }
 
-    public final JSONObject a(Map<String, String> map) {
+    @NonNull
+    public static rk0 a(String str) {
         InterceptResult invokeL;
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
-            map.put("_client_version", zi0.a().v());
-            map.put("uid", zi0.a().s());
-            map.put("cuid", zi0.a().g());
-            if (Build.VERSION.SDK_INT >= 17) {
-                map.put("ua", zi0.e());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            rk0 rk0Var = new rk0();
+            JSONObject c = u01.c(str);
+            rk0Var.a = c.optString("page");
+            rk0Var.b = c.optString("business");
+            rk0Var.d = c.optString("content_type");
+            rk0Var.e = c.optLong(BreakpointSQLiteKey.CONTENT_LENGTH);
+            boolean z3 = false;
+            if (c.optInt("is_dirty", 0) == 1) {
+                z = true;
+            } else {
+                z = false;
             }
-            String e = pj0.c().e(false);
-            if (!TextUtils.isEmpty(e)) {
-                map.put("model", e);
+            rk0Var.f = z;
+            rk0Var.g = c.optInt("close_v_download", 0);
+            rk0Var.h = c.optInt("no_click_opt");
+            rk0Var.i = c.optInt("open_after_install");
+            rk0Var.j = c.optString("action_area");
+            rk0Var.k = c.optInt("notification_show_count");
+            rk0Var.l = c.optInt("tips_show_count");
+            rk0Var.p = c.optLong("als_app_save_day");
+            rk0Var.q = c.optLong("finished_install_time", -1L);
+            if (c.optInt("lazy_launch_switch", 0) == 1) {
+                z2 = true;
+            } else {
+                z2 = false;
             }
-            map.put(HttpRequest.CLIENT_TYPE, "2");
-            String h = pj0.c().h(false);
-            if (!TextUtils.isEmpty(h)) {
-                map.put("_os_version", h);
+            rk0Var.s = z2;
+            rk0Var.t = c.optInt("lazy_launch_internal", 0);
+            int optInt = c.optInt("package_launch_switch", Integer.MIN_VALUE);
+            if (optInt == Integer.MIN_VALUE) {
+                if (vm0.b().a().a("package_launch_switch", 1) == 1) {
+                    z3 = true;
+                }
+                rk0Var.u = z3;
+            } else {
+                if (optInt == 1) {
+                    z3 = true;
+                }
+                rk0Var.u = z3;
             }
-            map.put("nt", String.valueOf(new zq0().c()));
-            String b = pj0.c().b(false);
-            if (!TextUtils.isEmpty(b)) {
-                map.put("imei", b);
-            }
-            String a = pj0.c().a(false);
-            if (!TextUtils.isEmpty(a)) {
-                map.put(HttpRequest.ANDROID_ID, a);
-            }
-            map.put("ssl", "1");
-            JSONObject jSONObject = new JSONObject();
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                p01.f(jSONObject, entry.getKey(), entry.getValue());
-            }
-            return jSONObject;
+            return rk0Var;
         }
-        return (JSONObject) invokeL.objValue;
+        return (rk0) invokeL.objValue;
     }
 
-    public void b(Map<String, String> map, cr0<sk0> cr0Var) {
+    public static String b(@NonNull rk0 rk0Var) {
+        InterceptResult invokeL;
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, cr0Var) == null) {
-            jr0 f = jr0.f(h41.a(a(map).toString().getBytes()));
-            kr0 kr0Var = new kr0();
-            kr0Var.a("Content-Encoding", "gzip");
-            kr0Var.a("Content-Type", "application/json");
-            kr0Var.l("https://afdconf.baidu.com/afd/download");
-            kr0Var.g(3000);
-            kr0Var.j(3000);
-            kr0Var.k(3000);
-            kr0Var.f(f);
-            rq0.b().a().a(kr0Var, cr0Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, rk0Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("page", rk0Var.a);
+                jSONObject.put("business", rk0Var.b);
+                jSONObject.put("content_type", rk0Var.d);
+                jSONObject.put(BreakpointSQLiteKey.CONTENT_LENGTH, rk0Var.e);
+                int i3 = 1;
+                if (rk0Var.f) {
+                    i = 1;
+                } else {
+                    i = 0;
+                }
+                jSONObject.put("is_dirty", i);
+                jSONObject.put("close_v_download", rk0Var.g);
+                jSONObject.put("no_click_opt", rk0Var.h);
+                jSONObject.put("open_after_install", rk0Var.i);
+                jSONObject.put("action_area", rk0Var.j);
+                jSONObject.put("notification_show_count", rk0Var.k);
+                jSONObject.put("tips_show_count", rk0Var.l);
+                jSONObject.put("als_app_save_day", rk0Var.p);
+                jSONObject.put("finished_install_time", rk0Var.q);
+                if (rk0Var.s) {
+                    i2 = 1;
+                } else {
+                    i2 = 0;
+                }
+                jSONObject.put("lazy_launch_switch", i2);
+                jSONObject.put("lazy_launch_internal", rk0Var.t);
+                if (!rk0Var.u) {
+                    i3 = 0;
+                }
+                jSONObject.put("package_launch_switch", i3);
+            } catch (JSONException unused) {
+            }
+            return jSONObject.toString();
         }
+        return (String) invokeL.objValue;
     }
 }

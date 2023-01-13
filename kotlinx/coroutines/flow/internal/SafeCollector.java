@@ -12,6 +12,7 @@ import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.ContinuationImpl;
 import kotlin.coroutines.jvm.internal.DebugProbesKt;
 import kotlin.jvm.JvmField;
+import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function3;
 import kotlin.text.StringsKt__IndentKt;
 import kotlinx.coroutines.flow.FlowCollector;
@@ -33,7 +34,18 @@ public final class SafeCollector<T> extends ContinuationImpl implements FlowColl
         super(NoOpContinuation.INSTANCE, EmptyCoroutineContext.INSTANCE);
         this.collector = flowCollector;
         this.collectContext = coroutineContext;
-        this.collectContextSize = ((Number) coroutineContext.fold(0, SafeCollector$collectContextSize$1.INSTANCE)).intValue();
+        this.collectContextSize = ((Number) coroutineContext.fold(0, new Function2<Integer, CoroutineContext.Element, Integer>() { // from class: kotlinx.coroutines.flow.internal.SafeCollector$collectContextSize$1
+            public final int invoke(int i, CoroutineContext.Element element) {
+                return i + 1;
+            }
+
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function2
+            public /* bridge */ /* synthetic */ Integer invoke(Integer num, CoroutineContext.Element element) {
+                return Integer.valueOf(invoke(num.intValue(), element));
+            }
+        })).intValue();
     }
 
     private final Object emit(Continuation<? super Unit> continuation, T t) {
@@ -97,9 +109,9 @@ public final class SafeCollector<T> extends ContinuationImpl implements FlowColl
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public Object invokeSuspend(Object obj) {
-        Throwable m711exceptionOrNullimpl = Result.m711exceptionOrNullimpl(obj);
-        if (m711exceptionOrNullimpl != null) {
-            this.lastEmissionContext = new DownstreamExceptionElement(m711exceptionOrNullimpl);
+        Throwable m775exceptionOrNullimpl = Result.m775exceptionOrNullimpl(obj);
+        if (m775exceptionOrNullimpl != null) {
+            this.lastEmissionContext = new DownstreamExceptionElement(m775exceptionOrNullimpl);
         }
         Continuation<? super Unit> continuation = this.completion;
         if (continuation != null) {

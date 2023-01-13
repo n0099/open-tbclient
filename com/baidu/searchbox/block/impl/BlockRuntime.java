@@ -6,8 +6,8 @@ import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.block.ioc.IBlockRegister;
 import com.baidu.searchbox.block.ioc.IBlockRegister_BlockRuntime_ListProvider;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.kf1;
-import com.baidu.tieba.mf1;
+import com.baidu.tieba.pf1;
+import com.baidu.tieba.rf1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,12 +19,12 @@ public class BlockRuntime {
     public static volatile BlockRuntime sInstance;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public mf1<IBlockRegister> mIBlockMonitorList;
+    public rf1<IBlockRegister> mIBlockMonitorList;
 
     public void initmIBlockMonitorList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            kf1 b = kf1.b();
+            pf1 b = pf1.b();
             this.mIBlockMonitorList = b;
             b.a(new IBlockRegister_BlockRuntime_ListProvider());
         }
@@ -62,21 +62,21 @@ public class BlockRuntime {
         return (BlockRuntime) invokeV.objValue;
     }
 
-    public mf1<IBlockRegister> getIBlockUploadList() {
+    public rf1<IBlockRegister> getIBlockUploadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mIBlockMonitorList;
         }
-        return (mf1) invokeV.objValue;
+        return (rf1) invokeV.objValue;
     }
 
     public boolean enableBlock() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            mf1<IBlockRegister> mf1Var = this.mIBlockMonitorList;
-            if (mf1Var != null && mf1Var.getList() != null) {
+            rf1<IBlockRegister> rf1Var = this.mIBlockMonitorList;
+            if (rf1Var != null && rf1Var.getList() != null) {
                 for (IBlockRegister iBlockRegister : this.mIBlockMonitorList.getList()) {
                     if (iBlockRegister != null && iBlockRegister.checkEnable()) {
                         if (AppConfig.isDebug()) {

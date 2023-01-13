@@ -15,13 +15,13 @@ import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.swan.apps.view.SwanAppRoundedImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bh3;
-import com.baidu.tieba.bp2;
-import com.baidu.tieba.d43;
-import com.baidu.tieba.hb3;
-import com.baidu.tieba.l23;
-import com.baidu.tieba.na3;
-import com.baidu.tieba.xa3;
+import com.baidu.tieba.cb3;
+import com.baidu.tieba.gh3;
+import com.baidu.tieba.gp2;
+import com.baidu.tieba.i43;
+import com.baidu.tieba.mb3;
+import com.baidu.tieba.q23;
+import com.baidu.tieba.sa3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public l23 b;
+    public q23 b;
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
@@ -106,7 +106,7 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
         public void a(Context context, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
-                TextView textView = (TextView) this.itemView.findViewById(R.id.obfuscated_res_0x7f091602);
+                TextView textView = (TextView) this.itemView.findViewById(R.id.obfuscated_res_0x7f091611);
                 if (TextUtils.isEmpty(str)) {
                     textView.setVisibility(8);
                     return;
@@ -126,11 +126,11 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ l23.a a;
+            public final /* synthetic */ q23.a a;
             public final /* synthetic */ Context b;
             public final /* synthetic */ int c;
 
-            public a(b bVar, l23.a aVar, Context context, int i) {
+            public a(b bVar, q23.a aVar, Context context, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -163,7 +163,7 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
 
         /* renamed from: com.baidu.swan.apps.relateswans.SwanAppRelatedSwanListAdapter$b$b  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0199b implements bh3.b {
+        public class C0199b implements gh3.b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SwanAppRoundedImageView a;
@@ -188,7 +188,7 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
                 this.b = context;
             }
 
-            @Override // com.baidu.tieba.bh3.b
+            @Override // com.baidu.tieba.gh3.b
             public void a(String str, Bitmap bitmap) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
@@ -221,14 +221,14 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
             }
         }
 
-        public void a(Context context, l23.a aVar, int i) {
+        public void a(Context context, q23.a aVar, int i) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeLLI(1048576, this, context, aVar, i) != null) || aVar == null) {
                 return;
             }
-            ((RelativeLayout) this.itemView.findViewById(R.id.obfuscated_res_0x7f091c82)).setOnClickListener(new a(this, aVar, context, i));
-            bh3.e(aVar.a, new C0199b(this, (SwanAppRoundedImageView) this.itemView.findViewById(R.id.obfuscated_res_0x7f092089), context));
-            ((TextView) this.itemView.findViewById(R.id.obfuscated_res_0x7f09208b)).setText(aVar.b);
+            ((RelativeLayout) this.itemView.findViewById(R.id.obfuscated_res_0x7f091c92)).setOnClickListener(new a(this, aVar, context, i));
+            gh3.e(aVar.a, new C0199b(this, (SwanAppRoundedImageView) this.itemView.findViewById(R.id.obfuscated_res_0x7f0920b6), context));
+            ((TextView) this.itemView.findViewById(R.id.obfuscated_res_0x7f0920b8)).setText(aVar.b);
         }
     }
 
@@ -245,7 +245,7 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (l23) objArr2[1]);
+                this((Context) objArr2[0], (q23) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -253,12 +253,12 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
         }
     }
 
-    public SwanAppRelatedSwanListAdapter(Context context, l23 l23Var) {
+    public SwanAppRelatedSwanListAdapter(Context context, q23 q23Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, l23Var};
+            Object[] objArr = {context, q23Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -269,14 +269,14 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
             }
         }
         this.a = context;
-        this.b = l23Var;
+        this.b = q23Var;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        l23 l23Var;
+        q23 q23Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048579, this, viewHolder, i) != null) || (l23Var = this.b) == null) {
+        if ((interceptable != null && interceptable.invokeLI(1048579, this, viewHolder, i) != null) || (q23Var = this.b) == null) {
             return;
         }
         if (viewHolder instanceof b) {
@@ -284,9 +284,9 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
             if (i2 < 0) {
                 return;
             }
-            ((b) viewHolder).a(this.a, l23Var.a.get(i2), i);
+            ((b) viewHolder).a(this.a, q23Var.a.get(i2), i);
         } else if (viewHolder instanceof a) {
-            ((a) viewHolder).a(this.a, l23Var.b);
+            ((a) viewHolder).a(this.a, q23Var.b);
         }
     }
 
@@ -297,9 +297,9 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
             if (i == 0) {
-                return new a(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0848, viewGroup, false));
+                return new a(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0846, viewGroup, false));
             }
-            return new b(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0849, viewGroup, false));
+            return new b(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0847, viewGroup, false));
         }
         return (RecyclerView.ViewHolder) invokeLI.objValue;
     }
@@ -309,28 +309,28 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
         if ((interceptable != null && interceptable.invokeLLL(65538, null, str, str2, str3) != null) || TextUtils.isEmpty(str)) {
             return;
         }
-        hb3 hb3Var = new hb3();
-        hb3Var.e = str;
+        mb3 mb3Var = new mb3();
+        mb3Var.e = str;
         if (!TextUtils.isEmpty(str2)) {
-            hb3Var.a("page", str2);
-            hb3Var.g = str2;
+            mb3Var.a("page", str2);
+            mb3Var.g = str2;
         }
         if (!TextUtils.isEmpty(str3)) {
-            hb3Var.b = str3;
+            mb3Var.b = str3;
         }
-        bp2.a W = d43.K().q().W();
-        hb3Var.a = xa3.n(d43.K().k());
-        hb3Var.f = W.H();
-        hb3Var.c = W.T();
-        hb3Var.b(xa3.k(W.W()));
-        hb3Var.d(W.s0().getString(UBCCloudControlProcessor.UBC_KEY));
-        na3.b(hb3Var);
+        gp2.a W = i43.K().q().W();
+        mb3Var.a = cb3.n(i43.K().k());
+        mb3Var.f = W.H();
+        mb3Var.c = W.T();
+        mb3Var.b(cb3.k(W.W()));
+        mb3Var.d(W.s0().getString(UBCCloudControlProcessor.UBC_KEY));
+        sa3.b(mb3Var);
     }
 
-    public void e(l23 l23Var) {
+    public void e(q23 q23Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, l23Var) == null) {
-            this.b = l23Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, q23Var) == null) {
+            this.b = q23Var;
             notifyDataSetChanged();
         }
     }
@@ -340,11 +340,11 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            l23 l23Var = this.b;
-            if (l23Var == null) {
+            q23 q23Var = this.b;
+            if (q23Var == null) {
                 return 0;
             }
-            return l23Var.a.size() + 1;
+            return q23Var.a.size() + 1;
         }
         return invokeV.intValue;
     }

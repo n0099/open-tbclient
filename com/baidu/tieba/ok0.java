@@ -1,20 +1,113 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
+import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.download.presenter.LPDownloadManager;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tieba.g51;
+import com.baidu.tieba.vk0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ok0 {
+public class ok0 extends dg1<g51> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
+
+    /* loaded from: classes5.dex */
+    public class a implements g51 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.g51
+        public void release() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
+        }
+
+        /* renamed from: com.baidu.tieba.ok0$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class C0385a extends km0<vk0> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ g51.b b;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            public C0385a(a aVar, Class cls, g51.b bVar) {
+                super(cls);
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, cls, bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        super((Class) newInitContext.callArgs[0]);
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = bVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.km0
+            public void onEvent(@NonNull vk0 vk0Var) {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vk0Var) == null) && this.b != null && !t01.g(vk0Var.a)) {
+                    for (vk0.a aVar : vk0Var.a) {
+                        if (aVar instanceof vk0.a) {
+                            vk0.a aVar2 = aVar;
+                            if (!TextUtils.isEmpty(aVar2.b) && !TextUtils.isEmpty(aVar2.a) && !TextUtils.isEmpty(aVar2.c)) {
+                                this.b.a("javascript:" + aVar2.a + "('" + u01.a(aVar2.c) + "');");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        public a(ok0 ok0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ok0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.g51
+        public void a(Object obj, g51.b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, obj, bVar) == null) {
+                gm0.a().b(obj, new C0385a(this, vk0.class, bVar));
+            }
+        }
+
+        @Override // com.baidu.tieba.g51
+        public void b(Context context, RelativeLayout relativeLayout, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, relativeLayout, str) == null) {
+                LPDownloadManager.f(context, relativeLayout, str, true);
+            }
+        }
+    }
 
     public ok0() {
         Interceptable interceptable = $ic;
@@ -26,42 +119,19 @@ public class ok0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "";
-        this.b = "";
-        this.c = "";
     }
 
-    @NonNull
-    public static ok0 a(String str) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.dg1
+    /* renamed from: a */
+    public g51 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            ok0 ok0Var = new ok0();
-            JSONObject c = p01.c(str);
-            ok0Var.a = c.optString("ext1");
-            ok0Var.b = c.optString("ext2");
-            ok0Var.c = c.optString("ext3");
-            return ok0Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-        return (ok0) invokeL.objValue;
-    }
-
-    public static String b(@NonNull ok0 ok0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ok0Var)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ext1", ok0Var.a);
-                jSONObject.put("ext2", ok0Var.b);
-                jSONObject.put("ext3", ok0Var.c);
-            } catch (JSONException unused) {
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeL.objValue;
+        return (g51) invokeV.objValue;
     }
 }

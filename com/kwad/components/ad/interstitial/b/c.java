@@ -57,7 +57,7 @@ public final class c extends com.kwad.sdk.mvp.a {
     @NonNull
     public KSFrameLayout gq;
     public d gr;
-    public List<InterfaceC0558c> gs;
+    public List<InterfaceC0557c> gs;
     public com.kwad.components.ad.interstitial.c.b gt;
     public List<a.b> gu;
     public volatile boolean gv;
@@ -347,7 +347,7 @@ public final class c extends com.kwad.sdk.mvp.a {
 
     /* renamed from: com.kwad.components.ad.interstitial.b.c$c  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0558c {
+    public interface InterfaceC0557c {
         void cH();
     }
 
@@ -467,7 +467,7 @@ public final class c extends com.kwad.sdk.mvp.a {
     public final void a(Context context, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i, i2, i3) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0594a(context).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(false).ae(2).a(new a.b(this, 9, i, context) { // from class: com.kwad.components.ad.interstitial.b.c.3
+            com.kwad.components.core.c.a.a.a(new a.C0593a(context).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(false).ae(2).a(new a.b(this, 9, i, context) { // from class: com.kwad.components.ad.interstitial.b.c.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ int gA;
@@ -523,7 +523,7 @@ public final class c extends com.kwad.sdk.mvp.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
             boolean z = bVar.cC() == 1;
-            if ((com.kwad.components.ad.interstitial.kwai.b.cl() || z || bVar.cE()) && com.kwad.components.core.c.a.a.a(new a.C0594a(bVar.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(z).ae(bVar.cC()).a(new a.b(this, bVar) { // from class: com.kwad.components.ad.interstitial.b.c.1
+            if ((com.kwad.components.ad.interstitial.kwai.b.cl() || z || bVar.cE()) && com.kwad.components.core.c.a.a.a(new a.C0593a(bVar.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(z).ae(bVar.cC()).a(new a.b(this, bVar) { // from class: com.kwad.components.ad.interstitial.b.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ b gy;
@@ -669,8 +669,8 @@ public final class c extends com.kwad.sdk.mvp.a {
     public final void cA() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            for (InterfaceC0558c interfaceC0558c : this.gs) {
-                interfaceC0558c.cH();
+            for (InterfaceC0557c interfaceC0557c : this.gs) {
+                interfaceC0557c.cH();
             }
         }
     }

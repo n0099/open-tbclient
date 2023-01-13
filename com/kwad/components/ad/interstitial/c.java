@@ -270,7 +270,7 @@ public final class c {
                 private void b(@NonNull AdResultData adResultData) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(65537, this, adResultData) == null) {
-                        this.fv.fq = false;
+                        c.a(this.fv, false);
                         if (!adResultData.isAdResultDataEmpty()) {
                             this.fz.a(adResultData);
                             return;
@@ -284,7 +284,7 @@ public final class c {
                 private void c(int i, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(65538, this, i, str) == null) {
-                        this.fv.fq = false;
+                        c.a(this.fv, false);
                         this.fz.onError(i, str);
                     }
                 }
@@ -314,6 +314,11 @@ public final class c {
         }
     }
 
+    public static /* synthetic */ boolean a(c cVar, boolean z) {
+        cVar.fq = false;
+        return false;
+    }
+
     public static c cd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -325,11 +330,11 @@ public final class c {
         if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), sceneImpl, bVar}) == null) || this.fq) {
             return;
         }
-        SceneImpl m85clone = sceneImpl.m85clone();
+        SceneImpl m89clone = sceneImpl.m89clone();
         long elapsedRealtime = SystemClock.elapsedRealtime();
-        m85clone.setAdStyle(16);
-        m85clone.setAdNum(i2);
-        a(new com.kwad.components.core.k.kwai.b(m85clone), new AnonymousClass1(this, sceneImpl, bVar, elapsedRealtime));
+        m89clone.setAdStyle(16);
+        m89clone.setAdNum(i2);
+        a(new com.kwad.components.core.k.kwai.b(m89clone), new AnonymousClass1(this, sceneImpl, bVar, elapsedRealtime));
     }
 
     public final void release() {

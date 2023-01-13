@@ -76,11 +76,11 @@ public class ib implements iu<ib, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ibVar)) == null) {
             if (ib.class.equals(ibVar.getClass())) {
-                int compareTo = Boolean.valueOf(m461a()).compareTo(Boolean.valueOf(ibVar.m461a()));
+                int compareTo = Boolean.valueOf(m524a()).compareTo(Boolean.valueOf(ibVar.m524a()));
                 if (compareTo != 0) {
                     return compareTo;
                 }
-                if (!m461a() || (a3 = iv.a(this.f619a, ibVar.f619a)) == 0) {
+                if (!m524a() || (a3 = iv.a(this.f619a, ibVar.f619a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(ibVar.b()));
                     if (compareTo2 != 0) {
                         return compareTo2;
@@ -118,17 +118,17 @@ public class ib implements iu<ib, Object>, Serializable, Cloneable {
     public void a(jf jfVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, jfVar) == null) {
-            jfVar.m559a();
+            jfVar.mo622a();
             while (true) {
-                jc m555a = jfVar.m555a();
-                byte b2 = m555a.a;
+                jc mo618a = jfVar.mo618a();
+                byte b2 = mo618a.a;
                 if (b2 == 0) {
                     break;
                 }
-                short s = m555a.f833a;
+                short s = mo618a.f833a;
                 if (s != 1) {
                     if (s == 2 && b2 == 8) {
-                        this.f621b = jfVar.m553a();
+                        this.f621b = jfVar.mo616a();
                         b(true);
                         jfVar.g();
                     }
@@ -136,7 +136,7 @@ public class ib implements iu<ib, Object>, Serializable, Cloneable {
                     jfVar.g();
                 } else {
                     if (b2 == 8) {
-                        this.f619a = jfVar.m553a();
+                        this.f619a = jfVar.mo616a();
                         a(true);
                         jfVar.g();
                     }
@@ -145,7 +145,7 @@ public class ib implements iu<ib, Object>, Serializable, Cloneable {
                 }
             }
             jfVar.f();
-            if (!m461a()) {
+            if (!m524a()) {
                 throw new jg("Required field 'miscConfigVersion' was not found in serialized data! Struct: " + toString());
             } else if (b()) {
                 a();
@@ -163,14 +163,14 @@ public class ib implements iu<ib, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m461a() {
+    public boolean m524a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f620a.get(0) : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m462a(ib ibVar) {
+    public boolean m525a(ib ibVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, ibVar)) == null) ? ibVar != null && this.f619a == ibVar.f619a && this.f621b == ibVar.f621b : invokeL.booleanValue;
@@ -194,13 +194,13 @@ public class ib implements iu<ib, Object>, Serializable, Cloneable {
             a();
             jfVar.a(f618a);
             jfVar.a(a);
-            jfVar.a(this.f619a);
+            jfVar.mo627a(this.f619a);
             jfVar.b();
             jfVar.a(b);
-            jfVar.a(this.f621b);
+            jfVar.mo627a(this.f621b);
             jfVar.b();
             jfVar.c();
-            jfVar.m563a();
+            jfVar.mo626a();
         }
     }
 
@@ -222,7 +222,7 @@ public class ib implements iu<ib, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, obj)) == null) {
             if (obj != null && (obj instanceof ib)) {
-                return m462a((ib) obj);
+                return m525a((ib) obj);
             }
             return false;
         }

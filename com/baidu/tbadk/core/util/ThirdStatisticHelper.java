@@ -8,9 +8,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.al5;
-import com.baidu.tieba.lg;
-import com.baidu.tieba.wg;
+import com.baidu.tieba.mg;
+import com.baidu.tieba.rl5;
+import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -78,7 +78,7 @@ public class ThirdStatisticHelper {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
                 if (strArr != null && strArr.length != 0) {
                     try {
-                        new lg().g(strArr[0], 3, 30000, 3000);
+                        new mg().g(strArr[0], 3, 30000, 3000);
                     } catch (Exception e) {
                         BdLog.e(e);
                     }
@@ -151,7 +151,7 @@ public class ThirdStatisticHelper {
                 httpURLConnection.setInstanceFollowRedirects(false);
                 httpURLConnection.setConnectTimeout(i);
                 httpURLConnection.setReadTimeout(i2);
-                httpURLConnection.setRequestProperty("User-Agent", al5.b());
+                httpURLConnection.setRequestProperty("User-Agent", rl5.b());
                 httpURLConnection.addRequestProperty("Cookie", str);
                 return httpURLConnection;
             }
@@ -254,7 +254,7 @@ public class ThirdStatisticHelper {
                                 BdLog.e(e);
                             }
                         } finally {
-                            wg.f(httpURLConnection);
+                            xg.f(httpURLConnection);
                         }
                     }
                     if (i != 200) {
@@ -273,7 +273,7 @@ public class ThirdStatisticHelper {
                                 }
                                 i = httpURLConnection.getResponseCode();
                                 requestStatistic(i2 + 1, String.valueOf(i));
-                                wg.f(httpURLConnection);
+                                xg.f(httpURLConnection);
                             }
                         } else if (httpURLConnection != null) {
                             String headerField = httpURLConnection.getHeaderField("Location");
@@ -287,7 +287,7 @@ public class ThirdStatisticHelper {
                                 httpURLConnection.connect();
                                 i = httpURLConnection.getResponseCode();
                                 requestStatistic(i2 + 1, String.valueOf(i));
-                                wg.f(httpURLConnection);
+                                xg.f(httpURLConnection);
                             }
                         }
                     }

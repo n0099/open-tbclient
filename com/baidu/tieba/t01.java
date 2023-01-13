@@ -1,227 +1,208 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import androidx.annotation.NonNull;
+import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 /* loaded from: classes6.dex */
-public abstract class t01 implements SharedPreferences {
+public class t01 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final SharedPreferences a;
 
-    public abstract SharedPreferences d(String str, int i);
-
-    public abstract void j(String str, String str2, boolean z);
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-        }
-    }
-
-    public t01(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = d(str, i);
-    }
-
-    @Override // android.content.SharedPreferences
-    public boolean contains(String str) {
+    public static boolean f(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return this.a.contains(str);
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) ? obj == null : invokeL.booleanValue;
+    }
+
+    public static void n(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65549, null, exc) == null) {
+        }
+    }
+
+    public static <T> void a(List<T> list, T t, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLI(65536, null, list, t, i) != null) || f(list) || !e(list, i)) {
+            return;
+        }
+        try {
+            list.add(i, t);
+        } catch (Exception e) {
+            n(e);
+        }
+    }
+
+    public static <T> boolean b(List<T> list, T t) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, list, t)) == null) {
+            if (f(list)) {
+                return false;
+            }
+            try {
+                return list.add(t);
+            } catch (Exception e) {
+                n(e);
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.util.Collection<T> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static <T> void c(Collection<T> collection, Collection<T> collection2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, collection, collection2) == null) && collection2 != 0 && collection != null) {
+            collection.addAll(collection2);
+        }
+    }
+
+    @Nullable
+    public static <T> T d(List<T> list, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, list, i)) == null) {
+            if (g(list) || !e(list, i)) {
+                return null;
+            }
+            try {
+                return list.get(i);
+            } catch (Exception e) {
+                n(e);
+                return null;
+            }
+        }
+        return (T) invokeLI.objValue;
+    }
+
+    public static <T> boolean e(List<T> list, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, list, i)) == null) {
+            if (f(list) || i < 0) {
+                return false;
+            }
+            try {
+                if (i >= list.size()) {
+                    return false;
+                }
+                return true;
+            } catch (Exception e) {
+                n(e);
+                return false;
+            }
+        }
+        return invokeLI.booleanValue;
+    }
+
+    @Nullable
+    public static <T> T i(List<T> list, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, list, i)) == null) {
+            if (g(list) || !e(list, i)) {
+                return null;
+            }
+            try {
+                return list.remove(i);
+            } catch (Exception e) {
+                n(e);
+                return null;
+            }
+        }
+        return (T) invokeLI.objValue;
+    }
+
+    public static <T> boolean j(List<T> list, T t) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, list, t)) == null) {
+            if (g(list)) {
+                return false;
+            }
+            try {
+                return list.remove(t);
+            } catch (Exception e) {
+                n(e);
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static <T> boolean k(List<T> list, Collection<?> collection) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, list, collection)) == null) {
+            if (f(list)) {
+                return false;
+            }
+            try {
+                return list.removeAll(collection);
+            } catch (Exception e) {
+                Log.e("CollectionUtils", "throw exception when List removeAll");
+                n(e);
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static <T> void m(List<T> list, Comparator<? super T> comparator) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65548, null, list, comparator) != null) || f(list)) {
+            return;
+        }
+        try {
+            Collections.sort(list, comparator);
+        } catch (Exception e) {
+            Log.e("CollectionUtils", "throw exception when List sort");
+            n(e);
+        }
+    }
+
+    public static <T> boolean g(List<T> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, list)) == null) {
+            if (!f(list) && !list.isEmpty()) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    @Override // android.content.SharedPreferences
-    public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+    public static <K, V> boolean h(Map<K, V> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, onSharedPreferenceChangeListener) == null) {
-            this.a.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
-        }
-    }
-
-    @Override // android.content.SharedPreferences
-    public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, onSharedPreferenceChangeListener) == null) {
-            this.a.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
-        }
-    }
-
-    public void e(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
-            this.a.edit().putBoolean(str, z).apply();
-        }
-    }
-
-    public void f(String str, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048580, this, str, f) == null) {
-            this.a.edit().putFloat(str, f).apply();
-        }
-    }
-
-    public void g(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, str, i) == null) {
-            this.a.edit().putInt(str, i).apply();
-        }
-    }
-
-    @Override // android.content.SharedPreferences
-    public boolean getBoolean(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, str, z)) == null) {
-            try {
-                return this.a.getBoolean(str, z);
-            } catch (ClassCastException e) {
-                k(e.getMessage());
-                return z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, map)) == null) {
+            if (!f(map) && !map.isEmpty()) {
+                return false;
             }
+            return true;
         }
-        return invokeLZ.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // android.content.SharedPreferences
-    public float getFloat(String str, float f) {
-        InterceptResult invokeLF;
+    public static <T> int l(List<T> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, f)) == null) {
-            try {
-                return this.a.getFloat(str, f);
-            } catch (ClassCastException e) {
-                k(e.getMessage());
-                return f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, list)) == null) {
+            if (!f(list) && !list.isEmpty()) {
+                return list.size();
             }
+            return 0;
         }
-        return invokeLF.floatValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public int getInt(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, str, i)) == null) {
-            try {
-                return this.a.getInt(str, i);
-            } catch (ClassCastException e) {
-                k(e.getMessage());
-                return i;
-            }
-        }
-        return invokeLI.intValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public long getLong(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, str, j)) == null) {
-            try {
-                return this.a.getLong(str, j);
-            } catch (ClassCastException e) {
-                k(e.getMessage());
-                return j;
-            }
-        }
-        return invokeLJ.longValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    @Nullable
-    public String getString(String str, @Nullable String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
-            try {
-                return this.a.getString(str, str2);
-            } catch (ClassCastException e) {
-                k(e.getMessage());
-                return str2;
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    @Nullable
-    public Set<String> getStringSet(String str, @Nullable Set<String> set) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, set)) == null) {
-            try {
-                return this.a.getStringSet(str, set);
-            } catch (ClassCastException e) {
-                k(e.getMessage());
-                return set;
-            }
-        }
-        return (Set) invokeLL.objValue;
-    }
-
-    public void h(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048589, this, str, j) == null) {
-            this.a.edit().putLong(str, j).apply();
-        }
-    }
-
-    public void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, str, str2) == null) {
-            this.a.edit().putString(str, str2).apply();
-        }
-    }
-
-    @Override // android.content.SharedPreferences
-    public SharedPreferences.Editor edit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.edit();
-        }
-        return (SharedPreferences.Editor) invokeV.objValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public Map<String, ?> getAll() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            try {
-                return this.a.getAll();
-            } catch (Exception e) {
-                k(e.getMessage());
-                return null;
-            }
-        }
-        return (Map) invokeV.objValue;
+        return invokeL.intValue;
     }
 }

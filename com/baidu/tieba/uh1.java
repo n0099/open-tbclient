@@ -1,91 +1,76 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8ExceptionInfo;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Locale;
+import javax.net.ssl.HttpsURLConnection;
 /* loaded from: classes6.dex */
-public class uh1 extends yh1 {
+public class uh1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean c;
-    public long d;
-    public V8ExceptionInfo e;
-    public int f;
 
-    public uh1() {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str == null) {
+                return null;
             }
+            if (c(str).booleanValue() || d(str).booleanValue()) {
+                return str.split("\\?")[0];
+            }
+            return str;
         }
-        this.c = false;
+        return (String) invokeL.objValue;
     }
 
-    public final void d() {
+    public static HttpURLConnection b(URL url) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e = null;
-            this.d = 0L;
-            this.f = -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, url)) == null) {
+            if (url.getProtocol().toLowerCase().equals("https")) {
+                th1.a();
+                return (HttpsURLConnection) url.openConnection();
+            }
+            return (HttpURLConnection) url.openConnection();
         }
+        return (HttpURLConnection) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.yh1
-    public synchronized void a(int i, V8ExceptionInfo v8ExceptionInfo) {
+    public static Boolean c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, v8ExceptionInfo) == null) {
-            synchronized (this) {
-                if (this.e == null && v8ExceptionInfo != null) {
-                    this.e = new V8ExceptionInfo(v8ExceptionInfo.exceptionTime, v8ExceptionInfo.exceptionMsg, v8ExceptionInfo.exceptionTrace, v8ExceptionInfo.exceptionType, v8ExceptionInfo.filePath);
-                    this.f = i;
-                    if (this.b != null) {
-                        this.b.a();
-                    }
-                }
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return e(str, UrlSchemaHelper.SCHEMA_TYPE_HTTP);
         }
+        return (Boolean) invokeL.objValue;
     }
 
-    public synchronized void e() {
+    public static Boolean d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                if (this.c) {
-                    return;
-                }
-                if (this.b != null && this.d > 0 && this.e != null) {
-                    if (System.currentTimeMillis() - this.e.exceptionTime > this.a && this.e.exceptionTime > this.d) {
-                        this.b.b(new xh1(this.f, this.e, this.d));
-                        d();
-                    }
-                    return;
-                }
-                Log.e("StuckScreenHandler", "[StuckScreen] 未设置冻屏监听器， 或者异常信息已经被清空（需等待下次上屏）。");
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return e(str, UrlSchemaHelper.SCHEMA_TYPE_HTTPS);
         }
+        return (Boolean) invokeL.objValue;
     }
 
-    public synchronized void f(boolean z, long j) {
+    public static Boolean e(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
-            synchronized (this) {
-                this.c = z;
-                if (z) {
-                    this.d = j;
-                    this.e = null;
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            boolean z = false;
+            if (str != null && str.trim().toLowerCase(Locale.getDefault()).indexOf(str2) == 0) {
+                z = true;
             }
+            return Boolean.valueOf(z);
         }
+        return (Boolean) invokeLL.objValue;
     }
 }

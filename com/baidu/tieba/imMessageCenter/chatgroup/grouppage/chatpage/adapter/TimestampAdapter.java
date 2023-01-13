@@ -9,10 +9,10 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
+import com.baidu.tieba.cx4;
 import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter;
 import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.itemdata.TimestampSysMsg;
-import com.baidu.tieba.rw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ public class TimestampAdapter extends BaseSysAdapter<TimestampSysMsg, Holder> {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922aa);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922d3);
         }
     }
 
@@ -96,7 +96,7 @@ public class TimestampAdapter extends BaseSysAdapter<TimestampSysMsg, Holder> {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), viewGroup, timestampSysMsg, holder, list, Integer.valueOf(i2)})) == null) {
             if (timestampSysMsg != null && timestampSysMsg.getTimeShow() != null) {
                 holder.a.setText(timestampSysMsg.getTimeShow());
-                rw4 d = rw4.d(holder.a);
+                cx4 d = cx4.d(holder.a);
                 d.v(R.color.CAM_X0108);
                 d.z(R.dimen.T_X09);
             }

@@ -1,33 +1,19 @@
 package com.baidu.tieba;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public class hr2 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface hr2 {
+    String b();
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return "[swan_audio] " + str;
-        }
-        return (String) invokeL.objValue;
-    }
+    String c();
 
-    public static void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            e12.k(str, a(str2));
-        }
-    }
+    String f();
 
-    public static void c(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) {
-            e12.l(str, a(str2), th);
-        }
-    }
+    Object i();
+
+    void j(boolean z);
+
+    void k(boolean z);
+
+    boolean onBackPressed();
+
+    void onDestroy();
 }

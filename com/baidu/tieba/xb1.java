@@ -1,103 +1,175 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.widget.ImageView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.poly.util.HttpSigner;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class xb1 implements zb1 {
-    public static /* synthetic */ Interceptable $ic;
-    public static xb1 b;
-    public static bc1 c;
-    public static fc1 d;
-    public static ec1 e;
+public final class xb1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    public xb1(Context context) {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948294498, "Lcom/baidu/tieba/xb1;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = context.getApplicationContext();
-        d = new fc1();
-        e = new ec1(context);
-        c = new bc1();
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948294498, "Lcom/baidu/tieba/xb1;");
+        }
     }
 
-    public static ec1 b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (e == null) {
-                e = new ec1(context);
-            }
-            return e;
-        }
-        return (ec1) invokeL.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public static final class a extends qb1<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tc1 a;
+        public final /* synthetic */ JSONObject b;
 
-    public static xb1 d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (b == null) {
-                synchronized (xb1.class) {
-                    if (b == null) {
-                        b = new xb1(context);
-                    }
+        public a(tc1 tc1Var, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tc1Var, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return b;
+            this.a = tc1Var;
+            this.b = jSONObject;
         }
-        return (xb1) invokeL.objValue;
+
+        @Override // com.baidu.tieba.qb1
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                tc1 tc1Var = this.a;
+                if (tc1Var != null) {
+                    tc1Var.a(1, str);
+                }
+                bc1.d(this.b);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.qb1
+        /* renamed from: d */
+        public void c(String str) {
+            tc1 tc1Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (tc1Var = this.a) != null) {
+                tc1Var.a(0, "");
+            }
+        }
     }
 
-    public static fc1 c() {
+    /* loaded from: classes6.dex */
+    public static final class b extends qb1<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tc1 a;
+
+        public b(tc1 tc1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tc1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tc1Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.qb1
+        /* renamed from: d */
+        public void c(String str) {
+            tc1 tc1Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (tc1Var = this.a) != null) {
+                tc1Var.a(0, "");
+            }
+        }
+
+        @Override // com.baidu.tieba.qb1
+        public void a(Throwable th, int i, String str) {
+            tc1 tc1Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) && (tc1Var = this.a) != null) {
+                tc1Var.a(1, str);
+            }
+        }
+    }
+
+    public static final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                d = new fc1();
-            }
-            return d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a;
         }
-        return (fc1) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.zb1
-    public void a(ImageView imageView, String str) {
+    public static final void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, imageView, str) == null) {
-            e(imageView, str, 0, 0);
+        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
+            a = i;
         }
     }
 
-    public void e(ImageView imageView, String str, int i, int i2) {
+    public static final void c(JSONObject jSONObject, tc1 tc1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageView, str, i, i2) == null) {
-            imageView.setTag(str);
-            Bitmap c2 = d.c(str);
-            if (c2 != null) {
-                imageView.setImageBitmap(c2);
-            } else {
-                vc1.a(new dc1(this.a, c, str, imageView, i, i2));
-            }
+        if ((interceptable != null && interceptable.invokeLL(65539, null, jSONObject, tc1Var) != null) || jSONObject == null) {
+            return;
         }
+        sb1 sb1Var = new sb1();
+        zb1.d(sb1Var);
+        rb1 e = zb1.e(jSONObject);
+        zb1.c(sb1Var, e.a("bduss"));
+        HttpSigner.b(e);
+        new wb1(false).a(ac1.f(), sb1Var, e, new a(tc1Var, jSONObject));
+    }
+
+    public static final void d(JSONArray jSONArray, tc1 tc1Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONArray, tc1Var) != null) || jSONArray == null) {
+            return;
+        }
+        sb1 sb1Var = new sb1();
+        zb1.d(sb1Var);
+        rb1 rb1Var = new rb1();
+        String jSONArray2 = jSONArray.toString();
+        Intrinsics.checkExpressionValueIsNotNull(jSONArray2, "params.toString()");
+        rb1Var.d("batchData", jSONArray2);
+        HttpSigner.b(rb1Var);
+        new wb1(false).a(ac1.a(), sb1Var, rb1Var, new b(tc1Var));
     }
 }

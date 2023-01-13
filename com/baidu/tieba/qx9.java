@@ -1,42 +1,54 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.util.Pair;
+import com.baidu.tieba.px9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.InstallActivity;
+import com.fun.ad.sdk.internal.api.utils.AdReporter;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class qx9 implements View.OnClickListener {
+public class qx9<A extends px9> extends AdReporter<A> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ InstallActivity a;
 
-    public qx9(InstallActivity installActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qx9(String str, String str2, String str3) {
+        super(str, str2, str3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {installActivity};
+            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = installActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view2) {
+    @Override // com.fun.ad.sdk.internal.api.utils.AdReporter
+    public List onReport(Object obj, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, str)) == null) {
+            px9 px9Var = (px9) obj;
+            if (px9Var == null) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(Pair.create("csj_rq_id", px9Var.a()));
+            return arrayList;
         }
-        this.a.h();
-        this.a.n();
+        return (List) invokeLL.objValue;
     }
 }

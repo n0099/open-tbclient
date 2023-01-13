@@ -1,36 +1,21 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.ActivityNotFoundException;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
-import android.util.Log;
-import android.view.Window;
-import android.widget.Toast;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.android.ActivityUtils;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class ng3 {
+public class ng3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return 5894;
-        }
-        return invokeV.intValue;
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -45,118 +30,86 @@ public final class ng3 {
                 return;
             }
         }
-        a = ok1.a;
+        a = tk1.a;
     }
 
-    public static void a(Activity activity) {
+    public static JSONObject a(String str, String str2, String str3) throws JSONException {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, activity) == null) && activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
-            Window window = activity.getWindow();
-            window.clearFlags(1024);
-            int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (~c());
-            if (a33.b) {
-                systemUiVisibility |= 5120;
-            }
-            window.getDecorView().setSystemUiVisibility(systemUiVisibility);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, str3)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("success", str);
+            jSONObject.put("swan", str2);
+            jSONObject.put("type", "NA");
+            jSONObject.put("error", str3);
+            return jSONObject;
         }
+        return (JSONObject) invokeLLL.objValue;
     }
 
-    public static void b(Activity activity, Dialog dialog) {
+    public static JSONObject b(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, activity, dialog) == null) && activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null && dialog != null && dialog.getWindow() != null && dialog.getWindow().getDecorView() != null) {
-            dialog.getWindow().getDecorView().setSystemUiVisibility(activity.getWindow().getDecorView().getSystemUiVisibility());
-        }
-    }
-
-    public static boolean d(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
-            if (activity != null && !activity.isDestroyed() && !activity.isFinishing()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void e(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, activity) == null) && activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
-            Window window = activity.getWindow();
-            window.setFlags(1024, 1024);
-            window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() | c());
-        }
-    }
-
-    public static void j(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, activity) == null) {
-            if (a) {
-                Log.i(ActivityUtils.TAG, "tryFinishAndRemoveTask: " + activity);
-            }
-            if (activity != null && !activity.isDestroyed()) {
-                if (Build.VERSION.SDK_INT >= 21) {
-                    activity.finishAndRemoveTask();
-                } else {
-                    activity.finish();
-                }
-            }
-        }
-    }
-
-    public static void f(Activity activity, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, activity, intent) == null) {
-            h(activity, intent, true);
-        }
-    }
-
-    public static boolean g(Context context, Intent intent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, intent)) == null) {
-            return h(context, intent, false);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean h(Context context, Intent intent, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65544, null, context, intent, z)) == null) {
-            return i(context, intent, z, true);
-        }
-        return invokeLLZ.booleanValue;
-    }
-
-    public static boolean i(Context context, Intent intent, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{context, intent, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (z || !(context instanceof Activity)) {
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
+            JSONObject jSONObject = new JSONObject();
             try {
-                context.startActivity(intent);
-                return true;
-            } catch (ActivityNotFoundException unused) {
-                if (!z2) {
-                    return false;
+                jSONObject.put("ext", a(str, str2, str3));
+                jSONObject.put("os", "android");
+                jSONObject.put("type", CommonTbJsBridge.GET_APIS);
+                jSONObject.put("from", "swan");
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
                 }
-                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f12c1, 0).show();
-                return false;
-            } catch (SecurityException e) {
-                if (z2) {
-                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f12c1, 0).show();
-                }
-                if (!a) {
-                    return false;
-                }
-                Log.e(ActivityUtils.TAG, "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.", e);
-                return false;
             }
+            return jSONObject;
         }
-        return invokeCommon.booleanValue;
+        return (JSONObject) invokeLLL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:16:0x001c  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void c(@Nullable String str) {
+        String str2;
+        SwanCoreVersion e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            try {
+                e = od3.e(0);
+            } catch (Exception e2) {
+                if (a) {
+                    e2.printStackTrace();
+                }
+            }
+            if (e != null) {
+                str2 = e.swanCoreVersionName;
+                if (str == null) {
+                    str = "";
+                }
+                qa3.k("1087", b("2", str2, str));
+            }
+            str2 = "";
+            if (str == null) {
+            }
+            qa3.k("1087", b("2", str2, str));
+        }
+    }
+
+    public static void d() {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            try {
+                str = db2.U().d0().swanCoreVersionName;
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+                str = "";
+            }
+            qa3.k("1087", b("1", str, ""));
+        }
     }
 }

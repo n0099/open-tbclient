@@ -1,111 +1,25 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
-import android.view.ViewGroup;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class au5 extends yf1<ik0> {
+public class au5 {
     public static /* synthetic */ Interceptable $ic;
+    public static au5 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes3.dex */
-    public class a implements ik0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.ik0
-        public boolean a(Activity activity) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.ik0
-        public ViewGroup b(Activity activity) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
-                return null;
-            }
-            return (ViewGroup) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.ik0
-        public void d(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.ik0
-        public void e(Activity activity, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(1048580, this, activity, j) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.ik0
-        public int f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.drawable.tb_launcher_icon : invokeV.intValue;
-        }
-
-        public a(au5 au5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {au5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ik0
-        public ml0 c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                ml0 ml0Var = new ml0();
-                ml0Var.a = R.layout.obfuscated_res_0x7f0d006c;
-                ml0Var.b = R.id.obfuscated_res_0x7f0900e5;
-                ml0Var.c = R.id.obfuscated_res_0x7f0900e3;
-                ml0Var.d = R.id.obfuscated_res_0x7f0900e6;
-                ml0Var.e = R.id.obfuscated_res_0x7f0900e4;
-                return ml0Var;
-            }
-            return (ml0) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.ik0
-        public boolean isMainActivity(Activity activity) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, activity)) == null) {
-                if (activity == null || TextUtils.isEmpty(activity.getClass().getSimpleName()) || !"MainTabActivity".equals(activity.getClass().getSimpleName())) {
-                    return false;
-                }
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-    }
 
     public au5() {
         Interceptable interceptable = $ic;
@@ -121,15 +35,239 @@ public class au5 extends yf1<ik0> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yf1
-    /* renamed from: a */
-    public ik0 createService() throws ServiceNotFoundException {
+    public static au5 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (au5.class) {
+                if (a == null) {
+                    a = new au5();
+                }
+            }
+            return a;
         }
-        return (ik0) invokeV.objValue;
+        return (au5) invokeV.objValue;
+    }
+
+    public boolean a(k45 k45Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k45Var)) == null) {
+            SQLiteDatabase b = cu5.b();
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (b != null && k45Var != null && !TextUtils.isEmpty(currentAccount)) {
+                try {
+                    ContentValues c = c(k45Var);
+                    if (b.update("table_" + currentAccount, c, "id = ?", new String[]{String.valueOf(k45Var.d())}) == 0) {
+                        b.insert("table_" + currentAccount, null, c);
+                    }
+                    return true;
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "RelationshipDao.addContactItem", new Object[0]);
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final ContentValues c(k45 k45Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k45Var)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("name", k45Var.e());
+            contentValues.put("id", Long.valueOf(k45Var.d()));
+            contentValues.put("user_type", Integer.valueOf(k45Var.h()));
+            contentValues.put("portrait", k45Var.g());
+            contentValues.put("quanpin", k45Var.c());
+            contentValues.put("first_letter", k45Var.a());
+            contentValues.put("name_show", k45Var.f());
+            if (k45Var.b() != null) {
+                contentValues.put("location_hide", Integer.valueOf(k45Var.b().b()));
+                contentValues.put("location_distance", k45Var.b().a());
+                contentValues.put("location_time", Long.valueOf(k45Var.b().c()));
+            }
+            return contentValues;
+        }
+        return (ContentValues) invokeL.objValue;
+    }
+
+    public synchronized boolean b(vt5 vt5Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vt5Var)) == null) {
+            synchronized (this) {
+                SQLiteDatabase b = cu5.b();
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                if (b != null && vt5Var != null && !TextUtils.isEmpty(currentAccount)) {
+                    b.execSQL("DROP TABLE IF EXISTS table_" + currentAccount);
+                    b.execSQL("CREATE TABLE IF NOT EXISTS table_" + currentAccount + "(name TEXT NOT NULL UNIQUE, id LONG, name_show TEXT, portrait TEXT, quanpin TEXT, first_letter TEXT, location_hide INT, location_distance TEXT ,location_time LONG, user_type INT);");
+                    b.beginTransaction();
+                    try {
+                        for (zt5 zt5Var : vt5Var.a()) {
+                            for (k45 k45Var : zt5Var.a()) {
+                                ContentValues c = c(k45Var);
+                                b.insert("table_" + currentAccount, null, c);
+                            }
+                        }
+                        b.setTransactionSuccessful();
+                        b.endTransaction();
+                        return true;
+                    } catch (Exception e) {
+                        BdLog.e(e.toString());
+                        TiebaStatic.printDBExceptionLog(e, "RelationshipDao.addContactItems", new Object[0]);
+                        b.endTransaction();
+                        return false;
+                    }
+                }
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean d(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+            SQLiteDatabase b = cu5.b();
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (b != null && j >= 0 && !TextUtils.isEmpty(currentAccount)) {
+                try {
+                    b.delete("table_" + currentAccount, "id = ?", new String[]{String.valueOf(j)});
+                    return true;
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "RelationshipDao.deleteContactItem", new Object[0]);
+                }
+            }
+            return false;
+        }
+        return invokeJ.booleanValue;
+    }
+
+    public synchronized List<k45> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this) {
+                SQLiteDatabase b = cu5.b();
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                Cursor cursor = null;
+                ArrayList arrayList = new ArrayList();
+                if (b != null && !TextUtils.isEmpty(currentAccount)) {
+                    b.beginTransaction();
+                    char c = 0;
+                    try {
+                        String[] strArr = m45.a;
+                        int length = strArr.length;
+                        int i = 0;
+                        while (i < length) {
+                            String str = strArr[i];
+                            ArrayList arrayList2 = new ArrayList();
+                            k45 k45Var = new k45();
+                            k45Var.j(str);
+                            arrayList2.add(k45Var);
+                            String[] strArr2 = new String[1];
+                            strArr2[c] = str;
+                            cursor = b.rawQuery("SELECT * FROM table_" + currentAccount + " WHERE first_letter=?", strArr2);
+                            if (cursor != null) {
+                                while (cursor.moveToNext()) {
+                                    k45 k45Var2 = new k45();
+                                    k45Var2.j(str);
+                                    k45Var2.n(cursor.getString(cursor.getColumnIndex("name")));
+                                    k45Var2.o(cursor.getString(cursor.getColumnIndex("name_show")));
+                                    k45Var2.m(cursor.getLong(cursor.getColumnIndex("id")));
+                                    k45Var2.q(cursor.getInt(cursor.getColumnIndex("user_type")));
+                                    k45Var2.p(cursor.getString(cursor.getColumnIndex("portrait")));
+                                    k45Var2.l(cursor.getString(cursor.getColumnIndex("quanpin")));
+                                    k45Var2.k(new l45(cursor.getString(cursor.getColumnIndex("location_distance")), cursor.getLong(cursor.getColumnIndex("location_time")), cursor.getInt(cursor.getColumnIndex("location_hide"))));
+                                    arrayList2.add(k45Var2);
+                                }
+                            }
+                            if (arrayList2.size() > 1) {
+                                arrayList.addAll(arrayList2);
+                            }
+                            aj.a(cursor);
+                            i++;
+                            c = 0;
+                        }
+                        b.setTransactionSuccessful();
+                        aj.a(cursor);
+                    } catch (Exception e) {
+                        BdLog.e(e.toString());
+                        TiebaStatic.printDBExceptionLog(e, "RelationshipDao.getContactList", new Object[0]);
+                        aj.a(cursor);
+                    }
+                    b.endTransaction();
+                    return arrayList;
+                }
+                return arrayList;
+            }
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public synchronized ArrayList<k45> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this) {
+                SQLiteDatabase b = cu5.b();
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                Cursor cursor = null;
+                ArrayList<k45> arrayList = new ArrayList<>();
+                if (b != null && !TextUtils.isEmpty(currentAccount)) {
+                    b.beginTransaction();
+                    char c = 0;
+                    try {
+                        String[] strArr = m45.a;
+                        int length = strArr.length;
+                        int i = 0;
+                        while (i < length) {
+                            String str = strArr[i];
+                            ArrayList arrayList2 = new ArrayList();
+                            k45 k45Var = new k45();
+                            k45Var.j(str);
+                            arrayList2.add(k45Var);
+                            String[] strArr2 = new String[2];
+                            strArr2[c] = str;
+                            strArr2[1] = "1";
+                            cursor = b.rawQuery("SELECT * FROM table_" + currentAccount + " WHERE first_letter = ? AND user_type = ? ", strArr2);
+                            if (cursor != null) {
+                                while (cursor.moveToNext()) {
+                                    k45 k45Var2 = new k45();
+                                    k45Var2.j(str);
+                                    k45Var2.n(cursor.getString(cursor.getColumnIndex("name")));
+                                    k45Var2.o(cursor.getString(cursor.getColumnIndex("name_show")));
+                                    k45Var2.m(cursor.getLong(cursor.getColumnIndex("id")));
+                                    k45Var2.q(cursor.getInt(cursor.getColumnIndex("user_type")));
+                                    k45Var2.p(cursor.getString(cursor.getColumnIndex("portrait")));
+                                    k45Var2.l(cursor.getString(cursor.getColumnIndex("quanpin")));
+                                    k45Var2.k(new l45(cursor.getString(cursor.getColumnIndex("location_distance")), cursor.getLong(cursor.getColumnIndex("location_time")), cursor.getInt(cursor.getColumnIndex("location_hide"))));
+                                    arrayList2.add(k45Var2);
+                                }
+                            }
+                            if (arrayList2.size() > 1) {
+                                arrayList.addAll(arrayList2);
+                            }
+                            aj.a(cursor);
+                            i++;
+                            c = 0;
+                        }
+                        b.setTransactionSuccessful();
+                        aj.a(cursor);
+                    } catch (Exception e) {
+                        BdLog.e(e.toString());
+                        TiebaStatic.printDBExceptionLog(e, "RelationshipDao.getOfficialAccountList", new Object[0]);
+                        aj.a(cursor);
+                    }
+                    b.endTransaction();
+                    return arrayList;
+                }
+                return arrayList;
+            }
+        }
+        return (ArrayList) invokeV.objValue;
     }
 }

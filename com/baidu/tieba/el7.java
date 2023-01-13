@@ -1,13 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import android.view.View;
+import androidx.annotation.NonNull;
+import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 /* loaded from: classes4.dex */
-public interface el7 {
-    void a(ICardInfo iCardInfo);
-
-    el7 b(String str, int i);
-
-    el7 c(String str, long j);
-
-    el7 d(String str, String str2);
+public interface el7<ChildItemData extends BaseMsg> {
+    boolean a(@NonNull View view2, @NonNull ChildItemData childitemdata, int i);
 }

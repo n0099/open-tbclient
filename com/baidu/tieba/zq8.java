@@ -1,93 +1,104 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.content.Context;
+import android.os.Bundle;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.FeedForumData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tieba.sharesdk.ShareHandlerActivity;
+import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class zq8 implements xn {
+public class zq8 implements q45 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<FeedForumData> a;
-    public String b;
+    public Context a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948368712, "Lcom/baidu/tieba/zq8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948368712, "Lcom/baidu/tieba/zq8;");
-                return;
-            }
-        }
-        c = BdUniqueId.gen();
-    }
-
-    public zq8() {
+    public zq8(Context context, p45 p45Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, p45Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.a = context;
     }
 
-    public List<FeedForumData> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.q45
+    public void a(ShareItem shareItem, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.xn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return c;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void c(List<FeedForumData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.a = list;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{shareItem, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            b(shareItem, i);
         }
     }
 
-    public void f(String str) {
+    public final void b(ShareItem shareItem, int i) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.b = str;
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareItem, i) == null) && this.a != null && shareItem != null) {
+            IntentConfig intentConfig = new IntentConfig(this.a);
+            ShareEntity shareEntity = new ShareEntity();
+            shareEntity.setTitle(shareItem.v);
+            shareEntity.setContent(shareItem.w);
+            shareEntity.setReadCount(shareItem.W);
+            int i2 = shareItem.R;
+            if (i2 != 2 && i2 != 6 && i2 != 8) {
+                z = false;
+            } else {
+                z = true;
+            }
+            shareEntity.setIsVideoThread(z);
+            shareEntity.setFestivalTaskTid(shareItem.Y);
+            shareEntity.setFestivalTaskType(shareItem.Z);
+            shareEntity.setImageUri(shareItem.z);
+            shareEntity.canShareBySmartApp = shareItem.v0;
+            String str = shareItem.x;
+            if (i == 6 && !StringUtils.isNull(shareItem.y)) {
+                str = shareItem.y;
+            }
+            shareEntity.setLinkUrl(str);
+            shareEntity.setLocalFile(shareItem.B);
+            shareEntity.setLocation(shareItem.F);
+            shareEntity.setShareTo(i);
+            shareEntity.setStats(shareItem.f());
+            shareEntity.setPreferImageToLink(shareItem.k0);
+            shareEntity.setTid(shareItem.O);
+            shareEntity.setFloorAuthorUid(shareItem.P);
+            shareEntity.setfName(shareItem.t);
+            shareEntity.setTypeShareToSmallApp(shareItem.C);
+            shareEntity.topic = shareItem.T;
+            if (i == 6 && !StringUtils.isNull(shareItem.V)) {
+                shareEntity.topic = shareItem.U + shareItem.V;
+                shareEntity.setContent("");
+            }
+            shareEntity.taskCompleteId = shareItem.X;
+            shareEntity.diskPicOperate = shareItem.E;
+            shareEntity.setExtLiveInfo(shareItem.A0);
+            shareEntity.setFromDuXiaoMan(shareItem.m);
+            shareEntity.setUserGrowthWeight(shareItem.B0);
+            shareEntity.setTopicId(shareItem.C0);
+            shareEntity.groupData = shareItem.M0;
+            shareEntity.shareMediaType = shareItem.O0;
+            Bundle bundle = new Bundle();
+            bundle.putParcelable("extra_share_data", shareEntity);
+            bundle.putInt("extra_skin", TbadkCoreApplication.getInst().getSkinType());
+            intentConfig.getIntent().putExtras(bundle);
+            shareItem.k(true);
+            intentConfig.startActivityForResult(24007, ShareHandlerActivity.class);
         }
     }
 }

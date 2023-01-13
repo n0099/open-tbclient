@@ -5,9 +5,9 @@ import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes6.dex */
 public interface wf {
     @NonNull
-    public static final ServiceReference a = new ServiceReference("tbadkcore", "INetExperiment");
+    public static final ServiceReference a = new ServiceReference("tbadkcore", "IHttpsExperiment");
 
-    boolean netABTest();
+    boolean isIpv6();
 
-    boolean qaHttpsTest();
+    boolean isSwitchOn();
 }

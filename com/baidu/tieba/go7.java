@@ -1,67 +1,75 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.HotForum.HotTopicList;
+import java.util.List;
+import tbclient.NewFloorInfo;
 /* loaded from: classes4.dex */
 public class go7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public int c;
 
-    public go7() {
+    public static void a(xn7 xn7Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if ((interceptable == null || interceptable.invokeLI(65536, null, xn7Var, i) == null) && xn7Var != null && xn7Var.y() != null && !ListUtils.isEmpty(xn7Var.m()) && xn7Var.m().size() >= 2) {
+            List<NewFloorInfo> m = xn7Var.m();
+            if (m.size() > 2) {
+                if (StringHelper.equals(xn7Var.y().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
+                    if (m.get(1) != null) {
+                        if (m.get(1).is_floor.intValue() == 0) {
+                            b(xn7Var, 12, i);
+                            return;
+                        } else if (m.get(1).is_floor.intValue() == 1) {
+                            b(xn7Var, 13, i);
+                            return;
+                        } else {
+                            return;
+                        }
+                    }
+                    return;
+                } else if (m.get(1) != null) {
+                    if (m.get(1).is_floor.intValue() == 0) {
+                        if (xn7Var.s() != null) {
+                            if (StringHelper.equals(xn7Var.s().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
+                                b(xn7Var, 14, i);
+                                return;
+                            } else {
+                                b(xn7Var, 15, i);
+                                return;
+                            }
+                        }
+                        return;
+                    } else if (m.get(1).is_floor.intValue() == 1) {
+                        b(xn7Var, 16, i);
+                        return;
+                    } else {
+                        return;
+                    }
+                } else {
+                    return;
+                }
             }
+            b(xn7Var, 11, i);
         }
     }
 
-    public long a() {
-        InterceptResult invokeV;
+    public static void b(xn7 xn7Var, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public void d(HotTopicList hotTopicList) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, hotTopicList) == null) && hotTopicList != null) {
-            this.a = hotTopicList.topic_id.longValue();
-            this.b = hotTopicList.topic_name;
-            this.c = hotTopicList.tag.intValue();
+        if ((interceptable == null || interceptable.invokeLII(65537, null, xn7Var, i, i2) == null) && xn7Var != null && xn7Var.v() != null && xn7Var.o() != null) {
+            StatisticItem statisticItem = new StatisticItem("c12928");
+            statisticItem.param("tid", xn7Var.o().f);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("fid", xn7Var.o().e);
+            statisticItem.param("fname", xn7Var.o().d);
+            statisticItem.param("pid", xn7Var.q());
+            statisticItem.param("obj_type", i);
+            statisticItem.param("obj_locate", i2);
+            TiebaStatic.log(statisticItem);
         }
     }
 }

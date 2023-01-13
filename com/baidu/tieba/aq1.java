@@ -1,12 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
+import java.util.concurrent.ExecutorService;
+import org.json.JSONArray;
 /* loaded from: classes3.dex */
 public interface aq1 {
-    boolean b(Context context, Intent intent, String str, String str2, String str3);
+    ExecutorService d();
 
-    boolean c();
+    void e(String str, int i, JSONArray jSONArray);
 
-    boolean d();
+    void f(String str, int i);
+
+    void g(String str, String str2, int i, String str3, int i2);
+
+    void i(String str, int i, String str2);
+
+    void n(String str, String str2, int i, String str3, long j, int i2);
 }

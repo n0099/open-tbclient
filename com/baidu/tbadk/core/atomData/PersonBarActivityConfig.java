@@ -90,7 +90,7 @@ public class PersonBarActivityConfig extends IntentConfig {
         Intent intent = getIntent();
         intent.putExtra("key_uid", str);
         intent.putExtra("key_sex", i);
-        intent.putExtra("key_current_tab", i2);
+        intent.putExtra(KEY_CURRENT_TAB, i2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -115,7 +115,7 @@ public class PersonBarActivityConfig extends IntentConfig {
         intent.putExtra("key_uid", str);
         intent.putExtra("key_sex", i);
         intent.putExtra(IS_CHOOSE_BAR_MODE, z);
-        intent.putExtra("tb_request_code", i2);
+        intent.putExtra(REQUEST_CODE, i2);
         setIntentAction(IntentAction.ActivityForResult);
         setRequestCode(i2);
     }
@@ -142,7 +142,7 @@ public class PersonBarActivityConfig extends IntentConfig {
         intent.putExtra("key_uid", str);
         intent.putExtra("key_sex", i);
         intent.putExtra(IS_CHOOSE_BAR_MODE, z);
-        intent.putExtra("tb_request_code", i2);
+        intent.putExtra(REQUEST_CODE, i2);
         intent.putExtra("bar_id", str2);
         setIntentAction(IntentAction.ActivityForResult);
         setRequestCode(i2);

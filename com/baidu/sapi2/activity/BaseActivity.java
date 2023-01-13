@@ -786,7 +786,7 @@ public class BaseActivity extends TitleActivity {
                 SapiAccountManager.getGlobalCallback().onLoginStatusChange();
             }
             try {
-                ((RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091d41)).removeView(this.sapiWebView);
+                ((RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091d60)).removeView(this.sapiWebView);
                 this.sapiWebView.removeAllViews();
                 this.sapiWebView.destroy();
                 this.sapiWebView = null;
@@ -1352,14 +1352,14 @@ public class BaseActivity extends TitleActivity {
             return;
         }
         try {
-            ((RelativeLayout.LayoutParams) findViewById(R.id.obfuscated_res_0x7f091e6a).getLayoutParams()).addRule(3, 0);
+            ((RelativeLayout.LayoutParams) findViewById(R.id.obfuscated_res_0x7f091e89).getLayoutParams()).addRule(3, 0);
         } catch (Exception unused) {
             Log.e(k, "子activity重写了webview布局");
         }
         this.sapiWebView.setHadMakeBarHide(true);
-        RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091d41);
+        RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091d60);
         if (this.mTitleLayout == null) {
-            this.mTitleLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091e68);
+            this.mTitleLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091e87);
         }
         ImageView imageView = null;
         RelativeLayout relativeLayout2 = this.mTitleLayout;
@@ -1368,7 +1368,7 @@ public class BaseActivity extends TitleActivity {
             this.mTitleLayout.setBackgroundColor(0);
             for (int i = 0; i < this.mTitleLayout.getChildCount(); i++) {
                 View childAt = this.mTitleLayout.getChildAt(i);
-                if (childAt.getId() == R.id.obfuscated_res_0x7f0922fb && this.configuration.showBottomBack) {
+                if (childAt.getId() == R.id.obfuscated_res_0x7f092326 && this.configuration.showBottomBack) {
                     childAt.setVisibility(0);
                     imageView = (ImageView) childAt;
                 } else {
@@ -1444,7 +1444,7 @@ public class BaseActivity extends TitleActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.setupViews();
-            SapiWebView sapiWebView = (SapiWebView) findViewById(R.id.obfuscated_res_0x7f091e6a);
+            SapiWebView sapiWebView = (SapiWebView) findViewById(R.id.obfuscated_res_0x7f091e89);
             this.sapiWebView = sapiWebView;
             if (sapiWebView == null) {
                 return;

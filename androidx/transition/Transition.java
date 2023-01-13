@@ -299,8 +299,9 @@ public abstract class Transition implements Cloneable {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    @Override // 
     /* renamed from: clone */
-    public Transition m5clone() {
+    public Transition mo5clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {

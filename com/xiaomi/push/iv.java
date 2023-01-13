@@ -262,7 +262,7 @@ public final class iv {
     public static ByteBuffer a(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, byteBuffer)) == null) ? m541a(byteBuffer) ? byteBuffer : ByteBuffer.wrap(m542a(byteBuffer)) : (ByteBuffer) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, byteBuffer)) == null) ? m604a(byteBuffer) ? byteBuffer : ByteBuffer.wrap(m605a(byteBuffer)) : (ByteBuffer) invokeL.objValue;
     }
 
     public static void a(ByteBuffer byteBuffer, StringBuilder sb) {
@@ -285,18 +285,18 @@ public final class iv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m541a(ByteBuffer byteBuffer) {
+    public static boolean m604a(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, byteBuffer)) == null) ? byteBuffer.hasArray() && byteBuffer.position() == 0 && byteBuffer.arrayOffset() == 0 && byteBuffer.remaining() == byteBuffer.capacity() : invokeL.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m542a(ByteBuffer byteBuffer) {
+    public static byte[] m605a(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, byteBuffer)) == null) {
-            if (m541a(byteBuffer)) {
+            if (m604a(byteBuffer)) {
                 return byteBuffer.array();
             }
             byte[] bArr = new byte[byteBuffer.remaining()];

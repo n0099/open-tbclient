@@ -9,7 +9,7 @@ public final class ULongArrayKt {
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: ulongArrayOf-QwZRm1k  reason: not valid java name */
-    public static final long[] m950ulongArrayOfQwZRm1k(long... jArr) {
+    public static final long[] m1014ulongArrayOfQwZRm1k(long... jArr) {
         return jArr;
     }
 
@@ -19,8 +19,8 @@ public final class ULongArrayKt {
     public static final long[] ULongArray(int i, Function1<? super Integer, ULong> function1) {
         long[] jArr = new long[i];
         for (int i2 = 0; i2 < i; i2++) {
-            jArr[i2] = function1.invoke(Integer.valueOf(i2)).m931unboximpl();
+            jArr[i2] = function1.invoke(Integer.valueOf(i2)).m995unboximpl();
         }
-        return ULongArray.m934constructorimpl(jArr);
+        return ULongArray.m998constructorimpl(jArr);
     }
 }

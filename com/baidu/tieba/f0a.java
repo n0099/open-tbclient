@@ -1,55 +1,129 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.channel.ModuleConfigKs;
+import com.fun.ad.sdk.internal.api.PidLoader;
+import com.fun.ad.sdk.internal.api.PidLoaderCreator;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes4.dex */
-public final class f0a {
+public class f0a implements PidLoaderCreator {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] a;
-    public static final int[] b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ModuleConfigKs a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947711698, "Lcom/baidu/tieba/f0a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947711698, "Lcom/baidu/tieba/f0a;");
+    public f0a(ModuleConfigKs moduleConfigKs) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {moduleConfigKs};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new byte[1024];
-        b = new int[1024];
+        this.a = moduleConfigKs;
     }
 
-    public static void a(byte[] bArr, int i, int i2) {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x0061, code lost:
+        if (r2.equals(com.fun.ad.sdk.FunAdType.KS_NATIVE_EXPRESS) == false) goto L45;
+     */
+    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public PidLoader create(Ssp.Pid pid) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65537, null, bArr, i, i2) == null) {
-            int i3 = 0;
-            while (i3 < i2) {
-                int min = Math.min(i3 + 1024, i2) - i3;
-                System.arraycopy(a, 0, bArr, i + i3, min);
-                i3 += min;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
+            char c = 0;
+            try {
+                Long.parseLong(pid.pid);
+                String str = pid.type;
+                str.hashCode();
+                switch (str.hashCode()) {
+                    case -1377301807:
+                        break;
+                    case -1291455752:
+                        if (str.equals(FunAdType.KS_FULLSCREEN_VIDEO)) {
+                            c = 1;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -1187931233:
+                        if (str.equals(FunAdType.KS_NATIVE)) {
+                            c = 2;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -1106926588:
+                        if (str.equals(FunAdType.KS_REWARD_VIDEO)) {
+                            c = 3;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -1031178769:
+                        if (str.equals(FunAdType.KS_SPLASH)) {
+                            c = 4;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 1860126748:
+                        if (str.equals(FunAdType.KS_INTERSTITIAL_EXPRESS)) {
+                            c = 5;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 2017609999:
+                        if (str.equals(FunAdType.KS_DRAW_VIDEO)) {
+                            c = 6;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    default:
+                        c = 65535;
+                        break;
+                }
+                switch (c) {
+                    case 0:
+                        return new p0a(pid);
+                    case 1:
+                        return new l0a(pid, this.a);
+                    case 2:
+                        return new r0a(pid);
+                    case 3:
+                        return new u0a(pid, this.a);
+                    case 4:
+                        return new w0a(pid);
+                    case 5:
+                        return new n0a(pid, this.a);
+                    case 6:
+                        return new i0a(pid);
+                    default:
+                        return null;
+                }
+            } catch (NumberFormatException unused) {
+                LogPrinter.d("NumberFormatException for Pid:%s" + pid.pid, new Object[0]);
+                return null;
             }
         }
-    }
-
-    public static void b(int[] iArr, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65538, null, iArr, i, i2) == null) {
-            int i3 = 0;
-            while (i3 < i2) {
-                int min = Math.min(i3 + 1024, i2) - i3;
-                System.arraycopy(b, 0, iArr, i + i3, min);
-                i3 += min;
-            }
-        }
+        return (PidLoader) invokeL.objValue;
     }
 }

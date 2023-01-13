@@ -1,11 +1,7 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,14 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes3.dex */
-public class bw1 implements aw1 {
+public class bw1 extends wv1 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, mx2> a;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +28,7 @@ public class bw1 implements aw1 {
                 return;
             }
         }
-        b = ok1.a;
+        b = tk1.a;
     }
 
     public bw1() {
@@ -48,57 +41,21 @@ public class bw1 implements aw1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new ConcurrentHashMap();
     }
 
-    @Override // com.baidu.tieba.aw1
-    public void a(String str) {
+    @Override // com.baidu.tieba.xv1
+    public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a.containsKey(str)) {
-            return;
-        }
-        if (b) {
-            Log.d("Api-FirstRecorder", "markStart: " + str);
-        }
-        mx2 mx2Var = new mx2();
-        this.a.put(str, mx2Var);
-        mx2Var.i(System.currentTimeMillis());
-        mx2Var.f(str);
-    }
-
-    @Override // com.baidu.tieba.aw1
-    @SuppressLint({"BDThrowableCheck"})
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            mx2 mx2Var = this.a.get(str);
-            if (mx2Var == null) {
-                if (!b) {
-                    return;
-                }
-                throw new RuntimeException(str + " markEnd before markStart");
-            } else if (mx2Var.d() > 0) {
-            } else {
-                mx2Var.h(System.currentTimeMillis());
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (BasePendingOperation basePendingOperation : this.a) {
                 if (b) {
-                    Log.d("Api-FirstRecorder", str + " first called cost " + mx2Var.c());
+                    Log.d("WorkThreadOperation", "  *************** 【Execute pending module】:" + basePendingOperation.b() + " params:" + basePendingOperation.c());
                 }
-                if (TextUtils.equals(str, "request")) {
-                    if (b) {
-                        Log.d("Api-FirstRecorder", "record first request api called " + mx2Var.toString());
-                    }
-                    HybridUbcFlow p = jx2.p("startup");
-                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("first_request_api_call_start");
-                    ubcFlowEvent.h(mx2Var.e());
-                    p.F(ubcFlowEvent);
-                    UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("first_request_api_call_end");
-                    ubcFlowEvent2.h(mx2Var.d());
-                    p.F(ubcFlowEvent2);
-                }
+                dh3.j(basePendingOperation, "operation_work");
             }
+            this.a.clear();
         }
     }
 }

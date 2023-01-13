@@ -9,7 +9,7 @@ import androidx.appcompat.widget.AppCompatEditText;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vh3;
+import com.baidu.tieba.ai3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,10 +37,10 @@ public class ClearableEditText extends AppCompatEditText {
                 return;
             }
         }
-        b = vh3.g(10.0f);
+        b = ai3.g(10.0f);
     }
 
-    public final void a() {
+    public final void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080196);
@@ -65,7 +65,7 @@ public class ClearableEditText extends AppCompatEditText {
                 return;
             }
         }
-        a();
+        init();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -87,7 +87,7 @@ public class ClearableEditText extends AppCompatEditText {
                 return;
             }
         }
-        a();
+        init();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -109,7 +109,7 @@ public class ClearableEditText extends AppCompatEditText {
                 return;
             }
         }
-        a();
+        init();
     }
 
     private void setClearIconVisible(boolean z) {

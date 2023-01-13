@@ -1,17 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.squareup.wire.Message;
-import java.util.List;
+import android.os.Build;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface tm7 {
-    boolean a();
+public class tm7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    int b();
+    public static boolean a(BaseFragmentActivity baseFragmentActivity, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, baseFragmentActivity, i)) == null) {
+            if (!TbadkCoreApplication.getInst().appResponseToCmd(i)) {
+                b(baseFragmentActivity);
+                return false;
+            }
+            return true;
+        }
+        return invokeLI.booleanValue;
+    }
 
-    void c(boolean z, Message message, boolean z2, int i);
-
-    List<ICardInfo> d();
-
-    boolean hasMore();
+    public static void b(BaseFragmentActivity baseFragmentActivity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65537, null, baseFragmentActivity) != null) || baseFragmentActivity == null) {
+            return;
+        }
+        if (Build.VERSION.SDK_INT <= 10) {
+            baseFragmentActivity.showToast(R.string.plugin_not_exit_for_2_3);
+        } else {
+            baseFragmentActivity.showToast(R.string.plugin_not_exit);
+        }
+    }
 }

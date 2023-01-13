@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface zd0 {
-    void a(boolean z);
+    void a(long j);
 
-    void b(boolean z);
+    void onRecorderComplete(boolean z, String str);
 
-    void c(boolean z);
+    void onRecorderError(int i);
 
-    void d(boolean z);
+    void onRecorderStart(boolean z);
 }

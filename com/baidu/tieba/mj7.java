@@ -1,94 +1,166 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class mj7 extends kn<kj7, CardViewHolder<nj7>> {
+public class mj7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public h56 b;
-    public String c;
+    public List<MetaData> a;
+    public List<MetaData> b;
+    public List<MetaData> c;
+    public List<MetaData> d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mj7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getContext(), bdUniqueId);
+    /* loaded from: classes5.dex */
+    public class a implements Comparator<MetaData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(mj7 mj7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mj7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(MetaData metaData, MetaData metaData2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, metaData, metaData2)) == null) {
+                return Long.compare(metaData.lastUpdateTime, metaData2.lastUpdateTime);
+            }
+            return invokeLL.intValue;
+        }
+    }
+
+    public mj7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.d = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.kn
-    public ho getOnAdapterItemClickListener() {
+    public List<MetaData> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return super.getOnAdapterItemClickListener();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return c(true, true);
         }
-        return (ho) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: s */
-    public CardViewHolder<nj7> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            nj7 nj7Var = new nj7(this.a, viewGroup);
-            h56 h56Var = this.b;
-            if (h56Var != null) {
-                nj7Var.n(h56Var);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            Collections.sort(this.d, new a(this));
+        }
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (!uq7.e(this.a)) {
+                for (MetaData metaData : this.a) {
+                    metaData.setItemType(1);
+                }
             }
-            return new CardViewHolder<>(nj7Var);
+            if (!uq7.e(this.c)) {
+                for (MetaData metaData2 : this.c) {
+                    metaData2.setItemType(2);
+                }
+            }
+            if (!uq7.e(this.b)) {
+                for (MetaData metaData3 : this.b) {
+                    metaData3.setItemType(3);
+                }
+            }
         }
-        return (CardViewHolder) invokeL.objValue;
     }
 
-    public void u(String str) {
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.c = str;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (MetaData metaData : this.a) {
+                if (metaData != null) {
+                    arrayList.add(metaData.getUserId());
+                }
+            }
+            if (uq7.e(this.c)) {
+                return;
+            }
+            for (MetaData metaData2 : this.c) {
+                if (metaData2 != null) {
+                    if (metaData2.getUserId() == null) {
+                        this.d.add(metaData2);
+                    } else if (!arrayList.contains(metaData2.getUserId())) {
+                        arrayList.add(metaData2.getUserId());
+                        this.d.add(metaData2);
+                    }
+                }
+            }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, kj7 kj7Var, CardViewHolder<nj7> cardViewHolder) {
+    public List<MetaData> c(boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, kj7Var, cardViewHolder})) == null) {
-            if (kj7Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
-                cardViewHolder.a().w(this.c);
-                cardViewHolder.a().i(kj7Var);
-                return cardViewHolder.getView();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            this.a = nj7.a();
+            if (z) {
+                this.b = oj7.a();
             }
-            return null;
+            a();
+            e(z);
+            f();
+            if (z2) {
+                this.c = qj7.a();
+                d();
+            }
+            return this.d;
         }
-        return (View) invokeCommon.objValue;
+        return (List) invokeCommon.objValue;
+    }
+
+    public final void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            if (!uq7.e(this.a)) {
+                this.d.addAll(this.a);
+            }
+            if (z && !uq7.e(this.b)) {
+                this.d.addAll(this.b);
+            }
+        }
     }
 }

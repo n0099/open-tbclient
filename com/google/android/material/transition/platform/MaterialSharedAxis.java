@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 @RequiresApi(21)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class MaterialSharedAxis extends MaterialVisibility<VisibilityAnimatorProvider> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int X = 0;
@@ -29,7 +29,7 @@ public final class MaterialSharedAxis extends MaterialVisibility<VisibilityAnima
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public @interface Axis {
     }
 

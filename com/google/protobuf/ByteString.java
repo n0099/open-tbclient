@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class ByteString implements Iterable<Byte> {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -30,13 +30,13 @@ public abstract class ByteString implements Iterable<Byte> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.protobuf.ByteString$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface ByteIterator extends Iterator<Byte> {
         byte nextByte();
     }
@@ -63,9 +63,9 @@ public abstract class ByteString implements Iterable<Byte> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX DEBUG: Return type fixed from 'com.google.protobuf.ByteString$ByteIterator' to match base method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // java.lang.Iterable
-    /* renamed from: iterator */
-    public abstract Iterator<Byte> iterator2();
+    public abstract Iterator<Byte> iterator();
 
     public abstract CodedInputStream newCodedInput();
 
@@ -85,7 +85,7 @@ public abstract class ByteString implements Iterable<Byte> {
 
     public abstract void writeTo(OutputStream outputStream) throws IOException;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class CodedBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -136,7 +136,7 @@ public abstract class ByteString implements Iterable<Byte> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Output extends OutputStream {
         public static /* synthetic */ Interceptable $ic;
         public static final byte[] EMPTY_BYTE_ARRAY;

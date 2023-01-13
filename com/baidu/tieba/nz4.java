@@ -1,160 +1,74 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.breathetip.tipview.BreatheTipView;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class nz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout a;
-    public int b;
-    public int c;
 
-    public int c() {
-        InterceptResult invokeV;
+    public static void a(ImageView imageView, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 32;
-        }
-        return invokeV.intValue;
-    }
-
-    public nz4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLI(65536, null, imageView, i) == null) && imageView != null) {
+            WebPManager.setPureDrawable(imageView, i, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
+            ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
+            if (layoutParams != null) {
+                layoutParams.width = zi.g(TbadkApplication.getInst(), R.dimen.tbds52);
+                layoutParams.height = zi.g(TbadkApplication.getInst(), R.dimen.tbds52);
+                imageView.setLayoutParams(layoutParams);
             }
         }
-        this.b = 0;
-        this.c = 0;
     }
 
-    public View e() {
-        InterceptResult invokeV;
+    public static void b(ViewGroup viewGroup) {
+        ViewGroup.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeL(65537, null, viewGroup) == null) && viewGroup != null && (layoutParams = viewGroup.getLayoutParams()) != null) {
+            layoutParams.height = zi.g(TbadkApplication.getInst(), R.dimen.tbds120);
+            viewGroup.setLayoutParams(layoutParams);
         }
-        return (View) invokeV.objValue;
     }
 
-    public int f() {
-        InterceptResult invokeV;
+    public static void c(TextView textView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
+        if ((interceptable == null || interceptable.invokeL(65538, null, textView) == null) && textView != null) {
+            cx4.d(textView).v(R.color.CAM_X0107);
         }
-        return invokeV.intValue;
     }
 
-    public int g() {
-        InterceptResult invokeV;
+    public static void d(TextView textView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.c;
+        if ((interceptable == null || interceptable.invokeL(65539, null, textView) == null) && textView != null) {
+            cx4.d(textView).z(R.dimen.tbds36);
         }
-        return invokeV.intValue;
     }
 
-    public final void a(int i, int i2, Rect rect, mz4 mz4Var) {
-        LinearLayout.LayoutParams layoutParams;
-        boolean z;
+    public static void e(TextView textView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), rect, mz4Var}) == null) {
-            if (mz4Var.getView().getLayoutParams() instanceof LinearLayout.LayoutParams) {
-                layoutParams = (LinearLayout.LayoutParams) mz4Var.getView().getLayoutParams();
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, textView) == null) && textView != null) {
+            cx4 d = cx4.d(textView);
+            d.z(R.dimen.tbds36);
+            d.v(R.color.CAM_X0107);
+        }
+    }
+
+    public static void f(TBLottieAnimationView tBLottieAnimationView, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65541, null, tBLottieAnimationView, i) == null) && tBLottieAnimationView != null) {
+            if (i != 1 && i != 4) {
+                SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.lottie_agree_day);
             } else {
-                layoutParams = new LinearLayout.LayoutParams(-2, -2);
+                SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.lottie_agree_night);
             }
-            int g = (i / 2) - yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X017);
-            boolean z2 = false;
-            if (rect.centerX() >= g) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (yi.l(TbadkCoreApplication.getInst().getContext()) - rect.centerX() >= g) {
-                z2 = true;
-            }
-            if (z && z2) {
-                layoutParams.gravity = 1;
-            } else if (z) {
-                layoutParams.gravity = 5;
-                this.b = (-(i - i2)) / 2;
-            } else {
-                layoutParams.gravity = 3;
-                this.b = (i - i2) / 2;
-            }
-            this.a.addView(mz4Var.getView(), layoutParams);
-        }
-    }
-
-    public final void b(int i, int i2, Rect rect, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), rect, view2}) == null) {
-            if (i > rect.centerY() - (i2 / 2)) {
-                this.a.addView(view2);
-                this.c = ((rect.height() + i2) / 2) + i;
-                return;
-            }
-            this.a.addView(view2, 0);
-            this.c = (rect.height() + i2) / 2;
-        }
-    }
-
-    public void h(BreatheTipView breatheTipView, mz4 mz4Var, View view2) {
-        int i;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048583, this, breatheTipView, mz4Var, view2) == null) {
-            LinearLayout linearLayout = new LinearLayout(breatheTipView.getContext());
-            this.a = linearLayout;
-            linearLayout.setOrientation(1);
-            Rect rect = new Rect();
-            if (view2 != null) {
-                view2.getGlobalVisibleRect(rect);
-            }
-            int i3 = 0;
-            if (breatheTipView.getLayoutParams() != null) {
-                i = breatheTipView.getLayoutParams().height;
-            } else {
-                i = 0;
-            }
-            if (breatheTipView.getLayoutParams() != null) {
-                i2 = breatheTipView.getLayoutParams().width;
-            } else {
-                i2 = 0;
-            }
-            if (mz4Var.getView().getLayoutParams() != null) {
-                i3 = mz4Var.getView().getLayoutParams().width;
-            }
-            a(i2, i3, rect, mz4Var);
-            b(i, i3, rect, breatheTipView);
+            tBLottieAnimationView.setColorFilter(SkinManager.getColor(R.color.CAM_X0107));
         }
     }
 }

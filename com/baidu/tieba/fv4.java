@@ -1,56 +1,162 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import org.json.JSONArray;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-import tbclient.VideoInfo;
+import tbclient.SimpleForum;
+import tbclient.ThemeColorInfo;
 /* loaded from: classes4.dex */
 public class fv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public boolean d;
+    public int e;
+    public kt4 f;
+    public int g;
+    public int h;
+    public String i;
+    public String j;
 
-    public static VideoInfo a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public fv4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            if (jSONObject != null) {
-                VideoInfo.Builder builder = new VideoInfo.Builder();
-                builder.video_md5 = jSONObject.optString(VideoFinishResult.KEY_VIDEO_MD5);
-                builder.video_url = jSONObject.optString("video_url");
-                builder.video_duration = Integer.valueOf(jSONObject.optInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION));
-                builder.video_width = Integer.valueOf(jSONObject.optInt("video_width"));
-                builder.video_height = Integer.valueOf(jSONObject.optInt("video_height"));
-                builder.thumbnail_url = jSONObject.optString("thumbnail_url");
-                builder.thumbnail_width = Integer.valueOf(jSONObject.optInt("thumbnail_width"));
-                builder.thumbnail_height = Integer.valueOf(jSONObject.optInt("thumbnail_height"));
-                builder.video_length = Integer.valueOf(jSONObject.optInt("video_length"));
-                builder.play_count = Integer.valueOf(jSONObject.optInt("play_count"));
-                builder.media_subtitle = jSONObject.optString("media_subtitle");
-                builder.video_desc = new ArrayList();
-                JSONArray optJSONArray = jSONObject.optJSONArray("video_desc");
-                if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        builder.video_desc.add(ev4.a(optJSONArray.optJSONObject(i)));
-                    }
-                }
-                builder.video_select_flag = Integer.valueOf(jSONObject.optInt("video_select_flag"));
-                builder.video_type = Integer.valueOf(jSONObject.optInt("video_type"));
-                builder.is_vertical = Integer.valueOf(jSONObject.optInt(TiebaStatic.Params.IS_VERTICAL));
-                builder.video_h265 = ev4.a(jSONObject.optJSONObject("video_h265"));
-                builder.mcn_lead_page = jSONObject.optString("mcn_lead_page");
-                builder.mcn_ad_card = qt4.a(jSONObject.optJSONObject("mcn_ad_card"));
-                builder.wth_mid_loc = Double.valueOf(jSONObject.optDouble("wth_mid_loc"));
-                builder.hth_mid_loc = Double.valueOf(jSONObject.optDouble("hth_mid_loc"));
-                return builder.build(true);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return null;
         }
-        return (VideoInfo) invokeL.objValue;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.j;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void g(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.a = String.valueOf(jSONObject.optLong("id", 0L));
+        this.b = jSONObject.optString("name");
+        this.c = jSONObject.optString("avatar");
+        this.e = jSONObject.optInt("level_id");
+        this.j = jSONObject.optString("recommend_tip");
+        JSONObject optJSONObject = jSONObject.optJSONObject("multi_forum_perm");
+        if (optJSONObject != null) {
+            kt4 kt4Var = new kt4();
+            this.f = kt4Var;
+            kt4Var.a(optJSONObject);
+        }
+        int optInt = jSONObject.optInt("memberNum", 0);
+        this.h = optInt;
+        if (optInt == 0) {
+            this.h = jSONObject.optInt("member_num", 0);
+        }
+        this.g = jSONObject.optInt("post_num", 0);
+    }
+
+    public void h(SimpleForum simpleForum) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, simpleForum) != null) || simpleForum == null) {
+            return;
+        }
+        this.a = String.valueOf(simpleForum.id);
+        this.b = simpleForum.name;
+        this.c = simpleForum.avatar;
+        if (simpleForum.is_liked.intValue() == 1) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.d = z;
+        this.e = simpleForum.level_id.intValue();
+        this.j = simpleForum.recommend_tip;
+        if (simpleForum.multi_forum_perm != null) {
+            kt4 kt4Var = new kt4();
+            this.f = kt4Var;
+            kt4Var.b(simpleForum.multi_forum_perm);
+        }
+        simpleForum.is_brand_forum.intValue();
+        this.h = simpleForum.member_num.intValue();
+        this.g = simpleForum.post_num.intValue();
+        this.i = simpleForum.first_class;
+        ThemeColorInfo themeColorInfo = simpleForum.theme_color;
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.d = z;
+        }
     }
 }

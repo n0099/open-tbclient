@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rw4;
+import com.baidu.tieba.cx4;
 import com.baidu.tieba.write.write.work.selectview.SelectBarView;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -144,7 +144,7 @@ public class SelectBarView extends LinearLayout {
                     if (!z2) {
                         getMCenterContent().setVisibility(0);
                         getMCenterContentTips().setVisibility(8);
-                        getMCenterContent().setText(Intrinsics.stringPlus(selectForumData.forumName, getContext().getString(R.string.obfuscated_res_0x7f0f0683)));
+                        getMCenterContent().setText(Intrinsics.stringPlus(selectForumData.forumName, getContext().getString(R.string.obfuscated_res_0x7f0f068b)));
                         return;
                     }
                 }
@@ -158,29 +158,29 @@ public class SelectBarView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0921, (ViewGroup) this, true);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091370);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f09137b);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.left_title)");
             setMLeftTitle((TextView) findViewById);
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0905f8);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0905ec);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "findViewById(R.id.center_content_tips)");
             setMCenterContentTips((TextView) findViewById2);
-            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0905f6);
+            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0905ea);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "findViewById(R.id.center_content)");
             setMCenterContent((TextView) findViewById3);
-            getMCenterContent().setCompoundDrawablePadding(yi.g(getContext(), R.dimen.M_W_X002));
-            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f0905f7);
+            getMCenterContent().setCompoundDrawablePadding(zi.g(getContext(), R.dimen.M_W_X002));
+            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f0905eb);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.center_content_pos)");
             setMCenterContentPos((TextView) findViewById4);
-            getMCenterContentPos().setCompoundDrawablePadding(yi.g(getContext(), R.dimen.M_W_X002));
+            getMCenterContentPos().setCompoundDrawablePadding(zi.g(getContext(), R.dimen.M_W_X002));
             getMCenterContentPos().setVisibility(8);
-            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091ce7);
+            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091cf7);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.right_arrow)");
             setMRightArrow((ImageView) findViewById5);
             View findViewById6 = findViewById(R.id.bottom_line);
             Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.bottom_line)");
             setMBottomLine(findViewById6);
             d();
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.td9
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.bj9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -203,7 +203,7 @@ public class SelectBarView extends LinearLayout {
             WebPManager.setPureDrawable(getMRightArrow(), R.drawable.icon_list_arrow20_right, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
             SkinManager.setBackgroundColor(getMBottomLine(), R.color.CAM_X0210);
             getMCenterContentTips().setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-            rw4 d = rw4.d(getMCenterContent());
+            cx4 d = cx4.d(getMCenterContent());
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X09);
             d.v(R.color.CAM_X0105);
@@ -215,12 +215,12 @@ public class SelectBarView extends LinearLayout {
             Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_ba12, SkinManager.getColor(R.color.CAM_X0110), WebPManager.ResourceStateType.NORMAL_PRESS);
             Intrinsics.checkNotNullExpressionValue(pureDrawable, "getPureDrawable(R.drawab…ceStateType.NORMAL_PRESS)");
             setMIconDrawable(pureDrawable);
-            int g = yi.g(getContext(), R.dimen.tbds32);
+            int g = zi.g(getContext(), R.dimen.tbds32);
             getMIconDrawable().setBounds(0, 0, g, g);
             getMCenterContent().setCompoundDrawables(getMIconDrawable(), null, null, null);
-            getMCenterContent().setCompoundDrawablePadding(yi.g(getContext(), R.dimen.M_W_X002));
-            getMCenterContent().setPadding(yi.g(getContext(), R.dimen.M_W_X004), 0, yi.g(getContext(), R.dimen.M_W_X004), 0);
-            rw4 d2 = rw4.d(getMCenterContentPos());
+            getMCenterContent().setCompoundDrawablePadding(zi.g(getContext(), R.dimen.M_W_X002));
+            getMCenterContent().setPadding(zi.g(getContext(), R.dimen.M_W_X004), 0, zi.g(getContext(), R.dimen.M_W_X004), 0);
+            cx4 d2 = cx4.d(getMCenterContentPos());
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0105);
@@ -234,8 +234,8 @@ public class SelectBarView extends LinearLayout {
             setMPosDrawable(pureDrawable2);
             getMPosDrawable().setBounds(0, 0, g, g);
             getMCenterContentPos().setCompoundDrawables(getMPosDrawable(), null, null, null);
-            getMCenterContentPos().setCompoundDrawablePadding(yi.g(getContext(), R.dimen.M_W_X004));
-            getMCenterContentPos().setPadding(yi.g(getContext(), R.dimen.M_W_X004), 0, yi.g(getContext(), R.dimen.M_W_X002), 0);
+            getMCenterContentPos().setCompoundDrawablePadding(zi.g(getContext(), R.dimen.M_W_X004));
+            getMCenterContentPos().setPadding(zi.g(getContext(), R.dimen.M_W_X004), 0, zi.g(getContext(), R.dimen.M_W_X002), 0);
         }
     }
 

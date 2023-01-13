@@ -2463,7 +2463,7 @@ public final class MediaControllerCompat {
         MediaController mediaController;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
-            Object tag = activity.getWindow().getDecorView().getTag(R.id.obfuscated_res_0x7f091571);
+            Object tag = activity.getWindow().getDecorView().getTag(R.id.obfuscated_res_0x7f09157f);
             if (tag instanceof MediaControllerCompat) {
                 return (MediaControllerCompat) tag;
             }
@@ -2478,7 +2478,7 @@ public final class MediaControllerCompat {
     public static void setMediaController(@NonNull Activity activity, MediaControllerCompat mediaControllerCompat) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, activity, mediaControllerCompat) == null) {
-            activity.getWindow().getDecorView().setTag(R.id.obfuscated_res_0x7f091571, mediaControllerCompat);
+            activity.getWindow().getDecorView().setTag(R.id.obfuscated_res_0x7f09157f, mediaControllerCompat);
             if (Build.VERSION.SDK_INT >= 21) {
                 MediaController mediaController = null;
                 if (mediaControllerCompat != null) {

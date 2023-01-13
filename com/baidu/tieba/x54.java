@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
@@ -8,17 +8,30 @@ public class x54 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(mb2 mb2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, mb2Var) == null) && mb2Var != null && mb2Var.n().hasEventListener("audiointerruptionbegin") && hy3.h().i()) {
-            mb2Var.dispatchEvent(new JSEvent("audiointerruptionbegin"));
-        }
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(int i, long j, long j2);
+
+        void b(int i);
+
+        void success();
     }
 
-    public static void b(mb2 mb2Var) {
+    public static void a(String str, a aVar) {
+        j43 M;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, mb2Var) == null) && mb2Var != null && mb2Var.n().hasEventListener("audiointerruptionend")) {
-            mb2Var.dispatchEvent(new JSEvent("audiointerruptionend"));
+        if ((interceptable != null && interceptable.invokeLL(65536, null, str, aVar) != null) || aVar == null || TextUtils.isEmpty(str) || (M = j43.M()) == null) {
+            return;
+        }
+        if (w54.b().d(str)) {
+            aVar.success();
+            return;
+        }
+        String a2 = w54.b().a(str);
+        if (TextUtils.isEmpty(a2)) {
+            aVar.b(2112);
+        } else {
+            tb4.h(new of4(M.b, M.k0(), a2, 1), new a64(M.b, M.k0(), w54.b().c(str, 2), aVar));
         }
     }
 }

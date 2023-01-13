@@ -30,21 +30,6 @@ public final class TbLaunchStaticAutoGenerateUrlCollectorImpl implements ICmdRou
     }
 
     @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
-    public Map<String, ArrayList<String>> getConfigRouterMap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            HashMap hashMap = new HashMap();
-            ArrayList arrayList = new ArrayList();
-            arrayList.add("GroupMsgImageActivityConfig");
-            arrayList.add("WXEntryActivityConfig");
-            hashMap.put("com.baidu.tbadk.TbLaunchStatic", arrayList);
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
     public Map<String, String> getCmdRouterMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -52,9 +37,20 @@ public final class TbLaunchStaticAutoGenerateUrlCollectorImpl implements ICmdRou
             HashMap hashMap = new HashMap();
             new ArrayList();
             hashMap.put("2002001", "com.baidu.tbadk.TbLaunchStatic");
-            hashMap.put("2001142", "com.baidu.tbadk.TbLaunchStatic");
-            hashMap.put("2001145", "com.baidu.tbadk.TbLaunchStatic");
-            hashMap.put("2001148", "com.baidu.tbadk.TbLaunchStatic");
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
+    public Map<String, ArrayList<String>> getConfigRouterMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            HashMap hashMap = new HashMap();
+            ArrayList arrayList = new ArrayList();
+            arrayList.add("WXEntryActivityConfig");
+            hashMap.put("com.baidu.tbadk.TbLaunchStatic", arrayList);
             return hashMap;
         }
         return (Map) invokeV.objValue;

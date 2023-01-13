@@ -1,0 +1,510 @@
+package com.baidu.tieba.frs.entelechy.view;
+
+import android.content.Context;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.core.data.FrsBannerHeaderData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.a59;
+import com.baidu.tieba.gn6;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import kotlin.Metadata;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
+import tbclient.ThemeColorInfo;
+@Metadata(d1 = {"\u0000R\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u000b\u0018\u0000 $2\u00020\u00012\u00020\u0002:\u0001$B%\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\b\u0010\u0019\u001a\u00020\u001aH\u0002J\b\u0010\u001b\u001a\u00020\u001aH\u0002J\u0010\u0010\u001c\u001a\u00020\u001a2\u0006\u0010\u001d\u001a\u00020\u0014H\u0016J\u0006\u0010\u001e\u001a\u00020\u001aJ\u000e\u0010\u001f\u001a\u00020\u001a2\u0006\u0010 \u001a\u00020\u000eJ\u0016\u0010!\u001a\u00020\u001a2\u0006\u0010\"\u001a\u00020\u000b2\u0006\u0010#\u001a\u00020\u000bR\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\n\u001a\u0004\u0018\u00010\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u0004\u0018\u00010\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\r\u001a\u0004\u0018\u00010\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000f\u001a\u0004\u0018\u00010\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0011\u001a\u0004\u0018\u00010\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0013\u001a\u0004\u0018\u00010\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0015\u001a\u0004\u0018\u00010\u0016X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0017\u001a\u0004\u0018\u00010\u0016X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0018\u001a\u0004\u0018\u00010\u0016X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006%"}, d2 = {"Lcom/baidu/tieba/frs/entelechy/view/FrsBannerHeaderView;", "Landroid/widget/RelativeLayout;", "Landroid/view/View$OnClickListener;", "mContext", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "mForumId", "", "mForumName", "mFrsBannerHeaderData", "Lcom/baidu/tbadk/core/data/FrsBannerHeaderData;", "mLeftIcon", "Lcom/baidu/tbadk/widget/TbImageView;", "mRightIcon", "Landroid/widget/ImageView;", "mRootView", "Landroid/view/View;", "mTvContent1", "Landroid/widget/TextView;", "mTvContent2", "mTvJumpTipsView", "fillDataOnWidget", "", "initView", "onClick", "v", "onSkinChanged", "setData", "data", "setForumInfo", "fId", "fName", "Companion", "frs_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+/* loaded from: classes4.dex */
+public final class FrsBannerHeaderView extends RelativeLayout implements View.OnClickListener {
+    public static /* synthetic */ Interceptable $ic;
+    public static final int k;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final Context a;
+    public View b;
+    public TbImageView c;
+    public TextView d;
+    public TextView e;
+    public TextView f;
+    public ImageView g;
+    public FrsBannerHeaderData h;
+    public String i;
+    public String j;
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @JvmOverloads
+    public FrsBannerHeaderView(Context mContext) {
+        this(mContext, null, 0, 6, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mContext};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(mContext, "mContext");
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @JvmOverloads
+    public FrsBannerHeaderView(Context mContext, AttributeSet attributeSet) {
+        this(mContext, attributeSet, 0, 4, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mContext, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(mContext, "mContext");
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1700227908, "Lcom/baidu/tieba/frs/entelechy/view/FrsBannerHeaderView;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1700227908, "Lcom/baidu/tieba/frs/entelechy/view/FrsBannerHeaderView;");
+                return;
+            }
+        }
+        k = UtilHelper.getDimenPixelSize(R.dimen.tbds52);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @JvmOverloads
+    public FrsBannerHeaderView(Context mContext, AttributeSet attributeSet, int i) {
+        super(mContext, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mContext, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(mContext, "mContext");
+        this.a = mContext;
+        b();
+    }
+
+    public /* synthetic */ FrsBannerHeaderView(Context context, AttributeSet attributeSet, int i, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
+    }
+
+    public final void a() {
+        String content1;
+        boolean z;
+        String content12;
+        String content2;
+        boolean z2;
+        String content22;
+        String jumpTips;
+        String iconUrl;
+        TbImageView tbImageView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            FrsBannerHeaderData frsBannerHeaderData = this.h;
+            if (frsBannerHeaderData != null && (iconUrl = frsBannerHeaderData.getIconUrl()) != null && (tbImageView = this.c) != null) {
+                tbImageView.K(iconUrl, 10, false);
+            }
+            FrsBannerHeaderData frsBannerHeaderData2 = this.h;
+            String str = null;
+            if (frsBannerHeaderData2 == null) {
+                content1 = null;
+            } else {
+                content1 = frsBannerHeaderData2.getContent1();
+            }
+            boolean z3 = true;
+            if (content1 != null && !StringsKt__StringsJVMKt.isBlank(content1)) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                TextView textView = this.d;
+                if (textView != null) {
+                    textView.setVisibility(8);
+                }
+            } else {
+                TextView textView2 = this.d;
+                if (textView2 != null) {
+                    textView2.setVisibility(0);
+                }
+                TextView textView3 = this.d;
+                if (textView3 != null) {
+                    FrsBannerHeaderData frsBannerHeaderData3 = this.h;
+                    if (frsBannerHeaderData3 == null) {
+                        content12 = null;
+                    } else {
+                        content12 = frsBannerHeaderData3.getContent1();
+                    }
+                    textView3.setText(content12);
+                }
+            }
+            FrsBannerHeaderData frsBannerHeaderData4 = this.h;
+            if (frsBannerHeaderData4 == null) {
+                content2 = null;
+            } else {
+                content2 = frsBannerHeaderData4.getContent2();
+            }
+            if (content2 != null && !StringsKt__StringsJVMKt.isBlank(content2)) {
+                z2 = false;
+            } else {
+                z2 = true;
+            }
+            if (z2) {
+                TextView textView4 = this.e;
+                if (textView4 != null) {
+                    textView4.setVisibility(8);
+                }
+            } else {
+                TextView textView5 = this.e;
+                if (textView5 != null) {
+                    textView5.setVisibility(0);
+                }
+                TextView textView6 = this.e;
+                if (textView6 != null) {
+                    FrsBannerHeaderData frsBannerHeaderData5 = this.h;
+                    if (frsBannerHeaderData5 == null) {
+                        content22 = null;
+                    } else {
+                        content22 = frsBannerHeaderData5.getContent2();
+                    }
+                    textView6.setText(content22);
+                }
+            }
+            FrsBannerHeaderData frsBannerHeaderData6 = this.h;
+            if (frsBannerHeaderData6 == null) {
+                jumpTips = null;
+            } else {
+                jumpTips = frsBannerHeaderData6.getJumpTips();
+            }
+            if (jumpTips != null && !StringsKt__StringsJVMKt.isBlank(jumpTips)) {
+                z3 = false;
+            }
+            if (z3) {
+                TextView textView7 = this.f;
+                if (textView7 != null) {
+                    textView7.setVisibility(8);
+                    return;
+                }
+                return;
+            }
+            TextView textView8 = this.f;
+            if (textView8 != null) {
+                textView8.setVisibility(0);
+            }
+            TextView textView9 = this.f;
+            if (textView9 != null) {
+                FrsBannerHeaderData frsBannerHeaderData7 = this.h;
+                if (frsBannerHeaderData7 != null) {
+                    str = frsBannerHeaderData7.getJumpTips();
+                }
+                textView9.setText(StringHelper.subString(str, 20));
+            }
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:30:0x007c  */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x007e  */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x0098  */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x009a  */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x00b4  */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x00b6  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void c() {
+        ThemeColorInfo backgroundColor;
+        String b;
+        String c;
+        boolean z;
+        String[] strArr;
+        FrsBannerHeaderData frsBannerHeaderData;
+        ThemeColorInfo content1Color;
+        FrsBannerHeaderData frsBannerHeaderData2;
+        ThemeColorInfo content2Color;
+        FrsBannerHeaderData frsBannerHeaderData3;
+        ThemeColorInfo jumpTipsColor;
+        TextView textView;
+        TextView textView2;
+        TextView textView3;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            FrsBannerHeaderData frsBannerHeaderData4 = this.h;
+            if (frsBannerHeaderData4 == null) {
+                backgroundColor = null;
+            } else {
+                backgroundColor = frsBannerHeaderData4.getBackgroundColor();
+            }
+            if (backgroundColor == null) {
+                c = null;
+                b = null;
+            } else {
+                b = a59.b(backgroundColor);
+                c = a59.c(backgroundColor);
+            }
+            if (b != null && !StringsKt__StringsJVMKt.isBlank(b)) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (!z) {
+                if (c != null && !StringsKt__StringsJVMKt.isBlank(c)) {
+                    z2 = false;
+                } else {
+                    z2 = true;
+                }
+                if (!z2) {
+                    Intrinsics.checkNotNull(b);
+                    Intrinsics.checkNotNull(c);
+                    strArr = new String[]{b, c};
+                    TBSelector.makeDrawableSelector().setShape(0).gradientLinear((String[]) Arrays.copyOf(strArr, strArr.length)).setGradientOrientation(DrawableSelector.LEFT_RIGHT).tlRadius(k).trRadius(k).into(this);
+                    frsBannerHeaderData = this.h;
+                    if (frsBannerHeaderData != null) {
+                        content1Color = null;
+                    } else {
+                        content1Color = frsBannerHeaderData.getContent1Color();
+                    }
+                    if (content1Color != null && (textView3 = this.d) != null) {
+                        textView3.setTextColor(SkinManager.getColorFromServerColor(content1Color, R.color.CAM_X0622));
+                    }
+                    frsBannerHeaderData2 = this.h;
+                    if (frsBannerHeaderData2 != null) {
+                        content2Color = null;
+                    } else {
+                        content2Color = frsBannerHeaderData2.getContent2Color();
+                    }
+                    if (content2Color != null && (textView2 = this.e) != null) {
+                        textView2.setTextColor(SkinManager.getColorFromServerColor(content2Color, R.color.CAM_X0618));
+                    }
+                    frsBannerHeaderData3 = this.h;
+                    if (frsBannerHeaderData3 != null) {
+                        jumpTipsColor = null;
+                    } else {
+                        jumpTipsColor = frsBannerHeaderData3.getJumpTipsColor();
+                    }
+                    if (jumpTipsColor != null && (textView = this.f) != null) {
+                        textView.setTextColor(SkinManager.getColorFromServerColor(jumpTipsColor, R.color.CAM_X0622));
+                    }
+                    WebPManager.setPureDrawable(this.g, R.drawable.icon_pure_arrow12_right, R.color.CAM_X0618, null);
+                }
+            }
+            strArr = new String[]{"#66000000", "#66000000"};
+            TBSelector.makeDrawableSelector().setShape(0).gradientLinear((String[]) Arrays.copyOf(strArr, strArr.length)).setGradientOrientation(DrawableSelector.LEFT_RIGHT).tlRadius(k).trRadius(k).into(this);
+            frsBannerHeaderData = this.h;
+            if (frsBannerHeaderData != null) {
+            }
+            if (content1Color != null) {
+                textView3.setTextColor(SkinManager.getColorFromServerColor(content1Color, R.color.CAM_X0622));
+            }
+            frsBannerHeaderData2 = this.h;
+            if (frsBannerHeaderData2 != null) {
+            }
+            if (content2Color != null) {
+                textView2.setTextColor(SkinManager.getColorFromServerColor(content2Color, R.color.CAM_X0618));
+            }
+            frsBannerHeaderData3 = this.h;
+            if (frsBannerHeaderData3 != null) {
+            }
+            if (jumpTipsColor != null) {
+                textView.setTextColor(SkinManager.getColorFromServerColor(jumpTipsColor, R.color.CAM_X0622));
+            }
+            WebPManager.setPureDrawable(this.g, R.drawable.icon_pure_arrow12_right, R.color.CAM_X0618, null);
+        }
+    }
+
+    public final void b() {
+        TbImageView tbImageView;
+        TextView textView;
+        TextView textView2;
+        TextView textView3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0300, (ViewGroup) this, true);
+            this.b = inflate;
+            ImageView imageView = null;
+            if (inflate == null) {
+                tbImageView = null;
+            } else {
+                tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090b39);
+            }
+            this.c = tbImageView;
+            View view2 = this.b;
+            if (view2 == null) {
+                textView = null;
+            } else {
+                textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b36);
+            }
+            this.d = textView;
+            View view3 = this.b;
+            if (view3 == null) {
+                textView2 = null;
+            } else {
+                textView2 = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f090b37);
+            }
+            this.e = textView2;
+            View view4 = this.b;
+            if (view4 == null) {
+                textView3 = null;
+            } else {
+                textView3 = (TextView) view4.findViewById(R.id.obfuscated_res_0x7f090b38);
+            }
+            this.f = textView3;
+            View view5 = this.b;
+            if (view5 != null) {
+                imageView = (ImageView) view5.findViewById(R.id.obfuscated_res_0x7f090b3a);
+            }
+            this.g = imageView;
+            TbImageView tbImageView2 = this.c;
+            if (tbImageView2 != null) {
+                tbImageView2.setDefaultResource(17170445);
+            }
+            TbImageView tbImageView3 = this.c;
+            if (tbImageView3 != null) {
+                tbImageView3.setPlaceHolder(1);
+            }
+            View view6 = this.b;
+            if (view6 != null) {
+                view6.setOnClickListener(this);
+            }
+            c();
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View v) {
+        String jumpLink;
+        boolean z;
+        String type;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, v) == null) {
+            Intrinsics.checkNotNullParameter(v, "v");
+            if (Intrinsics.areEqual(v, this.b) && (getContext() instanceof TbPageContextSupport)) {
+                FrsBannerHeaderData frsBannerHeaderData = this.h;
+                String str = null;
+                if (frsBannerHeaderData == null) {
+                    jumpLink = null;
+                } else {
+                    jumpLink = frsBannerHeaderData.getJumpLink();
+                }
+                if (jumpLink != null && !StringsKt__StringsJVMKt.isBlank(jumpLink)) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (!z) {
+                    Context context = getContext();
+                    if (context != null) {
+                        TbPageContext<?> pageContext = ((TbPageContextSupport) context).getPageContext();
+                        if (pageContext == null || gn6.f().i()) {
+                            return;
+                        }
+                        UrlManager urlManager = UrlManager.getInstance();
+                        String[] strArr = new String[1];
+                        FrsBannerHeaderData frsBannerHeaderData2 = this.h;
+                        if (frsBannerHeaderData2 != null) {
+                            str = frsBannerHeaderData2.getJumpLink();
+                        }
+                        strArr[0] = str;
+                        urlManager.dealOneLink(pageContext, strArr);
+                        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.FRS_BANNER_HEADER_CLICK);
+                        String str2 = this.i;
+                        if (str2 != null) {
+                            statisticItem.param("fid", str2);
+                        }
+                        String str3 = this.j;
+                        if (str3 != null) {
+                            statisticItem.param("fname", str3);
+                        }
+                        FrsBannerHeaderData frsBannerHeaderData3 = this.h;
+                        if (frsBannerHeaderData3 != null && (type = frsBannerHeaderData3.getType()) != null) {
+                            statisticItem.param("obj_type", type);
+                        }
+                        TiebaStatic.log(statisticItem);
+                        return;
+                    }
+                    throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.TbPageContextSupport");
+                }
+            }
+        }
+    }
+
+    public final void setData(FrsBannerHeaderData data) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            this.h = data;
+            a();
+            c();
+        }
+    }
+
+    public final void setForumInfo(String fId, String fName) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, fId, fName) == null) {
+            Intrinsics.checkNotNullParameter(fId, "fId");
+            Intrinsics.checkNotNullParameter(fName, "fName");
+            this.i = fId;
+            this.j = fName;
+        }
+    }
+}

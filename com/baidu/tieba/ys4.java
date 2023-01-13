@@ -1,20 +1,23 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.core.app.NotificationCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
+import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import tbclient.FrsPage.ForumHeadlineImgInfo;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class ys4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public us4 c;
+    public int a;
+    public int b;
+    public int c;
 
     public ys4() {
         Interceptable interceptable = $ic;
@@ -26,48 +29,51 @@ public class ys4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "";
-        this.b = "";
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            try {
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                b(new JSONObject(str));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    public void b(ForumHeadlineImgInfo forumHeadlineImgInfo) {
+    public final void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumHeadlineImgInfo) != null) || forumHeadlineImgInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        forumHeadlineImgInfo.thread_id.longValue();
-        forumHeadlineImgInfo.thread_user_id.longValue();
-        String str = forumHeadlineImgInfo.thread_user_name;
-        forumHeadlineImgInfo.img_user_id.longValue();
-        String str2 = forumHeadlineImgInfo.img_user_name;
-        this.a = forumHeadlineImgInfo.img_url;
-        this.b = forumHeadlineImgInfo.headline_url;
-        this.c = new us4();
-        ArrayList<xs4> arrayList = new ArrayList<>();
-        String str3 = this.a;
-        String str4 = "";
-        if (str3 == null) {
-            str3 = "";
+        try {
+            jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH);
+            JSONObject optJSONObject = jSONObject.optJSONObject(NotificationCompat.CATEGORY_ERROR);
+            if (optJSONObject != null) {
+                this.c = optJSONObject.optInt("num");
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
+            if (optJSONObject2 != null) {
+                this.b = optJSONObject2.optInt("time");
+                this.a = optJSONObject2.optInt("num");
+            }
+            JSONObject optJSONObject3 = jSONObject.optJSONObject(MultiRatePlayUrlHelper.RANK);
+            if (optJSONObject3 != null) {
+                optJSONObject3.optInt("succ");
+                optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
+                optJSONObject3.optInt("slow");
+            }
+            if (this.b > 0 && this.a > 0) {
+                int i = this.c;
+            }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
-        String str5 = this.b;
-        if (str5 != null) {
-            str4 = str5;
-        }
-        xs4 xs4Var = new xs4(str3, str4, null);
-        xs4Var.r(true);
-        arrayList.add(xs4Var);
-        this.c.g(arrayList);
     }
 }

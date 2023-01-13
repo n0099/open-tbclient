@@ -3,10 +3,15 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public final class h4a<T, K, V> extends i3a<T> {
+public final class h4a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final v4a e;
 
-    public abstract void g(K k);
+    public static void a(Object obj, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65536, null, obj, str) != null) || obj != null) {
+            return;
+        }
+        throw new NullPointerException(str);
+    }
 }

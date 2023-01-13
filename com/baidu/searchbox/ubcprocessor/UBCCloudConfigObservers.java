@@ -1,8 +1,8 @@
 package com.baidu.searchbox.ubcprocessor;
 
 import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tieba.kf1;
-import com.baidu.tieba.mf1;
+import com.baidu.tieba.pf1;
+import com.baidu.tieba.rf1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,12 +12,12 @@ public class UBCCloudConfigObservers {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject(force = false)
-    public mf1<UBCCloudConfigObserver> mObservers;
+    public rf1<UBCCloudConfigObserver> mObservers;
 
     public void initmObservers() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            kf1 b = kf1.b();
+            pf1 b = pf1.b();
             this.mObservers = b;
             b.a(new UBCCloudConfigObserver_UBCCloudConfigObservers_ListProvider());
         }

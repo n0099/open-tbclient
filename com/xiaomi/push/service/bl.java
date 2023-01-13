@@ -67,7 +67,7 @@ public class bl extends bv.a implements cv.a {
                 int port = url.getPort() == -1 ? 80 : url.getPort();
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
-                    String a = com.xiaomi.push.bj.a(com.xiaomi.push.v.m697a(), url);
+                    String a = com.xiaomi.push.bj.a(com.xiaomi.push.v.m761a(), url);
                     long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
                     fj.a(url.getHost() + ":" + port, (int) currentTimeMillis2, null);
                     return a;
@@ -112,8 +112,8 @@ public class bl extends bv.a implements cv.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{arrayList, str, str2, Boolean.valueOf(z)})) == null) {
                 try {
-                    if (fh.m338a().m343a()) {
-                        str2 = bv.m658a();
+                    if (fh.m397a().m402a()) {
+                        str2 = bv.m722a();
                     }
                     return super.a(arrayList, str, str2, z);
                 } catch (IOException e) {
@@ -173,31 +173,31 @@ public class bl extends bv.a implements cv.a {
     public void a(dx.b bVar) {
         com.xiaomi.push.cr b2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) && bVar.b() && bVar.a() && System.currentTimeMillis() - this.a > 3600000) {
-            com.xiaomi.channel.commonutils.logger.b.m99a("fetch bucket :" + bVar.a());
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) && bVar.m312b() && bVar.m311a() && System.currentTimeMillis() - this.a > 3600000) {
+            com.xiaomi.channel.commonutils.logger.b.m103a("fetch bucket :" + bVar.m311a());
             this.a = System.currentTimeMillis();
             cv a2 = cv.a();
-            a2.m264a();
-            a2.m267b();
-            fw m599a = this.f966a.m599a();
-            if (m599a == null || (b2 = a2.b(m599a.m363a().c())) == null) {
+            a2.m269a();
+            a2.m272b();
+            fw m663a = this.f966a.m663a();
+            if (m663a == null || (b2 = a2.b(m663a.m425a().c())) == null) {
                 return;
             }
-            ArrayList<String> m252a = b2.m252a();
+            ArrayList<String> m257a = b2.m257a();
             boolean z = true;
-            Iterator<String> it = m252a.iterator();
+            Iterator<String> it = m257a.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
-                } else if (it.next().equals(m599a.m364a())) {
+                } else if (it.next().equals(m663a.mo426a())) {
                     z = false;
                     break;
                 }
             }
-            if (!z || m252a.isEmpty()) {
+            if (!z || m257a.isEmpty()) {
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m99a("bucket changed, force reconnect");
+            com.xiaomi.channel.commonutils.logger.b.m103a("bucket changed, force reconnect");
             this.f966a.a(0, (Exception) null);
             this.f966a.a(false);
         }

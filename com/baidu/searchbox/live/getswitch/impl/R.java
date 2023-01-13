@@ -30,7 +30,7 @@ public final class R {
         public static final int fontStyle = 0x7f0402e0;
         public static final int fontVariationSettings = 0x7f0402e1;
         public static final int fontWeight = 0x7f0402e2;
-        public static final int ttcIndex = 0x7f040749;
+        public static final int ttcIndex = 0x7f040752;
         public transient /* synthetic */ FieldHolder $fh;
 
         public attr() {
@@ -161,18 +161,18 @@ public final class R {
         public static final int bdvideoplayer_zeus_full_refresh_enable = 0x7f080219;
         public static final int bdvideoplayer_zeus_full_refresh_normal = 0x7f08021a;
         public static final int bdvideoplayer_zeus_full_refresh_selector = 0x7f08021b;
-        public static final int notification_action_background = 0x7f080ec7;
-        public static final int notification_bg = 0x7f080ec8;
-        public static final int notification_bg_low = 0x7f080ec9;
-        public static final int notification_bg_low_normal = 0x7f080eca;
-        public static final int notification_bg_low_pressed = 0x7f080ecb;
-        public static final int notification_bg_normal = 0x7f080ecc;
-        public static final int notification_bg_normal_pressed = 0x7f080ecd;
-        public static final int notification_icon_background = 0x7f080ece;
-        public static final int notification_template_icon_bg = 0x7f080ecf;
-        public static final int notification_template_icon_low_bg = 0x7f080ed0;
-        public static final int notification_tile_bg = 0x7f080ed1;
-        public static final int notify_panel_notification_icon_bg = 0x7f080ed3;
+        public static final int notification_action_background = 0x7f080ed8;
+        public static final int notification_bg = 0x7f080ed9;
+        public static final int notification_bg_low = 0x7f080eda;
+        public static final int notification_bg_low_normal = 0x7f080edb;
+        public static final int notification_bg_low_pressed = 0x7f080edc;
+        public static final int notification_bg_normal = 0x7f080edd;
+        public static final int notification_bg_normal_pressed = 0x7f080ede;
+        public static final int notification_icon_background = 0x7f080edf;
+        public static final int notification_template_icon_bg = 0x7f080ee0;
+        public static final int notification_template_icon_low_bg = 0x7f080ee1;
+        public static final int notification_tile_bg = 0x7f080ee2;
+        public static final int notify_panel_notification_icon_bg = 0x7f080ee4;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -231,46 +231,46 @@ public final class R {
         public static final int action_image = 0x7f090067;
         public static final int action_text = 0x7f09006f;
         public static final int actions = 0x7f090070;
-        public static final int async = 0x7f0902d9;
-        public static final int bdvideoplayer_seekbar = 0x7f09037c;
-        public static final int blocking = 0x7f0903c5;
-        public static final int bt_retry = 0x7f09042f;
-        public static final int center = 0x7f0905ed;
-        public static final int chronometer = 0x7f090665;
-        public static final int dialog_button = 0x7f0907e8;
-        public static final int forever = 0x7f090a7b;
-        public static final int icon = 0x7f090e96;
-        public static final int icon_group = 0x7f090e9e;
-        public static final int info = 0x7f090fb1;
-        public static final int italic = 0x7f091019;
-        public static final int left = 0x7f091350;
-        public static final int line1 = 0x7f0913a0;
-        public static final int line3 = 0x7f0913a2;
-        public static final int main_duration_text = 0x7f09151c;
-        public static final int main_progress_text = 0x7f091521;
-        public static final int main_view_seekbar = 0x7f09152d;
-        public static final int normal = 0x7f091790;
-        public static final int notification_background = 0x7f0917a8;
-        public static final int notification_main_column = 0x7f0917aa;
-        public static final int notification_main_column_container = 0x7f0917ab;
-        public static final int play_error_layout_retry = 0x7f091aa7;
-        public static final int progress = 0x7f091b72;
-        public static final int right = 0x7f091cdc;
-        public static final int right_icon = 0x7f091cf5;
-        public static final int right_side = 0x7f091cfc;
-        public static final int tag_accessibility_actions = 0x7f0920fa;
-        public static final int tag_accessibility_clickable_spans = 0x7f0920fb;
-        public static final int tag_accessibility_heading = 0x7f0920fc;
-        public static final int tag_accessibility_pane_title = 0x7f0920fd;
-        public static final int tag_screen_reader_focusable = 0x7f092147;
-        public static final int tag_transition_group = 0x7f092155;
-        public static final int tag_unhandled_key_event_manager = 0x7f092157;
-        public static final int tag_unhandled_key_listeners = 0x7f092158;
-        public static final int text = 0x7f0921ce;
-        public static final int text2 = 0x7f0921cf;
-        public static final int time = 0x7f0922a1;
-        public static final int title = 0x7f0922d4;
-        public static final int tv_error = 0x7f092458;
+        public static final int async = 0x7f0902d2;
+        public static final int bdvideoplayer_seekbar = 0x7f090376;
+        public static final int blocking = 0x7f0903bf;
+        public static final int bt_retry = 0x7f09042a;
+        public static final int center = 0x7f0905e1;
+        public static final int chronometer = 0x7f090664;
+        public static final int dialog_button = 0x7f0907ec;
+        public static final int forever = 0x7f090a82;
+        public static final int icon = 0x7f090ea0;
+        public static final int icon_group = 0x7f090ea8;
+        public static final int info = 0x7f090fbe;
+        public static final int italic = 0x7f09102a;
+        public static final int left = 0x7f09135b;
+        public static final int line1 = 0x7f0913ab;
+        public static final int line3 = 0x7f0913ad;
+        public static final int main_duration_text = 0x7f091527;
+        public static final int main_progress_text = 0x7f09152c;
+        public static final int main_view_seekbar = 0x7f091538;
+        public static final int normal = 0x7f0917a0;
+        public static final int notification_background = 0x7f0917b8;
+        public static final int notification_main_column = 0x7f0917ba;
+        public static final int notification_main_column_container = 0x7f0917bb;
+        public static final int play_error_layout_retry = 0x7f091ab5;
+        public static final int progress = 0x7f091b80;
+        public static final int right = 0x7f091cec;
+        public static final int right_icon = 0x7f091d05;
+        public static final int right_side = 0x7f091d0c;
+        public static final int tag_accessibility_actions = 0x7f092127;
+        public static final int tag_accessibility_clickable_spans = 0x7f092128;
+        public static final int tag_accessibility_heading = 0x7f092129;
+        public static final int tag_accessibility_pane_title = 0x7f09212a;
+        public static final int tag_screen_reader_focusable = 0x7f092176;
+        public static final int tag_transition_group = 0x7f092185;
+        public static final int tag_unhandled_key_event_manager = 0x7f092187;
+        public static final int tag_unhandled_key_listeners = 0x7f092188;
+        public static final int text = 0x7f092200;
+        public static final int text2 = 0x7f092201;
+        public static final int time = 0x7f0922ca;
+        public static final int title = 0x7f0922ff;
+        public static final int tv_error = 0x7f092485;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -312,16 +312,16 @@ public final class R {
     /* loaded from: classes2.dex */
     public static final class layout {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int bdvideoplayer_layout_kernel_error = 0x7f0d0155;
-        public static final int bdvideoplayer_layout_net_error = 0x7f0d0156;
-        public static final int bdvideoplayer_seek_bar_view = 0x7f0d0157;
-        public static final int custom_dialog = 0x7f0d020c;
-        public static final int notification_action = 0x7f0d0690;
-        public static final int notification_action_tombstone = 0x7f0d0691;
-        public static final int notification_template_custom_big = 0x7f0d0698;
-        public static final int notification_template_icon_group = 0x7f0d0699;
-        public static final int notification_template_part_chronometer = 0x7f0d069d;
-        public static final int notification_template_part_time = 0x7f0d069e;
+        public static final int bdvideoplayer_layout_kernel_error = 0x7f0d0154;
+        public static final int bdvideoplayer_layout_net_error = 0x7f0d0155;
+        public static final int bdvideoplayer_seek_bar_view = 0x7f0d0156;
+        public static final int custom_dialog = 0x7f0d0209;
+        public static final int notification_action = 0x7f0d068e;
+        public static final int notification_action_tombstone = 0x7f0d068f;
+        public static final int notification_template_custom_big = 0x7f0d0696;
+        public static final int notification_template_icon_group = 0x7f0d0697;
+        public static final int notification_template_part_chronometer = 0x7f0d069b;
+        public static final int notification_template_part_time = 0x7f0d069c;
         public transient /* synthetic */ FieldHolder $fh;
 
         public layout() {
@@ -342,7 +342,7 @@ public final class R {
     /* loaded from: classes2.dex */
     public static final class raw {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int tnconfig = 0x7f110076;
+        public static final int tnconfig = 0x7f110077;
         public transient /* synthetic */ FieldHolder $fh;
 
         public raw() {
@@ -363,39 +363,39 @@ public final class R {
     /* loaded from: classes2.dex */
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int activity_not_found = 0x7f0f008e;
-        public static final int alert_force_update_negative_msg = 0x7f0f026a;
-        public static final int alert_force_update_positive_msg = 0x7f0f026b;
-        public static final int alert_msg_force_update = 0x7f0f026c;
-        public static final int alert_title_force_update = 0x7f0f026e;
+        public static final int activity_not_found = 0x7f0f0090;
+        public static final int alert_force_update_negative_msg = 0x7f0f0269;
+        public static final int alert_force_update_positive_msg = 0x7f0f026a;
+        public static final int alert_msg_force_update = 0x7f0f026b;
+        public static final int alert_title_force_update = 0x7f0f026d;
         public static final int app_name = 0x7f0f029e;
-        public static final int bdvideoplayer_btn_net_error_retry = 0x7f0f030a;
-        public static final int bdvideoplayer_tip_kernel_error = 0x7f0f030b;
-        public static final int bdvideoplayer_tip_net_error = 0x7f0f030c;
-        public static final int predownload_net_error_msg = 0x7f0f0f70;
-        public static final int predownload_no_available_msg = 0x7f0f0f71;
-        public static final int sdk_day = 0x7f0f1129;
-        public static final int sdk_download_error = 0x7f0f112a;
-        public static final int sdk_download_fail = 0x7f0f112b;
-        public static final int sdk_download_fail_no_sd = 0x7f0f112c;
-        public static final int sdk_download_fail_over_max = 0x7f0f112d;
-        public static final int sdk_file_not_exist = 0x7f0f112e;
-        public static final int sdk_he = 0x7f0f112f;
-        public static final int sdk_less_than_zero_dot_one_k = 0x7f0f1130;
-        public static final int sdk_record_audio_permission_denied_fun_disable = 0x7f0f1131;
-        public static final int sdk_she = 0x7f0f1132;
-        public static final int sdk_time_hour = 0x7f0f1133;
-        public static final int sdk_time_hour_before = 0x7f0f1134;
-        public static final int sdk_time_min_before = 0x7f0f1135;
-        public static final int sdk_time_minute = 0x7f0f1136;
-        public static final int sdk_time_sec_before = 0x7f0f1137;
-        public static final int sdk_time_second = 0x7f0f1138;
-        public static final int sdk_time_show_afternoon = 0x7f0f1139;
-        public static final int sdk_time_show_morning = 0x7f0f113a;
-        public static final int sdk_unit_wan = 0x7f0f113b;
-        public static final int sdk_unit_yi = 0x7f0f113c;
-        public static final int sdk_write_external_storage_permission_denied_fun_disable = 0x7f0f113d;
-        public static final int status_bar_notification_info_overflow = 0x7f0f1283;
+        public static final int bdvideoplayer_btn_net_error_retry = 0x7f0f030e;
+        public static final int bdvideoplayer_tip_kernel_error = 0x7f0f030f;
+        public static final int bdvideoplayer_tip_net_error = 0x7f0f0310;
+        public static final int predownload_net_error_msg = 0x7f0f0f83;
+        public static final int predownload_no_available_msg = 0x7f0f0f84;
+        public static final int sdk_day = 0x7f0f113b;
+        public static final int sdk_download_error = 0x7f0f113c;
+        public static final int sdk_download_fail = 0x7f0f113d;
+        public static final int sdk_download_fail_no_sd = 0x7f0f113e;
+        public static final int sdk_download_fail_over_max = 0x7f0f113f;
+        public static final int sdk_file_not_exist = 0x7f0f1140;
+        public static final int sdk_he = 0x7f0f1141;
+        public static final int sdk_less_than_zero_dot_one_k = 0x7f0f1142;
+        public static final int sdk_record_audio_permission_denied_fun_disable = 0x7f0f1143;
+        public static final int sdk_she = 0x7f0f1144;
+        public static final int sdk_time_hour = 0x7f0f1145;
+        public static final int sdk_time_hour_before = 0x7f0f1146;
+        public static final int sdk_time_min_before = 0x7f0f1147;
+        public static final int sdk_time_minute = 0x7f0f1148;
+        public static final int sdk_time_sec_before = 0x7f0f1149;
+        public static final int sdk_time_second = 0x7f0f114a;
+        public static final int sdk_time_show_afternoon = 0x7f0f114b;
+        public static final int sdk_time_show_morning = 0x7f0f114c;
+        public static final int sdk_unit_wan = 0x7f0f114d;
+        public static final int sdk_unit_yi = 0x7f0f114e;
+        public static final int sdk_write_external_storage_permission_denied_fun_disable = 0x7f0f114f;
+        public static final int status_bar_notification_info_overflow = 0x7f0f129a;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {
@@ -503,7 +503,7 @@ public final class R {
             }
             ColorStateListItem = new int[]{16843173, 16843551, com.baidu.tieba.R.attr.obfuscated_res_0x7f04008a};
             FontFamily = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f0402da, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402db, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402dc, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402dd, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402de, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402df};
-            FontFamilyFont = new int[]{16844082, 16844083, 16844095, 16844143, 16844144, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402d8, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402e0, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402e1, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402e2, com.baidu.tieba.R.attr.obfuscated_res_0x7f040749};
+            FontFamilyFont = new int[]{16844082, 16844083, 16844095, 16844143, 16844144, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402d8, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402e0, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402e1, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402e2, com.baidu.tieba.R.attr.obfuscated_res_0x7f040752};
             GradientColor = new int[]{16843165, 16843166, 16843169, 16843170, 16843171, 16843172, 16843265, 16843275, 16844048, 16844049, 16844050, 16844051};
             GradientColorItem = new int[]{16843173, 16844052};
             bdvideoplayer_bdPlayerProgressView = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f0400cd, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400ce, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400cf, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400d0};

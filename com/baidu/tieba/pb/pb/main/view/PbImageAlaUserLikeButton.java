@@ -7,15 +7,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pz4;
-import com.baidu.tieba.r05;
+import com.baidu.tieba.a05;
+import com.baidu.tieba.c15;
 import com.baidu.tieba.view.DynamicUserLikeButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements r05 {
+public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements c15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -83,25 +83,25 @@ public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements r
     }
 
     @Override // com.baidu.tieba.view.DynamicUserLikeButton
-    public void s(boolean z) {
+    public void q(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             if (z) {
-                pz4 pz4Var = new pz4();
-                pz4Var.t(R.color.CAM_X0109);
-                setConfig(pz4Var);
+                a05 a05Var = new a05();
+                a05Var.v(R.color.CAM_X0109);
+                setConfig(a05Var);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
             } else {
-                pz4 pz4Var2 = new pz4();
-                pz4Var2.r(R.color.CAM_X0302);
-                pz4Var2.i(R.drawable.obfuscated_res_0x7f080958, 0, TBSpecificationButtonConfig.IconType.SVG);
-                pz4Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
-                setConfig(pz4Var2);
+                a05 a05Var2 = new a05();
+                a05Var2.t(R.color.CAM_X0302);
+                a05Var2.i(R.drawable.obfuscated_res_0x7f080968, 0, TBSpecificationButtonConfig.IconType.SVG);
+                a05Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
+                setConfig(a05Var2);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b6));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ba));
             }
-            r(TbadkCoreApplication.getInst().getSkinType());
+            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 }

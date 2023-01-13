@@ -22,7 +22,6 @@ public class InterestGuideActivityConfig extends IntentConfig {
     public static final String KEY_INTEREST_BACK_TO_MAINTAB = "interest_back_to_maintab";
     public static final String KEY_INTEREST_GUID_SHOW_SCENE = "interest_guid_show_scene";
     public static final String KEY_ONLY_SHOW_INTERESTED_FORUM = "key_only_show_interested_forum";
-    public static final int SCENE_HOME_RECOMMEND_INTEREST_CARD = 5;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

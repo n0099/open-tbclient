@@ -30,9 +30,15 @@ public class TbadkCoreStatisticKey {
     public static final String FACESHOP_UPLOAD_SOURCE = "c12327";
     public static final String FACESHOP_USE_EMOTION = "c12231";
     public static final String FANS_REMIND_CLICK = "c10390";
+    public static final String FILE_DOWNLOAD_COMPLETION = "c15148";
+    public static final String FILE_DOWNLOAD_DELETE = "c15147";
+    public static final String FILE_DOWNLOAD_PAUSE = "c15145";
+    public static final String FILE_DOWNLOAD_RESUME = "c15146";
+    public static final String FILE_DOWNLOAD_START = "c15144";
     public static final String FLOATING_VIEW_CLICK_KEY = "C12265";
     public static final String FLOATING_VIEW_SHOW_KEY = "C12266";
     public static final String FLOOR_VOICE_PLAY = "floor_voice_play";
+    public static final String FRS_BANNER_HEADER_CLICK = "c15169";
     public static final String FRS_BOTTOM_BAR_TAB_CLICK = "c14023";
     public static final String FRS_BOTTOM_BAR_TAB_SHOW = "c14022";
     public static final String FRS_EXPERIENCE_SPEED = "c10752";
@@ -66,6 +72,7 @@ public class TbadkCoreStatisticKey {
     public static final String IM_REC_FORUM_ITEM_CLICK = "c14307";
     public static final String IM_REC_FORUM_ITEM_SHOW_KEY = "c14306";
     public static final String IM_TAB_SHOW_KEY = "c14305";
+    public static final String INSTALL_APK_COMPLETION = "c15150";
     public static final String INVOKE_AS = "c10007";
     public static final String KEY_AD_FLOAT_LAYER_CLICK = "c14428";
     public static final String KEY_AD_FLOAT_LAYER_SHOW = "c14427";
@@ -131,11 +138,11 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_GROUP_SHARE_PANEL_CLICK = "c15080 ";
     public static final String KEY_GROUP_SHARE_PANEL_SHOW = "c15079";
     public static final String KEY_GROUP_SHARE_SUCCESS = "c15081";
+    public static final String KEY_H5_INSTALL_APK = "c15149";
+    public static final String KEY_H5_LAUNCH_APK = "c15151";
     public static final String KEY_H5_OFFLINE_PACKAGE_DOWNLOAD = "c13435";
     public static final String KEY_HOME_LIVE_ICON_CLICK = "c14695";
     public static final String KEY_HOME_LIVE_ICON_SHOW = "c14694";
-    public static final String KEY_HOME_RECOMMEND_CARD_INTEREST_CLICK = "c14372";
-    public static final String KEY_HOME_RECOMMEND_CARD_INTEREST_SHOW = "c14367";
     public static final String KEY_IMAGE_VIEWER_DOWNLOAD_DIALOG_SUCCESS = "c14047";
     public static final String KEY_IM_CYBER_VIOLENCE_MESSAGE_RECEIVER_CLICK = "c14723";
     public static final String KEY_IM_CYBER_VIOLENCE_MESSAGE_RECEIVER_SHOW = "c14722";
@@ -241,6 +248,8 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_VOTE_PAGE = "c13440";
     public static final String KEY_WRITE_GOODS_NEW_DIALOG_CLICK = "c13959";
     public static final String KEY_WRITE_GOODS_NEW_DIALOG_SHOW = "c13958";
+    public static final String MEMBER_BROADCAST_CLICK = "c15117";
+    public static final String MEMBER_BROADCAST_SHOW = "c15116";
     public static final String MEMBER_PAY_PAGE_SHOW = "c13747";
     public static final String MEMBER_PAY_PAGE_SHOW_PAY_CLICK = "c13748";
     public static final String MODIFY_NICK_ENTER_OPNEN_MEM_CLICK = "c12409";

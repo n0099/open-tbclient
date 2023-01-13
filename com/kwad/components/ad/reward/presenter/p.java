@@ -105,13 +105,44 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
                 this.rc = this;
             }
 
+            /*  JADX ERROR: JadxRuntimeException in pass: InlineMethods
+                jadx.core.utils.exceptions.JadxRuntimeException: Failed to process method for inline: com.kwad.components.ad.reward.presenter.p.b(com.kwad.components.ad.reward.presenter.p):java.lang.String
+                	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:76)
+                	at jadx.core.dex.visitors.InlineMethods.visit(InlineMethods.java:51)
+                Caused by: java.lang.IndexOutOfBoundsException: Index: 0
+                	at java.base/java.util.Collections$EmptyList.get(Collections.java:4807)
+                	at jadx.core.dex.nodes.InsnNode.getArg(InsnNode.java:104)
+                	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:117)
+                	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
+                	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
+                	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:65)
+                	... 1 more
+                */
             @Override // java.lang.Runnable
             public final void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.rc.hn();
-                    com.kwad.components.ad.reward.monitor.a.a(this.rc.nM.mz, "reflux", p.getUrl(), p.qY);
-                }
+                /*
+                    r5 = this;
+                    com.baidu.titan.sdk.runtime.Interceptable r0 = com.kwad.components.ad.reward.presenter.p.AnonymousClass1.$ic
+                    if (r0 != 0) goto L1d
+                L4:
+                    com.kwad.components.ad.reward.presenter.p r0 = r5.rc
+                    com.kwad.components.ad.reward.presenter.p.a(r0)
+                    com.kwad.components.ad.reward.presenter.p r0 = r5.rc
+                    com.kwad.components.ad.reward.k r1 = r0.nM
+                    boolean r1 = r1.mz
+                    java.lang.String r0 = com.kwad.components.ad.reward.presenter.p.b(r0)
+                    long r2 = com.kwad.components.ad.reward.presenter.p.ho()
+                    java.lang.String r4 = "reflux"
+                    com.kwad.components.ad.reward.monitor.a.a(r1, r4, r0, r2)
+                    return
+                L1d:
+                    r3 = r0
+                    r4 = 1048576(0x100000, float:1.469368E-39)
+                    com.baidu.titan.sdk.runtime.InterceptResult r0 = r3.invokeV(r4, r5)
+                    if (r0 == 0) goto L4
+                    return
+                */
+                throw new UnsupportedOperationException("Method not decompiled: com.kwad.components.ad.reward.presenter.p.AnonymousClass1.run():void");
             }
         };
         this.ra = new com.kwad.components.ad.reward.c.c(this, null) { // from class: com.kwad.components.ad.reward.presenter.p.2
@@ -235,12 +266,46 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
                 }
             }
 
+            /*  JADX ERROR: JadxRuntimeException in pass: InlineMethods
+                jadx.core.utils.exceptions.JadxRuntimeException: Failed to process method for inline: com.kwad.components.ad.reward.presenter.p.b(com.kwad.components.ad.reward.presenter.p):java.lang.String
+                	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:76)
+                	at jadx.core.dex.visitors.InlineMethods.visit(InlineMethods.java:51)
+                Caused by: java.lang.IndexOutOfBoundsException: Index: 0
+                	at java.base/java.util.Collections$EmptyList.get(Collections.java:4807)
+                	at jadx.core.dex.nodes.InsnNode.getArg(InsnNode.java:104)
+                	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:117)
+                	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
+                	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
+                	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:65)
+                	... 1 more
+                */
             @Override // com.kwad.components.core.webview.KsAdWebView.d
             public final void bw() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    com.kwad.components.ad.reward.monitor.a.b(this.rc.nM.mz, "reflux", p.getUrl(), System.currentTimeMillis() - this.rc.bF.getLoadTime());
-                }
+                /*
+                    r6 = this;
+                    com.baidu.titan.sdk.runtime.Interceptable r0 = com.kwad.components.ad.reward.presenter.p.AnonymousClass5.$ic
+                    if (r0 != 0) goto L23
+                L4:
+                    com.kwad.components.ad.reward.presenter.p r0 = r6.rc
+                    com.kwad.components.ad.reward.k r1 = r0.nM
+                    boolean r1 = r1.mz
+                    java.lang.String r0 = com.kwad.components.ad.reward.presenter.p.b(r0)
+                    long r2 = java.lang.System.currentTimeMillis()
+                    com.kwad.components.ad.reward.presenter.p r4 = r6.rc
+                    com.kwad.components.core.webview.KsAdWebView r4 = com.kwad.components.ad.reward.presenter.p.h(r4)
+                    long r4 = r4.getLoadTime()
+                    long r2 = r2 - r4
+                    java.lang.String r4 = "reflux"
+                    com.kwad.components.ad.reward.monitor.a.b(r1, r4, r0, r2)
+                    return
+                L23:
+                    r4 = r0
+                    r5 = 1048578(0x100002, float:1.469371E-39)
+                    com.baidu.titan.sdk.runtime.InterceptResult r0 = r4.invokeV(r5, r6)
+                    if (r0 == 0) goto L4
+                    return
+                */
+                throw new UnsupportedOperationException("Method not decompiled: com.kwad.components.ad.reward.presenter.p.AnonymousClass5.bw():void");
             }
         };
     }
@@ -305,7 +370,7 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
                         }
                     }
                     if (adTemplate != null) {
-                        AdWebViewActivityProxy.launch(this.rc.getContext(), new AdWebViewActivityProxy.a.C0601a().ao(bVar.title).ap(bVar.url).N(adTemplate).nx());
+                        AdWebViewActivityProxy.launch(this.rc.getContext(), new AdWebViewActivityProxy.a.C0600a().ao(bVar.title).ap(bVar.url).N(adTemplate).nx());
                     }
                 }
             }));
@@ -342,6 +407,12 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
         }
     }
 
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.kwad.components.ad.reward.presenter.p.1.run():void, com.kwad.components.ad.reward.presenter.p.5.bw():void] */
+    public static /* synthetic */ String b(p pVar) {
+        return getUrl();
+    }
+
     private void clearJsInterfaceRegister() {
         com.kwad.components.core.webview.a aVar;
         Interceptable interceptable = $ic;
@@ -363,13 +434,19 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
         return (String) invokeV.objValue;
     }
 
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.kwad.components.ad.reward.presenter.p.5.bw():void] */
+    public static /* synthetic */ KsAdWebView h(p pVar) {
+        return pVar.bF;
+    }
+
     private void hl() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
             SceneImpl sceneImpl = this.nM.mAdTemplate.mAdScene;
-            SceneImpl m85clone = sceneImpl != null ? sceneImpl.m85clone() : null;
-            if (m85clone != null) {
-                com.kwad.components.ad.reward.e.a(m85clone, this);
+            SceneImpl m89clone = sceneImpl != null ? sceneImpl.m89clone() : null;
+            if (m89clone != null) {
+                com.kwad.components.ad.reward.e.a(m89clone, this);
             }
         }
     }
@@ -381,6 +458,12 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
             this.qX.getNativeView().c(com.kwad.components.ad.reflux.a.b(this.qW, this.me));
             this.qX.z(false);
         }
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.kwad.components.ad.reward.presenter.p.1.run():void] */
+    public static /* synthetic */ long ho() {
+        return qY;
     }
 
     private void inflateJsBridgeContext() {
@@ -530,7 +613,7 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onCreate();
-            KsRefluxView ksRefluxView = (KsRefluxView) findViewById(R.id.obfuscated_res_0x7f091252);
+            KsRefluxView ksRefluxView = (KsRefluxView) findViewById(R.id.obfuscated_res_0x7f09125d);
             this.qX = ksRefluxView;
             this.bF = ksRefluxView.getWebView();
             this.qX.setViewListener(this);

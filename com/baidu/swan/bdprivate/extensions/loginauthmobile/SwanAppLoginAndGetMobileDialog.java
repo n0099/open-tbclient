@@ -26,7 +26,7 @@ import androidx.fragment.app.FragmentManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ln2;
+import com.baidu.tieba.qn2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,14 +51,14 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
     public interface b {
         void D(int i);
 
-        void i0(boolean z);
+        void j0(boolean z);
     }
 
-    public abstract void A1(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup);
+    public abstract void E1();
 
-    public abstract void H1();
+    public abstract void F1(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup);
 
-    public abstract void z1();
+    public abstract void M1();
 
     /* loaded from: classes3.dex */
     public class a implements View.OnTouchListener {
@@ -90,8 +90,8 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 4) {
-                    this.a.E1(true);
-                    this.a.y1();
+                    this.a.J1(true);
+                    this.a.D1();
                 }
                 return true;
             }
@@ -165,13 +165,24 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
         this.g = true;
     }
 
+    public void D1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            b bVar = this.a;
+            if (bVar != null) {
+                bVar.j0(this.g);
+            }
+            dismissAllowingStateLoss();
+        }
+    }
+
     @Override // androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
     public void onDestroyView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             b bVar = this.a;
             if (bVar != null) {
-                bVar.i0(this.g);
+                bVar.j0(this.g);
             }
             super.onDestroyView();
         }
@@ -180,30 +191,27 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
     @Override // androidx.fragment.app.Fragment
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            super.onResume();
-            boolean a2 = ln2.M().a();
-            if (a2 != this.c) {
-                B1(a2);
-            }
-        }
-    }
-
-    public void y1() {
-        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            b bVar = this.a;
-            if (bVar != null) {
-                bVar.i0(this.g);
+            super.onResume();
+            boolean a2 = qn2.M().a();
+            if (a2 != this.c) {
+                G1(a2);
             }
-            dismissAllowingStateLoss();
         }
     }
 
-    public void B1(boolean z) {
+    public void C1(SpannableStringBuilder spannableStringBuilder, int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(1048576, this, spannableStringBuilder, i, str, str2) == null) {
+            spannableStringBuilder.append((CharSequence) str);
+            spannableStringBuilder.setSpan(new c(str2, this.b), i, spannableStringBuilder.length(), 33);
+        }
+    }
+
+    public void G1(boolean z) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             this.c = z;
             Window window = getDialog().getWindow();
             if (window != null) {
@@ -215,14 +223,14 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
                 }
                 window.setBackgroundDrawable(resources.getDrawable(i));
             }
-            H1();
+            M1();
         }
     }
 
-    public final void C1() {
+    public final void H1() {
         Bundle arguments;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (arguments = getArguments()) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (arguments = getArguments()) != null) {
             this.e = arguments.getString("auth_tip");
             this.c = arguments.getBoolean("is_night");
             this.f = (QuickLoginInfo) arguments.getParcelable("quick_login_info");
@@ -231,23 +239,23 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
         }
     }
 
-    public void D1(FragmentActivity fragmentActivity) {
+    public void I1(FragmentActivity fragmentActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, fragmentActivity) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, fragmentActivity) == null) {
             this.b = fragmentActivity;
         }
     }
 
-    public void E1(boolean z) {
+    public void J1(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             this.g = z;
         }
     }
 
-    public void F1(b bVar) {
+    public void K1(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
             this.a = bVar;
         }
     }
@@ -255,8 +263,8 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
     @Override // androidx.fragment.app.Fragment, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, configuration) == null) {
-            y1();
+        if (interceptable == null || interceptable.invokeL(1048587, this, configuration) == null) {
+            D1();
             super.onConfigurationChanged(configuration);
         }
     }
@@ -264,7 +272,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
     @Override // androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
     public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
             super.onCreate(bundle);
         }
     }
@@ -272,19 +280,19 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
     @Override // androidx.fragment.app.DialogFragment, android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, dialogInterface) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, dialogInterface) == null) {
             b bVar = this.a;
             if (bVar != null) {
-                bVar.i0(this.g);
+                bVar.j0(this.g);
             }
             super.onDismiss(dialogInterface);
         }
     }
 
-    public final void G1(Window window) {
+    public final void L1(Window window) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, window) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, window) == null) {
             Resources resources = getContext().getResources();
             if (this.c) {
                 i = R.drawable.obfuscated_res_0x7f08019a;
@@ -309,18 +317,18 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, layoutInflater, viewGroup, bundle)) == null) {
-            C1();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, layoutInflater, viewGroup, bundle)) == null) {
+            H1();
             getDialog().requestWindowFeature(1);
             getDialog().setCanceledOnTouchOutside(true);
             Window window = getDialog().getWindow();
             if (window == null) {
                 return null;
             }
-            G1(window);
-            A1(layoutInflater, viewGroup);
-            H1();
-            z1();
+            L1(window);
+            F1(layoutInflater, viewGroup);
+            M1();
+            E1();
             return this.d;
         }
         return (View) invokeLLL.objValue;
@@ -329,19 +337,11 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
     @Override // androidx.fragment.app.DialogFragment
     public void show(FragmentManager fragmentManager, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, fragmentManager, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048593, this, fragmentManager, str) == null) {
             try {
                 super.show(fragmentManager, str);
             } catch (IllegalStateException unused) {
             }
-        }
-    }
-
-    public void x1(SpannableStringBuilder spannableStringBuilder, int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(1048591, this, spannableStringBuilder, i, str, str2) == null) {
-            spannableStringBuilder.append((CharSequence) str);
-            spannableStringBuilder.setSpan(new c(str2, this.b), i, spannableStringBuilder.length(), 33);
         }
     }
 }

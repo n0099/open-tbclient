@@ -1,9 +1,24 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.app.Activity;
+import com.baidu.nadcore.player.helper.BdVideoGesture;
 /* loaded from: classes5.dex */
 public interface ov0 {
-    boolean e(@NonNull mu0 mu0Var);
+    void b();
 
-    nv0 getInterceptorLayer();
+    void c(int i, int i2);
+
+    void f(float f);
+
+    int getCurrentPosition();
+
+    void i(float f);
+
+    void l(int i, float f);
+
+    void m(BdVideoGesture.VideoPluginGesture videoPluginGesture);
+
+    Activity o();
+
+    boolean p();
 }

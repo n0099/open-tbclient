@@ -41,7 +41,7 @@ public class cn implements Runnable {
                     packageManager.setComponentEnabledSetting(componentName, 2, 1);
                 }
             } catch (Throwable th) {
-                com.xiaomi.channel.commonutils.logger.b.m99a("[Alarm] disable ping receiver may be failure. " + th);
+                com.xiaomi.channel.commonutils.logger.b.m103a("[Alarm] disable ping receiver may be failure. " + th);
             }
         }
     }

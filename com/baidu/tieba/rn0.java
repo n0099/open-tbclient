@@ -1,51 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.app.Activity;
+import android.os.Bundle;
 /* loaded from: classes6.dex */
-public interface rn0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "loadImage");
-    public static final rn0 b = new a();
+public interface rn0 extends sn0 {
+    void onActivityCreated(Activity activity, Bundle bundle);
 
-    void c(String str, qn0 qn0Var);
+    void onActivityDestroyed(Activity activity);
 
-    void d(String str);
+    void onActivityPaused(Activity activity);
 
-    /* loaded from: classes6.dex */
-    public static class a implements rn0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    void onActivityResumed(Activity activity);
 
-        @Override // com.baidu.tieba.rn0
-        public void c(String str, qn0 qn0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, qn0Var) == null) {
-            }
-        }
+    void onActivitySaveInstanceState(Activity activity, Bundle bundle);
 
-        @Override // com.baidu.tieba.rn0
-        public void d(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            }
-        }
+    void onActivityStarted(Activity activity);
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
+    void onActivityStopped(Activity activity);
+
+    void onBackgroundToForeground(Activity activity);
+
+    void onForegroundToBackground(Activity activity);
 }

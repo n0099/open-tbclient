@@ -1,97 +1,118 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
+import android.app.Activity;
+import android.app.Application;
+import android.os.Bundle;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class vh0 extends v81 {
+public final class vh0 implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
+    public static vh0 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdBaseModel a;
-    public View b;
-    public View.OnClickListener c;
+    public wh0 a;
 
-    public vh0(AdBaseModel adBaseModel, View view2) {
+    public vh0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {adBaseModel, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = adBaseModel;
-        this.b = view2;
-    }
-
-    @Override // com.baidu.tieba.v81
-    public void a(String str) {
-        AdBaseModel adBaseModel;
-        sp0 sp0Var;
-        np0 np0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (adBaseModel = this.a) != null && (sp0Var = adBaseModel.f) != null && !TextUtils.isEmpty(sp0Var.d)) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.FREE_CLICK);
-            clogBuilder.j(str);
-            op0 op0Var = adBaseModel.m;
-            if (op0Var != null && (np0Var = op0Var.f) != null) {
-                clogBuilder.v(np0Var.a);
-            }
-            clogBuilder.p(adBaseModel.f.d);
-            z01.b(clogBuilder);
-        }
-    }
-
-    @Override // com.baidu.tieba.v81
-    public void b(@NonNull yp0 yp0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yp0Var) == null) {
-            if (yp0Var.c) {
-                ii0.b(yp0Var.a);
-                g(ClogBuilder.LogType.CLICK, "detailbtn", this.a);
-            }
-            View.OnClickListener onClickListener = this.c;
-            if (onClickListener != null) {
-                onClickListener.onClick(this.b);
             }
         }
     }
 
-    public void h(View.OnClickListener onClickListener) {
+    public static vh0 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.c = onClickListener;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (vh0.class) {
+                    if (b == null) {
+                        b = new vh0();
+                    }
+                }
+            }
+            return b;
+        }
+        return (vh0) invokeV.objValue;
+    }
+
+    public void b(wh0 wh0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, wh0Var) == null) {
+            synchronized (wh0.class) {
+                if (this.a != null) {
+                    return;
+                }
+                this.a = wh0Var;
+            }
         }
     }
 
-    public final void g(ClogBuilder.LogType logType, String str, AdBaseModel adBaseModel) {
-        sp0 sp0Var;
-        np0 np0Var;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityDestroyed(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, logType, str, adBaseModel) == null) && adBaseModel != null && (sp0Var = adBaseModel.f) != null && !TextUtils.isEmpty(sp0Var.d)) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(logType);
-            clogBuilder.j(str);
-            op0 op0Var = adBaseModel.m;
-            if (op0Var != null && (np0Var = op0Var.f) != null) {
-                clogBuilder.v(np0Var.a);
-            }
-            clogBuilder.p(adBaseModel.f.d);
-            z01.b(clogBuilder);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            this.a.onActivityDestroyed(activity);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityPaused(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            this.a.onActivityPaused(activity);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityResumed(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {
+            this.a.onActivityResumed(activity);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStarted(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+            this.a.onActivityStarted(activity);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStopped(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
+            this.a.onActivityStopped(activity);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bundle) == null) {
+            this.a.onActivityCreated(activity, bundle);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, activity, bundle) == null) {
+            this.a.onActivitySaveInstanceState(activity, bundle);
         }
     }
 }

@@ -1,22 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.CallSuper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public abstract class ji0 {
+public class ji0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract String a();
+    public final int[] a;
+    public final int[] b;
+    public int c;
+    public long d;
+    public long e;
+    public long f;
+    public long g;
+    public long h;
 
     public ji0() {
         Interceptable interceptable = $ic;
@@ -28,32 +30,55 @@ public abstract class ji0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new int[]{0, 0};
+        this.b = new int[]{0, 0};
+        this.c = 0;
+        this.h = 0L;
     }
 
-    @CallSuper
-    public boolean b(@NonNull Context context, @NonNull ni0 ni0Var, @Nullable Map<String, Object> map, @Nullable ri0 ri0Var) {
-        InterceptResult invokeLLLL;
+    public void a(MotionEvent motionEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ni0Var, map, ri0Var)) == null) {
-            a11.b((String) q01.b(ni0Var.d(), "charge_url"));
-            return true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) {
+            int action = motionEvent.getAction();
+            if (action != 0) {
+                if (action != 1) {
+                    if (action == 2) {
+                        this.c++;
+                        return;
+                    }
+                    return;
+                }
+                this.c = 0;
+                this.e = System.currentTimeMillis();
+                this.b[0] = (int) motionEvent.getRawX();
+                this.b[1] = (int) motionEvent.getRawY();
+                if (Math.max(Math.abs(this.b[0] - this.a[0]), Math.abs(this.b[1] - this.a[1])) > 10) {
+                    this.g++;
+                    this.f += Math.max(0L, this.e - this.d);
+                    return;
+                }
+                return;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            this.d = currentTimeMillis;
+            if (this.h == 0) {
+                this.h = currentTimeMillis;
+            }
+            this.a[0] = (int) motionEvent.getRawX();
+            this.a[1] = (int) motionEvent.getRawY();
         }
-        return invokeLLLL.booleanValue;
     }
 
-    public void c(ri0 ri0Var, @Nullable ni0 ni0Var, int i, boolean z) {
+    public int[] b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{ri0Var, ni0Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            wi0.b(ri0Var, ni0Var, i, z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int[] iArr = this.b;
+            return new int[]{iArr[0], iArr[1]};
         }
-    }
-
-    public void d(ri0 ri0Var, @Nullable ni0 ni0Var, @Nullable String str, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{ri0Var, ni0Var, str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            wi0.c(ri0Var, ni0Var, str, i, z);
-        }
+        return (int[]) invokeV.objValue;
     }
 }

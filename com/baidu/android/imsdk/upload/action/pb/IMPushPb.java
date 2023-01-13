@@ -741,6 +741,10 @@ public final class IMPushPb {
                 maybeForceBuilderInitialization();
             }
 
+            public static /* synthetic */ Builder access$16300() {
+                return create();
+            }
+
             public static Builder create() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -821,8 +825,9 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            public Builder clone() {
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
+            /* renamed from: clone */
+            public Builder mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
@@ -1335,7 +1340,7 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
-                return Builder.create();
+                return Builder.access$16300();
             }
             return (Builder) invokeV.objValue;
         }
@@ -1957,6 +1962,10 @@ public final class IMPushPb {
                 maybeForceBuilderInitialization();
             }
 
+            public static /* synthetic */ Builder access$5100() {
+                return create();
+            }
+
             public static Builder create() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -2092,8 +2101,9 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            public Builder clone() {
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
+            /* renamed from: clone */
+            public Builder mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
@@ -2949,10 +2959,10 @@ public final class IMPushPb {
         public static Builder newBuilder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeV = interceptable.invokeV(65555, null)) != null) {
-                return (Builder) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+                return Builder.access$5100();
             }
-            return Builder.create();
+            return (Builder) invokeV.objValue;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
@@ -3710,6 +3720,10 @@ public final class IMPushPb {
                 maybeForceBuilderInitialization();
             }
 
+            public static /* synthetic */ Builder access$1700() {
+                return create();
+            }
+
             public static Builder create() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -3788,8 +3802,9 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            public Builder clone() {
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
+            /* renamed from: clone */
+            public Builder mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -4192,7 +4207,7 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-                return Builder.create();
+                return Builder.access$1700();
             }
             return (Builder) invokeV.objValue;
         }
@@ -4726,6 +4741,10 @@ public final class IMPushPb {
                 maybeForceBuilderInitialization();
             }
 
+            public static /* synthetic */ Builder access$3000() {
+                return create();
+            }
+
             public static Builder create() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -4839,8 +4858,9 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            public Builder clone() {
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
+            /* renamed from: clone */
+            public Builder mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
@@ -5561,10 +5581,10 @@ public final class IMPushPb {
         public static Builder newBuilder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeV = interceptable.invokeV(65555, null)) != null) {
-                return (Builder) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+                return Builder.access$3000();
             }
-            return Builder.create();
+            return (Builder) invokeV.objValue;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
@@ -6290,6 +6310,10 @@ public final class IMPushPb {
                 maybeForceBuilderInitialization();
             }
 
+            public static /* synthetic */ Builder access$9700() {
+                return create();
+            }
+
             public static Builder create() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -6392,8 +6416,9 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            public Builder clone() {
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
+            /* renamed from: clone */
+            public Builder mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
@@ -6956,7 +6981,7 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
-                return Builder.create();
+                return Builder.access$9700();
             }
             return (Builder) invokeV.objValue;
         }
@@ -7595,6 +7620,10 @@ public final class IMPushPb {
                 maybeForceBuilderInitialization();
             }
 
+            public static /* synthetic */ Builder access$7600() {
+                return create();
+            }
+
             public static Builder create() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -7664,8 +7693,9 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            public Builder clone() {
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
+            /* renamed from: clone */
+            public Builder mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
@@ -8093,7 +8123,7 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-                return Builder.create();
+                return Builder.access$7600();
             }
             return (Builder) invokeV.objValue;
         }
@@ -8648,6 +8678,10 @@ public final class IMPushPb {
                 maybeForceBuilderInitialization();
             }
 
+            public static /* synthetic */ Builder access$8400() {
+                return create();
+            }
+
             public static Builder create() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -8772,8 +8806,9 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            public Builder clone() {
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
+            /* renamed from: clone */
+            public Builder mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
@@ -9546,7 +9581,7 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
-                return Builder.create();
+                return Builder.access$8400();
             }
             return (Builder) invokeV.objValue;
         }
@@ -10310,6 +10345,10 @@ public final class IMPushPb {
                 maybeForceBuilderInitialization();
             }
 
+            public static /* synthetic */ Builder access$100() {
+                return create();
+            }
+
             public static Builder create() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -10378,8 +10417,9 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            public Builder clone() {
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
+            /* renamed from: clone */
+            public Builder mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -10612,7 +10652,7 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-                return Builder.create();
+                return Builder.access$100();
             }
             return (Builder) invokeV.objValue;
         }
@@ -11030,6 +11070,10 @@ public final class IMPushPb {
                 maybeForceBuilderInitialization();
             }
 
+            public static /* synthetic */ Builder access$13000() {
+                return create();
+            }
+
             public static Builder create() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -11099,8 +11143,9 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            public Builder clone() {
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
+            /* renamed from: clone */
+            public Builder mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
@@ -11608,7 +11653,7 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
-                return Builder.create();
+                return Builder.access$13000();
             }
             return (Builder) invokeV.objValue;
         }
@@ -12193,6 +12238,10 @@ public final class IMPushPb {
                 maybeForceBuilderInitialization();
             }
 
+            public static /* synthetic */ Builder access$18300() {
+                return create();
+            }
+
             public static Builder create() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -12271,8 +12320,9 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            public Builder clone() {
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
+            /* renamed from: clone */
+            public Builder mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -12635,7 +12685,7 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-                return Builder.create();
+                return Builder.access$18300();
             }
             return (Builder) invokeV.objValue;
         }
@@ -13147,6 +13197,10 @@ public final class IMPushPb {
                 maybeForceBuilderInitialization();
             }
 
+            public static /* synthetic */ Builder access$17200() {
+                return create();
+            }
+
             public static Builder create() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -13249,8 +13303,9 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            public Builder clone() {
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
+            /* renamed from: clone */
+            public Builder mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
@@ -13813,7 +13868,7 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
-                return Builder.create();
+                return Builder.access$17200();
             }
             return (Builder) invokeV.objValue;
         }
@@ -14446,6 +14501,10 @@ public final class IMPushPb {
                 maybeForceBuilderInitialization();
             }
 
+            public static /* synthetic */ Builder access$2400() {
+                return create();
+            }
+
             public static Builder create() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -14510,8 +14569,9 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            public Builder clone() {
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
+            /* renamed from: clone */
+            public Builder mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -14832,7 +14892,7 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-                return Builder.create();
+                return Builder.access$2400();
             }
             return (Builder) invokeV.objValue;
         }
@@ -15347,6 +15407,10 @@ public final class IMPushPb {
                 maybeForceBuilderInitialization();
             }
 
+            public static /* synthetic */ Builder access$10800() {
+                return create();
+            }
+
             public static Builder create() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -15570,8 +15634,9 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            public Builder clone() {
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
+            /* renamed from: clone */
+            public Builder mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
@@ -16672,10 +16737,10 @@ public final class IMPushPb {
         public static Builder newBuilder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeV = interceptable.invokeV(65566, null)) != null) {
-                return (Builder) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) {
+                return Builder.access$10800();
             }
-            return Builder.create();
+            return (Builder) invokeV.objValue;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
@@ -17752,6 +17817,10 @@ public final class IMPushPb {
                 maybeForceBuilderInitialization();
             }
 
+            public static /* synthetic */ Builder access$14900() {
+                return create();
+            }
+
             public static Builder create() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -17887,8 +17956,9 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            public Builder clone() {
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
+            /* renamed from: clone */
+            public Builder mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
@@ -18693,10 +18763,10 @@ public final class IMPushPb {
         public static Builder newBuilder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeV = interceptable.invokeV(65559, null)) != null) {
-                return (Builder) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
+                return Builder.access$14900();
             }
-            return Builder.create();
+            return (Builder) invokeV.objValue;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewRequestOrBuilder
@@ -19482,6 +19552,10 @@ public final class IMPushPb {
                 maybeForceBuilderInitialization();
             }
 
+            public static /* synthetic */ Builder access$4200() {
+                return create();
+            }
+
             public static Builder create() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -19570,8 +19644,9 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            public Builder clone() {
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
+            /* renamed from: clone */
+            public Builder mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
@@ -20172,10 +20247,10 @@ public final class IMPushPb {
         public static Builder newBuilder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeV = interceptable.invokeV(65552, null)) != null) {
-                return (Builder) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
+                return Builder.access$4200();
             }
-            return Builder.create();
+            return (Builder) invokeV.objValue;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
@@ -20788,6 +20863,10 @@ public final class IMPushPb {
                 maybeForceBuilderInitialization();
             }
 
+            public static /* synthetic */ Builder access$13800() {
+                return create();
+            }
+
             public static Builder create() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -20890,8 +20969,9 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            public Builder clone() {
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
+            /* renamed from: clone */
+            public Builder mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
@@ -21494,7 +21574,7 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
-                return Builder.create();
+                return Builder.access$13800();
             }
             return (Builder) invokeV.objValue;
         }
@@ -22171,6 +22251,10 @@ public final class IMPushPb {
                 maybeForceBuilderInitialization();
             }
 
+            public static /* synthetic */ Builder access$600() {
+                return create();
+            }
+
             public static Builder create() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -22273,8 +22357,9 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            public Builder clone() {
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
+            /* renamed from: clone */
+            public Builder mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
@@ -22880,7 +22965,7 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
-                return Builder.create();
+                return Builder.access$600();
             }
             return (Builder) invokeV.objValue;
         }
@@ -23557,6 +23642,10 @@ public final class IMPushPb {
                 maybeForceBuilderInitialization();
             }
 
+            public static /* synthetic */ Builder access$6500() {
+                return create();
+            }
+
             public static Builder create() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -23659,8 +23748,9 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            public Builder clone() {
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
+            /* renamed from: clone */
+            public Builder mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
@@ -24263,7 +24353,7 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
-                return Builder.create();
+                return Builder.access$6500();
             }
             return (Builder) invokeV.objValue;
         }

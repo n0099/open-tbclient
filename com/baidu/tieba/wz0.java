@@ -1,89 +1,101 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.content.res.Resources;
+import android.util.DisplayMetrics;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Calendar;
+import java.util.Arrays;
+import java.util.Locale;
+import kotlin.jvm.JvmName;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.StringCompanionObject;
+@JvmName(name = "BdPlayerUtils")
 /* loaded from: classes6.dex */
-public class wz0 {
+public final class wz0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(@Nullable String str, @Nullable String str2) {
-        InterceptResult invokeLL;
+    @JvmOverloads
+    public static final int c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                String[] split = str.split(":");
-                String[] split2 = str2.split(":");
-                if (split.length != 0 && split2.length != 0) {
-                    try {
-                        Calendar calendar = Calendar.getInstance();
-                        long timeInMillis = calendar.getTimeInMillis();
-                        calendar.set(11, rz0.c(split[0]));
-                        calendar.set(12, rz0.c(split[1]));
-                        long timeInMillis2 = calendar.getTimeInMillis();
-                        calendar.set(11, rz0.c(split2[0]));
-                        calendar.set(12, rz0.c(split2[1]));
-                        long timeInMillis3 = calendar.getTimeInMillis();
-                        if (timeInMillis < timeInMillis2 || timeInMillis > timeInMillis3) {
-                            return false;
-                        }
-                        return true;
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? e(str, 0, 2, null) : invokeL.intValue;
     }
 
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public static void b(Activity activity, boolean z) {
+    public static final int a(View view2, float f) {
+        InterceptResult invokeLF;
+        float f2;
+        Context context;
+        Resources resources;
+        DisplayMetrics displayMetrics;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65537, null, activity, z) == null) && activity != null) {
-            vz0.b("BdVideoSys", "SCREEN_ORIENTATION_LANDSCAPE");
-            if (z) {
-                activity.setRequestedOrientation(8);
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65536, null, view2, f)) == null) {
+            if (view2 != null && (context = view2.getContext()) != null && (resources = context.getResources()) != null && (displayMetrics = resources.getDisplayMetrics()) != null) {
+                f2 = displayMetrics.density;
             } else {
-                activity.setRequestedOrientation(0);
+                f2 = 1.0f;
             }
-            activity.getWindow().setFlags(1024, 1024);
+            return (int) ((f * f2) + 0.5f);
         }
+        return invokeLF.intValue;
     }
 
-    public static void c(Activity activity, boolean z) {
+    @JvmOverloads
+    public static final int d(String str, int i) {
+        InterceptResult invokeLI;
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65538, null, activity, z) == null) && activity != null) {
-            if (z) {
-                activity.getWindow().addFlags(128);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i)) == null) {
+            if (str != null && str.length() != 0) {
+                z = false;
             } else {
-                activity.getWindow().clearFlags(128);
+                z = true;
+            }
+            if (z) {
+                return i;
+            }
+            try {
+                return Integer.parseInt(str);
+            } catch (NumberFormatException e) {
+                a01.f("parseInt catch exception:", e);
+                return i;
             }
         }
+        return invokeLI.intValue;
     }
 
-    public static void startActivity(Context context, ComponentName componentName) throws Exception {
+    public static final String b(int i, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, context, componentName) == null) {
-            new Intent().setComponent(componentName);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (i < 0) {
+                return "";
+            }
+            int i2 = i / 3600;
+            int i3 = (i % 3600) / 60;
+            int i4 = i % 60;
+            if (i2 == 0 && !z) {
+                StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
+                String format = String.format(Locale.US, "%02d:%02d", Arrays.copyOf(new Object[]{Integer.valueOf(i3), Integer.valueOf(i4)}, 2));
+                Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(locale, format, *args)");
+                return format;
+            }
+            StringCompanionObject stringCompanionObject2 = StringCompanionObject.INSTANCE;
+            String format2 = String.format(Locale.US, "%02d:%02d:%02d", Arrays.copyOf(new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}, 3));
+            Intrinsics.checkNotNullExpressionValue(format2, "java.lang.String.format(locale, format, *args)");
+            return format2;
         }
+        return (String) invokeCommon.objValue;
     }
 
-    public static void startActivity(Context context, String str, String str2, String str3) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2, str3) == null) {
-            new Intent().setComponent(new ComponentName(str, str2 + str3));
+    public static /* synthetic */ int e(String str, int i, int i2, Object obj) {
+        if ((i2 & 2) != 0) {
+            i = 0;
         }
+        return d(str, i);
     }
 }

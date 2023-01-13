@@ -1,45 +1,25 @@
 package com.baidu.tieba;
+
+import android.graphics.Bitmap;
+import com.baidu.tieba.video.editvideo.data.PendantData;
+import java.util.List;
 /* loaded from: classes6.dex */
 public interface u59 {
+    void X();
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(float f);
+    void h();
 
-        float getSpeed();
+    void j0(String str);
 
-        void onFinish();
+    void m();
 
-        void onProgress(float f);
-    }
+    void n0(String str);
 
-    void a();
+    void n1(Bitmap bitmap);
 
-    boolean b();
+    void onNext();
 
-    int getMaxDuration();
+    void s(List<PendantData> list);
 
-    float getProgress();
-
-    int getSlideNum();
-
-    void invalidate();
-
-    void reset();
-
-    void setMaxDuration(int i);
-
-    void setMinDuration(int i);
-
-    void setOnProgressListener(a aVar);
-
-    void setProgress(long j);
-
-    void setShowDeleteLastTip(boolean z);
-
-    void setVisibility(int i);
-
-    void start();
-
-    void stop();
+    void x();
 }

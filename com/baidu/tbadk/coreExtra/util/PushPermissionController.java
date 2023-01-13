@@ -15,12 +15,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.util.BdToastHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hq4;
-import com.baidu.tieba.k45;
-import com.baidu.tieba.o45;
-import com.baidu.tieba.p35;
-import com.baidu.tieba.ry4;
+import com.baidu.tieba.a55;
+import com.baidu.tieba.cz4;
+import com.baidu.tieba.rq4;
 import com.baidu.tieba.setting.model.MsgRemindModel;
+import com.baidu.tieba.v45;
+import com.baidu.tieba.z35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -76,14 +76,14 @@ public class PushPermissionController {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements hq4 {
+    public class b implements rq4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
         public final /* synthetic */ boolean b;
         public final /* synthetic */ PushPermissionController c;
 
-        @Override // com.baidu.tieba.hq4
+        @Override // com.baidu.tieba.rq4
         public void onCancelClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -110,7 +110,7 @@ public class PushPermissionController {
             this.b = z2;
         }
 
-        @Override // com.baidu.tieba.hq4
+        @Override // com.baidu.tieba.rq4
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -118,9 +118,9 @@ public class PushPermissionController {
                     new MsgRemindModel(this.c.mContext).L(34, true, null);
                 }
                 if (this.b) {
-                    o45.o(this.c.mActivity);
+                    a55.o(this.c.mActivity);
                 } else {
-                    k45.e(this.c.mContext);
+                    v45.e(this.c.mContext);
                 }
             }
         }
@@ -158,8 +158,8 @@ public class PushPermissionController {
 
     private void onSubscribeFriendSuccess(@NonNull Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) && !ry4.l().i("subcribe_friend_msg_update_flag", false)) {
-            ry4.l().v("subcribe_friend_msg_update_flag", true);
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) && !cz4.l().i("subcribe_friend_msg_update_flag", false)) {
+            cz4.l().v("subcribe_friend_msg_update_flag", true);
             BdToastData bdToastData = new BdToastData();
             ArrayList arrayList = new ArrayList(1);
             BdToastData.ContentBean contentBean = new BdToastData.ContentBean();
@@ -178,14 +178,14 @@ public class PushPermissionController {
         if ((interceptable == null || interceptable.invokeI(65541, this, i) == null) && (activity = this.mActivity) != null && this.mContext != null) {
             boolean areNotificationsEnabled = NotificationManagerCompat.from(activity).areNotificationsEnabled();
             if (i == 10) {
-                boolean m = p35.d().m();
+                boolean m = z35.d().m();
                 if (areNotificationsEnabled && m) {
                     onSubscribeFriendSuccess(this.mActivity);
                     return;
                 }
                 b bVar = new b(this, m, areNotificationsEnabled);
-                if (k45.i(TbadkCoreApplication.getInst(), 7)) {
-                    o45.n(this.mContext, this.mActivity, 10, bVar);
+                if (v45.i(TbadkCoreApplication.getInst(), 7)) {
+                    a55.n(this.mContext, this.mActivity, 10, bVar);
                 }
             }
         }

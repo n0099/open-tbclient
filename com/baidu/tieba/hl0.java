@@ -1,16 +1,10 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import java.io.File;
+import com.baidu.nadcore.download.consts.AdDownloadCode;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
 /* loaded from: classes4.dex */
 public interface hl0 {
-    void a(int i, long j, long j2);
+    void a(AdDownloadStatus adDownloadStatus);
 
-    void b(long j, File file);
-
-    void c(int i, int i2);
-
-    void d(@Nullable tk0 tk0Var);
-
-    void onSuccess(int i);
+    void b(AdDownloadCode adDownloadCode);
 }

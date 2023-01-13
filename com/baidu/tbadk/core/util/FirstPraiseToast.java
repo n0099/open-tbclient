@@ -124,8 +124,8 @@ public class FirstPraiseToast {
             SpannableString spannableString = new SpannableString(String.format(TbadkCoreApplication.getInst().getString(R.string.day_first_agree_tip_content), Integer.valueOf(this.experience)));
             spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)), 4, spannableString.length(), 33);
             BdToast b = BdToast.b(TbadkCoreApplication.getInst().getContext(), spannableString);
-            b.e(R.drawable.icon_mask_frs_firstlike40);
-            b.i();
+            b.f(R.drawable.icon_mask_frs_firstlike40);
+            b.k();
         }
     }
 }

@@ -818,7 +818,7 @@ public final class BDLocation implements Parcelable {
                                     ArrayList arrayList = new ArrayList();
                                     for (int i5 = 0; i5 < jSONArray.length(); i5++) {
                                         JSONObject jSONObject9 = jSONArray.getJSONObject(i5);
-                                        arrayList.add(new Poi(jSONObject9.getString("pid"), jSONObject9.getString("pname"), jSONObject9.getDouble(Config.PRINCIPAL_PART), jSONObject9.has("tags") ? jSONObject9.getString("tags") : str3, jSONObject9.has(DuPaBInfoMsg.B_ADDR) ? jSONObject9.getString(DuPaBInfoMsg.B_ADDR) : str3));
+                                        arrayList.add(new Poi(jSONObject9.getString("pid"), jSONObject9.getString("pname"), jSONObject9.getDouble("pr"), jSONObject9.has("tags") ? jSONObject9.getString("tags") : str3, jSONObject9.has(DuPaBInfoMsg.B_ADDR) ? jSONObject9.getString(DuPaBInfoMsg.B_ADDR) : str3));
                                     }
                                     this.R = arrayList;
                                 }

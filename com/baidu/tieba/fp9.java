@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.media.MediaFormat;
 /* loaded from: classes4.dex */
 public interface fp9 {
-    static {
-        new ServiceReference("yaLog", "yaLogConfig");
-    }
+    void a(MediaFormat mediaFormat);
 }

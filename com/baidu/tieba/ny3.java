@@ -1,28 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.media.MediaPlayer;
 /* loaded from: classes5.dex */
-public class ny3 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public String errMsg;
+public interface ny3 extends ay3 {
+    void a(boolean z);
 
-    public ny3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void c(String str) throws Exception;
+
+    void f(za4 za4Var);
+
+    void g(MediaPlayer.OnInfoListener onInfoListener);
+
+    void h(MediaPlayer.OnSeekCompleteListener onSeekCompleteListener);
+
+    void j(MediaPlayer.OnPreparedListener onPreparedListener);
+
+    void k(MediaPlayer.OnErrorListener onErrorListener);
+
+    void n(MediaPlayer.OnBufferingUpdateListener onBufferingUpdateListener);
+
+    void q(MediaPlayer.OnCompletionListener onCompletionListener);
+
+    boolean s();
+
+    void setVolume(float f);
 }

@@ -63,8 +63,9 @@ public class ce extends cj.b<Long> {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, cursor)) == null) ? Long.valueOf(cursor.getLong(0)) : (Long) invokeLL.objValue;
     }
 
-    @Override // com.xiaomi.push.cj.b, com.xiaomi.push.cj.a
-    public Object a() {
+    @Override // com.xiaomi.push.cj.a
+    /* renamed from: a */
+    public Object mo253a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Long.valueOf(this.a) : invokeV.objValue;

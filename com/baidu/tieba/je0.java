@@ -1,29 +1,47 @@
 package com.baidu.tieba;
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
 /* loaded from: classes5.dex */
-public interface je0 {
+public class je0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void b(je0 je0Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947880276, "Lcom/baidu/tieba/je0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947880276, "Lcom/baidu/tieba/je0;");
+        }
     }
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        boolean d(je0 je0Var, int i, int i2);
+    public static boolean a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return new File(str).delete();
+        }
+        return invokeL.booleanValue;
     }
 
-    /* loaded from: classes5.dex */
-    public interface c {
-        boolean e(je0 je0Var, int i, int i2, Object obj);
-    }
-
-    /* loaded from: classes5.dex */
-    public interface d {
-        void c(je0 je0Var);
-    }
-
-    /* loaded from: classes5.dex */
-    public interface e {
-        void a(je0 je0Var);
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            File parentFile = new File(str).getParentFile();
+            if (!parentFile.exists()) {
+                parentFile.mkdirs();
+            }
+        }
     }
 }

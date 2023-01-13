@@ -19,7 +19,7 @@ public abstract class as {
     public abstract void a(String str);
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract boolean m626a(Context context, int i, String str, Map<String, String> map);
+    public abstract boolean m690a(Context context, int i, String str, Map<String, String> map);
 
     public abstract boolean a(Map<String, String> map, int i, Notification notification);
 }

@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.center.clearcache.UserSettingForceListListener;
+import android.content.Context;
+import com.baidu.swan.games.glsurface.DuMixGameSurfaceView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,18 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayDeque;
 /* loaded from: classes6.dex */
 public class r04 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static volatile r04 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public JSONObject c;
-    public String d;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +29,7 @@ public class r04 {
                 return;
             }
         }
-        e = ok1.a;
+        boolean z = tk1.a;
     }
 
     public r04() {
@@ -50,136 +42,34 @@ public class r04 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        new ArrayDeque();
     }
 
-    public final boolean b() {
+    public static r04 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (e43.M() != null && TextUtils.equals(e43.g0(), "7TxyeScrKPj02EATE68RBG5Z8f46a8So")) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (r04.class) {
+                    if (a == null) {
+                        a = new r04();
+                    }
+                }
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public r04 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            this.a = false;
-            this.b = false;
-            this.d = null;
-            this.c = c();
-            boolean b = b();
-            this.a = b;
-            if (b) {
-                return this;
-            }
-            this.b = a();
-            return this;
+            return a;
         }
         return (r04) invokeV.objValue;
     }
 
-    public boolean f() {
-        InterceptResult invokeV;
+    public DuMixGameSurfaceView a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (!this.a && !this.b) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            return new DuMixGameSurfaceView(context);
         }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean a() {
-        InterceptResult invokeV;
-        boolean z;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = this.c;
-            boolean z3 = false;
-            if (jSONObject == null) {
-                return false;
-            }
-            int optInt = jSONObject.optInt("bbaspg_guide_count", 3);
-            int optInt2 = this.c.optInt("bbaspg_guide_interval", 72);
-            long optLong = this.c.optLong("bbaspg_guide_last_time", 0L);
-            int optInt3 = this.c.optInt("bbaspg_guide_shown_count", 0);
-            int optInt4 = this.c.optInt("bbaspg_guide_image_index", 0);
-            if (System.currentTimeMillis() - optLong > optInt2 * 3600000) {
-                z = true;
-            } else {
-                z = false;
-            }
-            String optString = this.c.optString("filter_channelid");
-            if (!TextUtils.isEmpty(optString)) {
-                String[] split = optString.split(",");
-                String T = d43.K().q().W().T();
-                z2 = true;
-                for (String str : split) {
-                    if (TextUtils.equals(T, str)) {
-                        z2 = false;
-                    }
-                }
-            } else {
-                z2 = true;
-            }
-            if (optInt3 < optInt && z && z2) {
-                z3 = true;
-            }
-            if (e) {
-                Log.i("SwanGameGuideDialogChecker", "isShow:" + z3 + " maxCount" + optInt + " isOverInterval" + z + "imageUrl " + this.d + UserSettingForceListListener.FORCE_LIST_ITEM_SHOW_KEY + z3);
-            }
-            if (z3) {
-                d(this.c, optInt4, "bbaspg_guide_images");
-            }
-            return z3;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final JSONObject c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String string = sc3.a().getString("swan_game_guide_toast", "");
-            if (!TextUtils.isEmpty(string)) {
-                try {
-                    return new JSONObject(string);
-                } catch (JSONException e2) {
-                    if (ok1.a) {
-                        e2.printStackTrace();
-                        return null;
-                    }
-                    return null;
-                }
-            }
-            return null;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public final int d(JSONObject jSONObject, int i, String str) {
-        InterceptResult invokeLIL;
-        JSONArray optJSONArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, jSONObject, i, str)) == null) {
-            if (jSONObject == null || i < 0 || TextUtils.isEmpty(str) || (optJSONArray = jSONObject.optJSONArray(str)) == null || optJSONArray.length() == 0) {
-                return 0;
-            }
-            if (i >= optJSONArray.length()) {
-                i = 0;
-            }
-            this.d = optJSONArray.optString(i);
-            return i;
-        }
-        return invokeLIL.intValue;
+        return (DuMixGameSurfaceView) invokeL.objValue;
     }
 }

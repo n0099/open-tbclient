@@ -4,51 +4,20 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.view.ThreadSmartAppLayout;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.SingleLinkCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class my extends hx {
+public class my extends jx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadSmartAppLayout h;
-    public vr4 i;
-
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ my a;
-
-        public a(my myVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {myVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = myVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.h() != null) {
-                this.a.h().a(view2, this.a.i);
-            }
-        }
-    }
+    public SingleLinkCardView h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public my(Context context) {
@@ -68,23 +37,46 @@ public class my extends hx {
                 return;
             }
         }
-        v(yi.g(context, R.dimen.M_H_X003));
-        this.h = new ThreadSmartAppLayout(context);
-        this.h.setAfterClickListener(new a(this));
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().m instanceof SingleLinkCardView) && TbadkCoreApplication.getInst().getPersonalizeViewData().m.getParent() == null) {
+            this.h = (SingleLinkCardView) TbadkCoreApplication.getInst().getPersonalizeViewData().m;
+        } else {
+            this.h = new SingleLinkCardView(context);
+        }
+        v(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sx
-    /* renamed from: x */
-    public void a(vr4 vr4Var) {
+    @Override // com.baidu.tieba.ux
+    /* renamed from: y */
+    public void a(fs4 fs4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, vr4Var) == null) {
-            this.i = vr4Var;
-            this.h.a(vr4Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, fs4Var) == null) {
+            if (!x(fs4Var) && fs4Var != null && fs4Var.getThreadData() != null && !w(fs4Var) && ListUtils.getCount(fs4Var.getThreadData().getLinkDataList()) + ListUtils.getCount(fs4Var.getThreadData().getGoodsDataList()) == 1) {
+                if (fs4Var.getThreadData().getLinkDataList().size() >= 1) {
+                    this.h.a((h96) ListUtils.getItem(fs4Var.getThreadData().getLinkDataList(), 0));
+                } else if (fs4Var.getThreadData().getGoodsDataList().size() >= 1) {
+                    this.h.a((h96) ListUtils.getItem(fs4Var.getThreadData().getGoodsDataList(), 0));
+                }
+                this.h.setVisibility(0);
+                return;
+            }
+            this.h.setVisibility(8);
         }
     }
 
-    @Override // com.baidu.tieba.ax
+    public final boolean w(fs4 fs4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fs4Var)) == null) {
+            if (fs4Var != null && fs4Var.getThreadData() != null && fs4Var.getThreadData().isVideoThreadType() && fs4Var.getThreadData().getThreadVideoInfo() != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.cx
     public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -94,12 +86,23 @@ public class my extends hx {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.tx
+    @Override // com.baidu.tieba.vx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        ThreadSmartAppLayout threadSmartAppLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && (threadSmartAppLayout = this.h) != null) {
-            threadSmartAppLayout.d();
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.h.d();
         }
+    }
+
+    public final boolean x(fs4 fs4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, fs4Var)) == null) {
+            if (fs4Var != null && fs4Var.getThreadData() != null && fs4Var.getThreadData().getPollData() != null && fs4Var.getThreadData().getPollData().getOptions() != null && fs4Var.getThreadData().getPollData().getOptions().size() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

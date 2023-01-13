@@ -1,282 +1,159 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.IProcessBridge;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 /* loaded from: classes6.dex */
-public final class w03 {
+public class w03 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Message a;
-    public final Set<SwanAppProcessInfo> b;
-    public final Set<String> c;
-    public boolean d;
-    public boolean e;
-    public long f;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public w03(int i) {
-        this(Message.obtain((Handler) null, i));
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                this((Message) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Class a;
+        public final /* synthetic */ Bundle b;
+        public final /* synthetic */ s03 c;
 
-    public w03 e(int... iArr) {
-        InterceptResult invokeL;
-        SwanAppProcessInfo[] indices;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, iArr)) == null) {
-            for (SwanAppProcessInfo swanAppProcessInfo : SwanAppProcessInfo.indices()) {
-                if (swanAppProcessInfo.isSwanAppProcess() && !g(iArr, swanAppProcessInfo.index)) {
-                    b(swanAppProcessInfo);
+        public a(Class cls, Bundle bundle, s03 s03Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cls, bundle, s03Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return this;
+            this.a = cls;
+            this.b = bundle;
+            this.c = s03Var;
         }
-        return (w03) invokeL.objValue;
-    }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public w03(int i, Object obj) {
-        this(Message.obtain(null, i, obj));
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), obj};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                this((Message) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public w03(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {message};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.b = new HashSet();
-        this.c = new HashSet();
-        this.d = false;
-        this.e = false;
-        this.f = 0L;
-        this.a = message == null ? Message.obtain() : message;
-    }
-
-    public w03 a(int... iArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iArr)) == null) {
-            if (iArr != null) {
-                for (int i : iArr) {
-                    if (SwanAppProcessInfo.checkProcessId(i)) {
-                        b(SwanAppProcessInfo.indexOf(i));
-                    }
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Bundle b = w03.b(this.a, this.b);
+                s03 s03Var = this.c;
+                if (s03Var != null) {
+                    s03Var.onResult(b);
                 }
             }
-            return this;
         }
-        return (w03) invokeL.objValue;
     }
 
-    public w03 b(SwanAppProcessInfo... swanAppProcessInfoArr) {
-        InterceptResult invokeL;
+    public static void a(@NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle, @Nullable s03<Bundle> s03Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanAppProcessInfoArr)) == null) {
-            if (swanAppProcessInfoArr != null) {
-                this.b.addAll(Arrays.asList(swanAppProcessInfoArr));
-            }
-            return this;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, cls, bundle, s03Var) == null) {
+            dh3.k(new a(cls, bundle, s03Var), "asyncCallMainProcess");
         }
-        return (w03) invokeL.objValue;
-    }
-
-    public w03 c(String... strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
-            if (strArr != null) {
-                this.c.addAll(Arrays.asList(strArr));
-            }
-            return this;
-        }
-        return (w03) invokeL.objValue;
-    }
-
-    public w03 f(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            this.d = z;
-            return this;
-        }
-        return (w03) invokeZ.objValue;
-    }
-
-    public w03 j(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
-            if (j < 0) {
-                j = 0;
-            }
-            this.f = j;
-            return this;
-        }
-        return (w03) invokeJ.objValue;
-    }
-
-    public w03 o(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, obj)) == null) {
-            this.a.obj = obj;
-            return this;
-        }
-        return (w03) invokeL.objValue;
-    }
-
-    public w03 p(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
-            this.e = z;
-            return this;
-        }
-        return (w03) invokeZ.objValue;
-    }
-
-    public w03 d() {
-        InterceptResult invokeV;
-        SwanAppProcessInfo[] indices;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            for (SwanAppProcessInfo swanAppProcessInfo : SwanAppProcessInfo.indices()) {
-                if (swanAppProcessInfo.isSwanAppProcess()) {
-                    b(swanAppProcessInfo);
-                }
-            }
-            return this;
-        }
-        return (w03) invokeV.objValue;
     }
 
     @NonNull
-    public Message h() {
-        InterceptResult invokeV;
+    public static Bundle b(@NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle) {
+        InterceptResult invokeLL;
+        IProcessBridge S;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.a.obj == null) {
-                o(new Bundle());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, bundle)) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                Bundle d = d(cls, bundle);
+                if (d == null) {
+                    return new Bundle();
+                }
+                return d;
             }
-            return this.a;
-        }
-        return (Message) invokeV.objValue;
-    }
-
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            long j = this.f;
-            if (j < 0) {
-                return 0L;
-            }
-            return j;
-        }
-        return invokeV.longValue;
-    }
-
-    public Set<String> k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return new HashSet(this.c);
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public Set<SwanAppProcessInfo> l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return new HashSet(this.b);
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean g(int[] iArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, iArr, i)) == null) {
-            if (iArr != null) {
-                for (int i2 : iArr) {
-                    if (i2 == i) {
-                        return true;
+            e13 y = i43.K().y();
+            if (y != null && (S = y.S()) != null) {
+                try {
+                    Bundle callMainProcessSync = S.callMainProcessSync(cls.getName(), bundle);
+                    if (callMainProcessSync == null) {
+                        return new Bundle();
                     }
+                    return callMainProcessSync;
+                } catch (Throwable th) {
+                    j12.d("SwanProcessCallManager", "callMainProcessSync", th);
                 }
             }
-            return false;
+            return DelegateUtils.callOnMainWithContentProvider(qn2.c(), cls, bundle).mResult;
         }
-        return invokeLI.booleanValue;
+        return (Bundle) invokeLL.objValue;
+    }
+
+    @NonNull
+    public static y03 c(@NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, bundle)) == null) {
+            return new y03(b(cls, bundle));
+        }
+        return (y03) invokeLL.objValue;
+    }
+
+    @Nullable
+    @SuppressLint({"BDThrowableCheck"})
+    public static Bundle d(@NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, cls, bundle)) == null) {
+            if (!ProcessUtils.isMainProcess()) {
+                return null;
+            }
+            ProviderDelegation a2 = x03.a(cls);
+            if (a2 == null) {
+                try {
+                    a2 = cls.newInstance();
+                } catch (Exception e) {
+                    j12.d("SwanProcessCallManager", "callOnMainProcess", e);
+                }
+            }
+            if (a2 == null) {
+                return null;
+            }
+            return a2.execCall(bundle);
+        }
+        return (Bundle) invokeLL.objValue;
+    }
+
+    @Nullable
+    @SuppressLint({"BDThrowableCheck"})
+    public static Bundle e(@NonNull String str, @Nullable Bundle bundle) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, bundle)) == null) {
+            if (!ProcessUtils.isMainProcess()) {
+                return null;
+            }
+            ProviderDelegation b = x03.b(str);
+            if (b == null) {
+                try {
+                    b = (ProviderDelegation) Class.forName(str).newInstance();
+                } catch (Exception e) {
+                    j12.d("SwanProcessCallManager", "callOnMainProcess", e);
+                }
+            }
+            if (b == null) {
+                return null;
+            }
+            return b.execCall(bundle);
+        }
+        return (Bundle) invokeLL.objValue;
     }
 }

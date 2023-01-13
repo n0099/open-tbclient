@@ -10,9 +10,9 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.co;
-import com.baidu.tieba.kn;
-import com.baidu.tieba.xn;
+import com.baidu.tieba.Cdo;
+import com.baidu.tieba.ln;
+import com.baidu.tieba.yn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,13 +21,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class TypeAdapter extends BaseAdapter implements co<xn> {
+public class TypeAdapter extends BaseAdapter implements Cdo<yn> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<kn<xn, ViewHolder>> a;
+    public SparseArray<ln<yn, ViewHolder>> a;
     @SuppressLint({"UseSparseArrays"})
     public SparseArray<Integer> b;
-    public List<xn> c;
+    public List<yn> c;
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
@@ -92,7 +92,7 @@ public class TypeAdapter extends BaseAdapter implements co<xn> {
         this.c = new ArrayList();
     }
 
-    public List<xn> d() {
+    public List<yn> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -101,12 +101,12 @@ public class TypeAdapter extends BaseAdapter implements co<xn> {
         return (List) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter, com.baidu.tieba.yn
+    @Override // android.widget.Adapter, com.baidu.tieba.zn
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            List<xn> list = this.c;
+            List<yn> list = this.c;
             if (list != null) {
                 return list.size();
             }
@@ -120,7 +120,7 @@ public class TypeAdapter extends BaseAdapter implements co<xn> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            SparseArray<kn<xn, ViewHolder>> sparseArray = this.a;
+            SparseArray<ln<yn, ViewHolder>> sparseArray = this.a;
             if (sparseArray != null) {
                 return sparseArray.size();
             }
@@ -129,33 +129,33 @@ public class TypeAdapter extends BaseAdapter implements co<xn> {
         return invokeV.intValue;
     }
 
-    public void a(kn<xn, ViewHolder> knVar) {
+    public void a(ln<yn, ViewHolder> lnVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, knVar) == null) && knVar != null && knVar.getType() != null) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, lnVar) == null) && lnVar != null && lnVar.getType() != null) {
             if (this.a == null) {
                 this.a = new SparseArray<>();
             }
-            if (knVar.getType() != null) {
-                knVar.setAdapter(this);
-                int id = knVar.getType().getId();
+            if (lnVar.getType() != null) {
+                lnVar.setAdapter(this);
+                int id = lnVar.getType().getId();
                 int size = this.a.size();
-                this.a.put(size, knVar);
+                this.a.put(size, lnVar);
                 this.b.put(id, Integer.valueOf(size));
             }
         }
     }
 
-    @Override // com.baidu.tieba.co
-    public kn<xn, ViewHolder> c(xn xnVar) {
+    @Override // com.baidu.tieba.Cdo
+    public ln<yn, ViewHolder> c(yn ynVar) {
         InterceptResult invokeL;
-        SparseArray<kn<xn, ViewHolder>> sparseArray;
+        SparseArray<ln<yn, ViewHolder>> sparseArray;
         BdUniqueId type;
         Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xnVar)) == null) {
-            if (xnVar != null && (sparseArray = this.a) != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ynVar)) == null) {
+            if (ynVar != null && (sparseArray = this.a) != null) {
                 int i = -1;
-                if (sparseArray.size() != 0 && (type = xnVar.getType()) != null && (num = this.b.get(type.getId())) != null) {
+                if (sparseArray.size() != 0 && (type = ynVar.getType()) != null && (num = this.b.get(type.getId())) != null) {
                     i = num.intValue();
                 }
                 if (i >= 0 && i < this.a.size()) {
@@ -164,15 +164,15 @@ public class TypeAdapter extends BaseAdapter implements co<xn> {
             }
             return null;
         }
-        return (kn) invokeL.objValue;
+        return (ln) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.co
+    @Override // com.baidu.tieba.Cdo
     public int b(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
-            List<xn> list = this.c;
+            List<yn> list = this.c;
             if (list != null && list.size() != 0) {
                 int size = this.c.size();
                 int i3 = -1;
@@ -193,13 +193,13 @@ public class TypeAdapter extends BaseAdapter implements co<xn> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter, com.baidu.tieba.yn
+    @Override // android.widget.Adapter, com.baidu.tieba.zn
     /* renamed from: e */
-    public xn getItem(int i) {
+    public yn getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            List<xn> list = this.c;
+            List<yn> list = this.c;
             if (list != null) {
                 int size = list.size();
                 if (i >= 0 && i < size) {
@@ -209,13 +209,13 @@ public class TypeAdapter extends BaseAdapter implements co<xn> {
             }
             return null;
         }
-        return (xn) invokeI.objValue;
+        return (yn) invokeI.objValue;
     }
 
-    public void h(List<? extends xn> list) {
+    public void h(List<? extends yn> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, list) == null) {
-            List<xn> list2 = this.c;
+            List<yn> list2 = this.c;
             if (list2 == null) {
                 this.c = new ArrayList();
             } else {
@@ -226,7 +226,7 @@ public class TypeAdapter extends BaseAdapter implements co<xn> {
         }
     }
 
-    @Override // com.baidu.tieba.co
+    @Override // com.baidu.tieba.Cdo
     public void notifyItemChanged(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
@@ -239,14 +239,14 @@ public class TypeAdapter extends BaseAdapter implements co<xn> {
         if ((interceptable != null && interceptable.invokeCommon(1048581, this, new Object[]{viewGroup, view2, Integer.valueOf(i), Long.valueOf(j)}) != null) || this.a == null) {
             return;
         }
-        xn item = getItem(i);
-        kn<xn, ViewHolder> knVar = null;
+        yn item = getItem(i);
+        ln<yn, ViewHolder> lnVar = null;
         int itemViewType = getItemViewType(i);
         if (itemViewType >= 0) {
-            knVar = this.a.valueAt(itemViewType);
+            lnVar = this.a.valueAt(itemViewType);
         }
-        if (knVar != null && knVar.getOnAdapterItemClickListener() != null) {
-            knVar.getOnAdapterItemClickListener().b(view2, item, knVar.getType(), viewGroup, i, j);
+        if (lnVar != null && lnVar.getOnAdapterItemClickListener() != null) {
+            lnVar.getOnAdapterItemClickListener().b(view2, item, lnVar.getType(), viewGroup, i, j);
         }
     }
 
@@ -257,16 +257,16 @@ public class TypeAdapter extends BaseAdapter implements co<xn> {
             if (this.a == null) {
                 return false;
             }
-            xn item = getItem(i);
-            kn<xn, ViewHolder> knVar = null;
+            yn item = getItem(i);
+            ln<yn, ViewHolder> lnVar = null;
             int itemViewType = getItemViewType(i);
             if (itemViewType >= 0) {
-                knVar = this.a.valueAt(itemViewType);
+                lnVar = this.a.valueAt(itemViewType);
             }
-            if (knVar == null || knVar.getOnAdapterItemLongClickListener() == null) {
+            if (lnVar == null || lnVar.getOnAdapterItemLongClickListener() == null) {
                 return false;
             }
-            return knVar.getOnAdapterItemLongClickListener().a(view2, item, knVar.getType(), viewGroup, i, j);
+            return lnVar.getOnAdapterItemLongClickListener().a(view2, item, lnVar.getType(), viewGroup, i, j);
         }
         return invokeCommon.booleanValue;
     }
@@ -274,12 +274,12 @@ public class TypeAdapter extends BaseAdapter implements co<xn> {
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
         InterceptResult invokeI;
-        xn item;
+        yn item;
         BdUniqueId type;
         Integer num;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            SparseArray<kn<xn, ViewHolder>> sparseArray = this.a;
+            SparseArray<ln<yn, ViewHolder>> sparseArray = this.a;
             if (sparseArray != null && sparseArray.size() != 0 && (item = getItem(i)) != null && (type = item.getType()) != null && (num = this.b.get(type.getId())) != null) {
                 return num.intValue();
             }
@@ -291,19 +291,19 @@ public class TypeAdapter extends BaseAdapter implements co<xn> {
     @Override // android.widget.Adapter
     public View getView(int i, View view2, ViewGroup viewGroup) {
         InterceptResult invokeILL;
-        kn<xn, ViewHolder> knVar;
+        ln<yn, ViewHolder> lnVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048587, this, i, view2, viewGroup)) == null) {
             View view3 = null;
             if (this.a != null && this.c != null) {
                 int count = getCount();
-                if (i >= 0 && i < count && (knVar = this.a.get(getItemViewType(i))) != null) {
-                    xn item = getItem(i);
-                    if (item != null && (item instanceof xn)) {
-                        view3 = knVar.getView(i, view2, viewGroup, item);
+                if (i >= 0 && i < count && (lnVar = this.a.get(getItemViewType(i))) != null) {
+                    yn item = getItem(i);
+                    if (item != null && (item instanceof yn)) {
+                        view3 = lnVar.getView(i, view2, viewGroup, item);
                     }
                     if (view3 == null) {
-                        Log.e("BdTypeListView", knVar.getClass().getName());
+                        Log.e("BdTypeListView", lnVar.getClass().getName());
                     }
                 }
             }
@@ -312,7 +312,7 @@ public class TypeAdapter extends BaseAdapter implements co<xn> {
         return (View) invokeILL.objValue;
     }
 
-    @Override // com.baidu.tieba.co
+    @Override // com.baidu.tieba.Cdo
     public void notifyItemChanged(int i, @Nullable Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048591, this, i, obj) == null) {

@@ -1,16 +1,15 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.event.InternalSyncControlEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class gu0 {
+public class gu0 extends lu0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tx0 a;
 
     public gu0() {
         Interceptable interceptable = $ic;
@@ -26,26 +25,39 @@ public abstract class gu0 {
         }
     }
 
-    public void a() {
+    public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = null;
+            ru0 w = du0.w(InternalSyncControlEvent.INTERNAL_ACTION_PAUSE);
+            w.s(1);
+            c(w);
         }
     }
 
-    public void b(@NonNull tx0 tx0Var) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tx0Var) == null) {
-            this.a = tx0Var;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ru0 w = du0.w(InternalSyncControlEvent.INTERNAL_ACTION_RESUME);
+            w.s(1);
+            c(w);
         }
     }
 
-    public void c(@NonNull mu0 mu0Var) {
-        tx0 tx0Var;
+    public void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mu0Var) != null) || (tx0Var = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ru0 w = du0.w(InternalSyncControlEvent.INTERNAL_ACTION_START);
+            w.s(1);
+            c(w);
         }
-        tx0Var.d(mu0Var);
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ru0 w = du0.w(InternalSyncControlEvent.INTERNAL_ACTION_STOP);
+            w.s(1);
+            c(w);
+        }
     }
 }

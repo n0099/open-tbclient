@@ -1,185 +1,173 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
+import android.app.Activity;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.coreExtra.data.VideoInfo;
-import com.baidu.tieba.d19;
-import com.baidu.tieba.video.editvideo.data.MusicData;
-import com.baidu.tieba.video.editvideo.model.SelectMusicModel;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.SmallTailThemeData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.data.UserPendantData;
+import com.baidu.tieba.person.ProfileHttpResponseMessage;
+import com.baidu.tieba.person.ProfileSocketResponseMessage;
+import com.baidu.tieba.person.ProfileVirtualImageInfo;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
-import java.util.List;
+import tbclient.Pendant;
 /* loaded from: classes5.dex */
-public class q19 implements y09, d19.c, r66 {
+public class q19 extends rb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseActivity a;
-    public q09 b;
-    public c19 c;
-    public SelectMusicModel d;
-    public String e;
+    public final MainTabActivity a;
+    public final h09 b;
 
-    @Override // com.baidu.tieba.y09
-    public void setMusicData(List<MusicData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
-        }
-    }
-
-    public q19(q09 q09Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q19(MainTabActivity mainTabActivity, wz8 wz8Var) {
+        super(CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {q09Var};
+            Object[] objArr = {mainTabActivity, wz8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = q09Var;
-        this.a = q09Var.a;
+        this.a = mainTabActivity;
+        this.b = mainTabActivity.e;
     }
 
-    public final void a(String str) {
-        q09 q09Var;
+    public final void a() {
+        h09 h09Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || (q09Var = this.b) == null) {
-            return;
-        }
-        if (q09Var.b()) {
-            this.b.c();
-            this.b = null;
-            return;
-        }
-        this.e = str;
-        VideoInfo videoInfo = new VideoInfo();
-        videoInfo.setVideoPath(this.e);
-        videoInfo.setThumbPath(this.b.c);
-        q09 q09Var2 = this.b;
-        if (q09Var2 != null) {
-            q09Var2.f(videoInfo);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (h09Var = this.b) != null && h09Var.a() != null && this.a.A == 1) {
+            this.b.a().d();
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            MainTabActivity mainTabActivity = this.a;
+            if (currentActivity == mainTabActivity && mainTabActivity.B.intValue() != 1) {
+                this.b.a().f();
+            }
         }
     }
 
-    public void b() {
-        q09 q09Var;
+    public final void b(ProfileHttpResponseMessage profileHttpResponseMessage) {
+        boolean z;
+        boolean z2;
+        h09 h09Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (q09Var = this.b) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, profileHttpResponseMessage) == null) {
+            boolean z3 = true;
+            if (profileHttpResponseMessage != null && profileHttpResponseMessage.GetUser() != null) {
+                this.a.A = profileHttpResponseMessage.GetUser().my_like_num.intValue();
+                if (this.a.A == 1 && (h09Var = this.b) != null && h09Var.a() != null) {
+                    this.b.a().d();
+                    this.b.a().f();
+                }
+                a();
+                ProfileVirtualImageInfo.getInstance().parseProto(profileHttpResponseMessage.GetUser().virtual_image_info);
+                TbSingleton.getInstance().setUserSmallTheme(new SmallTailThemeData(profileHttpResponseMessage.GetUser().theme_tail));
+                d(profileHttpResponseMessage.GetUser().pendant);
+            }
+            if (profileHttpResponseMessage != null && profileHttpResponseMessage.getMemberBlockInfo() != null) {
+                MainTabActivity mainTabActivity = this.a;
+                if (profileHttpResponseMessage.getMemberBlockInfo().is_permanent_ban.intValue() == 1) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                mainTabActivity.L = z;
+                MainTabActivity mainTabActivity2 = this.a;
+                if (profileHttpResponseMessage.getMemberBlockInfo().is_auto_pay.intValue() == 1) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                mainTabActivity2.M = z2;
+                TbSingleton tbSingleton = TbSingleton.getInstance();
+                if (profileHttpResponseMessage.getMemberBlockInfo().is_ban.intValue() != 1) {
+                    z3 = false;
+                }
+                tbSingleton.setUserBan(z3);
+            }
         }
-        if (q09Var.b()) {
-            this.b.c();
-            this.b = null;
-            return;
+    }
+
+    public final void c(ProfileSocketResponseMessage profileSocketResponseMessage) {
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, profileSocketResponseMessage) == null) {
+            boolean z3 = true;
+            if (profileSocketResponseMessage != null && profileSocketResponseMessage.GetUser() != null) {
+                this.a.A = profileSocketResponseMessage.GetUser().my_like_num.intValue();
+                if (this.a.A == 1) {
+                    h09 h09Var = this.b;
+                    if (h09Var != null && h09Var.a() != null) {
+                        this.b.a().d();
+                    }
+                    a();
+                }
+                ProfileVirtualImageInfo.getInstance().parseProto(profileSocketResponseMessage.GetUser().virtual_image_info);
+                TbSingleton.getInstance().setUserSmallTheme(new SmallTailThemeData(profileSocketResponseMessage.GetUser().theme_tail));
+                d(profileSocketResponseMessage.GetUser().pendant);
+            }
+            if (profileSocketResponseMessage != null && profileSocketResponseMessage.getMemberBlockInfo() != null) {
+                MainTabActivity mainTabActivity = this.a;
+                if (profileSocketResponseMessage.getMemberBlockInfo().is_permanent_ban.intValue() == 1) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                mainTabActivity.L = z;
+                MainTabActivity mainTabActivity2 = this.a;
+                if (profileSocketResponseMessage.getMemberBlockInfo().is_auto_pay.intValue() == 1) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                mainTabActivity2.M = z2;
+                TbSingleton tbSingleton = TbSingleton.getInstance();
+                if (profileSocketResponseMessage.getMemberBlockInfo().is_ban.intValue() != 1) {
+                    z3 = false;
+                }
+                tbSingleton.setUserBan(z3);
+            }
         }
-        if (StringUtils.isNull(this.b.d)) {
-            q09 q09Var2 = this.b;
-            if (!q09Var2.e) {
-                n1(q09Var2.b, -4399, "");
+    }
+
+    public final void d(Pendant pendant) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, pendant) == null) {
+            UserPendantData userPendantData = new UserPendantData();
+            userPendantData.parserProtobuf(pendant);
+            TbSingleton.getInstance().setUserPendantData(userPendantData);
+        }
+    }
+
+    @Override // com.baidu.tieba.rb
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, responsedMessage) == null) {
+            boolean z = responsedMessage instanceof ProfileSocketResponseMessage;
+            if (!z && !(responsedMessage instanceof ProfileHttpResponseMessage)) {
                 return;
             }
-        }
-        if (this.d == null) {
-            this.d = new SelectMusicModel(this.a.getPageContext(), this);
-        }
-        SelectMusicModel selectMusicModel = this.d;
-        q09 q09Var3 = this.b;
-        selectMusicModel.J(q09Var3.b, q09Var3.d, r09.f + "video_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION, !q09Var3.e);
-    }
-
-    @Override // com.baidu.tieba.r66
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            q09 q09Var = this.b;
-            if (q09Var != null) {
-                q09Var.i(true);
+            if (z) {
+                c((ProfileSocketResponseMessage) responsedMessage);
             }
-            c19 c19Var = this.c;
-            if (c19Var != null && c19Var.f()) {
-                this.c.e();
+            if (responsedMessage instanceof ProfileHttpResponseMessage) {
+                b((ProfileHttpResponseMessage) responsedMessage);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.y09
-    public void n1(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048579, this, str, i, str2) == null) {
-            q09 q09Var = this.b;
-            if (q09Var != null && q09Var.b()) {
-                this.b.c();
-                this.b = null;
-            } else if (TextUtils.isEmpty(str)) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0b4c);
-                q09 q09Var2 = this.b;
-                if (q09Var2 != null) {
-                    q09Var2.g(i, str2);
-                }
-            } else {
-                q09 q09Var3 = this.b;
-                if (q09Var3 != null) {
-                    q09Var3.h();
-                }
-                if (!StringUtils.isNull(this.b.f)) {
-                    if (!StringHelper.equals(str, this.b.b)) {
-                        this.b.g = str;
-                    }
-                    if (this.c == null) {
-                        c19 c19Var = new c19(this.a.getActivity());
-                        this.c = c19Var;
-                        c19Var.i(this);
-                    }
-                    this.c.g(str, this.b.f);
-                    return;
-                }
-                q09 q09Var4 = this.b;
-                if (q09Var4 != null) {
-                    q09Var4.e();
-                }
-                a(str);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.d19.c
-    public void onGenFilterVideoFail(int i, String str) {
-        q09 q09Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) && (q09Var = this.b) != null) {
-            q09Var.d(i, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.d19.c
-    public void onGenFilterVideoRecordError(int i, String str) {
-        q09 q09Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) && (q09Var = this.b) != null) {
-            q09Var.d(i, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.d19.c
-    public void onGenFilterVideoSuccess(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            q09 q09Var = this.b;
-            if (q09Var != null) {
-                q09Var.e();
-            }
-            a(str);
         }
     }
 }

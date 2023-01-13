@@ -1,20 +1,11 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import android.os.Bundle;
-import android.util.Log;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.BitmapDescriptor;
-import com.baidu.mapapi.map.BitmapDescriptorFactory;
-import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.map.MarkerOptions;
-import com.baidu.mapapi.map.Overlay;
-import com.baidu.mapapi.map.OverlayOptions;
-import com.baidu.mapapi.map.Polyline;
-import com.baidu.mapapi.map.PolylineOptions;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.search.route.DrivingRouteLine;
+import com.baidu.swan.map.location.model.SelectedLocationInfo;
+import com.baidu.tieba.k94;
+import com.baidu.tieba.u94;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,18 +13,60 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class z94 extends ba4 {
+public class z94 extends v84<tq2> implements u94.b {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
-    public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
-    public DrivingRouteLine d;
+    public sq2 a;
+    public tq2 b;
 
-    public abstract int f();
+    /* loaded from: classes7.dex */
+    public class a implements k94.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sq2 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ z94 c;
+
+        public a(z94 z94Var, sq2 sq2Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z94Var, sq2Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = z94Var;
+            this.a = sq2Var;
+            this.b = str;
+        }
+
+        @Override // com.baidu.tieba.k94.c
+        public void onFail() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                j12.o("map", "location permission fail");
+                this.a.b(this.b, 1003, "location permission fail");
+            }
+        }
+
+        @Override // com.baidu.tieba.k94.c
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                j12.o("map", "location permission success");
+                this.c.g();
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -48,180 +81,109 @@ public class z94 extends ba4 {
                 return;
             }
         }
-        e = ok1.a;
-        f = Color.argb(178, 0, 78, 255);
+        boolean z = tk1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z94(BaiduMap baiduMap) {
-        super(baiduMap);
+    public z94() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baiduMap};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((BaiduMap) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.d = null;
     }
 
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMarkerClickListener
-    public final boolean onMarkerClick(Marker marker) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, marker)) == null) {
-            for (Overlay overlay : this.c) {
-                if ((overlay instanceof Marker) && overlay.equals(marker) && marker.getExtraInfo() != null) {
-                    g(marker.getExtraInfo().getInt("index"));
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnPolylineClickListener
-    public boolean onPolylineClick(Polyline polyline) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, polyline)) == null) {
-            Iterator<Overlay> it = this.c.iterator();
-            while (true) {
-                if (it.hasNext()) {
-                    Overlay next = it.next();
-                    if ((next instanceof Polyline) && next.equals(polyline)) {
-                        z = true;
-                        break;
-                    }
-                } else {
-                    z = false;
-                    break;
-                }
-            }
-            i(z);
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ba4
-    public final List<OverlayOptions> b() {
-        InterceptResult invokeV;
-        boolean z;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.d == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            List<DrivingRouteLine.DrivingStep> allStep = this.d.getAllStep();
-            if (allStep != null && allStep.size() > 0) {
-                for (DrivingRouteLine.DrivingStep drivingStep : allStep) {
-                    Bundle bundle = new Bundle();
-                    bundle.putInt("index", allStep.indexOf(drivingStep));
-                    if (drivingStep.getEntrance() != null) {
-                        arrayList.add(new MarkerOptions().position(drivingStep.getEntrance().getLocation()).anchor(0.5f, 0.5f).zIndex(10).rotate(360 - drivingStep.getDirection()).extraInfo(bundle).icon(BitmapDescriptorFactory.fromResource(R.drawable.obfuscated_res_0x7f080177)));
-                    }
-                    if (allStep.indexOf(drivingStep) == allStep.size() - 1 && drivingStep.getExit() != null) {
-                        arrayList.add(new MarkerOptions().position(drivingStep.getExit().getLocation()).anchor(0.5f, 0.5f).zIndex(10).icon(BitmapDescriptorFactory.fromResource(R.drawable.obfuscated_res_0x7f080177)));
-                    }
-                }
-            }
-            if (allStep != null && allStep.size() > 0) {
-                int size = allStep.size();
-                ArrayList arrayList2 = new ArrayList();
-                ArrayList arrayList3 = new ArrayList();
-                for (int i2 = 0; i2 < size; i2++) {
-                    List<LatLng> wayPoints = allStep.get(i2).getWayPoints();
-                    if (i2 == size - 1) {
-                        arrayList2.addAll(wayPoints);
-                    } else {
-                        arrayList2.addAll(wayPoints.subList(0, wayPoints.size() - 1));
-                    }
-                    wayPoints.size();
-                    int[] trafficList = allStep.get(i2).getTrafficList();
-                    if (trafficList != null && trafficList.length > 0) {
-                        for (int i3 : trafficList) {
-                            arrayList3.add(Integer.valueOf(i3));
-                        }
-                    }
-                }
-                if (arrayList3.size() > 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                PolylineOptions focus = new PolylineOptions().points(arrayList2).textureIndex(arrayList3).width(14).dottedLine(z).focus(true);
-                if (f() != 0) {
-                    i = f();
-                } else {
-                    i = f;
-                }
-                PolylineOptions zIndex = focus.color(i).zIndex(0);
-                if (z) {
-                    zIndex.customTextureList(e());
-                }
-                arrayList.add(zIndex);
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public List<BitmapDescriptor> e() {
+    public static z94 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(BitmapDescriptorFactory.fromAsset("Icon_road_blue_arrow.png"));
-            arrayList.add(BitmapDescriptorFactory.fromAsset("Icon_road_green_arrow.png"));
-            arrayList.add(BitmapDescriptorFactory.fromAsset("Icon_road_yellow_arrow.png"));
-            arrayList.add(BitmapDescriptorFactory.fromAsset("Icon_road_red_arrow.png"));
-            arrayList.add(BitmapDescriptorFactory.fromAsset("Icon_road_nofocus.png"));
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return new z94();
         }
-        return (List) invokeV.objValue;
+        return (z94) invokeV.objValue;
     }
 
-    public boolean g(int i) {
-        InterceptResult invokeI;
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (this.d.getAllStep() != null && this.d.getAllStep().get(i) != null && e) {
-                Log.i("baidumapsdk", "DrivingRouteOverlay onRouteNodeClick");
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            u94 b3 = u94.b3(null);
+            b3.g3(this);
+            b3.i3();
+        }
+    }
+
+    @Override // com.baidu.tieba.u94.b
+    public void onCancel() {
+        tq2 tq2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            j12.i("map", "choose location cancel");
+            sq2 sq2Var = this.a;
+            if (sq2Var != null && (tq2Var = this.b) != null) {
+                sq2Var.b(tq2Var.z, 1002, "choose location canceled");
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.u94.b
+    public void onError() {
+        tq2 tq2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            j12.i("map", "choose location fail");
+            sq2 sq2Var = this.a;
+            if (sq2Var != null && (tq2Var = this.b) != null) {
+                sq2Var.b(tq2Var.z, 1007, "choose location failed");
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.u94.b
+    public void a(SelectedLocationInfo selectedLocationInfo) {
+        sq2 sq2Var;
+        tq2 tq2Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, selectedLocationInfo) == null) && (sq2Var = this.a) != null && (tq2Var = this.b) != null) {
+            sq2Var.c(tq2Var.z, selectedLocationInfo.toJson());
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.v84
+    /* renamed from: f */
+    public boolean b(Context context, tq2 tq2Var, sq2 sq2Var, j43 j43Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, tq2Var, sq2Var, j43Var, jSONObject)) == null) {
+            return e(context, tq2Var, sq2Var, j43Var);
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    public final boolean e(Context context, tq2 tq2Var, sq2 sq2Var, j43 j43Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, tq2Var, sq2Var, j43Var)) == null) {
+            j12.i("map", "ChooseLocationAction start");
+            if (!tq2Var.isValid()) {
+                j12.c("map", "model is invalid");
                 return false;
             }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public void h(DrivingRouteLine drivingRouteLine) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, drivingRouteLine) == null) {
-            this.d = drivingRouteLine;
-        }
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            for (Overlay overlay : this.c) {
-                if (overlay instanceof Polyline) {
-                    ((Polyline) overlay).setFocus(z);
-                    return;
-                }
+            String str = tq2Var.z;
+            if (TextUtils.isEmpty(str)) {
+                j12.c("map", "cb is empty");
+                return false;
             }
+            this.a = sq2Var;
+            this.b = tq2Var;
+            k94.b(context, new a(this, sq2Var, str));
+            j12.i("map", "ChooseLocationAction end");
+            return true;
         }
+        return invokeLLLL.booleanValue;
     }
 }

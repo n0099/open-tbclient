@@ -1,54 +1,100 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.content.pm.PackageManager;
+import com.baidu.tieba.r31;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class n41 implements o41 {
+public class n41 extends p41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public n41() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public interface b {
+        void onRequestPermissionsResult(int i, String[] strArr, int[] iArr);
+    }
+
+    /* loaded from: classes5.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String[] a;
+        public final /* synthetic */ Activity b;
+        public final /* synthetic */ b c;
+        public final /* synthetic */ int d;
+
+        public a(String[] strArr, Activity activity, b bVar, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {strArr, activity, bVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = strArr;
+            this.b = activity;
+            this.c = bVar;
+            this.d = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int[] iArr = new int[this.a.length];
+                PackageManager packageManager = this.b.getPackageManager();
+                String packageName = this.b.getPackageName();
+                int length = this.a.length;
+                for (int i = 0; i < length; i++) {
+                    iArr[i] = packageManager.checkPermission(this.a[i], packageName);
+                }
+                this.c.onRequestPermissionsResult(this.d, this.a, iArr);
             }
         }
     }
 
-    public static n41 a() {
-        InterceptResult invokeV;
+    public static boolean a(Activity activity, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new n41();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, activity, str)) == null) {
+            if (r31.b.d() && o41.a(activity, str)) {
+                return true;
+            }
+            return false;
         }
-        return (n41) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.o41
-    @SuppressLint({"UnsafeDynamicallyLoadedCode"})
-    public void load(String str) {
+    public static void requestPermissions(Activity activity, String[] strArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            System.load(str);
+        if (interceptable == null || interceptable.invokeLLI(65537, null, activity, strArr, i) == null) {
+            if (r31.b.d()) {
+                o41.requestPermissions(activity, strArr, i);
+            } else if (activity instanceof b) {
+                requestPermissions(activity, strArr, i, (b) activity);
+            }
         }
     }
 
-    @Override // com.baidu.tieba.o41
-    public void loadLibrary(String str) {
+    public static void requestPermissions(Activity activity, String[] strArr, int i, b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            System.loadLibrary(str);
+        if (interceptable == null || interceptable.invokeLLIL(65538, null, activity, strArr, i, bVar) == null) {
+            if (r31.b.d()) {
+                o41.requestPermissions(activity, strArr, i);
+            } else if (!activity.isFinishing() && bVar != null) {
+                sj0.b(new a(strArr, activity, bVar, i));
+            }
         }
     }
 }

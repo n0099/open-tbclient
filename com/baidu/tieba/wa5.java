@@ -1,5 +1,7 @@
 package com.baidu.tieba;
+
+import android.view.View;
 /* loaded from: classes6.dex */
 public interface wa5 {
-    void a();
+    void a(View view2, View view3, boolean z);
 }

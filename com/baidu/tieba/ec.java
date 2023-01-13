@@ -1,20 +1,94 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
+import com.baidu.adp.gif.NSGif;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public interface ec {
-    boolean a(Bitmap bitmap, Canvas canvas);
+    jn a(byte[] bArr, int i, int i2);
 
-    int b(int i);
+    jn get(String str);
 
-    boolean c(int i);
+    /* loaded from: classes4.dex */
+    public static class a implements ec {
+        public static /* synthetic */ Interceptable $ic;
+        public static ec c;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public final hc b;
 
-    void close();
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = 0;
+            this.b = new hc();
+            if (NSGif.f) {
+                this.a = 0;
+            } else {
+                this.a = 1;
+            }
+        }
 
-    int getFrameCount();
+        public static synchronized ec b() {
+            InterceptResult invokeV;
+            ec ecVar;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                synchronized (a.class) {
+                    if (c == null) {
+                        c = new a();
+                    }
+                    ecVar = c;
+                }
+                return ecVar;
+            }
+            return (ec) invokeV.objValue;
+        }
 
-    int getHeight();
+        @Override // com.baidu.tieba.ec
+        public jn a(byte[] bArr, int i, int i2) {
+            InterceptResult invokeLII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
+                if (this.a == 0) {
+                    try {
+                        return this.b.a(bArr, i, i2);
+                    } catch (Exception unused) {
+                    }
+                }
+                return null;
+            }
+            return (jn) invokeLII.objValue;
+        }
 
-    int getWidth();
+        @Override // com.baidu.tieba.ec
+        public jn get(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                if (this.a == 0) {
+                    try {
+                        return this.b.get(str);
+                    } catch (Exception unused) {
+                    }
+                }
+                return null;
+            }
+            return (jn) invokeL.objValue;
+        }
+    }
 }

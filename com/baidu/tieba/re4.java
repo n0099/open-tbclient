@@ -1,124 +1,115 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import org.json.JSONObject;
+import java.util.Iterator;
+import java.util.Vector;
 /* loaded from: classes6.dex */
-public class re4 extends kd4<xe4> {
+public class re4 implements he4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final lh4 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public Vector<he4> a;
+    public Object b;
 
-    @Override // com.baidu.tieba.kd4
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "getdeplist" : (String) invokeV.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948118728, "Lcom/baidu/tieba/re4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948118728, "Lcom/baidu/tieba/re4;");
+                return;
+            }
+        }
+        c = lh4.e();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public re4(zb4 zb4Var, kf4 kf4Var) {
-        super(zb4Var, kf4Var);
+    public re4(he4 he4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zb4Var, kf4Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {he4Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((zb4) objArr2[0], (kf4) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.b = new Object();
+        this.a = new Vector<>();
+        c(he4Var);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kd4
-    /* renamed from: v */
-    public yc4 e(String str, xe4 xe4Var) {
-        InterceptResult invokeLL;
-        int i;
+    @Override // com.baidu.tieba.he4
+    public <T> void a(le4<T> le4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, xe4Var)) == null) {
-            if (xe4Var != null && (i = xe4Var.a) != 0) {
-                return new yc4(i, xe4Var.b);
-            }
-            return super.e(str, xe4Var);
-        }
-        return (yc4) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kd4
-    /* renamed from: y */
-    public xe4 u(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject)) == null) {
-            return lh4.e(jSONObject);
-        }
-        return (xe4) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Removed duplicated region for block: B:15:0x001f  */
-    @Override // com.baidu.tieba.kd4
-    /* renamed from: w */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean f(xe4 xe4Var) {
-        InterceptResult invokeL;
-        List<fd4> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, xe4Var)) == null) {
-            if (xe4Var == null || (list = xe4Var.c) == null || list.isEmpty()) {
-                return false;
-            }
-            for (fd4 fd4Var : xe4Var.c) {
-                if (fd4Var == null || !fd4Var.a()) {
-                    return false;
+        if (interceptable == null || interceptable.invokeL(1048576, this, le4Var) == null) {
+            try {
+                synchronized (this.b) {
+                    Iterator<he4> it = this.a.iterator();
+                    while (it.hasNext()) {
+                        it.next().a(le4Var);
+                    }
                 }
-                while (r1.hasNext()) {
-                }
+            } catch (Throwable th) {
+                c.g("RuntimeTaskObserver", "#notifyTaskRunning error", th);
             }
-            kf4 kf4Var = this.b;
-            if ((kf4Var instanceof df4) && ((df4) kf4Var).f().size() != xe4Var.c.size()) {
-                return false;
-            }
-            return true;
         }
-        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kd4
-    /* renamed from: x */
-    public yc4 t(xe4 xe4Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.he4
+    public <T> void b(le4<T> le4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, xe4Var)) == null) {
-            this.a.E();
-            mh4 mh4Var = new mh4();
-            n(xe4Var.c, mh4Var);
-            if (mh4Var.n() == 0) {
-                this.a.F();
-                return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, le4Var) == null) {
+            Vector vector = new Vector();
+            try {
+                synchronized (this.b) {
+                    Iterator<he4> it = this.a.iterator();
+                    while (it.hasNext()) {
+                        vector.add(it.next());
+                    }
+                }
+                Iterator it2 = vector.iterator();
+                while (it2.hasNext()) {
+                    ((he4) it2.next()).b(le4Var);
+                }
+            } catch (Throwable th) {
+                c.g("RuntimeTaskObserver", "#notifyTaskEnd error", th);
             }
-            this.a.G(mh4Var);
-            pd4.f(xe4Var.c, this.a);
-            return null;
         }
-        return (yc4) invokeL.objValue;
+    }
+
+    public void c(he4 he4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, he4Var) == null) && he4Var != null) {
+            synchronized (this.b) {
+                this.a.add(he4Var);
+            }
+        }
+    }
+
+    public void d(he4 he4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, he4Var) == null) && he4Var != null) {
+            synchronized (this.b) {
+                if (!this.a.remove(he4Var)) {
+                    this.a.remove(this.a.indexOf(he4Var));
+                }
+            }
+        }
     }
 }

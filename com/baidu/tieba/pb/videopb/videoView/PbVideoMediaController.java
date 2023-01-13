@@ -11,7 +11,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.play.operableVideoView.OperableVideoMediaControllerView;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -129,7 +129,7 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            return View.inflate(context, R.layout.obfuscated_res_0x7f0d0715, null);
+            return View.inflate(context, R.layout.obfuscated_res_0x7f0d0713, null);
         }
         return (View) invokeL.objValue;
     }
@@ -167,7 +167,7 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.o = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091882);
+            this.o = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091891);
         }
     }
 
@@ -177,9 +177,9 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) getLayoutParams();
-            int g = yi.g(getContext(), R.dimen.tbds126);
+            int g = zi.g(getContext(), R.dimen.tbds126);
             if (z2 && z) {
-                g = yi.g(getContext(), R.dimen.tbds210);
+                g = zi.g(getContext(), R.dimen.tbds210);
             }
             layoutParams.height = g;
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
@@ -190,14 +190,14 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
             } else {
                 i = R.dimen.tbds44;
             }
-            layoutParams2.leftMargin = yi.g(context, i);
+            layoutParams2.leftMargin = zi.g(context, i);
             Context context2 = getContext();
             if (z2 && !z) {
                 i2 = R.dimen.tbds184;
             } else {
                 i2 = R.dimen.tbds150;
             }
-            layoutParams3.rightMargin = yi.g(context2, i2);
+            layoutParams3.rightMargin = zi.g(context2, i2);
         }
     }
 

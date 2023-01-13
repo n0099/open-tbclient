@@ -1,10 +1,10 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,16 +12,54 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class fb3 extends hb3 {
+public class fb3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean x;
-    public static int y;
+    public static final boolean a;
+    public static volatile boolean b;
+    public static final List<a> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean v;
-    public JSONObject w;
+
+    /* loaded from: classes4.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final jb3 a;
+        public JSONObject b;
+        public final long c;
+        public final String d;
+
+        public a(@NonNull jb3 jb3Var, @NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jb3Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jb3Var;
+            this.d = str;
+            this.c = jb3Var.l();
+            synchronized (fb3.c) {
+                if (fb3.b) {
+                    fb3.c.add(this);
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -36,177 +74,64 @@ public class fb3 extends hb3 {
                 return;
             }
         }
-        x = ok1.a;
-        y = 35;
+        a = tk1.a;
+        b = false;
+        c = new ArrayList();
     }
 
-    public fb3() {
+    public static void d() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            synchronized (c) {
+                b = true;
+                c.clear();
             }
         }
-        this.v = false;
-        this.c = "NA";
     }
 
-    @Override // com.baidu.tieba.hb3, com.baidu.tieba.gb3
-    public JSONObject f() {
-        InterceptResult invokeV;
+    public static void c(@NonNull HybridUbcFlow hybridUbcFlow) {
+        UbcFlowEvent g;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.h == null) {
-                this.h = new JSONObject();
+        if ((interceptable != null && interceptable.invokeL(65539, null, hybridUbcFlow) != null) || !"670".equals(hybridUbcFlow.l())) {
+            return;
+        }
+        hybridUbcFlow.D("networkStatus", String.valueOf(wv2.c()));
+        if (hy2.f || (g = hybridUbcFlow.g("na_first_meaningful_paint")) == null) {
+            return;
+        }
+        long g2 = g.g();
+        synchronized (c) {
+            if (a) {
+                Log.d("SwanReqStatisticManager", "size=" + c.size());
             }
-            try {
-                if (this.w != null) {
-                    if (this.v) {
-                        String z = yh3.z(y);
-                        if (!TextUtils.isEmpty(z)) {
-                            this.w.put("stacktrace", z);
+            b = false;
+            JSONArray jSONArray = new JSONArray();
+            for (a aVar : c) {
+                if (aVar.c <= g2) {
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("type", aVar.d);
+                        if (aVar.a != null) {
+                            aVar.a.p(jSONObject);
+                        }
+                        if (aVar.b != null) {
+                            Iterator<String> keys = aVar.b.keys();
+                            while (keys.hasNext()) {
+                                String next = keys.next();
+                                jSONObject.put(next, aVar.b.get(next));
+                            }
+                        }
+                        jSONArray.put(jSONObject);
+                    } catch (JSONException e) {
+                        if (a) {
+                            Log.e("SwanReqStatisticManager", "appendRequestRecord", e);
                         }
                     }
-                    if (this.w.length() != 0) {
-                        this.h.put("info", this.w);
-                    }
-                }
-                ExtensionCore T = ya2.U().T();
-                if (T != null) {
-                    this.h.put("extension_ver", T.extensionCoreVersionName);
-                }
-            } catch (JSONException e) {
-                if (x) {
-                    e.printStackTrace();
                 }
             }
-            return super.f();
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public fb3 l(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            if (str != null && str2 != null) {
-                if (this.w == null) {
-                    this.w = new JSONObject();
-                }
-                try {
-                    this.w.put(str, str2);
-                } catch (JSONException e) {
-                    if (x) {
-                        e.printStackTrace();
-                    }
-                }
+            if (jSONArray.length() > 0) {
+                hybridUbcFlow.D("requests", jSONArray.toString());
             }
-            return this;
         }
-        return (fb3) invokeLL.objValue;
-    }
-
-    public fb3 m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            this.f = str;
-            return this;
-        }
-        return (fb3) invokeL.objValue;
-    }
-
-    public fb3 n(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            this.v = z;
-            return this;
-        }
-        return (fb3) invokeZ.objValue;
-    }
-
-    public fb3 o(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            this.b = String.valueOf(i);
-            return this;
-        }
-        return (fb3) invokeI.objValue;
-    }
-
-    public fb3 p(@NonNull xf3 xf3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, xf3Var)) == null) {
-            this.b = String.valueOf(xf3Var.a());
-            String sb = xf3Var.g().toString();
-            if (!TextUtils.isEmpty(sb)) {
-                l("detail", sb);
-            }
-            return this;
-        }
-        return (fb3) invokeL.objValue;
-    }
-
-    public fb3 q(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            this.a = str;
-            return this;
-        }
-        return (fb3) invokeL.objValue;
-    }
-
-    public fb3 s(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            this.g = str;
-            return this;
-        }
-        return (fb3) invokeL.objValue;
-    }
-
-    public fb3 t(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            this.c = str;
-            return this;
-        }
-        return (fb3) invokeL.objValue;
-    }
-
-    public fb3 r(ep2 ep2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, ep2Var)) == null) {
-            if (ep2Var == null) {
-                return this;
-            }
-            if (!TextUtils.isEmpty(ep2Var.T())) {
-                this.c = ep2Var.T();
-            }
-            if (!TextUtils.isEmpty(ep2Var.H())) {
-                this.f = ep2Var.H();
-            }
-            if (!TextUtils.isEmpty(ep2Var.W())) {
-                this.p = ep2Var.W();
-            }
-            if (!TextUtils.isEmpty(ep2Var.e0())) {
-                this.s = ep2Var.e0();
-            }
-            return this;
-        }
-        return (fb3) invokeL.objValue;
     }
 }

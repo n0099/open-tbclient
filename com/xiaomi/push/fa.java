@@ -124,11 +124,11 @@ public class fa implements iu<fa, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, faVar)) == null) {
             if (fa.class.equals(faVar.getClass())) {
-                int compareTo = Boolean.valueOf(m332a()).compareTo(Boolean.valueOf(faVar.m332a()));
+                int compareTo = Boolean.valueOf(m390a()).compareTo(Boolean.valueOf(faVar.m390a()));
                 if (compareTo != 0) {
                     return compareTo;
                 }
-                if (!m332a() || (a11 = iv.a(this.f361a, faVar.f361a)) == 0) {
+                if (!m390a() || (a11 = iv.a(this.f361a, faVar.f361a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(faVar.b()));
                     if (compareTo2 != 0) {
                         return compareTo2;
@@ -246,13 +246,13 @@ public class fa implements iu<fa, Object>, Serializable, Cloneable {
         if (interceptable != null && interceptable.invokeL(1048581, this, jfVar) != null) {
             return;
         }
-        jfVar.m559a();
+        jfVar.mo622a();
         while (true) {
-            jc m555a = jfVar.m555a();
-            byte b2 = m555a.a;
+            jc mo618a = jfVar.mo618a();
+            byte b2 = mo618a.a;
             if (b2 == 0) {
                 jfVar.f();
-                if (!m332a()) {
+                if (!m390a()) {
                     throw new jg("Required field 'chid' was not found in serialized data! Struct: " + toString());
                 } else if (!b()) {
                     throw new jg("Required field 'type' was not found in serialized data! Struct: " + toString());
@@ -263,7 +263,7 @@ public class fa implements iu<fa, Object>, Serializable, Cloneable {
                     throw new jg("Required field 'value' was not found in serialized data! Struct: " + toString());
                 }
             }
-            switch (m555a.f833a) {
+            switch (mo618a.f833a) {
                 case 1:
                     if (b2 == 3) {
                         this.f361a = jfVar.a();
@@ -274,7 +274,7 @@ public class fa implements iu<fa, Object>, Serializable, Cloneable {
                     break;
                 case 2:
                     if (b2 == 8) {
-                        this.f362a = jfVar.m553a();
+                        this.f362a = jfVar.mo616a();
                         b(true);
                         continue;
                         jfVar.g();
@@ -282,7 +282,7 @@ public class fa implements iu<fa, Object>, Serializable, Cloneable {
                     break;
                 case 3:
                     if (b2 == 8) {
-                        this.f365b = jfVar.m553a();
+                        this.f365b = jfVar.mo616a();
                         c(true);
                         continue;
                         jfVar.g();
@@ -290,21 +290,21 @@ public class fa implements iu<fa, Object>, Serializable, Cloneable {
                     break;
                 case 4:
                     if (b2 == 11) {
-                        this.f363a = jfVar.m560a();
+                        this.f363a = jfVar.mo623a();
                         continue;
                         jfVar.g();
                     }
                     break;
                 case 5:
                     if (b2 == 11) {
-                        this.f366b = jfVar.m560a();
+                        this.f366b = jfVar.mo623a();
                         continue;
                         jfVar.g();
                     }
                     break;
                 case 6:
                     if (b2 == 8) {
-                        this.f367c = jfVar.m553a();
+                        this.f367c = jfVar.mo616a();
                         d(true);
                         continue;
                         jfVar.g();
@@ -312,21 +312,21 @@ public class fa implements iu<fa, Object>, Serializable, Cloneable {
                     break;
                 case 7:
                     if (b2 == 11) {
-                        this.f368c = jfVar.m560a();
+                        this.f368c = jfVar.mo623a();
                         continue;
                         jfVar.g();
                     }
                     break;
                 case 8:
                     if (b2 == 11) {
-                        this.f370d = jfVar.m560a();
+                        this.f370d = jfVar.mo623a();
                         continue;
                         jfVar.g();
                     }
                     break;
                 case 9:
                     if (b2 == 8) {
-                        this.f369d = jfVar.m553a();
+                        this.f369d = jfVar.mo616a();
                         e(true);
                         continue;
                         jfVar.g();
@@ -334,7 +334,7 @@ public class fa implements iu<fa, Object>, Serializable, Cloneable {
                     break;
                 case 10:
                     if (b2 == 8) {
-                        this.f371e = jfVar.m553a();
+                        this.f371e = jfVar.mo616a();
                         f(true);
                         continue;
                         jfVar.g();
@@ -354,14 +354,14 @@ public class fa implements iu<fa, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m332a() {
+    public boolean m390a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f364a.get(0) : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m333a(fa faVar) {
+    public boolean m391a(fa faVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, faVar)) == null) {
@@ -439,10 +439,10 @@ public class fa implements iu<fa, Object>, Serializable, Cloneable {
             jfVar.a(this.f361a);
             jfVar.b();
             jfVar.a(b);
-            jfVar.a(this.f362a);
+            jfVar.mo627a(this.f362a);
             jfVar.b();
             jfVar.a(c);
-            jfVar.a(this.f365b);
+            jfVar.mo627a(this.f365b);
             jfVar.b();
             if (this.f363a != null) {
                 jfVar.a(d);
@@ -456,7 +456,7 @@ public class fa implements iu<fa, Object>, Serializable, Cloneable {
             }
             if (f()) {
                 jfVar.a(f);
-                jfVar.a(this.f367c);
+                jfVar.mo627a(this.f367c);
                 jfVar.b();
             }
             if (this.f368c != null && g()) {
@@ -471,16 +471,16 @@ public class fa implements iu<fa, Object>, Serializable, Cloneable {
             }
             if (i()) {
                 jfVar.a(i);
-                jfVar.a(this.f369d);
+                jfVar.mo627a(this.f369d);
                 jfVar.b();
             }
             if (j()) {
                 jfVar.a(j);
-                jfVar.a(this.f371e);
+                jfVar.mo627a(this.f371e);
                 jfVar.b();
             }
             jfVar.c();
-            jfVar.m563a();
+            jfVar.mo626a();
         }
     }
 
@@ -583,7 +583,7 @@ public class fa implements iu<fa, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, obj)) == null) {
             if (obj != null && (obj instanceof fa)) {
-                return m333a((fa) obj);
+                return m391a((fa) obj);
             }
             return false;
         }

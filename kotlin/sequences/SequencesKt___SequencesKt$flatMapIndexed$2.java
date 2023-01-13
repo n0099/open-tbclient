@@ -7,21 +7,24 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.FunctionReferenceImpl;
 import kotlin.jvm.internal.Intrinsics;
+/* JADX INFO: Add missing generic type declarations: [R] */
 @Metadata(d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010(\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0001\"\u0004\b\u0000\u0010\u0003\"\u0004\b\u0001\u0010\u00022\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0005¢\u0006\u0002\b\u0006"}, d2 = {"<anonymous>", "", "R", ExifInterface.GPS_DIRECTION_TRUE, ZeusPerformanceTiming.KEY_BROWSER_STARTUP, "Lkotlin/sequences/Sequence;", "invoke"}, k = 3, mv = {1, 5, 1})
 /* loaded from: classes9.dex */
-public final /* synthetic */ class SequencesKt___SequencesKt$flatMapIndexed$2 extends FunctionReferenceImpl implements Function1<Sequence<? extends R>, Iterator<? extends R>> {
+public final /* synthetic */ class SequencesKt___SequencesKt$flatMapIndexed$2<R> extends FunctionReferenceImpl implements Function1<Sequence<? extends R>, Iterator<? extends R>> {
     public static final SequencesKt___SequencesKt$flatMapIndexed$2 INSTANCE = new SequencesKt___SequencesKt$flatMapIndexed$2();
 
     public SequencesKt___SequencesKt$flatMapIndexed$2() {
         super(1, Sequence.class, "iterator", "iterator()Ljava/util/Iterator;", 0);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Multi-variable search result rejected for r2v1, resolved type: java.util.Iterator<R> */
-    /* JADX WARN: Multi-variable type inference failed */
     @Override // kotlin.jvm.functions.Function1
+    public /* bridge */ /* synthetic */ Object invoke(Object obj) {
+        return invoke((Sequence) ((Sequence) obj));
+    }
+
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: java.util.Iterator<? extends R>, java.util.Iterator<R> */
     public final Iterator<R> invoke(Sequence<? extends R> p1) {
         Intrinsics.checkNotNullParameter(p1, "p1");
-        return p1.iterator();
+        return (Iterator<? extends R>) p1.iterator();
     }
 }

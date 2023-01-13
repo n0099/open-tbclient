@@ -10,9 +10,10 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function4;
+/* JADX INFO: Add missing generic type declarations: [V, K] */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000%\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0003*\u0001\u0000\b\n\u0018\u00002\u00020\u0001J\u0019\u0010\u0003\u001a\u0004\u0018\u00018\u00012\u0006\u0010\u0002\u001a\u00028\u0000H\u0014¢\u0006\u0004\b\u0003\u0010\u0004J1\u0010\n\u001a\u00020\t2\u0006\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0002\u001a\u00028\u00002\u0006\u0010\u0007\u001a\u00028\u00012\b\u0010\b\u001a\u0004\u0018\u00018\u0001H\u0014¢\u0006\u0004\b\n\u0010\u000bJ\u001f\u0010\u000e\u001a\u00020\r2\u0006\u0010\u0002\u001a\u00028\u00002\u0006\u0010\f\u001a\u00028\u0001H\u0014¢\u0006\u0004\b\u000e\u0010\u000f¨\u0006\u0010"}, d2 = {"androidx/collection/LruCacheKt$lruCache$4", "Landroidx/collection/LruCache;", "key", "create", "(Ljava/lang/Object;)Ljava/lang/Object;", "", "evicted", "oldValue", "newValue", "", "entryRemoved", "(ZLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V", "value", "", "sizeOf", "(Ljava/lang/Object;Ljava/lang/Object;)I", "collection-ktx"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes.dex */
-public final class LruCacheKt$lruCache$4 extends LruCache<K, V> {
+public final class LruCacheKt$lruCache$4<K, V> extends LruCache<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ Function1 $create;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,16 +45,14 @@ public final class LruCacheKt$lruCache$4 extends LruCache<K, V> {
         this.$maxSize = i;
     }
 
-    /* JADX WARN: Type inference failed for: r1v0, types: [V, java.lang.Object] */
-    /* JADX WARN: Type inference failed for: r5v1, types: [V, java.lang.Object] */
     @Override // androidx.collection.LruCache
     public V create(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) {
-            return this.$create.invoke(k);
+            return (V) this.$create.invoke(k);
         }
-        return invokeL.objValue;
+        return (V) invokeL.objValue;
     }
 
     @Override // androidx.collection.LruCache

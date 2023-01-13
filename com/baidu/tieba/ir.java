@@ -1,4 +1,5 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
-public interface ir<T> {
+/* loaded from: classes5.dex */
+public interface ir {
+    String e();
 }

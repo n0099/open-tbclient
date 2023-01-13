@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AdThreadUserInfoLayout extends CardUserInfoLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AfterAdjustChildWidthListener S;
+    public AfterAdjustChildWidthListener U;
 
     /* loaded from: classes6.dex */
     public interface AfterAdjustChildWidthListener {
@@ -80,7 +80,7 @@ public class AdThreadUserInfoLayout extends CardUserInfoLayout {
     public void setAfterAdjustChildWidthListener(AfterAdjustChildWidthListener afterAdjustChildWidthListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, afterAdjustChildWidthListener) == null) {
-            this.S = afterAdjustChildWidthListener;
+            this.U = afterAdjustChildWidthListener;
         }
     }
 
@@ -89,7 +89,7 @@ public class AdThreadUserInfoLayout extends CardUserInfoLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.f();
-            AfterAdjustChildWidthListener afterAdjustChildWidthListener = this.S;
+            AfterAdjustChildWidthListener afterAdjustChildWidthListener = this.U;
             if (afterAdjustChildWidthListener != null) {
                 afterAdjustChildWidthListener.afterChildWidth();
             }

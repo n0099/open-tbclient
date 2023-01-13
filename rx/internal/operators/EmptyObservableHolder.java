@@ -1,8 +1,8 @@
 package rx.internal.operators;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.c3a;
-import com.baidu.tieba.i3a;
+import com.baidu.tieba.k8a;
+import com.baidu.tieba.q8a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes9.dex */
-public final class EmptyObservableHolder implements c3a.a<Object> {
+public final class EmptyObservableHolder implements k8a.a<Object> {
     public static final /* synthetic */ EmptyObservableHolder[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
-    public static final c3a<Object> EMPTY;
+    public static final k8a<Object> EMPTY;
     public static final EmptyObservableHolder INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,7 +35,7 @@ public final class EmptyObservableHolder implements c3a.a<Object> {
         EmptyObservableHolder emptyObservableHolder = new EmptyObservableHolder("INSTANCE", 0);
         INSTANCE = emptyObservableHolder;
         $VALUES = new EmptyObservableHolder[]{emptyObservableHolder};
-        EMPTY = c3a.a(emptyObservableHolder);
+        EMPTY = k8a.a(emptyObservableHolder);
     }
 
     public EmptyObservableHolder(String str, int i) {
@@ -57,13 +57,13 @@ public final class EmptyObservableHolder implements c3a.a<Object> {
         }
     }
 
-    public static <T> c3a<T> instance() {
+    public static <T> k8a<T> instance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return (c3a<T>) EMPTY;
+            return (k8a<T>) EMPTY;
         }
-        return (c3a) invokeV.objValue;
+        return (k8a) invokeV.objValue;
     }
 
     public static EmptyObservableHolder[] values() {
@@ -85,11 +85,11 @@ public final class EmptyObservableHolder implements c3a.a<Object> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.c3a.a, com.baidu.tieba.q3a
-    public void call(i3a<? super Object> i3aVar) {
+    @Override // com.baidu.tieba.k8a.a, com.baidu.tieba.y8a
+    public void call(q8a<? super Object> q8aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, i3aVar) == null) {
-            i3aVar.onCompleted();
+        if (interceptable == null || interceptable.invokeL(1048576, this, q8aVar) == null) {
+            q8aVar.onCompleted();
         }
     }
 }

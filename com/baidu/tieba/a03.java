@@ -1,184 +1,134 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.rs1;
+import com.baidu.tieba.s93;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class a03 extends zz2 implements Cloneable {
+public class a03 extends wz2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final r43<a03> h;
-    public static final s43<a03> i;
     public transient /* synthetic */ FieldHolder $fh;
-    public String g;
+
+    @Override // com.baidu.tieba.xz2
+    public jw1 b(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            return null;
+        }
+        return (jw1) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.xz2
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "snsapi_userinfo" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.xz2
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "SwanPluginUserInfoFunPage" : (String) invokeV.objValue;
+    }
 
     /* loaded from: classes3.dex */
-    public static class a extends r43<a03> {
+    public class a implements cj3<m93<s93.d>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ v52 a;
+        public final /* synthetic */ uz2 b;
+        public final /* synthetic */ v93 c;
 
-        public a() {
+        public a(a03 a03Var, v52 v52Var, uz2 uz2Var, v93 v93Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a03Var, v52Var, uz2Var, v93Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = v52Var;
+            this.b = uz2Var;
+            this.c = v93Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.r43
+        @Override // com.baidu.tieba.cj3
         /* renamed from: b */
-        public a03 a(@NonNull jn2 jn2Var) throws Exception {
-            InterceptResult invokeL;
+        public void a(m93<s93.d> m93Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jn2Var)) == null) {
-                a03 a03Var = new a03();
-                a03Var.g = jn2Var.g();
-                a03Var.b = jn2Var.g();
-                a03Var.c = jn2Var.readLong();
-                a03Var.a = jn2Var.g();
-                a03Var.d = jn2Var.readInt();
-                a03Var.e = jn2Var.g();
-                a03Var.f = jn2Var.g();
-                return a03Var;
-            }
-            return (a03) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class b extends s43<a03> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m93Var) == null) {
+                if (m93Var != null && m93Var.c() && !TextUtils.isEmpty(m93Var.a.a)) {
+                    JSONObject jSONObject = this.c.g;
+                    if (jSONObject != null) {
+                        try {
+                            jSONObject.put("code", m93Var.a.a);
+                            this.b.d = true;
+                        } catch (JSONException e) {
+                            if (tk1.a) {
+                                b03.b(Log.getStackTraceString(e));
+                            }
+                        }
+                        this.b.e = jSONObject.toString();
+                    }
+                    this.a.a(this.b);
+                    return;
                 }
+                b03.b("login failure, can't get login code");
+                this.a.a(this.b);
             }
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.s43
-        /* renamed from: b */
-        public void a(@NonNull a03 a03Var, @NonNull kn2 kn2Var) throws Exception {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a03Var, kn2Var) == null) {
-                kn2Var.f(a03Var.g);
-                kn2Var.f(a03Var.b);
-                kn2Var.writeLong(a03Var.c);
-                kn2Var.f(a03Var.a);
-                kn2Var.writeInt(a03Var.d);
-                kn2Var.f(a03Var.e);
-                kn2Var.f(a03Var.f);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947561317, "Lcom/baidu/tieba/a03;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947561317, "Lcom/baidu/tieba/a03;");
-                return;
-            }
-        }
-        h = new a();
-        i = new b();
     }
 
     public a03() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.wz2
+    public void p(SwanAppActivity swanAppActivity, String str, tz2 tz2Var, v93 v93Var, v52<uz2> v52Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.isEmpty(this.a) && (this.c >= 0 || !TextUtils.isEmpty(this.b))) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public Object clone() throws CloneNotSupportedException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return super.clone();
-        }
-        return invokeV.objValue;
-    }
-
-    public a03(JSONObject jSONObject, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+        if (interceptable == null || interceptable.invokeLLLLL(1048579, this, swanAppActivity, str, tz2Var, v93Var, v52Var) == null) {
+            uz2 uz2Var = new uz2(tz2Var.f);
+            uz2Var.a = tz2Var.e;
+            if (v93Var != null && v93Var.j.a() == 0) {
+                b03.b("obtain user info detail, get login code");
+                rs1.d dVar = new rs1.d(tz2Var.g);
+                Bundle bundle = new Bundle();
+                bundle.putString("__plugin__", tz2Var.a);
+                i43.K().q().e0().r(swanAppActivity, dVar, bundle, new a(this, v52Var, uz2Var, v93Var), "SwanPluginUserInfoFunPage");
                 return;
             }
+            b03.b("open data result failure");
+            v52Var.a(uz2Var);
         }
-        if (jSONObject == null) {
-            return;
-        }
-        this.b = jSONObject.optString("version");
-        this.c = jSONObject.optLong("version_code", -1L);
-        this.a = jSONObject.optString("provider");
-        this.e = jSONObject.optString("path");
-        this.f = jSONObject.optString("config");
-        this.d = i2;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "SwanPluginModel{pluginAlias='" + this.g + "', versionName='" + this.b + "', versionCode='" + this.c + "', libName='" + this.a + "', category=" + this.d + ", libPath='" + this.e + "', libConfig='" + this.f + "'}";
-        }
-        return (String) invokeV.objValue;
     }
 }

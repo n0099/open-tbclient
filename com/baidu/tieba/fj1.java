@@ -1,308 +1,194 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import android.telephony.TelephonyManager;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.util.DeviceId;
+import com.baidu.searchbox.account.contants.AccountConstants;
+import com.baidu.searchbox.common.security.DeviceIdBag;
+import com.baidu.searchbox.common.security.DeviceInfoManager;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class fj1 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile fj1 c;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = false;
+    public static boolean b = false;
+    public static String c = null;
+    public static String d = "";
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    public Context b;
 
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes4.dex */
-    public class b extends SQLiteOpenHelper {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // android.database.sqlite.SQLiteOpenHelper
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(fj1 fj1Var, Context context) {
-            super(context, "sso.db", (SQLiteDatabase.CursorFactory) null, 1);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fj1Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        public /* synthetic */ b(fj1 fj1Var, Context context, a aVar) {
-            this(fj1Var, context);
-        }
-
-        @Override // android.database.sqlite.SQLiteOpenHelper
-        public void onCreate(SQLiteDatabase sQLiteDatabase) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-                try {
-                    sQLiteDatabase.execSQL("create table if not exists rp_tb(id integer primary key autoincrement, a text, c integer, d integer);");
-                } catch (Throwable th) {
-                    oj1.d(th);
-                }
-            }
-        }
-    }
-
-    public fj1(Context context) {
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = context;
-        this.a = new b(this, this.b, null);
-    }
-
-    public final void f(gj1 gj1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, gj1Var) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
             try {
-                this.a.getWritableDatabase().delete("rp_tb", "id=?", new String[]{String.valueOf(gj1Var.a())});
+                if (!hi1.f(context).d()) {
+                    return "";
+                }
+                return DeviceId.getCUID(context);
             } catch (Throwable th) {
-                System.currentTimeMillis();
-                oj1.d(th);
+                tj1.d(th);
+                return "";
             }
         }
+        return (String) invokeL.objValue;
     }
 
-    public static fj1 a(Context context) {
+    public static String d(DeviceIdBag deviceIdBag) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (c == null) {
-                synchronized (fj1.class) {
-                    if (c == null) {
-                        c = new fj1(context);
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, deviceIdBag)) == null) {
+            if (deviceIdBag == null) {
+                return "";
             }
-            return c;
+            if (deviceIdBag.errorCode == 3) {
+                return String.valueOf(-1004);
+            }
+            if (TextUtils.isEmpty(deviceIdBag.deviceId)) {
+                return "";
+            }
+            return deviceIdBag.deviceId;
         }
-        return (fj1) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public void d(ArrayList<gj1> arrayList) {
+    public static boolean f(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) && arrayList != null) {
-            try {
-                if (arrayList.size() != 0) {
-                    for (int i = 0; i < arrayList.size(); i++) {
-                        f(arrayList.get(i));
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            if (!a) {
+                if ("com.baidu.searchbox".equals(context.getPackageName())) {
+                    b = true;
                 }
+                a = true;
+            }
+            return b;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String b(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            try {
             } catch (Throwable th) {
-                oj1.d(th);
+                tj1.d(th);
             }
+            if (f(context)) {
+                return d(DeviceInfoManager.INSTANCE.getAndroidId(context, AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO, str));
+            }
+            if (!hi1.f(context).d()) {
+                return d;
+            }
+            if (!TextUtils.isEmpty(d)) {
+                return d;
+            }
+            if (!tj1.n(context)) {
+                return "";
+            }
+            String string = ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
+            d = string;
+            if (TextUtils.isEmpty(string)) {
+                d = "";
+            }
+            return d;
         }
+        return (String) invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, IF, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public ArrayList<gj1> b(String str) {
-        InterceptResult invokeL;
-        Throwable th;
-        Cursor cursor;
+    public static String c(Context context, boolean z, boolean z2, String str) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2), str})) == null) {
             try {
-                SQLiteDatabase writableDatabase = this.a.getWritableDatabase();
-                StringBuilder sb = new StringBuilder();
-                sb.append("SELECT * FROM rp_tb WHERE c IN (");
-                sb.append(str);
-                sb.append(") LIMIT 100");
-                cursor = writableDatabase.rawQuery(sb.toString(), null);
-                if (cursor != null) {
-                    try {
-                        if (cursor.getCount() != 0) {
-                            ArrayList<gj1> arrayList = new ArrayList<>();
-                            while (cursor.moveToNext()) {
-                                gj1 gj1Var = new gj1();
-                                gj1Var.b(cursor.getInt(cursor.getColumnIndex("id")));
-                                gj1Var.c(qj1.a(this.b, cursor.getString(cursor.getColumnIndex("a"))));
-                                gj1Var.g(cursor.getInt(cursor.getColumnIndex("c")));
-                                gj1Var.e(cursor.getInt(cursor.getColumnIndex("d")));
-                                arrayList.add(gj1Var);
-                            }
-                            return arrayList;
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        try {
-                            oj1.d(th);
-                            if (cursor != null) {
-                                try {
-                                    if (!cursor.isClosed()) {
-                                        cursor.close();
-                                    }
-                                } catch (Throwable th3) {
-                                    oj1.d(th3);
-                                }
-                            }
-                            return null;
-                        } finally {
-                            if (cursor != null) {
-                                try {
-                                    if (!cursor.isClosed()) {
-                                        cursor.close();
-                                    }
-                                } catch (Throwable th4) {
-                                    oj1.d(th4);
-                                }
-                            }
-                        }
-                    }
+                if (f(context)) {
+                    return d(DeviceInfoManager.INSTANCE.getOAID(AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO, str));
                 }
-                if (cursor != null) {
-                    try {
-                        if (!cursor.isClosed()) {
-                            cursor.close();
-                        }
-                    } catch (Throwable th5) {
-                        oj1.d(th5);
-                    }
+                if (!hi1.f(context).d()) {
+                    return bk1.b(String.valueOf(-1000), z2);
                 }
-                return null;
-            } catch (Throwable th6) {
-                th = th6;
-                cursor = null;
+                if (z && !TextUtils.isEmpty(c)) {
+                    return c;
+                }
+                if (!tj1.n(context)) {
+                    return bk1.b(String.valueOf(-1002), z2);
+                }
+                String a2 = ck1.b().a();
+                if (TextUtils.isEmpty(a2)) {
+                    return bk1.b(String.valueOf(-1003), z2);
+                }
+                c = a2;
+                return a2;
+            } catch (Throwable th) {
+                tj1.d(th);
+                return "";
             }
-        } else {
-            return (ArrayList) invokeL.objValue;
         }
+        return (String) invokeCommon.objValue;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, IF, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public ArrayList<gj1> e(String str) {
-        InterceptResult invokeL;
-        Throwable th;
-        Cursor cursor;
+    public static String e(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
             try {
-                SQLiteDatabase writableDatabase = this.a.getWritableDatabase();
-                StringBuilder sb = new StringBuilder();
-                sb.append("SELECT * FROM rp_tb WHERE c IN (");
-                sb.append(str);
-                sb.append(") and ");
-                sb.append("d");
-                sb.append("=");
-                sb.append(2);
-                sb.append(" LIMIT 100");
-                cursor = writableDatabase.rawQuery(sb.toString(), null);
-                if (cursor != null) {
-                    try {
-                        if (cursor.getCount() != 0) {
-                            ArrayList<gj1> arrayList = new ArrayList<>();
-                            while (cursor.moveToNext()) {
-                                gj1 gj1Var = new gj1();
-                                gj1Var.b(cursor.getInt(cursor.getColumnIndex("id")));
-                                gj1Var.c(qj1.a(this.b, cursor.getString(cursor.getColumnIndex("a"))));
-                                gj1Var.g(cursor.getInt(cursor.getColumnIndex("c")));
-                                gj1Var.e(cursor.getInt(cursor.getColumnIndex("d")));
-                                arrayList.add(gj1Var);
-                            }
-                            return arrayList;
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        try {
-                            oj1.d(th);
-                            if (cursor != null) {
-                                try {
-                                    if (!cursor.isClosed()) {
-                                        cursor.close();
-                                    }
-                                } catch (Throwable th3) {
-                                    oj1.d(th3);
-                                }
-                            }
-                            return null;
-                        } finally {
-                            if (cursor != null) {
-                                try {
-                                    if (!cursor.isClosed()) {
-                                        cursor.close();
-                                    }
-                                } catch (Throwable th4) {
-                                    oj1.d(th4);
-                                }
-                            }
-                        }
-                    }
+                if (f(context)) {
+                    return d(DeviceInfoManager.INSTANCE.getManufacturer(AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO, str));
                 }
-                if (cursor != null) {
-                    try {
-                        if (!cursor.isClosed()) {
-                            cursor.close();
-                        }
-                    } catch (Throwable th5) {
-                        oj1.d(th5);
-                    }
-                }
-                return null;
-            } catch (Throwable th6) {
-                th = th6;
-                cursor = null;
+                return Build.MANUFACTURER;
+            } catch (Throwable th) {
+                tj1.d(th);
+                return "";
             }
-        } else {
-            return (ArrayList) invokeL.objValue;
         }
+        return (String) invokeLL.objValue;
     }
 
-    public void c(gj1 gj1Var) {
+    public static String g(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gj1Var) != null) || gj1Var == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
+            try {
+                if (f(context)) {
+                    return d(DeviceInfoManager.INSTANCE.getModel(AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO, str));
+                }
+                return Build.MODEL;
+            } catch (Throwable th) {
+                tj1.d(th);
+                return "";
+            }
         }
-        try {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("a", qj1.b(this.b, gj1Var.d().getBytes()));
-            contentValues.put("c", Integer.valueOf(gj1Var.h()));
-            contentValues.put("d", Integer.valueOf(gj1Var.f()));
-            this.a.getWritableDatabase().insert("rp_tb", null, contentValues);
-        } catch (Throwable th) {
-            oj1.d(th);
+        return (String) invokeLL.objValue;
+    }
+
+    public static String h(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) {
+            try {
+                if (f(context)) {
+                    return d(DeviceInfoManager.INSTANCE.getOperator(context, AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO, str, true));
+                }
+                if (!hi1.f(context).d()) {
+                    return "";
+                }
+                TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+                if (telephonyManager != null) {
+                    return telephonyManager.getSimOperator();
+                }
+                return String.valueOf(-1003);
+            } catch (Throwable th) {
+                tj1.d(th);
+                return "";
+            }
         }
+        return (String) invokeLL.objValue;
     }
 }

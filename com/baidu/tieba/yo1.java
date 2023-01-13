@@ -1,21 +1,26 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import com.facebook.drawee.generic.GenericDraweeHierarchy;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import java.util.Map;
-import org.json.JSONObject;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.tieba.rh2;
 /* loaded from: classes7.dex */
 public interface yo1 {
-    void a(Context context, JSONObject jSONObject);
+    boolean a(@Nullable Activity activity);
 
-    void b(Context context, JSONObject jSONObject);
+    void b(@NonNull Context context);
 
-    void c(GenericDraweeHierarchy genericDraweeHierarchy, boolean z);
+    void c(@NonNull String str);
 
-    void d(Context context, String[] strArr, int i);
+    void d(CallbackHandler callbackHandler);
 
-    ImageRequestBuilder e(ImageRequestBuilder imageRequestBuilder, Map<String, String> map);
+    void e(j43 j43Var);
 
-    void f(Context context, JSONObject jSONObject);
+    String f(@NonNull Context context);
+
+    void g(j43 j43Var);
+
+    void h(@NonNull Activity activity, String str, String str2, qh2 qh2Var, rh2.b bVar);
 }

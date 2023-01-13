@@ -1,137 +1,26 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.widget.multidelmenu.view.MultiDelPostMenuView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class bo5 {
+public class bo5 extends ao5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public qo5 b;
+    public MultiDelPostMenuView c;
+    public ViewGroup d;
 
-    /* loaded from: classes3.dex */
-    public class a implements go5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bo5 a;
-
-        /* renamed from: com.baidu.tieba.bo5$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class View$OnClickListenerC0230a implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public View$OnClickListenerC0230a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.a.b != null) {
-                    this.a.a.b.f();
-                }
-            }
-        }
-
-        /* loaded from: classes3.dex */
-        public class b implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public b(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.a.b != null) {
-                    this.a.a.b.A();
-                    this.a.a.b.f();
-                }
-            }
-        }
-
-        public a(bo5 bo5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bo5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bo5Var;
-        }
-
-        @Override // com.baidu.tieba.go5
-        public void a(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                SkinManager.setBackgroundResource(view2, R.drawable.person_birthday_select_top_bg);
-                TextView textView = (TextView) view2.findViewById(R.id.person_constellation_cancle);
-                textView.setOnClickListener(new View$OnClickListenerC0230a(this));
-                SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1, TbadkCoreApplication.getInst().getSkinType());
-                TextView textView2 = (TextView) view2.findViewById(R.id.person_constellation_birthday_complete);
-                SkinManager.setViewTextColor(textView2, R.color.CAM_X0302, 1, TbadkCoreApplication.getInst().getSkinType());
-                textView2.setOnClickListener(new b(this));
-            }
-        }
-    }
-
-    public bo5(Activity activity) {
+    public bo5(TbPageContext tbPageContext, ViewGroup viewGroup, qn5 qn5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {tbPageContext, viewGroup, qn5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -141,39 +30,52 @@ public class bo5 {
                 return;
             }
         }
-        this.a = activity;
+        this.d = viewGroup;
+        yn5 yn5Var = new yn5(tbPageContext, new rn5(qn5Var));
+        this.b = yn5Var;
+        yn5Var.d(this);
+        this.c = new MultiDelPostMenuView(tbPageContext, this);
     }
 
-    public final go5 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ao5
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.a) {
+            return;
         }
-        return (go5) invokeV.objValue;
+        this.a = false;
+        MultiDelPostMenuView multiDelPostMenuView = this.c;
+        if (multiDelPostMenuView != null && this.d != null && multiDelPostMenuView.getParent() != null) {
+            this.d.removeView(this.c);
+        }
+        xn5 xn5Var = this.b;
+        if (xn5Var != null) {
+            xn5Var.dismiss();
+        }
+        this.c = null;
+        this.d = null;
+        this.b = null;
     }
 
-    public void c(lo5 lo5Var) {
-        Activity activity;
+    @Override // com.baidu.tieba.ao5
+    public void d(int i) {
+        MultiDelPostMenuView multiDelPostMenuView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lo5Var) == null) && (activity = this.a) != null && !activity.isFinishing()) {
-            if (this.b == null) {
-                eo5 eo5Var = new eo5(this.a, lo5Var);
-                eo5Var.k(R.layout.person_birthday_select_layout, b());
-                eo5Var.p(new boolean[]{true, true, true, false, false, false});
-                eo5Var.j(this.a.getString(R.string.pickerview_year), this.a.getString(R.string.pickerview_month), this.a.getString(R.string.pickerview_day), this.a.getString(R.string.pickerview_hours), this.a.getString(R.string.pickerview_minutes), this.a.getString(R.string.pickerview_seconds));
-                eo5Var.l(2.0f);
-                eo5Var.b(false);
-                eo5Var.i(SkinManager.getColor(R.color.CAM_X0206));
-                eo5Var.m(SkinManager.getColor(R.color.CAM_X0105));
-                eo5Var.n(SkinManager.getColor(R.color.CAM_X0109));
-                eo5Var.d(SkinManager.getColor(R.color.black_alpha30));
-                eo5Var.e(SkinManager.getColor(R.color.CAM_X0201));
-                eo5Var.c(false);
-                eo5Var.h((ViewGroup) this.a.findViewById(16908290));
-                this.b = eo5Var.a();
-            }
-            this.b.u();
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (multiDelPostMenuView = this.c) != null) {
+            multiDelPostMenuView.setDelCount(i);
+        }
+    }
+
+    @Override // com.baidu.tieba.ao5
+    public void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.a) {
+            return;
+        }
+        this.a = true;
+        ViewGroup viewGroup = this.d;
+        if (viewGroup != null) {
+            viewGroup.addView(this.c, new ViewGroup.LayoutParams(-1, -1));
         }
     }
 }

@@ -1,60 +1,28 @@
 package com.baidu.tieba;
 
-import android.location.Address;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.location.LocationCallback;
-import com.baidu.searchbox.live.interfaces.location.LocationInfo;
-import com.baidu.searchbox.live.interfaces.service.LiveLocationService;
-import com.baidu.tieba.tf;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes4.dex */
-public class eq7 implements LiveLocationService {
+public class eq7 implements qo4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public class a implements tf.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ LocationCallback a;
-        public final /* synthetic */ eq7 b;
-
-        public a(eq7 eq7Var, LocationCallback locationCallback) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eq7Var, locationCallback};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = eq7Var;
-            this.a = locationCallback;
-        }
-
-        @Override // com.baidu.tieba.tf.c
-        public void a(int i, String str, Address address) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, address) == null) {
-                try {
-                    if (this.a != null && address != null) {
-                        this.a.onReceiveLocation(this.b.b(address));
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+    @Override // com.baidu.tieba.qo4
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbConfig.LIKE_ADDRESS : (String) invokeV.objValue;
     }
 
     public eq7() {
@@ -71,38 +39,20 @@ public class eq7 implements LiveLocationService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.LiveLocationService
-    public LocationInfo getLocationInfo() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.qo4
+    public void b(HashMap<String, String> hashMap, ro4 ro4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return b(tf.n().k(false, null));
-        }
-        return (LocationInfo) invokeV.objValue;
-    }
-
-    public final LocationInfo b(Address address) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, address)) == null) {
-            LocationInfo locationInfo = new LocationInfo();
-            if (address != null) {
-                locationInfo.setCity(address.getLocality());
-                locationInfo.setLatitude(address.getLatitude());
-                locationInfo.setLongitude(address.getLongitude());
-                locationInfo.setProvince(address.getAdminArea());
-                locationInfo.setCounty(address.getCountryName());
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap, ro4Var) == null) && ro4Var != null && hashMap != null && !hashMap.isEmpty()) {
+            String str = hashMap.get("fid");
+            if (TextUtils.isEmpty(str)) {
+                return;
             }
-            return locationInfo;
-        }
-        return (LocationInfo) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.LiveLocationService
-    public void requestLocate(LocationCallback locationCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, locationCallback) == null) {
-            tf.n().k(false, new a(this, locationCallback));
+            String str2 = hashMap.get(TiebaStatic.Params.H5_FORUM_NAME);
+            if (TextUtils.isEmpty(str2)) {
+                return;
+            }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001335, Long.valueOf(yg.g(str, 0L))));
+            TbadkCoreApplication.getInst().addLikeForum(str2);
         }
     }
 }

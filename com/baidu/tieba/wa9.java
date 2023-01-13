@@ -1,25 +1,45 @@
 package com.baidu.tieba;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wa9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface wa9 {
 
-    public wa9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(float f);
+
+        float getSpeed();
+
+        void onFinish();
+
+        void onProgress(float f);
     }
+
+    void a();
+
+    boolean b();
+
+    int getMaxDuration();
+
+    float getProgress();
+
+    int getSlideNum();
+
+    void invalidate();
+
+    void reset();
+
+    void setMaxDuration(int i);
+
+    void setMinDuration(int i);
+
+    void setOnProgressListener(a aVar);
+
+    void setProgress(long j);
+
+    void setShowDeleteLastTip(boolean z);
+
+    void setVisibility(int i);
+
+    void start();
+
+    void stop();
 }

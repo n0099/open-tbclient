@@ -11,8 +11,9 @@ import com.sdk.a.e;
 import com.sdk.d.e;
 import java.net.HttpURLConnection;
 import java.util.concurrent.atomic.AtomicBoolean;
+/* JADX INFO: Add missing generic type declarations: [Params, Result] */
 /* loaded from: classes8.dex */
-public class c extends e.c<Params, Result> {
+public class c<Params, Result> extends e.c<Params, Result> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ e b;
@@ -38,26 +39,24 @@ public class c extends e.c<Params, Result> {
         this.b = eVar;
     }
 
-    /* JADX WARN: Type inference failed for: r0v6, types: [java.lang.Object, Result] */
-    /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Object, Result] */
     @Override // java.util.concurrent.Callable
     public Result call() {
         InterceptResult invokeV;
         AtomicBoolean atomicBoolean;
-        ?? a;
         Object[] objArr;
         boolean z;
+        Object a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             atomicBoolean = this.b.f;
             atomicBoolean.set(true);
             Process.setThreadPriority(10);
             e eVar = this.b;
-            Object[] objArr2 = this.a;
+            Params[] paramsArr = this.a;
             com.sdk.a.e eVar2 = (com.sdk.a.e) eVar;
-            if (eVar2.p != e.a.e && objArr2 != null && objArr2.length != 0) {
-                if (objArr2.length == 4) {
-                    String valueOf = String.valueOf(objArr2[1]);
+            if (eVar2.p != e.a.e && paramsArr != null && paramsArr.length != 0) {
+                if (paramsArr.length == 4) {
+                    String valueOf = String.valueOf(paramsArr[1]);
                     eVar2.t = valueOf;
                     if (valueOf != null) {
                         z = true;
@@ -65,16 +64,16 @@ public class c extends e.c<Params, Result> {
                         z = false;
                     }
                     eVar2.u = z;
-                    eVar2.v = (Boolean) objArr2[2];
-                    eVar2.w = (Boolean) objArr2[3];
+                    eVar2.v = (Boolean) paramsArr[2];
+                    eVar2.w = (Boolean) paramsArr[3];
                 }
-                if (objArr2.length == 2) {
-                    eVar2.x = (Boolean) objArr2[1];
+                if (paramsArr.length == 2) {
+                    eVar2.x = (Boolean) paramsArr[1];
                 }
                 try {
                     eVar2.s = SystemClock.uptimeMillis();
                     eVar2.a(1);
-                    com.sdk.a.g gVar = (com.sdk.a.g) objArr2[0];
+                    com.sdk.a.g gVar = (com.sdk.a.g) paramsArr[0];
                     String a2 = gVar.a();
                     eVar2.o = a2;
                     HttpURLConnection a3 = gVar.a(a2, false);
@@ -96,8 +95,8 @@ public class c extends e.c<Params, Result> {
                 }
             }
             a = eVar.a((e) null);
-            return a;
+            return (Result) a;
         }
-        return invokeV.objValue;
+        return (Result) invokeV.objValue;
     }
 }

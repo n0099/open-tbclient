@@ -51,6 +51,7 @@ import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
 import kotlin.TypeCastException;
 import kotlin.collections.CollectionsKt___CollectionsKt;
+import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.PropertyReference1Impl;
@@ -677,8 +678,93 @@ public final class PagerController implements IListManager {
         this.mixActivity = iMixActivityInterface;
         this.handler = new Handler(Looper.getMainLooper());
         this.alaLoopViewPager$delegate = LazyKt__LazyJVMKt.lazy(new PagerController$alaLoopViewPager$2(this));
-        this.mPagerAdapter$delegate = LazyKt__LazyJVMKt.lazy(new PagerController$mPagerAdapter$2(this));
-        this.adapter$delegate = LazyKt__LazyJVMKt.lazy(new PagerController$adapter$2(this));
+        this.mPagerAdapter$delegate = LazyKt__LazyJVMKt.lazy(new Function0<AlaLoopViewPagerAdapter>(this) { // from class: com.baidu.searchbox.live.list.controller.PagerController$mPagerAdapter$2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ PagerController this$0;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(0);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        super(((Integer) newInitContext2.callArgs[0]).intValue());
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // kotlin.jvm.functions.Function0
+            public final AlaLoopViewPagerAdapter invoke() {
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                    AlaLoopViewPagerAdapter alaLoopViewPagerAdapter = new AlaLoopViewPagerAdapter(this.this$0.getContext());
+                    alaLoopViewPagerAdapter.initPageLayoutList();
+                    return alaLoopViewPagerAdapter;
+                }
+                return (AlaLoopViewPagerAdapter) invokeV.objValue;
+            }
+        });
+        this.adapter$delegate = LazyKt__LazyJVMKt.lazy(new Function0<ListPagerAdapter>(this) { // from class: com.baidu.searchbox.live.list.controller.PagerController$adapter$2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ PagerController this$0;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(0);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        super(((Integer) newInitContext2.callArgs[0]).intValue());
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // kotlin.jvm.functions.Function0
+            public final PagerController.ListPagerAdapter invoke() {
+                InterceptResult invokeV;
+                MiniUniqueId miniUniqueId2;
+                IMixActivityInterface iMixActivityInterface2;
+                AlaLoopViewPagerAdapter mPagerAdapter;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                    Context context2 = this.this$0.getContext();
+                    List<LiveContainer.LiveItemModel> itemData = this.this$0.getListController().getItemData();
+                    miniUniqueId2 = this.this$0.mixUniqueId;
+                    List<WeakReference<AbstractMixFakeShell>> shellList = this.this$0.getListController().getShellList();
+                    iMixActivityInterface2 = this.this$0.mixActivity;
+                    mPagerAdapter = this.this$0.getMPagerAdapter();
+                    return new PagerController.ListPagerAdapter(context2, itemData, miniUniqueId2, shellList, iMixActivityInterface2, mPagerAdapter);
+                }
+                return (PagerController.ListPagerAdapter) invokeV.objValue;
+            }
+        });
         this.mCallBack = PagerController$mCallBack$1.INSTANCE;
         this.onPageChangedListener = new ViewPager.OnPageChangeListener(this) { // from class: com.baidu.searchbox.live.list.controller.PagerController$onPageChangedListener$1
             public static /* synthetic */ Interceptable $ic;

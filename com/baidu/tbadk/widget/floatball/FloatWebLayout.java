@@ -20,8 +20,8 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendIdleView;
 import com.baidu.tbadk.suspended.TranView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xl5;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.om5;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +42,7 @@ public class FloatWebLayout extends FrameLayout {
     public ImageView f;
     public TextView g;
     public LinearLayout h;
-    public xl5 i;
+    public om5 i;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -156,7 +156,7 @@ public class FloatWebLayout extends FrameLayout {
                 return;
             }
         }
-        j = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+        j = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds104);
     }
 
     public boolean b() {
@@ -179,9 +179,9 @@ public class FloatWebLayout extends FrameLayout {
             if (suspendIdleView != null && suspendIdleView.getRatio() == 1.0f) {
                 this.b.h();
             }
-            xl5 xl5Var = this.i;
-            if (xl5Var != null) {
-                xl5Var.A();
+            om5 om5Var = this.i;
+            if (om5Var != null) {
+                om5Var.A();
             }
             this.a.setOnClickListener(null);
         }
@@ -206,7 +206,7 @@ public class FloatWebLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return yi.g(getContext(), R.dimen.tbds153);
+            return zi.g(getContext(), R.dimen.tbds153);
         }
         return invokeV.intValue;
     }
@@ -244,9 +244,9 @@ public class FloatWebLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDetachedFromWindow();
-            xl5 xl5Var = this.i;
-            if (xl5Var != null) {
-                xl5Var.onDestroy();
+            om5 om5Var = this.i;
+            if (om5Var != null) {
+                om5Var.onDestroy();
             }
         }
     }
@@ -318,9 +318,9 @@ public class FloatWebLayout extends FrameLayout {
     public final void f(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            xl5 xl5Var = new xl5(context, this.h, this);
-            this.i = xl5Var;
-            this.b.setContentViewTop(xl5Var);
+            om5 om5Var = new om5(context, this.h, this);
+            this.i = om5Var;
+            this.b.setContentViewTop(om5Var);
         }
     }
 
@@ -338,9 +338,9 @@ public class FloatWebLayout extends FrameLayout {
             if (suspendIdleView != null) {
                 suspendIdleView.i();
             }
-            xl5 xl5Var = this.i;
-            if (xl5Var != null) {
-                xl5Var.z(str, false);
+            om5 om5Var = this.i;
+            if (om5Var != null) {
+                om5Var.z(str, false);
                 this.i.onResume();
             }
             this.a.setOnClickListener(new c(this));
@@ -362,7 +362,7 @@ public class FloatWebLayout extends FrameLayout {
             this.b = (SuspendIdleView) findViewById(R.id.suspended_view);
             this.c = (LinearLayout) findViewById(R.id.navigation_bar_group);
             this.d = (NavigationBar) findViewById(R.id.suspended_navigation_bar);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906fd);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906fb);
             h(context);
             g(context);
             f(context);

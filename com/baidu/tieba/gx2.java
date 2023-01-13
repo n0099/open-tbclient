@@ -1,12 +1,12 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.pay.panel.PaymentPanelManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,13 +14,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Locale;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gx2 implements xi3<HybridUbcFlow> {
+public class gx2 extends uw2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.ms1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "PaymentPanelApi" : (String) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -35,213 +41,151 @@ public class gx2 implements xi3<HybridUbcFlow> {
                 return;
             }
         }
-        a = ok1.a;
+        f = tk1.a;
     }
 
-    public gx2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gx2(@NonNull ks1 ks1Var) {
+        super(ks1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ks1Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ks1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xi3
-    /* renamed from: b */
-    public void a(HybridUbcFlow hybridUbcFlow) {
+    public jw1 x(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
-            c(hybridUbcFlow);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#chooseCoupon", false);
+            j43 b0 = j43.b0();
+            if (b0 == null) {
+                if (f) {
+                    Log.e("PaymentPanelApi", "failed: swan app is null");
+                }
+                return new jw1(1001, "swan app is null");
+            }
+            SwanAppActivity w = b0.w();
+            if (w == null) {
+                if (f) {
+                    Log.e("PaymentPanelApi", "failed: swan activity is null");
+                }
+                return new jw1(1001, "swan activity is null");
+            }
+            Pair<jw1, JSONObject> s = s(str);
+            jw1 jw1Var = (jw1) s.first;
+            if (!jw1Var.isSuccess()) {
+                return jw1Var;
+            }
+            JSONObject jSONObject = (JSONObject) s.second;
+            String optString = jSONObject.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                return new jw1(202, "cb is empty");
+            }
+            String optString2 = jSONObject.optString("componentId");
+            if (TextUtils.isEmpty(optString2)) {
+                return new jw1(202, "empty componentId");
+            }
+            String optString3 = jSONObject.optString("appKey");
+            if (TextUtils.isEmpty(optString3)) {
+                return new jw1(202, "empty appKey");
+            }
+            String optString4 = jSONObject.optString("totalAmount");
+            if (TextUtils.isEmpty(optString4)) {
+                return new jw1(202, "empty totalAmount");
+            }
+            PaymentPanelManager.z().s(this, w, optString2, optString3, optString4, optString);
+            return jw1.f();
         }
+        return (jw1) invokeL.objValue;
     }
 
-    @SuppressLint({"SwanDebugLog", "LogConditional"})
-    public void c(HybridUbcFlow hybridUbcFlow) {
-        long f;
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        String str5;
-        boolean z;
-        boolean z2;
-        int i;
-        String str6;
-        String str7;
+    public jw1 y(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow) == null) {
-            e43 M = e43.M();
-            if (hybridUbcFlow != null && !hybridUbcFlow.f.isEmpty() && a && M != null) {
-                HybridUbcFlow.SubmitStrategy i2 = hybridUbcFlow.i();
-                String str8 = "fe_route_start";
-                if (!hybridUbcFlow.d.contains("fe_route_start")) {
-                    str8 = "na_first_receive_action";
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#getPaymentInfo", false);
+            if (j43.b0() == null) {
+                if (f) {
+                    Log.e("PaymentPanelApi", "failed: null swan runtime");
                 }
-                int i3 = 2;
-                char c = 1;
-                char c2 = 0;
-                if (i2 == HybridUbcFlow.SubmitStrategy.ROUTE) {
-                    f = hybridUbcFlow.f("fe_first_render_start", str8);
-                } else if (i2 == HybridUbcFlow.SubmitStrategy.ROUTE_NA) {
-                    f = hybridUbcFlow.f("na_push_page_end", str8);
-                } else {
-                    f = hybridUbcFlow.f("web_widget_first_screen_finish", str8);
-                }
-                if (f < 1) {
-                    f = 1;
-                }
-                String Z = M.Z();
-                String str9 = "";
-                if (TextUtils.isEmpty(Z)) {
-                    Z = "";
-                }
-                if (TextUtils.isEmpty(M.b)) {
-                    str = "";
-                } else {
-                    str = M.b;
-                }
-                if (M.Y() == null) {
-                    str2 = "";
-                } else {
-                    str2 = M.Y().V();
-                }
-                Log.i("RouteReporter", "\n\n  小程序路由性能报告: " + Z + " appID: " + str + " launchId ：" + str2 + " speedLog\n");
-                StringBuilder sb = new StringBuilder();
-                for (int i4 = 0; i4 < 100; i4++) {
-                    sb.append("&");
-                }
-                Log.i("RouteReporter", String.format("Delta [%s]  Cost Src  Total Action", sb.toString()));
-                long g = hybridUbcFlow.f.get(0).g();
-                Iterator<UbcFlowEvent> it = hybridUbcFlow.f.iterator();
-                long j = 0;
-                long j2 = 0;
-                while (it.hasNext()) {
-                    UbcFlowEvent next = it.next();
-                    String[] strArr = new String[i3];
-                    strArr[c2] = next.a;
-                    strArr[c] = str8;
-                    long f2 = hybridUbcFlow.f(strArr);
-                    if (f2 < j) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (f2 > f) {
-                        z2 = true;
-                    } else {
-                        z2 = false;
-                    }
-                    if (z) {
-                        f2 = j;
-                    }
-                    if (z2) {
-                        f2 = f;
-                    }
-                    long j3 = f2 - j2;
-                    boolean z3 = z2;
-                    if (j3 < j) {
-                        j3 = j;
-                    }
-                    long j4 = 100;
-                    int round = Math.round((float) ((f2 * j4) / f));
-                    if (round > 100) {
-                        round = 100;
-                    }
-                    int round2 = Math.round((float) ((j3 * j4) / f));
-                    if (round2 > 100) {
-                        i = 100;
-                    } else {
-                        i = round2;
-                    }
-                    StringBuilder sb2 = new StringBuilder();
-                    Iterator<UbcFlowEvent> it2 = it;
-                    sb2.append(String.format(Locale.getDefault(), "%5d ", Long.valueOf(j3)));
-                    if (z) {
-                        str6 = "<";
-                    } else {
-                        str6 = PreferencesUtil.LEFT_MOUNT;
-                    }
-                    sb2.append(str6);
-                    for (int i5 = 0; i5 < 100; i5++) {
-                        if (i5 > round) {
-                            sb2.append(".");
-                        } else if (i5 > i) {
-                            sb2.append("=");
-                        } else {
-                            sb2.append("#");
-                        }
-                    }
-                    if (z3) {
-                        str7 = ">";
-                    } else {
-                        str7 = PreferencesUtil.RIGHT_MOUNT;
-                    }
-                    sb2.append(str7);
-                    c = 1;
-                    sb2.append(String.format(Locale.getDefault(), " %5d", Long.valueOf(f2)));
-                    sb2.append(String.format("  %s", next.f()));
-                    sb2.append(String.format(Locale.getDefault(), " %6d ", Long.valueOf(next.g() - g)));
-                    sb2.append(next.a);
-                    if (next.b()) {
-                        sb2.append("(LocalRecord)");
-                    }
-                    Log.i("RouteReporter", sb2.toString());
-                    j2 = f2;
-                    it = it2;
-                    i3 = 2;
-                    c2 = 0;
-                    j = 0;
-                }
-                Log.i("RouteReporter", "Total  ： " + hybridUbcFlow.f.size());
-                StringBuilder sb3 = new StringBuilder();
-                sb3.append("\n\n小程序路由总时长：========> " + f);
-                String optString = hybridUbcFlow.m().optString("type");
-                String h = hybridUbcFlow.h("sub_state");
-                String h2 = hybridUbcFlow.h("preload");
-                String h3 = hybridUbcFlow.h("web_widget_state");
-                StringBuilder sb4 = new StringBuilder();
-                sb4.append("\nsub_state :");
-                if (TextUtils.equals(h, "0")) {
-                    str3 = "无需下载分包";
-                } else {
-                    str3 = "需要下载分包";
-                }
-                sb4.append(str3);
-                sb3.append(sb4.toString());
-                StringBuilder sb5 = new StringBuilder();
-                sb5.append("\npreload :");
-                if (TextUtils.equals(h2, "0")) {
-                    str4 = "未完成";
-                } else {
-                    str4 = "已完成";
-                }
-                sb5.append(str4);
-                sb3.append(sb5.toString());
-                StringBuilder sb6 = new StringBuilder();
-                sb6.append("\nhasWebViewWidget :");
-                if (TextUtils.equals(h3, "0")) {
-                    str5 = "无webview组件";
-                } else {
-                    str5 = "有webview组件";
-                }
-                sb6.append(str5);
-                sb3.append(sb6.toString());
-                StringBuilder sb7 = new StringBuilder();
-                sb7.append("\ntype ：");
-                if (!TextUtils.isEmpty(optString)) {
-                    str9 = optString;
-                }
-                sb7.append(str9);
-                sb3.append(sb7.toString());
-                Log.i("RouteReporter", "Report ： " + sb3.toString());
+                return new jw1(1001, "swan app is null");
             }
+            Pair<jw1, JSONObject> s = s(str);
+            jw1 jw1Var = (jw1) s.first;
+            if (!jw1Var.isSuccess()) {
+                return jw1Var;
+            }
+            JSONObject jSONObject = (JSONObject) s.second;
+            String optString = jSONObject.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                return new jw1(202, "cb is empty");
+            }
+            String optString2 = jSONObject.optString("componentId");
+            if (TextUtils.isEmpty(optString2)) {
+                return new jw1(202, "empty componentId");
+            }
+            String optString3 = jSONObject.optString("dealId");
+            if (TextUtils.isEmpty(optString3)) {
+                return new jw1(202, "empty dealId");
+            }
+            String optString4 = jSONObject.optString("appKey");
+            if (TextUtils.isEmpty(optString4)) {
+                return new jw1(202, "empty appKey");
+            }
+            String optString5 = jSONObject.optString("totalAmount");
+            if (TextUtils.isEmpty(optString5)) {
+                return new jw1(202, "empty totalAmount");
+            }
+            PaymentPanelManager.z().C(this, optString2, optString3, optString4, optString5, optString);
+            return jw1.f();
         }
+        return (jw1) invokeL.objValue;
+    }
+
+    public jw1 z(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            q("#setPaymentInfo", false);
+            if (j43.b0() == null) {
+                if (f) {
+                    Log.e("PaymentPanelApi", "failed: swan app is null");
+                }
+                return new jw1(1001, "swan app is null");
+            }
+            Pair<jw1, JSONObject> s = s(str);
+            jw1 jw1Var = (jw1) s.first;
+            if (!jw1Var.isSuccess()) {
+                return jw1Var;
+            }
+            JSONObject jSONObject = (JSONObject) s.second;
+            String optString = jSONObject.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                return new jw1(202, "cb is empty");
+            }
+            String optString2 = jSONObject.optString("componentId");
+            if (TextUtils.isEmpty(optString2)) {
+                return new jw1(202, "empty componentId");
+            }
+            String optString3 = jSONObject.optString("chosenChannel");
+            if (TextUtils.isEmpty(optString3)) {
+                return new jw1(202, "empty chosenChannel");
+            }
+            PaymentPanelManager.z().J(this, optString2, optString3, optString);
+            return jw1.f();
+        }
+        return (jw1) invokeL.objValue;
     }
 }

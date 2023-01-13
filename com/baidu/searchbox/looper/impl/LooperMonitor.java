@@ -6,9 +6,9 @@ import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.searchbox.ruka.ioc.ILooperMonitor;
 import com.baidu.searchbox.track.Track;
-import com.baidu.tieba.vw9;
-import com.baidu.tieba.ww9;
-import com.baidu.tieba.xw9;
+import com.baidu.tieba.d2a;
+import com.baidu.tieba.e2a;
+import com.baidu.tieba.f2a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ public class LooperMonitor implements ILooperMonitor {
     public static volatile boolean sIsStartTrack;
     public static LooperContextDispatcher sLooperContextDispatcher;
     public transient /* synthetic */ FieldHolder $fh;
-    public ww9 mBlockCanaryCore;
+    public e2a mBlockCanaryCore;
     public boolean mMonitorStarted;
 
     static {
@@ -94,10 +94,10 @@ public class LooperMonitor implements ILooperMonitor {
         }
     }
 
-    public void addBlockInterceptor(xw9 xw9Var) {
+    public void addBlockInterceptor(f2a f2aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, xw9Var) == null) && xw9Var != null) {
-            this.mBlockCanaryCore.b(xw9Var);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, f2aVar) == null) && f2aVar != null) {
+            this.mBlockCanaryCore.b(f2aVar);
         }
     }
 
@@ -108,11 +108,11 @@ public class LooperMonitor implements ILooperMonitor {
             if (sLooperContextDispatcher == null) {
                 sLooperContextDispatcher = new LooperContextDispatcher();
             }
-            vw9.init(context, sLooperContextDispatcher, i);
-            ww9.k(vw9.get());
-            ww9 e = ww9.e();
+            d2a.init(context, sLooperContextDispatcher, i);
+            e2a.k(d2a.get());
+            e2a e = e2a.e();
             this.mBlockCanaryCore = e;
-            e.b(vw9.get());
+            e.b(d2a.get());
             startLooperPrint();
             startTrack(context);
         }

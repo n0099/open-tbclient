@@ -253,9 +253,29 @@ public final class Regex implements Serializable {
     public final Set<RegexOption> getOptions() {
         Set set = this._options;
         if (set == null) {
-            int flags = this.nativePattern.flags();
+            final int flags = this.nativePattern.flags();
             EnumSet allOf = EnumSet.allOf(RegexOption.class);
-            CollectionsKt__MutableCollectionsKt.retainAll(allOf, new Regex$fromInt$$inlined$apply$lambda$1(flags));
+            CollectionsKt__MutableCollectionsKt.retainAll(allOf, new Function1<T, Boolean>() { // from class: kotlin.text.Regex$fromInt$$inlined$apply$lambda$1
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(1);
+                }
+
+                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                @Override // kotlin.jvm.functions.Function1
+                public /* bridge */ /* synthetic */ Boolean invoke(Object obj) {
+                    return Boolean.valueOf(invoke((Enum) obj));
+                }
+
+                /* JADX WARN: Incorrect types in method signature: (TT;)Z */
+                public final boolean invoke(Enum r3) {
+                    FlagEnum flagEnum = (FlagEnum) r3;
+                    if ((flags & flagEnum.getMask()) == flagEnum.getValue()) {
+                        return true;
+                    }
+                    return false;
+                }
+            });
             Set<RegexOption> unmodifiableSet = Collections.unmodifiableSet(allOf);
             Intrinsics.checkNotNullExpressionValue(unmodifiableSet, "Collections.unmodifiable…mask == it.value }\n    })");
             this._options = unmodifiableSet;
@@ -280,10 +300,21 @@ public final class Regex implements Serializable {
         return pattern;
     }
 
-    public final Sequence<MatchResult> findAll(CharSequence input, int i) {
+    public final Sequence<MatchResult> findAll(final CharSequence input, final int i) {
         Intrinsics.checkNotNullParameter(input, "input");
         if (i >= 0 && i <= input.length()) {
-            return SequencesKt__SequencesKt.generateSequence((Function0) new Regex$findAll$1(this, input, i), (Function1) Regex$findAll$2.INSTANCE);
+            return SequencesKt__SequencesKt.generateSequence((Function0) new Function0<MatchResult>() { // from class: kotlin.text.Regex$findAll$1
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(0);
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // kotlin.jvm.functions.Function0
+                public final MatchResult invoke() {
+                    return Regex.this.find(input, i);
+                }
+            }, (Function1) Regex$findAll$2.INSTANCE);
         }
         throw new IndexOutOfBoundsException("Start index out of bounds: " + i + ", input length: " + input.length());
     }

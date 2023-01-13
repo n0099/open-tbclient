@@ -1,34 +1,23 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Build;
-import android.os.Looper;
 import android.text.TextUtils;
-import android.text.format.Formatter;
-import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.bp2;
-import com.baidu.tieba.e22;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebView;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Locale;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class xg3 {
+public final class xg3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final Set<Integer> a;
+    public static final Set<Integer> b;
+    public static final Set<Integer> c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,394 +33,140 @@ public class xg3 {
                 return;
             }
         }
-        a = ok1.a;
+        a = new HashSet();
+        b = new HashSet();
+        c = new HashSet();
+        a.add(2);
+        a.add(3);
+        a.add(4);
+        a.add(5);
+        a.add(6);
+        b.add(7);
+        b.add(1);
+        c.addAll(a);
+        c.addAll(b);
     }
 
-    public static String a(int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (a) {
-                if (d03.p()) {
-                    return rg3.d(i, SchemeCollecter.CLASSIFY_SWAN_V8);
-                }
-                return "";
-            } else if (z) {
-                return rg3.d(i, SchemeCollecter.CLASSIFY_SWAN_V8);
-            } else {
-                return rg3.d(i, SchemeCollecter.CLASSIFY_SWAN_WEBVIEW);
-            }
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static String b() {
+    public static Date a() {
         InterceptResult invokeV;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            StringBuilder sb = new StringBuilder();
-            SwanCoreVersion M = rp2.U().M();
-            String str2 = "";
-            if (M == null) {
-                str = "";
-            } else {
-                String str3 = M.swanCoreVersionName;
-                str2 = SwanCoreVersion.getTypeString(M.swanCoreType);
-                str = str3;
-            }
-            sb.append("swanjs: ");
-            sb.append(str2);
-            sb.append("/");
-            sb.append(str);
-            return sb.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new Date();
         }
-        return (String) invokeV.objValue;
+        return (Date) invokeV.objValue;
     }
 
-    public static String c(Context context) {
-        InterceptResult invokeL;
-        String w1;
-        String v1;
-        kq1 o3;
-        String str;
+    public static String b(Date date, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            e43 b0 = e43.b0();
-            String str2 = "";
-            if (context == null || b0 == null || b0.k() != 0) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, date, str)) == null) {
+            if (date == null) {
                 return "";
             }
-            StringBuilder sb = new StringBuilder();
-            bp2.a W = b0.W();
-            String formatFileSize = Formatter.formatFileSize(AppRuntime.getAppContext(), W.i1());
-            sb.append("size: ");
-            if (TextUtils.isEmpty(formatFileSize)) {
-                formatFileSize = "";
+            try {
+                return new SimpleDateFormat(str, Locale.getDefault()).format(date);
+            } catch (Exception unused) {
+                try {
+                    return new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return "";
+                }
             }
-            sb.append(formatFileSize);
-            sb.append("\n");
-            sb.append("version: ");
-            if (TextUtils.isEmpty(W.w1())) {
-                w1 = "";
-            } else {
-                w1 = W.w1();
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static Date c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            if (str == null) {
+                return null;
             }
-            sb.append(w1);
-            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            sb.append("code: ");
-            if (TextUtils.isEmpty(W.v1())) {
-                v1 = "";
-            } else {
-                v1 = W.v1();
+            try {
+                return new SimpleDateFormat(str2, Locale.getDefault()).parse(str);
+            } catch (Exception unused) {
+                try {
+                    return new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(str);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
+                }
             }
-            sb.append(v1);
-            sb.append("\n");
-            sb.append("is opt pkg: ");
-            sb.append(ju2.g().h(W.f0()));
-            sb.append("\n");
-            sb.append("swan native: ");
-            if (zn3.getContext() != null) {
-                str2 = zn3.getContext().b();
-            }
-            sb.append(str2);
-            sb.append("\n");
-            sb.append(b());
-            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            sb.append(e(0));
-            sb.append("\n");
-            sb.append("is v8 master: ");
-            sb.append(ya2.U().r0());
-            sb.append("\n");
-            String a2 = a(0, ya2.U().r0());
-            sb.append("is native desc: ");
-            sb.append(!TextUtils.isEmpty(a2));
-            sb.append("\n");
-            boolean m = ue2.m();
-            sb.append("debugDynamicLibEnable: ");
-            sb.append(m);
-            sb.append('\n');
-            if (m) {
-                List<String> o = ue2.o();
-                sb.append("debugDynamicLibList: {");
-                if (!o.isEmpty()) {
-                    sb.append('\n');
-                    for (String str3 : o) {
-                        sb.append(str3);
-                        sb.append('\n');
+        }
+        return (Date) invokeLL.objValue;
+    }
+
+    public static Date d(String str, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, strArr)) == null) {
+            Date date = null;
+            if (!TextUtils.isEmpty(str) && strArr != null) {
+                for (String str2 : strArr) {
+                    try {
+                        date = new SimpleDateFormat(str2, Locale.getDefault()).parse(str);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    if (date != null) {
+                        break;
                     }
                 }
-                sb.append("}\n");
             }
-            m32 H = rp2.U().H();
-            if (H != null && (o3 = H.o3()) != null) {
-                int Q = o3.Q();
-                sb.append("top fragment na-slave: ");
-                if (Q == 1) {
-                    str = "NA";
-                } else {
-                    str = WebView.LOGTAG;
-                }
-                sb.append(str);
-                sb.append("\n");
-            }
-            return sb.toString();
+            return date;
         }
-        return (String) invokeL.objValue;
+        return (Date) invokeLL.objValue;
     }
 
-    public static String d(Context context) {
-        InterceptResult invokeL;
+    public static String e(Date date, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            return "model: " + Build.MODEL + "\nandroid: " + Build.VERSION.RELEASE + StringUtil.ARRAY_ELEMENT_SEPARATOR + "api level: " + Build.VERSION.SDK_INT + "\ncuid: " + ln2.h0().i(ln2.c()) + "\n";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String e(int i) {
-        InterceptResult invokeI;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
-            String str2 = "";
-            if (i != 0) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, date, str)) == null) {
+            if (date == null) {
                 return "";
             }
-            StringBuilder sb = new StringBuilder();
-            ExtensionCore T = ya2.U().T();
-            if (T == null) {
-                str = "";
-            } else {
-                String str3 = T.extensionCoreVersionName;
-                String typeString = SwanCoreVersion.getTypeString(T.extensionCoreType);
-                str = str3;
-                str2 = typeString;
-            }
-            sb.append("extensionjs: ");
-            sb.append(str2);
-            sb.append("/");
-            sb.append(str);
-            return sb.toString();
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public static String h(Context context) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            xn3 context2 = zn3.getContext();
-            StringBuilder sb = new StringBuilder();
-            sb.append("name: ");
-            sb.append(ln2.n().a());
-            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            sb.append("version: ");
-            if (context2 != null) {
-                str = context2.h();
-            } else {
-                str = "";
-            }
-            sb.append(str);
-            sb.append("\n");
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void m(Activity activity) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65549, null, activity) != null) || activity == null) {
-            return;
-        }
-        try {
-            str = l(activity);
-        } catch (Exception e) {
-            if (!a) {
-                e12.l("SwanAppEnvironmentUtils", "getExtraInfo error", e);
-                str = "";
-            } else {
-                throw e;
+            try {
+                return new SimpleDateFormat(str, Locale.getDefault()).format(date);
+            } catch (Exception unused) {
+                try {
+                    return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(date);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return "";
+                }
             }
         }
-        e12.k("SwanAppEnvironmentUtils", "recordExtraInfoToLogSystem\n--------------------ExtraInfo list----------------------\n" + str + "--------------------ExtraInfo end-----------------------");
-        String k = ln2.g0().k();
-        e12.k("SwanAppEnvironmentUtils", "sid = " + k);
-        e82.k();
+        return (String) invokeLL.objValue;
     }
 
-    public static String f() {
-        InterceptResult invokeV;
+    public static String g(long j, String str) {
+        InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            StringBuilder sb = new StringBuilder();
-            SwanCoreVersion M = rp2.U().M();
-            sb.append("game-core version : ");
-            sb.append(jd3.i(M, 1));
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String g(Context context) {
-        InterceptResult invokeL;
-        String v1;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            e43 b0 = e43.b0();
-            String str = "";
-            if (context == null || b0 == null || b0.k() != 1) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65543, null, j, str)) == null) {
+            try {
+                return new SimpleDateFormat((str == null || str.isEmpty()) ? "yyyy-MM-dd HH:mm:ss" : "yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(j));
+            } catch (NumberFormatException e) {
+                if (tk1.a) {
+                    e.printStackTrace();
+                    return "";
+                }
                 return "";
             }
-            StringBuilder sb = new StringBuilder();
-            bp2.a W = b0.W();
-            sb.append(f());
-            sb.append("\n");
-            sb.append("host version : ");
-            sb.append(yh3.u(AppRuntime.getAppContext(), AppRuntime.getAppContext().getPackageName()));
-            sb.append("\n");
-            sb.append("enable V8: ");
-            sb.append(ya2.U().r0());
-            sb.append("\n");
-            sb.append("aps version: ");
-            if (TextUtils.isEmpty(W.v1())) {
-                v1 = "";
-            } else {
-                v1 = W.v1();
-            }
-            sb.append(v1);
-            sb.append("\n");
-            String formatFileSize = Formatter.formatFileSize(AppRuntime.getAppContext(), W.i1());
-            sb.append("app bundle size: ");
-            if (TextUtils.isEmpty(formatFileSize)) {
-                formatFileSize = "";
-            }
-            sb.append(formatFileSize);
-            sb.append("\n");
-            sb.append("app bundle version: ");
-            if (!TextUtils.isEmpty(W.w1())) {
-                str = W.w1();
-            }
-            sb.append(str);
-            sb.append("\n");
-            sb.append("app is opt pkg: ");
-            sb.append(ju2.g().h(W.f0()));
-            sb.append("\n");
-            String b = mn2.h().b();
-            if (!TextUtils.isEmpty(b)) {
-                sb.append("app sconsole version: ");
-                sb.append(b);
-                sb.append("\n");
-            }
-            sb.append("game engine version: ");
-            sb.append("1.3.6.1");
-            sb.append("\n");
-            sb.append("so version: ");
-            sb.append(sc3.a().getLong("swan_so_installed_version_code_zeus", 0L));
-            sb.append("\n");
-            return sb.toString();
         }
-        return (String) invokeL.objValue;
+        return (String) invokeJL.objValue;
     }
 
-    public static void i(Context context, xi3<String> xi3Var) {
+    public static boolean f(Long l, Long l2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, context, xi3Var) == null) {
-            g42.e(xi3Var);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, l, l2)) == null) {
+            if (l.longValue() / 86400000 == l2.longValue() / 86400000) {
+                return true;
+            }
+            return false;
         }
-    }
-
-    public static String j(@NonNull e43 e43Var) {
-        InterceptResult invokeL;
-        String str;
-        SwanAppConfigData.h hVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, e43Var)) == null) {
-            PMSAppInfo f0 = e43Var.W().f0();
-            if (f0 == null) {
-                return "no info";
-            }
-            StringBuilder sb = new StringBuilder();
-            boolean i = ju2.g().i(f0);
-            boolean j0 = ya2.U().j0();
-            boolean z = false;
-            SwanAppConfigData Q = e43Var.Q();
-            if (Q != null && (hVar = Q.t) != null) {
-                z = hVar.a;
-                str = hVar.b;
-            } else {
-                str = "";
-            }
-            sb.append("is server on: ");
-            sb.append(i);
-            sb.append("\n");
-            sb.append("app.json info: ");
-            sb.append("enabled/");
-            sb.append(z);
-            sb.append(", trigger/");
-            sb.append(str);
-            sb.append("\n");
-            sb.append("is hit: ");
-            sb.append(j0);
-            sb.append("\n");
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String k() {
-        InterceptResult invokeV;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (a) {
-                j = System.nanoTime();
-            } else {
-                j = 0;
-            }
-            e22.d g = e22.c().g();
-            if (a) {
-                Log.d("SwanAppEnvironmentUtils", "获取内存信息耗时: " + ((System.nanoTime() - j) / 1000000) + " ms");
-            }
-            return "设备总内存：" + g.c + " M，设备剩余内存：" + g.d + " M，小程序启动占用内存：" + g.a + " M，宿主APP占用内存：" + g.b + " M\n";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String l(Context context) {
-        InterceptResult invokeL;
-        long j;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
-            if (a) {
-                j = System.nanoTime();
-            } else {
-                j = 0;
-            }
-            e43 b0 = e43.b0();
-            if (b0 != null && context != null) {
-                String str = "=========================\n= " + b0.W().K() + "\n=========================\n===== 小程序信息 =====\n" + c(context) + "\n===== 设备信息 =====\n" + d(context) + "\n===== 宿主信息 =====\n" + h(context) + "\n===== 内存信息 =====\n" + k() + "\n===== onPrefetch信息 =====\n" + j(b0) + "\n";
-                if (a) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("获取启动时信息耗时：");
-                    sb.append((System.nanoTime() - j) / 1000000);
-                    sb.append(" ms 是否主线程：");
-                    if (Looper.getMainLooper() == Looper.myLooper()) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    sb.append(z);
-                    Log.d("SwanAppEnvironmentUtils", sb.toString());
-                }
-                e12.k("SwanAppEnvironmentUtils", str);
-                return str;
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 }

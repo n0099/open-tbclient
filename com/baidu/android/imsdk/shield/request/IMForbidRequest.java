@@ -9,7 +9,6 @@ import com.baidu.android.imsdk.shield.ShieldAndTopManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.ar.constants.HttpConstants;
-import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -182,7 +181,7 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
                 String optString = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
                 z2 = jSONObject.optBoolean("display_toast", false);
                 if (z2) {
-                    str3 = jSONObject.optString(DI.TOAST_NAME, "");
+                    str3 = jSONObject.optString("toast", "");
                 }
                 str = str3;
                 z = z2;

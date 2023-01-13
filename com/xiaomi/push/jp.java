@@ -42,11 +42,11 @@ public abstract class jp {
         }
     }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract void m565a(byte[] bArr, int i, int i2);
+    /* renamed from: a */
+    public abstract void mo629a(byte[] bArr, int i, int i2);
 
-    /* renamed from: a  reason: collision with other method in class */
-    public byte[] m566a() {
+    /* renamed from: a */
+    public byte[] mo630a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {

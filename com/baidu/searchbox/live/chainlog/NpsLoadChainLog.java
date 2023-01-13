@@ -11,6 +11,7 @@ import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.live.interfaces.mix.PluginInvokeService;
 import com.baidu.searchbox.live.interfaces.service.AppInfoService;
 import com.baidu.searchbox.live.interfaces.yy.plugin.YYPluginProgressInvokeService;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -726,7 +727,7 @@ public class NpsLoadChainLog {
             JSONObject genNodeJsonObj = genNodeJsonObj(i, i2);
             try {
                 genNodeJsonObj.put("downloadSize", j);
-                genNodeJsonObj.put("totalSize", j2);
+                genNodeJsonObj.put(CommonTbJsBridge.FILE_DOWNLOAD_TOTAL_SIZE, j2);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

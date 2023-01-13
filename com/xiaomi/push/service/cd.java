@@ -50,7 +50,7 @@ public final class cd extends al.a {
 
     @Override // com.xiaomi.push.al.a
     /* renamed from: a */
-    public String mo217a() {
+    public String mo222a() {
         InterceptResult invokeV;
         String b;
         Interceptable interceptable = $ic;

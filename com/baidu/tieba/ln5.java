@@ -1,95 +1,123 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
+import android.graphics.Bitmap;
+import com.airbnb.lottie.ImageAssetDelegate;
+import com.airbnb.lottie.LottieImageAsset;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileImageLoaderProc;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Iterator;
 /* loaded from: classes5.dex */
-public class ln5 implements kn5 {
+public class ln5 implements ImageAssetDelegate {
     public static /* synthetic */ Interceptable $ic;
+    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashSet<LoadingLayout> a;
+    public String a;
+    public LocalFileImageLoaderProc b;
+    public boolean c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947948662, "Lcom/baidu/tieba/ln5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947948662, "Lcom/baidu/tieba/ln5;");
+                return;
+            }
+        }
+        d = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
+    }
 
     public ln5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new HashSet<>();
+        this.c = false;
     }
 
-    public void a(LoadingLayout loadingLayout) {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, loadingLayout) == null) && loadingLayout != null) {
-            this.a.add(loadingLayout);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return d + "/" + TbConfig.getTempDirName() + "/animation/";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.c = z;
         }
     }
 
-    @Override // com.baidu.tieba.kn5
-    public void setLastUpdatedLabel(CharSequence charSequence) {
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
-            Iterator<LoadingLayout> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().setLastUpdatedLabel(charSequence);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.a = a() + str + "/";
+        }
+    }
+
+    @Override // com.airbnb.lottie.ImageAssetDelegate
+    public Bitmap fetchBitmap(LottieImageAsset lottieImageAsset) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, lottieImageAsset)) == null) {
+            if (yi.isEmpty(this.a)) {
+                return null;
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.kn5
-    public void setLoadingDrawable(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, drawable) == null) {
-            Iterator<LoadingLayout> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().setLoadingDrawable(drawable);
+            String str = this.a + lottieImageAsset.getDirName().replace("/", "") + "/" + lottieImageAsset.getFileName();
+            jn jnVar = (jn) ug.h().n(str, 36, new Object[0]);
+            if (jnVar == null && b()) {
+                if (this.b == null) {
+                    this.b = new LocalFileImageLoaderProc();
+                }
+                jnVar = this.b.getBitmapFromFile(str, 0, 0);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.kn5
-    public void setPullLabel(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, charSequence) == null) {
-            Iterator<LoadingLayout> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().setPullLabel(charSequence);
+            if (jnVar != null && jnVar.p() != null) {
+                Bitmap p = jnVar.p();
+                try {
+                    if (p.getConfig() != null) {
+                        return p.copy(p.getConfig(), false);
+                    }
+                } catch (OutOfMemoryError e) {
+                    TbadkCoreApplication.getInst().onAppMemoryLow();
+                    BdLog.e(e);
+                }
             }
+            ug.h().m(str, 36, null, null);
+            return null;
         }
-    }
-
-    @Override // com.baidu.tieba.kn5
-    public void setRefreshingLabel(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, charSequence) == null) {
-            Iterator<LoadingLayout> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().setRefreshingLabel(charSequence);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.kn5
-    public void setReleaseLabel(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, charSequence) == null) {
-            Iterator<LoadingLayout> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().setReleaseLabel(charSequence);
-            }
-        }
+        return (Bitmap) invokeL.objValue;
     }
 }

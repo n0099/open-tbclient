@@ -1,20 +1,21 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pushdialog.PushDialogActivity;
+import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-import tbclient.MultiForumPerm;
+import tbclient.CartoonThread;
 /* loaded from: classes3.dex */
 public class at4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public long a;
     public int b;
-    public boolean c;
 
     public at4() {
         Interceptable interceptable = $ic;
@@ -30,59 +31,43 @@ public class at4 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
-        boolean z;
-        int i;
+    public long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        boolean z2 = false;
-        if (jSONObject.optInt("is_bawu") == 1) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.a = z;
-        if ("manager".equals(jSONObject.optString("bawu_type"))) {
-            i = 1;
-        } else if (PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(jSONObject.optString("bawu_type"))) {
-            i = 2;
-        } else {
-            i = 0;
-        }
-        this.b = i;
-        if (jSONObject.optInt("is_deleted") == 1) {
-            z2 = true;
-        }
-        this.c = z2;
+        return invokeV.longValue;
     }
 
-    public void b(MultiForumPerm multiForumPerm) {
-        boolean z;
-        int i;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, multiForumPerm) != null) || multiForumPerm == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        boolean z2 = false;
-        if (multiForumPerm.is_bawu.intValue() == 1) {
-            z = true;
-        } else {
-            z = false;
+        try {
+            this.a = jSONObject.optLong(MangaBrowserActivityConfig.CARTOON_ID);
+            this.b = jSONObject.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
+        } catch (Exception e) {
+            BdLog.e(e.toString());
         }
-        this.a = z;
-        if ("manager".equals(multiForumPerm.bawu_type)) {
-            i = 1;
-        } else if (PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(multiForumPerm.bawu_type)) {
-            i = 2;
-        } else {
-            i = 0;
+    }
+
+    public void d(CartoonThread cartoonThread) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, cartoonThread) != null) || cartoonThread == null) {
+            return;
         }
-        this.b = i;
-        if (multiForumPerm.is_deleted.intValue() == 1) {
-            z2 = true;
-        }
-        this.c = z2;
+        this.a = cartoonThread.cartoon_id.longValue();
+        this.b = cartoonThread.chapter_id.intValue();
     }
 }

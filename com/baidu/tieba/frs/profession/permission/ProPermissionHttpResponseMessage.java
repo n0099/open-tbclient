@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.profession.permission;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
-import com.baidu.tieba.ut6;
+import com.baidu.tieba.mx6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.squareup.wire.Wire;
 import java.io.IOException;
 import tbclient.ZoneRight.ZoneRightResIdl;
 /* loaded from: classes4.dex */
-public class ProPermissionHttpResponseMessage extends MvcProtobufHttpResponsedMessage<ut6, ZoneRightResIdl> {
+public class ProPermissionHttpResponseMessage extends MvcProtobufHttpResponsedMessage<mx6, ZoneRightResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -43,9 +43,9 @@ public class ProPermissionHttpResponseMessage extends MvcProtobufHttpResponsedMe
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.decodeInBackGround(i, bArr);
             try {
-                ut6 ut6Var = new ut6();
-                ut6Var.initByProtobuf((ZoneRightResIdl) new Wire(new Class[0]).parseFrom(bArr, ZoneRightResIdl.class));
-                setData(ut6Var);
+                mx6 mx6Var = new mx6();
+                mx6Var.initByProtobuf((ZoneRightResIdl) new Wire(new Class[0]).parseFrom(bArr, ZoneRightResIdl.class));
+                setData(mx6Var);
             } catch (IOException e) {
                 e.printStackTrace();
             }

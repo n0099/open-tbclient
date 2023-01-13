@@ -2,8 +2,9 @@ package com.baidu.tbadk.download;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h65;
+import com.baidu.tieba.filedownloader.data.ApkDownloadData;
 import com.baidu.tieba.recapp.report.DownloadStaticsData;
+import com.baidu.tieba.u65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +39,7 @@ public class DownloadData implements Serializable, Cloneable {
     public transient /* synthetic */ FieldHolder $fh;
     public String action;
     public String app_icon;
-    public transient h65 callback;
+    public transient u65 callback;
     public String check;
     public String description;
     public DownloadStaticsData downloadStaticsData;
@@ -49,7 +50,9 @@ public class DownloadData implements Serializable, Cloneable {
     public boolean isNeedInvokeApk;
     public boolean isNeedNotify;
     public long length;
+    public ApkDownloadData mApkDownloadData;
     public Object mExtraData;
+    public int mSource;
     public String name;
     public int notifyId;
     public String path;
@@ -94,7 +97,7 @@ public class DownloadData implements Serializable, Cloneable {
     public int getProcess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             if (getLength() <= 0 || getSize() <= 0) {
                 return 0;
             }
@@ -166,12 +169,12 @@ public class DownloadData implements Serializable, Cloneable {
         this.url = str2;
     }
 
-    public DownloadData(String str, String str2, String str3, h65 h65Var) {
+    public DownloadData(String str, String str2, String str3, u65 u65Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, h65Var};
+            Object[] objArr = {str, str2, str3, u65Var};
             interceptable.invokeUnInit(65539, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -197,7 +200,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.id = str;
         this.name = str2;
         this.url = str3;
-        this.callback = h65Var;
+        this.callback = u65Var;
         this.status = 5;
     }
 
@@ -224,28 +227,37 @@ public class DownloadData implements Serializable, Cloneable {
         return (String) invokeV.objValue;
     }
 
-    public String getApp_icon() {
+    public ApkDownloadData getApkDownloadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mApkDownloadData;
+        }
+        return (ApkDownloadData) invokeV.objValue;
+    }
+
+    public String getApp_icon() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.app_icon;
         }
         return (String) invokeV.objValue;
     }
 
-    public h65 getCallback() {
+    public u65 getCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.callback;
         }
-        return (h65) invokeV.objValue;
+        return (u65) invokeV.objValue;
     }
 
     public String getCheck() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.check;
         }
         return (String) invokeV.objValue;
@@ -254,7 +266,7 @@ public class DownloadData implements Serializable, Cloneable {
     public String getDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.description;
         }
         return (String) invokeV.objValue;
@@ -263,7 +275,7 @@ public class DownloadData implements Serializable, Cloneable {
     public DownloadStaticsData getDownloadStaticsData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.downloadStaticsData;
         }
         return (DownloadStaticsData) invokeV.objValue;
@@ -272,7 +284,7 @@ public class DownloadData implements Serializable, Cloneable {
     public int getErrorCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.errorCode;
         }
         return invokeV.intValue;
@@ -281,7 +293,7 @@ public class DownloadData implements Serializable, Cloneable {
     public Object getExtra() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.mExtraData;
         }
         return invokeV.objValue;
@@ -290,7 +302,7 @@ public class DownloadData implements Serializable, Cloneable {
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.height;
         }
         return invokeV.intValue;
@@ -299,7 +311,7 @@ public class DownloadData implements Serializable, Cloneable {
     public String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.id;
         }
         return (String) invokeV.objValue;
@@ -308,7 +320,7 @@ public class DownloadData implements Serializable, Cloneable {
     public long getLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.length;
         }
         return invokeV.longValue;
@@ -317,7 +329,7 @@ public class DownloadData implements Serializable, Cloneable {
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.name;
         }
         return (String) invokeV.objValue;
@@ -326,7 +338,7 @@ public class DownloadData implements Serializable, Cloneable {
     public int getNotifyId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return this.notifyId;
         }
         return invokeV.intValue;
@@ -335,7 +347,7 @@ public class DownloadData implements Serializable, Cloneable {
     public String getPath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return this.path;
         }
         return (String) invokeV.objValue;
@@ -344,7 +356,7 @@ public class DownloadData implements Serializable, Cloneable {
     public int getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             return this.position;
         }
         return invokeV.intValue;
@@ -353,16 +365,25 @@ public class DownloadData implements Serializable, Cloneable {
     public long getSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             return this.size;
         }
         return invokeV.longValue;
     }
 
+    public int getSource() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.mSource;
+        }
+        return invokeV.intValue;
+    }
+
     public int getStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             return this.status;
         }
         return invokeV.intValue;
@@ -371,7 +392,7 @@ public class DownloadData implements Serializable, Cloneable {
     public String getStatusMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             return this.statusMsg;
         }
         return (String) invokeV.objValue;
@@ -380,7 +401,7 @@ public class DownloadData implements Serializable, Cloneable {
     public String[] getTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             return this.tag;
         }
         return (String[]) invokeV.objValue;
@@ -389,7 +410,7 @@ public class DownloadData implements Serializable, Cloneable {
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
             return this.type;
         }
         return invokeV.intValue;
@@ -398,7 +419,7 @@ public class DownloadData implements Serializable, Cloneable {
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
             return this.url;
         }
         return (String) invokeV.objValue;
@@ -407,7 +428,7 @@ public class DownloadData implements Serializable, Cloneable {
     public String getUser_name() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
             return this.user_name;
         }
         return (String) invokeV.objValue;
@@ -416,7 +437,7 @@ public class DownloadData implements Serializable, Cloneable {
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
             return this.width;
         }
         return invokeV.intValue;
@@ -425,7 +446,7 @@ public class DownloadData implements Serializable, Cloneable {
     public boolean isForceDownload() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
             return this.isForceDownload;
         }
         return invokeV.booleanValue;
@@ -434,7 +455,7 @@ public class DownloadData implements Serializable, Cloneable {
     public boolean isNeedInvokeApk() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
             return this.isNeedInvokeApk;
         }
         return invokeV.booleanValue;
@@ -443,7 +464,7 @@ public class DownloadData implements Serializable, Cloneable {
     public boolean isNeedNotify() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
             return this.isNeedNotify;
         }
         return invokeV.booleanValue;
@@ -451,182 +472,196 @@ public class DownloadData implements Serializable, Cloneable {
 
     public void setAction(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
             this.action = str;
+        }
+    }
+
+    public void setApkDownloadData(ApkDownloadData apkDownloadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048607, this, apkDownloadData) == null) {
+            this.mApkDownloadData = apkDownloadData;
         }
     }
 
     public void setApp_icon(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048608, this, str) == null) {
             this.app_icon = str;
         }
     }
 
-    public void setCallback(h65 h65Var) {
+    public void setCallback(u65 u65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, h65Var) == null) {
-            this.callback = h65Var;
+        if (interceptable == null || interceptable.invokeL(1048609, this, u65Var) == null) {
+            this.callback = u65Var;
         }
     }
 
     public void setCheck(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048610, this, str) == null) {
             this.check = str;
         }
     }
 
     public void setDescription(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
             this.description = str;
         }
     }
 
     public void setDownloadStaticsData(DownloadStaticsData downloadStaticsData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, downloadStaticsData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048612, this, downloadStaticsData) == null) {
             this.downloadStaticsData = downloadStaticsData;
         }
     }
 
     public void setErrorCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
             this.errorCode = i;
         }
     }
 
     public void setExtra(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(1048614, this, obj) == null) {
             this.mExtraData = obj;
         }
     }
 
     public void setForceDownload(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048612, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048615, this, z) == null) {
             this.isForceDownload = z;
         }
     }
 
     public void setHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
             this.height = i;
         }
     }
 
     public void setId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048614, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048617, this, str) == null) {
             this.id = str;
         }
     }
 
     public void setLength(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048615, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048618, this, j) == null) {
             this.length = j;
         }
     }
 
     public void setName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048616, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
             this.name = str;
         }
     }
 
     public void setNeedInvokeApk(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048617, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048620, this, z) == null) {
             this.isNeedInvokeApk = z;
         }
     }
 
     public void setNeedNotify(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048618, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048621, this, z) == null) {
             this.isNeedNotify = z;
         }
     }
 
     public void setNotifyId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048622, this, i) == null) {
             this.notifyId = i;
         }
     }
 
     public void setPath(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048620, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048623, this, str) == null) {
             this.path = str;
         }
     }
 
     public void setPosition(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048624, this, i) == null) {
             this.position = i;
         }
     }
 
     public void setSize(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048622, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048625, this, j) == null) {
             this.size = j;
+        }
+    }
+
+    public void setSource(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048626, this, i) == null) {
+            this.mSource = i;
         }
     }
 
     public void setStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048623, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048627, this, i) == null) {
             this.status = i;
         }
     }
 
     public void setStatusMsg(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048628, this, str) == null) {
             this.statusMsg = str;
         }
     }
 
     public void setTag(String[] strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048625, this, strArr) == null) {
+        if (interceptable == null || interceptable.invokeL(1048629, this, strArr) == null) {
             this.tag = strArr;
         }
     }
 
     public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048626, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048630, this, i) == null) {
             this.type = i;
         }
     }
 
     public void setUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048627, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048631, this, str) == null) {
             this.url = str;
         }
     }
 
     public void setUser_name(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048628, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048632, this, str) == null) {
             this.user_name = str;
         }
     }
 
     public void setWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048629, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048633, this, i) == null) {
             this.width = i;
         }
     }

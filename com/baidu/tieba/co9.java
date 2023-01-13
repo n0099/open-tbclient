@@ -1,20 +1,15 @@
 package com.baidu.tieba;
-
-import android.os.Build;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public class co9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface co9 {
+    void a();
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return Build.MANUFACTURER;
-        }
-        return (String) invokeV.objValue;
-    }
+    void b(int i);
+
+    void c();
+
+    void d(String str);
+
+    void e(String str);
+
+    void f();
 }

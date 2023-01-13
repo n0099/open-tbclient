@@ -20,7 +20,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class VCardResultParser extends ResultParser {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern BEGIN_VCARD;

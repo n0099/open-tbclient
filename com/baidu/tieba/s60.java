@@ -1,31 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.core.Request;
-import com.baidu.searchbox.network.outback.core.Response;
-import com.baidu.searchbox.network.outback.statistics.NetworkStatRecord;
-import com.baidu.tieba.h70;
-import com.baidu.tieba.u60;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
+import okhttp3.Dns;
+import okhttp3.Interceptor;
+import okhttp3.Request;
+import okhttp3.Response;
 /* loaded from: classes6.dex */
-public class s60 implements u60 {
+public class s60 implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final e70 a;
-    public b70 b;
-    public boolean c;
+    public Dns a;
 
-    public s60(z60 z60Var) {
+    public s60(Dns dns) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {z60Var};
+            Object[] objArr = {dns};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,62 +32,25 @@ public class s60 implements u60 {
                 return;
             }
         }
-        h70.b b = h70.b();
-        b.c(z60Var);
-        this.a = b.b();
+        this.a = dns;
     }
 
-    @Override // com.baidu.tieba.u60
-    public Response a(u60.a aVar) throws IOException {
+    @Override // okhttp3.Interceptor
+    public Response intercept(Interceptor.Chain chain) throws IOException {
         InterceptResult invokeL;
-        long contentLength;
+        Dns dns;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            if (!this.c) {
-                k70 k70Var = (k70) aVar;
-                Request request = aVar.request();
-                NetworkStatRecord networkStatRecord = request.getNetworkStatRecord();
-                if (request.body() == null) {
-                    contentLength = 0;
-                } else {
-                    contentLength = request.body().contentLength();
-                }
-                networkStatRecord.requestBodyLength = contentLength;
-                b70 c = c(request);
-                this.b = c;
-                return k70Var.b(request, c);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
+            Request request = chain.request();
+            com.baidu.searchbox.network.outback.core.Request request2 = (com.baidu.searchbox.network.outback.core.Request) request.tag(com.baidu.searchbox.network.outback.core.Request.class);
+            if (request2 == null) {
+                return chain.proceed(request);
             }
-            throw new IOException("The request has been cancelled.");
+            if ((request2.getNetworkStatRecord().dnsDetail == null || (request2.getNetworkStatRecord().dnsDetail != null && StringUtil.EMPTY_ARRAY.equalsIgnoreCase(request2.getNetworkStatRecord().dnsDetail.toString().trim()))) && (dns = this.a) != null) {
+                dns.lookup(request2.url().host());
+            }
+            return chain.proceed(request);
         }
         return (Response) invokeL.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = true;
-            b70 b70Var = this.b;
-            if (b70Var != null) {
-                b70Var.disconnect();
-            }
-        }
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final b70 c(Request request) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, request)) == null) {
-            return this.a.a(request);
-        }
-        return (b70) invokeL.objValue;
     }
 }

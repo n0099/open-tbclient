@@ -9,10 +9,10 @@ import androidx.lifecycle.ViewModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.i08;
-import com.baidu.tieba.ms4;
+import com.baidu.tieba.mc8;
 import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.v78;
+import com.baidu.tieba.ws4;
+import com.baidu.tieba.y48;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class VideoPbViewModel extends ViewModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public v78 a;
+    public mc8 a;
     public PbModel b;
     public int c;
 
@@ -39,7 +39,7 @@ public class VideoPbViewModel extends ViewModel {
                 return;
             }
         }
-        this.a = new v78();
+        this.a = new mc8();
         this.c = 0;
     }
 
@@ -52,22 +52,22 @@ public class VideoPbViewModel extends ViewModel {
         return (MutableLiveData) invokeV.objValue;
     }
 
-    public i08 c() {
+    public y48 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.a.b();
         }
-        return (i08) invokeV.objValue;
+        return (y48) invokeV.objValue;
     }
 
-    public i08 d() {
+    public y48 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.a.c();
         }
-        return (i08) invokeV.objValue;
+        return (y48) invokeV.objValue;
     }
 
     public MutableLiveData<Boolean> e() {
@@ -218,21 +218,21 @@ public class VideoPbViewModel extends ViewModel {
     }
 
     public void p(boolean z) {
-        ms4 ms4Var;
+        ws4 ws4Var;
         int i;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048591, this, z) == null) && this.a.g().getValue() != null) {
-            i08 v0 = this.b.v0(this.a.g().getValue());
+            y48 v0 = this.b.v0(this.a.g().getValue());
             if (v0 != null) {
                 this.a.k().addLast(this.a.b());
                 this.a.o(v0);
                 ThreadData threadData = null;
                 if (!ListUtils.isEmpty(v0.f())) {
-                    ms4Var = v0.f().get(0);
+                    ws4Var = v0.f().get(0);
                 } else {
-                    ms4Var = null;
+                    ws4Var = null;
                 }
-                this.a.w(ms4Var);
+                this.a.w(ws4Var);
                 if (this.a.k().getLast() != null) {
                     threadData = this.a.k().getLast().Q();
                 }
@@ -251,18 +251,18 @@ public class VideoPbViewModel extends ViewModel {
     }
 
     public void q() {
-        i08 pollLast;
-        ms4 ms4Var;
+        y48 pollLast;
+        ws4 ws4Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (pollLast = this.a.k().pollLast()) != null) {
             this.a.o(pollLast);
             ThreadData threadData = null;
             if (!ListUtils.isEmpty(pollLast.f())) {
-                ms4Var = pollLast.f().get(0);
+                ws4Var = pollLast.f().get(0);
             } else {
-                ms4Var = null;
+                ws4Var = null;
             }
-            this.a.w(ms4Var);
+            this.a.w(ws4Var);
             if (this.a.k().peekLast() != null) {
                 threadData = this.a.k().peekLast().Q();
             }
@@ -273,19 +273,19 @@ public class VideoPbViewModel extends ViewModel {
     }
 
     public void r(ThreadData threadData) {
-        i08 v0;
-        ms4 ms4Var;
+        y48 v0;
+        ws4 ws4Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048593, this, threadData) == null) && threadData != null && (v0 = this.b.v0(threadData)) != null) {
             this.a.k().addLast(this.a.b());
             this.a.o(v0);
             ThreadData threadData2 = null;
             if (!ListUtils.isEmpty(v0.f())) {
-                ms4Var = v0.f().get(0);
+                ws4Var = v0.f().get(0);
             } else {
-                ms4Var = null;
+                ws4Var = null;
             }
-            this.a.w(ms4Var);
+            this.a.w(ws4Var);
             if (this.a.k().getLast() != null) {
                 threadData2 = this.a.k().getLast().Q();
             }
@@ -296,26 +296,26 @@ public class VideoPbViewModel extends ViewModel {
         }
     }
 
-    public void s(i08 i08Var, int i) {
+    public void s(y48 y48Var, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048594, this, i08Var, i) == null) && i >= this.c) {
+        if ((interceptable == null || interceptable.invokeLI(1048594, this, y48Var, i) == null) && i >= this.c) {
             this.c = i;
-            this.a.p(i08Var);
-            if (i08Var != null) {
-                v78 v78Var = this.a;
+            this.a.p(y48Var);
+            if (y48Var != null) {
+                mc8 mc8Var = this.a;
                 boolean z = true;
-                if (i08Var.s() != 1 && !i08Var.l0()) {
+                if (y48Var.s() != 1 && !y48Var.l0()) {
                     z = false;
                 }
-                v78Var.q(z);
+                mc8Var.q(z);
             }
         }
     }
 
-    public void t(i08 i08Var, int i) {
+    public void t(y48 y48Var, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048595, this, i08Var, i) == null) && i == 3) {
-            this.a.o(i08Var);
+        if ((interceptable == null || interceptable.invokeLI(1048595, this, y48Var, i) == null) && i == 3) {
+            this.a.o(y48Var);
         }
     }
 }

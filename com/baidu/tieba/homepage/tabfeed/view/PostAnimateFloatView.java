@@ -21,16 +21,16 @@ import com.baidu.tbadk.core.atomData.LocalChannelTopicListActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ah;
-import com.baidu.tieba.q67;
-import com.baidu.tieba.rw4;
-import com.baidu.tieba.tx;
+import com.baidu.tieba.bh;
+import com.baidu.tieba.cx4;
+import com.baidu.tieba.pa7;
+import com.baidu.tieba.vx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class PostAnimateFloatView extends FrameLayout implements tx {
+public class PostAnimateFloatView extends FrameLayout implements vx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
@@ -104,7 +104,7 @@ public class PostAnimateFloatView extends FrameLayout implements tx {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                q67.g();
+                pa7.g();
                 new LocalChannelTopicListActivityConfig(this.a.getContext()).start();
             }
         }
@@ -284,7 +284,7 @@ public class PostAnimateFloatView extends FrameLayout implements tx {
                 return;
             }
             this.a.e = false;
-            ah.a().postDelayed(this.a.i, 5000L);
+            bh.a().postDelayed(this.a.i, 5000L);
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -404,17 +404,17 @@ public class PostAnimateFloatView extends FrameLayout implements tx {
                 valueAnimator2.removeAllUpdateListeners();
                 this.g.removeAllListeners();
             }
-            ah.a().removeCallbacks(this.i);
+            bh.a().removeCallbacks(this.i);
         }
     }
 
     public final void i(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04e3, (ViewGroup) this, true);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d2a);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091afa);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091b12);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04e2, (ViewGroup) this, true);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d49);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091b08);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091b20);
             this.c = textView;
             this.f = textView.getPaint().measureText(getContext().getString(R.string.post_new_local_thread));
             j();
@@ -460,13 +460,13 @@ public class PostAnimateFloatView extends FrameLayout implements tx {
         }
     }
 
-    @Override // com.baidu.tieba.tx
+    @Override // com.baidu.tieba.vx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i) == null) {
             ImageView imageView = this.b;
             if (imageView != null) {
-                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f0809af, R.color.CAM_X0101, null);
+                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f0809bf, R.color.CAM_X0101, null);
             }
             TextView textView = this.c;
             if (textView != null) {
@@ -474,7 +474,7 @@ public class PostAnimateFloatView extends FrameLayout implements tx {
             }
             LinearLayout linearLayout = this.a;
             if (linearLayout != null) {
-                rw4 d2 = rw4.d(linearLayout);
+                cx4 d2 = cx4.d(linearLayout);
                 d2.n(R.string.J_X01);
                 d2.h(R.color.CAM_X0302);
             }

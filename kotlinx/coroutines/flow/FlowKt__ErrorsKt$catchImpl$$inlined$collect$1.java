@@ -10,9 +10,10 @@ import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.ContinuationImpl;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.jvm.internal.Ref;
+/* JADX INFO: Add missing generic type declarations: [T] */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0013\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003*\u0001\u0000\b\n\u0018\u00002\u00020\u0001J\u001b\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00028\u0000H\u0096@ø\u0001\u0000¢\u0006\u0004\b\u0004\u0010\u0005\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0006¸\u0006\u0000"}, d2 = {"kotlinx/coroutines/flow/FlowKt__CollectKt$collect$3", "Lkotlinx/coroutines/flow/FlowCollector;", "value", "", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes9.dex */
-public final class FlowKt__ErrorsKt$catchImpl$$inlined$collect$1 implements FlowCollector<T> {
+public final class FlowKt__ErrorsKt$catchImpl$$inlined$collect$1<T> implements FlowCollector<T> {
     public final /* synthetic */ FlowCollector $collector$inlined;
     public final /* synthetic */ Ref.ObjectRef $fromDownstream$inlined;
 
@@ -45,12 +46,8 @@ public final class FlowKt__ErrorsKt$catchImpl$$inlined$collect$1 implements Flow
         this.$fromDownstream$inlined = objectRef;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:14:0x0035 */
     /* JADX WARN: Removed duplicated region for block: B:10:0x0023  */
     /* JADX WARN: Removed duplicated region for block: B:18:0x003f  */
-    /* JADX WARN: Type inference failed for: r6v2, types: [java.lang.Throwable] */
-    /* JADX WARN: Type inference failed for: r6v4, types: [java.lang.Throwable, T] */
-    /* JADX WARN: Type inference failed for: r6v6, types: [java.lang.Throwable] */
     @Override // kotlinx.coroutines.flow.FlowCollector
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -58,7 +55,7 @@ public final class FlowKt__ErrorsKt$catchImpl$$inlined$collect$1 implements Flow
     public Object emit(Object obj, Continuation continuation) {
         AnonymousClass1 anonymousClass1;
         int i;
-        FlowKt__ErrorsKt$catchImpl$$inlined$collect$1 flowKt__ErrorsKt$catchImpl$$inlined$collect$1;
+        FlowKt__ErrorsKt$catchImpl$$inlined$collect$1<T> flowKt__ErrorsKt$catchImpl$$inlined$collect$1;
         if (continuation instanceof AnonymousClass1) {
             anonymousClass1 = (AnonymousClass1) continuation;
             int i2 = anonymousClass1.label;
@@ -75,10 +72,10 @@ public final class FlowKt__ErrorsKt$catchImpl$$inlined$collect$1 implements Flow
                         flowKt__ErrorsKt$catchImpl$$inlined$collect$1 = (FlowKt__ErrorsKt$catchImpl$$inlined$collect$1) anonymousClass1.L$0;
                         try {
                             ResultKt.throwOnFailure(obj2);
-                        } catch (Throwable th) {
-                            th = th;
-                            flowKt__ErrorsKt$catchImpl$$inlined$collect$1.$fromDownstream$inlined.element = th;
-                            throw th;
+                        } catch (Throwable t) {
+                            t = th;
+                            flowKt__ErrorsKt$catchImpl$$inlined$collect$1.$fromDownstream$inlined.element = t;
+                            throw ((Throwable) t);
                         }
                     } else {
                         throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
@@ -95,11 +92,11 @@ public final class FlowKt__ErrorsKt$catchImpl$$inlined$collect$1 implements Flow
                         if (flowCollector.emit(obj, anonymousClass1) == coroutine_suspended) {
                             return coroutine_suspended;
                         }
-                    } catch (Throwable th2) {
-                        th = th2;
+                    } catch (Throwable t2) {
+                        t2 = th;
                         flowKt__ErrorsKt$catchImpl$$inlined$collect$1 = this;
-                        flowKt__ErrorsKt$catchImpl$$inlined$collect$1.$fromDownstream$inlined.element = th;
-                        throw th;
+                        flowKt__ErrorsKt$catchImpl$$inlined$collect$1.$fromDownstream$inlined.element = t2;
+                        throw ((Throwable) t2);
                     }
                 }
                 return Unit.INSTANCE;

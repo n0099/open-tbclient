@@ -17,7 +17,6 @@ import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
-import com.baidu.mobstat.Config;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
@@ -181,7 +180,7 @@ public class FileProvider extends ContentProvider {
         if ("r".equals(str)) {
             return LaunchTaskConstants.OTHER_PROCESS;
         }
-        if (Config.DEVICE_WIDTH.equals(str) || "wt".equals(str)) {
+        if ("w".equals(str) || "wt".equals(str)) {
             return 738197504;
         }
         if ("wa".equals(str)) {

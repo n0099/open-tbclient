@@ -1,45 +1,46 @@
 package com.baidu.tieba;
 
+import android.database.Cursor;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.event.JSEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.de2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Locale;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.StringReader;
 import java.util.Map;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public abstract class ee2 {
+public final class ee2 implements de2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-
-    public abstract void m(Map<String, Object> map);
+    public final de2.b a;
 
     /* loaded from: classes4.dex */
-    public class a extends ce2 {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c32 c;
-        public final /* synthetic */ String d;
+        public final /* synthetic */ ee2 a;
 
-        public a(ee2 ee2Var, c32 c32Var, String str) {
+        public a(ee2 ee2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ee2Var, c32Var, str};
+                Object[] objArr = {ee2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,121 +50,56 @@ public abstract class ee2 {
                     return;
                 }
             }
-            this.c = c32Var;
-            this.d = str;
+            this.a = ee2Var;
         }
 
-        @Override // com.baidu.tieba.ce2
-        public void c() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.c.isDestroyed()) {
-                    if (ee2.b) {
-                        Log.e("JSEventDispatcher", Log.getStackTraceString(new Exception("webview is destroyed. dispatch action:" + this.d)));
-                        return;
-                    }
-                    return;
-                }
-                this.c.evaluateJavascript(this.d, null);
-                ix2.a("postMessage", "dispatchJSEvent evaluateJavascript");
+                this.a.f();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b extends ce2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c32 c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ ee2 e;
-
-        public b(ee2 ee2Var, c32 c32Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ee2Var, c32Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = ee2Var;
-            this.c = c32Var;
-            this.d = str;
-        }
-
-        @Override // com.baidu.tieba.ce2
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.e.l(this.c, this.d);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947731383, "Lcom/baidu/tieba/ee2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947731383, "Lcom/baidu/tieba/ee2;");
-                return;
-            }
-        }
-        b = ok1.a;
-    }
-
-    public ee2() {
+    public ee2(de2.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = bVar == null ? new de2.b() : bVar;
     }
 
-    public final void b(@NonNull JSONObject jSONObject) {
+    public ee2 b(@Nullable String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            try {
-                jSONObject.put("type", this.a);
-            } catch (JSONException e) {
-                if (b) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (e() && !TextUtils.isEmpty(str) && !d(this.a.a.get(str))) {
+                ce2 query = ce2.query(str);
+                if (d(query)) {
+                    this.a.a.put(query.a(), query);
                 }
             }
+            return this;
         }
+        return (ee2) invokeL.objValue;
     }
 
-    public String c(c32 c32Var) {
+    public static boolean d(de2.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c32Var)) == null) {
-            return d("event", c32Var);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public boolean f(c32 c32Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, c32Var)) == null) {
-            if (c32Var != null && !c32Var.isWebView() && (c32Var instanceof ob2)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, aVar)) == null) {
+            if (aVar != null && aVar.isValid()) {
                 return true;
             }
             return false;
@@ -171,224 +107,217 @@ public abstract class ee2 {
         return invokeL.booleanValue;
     }
 
-    public void g(c32 c32Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, c32Var) != null) || c32Var == null) {
-            return;
-        }
-        ix2.a("postMessage", "dispatchJSEvent start.");
-        if (de2.b) {
-            r(c32Var);
-        } else {
-            q(c32Var);
-        }
-        ix2.a("postMessage", "dispatchJSEvent buildEvent");
-    }
-
-    public final boolean p(Object obj) {
+    public static ee2 m(de2.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, obj)) == null) {
-            if (obj == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bVar)) == null) {
+            return new ee2(bVar);
+        }
+        return (ee2) invokeL.objValue;
+    }
+
+    public ee2 i(int i) {
+        InterceptResult invokeI;
+        de2.b bVar;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            if (e() && i != (i2 = (bVar = this.a).d) && (i2 == 0 || i2 == bVar.c)) {
+                this.a.d = i;
             }
-            if (!(obj instanceof String)) {
-                return true;
+            return this;
+        }
+        return (ee2) invokeI.objValue;
+    }
+
+    public ee2 n(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            if (e()) {
+                this.a.c = i;
             }
-            return !TextUtils.isEmpty((String) obj);
+            return this;
         }
-        return invokeL.booleanValue;
+        return (ee2) invokeI.objValue;
     }
 
-    public final void r(@NonNull c32 c32Var) {
+    public static ee2 l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, c32Var) == null) {
-            if (f(c32Var)) {
-                h(c32Var);
-            } else {
-                i(c32Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return m(null);
+        }
+        return (ee2) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            de2.b bVar = this.a;
+            int i = bVar.d;
+            if (i == 0) {
+                return bVar.c;
             }
+            return i;
         }
+        return invokeV.intValue;
     }
 
-    public String d(String str, c32 c32Var) {
-        InterceptResult invokeLL;
-        String format;
-        String b2;
+    public boolean e() {
+        InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, c32Var)) == null) {
-            if (c32Var != null && !TextUtils.isEmpty(this.a)) {
-                if (TextUtils.isEmpty(str)) {
-                    str = "event";
-                }
-                Locale locale = Locale.getDefault();
-                if (c32Var.isWebView()) {
-                    format = String.format(locale, "var %s = new Event('%s');", str, this.a);
-                    b2 = "";
-                } else {
-                    format = String.format(locale, "var %s = new Object();", str);
-                    b2 = ae2.b(str, "type", this.a);
-                }
-                return format + (b2 + o(str)) + String.format(locale, "%s.dispatchEvent(%s);", ae2.c(c32Var), str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this.a) {
+                z = this.a.b;
             }
-            return null;
+            return z;
         }
-        return (String) invokeLL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public JSEvent e(c32 c32Var) {
-        InterceptResult invokeL;
+    public de2.b k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, c32Var)) == null) {
-            if (c32Var != null && !TextUtils.isEmpty(this.a)) {
-                JSEvent jSEvent = new JSEvent(this.a);
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    n(jSONObject);
-                } catch (Exception e) {
-                    if (b) {
-                        e.printStackTrace();
-                    }
-                }
-                b(jSONObject);
-                jSEvent.data = jSONObject;
-                return jSEvent;
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a;
         }
-        return (JSEvent) invokeL.objValue;
+        return (de2.b) invokeV.objValue;
     }
 
-    public void n(JSONObject jSONObject) throws JSONException {
+    public final void f() {
+        String str;
+        de2.a value;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, jSONObject) == null) {
-            HashMap hashMap = new HashMap();
-            m(hashMap);
-            for (String str : hashMap.keySet()) {
-                if (!TextUtils.isEmpty(str)) {
-                    Object obj = hashMap.get(str);
-                    if (p(obj)) {
-                        jSONObject.put(str, obj);
-                    }
-                }
-            }
-        }
-    }
-
-    public void h(c32 c32Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, c32Var) != null) || c32Var == null) {
-            return;
-        }
-        if (b) {
-            Log.d("JSEventDispatcher", "dispatch event - " + this.a + " on v8");
-        }
-        JSEvent e = e(c32Var);
-        if (e == null) {
-            return;
-        }
-        j(c32Var, e);
-        if (b) {
-            Log.d("JSEventDispatcher", "dispatchJSEvent action - " + e.type + " on v8 : " + e.data);
-        }
-    }
-
-    public final void q(c32 c32Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, c32Var) == null) {
-            String c = c(c32Var);
-            if (TextUtils.isEmpty(c)) {
-                return;
-            }
-            String format = String.format(Locale.getDefault(), "javascript:(function(){%s})();", c);
-            if (b) {
-                Log.d("JSEventDispatcher", "dispatchJSEvent action: " + format);
-            }
-            if (c32Var.isWebView()) {
-                be2.b().c(new b(this, c32Var, format), null);
-            } else {
-                l(c32Var, format);
-            }
-        }
-    }
-
-    public void i(c32 c32Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, c32Var) != null) || c32Var == null) {
-            return;
-        }
-        if (b) {
-            Log.d("JSEventDispatcher", "dispatch event - " + this.a + " on webView");
-        }
-        String c = c(c32Var);
-        if (TextUtils.isEmpty(c)) {
-            return;
-        }
-        String format = String.format(Locale.getDefault(), "javascript:(function(){%s})();", c);
-        k(c32Var, format);
-        if (b) {
-            Log.d("JSEventDispatcher", "dispatchJSEvent action on webView: " + format);
-        }
-    }
-
-    public String o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            Map<String, Object> hashMap = new HashMap<>();
-            m(hashMap);
-            StringBuilder sb = new StringBuilder();
-            for (String str2 : hashMap.keySet()) {
-                if (!TextUtils.isEmpty(str2)) {
-                    Object obj = hashMap.get(str2);
-                    if (p(obj)) {
-                        if (obj instanceof String) {
-                            obj = JSONObject.quote((String) obj);
-                        }
-                        sb.append(str);
-                        sb.append(".");
-                        sb.append(str2);
-                        sb.append("=");
-                        sb.append(obj);
-                        sb.append(";");
-                    }
-                }
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void j(c32 c32Var, JSEvent jSEvent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, c32Var, jSEvent) != null) || c32Var.isDestroyed()) {
-            return;
-        }
-        if (c32Var instanceof ob2) {
-            ((ob2) c32Var).dispatchEvent(jSEvent);
-        }
-        ix2.a("postMessage", "dispatchJSEvent evaluateJavascript");
-    }
-
-    public void k(c32 c32Var, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048585, this, c32Var, str) == null) && c32Var != null && !TextUtils.isEmpty(str)) {
-            be2.b().c(new a(this, c32Var, str), null);
-        }
-    }
-
-    public final void l(c32 c32Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, c32Var, str) == null) {
-            if (c32Var.isDestroyed()) {
-                if (b) {
-                    Log.e("JSEventDispatcher", Log.getStackTraceString(new Exception("webview is destroyed. dispatch action:" + str)));
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this.a) {
+                if (!e()) {
                     return;
                 }
-                return;
+                this.a.b = false;
+                lb3 lb3Var = new lb3();
+                lb3Var.a = "swan";
+                lb3Var.c = "NA";
+                int c = c();
+                lb3Var.b = String.valueOf(c);
+                JSONArray jSONArray = new JSONArray();
+                for (Map.Entry<String, de2.a> entry : this.a.a.entrySet()) {
+                    if (!TextUtils.isEmpty(entry.getKey()) && (value = entry.getValue()) != null && value.isValid()) {
+                        jSONArray.put(value.b());
+                    }
+                }
+                lb3Var.a("purged_list", jSONArray);
+                if (7 == c) {
+                    lb3Var.a("history_list", h());
+                    lb3Var.a("disk_size", g());
+                }
+                if (de2.m0) {
+                    JSONObject f = lb3Var.f();
+                    if (f == null) {
+                        str = StringUtil.NULL_STRING;
+                    } else {
+                        try {
+                            str = f.toString(4);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            str = "" + lb3Var;
+                        }
+                    }
+                    BufferedReader bufferedReader = new BufferedReader(new StringReader(str));
+                    while (true) {
+                        try {
+                            try {
+                                String readLine = bufferedReader.readLine();
+                                if (readLine == null) {
+                                    break;
+                                }
+                                Log.i("PurgerStatistic", "report event => " + readLine);
+                            } catch (IOException e2) {
+                                e2.printStackTrace();
+                            }
+                        } finally {
+                            nk4.d(bufferedReader);
+                        }
+                    }
+                }
+                cb3.x("1377", lb3Var);
             }
-            c32Var.evaluateJavascript(str, null);
-            ix2.a("postMessage", "dispatchJSEvent evaluateJavascript");
+        }
+    }
+
+    @NonNull
+    public final JSONObject g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            int a2 = xh3.a();
+            int i = rb3.i();
+            int b = rb3.b();
+            int k = rb3.k();
+            try {
+                jSONObject.put("device", a2);
+                jSONObject.put("swan_pkg", i);
+                jSONObject.put("app_pkg", b);
+                jSONObject.put("app_third", k);
+            } catch (JSONException e) {
+                if (de2.m0) {
+                    e.printStackTrace();
+                    Log.i("PurgerStatistic", "queryDiskSize: e=" + e);
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    @NonNull
+    public final JSONArray h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            try {
+                Cursor m = mb2.m();
+                int count = m.getCount();
+                while (m.moveToNext()) {
+                    String string = m.getString(m.getColumnIndex("app_id"));
+                    long j = m.getLong(m.getColumnIndex("visit_time"));
+                    if (!TextUtils.isEmpty(string)) {
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put(IntentConfig.PKG_ID, string);
+                        jSONObject.put("last_launch_time", j);
+                        jSONArray.put(jSONObject);
+                    }
+                }
+                if (de2.m0) {
+                    Log.i("PurgerStatistic", "queryHisList: cursor=" + count + " items=" + jSONArray.length());
+                }
+                if (m != null) {
+                    m.close();
+                }
+            } catch (JSONException e) {
+                if (de2.m0) {
+                    e.printStackTrace();
+                    Log.i("PurgerStatistic", "queryHisList: e=" + e);
+                }
+            }
+            return jSONArray;
+        }
+        return (JSONArray) invokeV.objValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            if (de2.m0) {
+                Log.i("PurgerStatistic", "performReport: " + this.a);
+            }
+            if (e()) {
+                ExecutorUtilsExt.postOnElastic(new a(this), "PurgerStatistic", 3);
+            }
         }
     }
 }

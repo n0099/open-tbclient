@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tieba.R;
-import com.baidu.tieba.k36;
-import com.baidu.tieba.m36;
-import com.baidu.tieba.t36;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.e46;
+import com.baidu.tieba.g46;
+import com.baidu.tieba.n46;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -68,8 +68,8 @@ public class NewAnounceLayout extends CardBasicLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 new StatisticItem(TbadkCoreStatisticKey.KEY_ANNOUNCE_AREA).eventStat();
-                k36 k36Var = this.a.c;
-                if (k36Var != null && k36Var.k() != 0 && !TextUtils.isEmpty(this.a.c.b()) && this.a.c.f() != 2) {
+                e46 e46Var = this.a.c;
+                if (e46Var != null && e46Var.k() != 0 && !TextUtils.isEmpty(this.a.c.b()) && this.a.c.f() != 2) {
                     PbActivityConfig pbActivityConfig = new PbActivityConfig(this.a.e);
                     pbActivityConfig.createNormalCfg(this.a.c.k() + "", (String) null, (String) null, true);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
@@ -125,13 +125,13 @@ public class NewAnounceLayout extends CardBasicLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f090294);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f09028d);
             this.f = findViewById;
             findViewById.setOnClickListener(this.k);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090a02);
-            this.h = findViewById(R.id.obfuscated_res_0x7f091edd);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091ee9);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090296);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090a05);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091efc);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091f08);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09028f);
         }
     }
 
@@ -143,9 +143,9 @@ public class NewAnounceLayout extends CardBasicLayout {
             setClipToPadding(false);
             setOrientation(1);
             setGravity(17);
-            setMinimumHeight(yi.g(getContext(), R.dimen.tbds90));
+            setMinimumHeight(zi.g(getContext(), R.dimen.tbds90));
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d065f, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d065d, (ViewGroup) this, true);
             b();
         }
     }
@@ -155,7 +155,7 @@ public class NewAnounceLayout extends CardBasicLayout {
         if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || this.c == null) {
             return;
         }
-        if (this.a != t36.c) {
+        if (this.a != n46.c) {
             SkinManager.setBackgroundColor(this.f, R.color.CAM_X0205, i);
         } else {
             View view2 = this.f;
@@ -201,20 +201,20 @@ public class NewAnounceLayout extends CardBasicLayout {
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i, m36 m36Var) {
+    public void setData(int i, g46 g46Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, m36Var) == null) {
-            super.setData(i, m36Var);
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, g46Var) == null) {
+            super.setData(i, g46Var);
             if (this.b != null && this.c != null && this.a >= 0) {
-                this.d = yi.t((Activity) getContext()).widthPixels - (yi.g(getContext(), R.dimen.tbds70) * 2);
-                if (this.a == t36.b) {
-                    this.d = yi.t((Activity) getContext()).widthPixels - (yi.g(getContext(), R.dimen.tbds116) * 2);
+                this.d = zi.t((Activity) getContext()).widthPixels - (zi.g(getContext(), R.dimen.tbds70) * 2);
+                if (this.a == n46.b) {
+                    this.d = zi.t((Activity) getContext()).widthPixels - (zi.g(getContext(), R.dimen.tbds116) * 2);
                 }
-                if (this.a == t36.d) {
-                    this.d = yi.t((Activity) getContext()).widthPixels - (yi.g(getContext(), R.dimen.tbds96) * 2);
+                if (this.a == n46.d) {
+                    this.d = zi.t((Activity) getContext()).widthPixels - (zi.g(getContext(), R.dimen.tbds96) * 2);
                 }
-                if (this.a == t36.c) {
-                    this.d = yi.t((Activity) getContext()).widthPixels - (yi.g(getContext(), R.dimen.tbds86) * 2);
+                if (this.a == n46.c) {
+                    this.d = zi.t((Activity) getContext()).widthPixels - (zi.g(getContext(), R.dimen.tbds86) * 2);
                     this.f.setPadding(0, 0, 0, 0);
                     this.g.setPadding(0, 0, 0, 0);
                     this.i.setPadding(0, 0, 0, 0);

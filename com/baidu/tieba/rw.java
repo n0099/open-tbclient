@@ -1,199 +1,79 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.ActivityManager;
+import android.content.Context;
+import android.os.Process;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import com.baidu.webkit.sdk.WebViewFactory;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class rw<K, V> {
+public final class rw {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedHashMap<K, V> a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
 
-    public V a(K k) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) {
-            return null;
-        }
-        return (V) invokeL.objValue;
-    }
-
-    public void b(boolean z, K k, V v, V v2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), k, v, v2}) == null) {
-        }
-    }
-
-    public int f(K k, V v) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, k, v)) == null) {
-            return 1;
-        }
-        return invokeLL.intValue;
-    }
-
-    public rw(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        if (i > 0) {
-            this.c = i;
-            this.a = new LinkedHashMap<>(0, 0.75f, true);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448316424, "Lcom/baidu/tieba/rw;")) == null) {
             return;
         }
-        throw new IllegalArgumentException("maxSize <= 0");
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448316424, "Lcom/baidu/tieba/rw;");
+        }
     }
 
-    public final V c(K k) {
+    public static ActivityManager.RunningAppProcessInfo a(Context context) {
         InterceptResult invokeL;
-        V put;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k)) == null) {
-            if (k != null) {
-                synchronized (this) {
-                    V v = this.a.get(k);
-                    if (v != null) {
-                        this.g++;
-                        return v;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            int myPid = Process.myPid();
+            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
+            if (runningAppProcesses != null && !runningAppProcesses.isEmpty()) {
+                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                    if (runningAppProcessInfo != null && runningAppProcessInfo.pid == myPid) {
+                        return runningAppProcessInfo;
                     }
-                    this.h++;
-                    V a = a(k);
-                    if (a == null) {
-                        return null;
-                    }
-                    synchronized (this) {
-                        this.e++;
-                        put = this.a.put(k, a);
-                        if (put != null) {
-                            this.a.put(k, put);
-                        } else {
-                            this.b += e(k, a);
-                        }
-                    }
-                    if (put != null) {
-                        b(false, k, a, put);
-                        return put;
-                    }
-                    g(this.c);
-                    return a;
                 }
+                return null;
             }
-            throw new NullPointerException("key == null");
+            return null;
         }
-        return (V) invokeL.objValue;
+        return (ActivityManager.RunningAppProcessInfo) invokeL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0074, code lost:
-        throw new java.lang.IllegalStateException(getClass().getName() + ".sizeOf() is reporting inconsistent results!");
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void g(int i) {
-        K key;
-        V value;
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        ActivityManager.RunningAppProcessInfo a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            while (true) {
-                synchronized (this) {
-                    if (this.b >= 0 && (!this.a.isEmpty() || this.b == 0)) {
-                        if (this.b <= i || this.a.isEmpty()) {
-                            break;
-                        }
-                        Map.Entry<K, V> next = this.a.entrySet().iterator().next();
-                        key = next.getKey();
-                        value = next.getValue();
-                        this.a.remove(key);
-                        this.b -= e(key, value);
-                        this.f++;
-                    } else {
-                        break;
-                    }
-                }
-                b(true, key, value, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (TextUtils.isEmpty(a) && (a2 = a(context)) != null) {
+                a = a2.processName;
             }
+            return a;
         }
+        return (String) invokeL.objValue;
     }
 
-    public final V d(K k, V v) {
-        InterceptResult invokeLL;
-        V put;
+    public static boolean c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, k, v)) == null) {
-            if (k != null && v != null) {
-                synchronized (this) {
-                    this.d++;
-                    this.b += e(k, v);
-                    put = this.a.put(k, v);
-                    if (put != null) {
-                        this.b -= e(k, put);
-                    }
-                }
-                if (put != null) {
-                    b(false, k, put, v);
-                }
-                g(this.c);
-                return put;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            String b = b(context);
+            if (b != null && b.equals(WebViewFactory.CHROMIUM_HOST_APP)) {
+                return true;
             }
-            throw new NullPointerException("key == null || value == null");
+            return false;
         }
-        return (V) invokeLL.objValue;
-    }
-
-    public final int e(K k, V v) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, k, v)) == null) {
-            int f = f(k, v);
-            if (f >= 0) {
-                return f;
-            }
-            throw new IllegalStateException("Negative size: " + k + "=" + v);
-        }
-        return invokeLL.intValue;
-    }
-
-    public final synchronized String toString() {
-        InterceptResult invokeV;
-        int i;
-        String format;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this) {
-                int i2 = this.g + this.h;
-                if (i2 != 0) {
-                    i = (this.g * 100) / i2;
-                } else {
-                    i = 0;
-                }
-                format = String.format("LruCache[maxSize=%d,hits=%d,misses=%d,hitRate=%d%%]", Integer.valueOf(this.c), Integer.valueOf(this.g), Integer.valueOf(this.h), Integer.valueOf(i));
-            }
-            return format;
-        }
-        return (String) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

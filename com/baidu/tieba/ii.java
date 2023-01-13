@@ -1,57 +1,79 @@
 package com.baidu.tieba;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.os.Process;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.statistic.ConfigSpeedStat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes4.dex */
 public class ii {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ii i;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ConcurrentHashMap<String, ph> a;
+    public String b;
+    public hh c;
+    public ki d;
+    public f e;
+    public jh f;
+    public Handler g;
+    public li h;
 
     /* loaded from: classes4.dex */
-    public static class a extends qc {
+    public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oh c;
-        public final /* synthetic */ boolean d;
+        public final /* synthetic */ ii a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(String str, String str2, DiskFileOperate.Action action, oh ohVar, boolean z) {
-            super(str, str2, action);
+        public a(ii iiVar, Looper looper) {
+            super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, action, ohVar, Boolean.valueOf(z)};
+                Object[] objArr = {iiVar, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
+                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = ohVar;
-            this.d = z;
+            this.a = iiVar;
         }
 
-        @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-        public void callback(boolean z) {
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                super.callback(z);
-                if (z) {
-                    this.c.F(getFileInfo().length());
-                    if (this.d || this.c.l() > 20480) {
-                        ii.b(this.c);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 6) {
+                for (Map.Entry entry : this.a.a.entrySet()) {
+                    ph phVar = (ph) entry.getValue();
+                    if (phVar.u() > 0) {
+                        this.a.y(phVar, true, true);
+                    }
+                    if (phVar.t() > 0) {
+                        fi.c(phVar, true, true, true);
                     }
                 }
             }
@@ -59,19 +81,21 @@ public class ii {
     }
 
     /* loaded from: classes4.dex */
-    public static class b extends DiskFileOperate {
+    public class b extends DiskFileOperate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oh a;
+        public final /* synthetic */ ph a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ boolean c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(String str, String str2, String str3, String str4, DiskFileOperate.Action action, oh ohVar) {
+        public b(ii iiVar, String str, String str2, String str3, String str4, DiskFileOperate.Action action, ph phVar, boolean z, boolean z2) {
             super(str, str2, str3, str4, action);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r3;
-                Object[] objArr = {str, str2, str3, str4, action, ohVar};
+                Object[] objArr = {iiVar, str, str2, str3, str4, action, phVar, Boolean.valueOf(z), Boolean.valueOf(z2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -83,7 +107,9 @@ public class ii {
                     return;
                 }
             }
-            this.a = ohVar;
+            this.a = phVar;
+            this.b = z;
+            this.c = z2;
         }
 
         @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -92,29 +118,67 @@ public class ii {
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 super.callback(z);
                 if (z) {
-                    this.a.F(0L);
-                    yh.m().s(this.a);
-                    return;
+                    this.a.H(0L);
+                    zh.m().r(this.a, this.b, true, this.c);
                 }
-                BdLog.e("Track Log rename fail!");
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class c extends qc {
+    public class c extends DiskFileOperate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oh c;
+        public final /* synthetic */ ph a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(String str, String str2, DiskFileOperate.Action action, oh ohVar) {
+        public c(ii iiVar, String str, String str2, String str3, String str4, DiskFileOperate.Action action, ph phVar) {
+            super(str, str2, str3, str4, action);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r3;
+                Object[] objArr = {iiVar, str, str2, str3, str4, action, phVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2], (String) objArr2[3], (DiskFileOperate.Action) objArr2[4]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = phVar;
+        }
+
+        @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+        public void callback(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                super.callback(z);
+                if (z) {
+                    this.a.H(0L);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class d extends rc {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ph c;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(ii iiVar, String str, String str2, DiskFileOperate.Action action, ph phVar) {
             super(str, str2, action);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, action, ohVar};
+                Object[] objArr = {iiVar, str, str2, action, phVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -126,7 +190,7 @@ public class ii {
                     return;
                 }
             }
-            this.c = ohVar;
+            this.c = phVar;
         }
 
         @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -135,57 +199,521 @@ public class ii {
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 super.callback(z);
                 if (z) {
-                    this.c.F(getFileInfo().length());
+                    this.c.H(getFileInfo().length());
                 }
             }
         }
     }
 
-    public static long a(oh ohVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, ohVar)) == null) {
-            if (ohVar == null) {
-                return -1L;
-            }
-            if (ohVar.v() <= 0) {
-                c cVar = new c(BdStatisticsManager.getInstance().getTrackLogWriteDir(), ohVar.s(), DiskFileOperate.Action.INFO, ohVar);
-                cVar.setSdCard(ohVar.C());
-                cVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-                if (lc.f().a(cVar)) {
-                    return ohVar.v();
+    /* loaded from: classes4.dex */
+    public class e implements li {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ii a;
+
+        public e(ii iiVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iiVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return ohVar.v();
+            this.a = iiVar;
         }
-        return invokeL.longValue;
+
+        @Override // com.baidu.tieba.li
+        public void a(ph phVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, phVar) == null) {
+                if (this.a.o(phVar)) {
+                    this.a.z(phVar);
+                }
+                if (this.a.m(phVar)) {
+                    this.a.u(phVar);
+                }
+                if (this.a.n(phVar)) {
+                    this.a.x(phVar);
+                }
+            }
+        }
     }
 
-    public static void b(oh ohVar) {
+    /* loaded from: classes4.dex */
+    public class f extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ii this$0;
+
+        public f(ii iiVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iiVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = iiVar;
+        }
+
+        public /* synthetic */ f(ii iiVar, a aVar) {
+            this(iiVar);
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || intent == null) {
+                return;
+            }
+            this.this$0.C(intent.getStringExtra("intent_data_userid"));
+            this.this$0.p();
+        }
+    }
+
+    public ii() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, ohVar) != null) || ohVar == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ConcurrentHashMap<>();
+        this.g = new a(this, Looper.getMainLooper());
+        this.h = new e(this);
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            for (Map.Entry<String, ph> entry : this.a.entrySet()) {
+                ph value = entry.getValue();
+                z(value);
+                u(value);
+            }
+        }
+    }
+
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            for (Map.Entry<String, ph> entry : this.a.entrySet()) {
+                ph value = entry.getValue();
+                B(value);
+                w(value);
+            }
+        }
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            for (Map.Entry<String, ph> entry : this.a.entrySet()) {
+                ph value = entry.getValue();
+                B(value);
+                y(value, false, false);
+                w(value);
+            }
+        }
+    }
+
+    public void B(ph phVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, phVar) != null) || phVar == null) {
             return;
         }
-        b bVar = new b(BdStatisticsManager.getInstance().getTrackLogWriteDir(), ohVar.s(), BdStatisticsManager.getInstance().getTrackLogWriteDir(), ohVar.r(), DiskFileOperate.Action.RENAME, ohVar);
-        bVar.setSdCard(ohVar.C());
-        bVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-        lc.f().a(bVar);
+        if (phVar.l() > 0) {
+            A(phVar, true);
+        } else if (phVar.v() > 0) {
+            ji.b(phVar);
+        }
     }
 
-    public static void c(oh ohVar, boolean z) {
+    public void C(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65538, null, ohVar, z) == null) && ohVar != null && ohVar.l() != 0) {
-            a aVar = new a(BdStatisticsManager.getInstance().getTrackLogWriteDir(), ohVar.s(), DiskFileOperate.Action.APPEND, ohVar, z);
-            aVar.setSdCard(ohVar.C());
-            aVar.b(ohVar.z().toString());
-            ohVar.f();
-            if (!ohVar.A()) {
-                aVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
-                aVar.setTrySuccessWeight(3);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void r(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            ph j = i().j(str);
+            B(j);
+            y(j, false, true);
+            w(j);
+        }
+    }
+
+    public void u(ph phVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, phVar) == null) {
+            v(phVar, false);
+        }
+    }
+
+    public void w(ph phVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048597, this, phVar) != null) || phVar == null) {
+            return;
+        }
+        if (phVar.m() > 0) {
+            v(phVar, true);
+        } else if (phVar.t() > 0) {
+            fi.c(phVar, false, false, false);
+        }
+    }
+
+    public void z(ph phVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, phVar) == null) {
+            A(phVar, false);
+        }
+    }
+
+    public final void A(ph phVar, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(1048576, this, phVar, z) != null) || phVar == null) {
+            return;
+        }
+        if (ji.a(phVar) > 20480) {
+            ji.b(phVar);
+        }
+        ji.c(phVar, z);
+    }
+
+    public final void v(ph phVar, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(1048596, this, phVar, z) != null) || phVar == null) {
+            return;
+        }
+        if (fi.b(phVar) > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT) {
+            fi.c(phVar, false, false, false);
+        }
+        fi.d(phVar, z);
+    }
+
+    public static ii i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (i == null) {
+                synchronized (ii.class) {
+                    if (i == null) {
+                        i = new ii();
+                    }
+                }
             }
-            if (!lc.f().a(aVar)) {
-                BdLog.e("Track Log write to disk fail!");
+            return i;
+        }
+        return (ii) invokeV.objValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (this.d == null) {
+                this.d = new ki();
             }
+            this.d.a();
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            Message obtainMessage = this.g.obtainMessage();
+            obtainMessage.what = 6;
+            this.g.removeMessages(6);
+            this.g.sendMessageDelayed(obtainMessage, 3000L);
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            Message obtainMessage = this.g.obtainMessage();
+            obtainMessage.what = 6;
+            this.g.removeMessages(6);
+            this.g.sendMessage(obtainMessage);
+        }
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void D(String str, String str2, String str3, String str4, gh ghVar, Object... objArr) {
+        ph j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, str3, str4, ghVar, objArr}) == null) {
+            if (str == null && str2 == null) {
+                return;
+            }
+            if ((ghVar != null || (objArr != null && objArr.length != 0)) && (j = j(str)) != null && wh.o().v(str, str2)) {
+                if (ghVar == null) {
+                    ghVar = new gh(str);
+                }
+                if (!str.equals("stat") && !str.equals("crash")) {
+                    ghVar.c("module", str, "st", str2, "t", String.valueOf(System.currentTimeMillis()));
+                }
+                if (objArr != null && objArr.length > 0) {
+                    ghVar.c(objArr);
+                }
+                if (this.b != null && !str.equals("stat")) {
+                    ghVar.b("uid", this.b);
+                }
+                if (str3 != null && !str.equals("stat")) {
+                    ghVar.b("c_logid", str3);
+                }
+                if (!TextUtils.isEmpty(str4) && !str.equals("stat")) {
+                    ghVar.b("seq_id", str4);
+                }
+                if (!str.equals("stat")) {
+                    ghVar.b("net", kh.a(BdBaseApplication.getInst()));
+                }
+                if (!str.equals("stat") && !str.equals("pfmonitor")) {
+                    ghVar.c("pid", Integer.valueOf(Process.myPid()));
+                    if (BdStatisticsManager.getInstance().isMainProcess()) {
+                        ghVar.b("ismainproc", "1");
+                    } else {
+                        ghVar.b("ismainproc", "0");
+                    }
+                }
+                if (mh.e() && mh.d(j)) {
+                    ghVar.d(this.f);
+                    j.c(ghVar);
+                }
+                if (wh.o().u(str, str2)) {
+                    j.a(ghVar);
+                } else {
+                    j.b(ghVar);
+                }
+                oh.e(j, ghVar);
+            }
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            for (Map.Entry<String, ph> entry : this.a.entrySet()) {
+                ph value = entry.getValue();
+                hh hhVar = this.c;
+                if (hhVar != null) {
+                    long logUploadTime = hhVar.getLogUploadTime(value.o());
+                    if (logUploadTime <= 0) {
+                        logUploadTime = System.currentTimeMillis();
+                        this.c.setLogUploadTime(value.o(), logUploadTime);
+                    }
+                    value.L(logUploadTime);
+                }
+                if (value != null) {
+                    if (value.l() > 0) {
+                        A(value, false);
+                    }
+                    if (value.v() > 20480) {
+                        ji.b(value);
+                    } else if (System.currentTimeMillis() - value.w() >= BdStatisticsManager.getInstance().getUploadInterval()) {
+                        ji.b(value);
+                    }
+                    if (value.m() > 0) {
+                        v(value, false);
+                    }
+                    if (value.t() > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT) {
+                        fi.c(value, false, false, false);
+                    } else if (System.currentTimeMillis() - value.w() >= BdStatisticsManager.getInstance().getUploadInterval()) {
+                        fi.c(value, false, false, false);
+                    }
+                }
+            }
+        }
+    }
+
+    public synchronized ph j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                String g = ph.g(str);
+                ph phVar = this.a.get(g);
+                if (phVar == null) {
+                    if ("alert".equals(g)) {
+                        phVar = new ci(null);
+                    } else if ("error".equals(g)) {
+                        phVar = new ei(this.h);
+                    } else if ("dbg".equals(g)) {
+                        phVar = new di(this.h);
+                    } else if ("stat".equals(g)) {
+                        phVar = new hi(this.h);
+                    } else if ("pfmonitor".equals(g)) {
+                        phVar = new gi(this.h);
+                    } else {
+                        phVar = new ei(this.h);
+                    }
+                    phVar.I(g);
+                    this.a.put(g, phVar);
+                }
+                return phVar;
+            }
+        }
+        return (ph) invokeL.objValue;
+    }
+
+    public void l(jh jhVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, jhVar) == null) {
+            if (this.e == null) {
+                this.e = new f(this, null);
+                IntentFilter intentFilter = new IntentFilter();
+                intentFilter.addAction("adp.bdstatisticsmanager.account_changed");
+                BdBaseApplication.getInst().registerReceiver(this.e, intentFilter);
+            }
+            this.c = BdStatisticsManager.getInstance().getBdLogSetting();
+            this.f = jhVar;
+        }
+    }
+
+    public final boolean m(ph phVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, phVar)) == null) {
+            boolean z = false;
+            if (phVar == null) {
+                return false;
+            }
+            if (System.currentTimeMillis() - phVar.i() >= 60000) {
+                z = true;
+            }
+            if (wh.o().s(phVar.o())) {
+                z = true;
+            }
+            if (phVar.m() >= 10) {
+                return true;
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean n(ph phVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, phVar)) == null) {
+            boolean z = false;
+            if (phVar == null) {
+                return false;
+            }
+            if (System.currentTimeMillis() - phVar.j() >= 60000) {
+                z = true;
+            }
+            if (wh.o().s(phVar.o())) {
+                z = true;
+            }
+            if (phVar.n() >= 10) {
+                return true;
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void t(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
+            for (Map.Entry<String, ph> entry : this.a.entrySet()) {
+                ph value = entry.getValue();
+                z(value);
+                u(value);
+                x(value);
+            }
+            if (z) {
+                h();
+            } else {
+                g();
+            }
+        }
+    }
+
+    public final boolean o(ph phVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, phVar)) == null) {
+            boolean z = false;
+            if (phVar == null || !mh.e() || !mh.d(phVar)) {
+                return false;
+            }
+            if (System.currentTimeMillis() - phVar.k() >= 60000) {
+                z = true;
+            }
+            if (wh.o().s(phVar.o())) {
+                z = true;
+            }
+            if (phVar.l() >= 10) {
+                return true;
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void x(ph phVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048598, this, phVar) == null) && phVar != null && phVar.n() != 0) {
+            if (phVar.u() > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT) {
+                c cVar = new c(this, BdStatisticsManager.getInstance().getNotUploadWriteDir(), phVar.s(), BdStatisticsManager.getInstance().getNotUploadWriteDir(), phVar.r(), DiskFileOperate.Action.RENAME, phVar);
+                cVar.setSdCard(phVar.E());
+                cVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+                mc.f().a(cVar);
+            }
+            d dVar = new d(this, BdStatisticsManager.getInstance().getNotUploadWriteDir(), phVar.s(), DiskFileOperate.Action.APPEND, phVar);
+            dVar.setSdCard(phVar.E());
+            dVar.b(phVar.y().toString());
+            phVar.e();
+            if (!phVar.A()) {
+                dVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
+                dVar.setTrySuccessWeight(3);
+            }
+            mc.f().a(dVar);
+        }
+    }
+
+    public void y(ph phVar, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{phVar, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && phVar != null && phVar.u() > 0) {
+            b bVar = new b(this, BdStatisticsManager.getInstance().getNotUploadWriteDir(), phVar.s(), BdStatisticsManager.getInstance().getNotUploadWriteDir(), phVar.r(), DiskFileOperate.Action.RENAME, phVar, z, z2);
+            bVar.setSdCard(phVar.E());
+            bVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+            mc.f().a(bVar);
         }
     }
 }

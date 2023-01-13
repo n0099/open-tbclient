@@ -4,20 +4,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public final class n11 {
+public class n11 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static <T> T a(Class<T> cls) {
-        InterceptResult invokeL;
+    public static <T> int a(T[] tArr, T t) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cls)) == null) {
-            try {
-                return cls.getConstructor(new Class[0]).newInstance(new Object[0]);
-            } catch (Exception e) {
-                throw new RuntimeException(cls + " can't init new instance by default constructor.", e);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tArr, t)) == null) {
+            if (tArr == null) {
+                return -1;
             }
+            int length = tArr.length;
+            for (int i = 0; i < length; i++) {
+                if (tArr[i] == t) {
+                    return i;
+                }
+            }
+            return -1;
         }
-        return (T) invokeL.objValue;
+        return invokeLL.intValue;
     }
 }

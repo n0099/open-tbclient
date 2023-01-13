@@ -6,7 +6,6 @@ import android.text.style.ForegroundColorSpan;
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.mobstat.Config;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdMatrixInfo;
 import com.kwad.sdk.core.response.model.AdProductInfo;
@@ -683,7 +682,7 @@ public final class a {
         if (i < 200 || i >= 10000) {
             if (i >= 10000) {
                 DecimalFormat decimalFormat = new DecimalFormat("0.0");
-                return decimalFormat.format(i / 10000.0d) + Config.DEVICE_WIDTH;
+                return decimalFormat.format(i / 10000.0d) + "w";
             }
             return null;
         }

@@ -1,194 +1,110 @@
 package com.baidu.tieba;
 
-import android.widget.ImageView;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.lang.reflect.Field;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class xy9 {
+public class xy9 extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public float c;
-    public float d;
-    public boolean e;
 
-    public xy9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xy9(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = 1.0f;
-        this.d = 1.0f;
     }
 
-    public final boolean a() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final float b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return invokeV.floatValue;
-    }
-
-    public final float c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return invokeV.floatValue;
-    }
-
-    public final float d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return invokeV.floatValue;
-    }
-
-    public final float e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return invokeV.floatValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.a = 0.0f;
-            this.b = 0.0f;
-            this.c = 1.0f;
-            this.d = 1.0f;
-            this.e = false;
-        }
-    }
-
-    public final void f(float f, float f2, float f3, float f4, ImageView.ScaleType scaleType) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), scaleType}) == null) && f != 0.0f && f2 != 0.0f && f3 != 0.0f && f4 != 0.0f) {
-            g();
-            float f5 = (f - f3) / 2.0f;
-            float f6 = (f2 - f4) / 2.0f;
-            float f7 = f3 / f4;
-            float f8 = f / f2;
-            float f9 = f2 / f4;
-            float f10 = f / f3;
-            boolean z = false;
-            switch (wy9.$EnumSwitchMapping$0[scaleType.ordinal()]) {
-                case 1:
-                    this.a = f5;
-                    this.b = f6;
-                    return;
-                case 2:
-                    if (f7 > f8) {
-                        this.e = false;
-                        this.c = f9;
-                        this.d = f9;
-                        this.a = (f - (f3 * f9)) / 2.0f;
-                        return;
-                    }
-                    this.e = true;
-                    this.c = f10;
-                    this.d = f10;
-                    this.b = (f2 - (f4 * f10)) / 2.0f;
-                    return;
-                case 3:
-                    if (f3 < f && f4 < f2) {
-                        this.a = f5;
-                        this.b = f6;
-                        return;
-                    } else if (f7 > f8) {
-                        this.e = true;
-                        this.c = f10;
-                        this.d = f10;
-                        this.b = (f2 - (f4 * f10)) / 2.0f;
-                        return;
-                    } else {
-                        this.e = false;
-                        this.c = f9;
-                        this.d = f9;
-                        this.a = (f - (f3 * f9)) / 2.0f;
-                        return;
-                    }
-                case 4:
-                    if (f7 > f8) {
-                        this.e = true;
-                        this.c = f10;
-                        this.d = f10;
-                        this.b = (f2 - (f4 * f10)) / 2.0f;
-                        return;
-                    }
-                    this.e = false;
-                    this.c = f9;
-                    this.d = f9;
-                    this.a = (f - (f3 * f9)) / 2.0f;
-                    return;
-                case 5:
-                    if (f7 > f8) {
-                        this.e = true;
-                        this.c = f10;
-                        this.d = f10;
-                        return;
-                    }
-                    this.e = false;
-                    this.c = f9;
-                    this.d = f9;
-                    return;
-                case 6:
-                    if (f7 > f8) {
-                        this.e = true;
-                        this.c = f10;
-                        this.d = f10;
-                        this.b = f2 - (f4 * f10);
-                        return;
-                    }
-                    this.e = false;
-                    this.c = f9;
-                    this.d = f9;
-                    this.a = f - (f3 * f9);
-                    return;
-                case 7:
-                    Math.max(f10, f9);
-                    if (f10 > f9) {
-                        z = true;
-                    }
-                    this.e = z;
-                    this.c = f10;
-                    this.d = f9;
-                    return;
-                default:
-                    this.e = true;
-                    this.c = f10;
-                    this.d = f10;
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj == null) {
+                return null;
+            }
+            try {
+                Field declaredField = obj.getClass().getDeclaredField("a");
+                declaredField.setAccessible(true);
+                Object obj2 = declaredField.get(obj);
+                if (obj2 == null) {
+                    return null;
+                }
+                Field declaredField2 = obj2.getClass().getSuperclass().getSuperclass().getDeclaredField("a");
+                declaredField2.setAccessible(true);
+                Object obj3 = declaredField2.get(obj2);
+                if (obj3 == null) {
+                    return null;
+                }
+                Field declaredField3 = obj3.getClass().getDeclaredField("b");
+                declaredField3.setAccessible(true);
+                Object obj4 = declaredField3.get(obj3);
+                if (obj4 == null) {
+                    return null;
+                }
+                Field declaredField4 = obj4.getClass().getDeclaredField("c");
+                declaredField4.setAccessible(true);
+                Object obj5 = declaredField4.get(obj4);
+                if (obj5 == null) {
+                    return null;
+                }
+                Field declaredField5 = obj5.getClass().getDeclaredField("d");
+                declaredField5.setAccessible(true);
+                Object obj6 = declaredField5.get(obj5);
+                if (obj6 == null) {
+                    return null;
+                }
+                Field declaredField6 = obj6.getClass().getDeclaredField("b");
+                declaredField6.setAccessible(true);
+                Object obj7 = declaredField6.get(obj6);
+                if (obj7 == null) {
+                    return null;
+                }
+                Field declaredField7 = obj7.getClass().getDeclaredField("a");
+                declaredField7.setAccessible(true);
+                Object obj8 = declaredField7.get(obj7);
+                if (obj8 == null) {
+                    return null;
+                }
+                Field declaredField8 = obj8.getClass().getDeclaredField("i");
+                declaredField8.setAccessible(true);
+                Object obj9 = declaredField8.get(obj8);
+                if (obj9 == null) {
+                    return null;
+                }
+                Field declaredField9 = obj9.getClass().getDeclaredField("L");
+                declaredField9.setAccessible(true);
+                JSONObject jSONObject = (JSONObject) declaredField9.get(obj9);
+                if (jSONObject == null) {
+                    return null;
+                }
+                return ty9.a(jSONObject);
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return null;
             }
         }
+        return (RippedAd) invokeL.objValue;
     }
 }

@@ -85,7 +85,7 @@ public final class a implements com.kwad.components.core.g.kwai.a {
             public final void bk() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.GX.uh = true;
+                    a.a(this.GX, true);
                     if (this.GX.BL != null) {
                         this.GX.BL.setAudioEnabled(false);
                     }
@@ -266,6 +266,11 @@ public final class a implements com.kwad.components.core.g.kwai.a {
             }
         });
         com.kwad.components.core.m.b.at(this.mContext).a(this.uk);
+    }
+
+    public static /* synthetic */ boolean a(a aVar, boolean z) {
+        aVar.uh = true;
+        return true;
     }
 
     private void aQ() {

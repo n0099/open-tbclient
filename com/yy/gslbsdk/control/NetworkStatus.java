@@ -73,7 +73,7 @@ public class NetworkStatus {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return getInstance().m702clone();
+            return getInstance().m766clone();
         }
         return (NetworkStatus) invokeV.objValue;
     }
@@ -131,7 +131,7 @@ public class NetworkStatus {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public NetworkStatus m702clone() {
+    public NetworkStatus m766clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

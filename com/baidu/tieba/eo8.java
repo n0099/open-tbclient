@@ -1,27 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.view.View;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.widget.DragImageView;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
 /* loaded from: classes4.dex */
-public class eo8 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile do8 a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface eo8 extends IAdBaseAsyncController {
+    View b(@NonNull String str, boolean z);
 
-    public static synchronized do8 a() {
-        InterceptResult invokeV;
-        do8 do8Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (eo8.class) {
-                if (a == null) {
-                    a = new do8();
-                }
-                do8Var = a;
-            }
-            return do8Var;
-        }
-        return (do8) invokeV.objValue;
-    }
+    AdvertAppInfo d(@NonNull String str);
+
+    void e(@NonNull String str, @NonNull AdvertAppInfo advertAppInfo);
+
+    boolean f(@NonNull String str);
+
+    void g(@NonNull lj5 lj5Var);
+
+    int getAdCount();
+
+    void h(@NonNull TbPageContext tbPageContext, @NonNull DragImageView.h hVar, boolean z);
+
+    void j(@NonNull String str);
+
+    void k(@NonNull AdvertAppInfo advertAppInfo);
+
+    void l();
+
+    boolean n();
+
+    void o(String str);
+
+    void onDestroy();
 }

@@ -1,10 +1,12 @@
 package com.baidu.android.imsdk.ubc;
 
 import android.content.Context;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.retrieve.RetrieveReportRequest;
@@ -12,6 +14,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.searchbox.launched.LaunchedTaskSpeedStats;
 import com.baidu.searchbox.logsystem.basic.upload.Constant;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.tieba.u70;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,10 +63,12 @@ public class MessageUbc {
         public String clientLogId;
         public String clientSource;
         public String eventList;
+        public long loginId;
         public long methodId;
         public long msgId;
         public int msgSize;
         public long notifyId;
+        public String protocolType;
 
         public DebugInfo() {
             Interceptable interceptable = $ic;
@@ -133,10 +138,24 @@ public class MessageUbc {
             if (this.mSendMsg != null) {
                 try {
                     if (this.mDebugInfo != null) {
-                        jSONObject.put(Constants.EXTRA_EVENT_LIST, this.mDebugInfo.eventList);
-                        jSONObject.put("client_logid", this.mDebugInfo.clientLogId);
-                        jSONObject.put("client_business_source", this.mDebugInfo.clientSource);
-                        jSONObject.put("ack_msgs", this.mDebugInfo.ackMsgs.toString());
+                        if (!TextUtils.isEmpty(this.mDebugInfo.eventList)) {
+                            jSONObject.put("event_list", this.mDebugInfo.eventList);
+                        }
+                        if (!TextUtils.isEmpty(this.mDebugInfo.clientLogId)) {
+                            jSONObject.put("client_logid", this.mDebugInfo.clientLogId);
+                        }
+                        if (!TextUtils.isEmpty(this.mDebugInfo.clientSource)) {
+                            jSONObject.put("client_business_source", this.mDebugInfo.clientSource);
+                        }
+                        if (this.mDebugInfo.ackMsgs != null && this.mDebugInfo.ackMsgs.size() > 0) {
+                            jSONObject.put("ack_msgs", this.mDebugInfo.ackMsgs.toString());
+                        }
+                        if (this.mDebugInfo.loginId > 0) {
+                            jSONObject.put(Constants.EXTRA_LOGIN_ID, this.mDebugInfo.loginId);
+                        }
+                        if (!TextUtils.isEmpty(this.mDebugInfo.protocolType)) {
+                            jSONObject.put("protocol_type", this.mDebugInfo.protocolType);
+                        }
                     }
                     if (!"0".equals(str)) {
                         jSONObject.put(Constants.EXTRA_SEND_MSG, this.mSendMsg.toString());
@@ -193,6 +212,15 @@ public class MessageUbc {
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;
+    }
+
+    public static void uploadUbc(Context context, int i, String str, DebugInfo debugInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(65541, null, context, i, str, debugInfo) == null) {
+            MessageUbc messageUbc = new MessageUbc(context, new TextMsg());
+            messageUbc.setDebugInfo(debugInfo);
+            u70.d().f(messageUbc.generateUBCData(String.valueOf(i), str), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+        }
     }
 
     @NonNull

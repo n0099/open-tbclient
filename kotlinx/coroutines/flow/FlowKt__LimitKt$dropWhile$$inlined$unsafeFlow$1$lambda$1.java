@@ -9,9 +9,10 @@ import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.ContinuationImpl;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Ref;
+/* JADX INFO: Add missing generic type declarations: [T] */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0013\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004*\u0001\u0000\b\n\u0018\u00002\u00020\u0001J\u001b\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00028\u0000H\u0096@ø\u0001\u0000¢\u0006\u0004\b\u0004\u0010\u0005\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0006¸\u0006\u0007"}, d2 = {"kotlinx/coroutines/flow/FlowKt__CollectKt$collect$3", "Lkotlinx/coroutines/flow/FlowCollector;", "value", "", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx-coroutines-core", "kotlinx/coroutines/flow/FlowKt__LimitKt$$special$$inlined$collect$2"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes9.dex */
-public final class FlowKt__LimitKt$dropWhile$$inlined$unsafeFlow$1$lambda$1 implements FlowCollector<T> {
+public final class FlowKt__LimitKt$dropWhile$$inlined$unsafeFlow$1$lambda$1<T> implements FlowCollector<T> {
     public final /* synthetic */ Ref.BooleanRef $matched$inlined;
     public final /* synthetic */ FlowCollector $this_unsafeFlow$inlined;
     public final /* synthetic */ FlowKt__LimitKt$dropWhile$$inlined$unsafeFlow$1 this$0;
@@ -45,6 +46,8 @@ public final class FlowKt__LimitKt$dropWhile$$inlined$unsafeFlow$1$lambda$1 impl
         this.this$0 = flowKt__LimitKt$dropWhile$$inlined$unsafeFlow$1;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r9v12, resolved type: kotlinx.coroutines.flow.FlowCollector */
+    /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:10:0x0025  */
     /* JADX WARN: Removed duplicated region for block: B:18:0x0054  */
     /* JADX WARN: Removed duplicated region for block: B:29:0x0090  */
@@ -55,7 +58,7 @@ public final class FlowKt__LimitKt$dropWhile$$inlined$unsafeFlow$1$lambda$1 impl
     public Object emit(Object obj, Continuation continuation) {
         AnonymousClass1 anonymousClass1;
         int i;
-        FlowKt__LimitKt$dropWhile$$inlined$unsafeFlow$1$lambda$1 flowKt__LimitKt$dropWhile$$inlined$unsafeFlow$1$lambda$1;
+        FlowKt__LimitKt$dropWhile$$inlined$unsafeFlow$1$lambda$1<T> flowKt__LimitKt$dropWhile$$inlined$unsafeFlow$1$lambda$1;
         Object obj2;
         Continuation continuation2;
         if (continuation instanceof AnonymousClass1) {

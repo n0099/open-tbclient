@@ -1,87 +1,183 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.text.TextUtils;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.thread.executor.BaseExecutorCell;
-import com.baidu.nadcore.thread.task.ElasticTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
-public abstract class c21 extends BaseExecutorCell {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes4.dex */
+public class c21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean d;
+    public final List<a> a;
+    public final List<a21> b;
+    public String c;
+    public String d;
+    public y11 e;
+    public z11 f;
+    public b21 g;
+    public int h;
+    public int i;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c21(int i) {
-        super(i);
+    /* loaded from: classes4.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final o11[] b;
+
+        public a(String str, o11[] o11VarArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, o11VarArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = o11VarArr;
+        }
+    }
+
+    public c21() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = false;
+        this.a = new ArrayList(4);
+        this.b = new ArrayList(2);
+        this.h = -1;
+        this.i = -1;
     }
 
-    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
-    public boolean a() {
+    public static c21 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.d || e() >= this.b) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new c21();
         }
-        return invokeV.booleanValue;
+        return (c21) invokeV.objValue;
     }
 
-    public void i() {
+    public String[] b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.d) {
-                Log.w(d(), "This executor cell is already opened.");
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            y11 y11Var = this.e;
+            if (y11Var == null) {
+                return null;
             }
-            this.d = true;
-            this.c.setKeepAliveTime(5000L, TimeUnit.MILLISECONDS);
+            return y11Var.e();
         }
+        return (String[]) invokeV.objValue;
     }
 
-    public void j() {
+    public String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (!this.d) {
-                Log.w(d(), "This executor cell is already shutdown.");
-                return;
-            }
-            this.d = false;
-            this.c.setKeepAliveTime(100L, TimeUnit.MILLISECONDS);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return d(null).toString();
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
-    public void g(ElasticTask elasticTask) {
+    public c21 a(String str, o11... o11VarArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, elasticTask) == null) {
-            super.g(elasticTask);
-            if (this.d) {
-                o21.f().k();
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, o11VarArr)) == null) {
+            this.a.add(new a(str, o11VarArr));
+            return this;
         }
+        return (c21) invokeLL.objValue;
+    }
+
+    public c21 c(String str, x11 x11Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, x11Var)) == null) {
+            this.d = str;
+            this.c = x11Var.b().g();
+            return this;
+        }
+        return (c21) invokeLL.objValue;
+    }
+
+    public final StringBuilder d(StringBuilder sb) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sb)) == null) {
+            if (sb == null) {
+                sb = new StringBuilder();
+            }
+            sb.append("SELECT ");
+            int size = this.a.size();
+            String str = "";
+            for (int i = 0; i < size; i++) {
+                int i2 = 0;
+                while (i2 < this.a.get(i).b.length) {
+                    sb.append(str);
+                    String str2 = this.a.get(i).a;
+                    if (!TextUtils.isEmpty(str2)) {
+                        sb.append(str2);
+                        sb.append(".");
+                    }
+                    sb.append(this.a.get(i).b[i2].b);
+                    i2++;
+                    str = StringUtil.ARRAY_ELEMENT_SEPARATOR;
+                }
+            }
+            sb.append(" ");
+            sb.append("FROM ");
+            sb.append(this.c);
+            if (!TextUtils.isEmpty(this.d)) {
+                sb.append(" AS ");
+                sb.append(this.d);
+            }
+            for (a21 a21Var : this.b) {
+                sb.append(a21Var.c());
+            }
+            y11 y11Var = this.e;
+            if (y11Var != null) {
+                sb.append(y11Var.k());
+            }
+            z11 z11Var = this.f;
+            if (z11Var != null) {
+                sb.append(z11Var.a());
+            }
+            b21 b21Var = this.g;
+            if (b21Var != null) {
+                sb.append(b21Var.a());
+            }
+            if (this.h > -1) {
+                sb.append(" LIMIT ");
+                sb.append(this.h);
+            }
+            if (this.i > -1) {
+                sb.append(" OFFSET ");
+                sb.append(this.i);
+            }
+            return sb;
+        }
+        return (StringBuilder) invokeL.objValue;
     }
 }

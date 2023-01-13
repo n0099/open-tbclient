@@ -38,6 +38,11 @@ public class c {
     public volatile boolean Rp = false;
     public volatile boolean Rq = false;
 
+    public static /* synthetic */ d a(c cVar, d dVar) {
+        cVar.Rk = null;
+        return null;
+    }
+
     @MainThread
     private void a(AdTemplate adTemplate, DialogInterface.OnDismissListener onDismissListener, DialogInterface.OnClickListener onClickListener) {
         if (a.mq()) {
@@ -104,7 +109,7 @@ public class c {
                 public final void run() {
                     if (c.this.Rk != null) {
                         c.this.Rk.dismiss();
-                        c.this.Rk = null;
+                        c.a(c.this, (d) null);
                         c cVar = c.this;
                         c.f(adTemplate, 2);
                     }

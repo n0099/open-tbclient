@@ -1,51 +1,7 @@
 package com.baidu.tieba;
-
-import android.annotation.SuppressLint;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class hc2 implements pb2 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface hc2 {
+    void a(String str, String str2);
 
-    public hc2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.pb2
-    @SuppressLint({"BDThrowableCheck"})
-    public ub2 a(tb2 tb2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tb2Var)) == null) {
-            int type = tb2Var.getType();
-            if (type != 1) {
-                if (type != 2) {
-                    if (type != 3) {
-                        if (!ok1.a) {
-                            return new kc2();
-                        }
-                        throw new IllegalArgumentException("invalid model object:" + tb2Var);
-                    }
-                    return new y52();
-                }
-                return mn2.b();
-            }
-            return new kc2();
-        }
-        return (ub2) invokeL.objValue;
-    }
+    void fail(int i, String str);
 }

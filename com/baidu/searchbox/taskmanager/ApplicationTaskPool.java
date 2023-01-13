@@ -69,6 +69,7 @@ import com.baidu.searchbox.task.view.appcreate.InitBearAdViewTask;
 import com.baidu.searchbox.task.view.appcreate.InitBottomIndicatorView2Task;
 import com.baidu.searchbox.task.view.appcreate.InitBottomIndicatorViewTask;
 import com.baidu.searchbox.task.view.appcreate.InitPersonalizeChildViewTask;
+import com.baidu.searchbox.task.view.appcreate.InitWebViewTask;
 import com.baidu.searchbox.task.view.mainactivity.InitAdCardViewTask;
 import com.baidu.searchbox.task.view.mainactivity.InitPersonalizeViewTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -201,6 +202,7 @@ public class ApplicationTaskPool extends BaseTaskPool {
                 arrayList.add(new InitAbi64WebViewCompatTask());
                 arrayList.add(new ApplicationAsyncTask());
                 arrayList.add(new InitAdvertDbTask());
+                arrayList.add(new InitWebViewTask());
             } else if (i == 1) {
                 arrayList.add(new InitBearTask());
                 arrayList.add(new InitCertVerifyTask());

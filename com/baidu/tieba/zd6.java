@@ -1,30 +1,27 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.ShortUserInfo;
 /* loaded from: classes7.dex */
 public class zd6 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile yd6 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ShortUserInfo> a;
-    public String b;
-    public String c;
 
-    public zd6() {
+    public static synchronized yd6 a() {
+        InterceptResult invokeV;
+        yd6 yd6Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (zd6.class) {
+                if (a == null) {
+                    a = new yd6();
+                }
+                yd6Var = a;
             }
+            return yd6Var;
         }
+        return (yd6) invokeV.objValue;
     }
 }

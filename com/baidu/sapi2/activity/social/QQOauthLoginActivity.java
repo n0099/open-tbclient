@@ -164,6 +164,7 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
         }
     }
 
+    /* JADX DEBUG: Possible override for method com.baidu.sapi2.activity.BaseActivity.a()Lcom/baidu/sapi2/callback/ActivityResultCallback; */
     @Override // com.baidu.sapi2.a.a.a
     public void a() {
         Interceptable interceptable = $ic;

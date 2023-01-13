@@ -19,7 +19,7 @@ public final class t {
         if (com.kwad.b.kwai.a.QL.booleanValue() && !BX) {
             BX = true;
             View inflate = Wrapper.wrapInflaterIfNeed(LayoutInflater.from(context)).inflate(i, (ViewGroup) null);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091195)).setText(str);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0911a0)).setText(str);
             Toast toast = new Toast(context.getApplicationContext());
             toast.setGravity(17, 0, 0);
             toast.setDuration(0);
@@ -28,14 +28,19 @@ public final class t {
             mHandler.postDelayed(new Runnable() { // from class: com.kwad.sdk.utils.t.1
                 @Override // java.lang.Runnable
                 public final void run() {
-                    boolean unused = t.BX = false;
+                    t.access$002(false);
                 }
             }, j);
         }
     }
 
+    public static /* synthetic */ boolean access$002(boolean z) {
+        BX = false;
+        return false;
+    }
+
     public static void b(Context context, String str, long j) {
-        a(context, str, R.layout.obfuscated_res_0x7f0d042b, 0L);
+        a(context, str, R.layout.obfuscated_res_0x7f0d042a, 0L);
     }
 
     public static void c(Context context, String str, int i) {
@@ -43,13 +48,13 @@ public final class t {
     }
 
     public static void c(Context context, String str, long j) {
-        a(context, str, R.layout.obfuscated_res_0x7f0d048d, 0L);
+        a(context, str, R.layout.obfuscated_res_0x7f0d048c, 0L);
     }
 
     public static void d(Context context, String str, int i) {
         if (com.kwad.b.kwai.a.QL.booleanValue()) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d042a, (ViewGroup) null);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091195)).setText(str);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0429, (ViewGroup) null);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0911a0)).setText(str);
             Toast toast = new Toast(context);
             toast.setGravity(17, 0, 0);
             toast.setDuration(0);
@@ -59,6 +64,6 @@ public final class t {
     }
 
     public static void z(Context context, String str) {
-        c(context, str, (int) R.layout.obfuscated_res_0x7f0d042b);
+        c(context, str, (int) R.layout.obfuscated_res_0x7f0d042a);
     }
 }

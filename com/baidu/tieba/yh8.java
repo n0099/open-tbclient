@@ -1,71 +1,62 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.message.Message;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
+import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
+import com.baidu.tbadk.core.util.RemoveFansController;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.QuickWebViewSwitch;
-import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.quickWebView.message.WebViewCacheReqMsg;
-import com.baidu.tieba.quickWebView.message.WebViewCacheResHttpMsg;
-import com.baidu.tieba.quickWebView.message.WebViewCacheResSocketMsg;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.newFriends.RequestDeleteFriendMessage;
+import com.baidu.tbadk.newFriends.ResponseApplyMessage;
+import com.baidu.tbadk.newFriends.ResponseDeleteFriendMessage;
+import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
+import com.baidu.tieba.im.model.BlackListModel;
+import com.baidu.tieba.usermute.UserMuteAddAndDelCustomMessage;
+import com.baidu.tieba.wv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class yh8 {
+public class yh8 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static yh8 f;
-    public static final String g;
-    public static int h;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public Map<String, String> c;
-    public CustomMessageListener d;
-    public qb e;
+    public wd8 a;
+    public uh8 b;
+    public b49 c;
+    public TbPageContext d;
+    public BlackListModel e;
+    public boolean f;
+    public String g;
+    public long h;
+    public String i;
+    public ci8 j;
+    public BdUniqueId k;
+    public boolean l;
+    public RemoveFansController m;
+    public vd8 n;
+    public final tb o;
+    public final tb p;
+    public final CustomMessageListener q;
+    public final CustomMessageListener r;
+    public final tb s;
 
     /* loaded from: classes7.dex */
-    public class a extends CustomMessageListener {
+    public class a extends tb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ yh8 a;
@@ -93,378 +84,28 @@ public class yh8 {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        /* renamed from: a */
+        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+            String errorString;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371 && !this.a.a) {
-                this.a.a = true;
-                if (QuickWebViewSwitch.getInOn()) {
-                    if (!TbSingleton.getInstance().isUploadOffPack() && !TbSingleton.getInstance().isClearOffPack()) {
-                        f fVar = new f(this.a);
-                        fVar.setPriority(4);
-                        fVar.execute(new Void[0]);
-                        return;
-                    }
-                    c cVar = new c(this.a, null);
-                    cVar.setPriority(4);
-                    cVar.execute(new Void[0]);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends qb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(yh8 yh8Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yh8Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX WARN: Code restructure failed: missing block: B:20:0x003d, code lost:
-            com.baidu.tieba.sp4.k(r0.get(r2));
-         */
-        @Override // com.baidu.tieba.qb
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
-                return;
-            }
-            if (responsedMessage instanceof WebViewCacheResHttpMsg) {
-                WebViewCacheResHttpMsg webViewCacheResHttpMsg = (WebViewCacheResHttpMsg) responsedMessage;
-                try {
-                    List<String> header = webViewCacheResHttpMsg.getHeader("Set-Cookie");
-                    if (header != null && header.size() > 0) {
-                        int i = 0;
-                        while (true) {
-                            if (i >= header.size()) {
-                                break;
-                            }
-                            if (!TextUtils.isEmpty(header.get(i)) && header.get(i).contains("BAIDUID=")) {
-                                break;
-                            }
-                            i++;
-                        }
-                    }
-                } catch (NullPointerException e) {
-                    e.printStackTrace();
-                }
-                Map<String, ci8> moduleInfos = webViewCacheResHttpMsg.getModuleInfos();
-                if (moduleInfos != null && moduleInfos.size() > 0) {
-                    for (String str : moduleInfos.keySet()) {
-                        yh8.o(str, moduleInfos.get(str));
-                    }
-                    return;
-                }
-                zh8.a().g(true);
-            } else if (responsedMessage instanceof WebViewCacheResSocketMsg) {
-                Map<String, ci8> moduleInfos2 = ((WebViewCacheResSocketMsg) responsedMessage).getModuleInfos();
-                if (moduleInfos2 != null && moduleInfos2.size() > 0) {
-                    for (String str2 : moduleInfos2.keySet()) {
-                        yh8.o(str2, moduleInfos2.get(str2));
-                    }
-                    return;
-                }
-                zh8.a().g(true);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c extends BdAsyncTask<Void, Void, String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public NetWork a;
-        public final /* synthetic */ yh8 b;
-
-        public c(yh8 yh8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yh8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = yh8Var;
-            this.a = null;
-        }
-
-        public /* synthetic */ c(yh8 yh8Var, a aVar) {
-            this(yh8Var);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public String doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            e C;
-            String str;
-            String str2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                String modName = TbSingleton.getInstance().getModName();
-                if (TextUtils.isEmpty(modName) || (C = this.b.C(modName)) == null) {
-                    return null;
-                }
-                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_OFFLINE_PACK_STATUS);
-                this.a = netWork;
-                netWork.addPostData("cuid", TbadkCoreApplication.getInst().getCuid());
-                this.a.addPostData("mod_name", modName);
-                NetWork netWork2 = this.a;
-                if (C.a) {
-                    str = "1";
+            if ((interceptable == null || interceptable.invokeL(1048576, this, socketResponsedMessage) == null) && (socketResponsedMessage instanceof ResponseApplyMessage) && ((ResponseApplyMessage) socketResponsedMessage).getError() != 0) {
+                if (StringUtils.isNull(socketResponsedMessage.getErrorString())) {
+                    errorString = this.a.d.getResources().getString(R.string.obfuscated_res_0x7f0f0cd1);
                 } else {
-                    str = "2";
+                    errorString = socketResponsedMessage.getErrorString();
                 }
-                netWork2.addPostData("status", str);
-                NetWork netWork3 = this.a;
-                if (C.a) {
-                    str2 = "";
-                } else {
-                    str2 = C.b;
-                }
-                netWork3.addPostData("fail_reason", str2);
-                this.a.postNetData();
-                return null;
-            }
-            return (String) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                f fVar = new f(this.b);
-                fVar.setPriority(4);
-                fVar.execute(new Void[0]);
+                this.a.d.showToast(errorString);
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class d extends BdAsyncTask<Void, Void, h> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final ci8 b;
-        public final String c;
-        public final String d;
-        public final String e;
-        public final boolean f;
-        public NetWork g;
-
-        public d(String str, ci8 ci8Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, ci8Var, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = ci8Var;
-            this.d = ci8Var.c();
-            this.c = this.b.a();
-            this.e = this.b.b();
-            this.f = z;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Removed duplicated region for block: B:31:0x016e  */
-        /* JADX WARN: Removed duplicated region for block: B:34:0x01ca  */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public h doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            h r;
-            HashMap<String, ai8> hashMap;
-            InputStream inputStream;
-            FileInputStream fileInputStream;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, voidArr)) != null) {
-                return (h) invokeL.objValue;
-            }
-            yh8.m(this.a);
-            yh8.q().k(this.a);
-            if (this.f) {
-                if (!TextUtils.isEmpty(yh8.q().s(this.a))) {
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_UPDATE_OFFLINE_PACK).param("obj_name", this.a).param("obj_id", this.d));
-                }
-                return null;
-            }
-            NetWork netWork = new NetWork();
-            this.g = netWork;
-            netWork.setUrl(this.c);
-            new File(yh8.g + "bdtbWCacheTemp/" + this.a + "/").mkdirs();
-            String str2 = yh8.g + "bdtbWCacheTemp/" + this.a + "/bdtbNWCache.zip";
-            if (this.g.downloadFile(str2, null, 0, 3, 0, true)) {
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_H5_OFFLINE_PACKAGE_DOWNLOAD).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", "1"));
-                try {
-                    try {
-                        fileInputStream = new FileInputStream(str2);
-                        try {
-                            String b = fj.b(fileInputStream);
-                            if (StringUtils.isNull(b) || !b.toLowerCase().equals(this.e.toLowerCase())) {
-                                yh8.h = 2;
-                                gy4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "md5 error");
-                                yh8.m(this.a);
-                                zi.e(fileInputStream);
-                                return null;
-                            }
-                        } catch (FileNotFoundException e) {
-                            e = e;
-                            e.printStackTrace();
-                            zi.e(fileInputStream);
-                            str = yh8.g + "bdtbWCacheTemp/" + this.a + "/" + this.d + "/";
-                            new File(str).mkdirs();
-                            if (!zx4.b(str2, str)) {
-                            }
-                            yh8.m(this.a);
-                            r = yh8.r(this.a, this.d);
-                            if (r == null) {
-                            }
-                            yh8.h = 5;
-                            gy4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "bundle incomplete");
-                            yh8.q().k(this.a);
-                            return null;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        inputStream = "obj_type";
-                        zi.e(inputStream);
-                        throw th;
-                    }
-                } catch (FileNotFoundException e2) {
-                    e = e2;
-                    fileInputStream = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    inputStream = null;
-                    zi.e(inputStream);
-                    throw th;
-                }
-                zi.e(fileInputStream);
-                str = yh8.g + "bdtbWCacheTemp/" + this.a + "/" + this.d + "/";
-                new File(str).mkdirs();
-                if (!zx4.b(str2, str)) {
-                    String str3 = yh8.g + "bdtbNWCache/" + this.a + "/" + this.d + "/";
-                    new File(str3).mkdirs();
-                    if (!FileHelper.CopyDir(str, str3, true)) {
-                        yh8.h = 4;
-                        gy4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "write error");
-                    }
-                } else {
-                    yh8.h = 3;
-                    gy4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "unzip error");
-                }
-            } else {
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_H5_OFFLINE_PACKAGE_DOWNLOAD).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", "2"));
-                yh8.h = 1;
-                gy4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "download error");
-            }
-            yh8.m(this.a);
-            r = yh8.r(this.a, this.d);
-            if (r == null && !TextUtils.isEmpty(r.a) && (hashMap = r.b) != null && hashMap.size() != 0) {
-                yh8.l(r.c, this.a);
-                return r;
-            }
-            yh8.h = 5;
-            gy4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "bundle incomplete");
-            yh8.q().k(this.a);
-            return null;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(h hVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hVar) == null) {
-                super.onPostExecute(hVar);
-                if (hVar != null) {
-                    yh8.q().B(this.a, hVar.c);
-                    yh8.q().z();
-                    zh8.a().l(this.a, hVar.b);
-                    zh8.a().h(true, this.a);
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_UPDATE_OFFLINE_PACK).param("obj_name", this.a).param("obj_id", hVar.c));
-                    return;
-                }
-                yh8.q().j(this.a);
-                yh8.q().z();
-                zh8.a().f(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public String b;
-
-        public e() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class f extends BdAsyncTask<Void, Void, g> {
+    public class b implements RemoveFansController.IResultCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ yh8 a;
 
-        public f(yh8 yh8Var) {
+        public b(yh8 yh8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -482,761 +123,574 @@ public class yh8 {
             this.a = yh8Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public g doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            HashMap<String, ai8> hashMap;
+        @Override // com.baidu.tbadk.core.util.RemoveFansController.IResultCallBack
+        public void onResultCallBack(int i, String str, long j, boolean z) {
+            int i2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                g gVar = new g(null);
-                for (String str : yh8.q().t()) {
-                    String s = yh8.q().s(str);
-                    h r = yh8.r(str, s);
-                    if (r != null && !TextUtils.isEmpty(r.a) && (hashMap = r.b) != null && hashMap.size() != 0) {
-                        if (gVar.a == null) {
-                            gVar.a = new HashMap();
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+                if (z && i != 2260104) {
+                    if (StringUtils.isNull(str)) {
+                        TbPageContext tbPageContext = this.a.d;
+                        if (i == 0) {
+                            i2 = R.string.remove_fans_success;
+                        } else {
+                            i2 = R.string.remove_fans_fail;
                         }
-                        gVar.a.put(str, r);
-                        if (gVar.b == null) {
-                            gVar.b = new HashMap<>();
-                        }
-                        gVar.b.putAll(r.b);
-                        yh8.l(r.c, str);
+                        zi.Q(this.a.d.getPageActivity(), tbPageContext.getString(i2));
                     } else {
-                        yh8.h = 5;
-                        gy4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", str, "hybridVersion", s, "hybridResult", "bundle incomplete");
-                        this.a.k(str);
+                        zi.Q(this.a.d.getPageActivity(), str);
                     }
                 }
-                return gVar;
+                yh8 yh8Var = this.a;
+                if (j == yh8Var.h && i == 0) {
+                    yh8Var.l = false;
+                }
             }
-            return (g) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements wv4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yh8 a;
+
+        public c(yh8 yh8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yh8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yh8Var;
+        }
+
+        @Override // com.baidu.tieba.wv4.e
+        public void onClick(wv4 wv4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, wv4Var) == null) {
+                this.a.m.removeFans(this.a.h);
+                wv4Var.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements wv4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d(yh8 yh8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yh8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.wv4.e
+        public void onClick(wv4 wv4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, wv4Var) == null) {
+                wv4Var.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class e implements wv4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yh8 a;
+
+        public e(yh8 yh8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yh8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yh8Var;
+        }
+
+        @Override // com.baidu.tieba.wv4.e
+        public void onClick(wv4 wv4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, wv4Var) == null) {
+                yh8 yh8Var = this.a;
+                if (yh8Var.h > 0) {
+                    if (yh8Var.e.getMaskType() == 1) {
+                        this.a.e.removeFromBlackList(this.a.h);
+                    } else {
+                        this.a.e.addToBlackList(this.a.h);
+                    }
+                }
+                wv4Var.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class f implements wv4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public f(yh8 yh8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yh8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.wv4.e
+        public void onClick(wv4 wv4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, wv4Var) == null) {
+                wv4Var.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class g extends tb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yh8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public g(yh8 yh8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yh8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yh8Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(g gVar) {
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        /* renamed from: a */
+        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+            ResponseUpdateMaskInfoMessage responseUpdateMaskInfoMessage;
+            Message<?> orginalMessage;
+            String errorString;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar) == null) {
-                if (gVar == null) {
-                    gy4.a("OfflineCache", -1L, -1, "readFile", -1, "read error", new Object[0]);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, socketResponsedMessage) == null) && socketResponsedMessage != null && socketResponsedMessage.getCmd() == 104102 && (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (orginalMessage = (responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage).getOrginalMessage()) != null && (orginalMessage instanceof RequestUpdateMaskInfoMessage)) {
+                RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) orginalMessage;
+                if (requestUpdateMaskInfoMessage.getMaskType() != 10) {
+                    return;
+                }
+                if (requestUpdateMaskInfoMessage.getIsMask() == 1) {
+                    this.a.e.setMaskType(1);
                 } else {
-                    zh8.a().i(gVar.b);
+                    this.a.e.setMaskType(0);
                 }
-                MessageManager.getInstance().sendMessage(new WebViewCacheReqMsg("0.0.0.0"));
+                if (responseUpdateMaskInfoMessage.getError() != 0) {
+                    if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
+                        errorString = this.a.d.getResources().getString(R.string.obfuscated_res_0x7f0f0cd1);
+                    } else {
+                        errorString = responseUpdateMaskInfoMessage.getErrorString();
+                    }
+                    this.a.d.showToast(errorString);
+                } else if (this.a.e.getMaskType() == 1) {
+                    TbPageContext tbPageContext = this.a.d;
+                    tbPageContext.showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f03be));
+                } else {
+                    TbPageContext tbPageContext2 = this.a.d;
+                    tbPageContext2.showToast(tbPageContext2.getString(R.string.remove_succ));
+                }
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class g {
+    public class h extends tb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Map<String, h> a;
-        public HashMap<String, ai8> b;
+        public final /* synthetic */ yh8 a;
 
-        public g() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public h(yh8 yh8Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yh8Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = yh8Var;
         }
 
-        public /* synthetic */ g(a aVar) {
-            this();
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class h {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public HashMap<String, ai8> b;
-        public String c;
-
-        public h() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        /* renamed from: a */
+        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+            String errorString;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ h(a aVar) {
-            this();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948330272, "Lcom/baidu/tieba/yh8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948330272, "Lcom/baidu/tieba/yh8;");
+            if ((interceptable != null && interceptable.invokeL(1048576, this, socketResponsedMessage) != null) || !(socketResponsedMessage instanceof ResponseDeleteFriendMessage)) {
                 return;
             }
+            ResponseDeleteFriendMessage responseDeleteFriendMessage = (ResponseDeleteFriendMessage) socketResponsedMessage;
+            int error = responseDeleteFriendMessage.getError();
+            String errorString2 = responseDeleteFriendMessage.getErrorString();
+            if (error == 0) {
+                this.a.f(false);
+            } else {
+                if (StringUtils.isNull(responseDeleteFriendMessage.getErrorString())) {
+                    errorString = this.a.d.getResources().getString(R.string.obfuscated_res_0x7f0f0cd1);
+                } else {
+                    errorString = responseDeleteFriendMessage.getErrorString();
+                }
+                errorString2 = errorString;
+            }
+            this.a.d.showToast(errorString2);
         }
-        g = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/";
-        h = 0;
     }
 
-    public yh8() {
+    /* loaded from: classes7.dex */
+    public class i extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yh8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public i(yh8 yh8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yh8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yh8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof ResponseNewFriendUpdateUiMsg) && ((ResponseNewFriendUpdateUiMsg) customResponsedMessage).getAction() == 0) {
+                this.a.f(true);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class j extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yh8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public j(yh8 yh8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yh8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yh8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof ResponseNewFriendUpdateUiMsg)) {
+                return;
+            }
+            ResponseNewFriendUpdateUiMsg responseNewFriendUpdateUiMsg = (ResponseNewFriendUpdateUiMsg) customResponsedMessage;
+            if (responseNewFriendUpdateUiMsg.getAction() == -1) {
+                this.a.f(false);
+            } else if (responseNewFriendUpdateUiMsg.getAction() == 0) {
+                this.a.f(true);
+            }
+        }
+    }
+
+    public yh8(TbPageContext tbPageContext, uh8 uh8Var, BlackListModel blackListModel, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, uh8Var, blackListModel, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.d = new a(this, 2001371);
-        this.e = new b(this, CmdConfigHttp.WEBVIEW_CACHE_INFO, 309485);
+        this.o = new g(this, 104102);
+        this.p = new h(this, 304102);
+        this.q = new i(this, 2001174);
+        this.r = new j(this, 2001174);
+        this.s = new a(this, 304103);
+        this.d = tbPageContext;
+        this.b = uh8Var;
+        this.e = blackListModel;
+        this.k = bdUniqueId;
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921343, b49.class, tbPageContext.getPageActivity());
+        if (runTask != null) {
+            b49 b49Var = (b49) runTask.getData();
+            this.c = b49Var;
+            b49Var.b(bdUniqueId);
+        }
+        g();
+        RemoveFansController removeFansController = new RemoveFansController(tbPageContext, this.k);
+        this.m = removeFansController;
+        removeFansController.setResultCallBack(new b(this));
     }
 
-    @NonNull
-    public static String A(boolean z, @Nullable String str) {
-        InterceptResult invokeZL;
-        String str2;
+    public final void f(boolean z) {
+        BlackListModel blackListModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(65538, null, z, str)) == null) {
-            if (z) {
-                str2 = "none";
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.f = z;
+            ci8 ci8Var = this.j;
+            if (ci8Var != null) {
+                ci8Var.x(z);
+            }
+            wd8 wd8Var = this.a;
+            if (wd8Var != null && (blackListModel = this.e) != null) {
+                boolean z2 = this.f;
+                boolean z3 = true;
+                if (blackListModel.getMaskType() != 1) {
+                    z3 = false;
+                }
+                wd8Var.s(z2, z3, this.l);
+            }
+        }
+    }
+
+    public void e() {
+        BlackListModel blackListModel;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b != null && (blackListModel = this.e) != null) {
+            boolean z = true;
+            if (blackListModel.getMaskType() != 1) {
+                z = false;
+            }
+            j(this.f, z, this.b.e(), this.l);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.o.setTag(this.k);
+            this.p.setTag(this.k);
+            this.s.setTag(this.k);
+            this.r.setTag(this.k);
+            this.q.setTag(this.k);
+            this.d.registerListener(this.o);
+            this.d.registerListener(this.p);
+            this.d.registerListener(this.s);
+            this.d.registerListener(this.r);
+            this.d.registerListener(this.q);
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || this.h == 0) {
+            return;
+        }
+        wv4 wv4Var = new wv4(this.d.getPageActivity());
+        wv4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f044c, new c(this));
+        wv4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f037e, new d(this));
+        wv4Var.setMessage(String.format(this.d.getString(R.string.obfuscated_res_0x7f0f1069), this.g));
+        wv4Var.create(this.d);
+        wv4Var.show();
+    }
+
+    public void h(ci8 ci8Var) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, ci8Var) == null) && this.e != null && ci8Var != null && ci8Var.j() != null) {
+            this.j = ci8Var;
+            UserData j2 = ci8Var.j();
+            this.f = ci8Var.l();
+            BlackListModel blackListModel = this.e;
+            boolean z = false;
+            if (j2.isMask()) {
+                i2 = 1;
             } else {
-                str2 = "0.0.0.0";
+                i2 = 0;
             }
-            if (TextUtils.isEmpty(str)) {
-                return str2;
+            blackListModel.setMaskType(i2);
+            this.g = j2.getName_show();
+            this.h = j2.getUserIdLong();
+            this.i = j2.getPortrait();
+            if (j2.getIsMyFans() == 1) {
+                z = true;
             }
-            return str;
+            this.l = z;
         }
-        return (String) invokeZL.objValue;
-    }
-
-    public void B(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, str2) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        if (this.c == null) {
-            this.c = new ConcurrentHashMap();
-        }
-        this.c.put(str, str2);
-    }
-
-    public void j(String str) {
-        Map<String, String> map;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && !TextUtils.isEmpty(str) && (map = this.c) != null) {
-            map.remove(str);
-        }
-    }
-
-    public String s(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            if (this.c != null && !TextUtils.isEmpty(str)) {
-                return this.c.get(str);
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static yh8 q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            if (f == null) {
-                synchronized (yh8.class) {
-                    if (f == null) {
-                        f = new yh8();
-                    }
-                }
-            }
-            return f;
-        }
-        return (yh8) invokeV.objValue;
-    }
-
-    public JSONObject D() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Map<String, String> map = this.c;
-            if (map != null && !map.isEmpty()) {
-                return new JSONObject(this.c);
-            }
-            return null;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public String E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Map<String, String> map = this.c;
-            if (map != null && !map.isEmpty()) {
-                return new JSONObject(this.c).toString();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.c == null) {
-                this.c = new ConcurrentHashMap();
-            }
-            this.c.clear();
-        }
-    }
-
-    public String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public Set<String> t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.c == null) {
-                this.c = new ConcurrentHashMap();
-            }
-            return this.c.keySet();
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            String E = E();
-            if (!TextUtils.isEmpty(E)) {
-                ry4.l().z("pref_key_quick_webview_versions", E);
-            }
-        }
-    }
-
-    public static void l(String str, String str2) {
-        String[] list;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65547, null, str, str2) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        String str3 = g + "bdtbNWCache/" + str2;
-        File file = new File(str3);
-        if (file.exists() && file.isDirectory() && (list = file.list()) != null && list.length != 0) {
-            for (String str4 : list) {
-                if (!StringUtils.isNull(str4) && !str4.equals(str)) {
-                    FileHelper.deleteFileOrDir(new File(str3 + "/" + str4));
-                }
-            }
-        }
-    }
-
-    public static void m(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65548, null, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        FileHelper.deleteFileOrDir(new File(g + "bdtbWCacheTemp/" + str));
-    }
-
-    public static void o(String str, ci8 ci8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65549, null, str, ci8Var) == null) {
-            if (ci8Var != null && !StringUtils.isNull(ci8Var.c()) && !StringUtils.isNull(ci8Var.b()) && !StringUtils.isNull(ci8Var.a())) {
-                String s = q().s(str);
-                String c2 = ci8Var.c();
-                String a2 = ci8Var.a();
-                boolean d2 = ci8Var.d();
-                if (StringUtils.isNull(s)) {
-                    s = "0.0.0.0";
-                }
-                if (d2 && c2.equals(s)) {
-                    zh8.a().h(true, str);
-                    return;
-                }
-                gy4.a("OfflineCache", -1L, 0, "downloadCache", 0, "", "url", a2, "hybridVersion", c2, "lastVersion", s, "type", "start", "hybridName", str, "hybridResult", "success");
-                new d(str, ci8Var, true ^ d2).execute(new Void[0]);
-                return;
-            }
-            zh8.a().h(true, str);
-        }
-    }
-
-    public static h r(String str, String str2) {
-        InterceptResult invokeLL;
-        FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, str, str2)) == null) {
-            File file = new File(g + "bdtbNWCache");
-            FileInputStream fileInputStream2 = null;
-            if (!file.exists() || TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            h hVar = new h(null);
-            File file2 = new File(file.getAbsolutePath() + "/" + str + "/" + str2 + "/");
-            hVar.a = file.getAbsolutePath();
-            hVar.c = str2;
-            File file3 = new File(file2, "router.json");
-            try {
-                if (!file3.exists()) {
-                    return null;
-                }
-                try {
-                    fileInputStream = new FileInputStream(file3);
-                } catch (FileNotFoundException e2) {
-                    e = e2;
-                }
-                try {
-                    hVar.b = y(fileInputStream);
-                    zi.e(fileInputStream);
-                } catch (FileNotFoundException e3) {
-                    e = e3;
-                    fileInputStream2 = fileInputStream;
-                    e.printStackTrace();
-                    zi.e(fileInputStream2);
-                    return hVar;
-                } catch (Throwable th) {
-                    th = th;
-                    fileInputStream2 = fileInputStream;
-                    zi.e(fileInputStream2);
-                    throw th;
-                }
-                return hVar;
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        } else {
-            return (h) invokeLL.objValue;
-        }
-    }
-
-    public static void w(JSONObject jSONObject, HashMap<String, ai8> hashMap) {
-        String str;
-        String str2;
-        String str3;
-        boolean z;
-        JSONArray optJSONArray;
-        JSONArray optJSONArray2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65552, null, jSONObject, hashMap) == null) {
-            JSONObject jSONObject2 = jSONObject;
-            String str4 = "source";
-            String str5 = "path";
-            if (jSONObject2 != null && hashMap != null) {
-                try {
-                    Iterator<String> keys = jSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        if (!hashMap.containsKey(next)) {
-                            JSONObject jSONObject3 = jSONObject2.getJSONObject(next);
-                            ArrayList<String> arrayList = new ArrayList<>();
-                            if (jSONObject3.has("data_urls") && (optJSONArray2 = jSONObject3.optJSONArray("data_urls")) != null) {
-                                for (int i = 0; i < optJSONArray2.length(); i++) {
-                                    arrayList.add(optJSONArray2.optString(i));
-                                }
-                            }
-                            if (!jSONObject3.has("module")) {
-                                str = "";
-                            } else {
-                                str = jSONObject3.optString("module");
-                            }
-                            if (!jSONObject3.has(str5)) {
-                                str2 = "";
-                            } else {
-                                str2 = jSONObject3.optString(str5);
-                            }
-                            ArrayList<String> arrayList2 = new ArrayList<>();
-                            if (jSONObject3.has(str4) && (optJSONArray = jSONObject3.optJSONArray(str4)) != null) {
-                                str3 = str4;
-                                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                                    arrayList2.add(optJSONArray.optString(i2));
-                                }
-                            } else {
-                                str3 = str4;
-                            }
-                            String optString = jSONObject3.optString("staticPrePath", "");
-                            int optInt = jSONObject3.optInt("proxyMode");
-                            zh8.a().j(next, next);
-                            zh8.a().k(next, str2);
-                            Iterator<String> it = arrayList2.iterator();
-                            while (it.hasNext()) {
-                                String next2 = it.next();
-                                if (!TextUtils.isEmpty(next2)) {
-                                    zh8 a2 = zh8.a();
-                                    String str6 = str5;
-                                    a2.j(optString + "/" + next2, next);
-                                    zh8 a3 = zh8.a();
-                                    a3.k(optString + "/" + next2, next2);
-                                    str5 = str6;
-                                }
-                            }
-                            String str7 = str5;
-                            ai8 ai8Var = new ai8();
-                            ai8Var.a = arrayList;
-                            ai8Var.b = str;
-                            ai8Var.c = str2;
-                            ai8Var.d = arrayList2;
-                            if (optInt == 1) {
-                                z = true;
-                            } else {
-                                z = false;
-                            }
-                            ai8Var.f = z;
-                            hashMap.put(next, ai8Var);
-                            jSONObject2 = jSONObject;
-                            str4 = str3;
-                            str5 = str7;
-                        }
-                    }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:15:0x004d */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x004f */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x0051 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x0053 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:62:0x0005 */
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.io.InputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r5v1, resolved type: java.io.BufferedReader */
-    /* JADX DEBUG: Multi-variable search result rejected for r5v14, resolved type: java.io.BufferedReader */
-    /* JADX DEBUG: Multi-variable search result rejected for r5v15, resolved type: java.io.BufferedReader */
-    /* JADX DEBUG: Multi-variable search result rejected for r5v16, resolved type: java.io.BufferedReader */
-    /* JADX DEBUG: Multi-variable search result rejected for r5v17, resolved type: java.io.BufferedReader */
-    /* JADX DEBUG: Multi-variable search result rejected for r5v2, resolved type: java.io.BufferedReader */
-    /* JADX DEBUG: Multi-variable search result rejected for r5v21, resolved type: java.io.BufferedReader */
-    /* JADX DEBUG: Multi-variable search result rejected for r5v4, resolved type: java.io.BufferedReader */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r5v10 */
-    /* JADX WARN: Type inference failed for: r5v18 */
-    /* JADX WARN: Type inference failed for: r5v19 */
-    /* JADX WARN: Type inference failed for: r5v20 */
-    /* JADX WARN: Type inference failed for: r5v25 */
-    /* JADX WARN: Type inference failed for: r5v26 */
-    /* JADX WARN: Type inference failed for: r5v27 */
-    public static HashMap<String, ai8> y(InputStream inputStream) {
-        InterceptResult invokeL;
-        InputStreamReader inputStreamReader;
-        Throwable th;
-        Object obj;
-        HashMap<String, ai8> hashMap;
-        Object obj2;
-        Object obj3;
-        Reader reader;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, inputStream)) == null) {
-            InputStreamReader inputStreamReader2 = null;
-            try {
-                if (inputStream == 0) {
-                    return null;
-                }
-                try {
-                    StringBuffer stringBuffer = new StringBuffer();
-                    inputStreamReader = new InputStreamReader(inputStream);
-                    try {
-                        inputStream = new BufferedReader(inputStreamReader);
-                        try {
-                            try {
-                                for (String readLine = inputStream.readLine(); readLine != null; readLine = inputStream.readLine()) {
-                                    stringBuffer.append(readLine);
-                                }
-                                inputStream.close();
-                                hashMap = new HashMap<>();
-                                try {
-                                    JSONObject jSONObject = new JSONObject(stringBuffer.toString());
-                                    w(jSONObject.optJSONObject("proxyConfig"), hashMap);
-                                    w(jSONObject.optJSONObject("config"), hashMap);
-                                    zi.g(inputStreamReader);
-                                    reader = inputStream;
-                                } catch (IOException e2) {
-                                    e = e2;
-                                    inputStreamReader2 = inputStreamReader;
-                                    obj3 = inputStream;
-                                    e.printStackTrace();
-                                    inputStream = obj3;
-                                    zi.g(inputStreamReader2);
-                                    reader = inputStream;
-                                    zi.g(reader);
-                                    return hashMap;
-                                } catch (JSONException e3) {
-                                    e = e3;
-                                    inputStreamReader2 = inputStreamReader;
-                                    obj2 = inputStream;
-                                    e.printStackTrace();
-                                    inputStream = obj2;
-                                    zi.g(inputStreamReader2);
-                                    reader = inputStream;
-                                    zi.g(reader);
-                                    return hashMap;
-                                } catch (Exception e4) {
-                                    e = e4;
-                                    inputStreamReader2 = inputStreamReader;
-                                    obj = inputStream;
-                                    e.printStackTrace();
-                                    inputStream = obj;
-                                    zi.g(inputStreamReader2);
-                                    reader = inputStream;
-                                    zi.g(reader);
-                                    return hashMap;
-                                }
-                            } catch (Throwable th2) {
-                                th = th2;
-                                zi.g(inputStreamReader);
-                                zi.g(inputStream);
-                                throw th;
-                            }
-                        } catch (IOException e5) {
-                            e = e5;
-                            hashMap = null;
-                        } catch (JSONException e6) {
-                            e = e6;
-                            hashMap = null;
-                        } catch (Exception e7) {
-                            e = e7;
-                            hashMap = null;
-                        }
-                    } catch (IOException e8) {
-                        e = e8;
-                        inputStream = 0;
-                        hashMap = null;
-                    } catch (JSONException e9) {
-                        e = e9;
-                        inputStream = 0;
-                        hashMap = null;
-                    } catch (Exception e10) {
-                        e = e10;
-                        inputStream = 0;
-                        hashMap = null;
-                    } catch (Throwable th3) {
-                        th = th3;
-                        inputStream = 0;
-                    }
-                } catch (IOException e11) {
-                    e = e11;
-                    obj3 = null;
-                    hashMap = null;
-                } catch (JSONException e12) {
-                    e = e12;
-                    obj2 = null;
-                    hashMap = null;
-                } catch (Exception e13) {
-                    e = e13;
-                    obj = null;
-                    hashMap = null;
-                } catch (Throwable th4) {
-                    inputStreamReader = null;
-                    th = th4;
-                    inputStream = 0;
-                }
-                zi.g(reader);
-                return hashMap;
-            } catch (Throwable th5) {
-                inputStreamReader = inputStreamReader2;
-                th = th5;
-            }
-        } else {
-            return (HashMap) invokeL.objValue;
-        }
-    }
-
-    public final e C(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            e eVar = new e();
-            if (TextUtils.isEmpty(str)) {
-                eVar.b = "module not exit";
-                return eVar;
-            }
-            File file = new File(g + "bdtbNWCache", str);
-            String s = q().s(str);
-            if (TbSingleton.getInstance().isUploadOffPack()) {
-                eVar.a = false;
-                if (!file.exists()) {
-                    eVar.b = "bundle not exist";
-                    return eVar;
-                } else if (TextUtils.isEmpty(s)) {
-                    eVar.b = "the local has no valid version name";
-                    return eVar;
-                } else {
-                    String str2 = file.getAbsolutePath() + "/" + s + "/";
-                    if (!new File(str2).exists()) {
-                        eVar.b = "bundle not exist";
-                        return eVar;
-                    }
-                    String str3 = file.getAbsolutePath() + "/" + s + ".zip";
-                    File file2 = new File(str3);
-                    if (file2.exists()) {
-                        FileHelper.deleteFileOrDir(file2);
-                    }
-                    if (zx4.e(str2, str3)) {
-                        NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_OFFLINE_PACK);
-                        netWork.addPostData("offline_pack_version", s);
-                        netWork.addPostData("mod_name", str);
-                        netWork.getNetContext().getRequest().mNeedBackgroundLogin = false;
-                        netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
-                        v(netWork.uploadFile("offline_pack_file_stream", str3), eVar);
-                        if (!eVar.a) {
-                            return eVar;
-                        }
-                    } else {
-                        eVar.b = "zip bundle error";
-                        return eVar;
-                    }
-                }
-            } else {
-                eVar.a = true;
-            }
-            if (TbSingleton.getInstance().isClearOffPack()) {
-                k(str);
-                if (!TextUtils.isEmpty(s)) {
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_UPDATE_OFFLINE_PACK).param("obj_name", str).param("obj_id", s));
-                }
-                if (file.exists() && !StringUtils.isNull(s)) {
-                    if (!new File(file.getAbsolutePath(), s).exists()) {
-                        return eVar;
-                    }
-                    eVar.b = "delete fail";
-                    eVar.a = false;
-                }
-            }
-            return eVar;
-        }
-        return (e) invokeL.objValue;
     }
 
     public void i() {
-        String[] list;
+        String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            n();
-            ry4.l().z("pref_key_quick_webview_versions", "");
-            String str = g + "bdtbNWCache";
-            File file = new File(str);
-            if (file.exists() && file.isDirectory() && (list = file.list()) != null && list.length != 0) {
-                for (String str2 : list) {
-                    if (!StringUtils.isNull(str2)) {
-                        FileHelper.deleteFileOrDir(new File(str + "/" + str2));
-                    }
-                }
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.g == null) {
+            return;
+        }
+        wv4 wv4Var = new wv4(this.d.getPageActivity());
+        wv4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f044c, new e(this));
+        wv4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f037e, new f(this));
+        if (this.e.getMaskType() == 1) {
+            format = String.format(this.d.getString(R.string.obfuscated_res_0x7f0f0327), this.g);
+        } else {
+            format = String.format(this.d.getString(R.string.obfuscated_res_0x7f0f0329), this.g);
+        }
+        wv4Var.setMessage(format);
+        wv4Var.create(this.d);
+        wv4Var.show();
+    }
+
+    public final void j(boolean z, boolean z2, int i2, boolean z3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2), Boolean.valueOf(z3)}) == null) {
+            wd8 wd8Var = new wd8(this.d, this);
+            this.a = wd8Var;
+            wd8Var.s(z, z2, z3);
+            if (i2 != -1) {
+                this.a.r(i2);
             }
+            ci8 ci8Var = this.j;
+            if (ci8Var != null && ci8Var.j() != null) {
+                this.a.t(this.j.j().getUserName());
+            }
+            this.a.q();
+            vd8 vd8Var = new vd8(this.d.getPageActivity(), this.a.o());
+            this.n = vd8Var;
+            vd8Var.show();
         }
     }
 
-    public void k(String str) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048583, this, view2) != null) || view2 == null) {
             return;
         }
-        j(str);
-        ry4.l().z("pref_key_quick_webview_versions", E());
-        File file = new File(g + "bdtbNWCache/" + str);
-        if (file.exists() && file.isDirectory()) {
-            FileHelper.deleteFileOrDir(file);
-        }
-    }
-
-    public void x(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048589, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            Iterator<String> keys = jSONObject.keys();
-            if (keys == null) {
+        dh.a(this.n, this.d.getPageActivity());
+        if (this.a.i() != null && view2.getId() == this.a.i().getId()) {
+            i();
+        } else if (this.a.k() != null && view2.getId() == this.a.k().getId()) {
+            if (this.f) {
+                RequestDeleteFriendMessage requestDeleteFriendMessage = new RequestDeleteFriendMessage();
+                requestDeleteFriendMessage.setFriendId(this.h);
+                MessageManager.getInstance().sendMessage(requestDeleteFriendMessage);
                 return;
             }
-            while (keys.hasNext()) {
-                String next = keys.next();
-                String optString = jSONObject.optString(next);
-                if (!TextUtils.isEmpty(optString)) {
-                    if (this.c == null) {
-                        this.c = new ConcurrentHashMap();
-                    }
-                    this.c.put(next, optString);
-                }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddFriendActivityConfig(this.d.getPageActivity(), String.valueOf(this.h), this.g, this.i, null, false, null)));
+        } else if (this.a.l() != null && view2.getId() == this.a.l().getId()) {
+            if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                this.d.showToast(R.string.obfuscated_res_0x7f0f0cd1);
+                return;
             }
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
-    }
-
-    public void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            MessageManager.getInstance().registerListener(this.e);
-            MessageManager.getInstance().registerListener(this.d);
-            this.b = new File(g + "bdtbNWCache").getAbsolutePath();
-            x(ry4.l().r("pref_key_quick_webview_versions", ""));
-        }
-    }
-
-    public final e v(String str, e eVar) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, eVar)) == null) {
-            if (StringUtils.isNull(str)) {
-                eVar.b = "serve return is null";
-                return eVar;
+            uh8 uh8Var = this.b;
+            if (uh8Var == null) {
+                return;
             }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                if (jSONObject.optInt("error_code") == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                eVar.a = z;
-                eVar.b = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-            } catch (JSONException e2) {
-                eVar.b = "parse json exception";
-                BdLog.e(e2);
+            if (uh8Var.e() == 0) {
+                UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(2001430);
+                userMuteAddAndDelCustomMessage.setData(false, String.valueOf(this.h), this.g, null, null, 0, this.b.d(), this.b.f());
+                userMuteAddAndDelCustomMessage.mId = this.b.f();
+                uh8 uh8Var2 = this.b;
+                uh8Var2.j(false, userMuteAddAndDelCustomMessage, uh8Var2.d(), this.g);
+            } else if (this.b.e() == 1) {
+                UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage2 = new UserMuteAddAndDelCustomMessage(2001430);
+                userMuteAddAndDelCustomMessage2.setData(true, String.valueOf(this.h), this.g, null, null, 0, this.b.d(), this.b.f());
+                userMuteAddAndDelCustomMessage2.mId = this.b.f();
+                this.b.j(true, userMuteAddAndDelCustomMessage2, null, this.g);
             }
-            return eVar;
+        } else if (this.a.n() != null && view2.getId() == this.a.n().getId()) {
+            if (this.c != null) {
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_PERSON_TALK_REPORT_CLICK).param("obj_locate", 1));
+                this.c.c(String.valueOf(this.h));
+            }
+        } else if (this.a.m() != null && view2.getId() == this.a.m().getId()) {
+            if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                zi.P(this.d.getPageActivity(), R.string.obfuscated_res_0x7f0f0cd1);
+            } else {
+                k();
+            }
         }
-        return (e) invokeLL.objValue;
     }
 }

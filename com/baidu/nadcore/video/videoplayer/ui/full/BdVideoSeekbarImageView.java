@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.v41;
+import com.baidu.tieba.a51;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -74,26 +74,26 @@ public class BdVideoSeekbarImageView extends View {
                 return;
             }
         }
-        p = v41.a(12.0f);
-        q = v41.d(30.0f);
-        r = v41.a(17.0f);
-        s = v41.a(13.0f);
-        t = v41.a(2.0f);
-        v41.a(9.0f);
-        u = v41.b(90.0f);
-        v = v41.b(90.0f);
-        w = v41.a(77.0f);
-        x = v41.a(7.0f);
-        y = v41.a(1.0f);
-        z = v41.a(23.0f);
-        A = v41.a(21.0f);
-        B = v41.a(64.0f);
-        C = v41.a(34.0f);
-        D = v41.a(27.0f);
-        E = v41.a(25.0f);
-        F = v41.a(11.0f);
-        G = v41.a(9.0f);
-        H = v41.a(60.0f);
+        p = a51.a(12.0f);
+        q = a51.d(30.0f);
+        r = a51.a(17.0f);
+        s = a51.a(13.0f);
+        t = a51.a(2.0f);
+        a51.a(9.0f);
+        u = a51.b(90.0f);
+        v = a51.b(90.0f);
+        w = a51.a(77.0f);
+        x = a51.a(7.0f);
+        y = a51.a(1.0f);
+        z = a51.a(23.0f);
+        A = a51.a(21.0f);
+        B = a51.a(64.0f);
+        C = a51.a(34.0f);
+        D = a51.a(27.0f);
+        E = a51.a(25.0f);
+        F = a51.a(11.0f);
+        G = a51.a(9.0f);
+        H = a51.a(60.0f);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

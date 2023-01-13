@@ -1,16 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.AppInfoService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetTagList.ResponseTagInfo;
 /* loaded from: classes4.dex */
-public class hp7 extends yf1<AppInfoService> {
+public class hp7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public boolean c;
 
     public hp7() {
         Interceptable interceptable = $ic;
@@ -26,15 +27,17 @@ public class hp7 extends yf1<AppInfoService> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yf1
-    /* renamed from: a */
-    public AppInfoService createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public void a(ResponseTagInfo responseTagInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new ip7();
+        if ((interceptable != null && interceptable.invokeL(1048576, this, responseTagInfo) != null) || responseTagInfo == null) {
+            return;
         }
-        return (AppInfoService) invokeV.objValue;
+        this.a = responseTagInfo.tag_id.intValue();
+        this.b = responseTagInfo.tag_name;
+        boolean z = true;
+        if (responseTagInfo.is_followed.intValue() != 1) {
+            z = false;
+        }
+        this.c = z;
     }
 }

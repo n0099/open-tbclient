@@ -22,13 +22,13 @@ import io.reactivex.subjects.PublishSubject;
 import io.reactivex.subjects.Subject;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ObservableRepeatWhen<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Function<? super Observable<Object>, ? extends ObservableSource<?>> handler;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class RepeatWhenObserver<T> extends AtomicInteger implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 802743776666017014L;
@@ -42,7 +42,7 @@ public final class ObservableRepeatWhen<T> extends AbstractObservableWithUpstrea
         public final ObservableSource<T> source;
         public final AtomicInteger wip;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public final class InnerRepeatObserver extends AtomicReference<Disposable> implements Observer<Object> {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 3254781284376480842L;

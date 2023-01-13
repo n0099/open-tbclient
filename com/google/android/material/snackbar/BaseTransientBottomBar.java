@@ -1591,9 +1591,9 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             if (hasSnackbarStyleAttr()) {
-                return com.baidu.tieba.R.layout.obfuscated_res_0x7f0d05db;
+                return com.baidu.tieba.R.layout.obfuscated_res_0x7f0d05d9;
             }
-            return com.baidu.tieba.R.layout.obfuscated_res_0x7f0d021b;
+            return com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0218;
         }
         return invokeV.intValue;
     }

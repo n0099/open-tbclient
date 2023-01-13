@@ -1,11 +1,9 @@
 package com.baidu.tieba;
+
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public interface dh4 {
+    void l(JSONObject jSONObject);
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void a(boolean z);
-    }
-
-    void a(String str, a aVar);
+    void o();
 }

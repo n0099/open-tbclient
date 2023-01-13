@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gy4;
-import com.baidu.tieba.ho8;
-import com.baidu.tieba.r9;
+import com.baidu.tieba.dt8;
+import com.baidu.tieba.ry4;
+import com.baidu.tieba.s9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
     public static /* synthetic */ Interceptable $ic;
     public static final String h;
     public transient /* synthetic */ FieldHolder $fh;
-    public ho8 a;
+    public dt8 a;
     public b b;
     public HttpMessage c;
     public boolean d;
@@ -44,9 +44,9 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(ho8 ho8Var);
+        void a(dt8 dt8Var);
 
-        void d(String str);
+        void e(String str);
     }
 
     /* loaded from: classes6.dex */
@@ -87,7 +87,7 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
                     if (error == 110001) {
                         this.a.M(httpResponsedMessage);
                     }
-                    this.a.b.d(httpResponsedMessage.getErrorString());
+                    this.a.b.e(httpResponsedMessage.getErrorString());
                 } else if (error == 0) {
                     this.a.a = ((GetForumResponsed) httpResponsedMessage).listData;
                     if (this.a.b != null) {
@@ -96,13 +96,13 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
                         } else {
                             String errorString = httpResponsedMessage.getErrorString();
                             if (StringUtils.isNull(errorString)) {
-                                errorString = TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0cb8);
+                                errorString = TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0cd1);
                             }
-                            this.a.b.d(errorString);
+                            this.a.b.e(errorString);
                         }
                     }
                 } else {
-                    this.a.b.d(httpResponsedMessage.getErrorString());
+                    this.a.b.e(httpResponsedMessage.getErrorString());
                 }
                 this.a.c = null;
             }
@@ -159,7 +159,7 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((r9) newInitContext.callArgs[0]);
+                super((s9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -171,7 +171,7 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
         this.g = new a(this, CmdConfigHttp.SIGNALL_GET_FOURMS);
         this.d = signAllForumActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
         MessageManager messageManager = MessageManager.getInstance();
-        this.a = new ho8();
+        this.a = new dt8();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SIGNALL_GET_FOURMS, h);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setResponsedClass(GetForumResponsed.class);
@@ -196,7 +196,7 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
                         sb.append(value.toString());
                         sb.append("&");
                     }
-                    gy4.a("sign_all", httpMessage.getClientLogID(), 0, "sign_getforumlist_error", 110001, sb.toString(), new Object[0]);
+                    ry4.a("sign_all", httpMessage.getClientLogID(), 0, "sign_getforumlist_error", 110001, sb.toString(), new Object[0]);
                 }
             } catch (Exception e) {
                 e.printStackTrace();

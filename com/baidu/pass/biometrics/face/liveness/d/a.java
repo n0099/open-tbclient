@@ -58,20 +58,20 @@ public class a extends Dialog {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d04d5);
+            setContentView(R.layout.obfuscated_res_0x7f0d04d4);
             setCanceledOnTouchOutside(false);
-            this.b = (ViewSwitcher) findViewById(R.id.obfuscated_res_0x7f092693);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090806);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0907fd);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091628);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091848);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091847);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091849);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091aed);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f09170e);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09171e);
-            this.m = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0922a2);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091846);
+            this.b = (ViewSwitcher) findViewById(R.id.obfuscated_res_0x7f0926c3);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09080a);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090801);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091638);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091857);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091856);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091858);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091afb);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f09171e);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09172e);
+            this.m = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0922cb);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091855);
             CommonViewUtility.setViewClickAlpha(this.j, 0.2f);
             CommonViewUtility.setViewClickAlpha(this.k, 0.2f);
             CommonViewUtility.setViewClickAlpha(this.l, 0.2f);
@@ -160,7 +160,7 @@ public class a extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             if (z) {
-                this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080eef));
+                this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f00));
                 this.d.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608e3));
                 this.e.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608d8));
                 this.f.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608e2));
@@ -170,12 +170,12 @@ public class a extends Dialog {
                 this.k.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608dc));
                 this.j.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608e0));
                 this.l.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608e0));
-                this.k.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ee9));
-                this.j.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080eeb));
-                this.l.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080eeb));
+                this.k.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080efa));
+                this.j.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080efc));
+                this.l.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080efc));
                 return;
             }
-            this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080eee));
+            this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080eff));
             this.d.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608e3));
             this.e.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608d7));
             this.f.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608e1));
@@ -185,9 +185,9 @@ public class a extends Dialog {
             this.k.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608db));
             this.j.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608df));
             this.l.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608df));
-            this.k.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ee8));
-            this.j.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080eea));
-            this.l.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080eea));
+            this.k.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ef9));
+            this.j.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080efb));
+            this.l.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080efb));
         }
     }
 

@@ -3,41 +3,25 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
 /* loaded from: classes4.dex */
 public class i04 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile h04 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            File b = b();
-            if (b.exists()) {
-                ik4.j(b);
-            }
-        }
-    }
-
-    public static File b() {
+    public static synchronized h04 a() {
         InterceptResult invokeV;
+        h04 h04Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return u04.e("aigames_debug_game_core");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static File c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            File b = b();
-            if (!b.exists()) {
-                b.mkdirs();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (i04.class) {
+                if (a == null) {
+                    a = new h04();
+                }
+                h04Var = a;
             }
-            return new File(b, "debugGameCore.zip");
+            return h04Var;
         }
-        return (File) invokeV.objValue;
+        return (h04) invokeV.objValue;
     }
 }

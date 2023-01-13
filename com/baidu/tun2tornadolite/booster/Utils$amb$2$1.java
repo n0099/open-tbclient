@@ -18,10 +18,11 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.Deferred;
+/* JADX INFO: Add missing generic type declarations: [T] */
 @Metadata(d1 = {"\u0000\u0004\n\u0002\b\u0003\u0010\u0000\u001a\u0002H\u0001\"\u0004\b\u0000\u0010\u00012\u0006\u0010\u0002\u001a\u0002H\u0001H\u008a@"}, d2 = {"<anonymous>", ExifInterface.GPS_DIRECTION_TRUE, AdvanceSetting.NETWORK_TYPE}, k = 3, mv = {1, 5, 1}, xi = 48)
 @DebugMetadata(c = "com.baidu.tun2tornadolite.booster.Utils$amb$2$1", f = "Utils.kt", i = {}, l = {}, m = "invokeSuspend", n = {}, s = {})
 /* loaded from: classes7.dex */
-public final class Utils$amb$2$1 extends SuspendLambda implements Function2<T, Continuation<? super T>, Object> {
+public final class Utils$amb$2$1<T> extends SuspendLambda implements Function2<T, Continuation<? super T>, Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ List<Deferred<T>> $jobs;
@@ -62,9 +63,11 @@ public final class Utils$amb$2$1 extends SuspendLambda implements Function2<T, C
         return (Continuation) invokeLL.objValue;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
     @Override // kotlin.jvm.functions.Function2
     public /* bridge */ /* synthetic */ Object invoke(Object obj, Object obj2) {
-        return invoke((Utils$amb$2$1) obj, (Continuation<? super Utils$amb$2$1>) obj2);
+        return invoke((Utils$amb$2$1<T>) obj, (Continuation<? super Utils$amb$2$1<T>>) obj2);
     }
 
     public final Object invoke(T t, Continuation<? super T> continuation) {
@@ -82,7 +85,7 @@ public final class Utils$amb$2$1 extends SuspendLambda implements Function2<T, C
             if (this.label == 0) {
                 ResultKt.throwOnFailure(obj);
                 Object obj2 = this.L$0;
-                Utils.m56amb$lambda1$cancelAll(this.$jobs);
+                Utils.m60amb$lambda1$cancelAll(this.$jobs);
                 return obj2;
             }
             throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");

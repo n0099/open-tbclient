@@ -35,18 +35,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.e12;
-import com.baidu.tieba.gs2;
-import com.baidu.tieba.hs2;
-import com.baidu.tieba.is2;
-import com.baidu.tieba.js2;
-import com.baidu.tieba.ks2;
+import com.baidu.tieba.j12;
 import com.baidu.tieba.ls2;
 import com.baidu.tieba.ms2;
-import com.baidu.tieba.nk1;
 import com.baidu.tieba.ns2;
-import com.baidu.tieba.ok1;
 import com.baidu.tieba.os2;
+import com.baidu.tieba.ps2;
+import com.baidu.tieba.qs2;
+import com.baidu.tieba.rs2;
+import com.baidu.tieba.sk1;
+import com.baidu.tieba.ss2;
+import com.baidu.tieba.tk1;
+import com.baidu.tieba.ts2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -89,10 +89,10 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
     public boolean K;
     public int L;
     public GestureDetector M;
-    public ms2 N;
+    public rs2 N;
     public final Object O;
-    public ks2<? extends ls2> P;
-    public ks2<? extends ms2> Q;
+    public ps2<? extends qs2> P;
+    public ps2<? extends rs2> Q;
     public PointF R;
     public float S;
     public final float T;
@@ -305,22 +305,129 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             return invokeL.booleanValue;
         }
 
+        /*  JADX ERROR: JadxRuntimeException in pass: InlineMethods
+            jadx.core.utils.exceptions.JadxRuntimeException: Failed to process method for inline: com.baidu.swan.apps.media.image.HugePhotoDraweeView.d.a(com.baidu.swan.apps.media.image.HugePhotoDraweeView$d, boolean):com.baidu.swan.apps.media.image.HugePhotoDraweeView$d
+            	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:76)
+            	at jadx.core.dex.visitors.InlineMethods.visit(InlineMethods.java:51)
+            Caused by: java.lang.NullPointerException: Cannot invoke "jadx.core.dex.instructions.args.InsnArg.isRegister()" because "arg" is null
+            	at jadx.core.dex.instructions.args.RegisterArg.sameRegAndSVar(RegisterArg.java:173)
+            	at jadx.core.dex.instructions.args.InsnArg.isSameVar(InsnArg.java:269)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:118)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
+            	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:65)
+            	... 1 more
+            */
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-        public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-                if (this.b.q && this.b.c0 && this.b.y != null && motionEvent != null && motionEvent2 != null && ((Math.abs(motionEvent.getX() - motionEvent2.getX()) > 50.0f || Math.abs(motionEvent.getY() - motionEvent2.getY()) > 50.0f) && ((Math.abs(f) > 500.0f || Math.abs(f2) > 500.0f) && !this.b.I))) {
-                    PointF pointF = new PointF(this.b.y.x + (f * 0.25f), this.b.y.y + (f2 * 0.25f));
-                    d dVar = new d(this.b, new PointF(((this.b.getWidth() / 2) - pointF.x) / this.b.w, ((this.b.getHeight() / 2) - pointF.y) / this.b.w), (a) null);
-                    dVar.d(1);
-                    dVar.f(false);
-                    dVar.b();
-                    return true;
-                }
-                return super.onFling(motionEvent, motionEvent2, f, f2);
-            }
-            return invokeCommon.booleanValue;
+        public boolean onFling(android.view.MotionEvent r5, android.view.MotionEvent r6, float r7, float r8) {
+            /*
+                r4 = this;
+                com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.b.$ic
+                if (r0 != 0) goto Lbf
+            L4:
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r0 = r4.b
+                boolean r0 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.E(r0)
+                if (r0 == 0) goto Lba
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r0 = r4.b
+                boolean r0 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.K(r0)
+                if (r0 == 0) goto Lba
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r0 = r4.b
+                android.graphics.PointF r0 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.L(r0)
+                if (r0 == 0) goto Lba
+                if (r5 == 0) goto Lba
+                if (r6 == 0) goto Lba
+                float r0 = r5.getX()
+                float r1 = r6.getX()
+                float r0 = r0 - r1
+                float r0 = java.lang.Math.abs(r0)
+                r1 = 1112014848(0x42480000, float:50.0)
+                int r0 = (r0 > r1 ? 1 : (r0 == r1 ? 0 : -1))
+                if (r0 > 0) goto L44
+                float r0 = r5.getY()
+                float r2 = r6.getY()
+                float r0 = r0 - r2
+                float r0 = java.lang.Math.abs(r0)
+                int r0 = (r0 > r1 ? 1 : (r0 == r1 ? 0 : -1))
+                if (r0 <= 0) goto Lba
+            L44:
+                float r0 = java.lang.Math.abs(r7)
+                r1 = 1140457472(0x43fa0000, float:500.0)
+                int r0 = (r0 > r1 ? 1 : (r0 == r1 ? 0 : -1))
+                if (r0 > 0) goto L56
+                float r0 = java.lang.Math.abs(r8)
+                int r0 = (r0 > r1 ? 1 : (r0 == r1 ? 0 : -1))
+                if (r0 <= 0) goto Lba
+            L56:
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r0 = r4.b
+                boolean r0 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.M(r0)
+                if (r0 != 0) goto Lba
+                android.graphics.PointF r5 = new android.graphics.PointF
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r6 = r4.b
+                android.graphics.PointF r6 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.L(r6)
+                float r6 = r6.x
+                r0 = 1048576000(0x3e800000, float:0.25)
+                float r7 = r7 * r0
+                float r6 = r6 + r7
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r7 = r4.b
+                android.graphics.PointF r7 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.L(r7)
+                float r7 = r7.y
+                float r8 = r8 * r0
+                float r7 = r7 + r8
+                r5.<init>(r6, r7)
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r6 = r4.b
+                int r6 = r6.getWidth()
+                int r6 = r6 / 2
+                float r6 = (float) r6
+                float r7 = r5.x
+                float r6 = r6 - r7
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r7 = r4.b
+                float r7 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.b(r7)
+                float r6 = r6 / r7
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r7 = r4.b
+                int r7 = r7.getHeight()
+                int r7 = r7 / 2
+                float r7 = (float) r7
+                float r5 = r5.y
+                float r7 = r7 - r5
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r5 = r4.b
+                float r5 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.b(r5)
+                float r7 = r7 / r5
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView$d r5 = new com.baidu.swan.apps.media.image.HugePhotoDraweeView$d
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r8 = r4.b
+                android.graphics.PointF r0 = new android.graphics.PointF
+                r0.<init>(r6, r7)
+                r6 = 0
+                r5.<init>(r8, r0, r6)
+                r6 = 1
+                r5.d(r6)
+                r7 = 0
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView.d.a(r5, r7)
+                r5.b()
+                return r6
+            Lba:
+                boolean r5 = super.onFling(r5, r6, r7, r8)
+                return r5
+            Lbf:
+                r3 = 4
+                java.lang.Object[] r3 = new java.lang.Object[r3]
+                r1 = 0
+                r3[r1] = r5
+                r1 = 1
+                r3[r1] = r6
+                r1 = 2
+                java.lang.Float r2 = java.lang.Float.valueOf(r7)
+                r3[r1] = r2
+                r1 = 3
+                java.lang.Float r2 = java.lang.Float.valueOf(r8)
+                r3[r1] = r2
+                r1 = 1048577(0x100001, float:1.46937E-39)
+                r2 = r4
+                com.baidu.titan.sdk.runtime.InterceptResult r0 = r0.invokeCommon(r1, r2, r3)
+                if (r0 == 0) goto L4
+                boolean r1 = r0.booleanValue
+                return r1
+            */
+            throw new UnsupportedOperationException("Method not decompiled: com.baidu.swan.apps.media.image.HugePhotoDraweeView.b.onFling(android.view.MotionEvent, android.view.MotionEvent, float, float):boolean");
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
@@ -373,6 +480,96 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
 
         public /* synthetic */ c(a aVar) {
             this();
+        }
+
+        /* JADX DEBUG: Marked for inline */
+        /* JADX DEBUG: Method not inlined, still used in: [com.baidu.swan.apps.media.image.HugePhotoDraweeView.d.b():void] */
+        public static /* synthetic */ PointF u(c cVar) {
+            return cVar.c;
+        }
+
+        /* JADX DEBUG: Marked for inline */
+        /* JADX DEBUG: Method not inlined, still used in: [com.baidu.swan.apps.media.image.HugePhotoDraweeView.d.b():void] */
+        public static /* synthetic */ boolean b(c cVar, boolean z) {
+            cVar.i = z;
+            return z;
+        }
+
+        /* JADX DEBUG: Marked for inline */
+        /* JADX DEBUG: Method not inlined, still used in: [com.baidu.swan.apps.media.image.HugePhotoDraweeView.d.b():void] */
+        public static /* synthetic */ f d(c cVar, f fVar) {
+            cVar.l = fVar;
+            return fVar;
+        }
+
+        /* JADX DEBUG: Marked for inline */
+        /* JADX DEBUG: Method not inlined, still used in: [com.baidu.swan.apps.media.image.HugePhotoDraweeView.d.b():void] */
+        public static /* synthetic */ long f(c cVar, long j) {
+            cVar.k = j;
+            return j;
+        }
+
+        /* JADX DEBUG: Marked for inline */
+        /* JADX DEBUG: Method not inlined, still used in: [com.baidu.swan.apps.media.image.HugePhotoDraweeView.d.b():void] */
+        public static /* synthetic */ long h(c cVar, long j) {
+            cVar.h = j;
+            return j;
+        }
+
+        /* JADX DEBUG: Marked for inline */
+        /* JADX DEBUG: Method not inlined, still used in: [com.baidu.swan.apps.media.image.HugePhotoDraweeView.d.b():void] */
+        public static /* synthetic */ int j(c cVar, int i) {
+            cVar.j = i;
+            return i;
+        }
+
+        /* JADX DEBUG: Marked for inline */
+        /* JADX DEBUG: Method not inlined, still used in: [com.baidu.swan.apps.media.image.HugePhotoDraweeView.d.b():void] */
+        public static /* synthetic */ float l(c cVar, float f) {
+            cVar.a = f;
+            return f;
+        }
+
+        /* JADX DEBUG: Marked for inline */
+        /* JADX DEBUG: Method not inlined, still used in: [com.baidu.swan.apps.media.image.HugePhotoDraweeView.d.b():void] */
+        public static /* synthetic */ float n(c cVar, float f) {
+            cVar.b = f;
+            return f;
+        }
+
+        /* JADX DEBUG: Marked for inline */
+        /* JADX DEBUG: Method not inlined, still used in: [com.baidu.swan.apps.media.image.HugePhotoDraweeView.d.b():void] */
+        public static /* synthetic */ PointF p(c cVar, PointF pointF) {
+            cVar.f = pointF;
+            return pointF;
+        }
+
+        /* JADX DEBUG: Marked for inline */
+        /* JADX DEBUG: Method not inlined, still used in: [com.baidu.swan.apps.media.image.HugePhotoDraweeView.d.b():void] */
+        public static /* synthetic */ PointF r(c cVar, PointF pointF) {
+            cVar.g = pointF;
+            return pointF;
+        }
+
+        /* JADX DEBUG: Marked for inline */
+        /* JADX DEBUG: Method not inlined, still used in: [com.baidu.swan.apps.media.image.HugePhotoDraweeView.d.b():void] */
+        public static /* synthetic */ PointF t(c cVar, PointF pointF) {
+            cVar.d = pointF;
+            return pointF;
+        }
+
+        /* JADX DEBUG: Marked for inline */
+        /* JADX DEBUG: Method not inlined, still used in: [com.baidu.swan.apps.media.image.HugePhotoDraweeView.d.b():void] */
+        public static /* synthetic */ PointF v(c cVar, PointF pointF) {
+            cVar.c = pointF;
+            return pointF;
+        }
+
+        /* JADX DEBUG: Marked for inline */
+        /* JADX DEBUG: Method not inlined, still used in: [com.baidu.swan.apps.media.image.HugePhotoDraweeView.d.b():void] */
+        public static /* synthetic */ PointF x(c cVar, PointF pointF) {
+            cVar.e = pointF;
+            return pointF;
         }
     }
 
@@ -477,54 +674,213 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             this(hugePhotoDraweeView, pointF);
         }
 
+        /*  JADX ERROR: NullPointerException in pass: MarkMethodsForInline
+            java.lang.NullPointerException: Cannot invoke "jadx.core.dex.instructions.args.InsnArg.isRegister()" because "arg" is null
+            	at jadx.core.dex.instructions.args.RegisterArg.sameRegAndSVar(RegisterArg.java:173)
+            	at jadx.core.dex.instructions.args.InsnArg.isSameVar(InsnArg.java:269)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:118)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.visit(MarkMethodsForInline.java:37)
+            */
+        public static /* synthetic */ com.baidu.swan.apps.media.image.HugePhotoDraweeView.d a(com.baidu.swan.apps.media.image.HugePhotoDraweeView.d r0, boolean r1) {
+            /*
+                r0.f(r1)
+                return r0
+            */
+            throw new UnsupportedOperationException("Method not decompiled: com.baidu.swan.apps.media.image.HugePhotoDraweeView.d.a(com.baidu.swan.apps.media.image.HugePhotoDraweeView$d, boolean):com.baidu.swan.apps.media.image.HugePhotoDraweeView$d");
+        }
+
+        /*  JADX ERROR: JadxRuntimeException in pass: InlineMethods
+            jadx.core.utils.exceptions.JadxRuntimeException: Failed to process method for inline: com.baidu.swan.apps.media.image.HugePhotoDraweeView.I(com.baidu.swan.apps.media.image.HugePhotoDraweeView, float, float, float, android.graphics.PointF):android.graphics.PointF
+            	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:76)
+            	at jadx.core.dex.visitors.InlineMethods.visit(InlineMethods.java:51)
+            Caused by: java.lang.NullPointerException: Cannot invoke "jadx.core.dex.instructions.args.InsnArg.isRegister()" because "arg" is null
+            	at jadx.core.dex.instructions.args.RegisterArg.sameRegAndSVar(RegisterArg.java:173)
+            	at jadx.core.dex.instructions.args.InsnArg.isSameVar(InsnArg.java:269)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:118)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
+            	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:65)
+            	... 1 more
+            */
         public void b() {
-            PointF pointF;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.i.b0 != null && this.i.b0.l != null) {
-                    try {
-                        this.i.b0.l.b();
-                    } catch (Exception e) {
-                        Log.w("HugePhotoDraweeView", "Error thrown by animation listener", e);
-                    }
-                }
-                int paddingLeft = this.i.getPaddingLeft() + (((this.i.getWidth() - this.i.getPaddingRight()) - this.i.getPaddingLeft()) / 2);
-                int paddingTop = this.i.getPaddingTop() + (((this.i.getHeight() - this.i.getPaddingBottom()) - this.i.getPaddingTop()) / 2);
-                float j0 = this.i.j0(this.a);
-                if (this.g) {
-                    HugePhotoDraweeView hugePhotoDraweeView = this.i;
-                    PointF pointF2 = this.b;
-                    float f = pointF2.x;
-                    float f2 = pointF2.y;
-                    pointF = new PointF();
-                    hugePhotoDraweeView.i0(f, f2, j0, pointF);
-                } else {
-                    pointF = this.b;
-                }
-                this.i.b0 = new c(null);
-                this.i.b0.a = this.i.w;
-                this.i.b0.b = j0;
-                this.i.b0.k = System.currentTimeMillis();
-                this.i.b0.e = pointF;
-                this.i.b0.c = this.i.getCenter();
-                this.i.b0.d = pointF;
-                this.i.b0.f = this.i.B0(pointF);
-                this.i.b0.g = new PointF(paddingLeft, paddingTop);
-                this.i.b0.h = this.d;
-                this.i.b0.i = this.f;
-                this.i.b0.j = this.e;
-                this.i.b0.k = System.currentTimeMillis();
-                this.i.b0.l = this.h;
-                PointF pointF3 = this.c;
-                if (pointF3 != null) {
-                    float f3 = pointF3.x - (this.i.b0.c.x * j0);
-                    float f4 = this.c.y - (this.i.b0.c.y * j0);
-                    h hVar = new h(j0, new PointF(f3, f4), null);
-                    this.i.b0(true, hVar);
-                    this.i.b0.g = new PointF(this.c.x + (hVar.b.x - f3), this.c.y + (hVar.b.y - f4));
-                }
-                this.i.invalidate();
-            }
+            /*
+                r9 = this;
+                com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.d.$ic
+                if (r0 != 0) goto L194
+            L4:
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r0 = r9.i
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView$c r0 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.F(r0)
+                if (r0 == 0) goto L2e
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r0 = r9.i
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView$c r0 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.F(r0)
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView$f r0 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.c.c(r0)
+                if (r0 == 0) goto L2e
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r0 = r9.i     // Catch: java.lang.Exception -> L26
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView$c r0 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.F(r0)     // Catch: java.lang.Exception -> L26
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView$f r0 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.c.c(r0)     // Catch: java.lang.Exception -> L26
+                r0.b()     // Catch: java.lang.Exception -> L26
+                goto L2e
+            L26:
+                r0 = move-exception
+                java.lang.String r1 = "HugePhotoDraweeView"
+                java.lang.String r2 = "Error thrown by animation listener"
+                android.util.Log.w(r1, r2, r0)
+            L2e:
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r0 = r9.i
+                int r0 = r0.getPaddingLeft()
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r1 = r9.i
+                int r1 = r1.getWidth()
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r2 = r9.i
+                int r2 = r2.getPaddingRight()
+                int r1 = r1 - r2
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r2 = r9.i
+                int r2 = r2.getPaddingLeft()
+                int r1 = r1 - r2
+                int r1 = r1 / 2
+                int r0 = r0 + r1
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r1 = r9.i
+                int r1 = r1.getPaddingTop()
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r2 = r9.i
+                int r2 = r2.getHeight()
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r3 = r9.i
+                int r3 = r3.getPaddingBottom()
+                int r2 = r2 - r3
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r3 = r9.i
+                int r3 = r3.getPaddingTop()
+                int r2 = r2 - r3
+                int r2 = r2 / 2
+                int r1 = r1 + r2
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r2 = r9.i
+                float r3 = r9.a
+                float r2 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.H(r2, r3)
+                boolean r3 = r9.g
+                if (r3 == 0) goto L85
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r3 = r9.i
+                android.graphics.PointF r4 = r9.b
+                float r5 = r4.x
+                float r4 = r4.y
+                android.graphics.PointF r6 = new android.graphics.PointF
+                r6.<init>()
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView.I(r3, r5, r4, r2, r6)
+                goto L87
+            L85:
+                android.graphics.PointF r6 = r9.b
+            L87:
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r3 = r9.i
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView$c r4 = new com.baidu.swan.apps.media.image.HugePhotoDraweeView$c
+                r5 = 0
+                r4.<init>(r5)
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView.G(r3, r4)
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r3 = r9.i
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView$c r3 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.F(r3)
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r4 = r9.i
+                float r4 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.b(r4)
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView.c.l(r3, r4)
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r3 = r9.i
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView$c r3 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.F(r3)
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView.c.n(r3, r2)
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r3 = r9.i
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView$c r3 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.F(r3)
+                long r7 = java.lang.System.currentTimeMillis()
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView.c.f(r3, r7)
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r3 = r9.i
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView$c r3 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.F(r3)
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView.c.x(r3, r6)
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r3 = r9.i
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView$c r3 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.F(r3)
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r4 = r9.i
+                android.graphics.PointF r4 = r4.getCenter()
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView.c.v(r3, r4)
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r3 = r9.i
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView$c r3 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.F(r3)
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView.c.t(r3, r6)
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r3 = r9.i
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView$c r3 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.F(r3)
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r4 = r9.i
+                android.graphics.PointF r4 = r4.B0(r6)
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView.c.p(r3, r4)
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r3 = r9.i
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView$c r3 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.F(r3)
+                android.graphics.PointF r4 = new android.graphics.PointF
+                float r0 = (float) r0
+                float r1 = (float) r1
+                r4.<init>(r0, r1)
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView.c.r(r3, r4)
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r0 = r9.i
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView$c r0 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.F(r0)
+                long r3 = r9.d
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView.c.h(r0, r3)
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r0 = r9.i
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView$c r0 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.F(r0)
+                boolean r1 = r9.f
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView.c.b(r0, r1)
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r0 = r9.i
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView$c r0 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.F(r0)
+                int r1 = r9.e
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView.c.j(r0, r1)
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r0 = r9.i
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView$c r0 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.F(r0)
+                long r3 = java.lang.System.currentTimeMillis()
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView.c.f(r0, r3)
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r0 = r9.i
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView$c r0 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.F(r0)
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView$f r1 = r9.h
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView.c.d(r0, r1)
+                android.graphics.PointF r0 = r9.c
+                if (r0 == 0) goto L18e
+                float r0 = r0.x
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r1 = r9.i
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView$c r1 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.F(r1)
+                android.graphics.PointF r1 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.c.u(r1)
+                float r1 = r1.x
+                float r1 = r1 * r2
+                float r0 = r0 - r1
+                android.graphics.PointF r1 = r9.c
+                float r1 = r1.y
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r3 = r9.i
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView$c r3 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.F(r3)
+                android.graphics.PointF r3 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.c.u(r3)
+                float r3 = r3.y
+                float r3 = r3 * r2
+                float r1 = r1 - r3
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView$h r3 = new com.baidu.swan.apps.media.image.HugePhotoDraweeView$h
+                android.graphics.PointF r4 = new android.graphics.PointF
+                r4.<init>(r0, r1)
+                r3.<init>(r2, r4, r5)
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r2 = r9.i
+                r4 = 1
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView.J(r2, r4, r3)
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r2 = r9.i
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView$c r2 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.F(r2)
+                android.graphics.PointF r4 = new android.graphics.PointF
+                android.graphics.PointF r5 = r9.c
+                float r5 = r5.x
+                android.graphics.PointF r6 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.h.c(r3)
+                float r6 = r6.x
+                float r6 = r6 - r0
+                float r5 = r5 + r6
+                android.graphics.PointF r0 = r9.c
+                float r0 = r0.y
+                android.graphics.PointF r3 = com.baidu.swan.apps.media.image.HugePhotoDraweeView.h.c(r3)
+                float r3 = r3.y
+                float r3 = r3 - r1
+                float r0 = r0 + r3
+                r4.<init>(r5, r0)
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView.c.r(r2, r4)
+            L18e:
+                com.baidu.swan.apps.media.image.HugePhotoDraweeView r0 = r9.i
+                r0.invalidate()
+                return
+            L194:
+                r7 = r0
+                r8 = 1048576(0x100000, float:1.469368E-39)
+                com.baidu.titan.sdk.runtime.InterceptResult r0 = r7.invokeV(r8, r9)
+                if (r0 == 0) goto L4
+                return
+            */
+            throw new UnsupportedOperationException("Method not decompiled: com.baidu.swan.apps.media.image.HugePhotoDraweeView.d.b():void");
         }
 
         public d c(long j) {
@@ -565,7 +921,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                 if (!HugePhotoDraweeView.C0.contains(Integer.valueOf(i))) {
                     String str = "Unknown easing type: " + i;
                     if (!HugePhotoDraweeView.z0) {
-                        e12.k("HugePhotoDraweeView", str);
+                        j12.k("HugePhotoDraweeView", str);
                         return this;
                     }
                     throw new IllegalArgumentException(str);
@@ -583,18 +939,18 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         public transient /* synthetic */ FieldHolder $fh;
         public final WeakReference<HugePhotoDraweeView> a;
         public final WeakReference<Context> b;
-        public final WeakReference<ks2<? extends ls2>> c;
+        public final WeakReference<ps2<? extends qs2>> c;
         public final Uri d;
         public final boolean e;
         public Bitmap f;
         public Exception g;
 
-        public e(HugePhotoDraweeView hugePhotoDraweeView, Context context, ks2<? extends ls2> ks2Var, Uri uri, boolean z) {
+        public e(HugePhotoDraweeView hugePhotoDraweeView, Context context, ps2<? extends qs2> ps2Var, Uri uri, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hugePhotoDraweeView, context, ks2Var, uri, Boolean.valueOf(z)};
+                Object[] objArr = {hugePhotoDraweeView, context, ps2Var, uri, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -606,7 +962,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             }
             this.a = new WeakReference<>(hugePhotoDraweeView);
             this.b = new WeakReference<>(context);
-            this.c = new WeakReference<>(ks2Var);
+            this.c = new WeakReference<>(ps2Var);
             this.d = uri;
             this.e = z;
         }
@@ -621,10 +977,10 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                 try {
                     String uri = this.d.toString();
                     Context context = this.b.get();
-                    ks2<? extends ls2> ks2Var = this.c.get();
+                    ps2<? extends qs2> ps2Var = this.c.get();
                     HugePhotoDraweeView hugePhotoDraweeView = this.a.get();
-                    if (context != null && ks2Var != null && hugePhotoDraweeView != null) {
-                        this.f = ks2Var.make().decode(context, this.d);
+                    if (context != null && ps2Var != null && hugePhotoDraweeView != null) {
+                        this.f = ps2Var.make().decode(context, this.d);
                         return Integer.valueOf(hugePhotoDraweeView.c0(uri));
                     }
                     return null;
@@ -695,6 +1051,12 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         public /* synthetic */ h(float f, PointF pointF, a aVar) {
             this(f, pointF);
         }
+
+        /* JADX DEBUG: Marked for inline */
+        /* JADX DEBUG: Method not inlined, still used in: [com.baidu.swan.apps.media.image.HugePhotoDraweeView.d.b():void] */
+        public static /* synthetic */ PointF c(h hVar) {
+            return hVar.b;
+        }
     }
 
     /* loaded from: classes3.dex */
@@ -733,16 +1095,16 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final WeakReference<HugePhotoDraweeView> a;
-        public final WeakReference<ms2> b;
+        public final WeakReference<rs2> b;
         public final WeakReference<i> c;
         public Exception d;
 
-        public j(HugePhotoDraweeView hugePhotoDraweeView, ms2 ms2Var, i iVar) {
+        public j(HugePhotoDraweeView hugePhotoDraweeView, rs2 rs2Var, i iVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hugePhotoDraweeView, ms2Var, iVar};
+                Object[] objArr = {hugePhotoDraweeView, rs2Var, iVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -753,7 +1115,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                 }
             }
             this.a = new WeakReference<>(hugePhotoDraweeView);
-            this.b = new WeakReference<>(ms2Var);
+            this.b = new WeakReference<>(rs2Var);
             this.c = new WeakReference<>(iVar);
             iVar.d = true;
         }
@@ -768,15 +1130,15 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 try {
                     HugePhotoDraweeView hugePhotoDraweeView = this.a.get();
-                    ms2 ms2Var = this.b.get();
+                    rs2 rs2Var = this.b.get();
                     i iVar = this.c.get();
-                    if (ms2Var != null && iVar != null && hugePhotoDraweeView != null && ms2Var.isReady() && iVar.e) {
+                    if (rs2Var != null && iVar != null && hugePhotoDraweeView != null && rs2Var.isReady() && iVar.e) {
                         synchronized (hugePhotoDraweeView.O) {
                             hugePhotoDraweeView.Z(iVar.a, iVar.g);
                             if (hugePhotoDraweeView.G != null) {
                                 iVar.g.offset(hugePhotoDraweeView.G.left, hugePhotoDraweeView.G.top);
                             }
-                            decodeRegion = ms2Var.decodeRegion(iVar.g, iVar.b);
+                            decodeRegion = rs2Var.decodeRegion(iVar.g, iVar.b);
                         }
                         return decodeRegion;
                     } else if (iVar == null) {
@@ -825,17 +1187,17 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         public transient /* synthetic */ FieldHolder $fh;
         public final WeakReference<HugePhotoDraweeView> a;
         public final WeakReference<Context> b;
-        public final WeakReference<ks2<? extends ms2>> c;
-        public hs2 d;
-        public ms2 e;
+        public final WeakReference<ps2<? extends rs2>> c;
+        public ms2 d;
+        public rs2 e;
         public Exception f;
 
-        public k(HugePhotoDraweeView hugePhotoDraweeView, Context context, ks2<? extends ms2> ks2Var, hs2 hs2Var) {
+        public k(HugePhotoDraweeView hugePhotoDraweeView, Context context, ps2<? extends rs2> ps2Var, ms2 ms2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hugePhotoDraweeView, context, ks2Var, hs2Var};
+                Object[] objArr = {hugePhotoDraweeView, context, ps2Var, ms2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -847,8 +1209,8 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             }
             this.a = new WeakReference<>(hugePhotoDraweeView);
             this.b = new WeakReference<>(context);
-            this.c = new WeakReference<>(ks2Var);
-            this.d = hs2Var;
+            this.c = new WeakReference<>(ps2Var);
+            this.d = ms2Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -864,10 +1226,10 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                         this.d.i().toString();
                     }
                     Context context = this.b.get();
-                    ks2<? extends ms2> ks2Var = this.c.get();
+                    ps2<? extends rs2> ps2Var = this.c.get();
                     HugePhotoDraweeView hugePhotoDraweeView = this.a.get();
-                    if (context != null && ks2Var != null && hugePhotoDraweeView != null) {
-                        this.e = ks2Var.make();
+                    if (context != null && ps2Var != null && hugePhotoDraweeView != null) {
+                        this.e = ps2Var.make();
                         if (this.d.c() != null) {
                             init = this.e.a(context, this.d.c());
                         } else {
@@ -899,15 +1261,15 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             HugePhotoDraweeView hugePhotoDraweeView;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr) == null) && (hugePhotoDraweeView = this.a.get()) != null) {
-                ms2 ms2Var = this.e;
-                if (ms2Var == null || iArr == null || iArr.length != 3) {
+                rs2 rs2Var = this.e;
+                if (rs2Var == null || iArr == null || iArr.length != 3) {
                     if (this.f != null && hugePhotoDraweeView.e0 != null) {
                         hugePhotoDraweeView.e0.onImageLoadError(this.f);
                         return;
                     }
                     return;
                 }
-                hugePhotoDraweeView.q0(ms2Var, iArr[0], iArr[1], iArr[2]);
+                hugePhotoDraweeView.q0(rs2Var, iArr[0], iArr[1], iArr[2]);
             }
         }
     }
@@ -925,7 +1287,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                 return;
             }
         }
-        z0 = ok1.a;
+        z0 = tk1.a;
         A0 = Arrays.asList(0, 90, 180, 270, -1);
         B0 = Arrays.asList(1, 2, 3);
         C0 = Arrays.asList(2, 1);
@@ -962,7 +1324,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             if (!B0.contains(Integer.valueOf(i2))) {
                 String str = "Invalid zoom style: " + i2;
                 if (!z0) {
-                    e12.k("HugePhotoDraweeView", str);
+                    j12.k("HugePhotoDraweeView", str);
                     return;
                 }
                 throw new IllegalArgumentException(str);
@@ -998,7 +1360,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         super(context, attributeSet);
         int resourceId;
         String string;
-        hs2 a2;
+        ms2 a2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1031,8 +1393,8 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         this.u = 1;
         this.v = 500;
         this.O = new Object();
-        this.P = new js2(ns2.class);
-        this.Q = new js2(os2.class);
+        this.P = new os2(ss2.class);
+        this.Q = new os2(ts2.class);
         this.t0 = new float[8];
         this.u0 = new float[8];
         this.w0 = false;
@@ -1045,13 +1407,13 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         setGestureDetector(context);
         this.g0 = new Handler(new a(this));
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, nk1.HugePhotoDraweeView);
-            if (obtainStyledAttributes.hasValue(0) && (string = obtainStyledAttributes.getString(0)) != null && string.length() > 0 && (a2 = hs2.a(string)) != null) {
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, sk1.HugePhotoDraweeView);
+            if (obtainStyledAttributes.hasValue(0) && (string = obtainStyledAttributes.getString(0)) != null && string.length() > 0 && (a2 = ms2.a(string)) != null) {
                 a2.n();
                 setImage(a2);
             }
             if (obtainStyledAttributes.hasValue(3) && (resourceId = obtainStyledAttributes.getResourceId(3, 0)) > 0) {
-                hs2 k2 = hs2.k(resourceId);
+                ms2 k2 = ms2.k(resourceId);
                 k2.n();
                 setImage(k2);
             }
@@ -1125,6 +1487,13 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         }
     }
 
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.swan.apps.media.image.HugePhotoDraweeView.d.b():void] */
+    public static /* synthetic */ c G(HugePhotoDraweeView hugePhotoDraweeView, c cVar) {
+        hugePhotoDraweeView.b0 = cVar;
+        return cVar;
+    }
+
     public final PointF H0(float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -1134,10 +1503,10 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         return (PointF) invokeCommon.objValue;
     }
 
-    public final void setImage(hs2 hs2Var, ImageViewState imageViewState) {
+    public final void setImage(ms2 ms2Var, ImageViewState imageViewState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048640, this, hs2Var, imageViewState) == null) {
-            setImage(hs2Var, null, imageViewState);
+        if (interceptable == null || interceptable.invokeLL(1048640, this, ms2Var, imageViewState) == null) {
+            setImage(ms2Var, null, imageViewState);
         }
     }
 
@@ -1319,6 +1688,12 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         return invokeV.intValue;
     }
 
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.swan.apps.media.image.HugePhotoDraweeView.d.b():void] */
+    public static /* synthetic */ float b(HugePhotoDraweeView hugePhotoDraweeView) {
+        return hugePhotoDraweeView.w;
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void setGestureDetector(Context context) {
         Interceptable interceptable = $ic;
@@ -1398,32 +1773,32 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
     }
 
     @SuppressLint({"BDThrowableCheck"})
-    public final void setBitmapDecoderClass(Class<? extends ls2> cls) {
+    public final void setBitmapDecoderClass(Class<? extends qs2> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048632, this, cls) == null) {
             if (cls == null) {
                 if (!z0) {
-                    e12.k("HugePhotoDraweeView", "bitmapDecoderClass is null");
+                    j12.k("HugePhotoDraweeView", "bitmapDecoderClass is null");
                     return;
                 }
                 throw new IllegalArgumentException("Decoder class cannot be set to null");
             }
-            this.P = new js2(cls);
+            this.P = new os2(cls);
         }
     }
 
     @SuppressLint({"BDThrowableCheck"})
-    public final void setBitmapDecoderFactory(ks2<? extends ls2> ks2Var) {
+    public final void setBitmapDecoderFactory(ps2<? extends qs2> ps2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048633, this, ks2Var) == null) {
-            if (ks2Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048633, this, ps2Var) == null) {
+            if (ps2Var == null) {
                 if (!z0) {
-                    e12.k("HugePhotoDraweeView", "bitmapDecoderFactory is null");
+                    j12.k("HugePhotoDraweeView", "bitmapDecoderFactory is null");
                     return;
                 }
                 throw new IllegalArgumentException("Decoder factory cannot be set to null");
             }
-            this.P = ks2Var;
+            this.P = ps2Var;
         }
     }
 
@@ -1456,10 +1831,10 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         }
     }
 
-    public final void setImage(hs2 hs2Var) {
+    public final void setImage(ms2 ms2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048639, this, hs2Var) == null) {
-            setImage(hs2Var, null, null);
+        if (interceptable == null || interceptable.invokeL(1048639, this, ms2Var) == null) {
+            setImage(ms2Var, null, null);
         }
     }
 
@@ -1467,7 +1842,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
     public void setImageDrawable(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048643, this, drawable) == null) {
-            is2.b(getContext(), drawable);
+            ns2.b(getContext(), drawable);
             super.setImageDrawable(drawable);
         }
     }
@@ -1547,32 +1922,32 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
     }
 
     @SuppressLint({"BDThrowableCheck"})
-    public final void setRegionDecoderClass(Class<? extends ms2> cls) {
+    public final void setRegionDecoderClass(Class<? extends rs2> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048660, this, cls) == null) {
             if (cls == null) {
                 if (!z0) {
-                    e12.k("HugePhotoDraweeView", "regionDecoderClass is null");
+                    j12.k("HugePhotoDraweeView", "regionDecoderClass is null");
                     return;
                 }
                 throw new IllegalArgumentException("Decoder class cannot be set to null");
             }
-            this.Q = new js2(cls);
+            this.Q = new os2(cls);
         }
     }
 
     @SuppressLint({"BDThrowableCheck"})
-    public final void setRegionDecoderFactory(ks2<? extends ms2> ks2Var) {
+    public final void setRegionDecoderFactory(ps2<? extends rs2> ps2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048661, this, ks2Var) == null) {
-            if (ks2Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048661, this, ps2Var) == null) {
+            if (ps2Var == null) {
                 if (!z0) {
-                    e12.k("HugePhotoDraweeView", "setRegionDecoderFactory is null");
+                    j12.k("HugePhotoDraweeView", "setRegionDecoderFactory is null");
                     return;
                 }
                 throw new IllegalArgumentException("Decoder factory cannot be set to null");
             }
-            this.Q = ks2Var;
+            this.Q = ps2Var;
         }
     }
 
@@ -1596,6 +1971,29 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         if (interceptable == null || interceptable.invokeZ(1048664, this, z) == null) {
             this.r = z;
         }
+    }
+
+    /*  JADX ERROR: NullPointerException in pass: MarkMethodsForInline
+        java.lang.NullPointerException: Cannot invoke "jadx.core.dex.instructions.args.InsnArg.isRegister()" because "arg" is null
+        	at jadx.core.dex.instructions.args.RegisterArg.sameRegAndSVar(RegisterArg.java:173)
+        	at jadx.core.dex.instructions.args.InsnArg.isSameVar(InsnArg.java:269)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:118)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.visit(MarkMethodsForInline.java:37)
+        */
+    public static /* synthetic */ android.graphics.PointF I(com.baidu.swan.apps.media.image.HugePhotoDraweeView r0, float r1, float r2, float r3, android.graphics.PointF r4) {
+        /*
+            r0.i0(r1, r2, r3, r4)
+            return r4
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.swan.apps.media.image.HugePhotoDraweeView.I(com.baidu.swan.apps.media.image.HugePhotoDraweeView, float, float, float, android.graphics.PointF):android.graphics.PointF");
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.swan.apps.media.image.HugePhotoDraweeView.d.b():void] */
+    public static /* synthetic */ void J(HugePhotoDraweeView hugePhotoDraweeView, boolean z, h hVar) {
+        hugePhotoDraweeView.b0(z, hVar);
     }
 
     public final PointF A0(float f2, float f3, PointF pointF) {
@@ -1739,7 +2137,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             if (!E0.contains(Integer.valueOf(i2))) {
                 String str = "Invalid scale type: " + i2;
                 if (!z0) {
-                    e12.k("HugePhotoDraweeView", str);
+                    j12.k("HugePhotoDraweeView", str);
                     return;
                 }
                 throw new IllegalArgumentException(str);
@@ -1759,7 +2157,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             if (!A0.contains(Integer.valueOf(i2))) {
                 String str = "Invalid orientation: " + i2;
                 if (!z0) {
-                    e12.k("HugePhotoDraweeView", str);
+                    j12.k("HugePhotoDraweeView", str);
                     return;
                 }
                 throw new IllegalArgumentException(str);
@@ -1794,7 +2192,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             if (!D0.contains(Integer.valueOf(i2))) {
                 String str = "Invalid pan limit: " + i2;
                 if (!z0) {
-                    e12.k("HugePhotoDraweeView", str);
+                    j12.k("HugePhotoDraweeView", str);
                     return;
                 }
                 throw new IllegalArgumentException(str);
@@ -2014,8 +2412,8 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
     public final void U() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && this.h0 != null) {
-            if (this.y0 != is2.d(getContext())) {
-                this.y0 = is2.d(getContext());
+            if (this.y0 != ns2.d(getContext())) {
+                this.y0 = ns2.d(getContext());
                 this.x0 = new PorterDuffColorFilter(this.y0, PorterDuff.Mode.SRC_ATOP);
             }
             this.h0.setColorFilter(this.x0);
@@ -2076,7 +2474,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                 if (i2 != 2) {
                     String str = "Unexpected easing type: " + i2;
                     if (!z0) {
-                        e12.k("HugePhotoDraweeView", str);
+                        j12.k("HugePhotoDraweeView", str);
                         return 0.0f;
                     }
                     throw new IllegalStateException(str);
@@ -2130,10 +2528,10 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                                     Log.w("HugePhotoDraweeView", "Unsupported orientation: " + i3);
                                 }
                             }
-                            gs2.a(cursor);
+                            ls2.a(cursor);
                         }
                     } finally {
-                        gs2.a(cursor);
+                        ls2.a(cursor);
                     }
                 } catch (Exception unused) {
                     Log.w("HugePhotoDraweeView", "Could not get orientation of image from media store");
@@ -2449,9 +2847,9 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048624, this, canvas) == null) {
             if (this.w0) {
-                if (this.y0 != is2.d(getContext())) {
-                    is2.b(getContext(), getDrawable());
-                    this.y0 = is2.d(getContext());
+                if (this.y0 != ns2.d(getContext())) {
+                    ns2.b(getContext(), getDrawable());
+                    this.y0 = ns2.d(getContext());
                 }
                 super.onDraw(canvas);
                 return;
@@ -2909,9 +3307,9 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         return invokeL.booleanValue;
     }
 
-    public final synchronized void q0(ms2 ms2Var, int i2, int i3, int i4) {
+    public final synchronized void q0(rs2 rs2Var, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048629, this, ms2Var, i2, i3, i4) == null) {
+        if (interceptable == null || interceptable.invokeLIII(1048629, this, rs2Var, i2, i3, i4) == null) {
             synchronized (this) {
                 if (this.D > 0 && this.E > 0 && (this.D != i2 || this.E != i3)) {
                     t0(false);
@@ -2924,7 +3322,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                         this.c = false;
                     }
                 }
-                this.N = ms2Var;
+                this.N = rs2Var;
                 this.D = i2;
                 this.E = i3;
                 this.F = i4;
@@ -2936,20 +3334,20 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         }
     }
 
-    public final void setImage(hs2 hs2Var, hs2 hs2Var2) {
+    public final void setImage(ms2 ms2Var, ms2 ms2Var2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048641, this, hs2Var, hs2Var2) == null) {
-            setImage(hs2Var, hs2Var2, null);
+        if (interceptable == null || interceptable.invokeLL(1048641, this, ms2Var, ms2Var2) == null) {
+            setImage(ms2Var, ms2Var2, null);
         }
     }
 
     @SuppressLint({"BDThrowableCheck"})
-    public final void setImage(hs2 hs2Var, hs2 hs2Var2, ImageViewState imageViewState) {
+    public final void setImage(ms2 ms2Var, ms2 ms2Var2, ImageViewState imageViewState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048642, this, hs2Var, hs2Var2, imageViewState) == null) {
-            if (hs2Var == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048642, this, ms2Var, ms2Var2, imageViewState) == null) {
+            if (ms2Var == null) {
                 if (!z0) {
-                    e12.k("HugePhotoDraweeView", "imageSource is null");
+                    j12.k("HugePhotoDraweeView", "imageSource is null");
                     return;
                 }
                 throw new NullPointerException("imageSource must not be null");
@@ -2958,49 +3356,49 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             if (imageViewState != null) {
                 w0(imageViewState);
             }
-            if (hs2Var2 != null) {
-                if (hs2Var.c() != null) {
+            if (ms2Var2 != null) {
+                if (ms2Var.c() != null) {
                     if (!z0) {
-                        e12.k("HugePhotoDraweeView", "imageSource get bitmap is not null");
+                        j12.k("HugePhotoDraweeView", "imageSource get bitmap is not null");
                         return;
                     }
                     throw new IllegalArgumentException("Preview image cannot be used when a bitmap is provided for the main image");
-                } else if (hs2Var.g() > 0 && hs2Var.e() > 0) {
-                    this.D = hs2Var.g();
-                    this.E = hs2Var.e();
-                    this.H = hs2Var2.f();
-                    if (hs2Var2.c() != null) {
-                        this.c = hs2Var2.j();
-                        n0(hs2Var2.c());
+                } else if (ms2Var.g() > 0 && ms2Var.e() > 0) {
+                    this.D = ms2Var.g();
+                    this.E = ms2Var.e();
+                    this.H = ms2Var2.f();
+                    if (ms2Var2.c() != null) {
+                        this.c = ms2Var2.j();
+                        n0(ms2Var2.c());
                     } else {
-                        Uri i2 = hs2Var2.i();
-                        if (i2 == null && hs2Var2.d() != null) {
-                            i2 = Uri.parse("android.resource://" + getContext().getPackageName() + "/" + hs2Var2.d());
+                        Uri i2 = ms2Var2.i();
+                        if (i2 == null && ms2Var2.d() != null) {
+                            i2 = Uri.parse("android.resource://" + getContext().getPackageName() + "/" + ms2Var2.d());
                         }
                         Y(new e(this, getContext(), this.P, i2, true));
                     }
                 } else if (!z0) {
-                    e12.k("HugePhotoDraweeView", "imageSource width or height invalid");
+                    j12.k("HugePhotoDraweeView", "imageSource width or height invalid");
                     return;
                 } else {
                     throw new IllegalArgumentException("Preview image cannot be used unless dimensions are provided for the main image");
                 }
             }
-            if (hs2Var.c() != null && hs2Var.f() != null) {
-                m0(Bitmap.createBitmap(hs2Var.c(), hs2Var.f().left, hs2Var.f().top, hs2Var.f().width(), hs2Var.f().height()), 0, false);
-            } else if (hs2Var.c() != null && !hs2Var.h()) {
-                m0(hs2Var.c(), 0, hs2Var.j());
+            if (ms2Var.c() != null && ms2Var.f() != null) {
+                m0(Bitmap.createBitmap(ms2Var.c(), ms2Var.f().left, ms2Var.f().top, ms2Var.f().width(), ms2Var.f().height()), 0, false);
+            } else if (ms2Var.c() != null && !ms2Var.h()) {
+                m0(ms2Var.c(), 0, ms2Var.j());
             } else {
-                this.G = hs2Var.f();
-                Uri i3 = hs2Var.i();
+                this.G = ms2Var.f();
+                Uri i3 = ms2Var.i();
                 this.d = i3;
-                if (i3 == null && hs2Var.d() != null) {
-                    this.d = Uri.parse("android.resource://" + getContext().getPackageName() + "/" + hs2Var.d());
+                if (i3 == null && ms2Var.d() != null) {
+                    this.d = Uri.parse("android.resource://" + getContext().getPackageName() + "/" + ms2Var.d());
                 }
-                if (!hs2Var.h() && this.G == null) {
+                if (!ms2Var.h() && this.G == null) {
                     Y(new e(this, getContext(), this.P, this.d, false));
                 } else {
-                    Y(new k(this, getContext(), this.Q, hs2Var));
+                    Y(new k(this, getContext(), this.Q, ms2Var));
                 }
             }
         }

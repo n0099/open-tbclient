@@ -1,15 +1,7 @@
 package com.baidu.tieba;
-
-import android.widget.EditText;
 /* loaded from: classes5.dex */
 public interface ja9 {
-    void b(boolean z);
+    void a();
 
-    int f();
-
-    void l();
-
-    void n();
-
-    EditText p();
+    void b();
 }

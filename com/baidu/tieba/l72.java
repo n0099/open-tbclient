@@ -1,46 +1,24 @@
 package com.baidu.tieba;
 
 import android.os.Bundle;
+import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.CallSuper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.i72;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Set;
+import java.util.HashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class l72<T extends i72> extends sb4<ed4> {
+public class l72 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final T a;
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @CallSuper
-    public void p(@NonNull ed4 ed4Var, @Nullable xf3 xf3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, ed4Var, xf3Var) == null) {
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -55,135 +33,121 @@ public class l72<T extends i72> extends sb4<ed4> {
                 return;
             }
         }
-        b = ok1.a;
+        a = tk1.a;
     }
 
-    @Override // com.baidu.tieba.sb4
-    public int g() {
-        InterceptResult invokeV;
+    public static void a(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return super.g();
+        if ((interceptable == null || interceptable.invokeL(65537, null, message) == null) && message != null) {
+            Object obj = message.obj;
+            if (obj instanceof Bundle) {
+                Bundle bundle = (Bundle) obj;
+                String string = bundle.getString("eventType");
+                HashMap hashMap = new HashMap();
+                hashMap.put("eventType", string);
+                JSONObject jSONObject = new JSONObject();
+                if (TextUtils.equals(string, "checkForUpdate")) {
+                    try {
+                        jSONObject.put("hasUpdate", bundle.getBoolean("hasUpdate"));
+                    } catch (JSONException e) {
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                hashMap.put("data", jSONObject.toString());
+                ke2 ke2Var = new ke2("updateStatusChange", hashMap);
+                SwanAppActivity activity = wp2.U().getActivity();
+                if (activity != null && activity.R() == 1) {
+                    rn2.i().v(string, bundle.getBoolean("hasUpdate"));
+                } else {
+                    wp2.U().u(ke2Var);
+                }
+            }
         }
-        return invokeV.intValue;
     }
 
-    public l72(@NonNull T t) {
+    public static void b(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeLZ(65538, null, str, z) == null) {
+            j12.k("SwanAppPkgUpdateManager", "send checkForUpdate msg, hasUpdate=" + z);
+            Bundle bundle = new Bundle();
+            bundle.putBoolean("hasUpdate", z);
+            d("checkForUpdate", str, bundle);
+        }
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            j12.k("SwanAppPkgUpdateManager", "send update failed msg");
+            d("updateFailed", str, null);
+        }
+    }
+
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            if (a) {
+                Log.d("SwanAppPkgUpdateManager", "send update ready msg");
+            }
+            d("updateReady", str, null);
+        }
+    }
+
+    public static void d(String str, String str2, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, bundle) == null) {
+            if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
+                if (bundle == null) {
+                    bundle = new Bundle();
+                }
+                bundle.putString("eventType", str);
+                z03 e = z03.e();
+                b13 b13Var = new b13(107, bundle);
+                b13Var.c(str2);
+                e.h(b13Var);
                 return;
             }
-        }
-        this.a = t;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sb4, com.baidu.tieba.vb4
-    /* renamed from: s */
-    public void c(ed4 ed4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, ed4Var) == null) {
-            super.c(ed4Var);
-            if (b) {
-                Log.d("SwanPMSSubDownload", "PMSPkgSub onDownloadStart " + ed4Var);
-            }
+            j12.k("SwanAppPkgUpdateManager", "appId is empty or eventType is empty");
         }
     }
 
-    @Override // com.baidu.tieba.xb4
-    @NonNull
-    public Bundle m(@NonNull Bundle bundle, Set<String> set) {
-        InterceptResult invokeLL;
+    public static void f(String str, String str2, boolean z) {
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, bundle, set)) == null) {
-            Bundle bundle2 = new Bundle();
-            if (set.contains("event_performance_ubc")) {
-                this.a.n(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
-                set.remove("event_performance_ubc");
-            }
-            return bundle2;
-        }
-        return (Bundle) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vb4
-    /* renamed from: o */
-    public String d(ed4 ed4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, ed4Var)) == null) {
-            if (TextUtils.isEmpty(ed4Var.o)) {
-                ed4Var.o = l();
-            }
-            int i = ed4Var.h;
-            if (i == 0) {
-                return x72.b(ed4Var.o, String.valueOf(ed4Var.i));
-            }
-            if (i == 1) {
-                return x72.d(ed4Var.o, String.valueOf(ed4Var.i));
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sb4, com.baidu.tieba.vb4
-    /* renamed from: r */
-    public final void i(ed4 ed4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, ed4Var) == null) {
-            super.i(ed4Var);
-            p(ed4Var, t(ed4Var));
-            if (b) {
-                Log.d("SwanPMSSubDownload", "PMSPkgSub onDownloadFinish " + ed4Var);
-            }
-        }
-    }
-
-    @CallSuper
-    public void q(ed4 ed4Var, yc4 yc4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ed4Var, yc4Var) == null) {
-            super.e(ed4Var, yc4Var);
-            e12.k("SwanPMSSubDownload", "PMSPkgSub#onDownloadError del:" + ed4Var.a);
-            ik4.M(ed4Var.a);
-            if (b) {
-                Log.d("SwanPMSSubDownload", "PMSPkgSub onDownloadError " + ed4Var + ", error=" + yc4Var);
-            }
-        }
-    }
-
-    public final xf3 t(ed4 ed4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, ed4Var)) == null) {
-            if (!rh3.a(new File(ed4Var.a), ed4Var.m)) {
-                xf3 xf3Var = new xf3();
-                xf3Var.k(12L);
-                xf3Var.b(2300L);
-                xf3Var.d("分包签名校验失败");
-                return xf3Var;
-            } else if (!x72.g(ed4Var)) {
-                xf3 xf3Var2 = new xf3();
-                xf3Var2.k(12L);
-                xf3Var2.b(2320L);
-                xf3Var2.d("分包解压失败");
-                return xf3Var2;
+        if (interceptable == null || interceptable.invokeLLZ(65542, null, str, str2, z) == null) {
+            int hashCode = str.hashCode();
+            if (hashCode != -1330233754) {
+                if (hashCode != -1317168438) {
+                    if (hashCode == -585906598 && str.equals("updateReady")) {
+                        c = 0;
+                    }
+                    c = 65535;
+                } else {
+                    if (str.equals("checkForUpdate")) {
+                        c = 2;
+                    }
+                    c = 65535;
+                }
             } else {
-                return null;
+                if (str.equals("updateFailed")) {
+                    c = 1;
+                }
+                c = 65535;
             }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c == 2) {
+                        b(str2, z);
+                        return;
+                    }
+                    return;
+                }
+                c(str2);
+                return;
+            }
+            e(str2);
         }
-        return (xf3) invokeL.objValue;
     }
 }

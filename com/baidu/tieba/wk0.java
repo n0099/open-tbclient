@@ -1,208 +1,86 @@
 package com.baidu.tieba;
 
+import android.os.Build;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.consts.AdDownloadStatus;
-import com.baidu.tieba.qk0;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class wk0 extends vk0 {
+public class wk0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final lk0 e;
-    public HashMap<String, b> f;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-315094768, "Lcom/baidu/tieba/wk0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-315094768, "Lcom/baidu/tieba/wk0$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[AdDownloadStatus.values().length];
-            a = iArr;
-            try {
-                iArr[AdDownloadStatus.NONE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[AdDownloadStatus.DOWNLOADING.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[AdDownloadStatus.PAUSE.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[AdDownloadStatus.COMPLETED.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                a[AdDownloadStatus.FAILED.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wk0(@NonNull lk0 lk0Var) {
-        super(lk0Var);
+    public wk0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {lk0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((lk0) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.f = new HashMap<>();
-        this.e = lk0Var;
-        this.c = new bl0(this);
     }
 
-    @NonNull
-    public lk0 t() {
-        InterceptResult invokeV;
+    public final JSONObject a(Map<String, String> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
-        }
-        return (lk0) invokeV.objValue;
-    }
-
-    public void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            n(this.c);
-        }
-    }
-
-    public String u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i = a.a[this.e.c.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            if (i != 5) {
-                                return "0";
-                            }
-                            return "4";
-                        }
-                        lk0 lk0Var = this.e;
-                        lk0Var.i = 1.0f;
-                        lk0Var.j = 1.0f;
-                        return "3";
-                    }
-                    return "2";
-                }
-                return "1";
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
+            map.put("_client_version", ej0.a().v());
+            map.put("uid", ej0.a().s());
+            map.put("cuid", ej0.a().g());
+            if (Build.VERSION.SDK_INT >= 17) {
+                map.put("ua", ej0.e());
             }
-            lk0 lk0Var2 = this.e;
-            lk0Var2.i = 0.0f;
-            lk0Var2.j = 0.0f;
-            return "0";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void w(String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, str3, str4) == null) {
-            qk0 qk0Var = new qk0();
-            ArrayList arrayList = new ArrayList();
+            String e = uj0.c().e(false);
+            if (!TextUtils.isEmpty(e)) {
+                map.put("model", e);
+            }
+            map.put(HttpRequest.CLIENT_TYPE, "2");
+            String h = uj0.c().h(false);
+            if (!TextUtils.isEmpty(h)) {
+                map.put("_os_version", h);
+            }
+            map.put("nt", String.valueOf(new er0().c()));
+            String b = uj0.c().b(false);
+            if (!TextUtils.isEmpty(b)) {
+                map.put("imei", b);
+            }
+            String a = uj0.c().a(false);
+            if (!TextUtils.isEmpty(a)) {
+                map.put(HttpRequest.ANDROID_ID, a);
+            }
+            map.put("ssl", "1");
             JSONObject jSONObject = new JSONObject();
-            String a2 = ql0.a(str, str2, str3, str4);
-            p01.f(jSONObject, "status", "0");
-            p01.f(jSONObject, "message", "");
-            p01.f(jSONObject, "data", a2);
-            for (String str5 : this.f.keySet()) {
-                b bVar = (b) q01.b(this.f, str5);
-                if (bVar != null && !TextUtils.isEmpty(bVar.a)) {
-                    qk0.a aVar = new qk0.a();
-                    aVar.b = bVar.b;
-                    aVar.a = bVar.a;
-                    aVar.c = jSONObject.toString();
-                    o01.b(arrayList, aVar);
-                }
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                u01.f(jSONObject, entry.getKey(), entry.getValue());
             }
-            if (!arrayList.isEmpty()) {
-                qk0Var.a = arrayList;
-                bm0.a().a(qk0Var);
-            }
+            return jSONObject;
         }
+        return (JSONObject) invokeL.objValue;
     }
 
-    public void x(String str, String str2, String str3, String str4) {
+    public void b(Map<String, String> map, hr0<xk0> hr0Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048580, this, str, str2, str3, str4) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            String str5 = str + "_" + str4 + "_" + str3 + "_" + str2;
-            this.f.remove(str5);
-            b bVar = new b();
-            bVar.b = str;
-            bVar.a = str2;
-            this.f.put(str5, bVar);
-        }
-    }
-
-    public void y(String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048581, this, str, str2, str3, str4) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4)) {
-            this.f.remove(str + "_" + str4 + "_" + str3 + "_" + str2);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, hr0Var) == null) {
+            or0 f = or0.f(m41.a(a(map).toString().getBytes()));
+            pr0 pr0Var = new pr0();
+            pr0Var.a("Content-Encoding", "gzip");
+            pr0Var.a("Content-Type", "application/json");
+            pr0Var.l("https://afdconf.baidu.com/afd/download");
+            pr0Var.g(3000);
+            pr0Var.j(3000);
+            pr0Var.k(3000);
+            pr0Var.f(f);
+            wq0.b().a().a(pr0Var, hr0Var);
         }
     }
 }

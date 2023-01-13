@@ -2,30 +2,29 @@ package com.baidu.tieba;
 
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.frs.ad.FrsADFragment;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class jm6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsADFragment a;
+    public TbPageContext<?> a;
     public BdTypeRecyclerView b;
-    public mm6 c;
-    public jk6 d;
-    public List<kn> e;
+    public km6 c;
+    public go d;
+    public List<ln> e;
 
-    public jm6(FrsADFragment frsADFragment, BdTypeRecyclerView bdTypeRecyclerView) {
+    public jm6(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsADFragment, bdTypeRecyclerView};
+            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,8 +34,8 @@ public class jm6 {
                 return;
             }
         }
-        this.e = new ArrayList();
-        this.a = frsADFragment;
+        this.e = new LinkedList();
+        this.a = tbPageContext;
         this.b = bdTypeRecyclerView;
         a();
     }
@@ -44,11 +43,12 @@ public class jm6 {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = new mm6(this.a.getPageContext(), lm6.h, this.a.getUniqueId());
-            this.d = new jk6(this.a.getPageContext(), kk6.b);
-            this.e.add(this.c);
-            this.e.add(this.d);
-            e();
+            km6 km6Var = new km6(this.a);
+            this.c = km6Var;
+            this.e.add(km6Var);
+            go goVar = new go(this.a);
+            this.d = goVar;
+            this.e.add(goVar);
             this.b.a(this.e);
         }
     }
@@ -60,45 +60,10 @@ public class jm6 {
         }
     }
 
-    public void c() {
+    public void c(List<yn> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            for (kn knVar : this.e) {
-                if (knVar instanceof ck6) {
-                    ((ck6) knVar).v();
-                }
-            }
-        }
-    }
-
-    public void d(ArrayList<xn> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
-            this.b.setData(arrayList);
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || ListUtils.isEmpty(this.e) || this.a == null) {
-            return;
-        }
-        for (kn knVar : this.e) {
-            if (knVar instanceof ck6) {
-                ((ck6) knVar).C(this.a.getTbPageTag());
-            }
-        }
-    }
-
-    public void f(ho hoVar) {
-        List<kn> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, hoVar) == null) && (list = this.e) != null && list.size() != 0) {
-            for (kn knVar : this.e) {
-                if (knVar != null && (knVar instanceof ck6)) {
-                    knVar.setOnAdapterItemClickListener(hoVar);
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.b.setData(list);
         }
     }
 }

@@ -9,7 +9,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.sofire.a.b;
 import com.baidu.sofire.b.k;
 import com.baidu.sofire.core.ApkInfo;
@@ -45,7 +44,7 @@ public class a {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public C0176a(a aVar, Context context) {
-            super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, aVar.getClass());
+            super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, a.a(aVar));
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -139,6 +138,11 @@ public class a {
         }
     }
 
+    public static /* synthetic */ int a(a aVar) {
+        aVar.getClass();
+        return 5;
+    }
+
     public static synchronized a a(Context context) {
         InterceptResult invokeL;
         a aVar;
@@ -184,7 +188,7 @@ public class a {
             contentValues.put("du", Integer.valueOf(apkInfo.duration));
             contentValues.put("m5", apkInfo.apkMD5);
             contentValues.put("th", Integer.valueOf(apkInfo.applicationTheme));
-            contentValues.put(Config.PRINCIPAL_PART, Integer.valueOf(apkInfo.priority));
+            contentValues.put("pr", Integer.valueOf(apkInfo.priority));
             ActivityInfo[] activityInfoArr = apkInfo.activities;
             ObjectOutputStream objectOutputStream2 = null;
             if (activityInfoArr != null) {
@@ -327,7 +331,7 @@ public class a {
                                 apkInfo.versionName = cursor.getString(cursor.getColumnIndex("v"));
                                 apkInfo.startTime = cursor.getLong(cursor.getColumnIndex("st"));
                                 apkInfo.duration = cursor.getInt(cursor.getColumnIndex("du"));
-                                apkInfo.priority = cursor.getInt(cursor.getColumnIndex(Config.PRINCIPAL_PART));
+                                apkInfo.priority = cursor.getInt(cursor.getColumnIndex("pr"));
                                 arrayList.add(apkInfo);
                             } catch (Throwable unused) {
                                 try {
@@ -469,7 +473,7 @@ public class a {
         if (interceptable == null || interceptable.invokeII(1048592, this, i, i2) == null) {
             try {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put(Config.PRINCIPAL_PART, Integer.valueOf(i2));
+                contentValues.put("pr", Integer.valueOf(i2));
                 SQLiteDatabase sQLiteDatabase = this.b;
                 sQLiteDatabase.update("pgn", contentValues, "k=" + i, null);
             } catch (Throwable unused) {
@@ -507,7 +511,7 @@ public class a {
                                     apkInfo2.startTime = cursor.getLong(cursor.getColumnIndex("st"));
                                     apkInfo2.duration = cursor.getInt(cursor.getColumnIndex("du"));
                                     apkInfo2.apkMD5 = cursor.getString(cursor.getColumnIndex("m5"));
-                                    apkInfo2.priority = cursor.getInt(cursor.getColumnIndex(Config.PRINCIPAL_PART));
+                                    apkInfo2.priority = cursor.getInt(cursor.getColumnIndex("pr"));
                                     byte[] blob = cursor.getBlob(cursor.getColumnIndex("ac"));
                                     if (blob != null && (a = com.baidu.sofire.b.a.a(blob)) != null && (size = a.size()) > 0) {
                                         apkInfo2.activities = new ActivityInfo[size];
@@ -608,7 +612,7 @@ public class a {
                                 apkInfo2.startTime = cursor.getLong(cursor.getColumnIndex("st"));
                                 apkInfo2.duration = cursor.getInt(cursor.getColumnIndex("du"));
                                 apkInfo2.apkMD5 = cursor.getString(cursor.getColumnIndex("m5"));
-                                apkInfo2.priority = cursor.getInt(cursor.getColumnIndex(Config.PRINCIPAL_PART));
+                                apkInfo2.priority = cursor.getInt(cursor.getColumnIndex("pr"));
                                 byte[] blob = cursor.getBlob(cursor.getColumnIndex("ac"));
                                 if (blob != null && (a = com.baidu.sofire.b.a.a(blob)) != null && (size = a.size()) > 0) {
                                     apkInfo2.activities = new ActivityInfo[size];

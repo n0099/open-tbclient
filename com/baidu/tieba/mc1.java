@@ -1,185 +1,222 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.URLDecoder;
-import org.json.JSONObject;
+import java.io.ByteArrayOutputStream;
+import java.io.Closeable;
+import java.io.EOFException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
 /* loaded from: classes5.dex */
-public final class mc1 {
+public class mc1 implements Closeable {
     public static /* synthetic */ Interceptable $ic;
-    public static long c;
-    public static mc1 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947967758, "Lcom/baidu/tieba/mc1;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947967758, "Lcom/baidu/tieba/mc1;");
-        }
-    }
+    public final InputStream a;
+    public final Charset b;
+    public byte[] c;
+    public int d;
+    public int e;
 
     /* loaded from: classes5.dex */
-    public class a extends lb1<JSONObject> {
+    public class a extends ByteArrayOutputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pd1 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ mc1 c;
+        public final /* synthetic */ mc1 a;
 
-        public a(mc1 mc1Var, pd1 pd1Var, String str) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(mc1 mc1Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mc1Var, pd1Var, str};
+                Object[] objArr = {mc1Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = mc1Var;
-            this.a = pd1Var;
-            this.b = str;
+            this.a = mc1Var;
         }
 
-        @Override // com.baidu.tieba.lb1
-        public void b(Throwable th, String str) {
+        /* JADX WARN: Code restructure failed: missing block: B:7:0x0010, code lost:
+            if (((java.io.ByteArrayOutputStream) r5).buf[r0] == 13) goto L7;
+         */
+        @Override // java.io.ByteArrayOutputStream
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public String toString() {
+            InterceptResult invokeV;
+            int i;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(1048576, this, th, str) != null) || this.c.b) {
-                return;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            if (pb1.b(hd1.a()) && currentTimeMillis - mc1.c <= 3000) {
-                if (this.c.a) {
-                    this.a.onResult(1, "");
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                int i2 = ((ByteArrayOutputStream) this).count;
+                if (i2 > 0) {
+                    i = i2 - 1;
                 }
-                this.c.i(this.b, this.a);
-            } else {
-                this.a.onResult(3, "支付失败，请重试");
-            }
-            this.c.a = false;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lb1
-        /* renamed from: d */
-        public void c(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || this.c.b) {
-                return;
-            }
-            int optInt = jSONObject.optInt("status", -1);
-            int optInt2 = jSONObject.optInt("payStatus", -1);
-            if (optInt == 1 && optInt2 == 0) {
-                this.a.onResult(3, "支付失败，请重试");
-                return;
-            }
-            if (optInt != 2 && (optInt != 1 || optInt2 != 2)) {
-                if (optInt == 1 && optInt2 == 3) {
-                    this.a.onResult(3, "支付失败，请重试");
-                } else if (System.currentTimeMillis() - mc1.c <= 3000) {
-                    if (this.c.a) {
-                        this.a.onResult(1, "");
-                    }
-                    this.c.i(this.b, this.a);
-                } else {
-                    this.a.onResult(6, "支付结果查询失败，请重试");
+                i = ((ByteArrayOutputStream) this).count;
+                try {
+                    return new String(((ByteArrayOutputStream) this).buf, 0, i, this.a.b.name());
+                } catch (UnsupportedEncodingException e) {
+                    throw new AssertionError(e);
                 }
-            } else {
-                this.a.onResult(0, "小额免密支付成功");
             }
-            this.c.a = false;
+            return (String) invokeV.objValue;
         }
     }
 
-    public mc1() {
+    public mc1(InputStream inputStream, int i, Charset charset) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, Integer.valueOf(i), charset};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        if (inputStream != null && charset != null) {
+            if (i >= 0) {
+                if (charset.equals(nc1.a)) {
+                    this.a = inputStream;
+                    this.b = charset;
+                    this.c = new byte[i];
+                    return;
+                }
+                throw new IllegalArgumentException("Unsupported encoding");
+            }
+            throw new IllegalArgumentException("capacity <= 0");
+        }
+        throw null;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public mc1(InputStream inputStream, Charset charset) {
+        this(inputStream, 8192, charset);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, charset};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((InputStream) objArr2[0], ((Integer) objArr2[1]).intValue(), (Charset) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = true;
-        this.b = false;
     }
 
-    public static mc1 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (d == null) {
-                synchronized (mc1.class) {
-                    if (d == null) {
-                        d = new mc1();
-                    }
-                }
-            }
-            return d;
-        }
-        return (mc1) invokeV.objValue;
-    }
-
-    public void f() {
+    public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = true;
+            InputStream inputStream = this.a;
+            byte[] bArr = this.c;
+            int read = inputStream.read(bArr, 0, bArr.length);
+            if (read != -1) {
+                this.d = 0;
+                this.e = read;
+                return;
+            }
+            throw new EOFException();
         }
     }
 
-    public void g(String str, pd1 pd1Var) {
+    @Override // java.io.Closeable, java.lang.AutoCloseable
+    public void close() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, pd1Var) == null) {
-            this.b = false;
-            this.a = true;
-            c = System.currentTimeMillis();
-            i(str, pd1Var);
-        }
-    }
-
-    public final void i(String str, pd1 pd1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, pd1Var) == null) {
-            String[] split = str.split("&");
-            mb1 mb1Var = new mb1();
-            for (String str2 : split) {
-                String[] split2 = str2.split("=");
-                if (split2.length == 2) {
-                    if (TextUtils.equals(split2[0], "timestamp")) {
-                        mb1Var.d(split2[0], URLDecoder.decode(split2[1]));
-                    } else {
-                        mb1Var.d(split2[0], split2[1]);
-                    }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this.a) {
+                if (this.c != null) {
+                    this.c = null;
+                    this.a.close();
                 }
             }
-            mb1Var.d("terminalData", "{\"queryOrderType\":\"AGREEMENT\",\"payChannel\":\"BAIDU-ALIPAY-WISE\"}");
-            tb1.j().g(vb1.e(), mb1Var, new a(this, pd1Var, str));
         }
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.e == -1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this.a) {
+                if (this.c != null) {
+                    if (this.d >= this.e) {
+                        c();
+                    }
+                    for (int i3 = this.d; i3 != this.e; i3++) {
+                        if (this.c[i3] == 10) {
+                            if (i3 != this.d) {
+                                i2 = i3 - 1;
+                                if (this.c[i2] == 13) {
+                                    String str = new String(this.c, this.d, i2 - this.d, this.b.name());
+                                    this.d = i3 + 1;
+                                    return str;
+                                }
+                            }
+                            i2 = i3;
+                            String str2 = new String(this.c, this.d, i2 - this.d, this.b.name());
+                            this.d = i3 + 1;
+                            return str2;
+                        }
+                    }
+                    a aVar = new a(this, (this.e - this.d) + 80);
+                    loop1: while (true) {
+                        aVar.write(this.c, this.d, this.e - this.d);
+                        this.e = -1;
+                        c();
+                        i = this.d;
+                        while (i != this.e) {
+                            if (this.c[i] == 10) {
+                                break loop1;
+                            }
+                            i++;
+                        }
+                    }
+                    if (i != this.d) {
+                        aVar.write(this.c, this.d, i - this.d);
+                    }
+                    this.d = i + 1;
+                    return aVar.toString();
+                }
+                throw new IOException("LineReader is closed");
+            }
+        }
+        return (String) invokeV.objValue;
     }
 }

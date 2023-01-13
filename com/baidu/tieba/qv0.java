@@ -1,7 +1,8 @@
 package com.baidu.tieba;
+
+import androidx.annotation.NonNull;
 /* loaded from: classes6.dex */
 public interface qv0 {
-    void a(mu0 mu0Var);
-
-    int getExpectOrder();
+    @NonNull
+    rv0 a();
 }

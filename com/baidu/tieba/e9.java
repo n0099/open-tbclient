@@ -1,7 +1,17 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
-public interface e9 {
-    String d();
 
-    String e();
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+@Deprecated
+/* loaded from: classes4.dex */
+public class e9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    @Deprecated
+    public static void a(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, str, str2, th) == null) {
+        }
+    }
 }

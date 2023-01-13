@@ -4,7 +4,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.tf;
+import com.baidu.tieba.uf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,9 +51,9 @@ public class InitLocationTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                tf.n().q();
+                uf.n().q();
                 if (PermissionUtil.checkLocationForGoogle(TbadkCoreApplication.getInst())) {
-                    tf.n().j(false);
+                    uf.n().j(false);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();

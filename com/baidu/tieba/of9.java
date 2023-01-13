@@ -1,12 +1,11 @@
 package com.baidu.tieba;
-
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
 /* loaded from: classes5.dex */
 public interface of9 {
-    public static final ServiceReference a = new ServiceReference(UBCCloudControlProcessor.UBC_KEY, "yalog");
+    void i(String str);
 
-    void a(String str, String str2);
+    void k(String str);
 
-    void b(String str, String str2);
+    void u(String str);
+
+    void v(String str);
 }

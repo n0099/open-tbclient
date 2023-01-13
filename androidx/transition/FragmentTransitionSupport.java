@@ -160,7 +160,7 @@ public class FragmentTransitionSupport extends FragmentTransitionImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
             if (obj != null) {
-                return ((Transition) obj).m5clone();
+                return ((Transition) obj).mo5clone();
             }
             return null;
         }

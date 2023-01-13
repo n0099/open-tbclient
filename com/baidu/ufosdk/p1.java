@@ -541,7 +541,7 @@ public class p1 {
             RelativeLayout relativeLayout = new RelativeLayout(context);
             RelativeLayout relativeLayout2 = new RelativeLayout(context);
             try {
-                relativeLayout.setBackgroundResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0812c6);
+                relativeLayout.setBackgroundResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0812dc);
             } catch (Exception e) {
                 e.printStackTrace();
             }

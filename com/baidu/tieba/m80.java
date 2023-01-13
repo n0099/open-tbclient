@@ -1,523 +1,179 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import com.baidu.android.imsdk.ResponseCode;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.utils.RequsetNetworkUtils;
-import com.baidu.lcp.sdk.client.bean.BLCPRequest;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.tieba.f90;
-import com.baidu.tieba.o80;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.upload.action.CommonUtils;
+import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
+import com.baidu.android.imsdk.upload.action.track.Connection;
+import com.baidu.android.imsdk.upload.action.track.Request;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import java.util.Observable;
-import java.util.Observer;
+import com.yy.gslbsdk.db.ProbeTB;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+import org.apache.http.cookie.ClientCookie;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class m80 implements f90.a, Observer {
+public final class m80 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile l80 e;
-    public static int f;
-    public static volatile m80 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public int b;
-    public b c;
-    public long d;
-
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m80 this$0;
-
-        /* loaded from: classes5.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.this$0.f("netchange");
-                }
-            }
-        }
-
-        public b(m80 m80Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m80Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = m80Var;
-        }
-
-        public /* synthetic */ b(m80 m80Var, a aVar) {
-            this(m80Var);
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                l90.a("LCPClientManager", "NetStatusReceiver changed");
-                if (RequsetNetworkUtils.isNetworkAvailable(context) && m80.e.a == -1) {
-                    l90.b("LCPClientManager", "NetStatusReceiver, current net status is available, LCP reconnect start");
-                    i90.a(context).b(new a(this));
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947926404, "Lcom/baidu/tieba/m80;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947926404, "Lcom/baidu/tieba/m80;");
-                return;
-            }
-        }
-        e = new l80();
-        new LinkedHashMap();
-        f = -1;
-    }
 
     public m80() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.b = -1;
-        this.d = 0L;
     }
 
-    public Context getContext() {
-        InterceptResult invokeV;
+    public static IMPushPb.Action b(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            return IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.NEWCONNECTION).setNewConnection(IMPushPb.NewConnection.newBuilder().setAliasId(601110L).setConnectErrorCode(jSONObject.optString("con_err_code", "")).setTokenBegin(jSONObject.optLong("token_begin", 0L)).setTokenEnd(jSONObject.optLong("token_end", 0L)).setDnsBegin(jSONObject.optLong("dns_begin", 0L)).setDnsEnd(jSONObject.optLong("dns_end", 0L)).setSocketBegin(jSONObject.optLong("socket_begin", 0L)).setSocketEnd(jSONObject.optLong("socket_end", 0L)).setLcpLoginBegin(jSONObject.optLong("login_begin", 0L)).setLcpLoginEnd(jSONObject.optLong("login_end", 0L)).setConnectSource(jSONObject.optString("source", "")).setConnectState(jSONObject.optLong("connect_state", -1L)).setEndTime(jSONObject.optLong("flow_end_time", 0L)).setStartTime(jSONObject.optLong("flow_start_time", 0L)).setRetry(jSONObject.optInt("retry_cout", 0)).setExt(jSONObject.toString()).setNetInfo(d(jSONObject)).build()).build();
         }
-        return (Context) invokeV.objValue;
+        return (IMPushPb.Action) invokeL.objValue;
     }
 
-    public int h() {
-        InterceptResult invokeV;
+    public static IMPushPb.LcpNetInfo d(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return e.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            return IMPushPb.LcpNetInfo.newBuilder().setDomain(jSONObject.optString("domain", "")).setIp(jSONObject.optString("ip", "")).setPort(jSONObject.optString(ClientCookie.PORT_ATTR, "")).setProtocol(jSONObject.optString(ProbeTB.PROTOCOL, "")).build();
         }
-        return invokeV.intValue;
+        return (IMPushPb.LcpNetInfo) invokeL.objValue;
     }
 
-    public void j() {
+    public static IMPushPb.Action e(String str, String str2, long j, long j2, long j3, String str3, long j4) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            Intent intent = new Intent();
-            intent.putExtra("com.baidu.lcp.sdk.connect.state", e.a);
-            intent.setAction("com.baidu.lcp.sdk.broadcast");
-            LocalBroadcastManager.getInstance(this.a).sendBroadcast(intent);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str3, Long.valueOf(j4)})) == null) {
+            return IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.REQUEST).setRequest(IMPushPb.Request.newBuilder().setMethod(str).setRequestId(str2).setTimestamp(j).setResponseTime(j2).setErrorCode(j3).setExt(str3).setAliasId(j4).build()).build();
         }
+        return (IMPushPb.Action) invokeCommon.objValue;
     }
 
-    public void k() {
-        Context context;
+    public static IMPushPb.Action h(long j, long j2, String str, long j3, long j4, String str2, long j5) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (context = this.a) != null && RequsetNetworkUtils.isConnected(context)) {
-            v80.V(this.a).h0();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, Long.valueOf(j3), Long.valueOf(j4), str2, Long.valueOf(j5)})) == null) {
+            return IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.CONNECTION).setConnection(IMPushPb.Connection.newBuilder().setStartTime(j).setStopTime(j2).setReason(str).setRetryTime(j3).setRetryCount(j4).setExt(str2).setAliasId(j5).build()).build();
         }
+        return (IMPushPb.Action) invokeCommon.objValue;
     }
 
-    public final boolean n() {
-        InterceptResult invokeV;
+    public static IMPushPb.Action f(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            Context context = this.a;
-            if (context == null || v80.V(context).X().a != -1) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
+            return IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.NEWREQUEST).setNewRequest(IMPushPb.NewRequest.newBuilder().setAliasId(601111L).setRequestId(jSONObject.optLong(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID)).setServiceId(jSONObject.optString("service_id")).setMethodId(jSONObject.optString("method_id")).setErrorCode(jSONObject.optLong("error_code")).setErrorMsg(jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG)).setRequestTime(jSONObject.optLong("request_time")).setResponseTime(jSONObject.optLong("response_time")).setExt(jSONObject.optString("ext")).setNetInfo(d(jSONObject)).build()).build();
+        }
+        return (IMPushPb.Action) invokeL.objValue;
+    }
+
+    public static IMPushPb.Action g(String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, jSONObject)) == null) {
+            int intValue = Integer.valueOf(str).intValue();
+            if (intValue == 601111) {
+                return f(jSONObject);
             }
-            return false;
+            if (intValue == 601110) {
+                return b(jSONObject);
+            }
+            return b(jSONObject);
         }
-        return invokeV.booleanValue;
+        return (IMPushPb.Action) invokeLL.objValue;
     }
 
-    public static synchronized m80 g() {
-        InterceptResult invokeV;
-        m80 m80Var;
+    public static void i(Context context, Connection connection) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (m80.class) {
-                if (g == null) {
-                    synchronized (m80.class) {
-                        if (g == null) {
-                            g = new m80();
+        if (interceptable == null || interceptable.invokeLL(65543, null, context, connection) == null) {
+            try {
+                HashSet hashSet = new HashSet(n80.b(context));
+                hashSet.add(Base64.encodeToString(h(connection.startTime, connection.stopTime, connection.reason, connection.retryTime, connection.retryCount, connection.ext, connection.aliasId).toByteArray(), 0));
+                n80.k(context, hashSet);
+            } catch (Exception e) {
+                q90.c("TrackPbGenerator", "putIMConnectionToActions :", e);
+            }
+        }
+    }
+
+    public static void j(Context context, Request request) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, context, request) == null) {
+            try {
+                HashSet hashSet = new HashSet(n80.d(context));
+                hashSet.add(Base64.encodeToString(e(request.method, request.requestId, request.timestamp, request.responseTime, request.errorCode, request.ext, request.aliasId).toByteArray(), 0));
+                n80.o(context, hashSet);
+            } catch (Exception e) {
+                q90.c("TrackPbGenerator", "putIMRequestToActions :", e);
+            }
+        }
+    }
+
+    public final List<String> a(String str, List<o80> list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (list != null && !TextUtils.isEmpty(str) && list.size() > 0) {
+                q90.a("TrackPbGenerator", "flow upload details list");
+                for (o80 o80Var : list) {
+                    if (o80Var != null) {
+                        String a = o80Var.a();
+                        if (!TextUtils.isEmpty(a) && a.length() > 0) {
+                            arrayList.add(a);
                         }
                     }
                 }
-                m80Var = g;
+                q90.a("TrackPbGenerator", "flow upload detal list:" + arrayList.toString());
             }
-            return m80Var;
+            return arrayList;
         }
-        return (m80) invokeV.objValue;
+        return (List) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.f90.a
-    public void a(String str, int i) {
+    public byte[] c(Context context, String str, List<o80> list, int i) {
+        InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-            if (f != i) {
-                l90.b("LCPClientManager", "getToken success, but requestMark not equal, sTokenRequestMark is " + f + " mark is " + i);
-                return;
-            }
-            l90.b("LCPClientManager", "getToken success, cost: " + (System.currentTimeMillis() - this.d) + "ms");
-            e80 g2 = d80.h(this.a).g(601110);
-            g2.d("P3", "accessToken success");
-            g2.d("con_err_code", "P3");
-            this.b = -1;
-            m(0);
-        }
-    }
-
-    @Override // com.baidu.tieba.f90.a
-    public void b(int i, String str, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
-            if (f != i2) {
-                l90.b("LCPClientManager", "getToken onFailure, but requestMark not equal, sTokenRequestMark is " + f + " mark is " + i2);
-                return;
-            }
-            l90.b("LCPClientManager", "getToken failure:" + str + "\r\n + cost: " + (System.currentTimeMillis() - this.d) + "ms");
-            e80 g2 = d80.h(this.a).g(601110);
-            g2.d("P4", "getToken errCode:" + i + ",errMsg:" + str);
-            g2.d("con_err_code", "P4");
-            if (this.b == 2) {
-                e80 g3 = d80.h(this.a).g(601110);
-                g3.c("flow_end_time", System.currentTimeMillis());
-                g3.d("P5", "token request count is max:" + this.b);
-                g3.d("con_err_code", "P5");
-                g3.e();
-                this.b = -1;
-                e.a = -1;
-                j();
-                return;
-            }
-            o();
-        }
-    }
-
-    public void d(Context context, String str, String str2, int i, String str3) {
-        String str4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, str, str2, Integer.valueOf(i), str3}) == null) {
-            if (e.a != -2 && e.a != 0) {
-                if (!TextUtils.isEmpty(str3) && UnitedSchemeConstants.SCHEME_INVOKE_TYPE_OUTSIDE.equals(str3)) {
-                    f80.h(context).f();
-                }
-                e(context, str, str2, i, str3);
-                return;
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append("LCP start connect, SocketConnect state is ");
-            if (e.a == 0) {
-                str4 = "connected";
-            } else {
-                str4 = "connecting";
-            }
-            sb.append(str4);
-            l90.a("LCPClientManager", sb.toString());
-        }
-    }
-
-    public synchronized void e(Context context, String str, String str2, int i, String str3) {
-        String str4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, str, str2, Integer.valueOf(i), str3}) == null) {
-            synchronized (this) {
-                if (context == null) {
-                    return;
-                }
-                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && RequsetNetworkUtils.isConnected(context)) {
-                    if (e.a != -2 && e.a != 0) {
-                        e.a = -2;
-                        l90.a("LCPClientManager", "LCP start connectImpl, SocketConnect state change unConnect to connecting");
-                        this.a = context.getApplicationContext();
-                        m90.p(context, str);
-                        m90.r(context, str2);
-                        i80.m(context, i);
-                        v80.V(context).addObserver(g);
-                        j();
-                        if (this.c == null) {
-                            IntentFilter intentFilter = new IntentFilter();
-                            intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-                            b bVar = new b(this, null);
-                            this.c = bVar;
-                            context.registerReceiver(bVar, intentFilter);
-                        }
-                        if (i80.f(context)) {
-                            if (!f80.i(String.valueOf(601110)).booleanValue()) {
-                                f80.h(context).e(context, String.valueOf(601110), 10);
-                            }
-                            if (!f80.i(String.valueOf(601111)).booleanValue()) {
-                                f80.h(context).e(context, String.valueOf(601111), 10);
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, list, i)) == null) {
+            list.addAll(c90.j(context).g(str, i));
+            List<String> a = a(str, list);
+            if (a != null) {
+                try {
+                    if (a.size() > 0) {
+                        CopyOnWriteArrayList copyOnWriteArrayList = new CopyOnWriteArrayList();
+                        if (a.size() > 0) {
+                            for (String str2 : a) {
+                                copyOnWriteArrayList.add(g(str, new JSONObject(str2)));
                             }
                         }
-                        e80 b2 = d80.h(context).b(601110);
-                        b2.c("flow_start_time", System.currentTimeMillis());
-                        b2.d("source", str3);
-                        if (!m90.k(context)) {
-                            if (this.b == -1) {
-                                l90.a("LCPClientManager", "no local token and tokenRequestCount is -1, start request token flow");
-                                d80.h(context).b(601110).c("token_begin", System.currentTimeMillis());
-                                o();
-                            } else {
-                                this.b = -1;
-                                e.a = -1;
-                                l90.a("LCPClientManager", "no local token and tokenRequestCount not -1, request token flow exception");
-                                e80 g2 = d80.h(context).g(601110);
-                                g2.c("flow_end_time", System.currentTimeMillis());
-                                g2.d("P6", "token request count exception");
-                                g2.d("con_err_code", "P6");
-                                g2.e();
-                                f(str3);
-                            }
-                        } else {
-                            l90.b("LCPClientManager", "token is not null, use local token");
-                            m(0);
-                        }
-                        return;
+                        return IMPushPb.PushImClient.newBuilder().setCommon(CommonUtils.getIMCommon(context, r90.e(context))).setSdkName("lcp").setSdkVersion(2310016L).addAllActions(copyOnWriteArrayList).build().toByteArray();
                     }
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("LCP start connectImpl, SocketConnect state is ");
-                    if (e.a == 0) {
-                        str4 = "connected";
-                    } else {
-                        str4 = "connecting";
-                    }
-                    sb.append(str4);
-                    l90.a("LCPClientManager", sb.toString());
-                    return;
-                }
-                l90.a("LCPClientManager", "flow 参数错误、网络错误无法连接 增加打点");
-                e80 b3 = d80.h(context).b(601110);
-                b3.c("flow_start_time", System.currentTimeMillis());
-                b3.d("P0", "connect param not correct or net unconnected");
-                b3.d("con_err_code", "P0");
-                b3.c("flow_end_time", System.currentTimeMillis());
-                b3.b("connect_state", -1);
-                b3.d("source", str3);
-                b3.e();
-            }
-        }
-    }
-
-    public void f(String str) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("LCP start connectInner, SocketConnect state is ");
-            if (e.a == 0) {
-                str2 = "connected";
-            } else {
-                str2 = "connecting";
-            }
-            sb.append(str2);
-            l90.a("LCPClientManager", sb.toString());
-            Context context = this.a;
-            d(context, m90.b(context), m90.e(this.a), i80.c(this.a), str);
-        }
-    }
-
-    public final void m(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048587, this, i) != null) || this.a == null) {
-            return;
-        }
-        if (i != 0) {
-            if (i == 1) {
-                l90.a("LCPClientManager", "socketAction closeSocket");
-                v80.V(this.a).o0("socketAction closeSocket:", v80.V(this.a).C);
-                return;
-            }
-            return;
-        }
-        l90.a("LCPClientManager", "socketAction createSocket");
-        e80 g2 = d80.h(this.a).g(601110);
-        g2.d("P8", "socketAction createSocket");
-        g2.d("con_err_code", "P8");
-        v80.V(this.a).n0();
-    }
-
-    public void i(@NonNull BLCPRequest bLCPRequest, @Nullable q80 q80Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, bLCPRequest, q80Var) == null) {
-            if (this.a == null) {
-                if (q80Var != null) {
-                    if (q80Var instanceof o80) {
-                        o80.a aVar = new o80.a();
-                        long j = bLCPRequest.a;
-                        aVar.a = bLCPRequest.b;
-                        aVar.b = bLCPRequest.d;
-                        aVar.c = new byte[0];
-                        aVar.d.add(new n80(n80.a(false), System.currentTimeMillis()));
-                        ((o80) q80Var).onResponse(ResponseCode.LCP_STATE_CONNECTING, "unconnected", aVar);
-                        return;
-                    }
-                    q80Var.onResponse(ResponseCode.LCP_STATE_CONNECTING, "unconnected", bLCPRequest.a, bLCPRequest.b, bLCPRequest.d, new byte[0]);
-                }
-            } else if (e.a != 0) {
-                if (!(bLCPRequest instanceof p80)) {
-                    if (q80Var != null) {
-                        if (q80Var instanceof o80) {
-                            o80.a aVar2 = new o80.a();
-                            long j2 = bLCPRequest.a;
-                            aVar2.a = bLCPRequest.b;
-                            aVar2.b = bLCPRequest.d;
-                            aVar2.c = new byte[0];
-                            aVar2.d.add(new n80(n80.a(false), System.currentTimeMillis()));
-                            ((o80) q80Var).onResponse(ResponseCode.LCP_STATE_CONNECTING, "unconnected", aVar2);
-                        } else {
-                            q80Var.onResponse(ResponseCode.LCP_STATE_CONNECTING, "unconnected", bLCPRequest.a, bLCPRequest.b, bLCPRequest.d, new byte[0]);
-                        }
-                    }
-                } else {
-                    v80.V(this.a).K(bLCPRequest, q80Var);
-                }
-                if (e.a == -1 || !n()) {
-                    f("invoke");
-                }
-            } else {
-                v80.V(this.a).K(bLCPRequest, q80Var);
-                if (bLCPRequest.b == 1 && bLCPRequest.a == 4) {
-                    l90.a("LCPClientManager", "云控登录打点");
-                    Context context = this.a;
-                    j90.a(context, 1L, "invoke", bLCPRequest.d + "");
-                }
-                if (bLCPRequest.b == 50 && bLCPRequest.a == 2) {
-                    Context context2 = this.a;
-                    j90.a(context2, 50L, "invoke", bLCPRequest.d + "");
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
+            return null;
         }
-    }
-
-    public void l(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
-            this.a = context.getApplicationContext();
-        }
-    }
-
-    public void o() {
-        Object valueOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            Context context = this.a;
-            if (context != null && RequsetNetworkUtils.isConnected(context)) {
-                int i = this.b + 1;
-                this.b = i;
-                f = i;
-                d80.h(this.a).g(601110).b("token_count", this.b);
-                l90.a("LCPClientManager", "no token, so request token, and tryCount = " + this.b);
-                if (this.b < 3) {
-                    this.d = System.currentTimeMillis();
-                    f90 f90Var = new f90(this.a, this, this.b);
-                    g90.d().e(f90Var, f90Var);
-                    return;
-                }
-                return;
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append("context = ");
-            sb.append(this.a);
-            sb.append(", net :");
-            Context context2 = this.a;
-            if (context2 == null) {
-                valueOf = "";
-            } else {
-                valueOf = Boolean.valueOf(!RequsetNetworkUtils.isConnected(context2));
-            }
-            sb.append(valueOf);
-            l90.a("LCPClientManager", sb.toString());
-            this.b = -1;
-            e.a = -1;
-            j();
-            e80 g2 = d80.h(this.a).g(601110);
-            g2.d("P1", "token request net unconnected");
-            g2.d("con_err_code", "P1");
-            g2.c("flow_end_time", System.currentTimeMillis());
-            g2.b("connect_state", -1);
-            g2.e();
-        }
-    }
-
-    @Override // java.util.Observer
-    public void update(Observable observable, Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048590, this, observable, obj) == null) && (obj instanceof l80)) {
-            e.a = ((l80) obj).a;
-            l90.a("LCPClientManager", "Manager update connectState :" + e.a);
-        }
+        return (byte[]) invokeLLLI.objValue;
     }
 }

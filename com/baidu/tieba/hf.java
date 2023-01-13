@@ -1,110 +1,98 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ef;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class hf {
+public class hf<T> implements ef<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final z9 a;
 
-    public hf(Context context, z9 z9Var) {
+    @Override // com.baidu.tieba.ef
+    public void a(String str, T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, t) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ef
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ef
+    public void e(String str, T t, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, t, Long.valueOf(j)}) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ef
+    public void f(String str, ef.a<T> aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, aVar) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ef
+    public void g(String str, T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, t) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ef
+    public T get(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            return null;
+        }
+        return (T) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ef
+    public ef.b<T> h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            return null;
+        }
+        return (ef.b) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ef
+    public void i(String str, T t, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, t, Long.valueOf(j)}) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ef
+    public void remove(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+        }
+    }
+
+    public hf() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, z9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = z9Var;
-    }
-
-    public void a(ze zeVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, zeVar) == null) {
-            try {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("nameSpace", zeVar.a);
-                contentValues.put("tableName", zeVar.b);
-                contentValues.put("maxSize", Integer.valueOf(zeVar.c));
-                contentValues.put("cacheVersion", Integer.valueOf(zeVar.e));
-                contentValues.put("cacheType", zeVar.d);
-                contentValues.put("lastActiveTime", Long.valueOf(zeVar.f));
-                SQLiteDatabase f = this.a.f();
-                if (f != null && f.update("cache_meta_info", contentValues, "nameSpace = ?", new String[]{zeVar.a}) == 0) {
-                    f.insert("cache_meta_info", null, contentValues);
-                }
-            } catch (Throwable th) {
-                this.a.i(th, "addOrUpdate");
-            }
-        }
-    }
-
-    public ze b(String str) {
-        InterceptResult invokeL;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            try {
-                cursor = this.a.f().rawQuery("SELECT nameSpace, tableName, maxSize, cacheType, cacheVersion, lastActiveTime FROM cache_meta_info where nameSpace = ?", new String[]{str});
-            } catch (Throwable th) {
-                th = th;
-                cursor = null;
-            }
-            try {
-                if (cursor.moveToNext()) {
-                    ze zeVar = new ze();
-                    zeVar.a = cursor.getString(0);
-                    zeVar.b = cursor.getString(1);
-                    zeVar.c = cursor.getInt(2);
-                    zeVar.d = cursor.getString(3);
-                    zeVar.e = cursor.getInt(4);
-                    zeVar.f = cursor.getLong(5);
-                    return zeVar;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                try {
-                    this.a.i(th, "get");
-                    return null;
-                } finally {
-                    wg.a(cursor);
-                }
-            }
-            return null;
-        }
-        return (ze) invokeL.objValue;
-    }
-
-    public int delete(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            try {
-                if (b(str) == null) {
-                    return 0;
-                }
-                return this.a.f().delete("cache_meta_info", "nameSpace = ?", new String[]{str});
-            } catch (Throwable th) {
-                this.a.i(th, "delete");
-                return 0;
-            }
-        }
-        return invokeL.intValue;
     }
 }

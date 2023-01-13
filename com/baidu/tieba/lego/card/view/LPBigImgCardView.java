@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.model.LPBigImgCard;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -126,14 +126,14 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
                 return;
             }
         }
-        this.r = yi.l(getContext());
+        this.r = zi.l(getContext());
     }
 
     public final int C(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return yi.d(this.i.getPageActivity(), (int) (i / 2.0d));
+            return zi.d(this.i.getPageActivity(), (int) (i / 2.0d));
         }
         return invokeI.intValue;
     }
@@ -225,9 +225,9 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d017b, (ViewGroup) null);
             this.m = relativeLayout;
-            this.n = (TbImageView) l(relativeLayout, R.id.obfuscated_res_0x7f0921a8);
-            this.o = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f0921a9);
-            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f092434);
+            this.n = (TbImageView) l(relativeLayout, R.id.obfuscated_res_0x7f0921d8);
+            this.o = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f0921d9);
+            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f092461);
             return this.m;
         }
         return (View) invokeV.objValue;

@@ -1,91 +1,46 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.searchbox.download.center.clearcache.controller.ClearCacheUbcController;
+import com.baidu.swan.apps.jsbridge.SwanAppNativeSwanJsBridge;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class fe2 extends ee2 {
+public final class fe2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, String> c;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public fe2(@NonNull String str) {
-        this(str, null);
+    public static void a(h32 h32Var, je2 je2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (Map) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeLL(65536, null, h32Var, je2Var) == null) && h32Var != null && je2Var != null) {
+            je2Var.g(h32Var);
         }
     }
 
-    public fe2(@NonNull String str, @Nullable Map<String, String> map) {
+    public static String b(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, map};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, str3)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+                String quote = JSONObject.quote(str3);
+                return str + "." + str2 + " = " + quote + ";";
             }
+            return "";
         }
-        HashMap hashMap = new HashMap();
-        this.c = hashMap;
-        this.a = str;
-        if (map != null) {
-            hashMap.putAll(map);
-        }
+        return (String) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ee2
-    public void m(Map<String, Object> map) {
+    public static String c(h32 h32Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            for (Map.Entry<String, String> entry : this.c.entrySet()) {
-                map.put(entry.getKey(), entry.getValue());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, h32Var)) == null) {
+            if (h32Var.isWebView()) {
+                return ClearCacheUbcController.DOCUMENT;
             }
+            return SwanAppNativeSwanJsBridge.JAVASCRIPT_INTERFACE_NAME;
         }
-    }
-
-    public JSONObject s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                n(jSONObject);
-            } catch (JSONException e) {
-                if (ee2.b) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.data.ForumTagInfo;
 import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.frs.FrsTabItemData;
-import com.baidu.tieba.gm7;
+import com.baidu.tieba.vq7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -240,12 +240,12 @@ public class VisitedForumData extends OrmObject implements Serializable {
             ThemeColorInfo themeColorInfo = this.mThemeColorInfo;
             if (themeColorInfo != null && themeColorInfo.day != null && themeColorInfo.night != null && themeColorInfo.dark != null) {
                 ArrayList<Integer> arrayList = new ArrayList<>();
-                arrayList.add(Integer.valueOf(gm7.b(this.mThemeColorInfo.day.light_color)));
-                arrayList.add(Integer.valueOf(gm7.b(this.mThemeColorInfo.day.dark_color)));
-                arrayList.add(Integer.valueOf(gm7.b(this.mThemeColorInfo.night.light_color)));
-                arrayList.add(Integer.valueOf(gm7.b(this.mThemeColorInfo.night.dark_color)));
-                arrayList.add(Integer.valueOf(gm7.b(this.mThemeColorInfo.dark.light_color)));
-                arrayList.add(Integer.valueOf(gm7.b(this.mThemeColorInfo.dark.dark_color)));
+                arrayList.add(Integer.valueOf(vq7.b(this.mThemeColorInfo.day.light_color)));
+                arrayList.add(Integer.valueOf(vq7.b(this.mThemeColorInfo.day.dark_color)));
+                arrayList.add(Integer.valueOf(vq7.b(this.mThemeColorInfo.night.light_color)));
+                arrayList.add(Integer.valueOf(vq7.b(this.mThemeColorInfo.night.dark_color)));
+                arrayList.add(Integer.valueOf(vq7.b(this.mThemeColorInfo.dark.light_color)));
+                arrayList.add(Integer.valueOf(vq7.b(this.mThemeColorInfo.dark.dark_color)));
                 return arrayList;
             }
             return null;

@@ -1,40 +1,120 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.smallgame.sdk.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.concurrent.Future;
 /* loaded from: classes6.dex */
-public class vh1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int d = 1;
-    public static int e = 2;
-    public static int f = 3;
+public abstract class vh1<T> implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public static b b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, String> a;
-    public Map<String, String> b;
-    public SharedPreferences c;
+    public Future<T> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948240682, "Lcom/baidu/tieba/vh1;")) == null) {
-            return;
+    public abstract T b();
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+    }
+
+    public void f(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948240682, "Lcom/baidu/tieba/vh1;");
+    }
+
+    public void g(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+        }
+    }
+
+    public void i(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final vh1 a;
+        public final T b;
+
+        public a(vh1 vh1Var, T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vh1Var, t};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vh1Var;
+            this.b = t;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                a aVar = (a) message.obj;
+                int i = message.what;
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i == 3) {
+                            aVar.a.e();
+                            return;
+                        }
+                        return;
+                    }
+                    aVar.a.f((Throwable) aVar.b);
+                    return;
+                }
+                aVar.a.g(aVar.b);
+            }
         }
     }
 
@@ -42,76 +122,79 @@ public class vh1 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new HashMap();
-        this.b = new HashMap();
     }
 
-    public void a() {
+    public static Handler d() {
+        InterceptResult invokeV;
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.clear();
-        }
-    }
-
-    public String b(int i, String str) {
-        InterceptResult invokeIL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
-            if (i == d) {
-                str2 = this.a.get(str);
-            } else if (i == e) {
-                str2 = this.b.get(str);
-            } else {
-                if (i == f) {
-                    SharedPreferences sharedPreferences = this.c;
-                    if (sharedPreferences != null) {
-                        str2 = sharedPreferences.getString(str, "");
-                    } else {
-                        Log.e("TAG", "prefs data store is null");
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (vh1.class) {
+                if (b == null) {
+                    b = new b(Looper.getMainLooper());
                 }
-                str2 = null;
+                bVar = b;
             }
-            if (str2 == null) {
-                return "";
-            }
-            return str2;
+            return bVar;
         }
-        return (String) invokeIL.objValue;
+        return (Handler) invokeV.objValue;
     }
 
-    public void c(SharedPreferences sharedPreferences) {
+    public void cancel() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sharedPreferences) == null) {
-            this.c = sharedPreferences;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            a(false);
         }
     }
 
-    public void d(int i, String str, String str2) {
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048579, this, i, str, str2) == null) {
-            if (i == d) {
-                this.a.put(str, str2);
-            } else if (i == e) {
-                this.b.put(str, str2);
-            } else if (i == f) {
-                SharedPreferences sharedPreferences = this.c;
-                if (sharedPreferences != null) {
-                    sharedPreferences.edit().putString(str, str2).commit();
-                } else {
-                    Log.e("TAG", "prefs data store is null");
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            c();
+        }
+    }
+
+    public void a(boolean z) {
+        Future<T> future;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (future = this.a) != null) {
+            future.cancel(z);
+            d().obtainMessage(3, new a(this, null)).sendToTarget();
+        }
+    }
+
+    public void h(Future future) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, future) == null) {
+            this.a = future;
+        }
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, CONST, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
+    public vh1 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            try {
+                System.currentTimeMillis();
+                d().obtainMessage(1, new a(this, b())).sendToTarget();
+            } finally {
+                try {
+                    return this;
+                } finally {
                 }
             }
+            return this;
         }
+        return (vh1) invokeV.objValue;
     }
 }

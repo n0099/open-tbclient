@@ -9,10 +9,11 @@ import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function2;
+/* JADX INFO: Add missing generic type declarations: [E] */
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0003H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", ExifInterface.LONGITUDE_EAST, "Lkotlinx/coroutines/channels/ProducerScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$dropWhile$1", f = "Channels.common.kt", i = {0, 1, 1, 2, 2, 3, 4, 4}, l = {725, 726, 727, 731, 732}, m = "invokeSuspend", n = {"$this$produce", "$this$produce", "e", "$this$produce", "e", "$this$produce", "$this$produce", "e"}, s = {"L$0", "L$0", "L$1", "L$0", "L$1", "L$0", "L$0", "L$1"})
 /* loaded from: classes9.dex */
-public final class ChannelsKt__Channels_commonKt$dropWhile$1 extends SuspendLambda implements Function2<ProducerScope<? super E>, Continuation<? super Unit>, Object> {
+public final class ChannelsKt__Channels_commonKt$dropWhile$1<E> extends SuspendLambda implements Function2<ProducerScope<? super E>, Continuation<? super Unit>, Object> {
     public final /* synthetic */ Function2 $predicate;
     public final /* synthetic */ ReceiveChannel $this_dropWhile;
     public Object L$0;
@@ -41,6 +42,8 @@ public final class ChannelsKt__Channels_commonKt$dropWhile$1 extends SuspendLamb
         return ((ChannelsKt__Channels_commonKt$dropWhile$1) create(obj, continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r7v9, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:19:0x0088 A[RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:20:0x0089  */
     /* JADX WARN: Removed duplicated region for block: B:23:0x0097  */
@@ -57,16 +60,16 @@ public final class ChannelsKt__Channels_commonKt$dropWhile$1 extends SuspendLamb
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final Object invokeSuspend(Object obj) {
-        ChannelIterator it;
+        ChannelIterator<E> it;
         ProducerScope producerScope;
-        ChannelsKt__Channels_commonKt$dropWhile$1 channelsKt__Channels_commonKt$dropWhile$1;
+        ChannelsKt__Channels_commonKt$dropWhile$1<E> channelsKt__Channels_commonKt$dropWhile$1;
         ProducerScope producerScope2;
-        ChannelIterator channelIterator;
+        ChannelIterator<E> channelIterator;
         Object obj2;
-        ChannelsKt__Channels_commonKt$dropWhile$1 channelsKt__Channels_commonKt$dropWhile$12;
+        ChannelsKt__Channels_commonKt$dropWhile$1<E> channelsKt__Channels_commonKt$dropWhile$12;
         Object hasNext;
-        ChannelIterator it2;
-        ChannelIterator channelIterator2;
+        ChannelIterator<E> it2;
+        ChannelIterator<E> channelIterator2;
         Object hasNext2;
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
         int i = this.label;
@@ -91,7 +94,7 @@ public final class ChannelsKt__Channels_commonKt$dropWhile$1 extends SuspendLamb
                                 channelIterator2 = it2;
                                 obj = hasNext2;
                                 if (!((Boolean) obj).booleanValue()) {
-                                    Object next = channelIterator2.next();
+                                    E next = channelIterator2.next();
                                     channelsKt__Channels_commonKt$dropWhile$12.L$0 = producerScope2;
                                     channelsKt__Channels_commonKt$dropWhile$12.L$1 = next;
                                     channelsKt__Channels_commonKt$dropWhile$12.L$2 = channelIterator2;
@@ -138,15 +141,15 @@ public final class ChannelsKt__Channels_commonKt$dropWhile$1 extends SuspendLamb
                     Object obj3 = this.L$1;
                     producerScope2 = (ProducerScope) this.L$0;
                     ResultKt.throwOnFailure(obj);
-                    Object obj4 = obj3;
+                    E e = obj3;
                     channelIterator = (ChannelIterator) this.L$2;
                     obj2 = coroutine_suspended;
                     channelsKt__Channels_commonKt$dropWhile$12 = this;
                     if (((Boolean) obj).booleanValue()) {
                         channelsKt__Channels_commonKt$dropWhile$12.L$0 = producerScope2;
-                        channelsKt__Channels_commonKt$dropWhile$12.L$1 = obj4;
+                        channelsKt__Channels_commonKt$dropWhile$12.L$1 = e;
                         channelsKt__Channels_commonKt$dropWhile$12.label = 3;
-                        if (producerScope2.send(obj4, channelsKt__Channels_commonKt$dropWhile$12) == obj2) {
+                        if (producerScope2.send(e, channelsKt__Channels_commonKt$dropWhile$12) == obj2) {
                             return obj2;
                         }
                         it2 = channelsKt__Channels_commonKt$dropWhile$12.$this_dropWhile.iterator();
@@ -168,14 +171,14 @@ public final class ChannelsKt__Channels_commonKt$dropWhile$1 extends SuspendLamb
                         if (hasNext != coroutine_suspended) {
                             return coroutine_suspended;
                         }
-                        Object obj5 = coroutine_suspended;
+                        Object obj4 = coroutine_suspended;
                         channelsKt__Channels_commonKt$dropWhile$12 = channelsKt__Channels_commonKt$dropWhile$1;
                         obj = hasNext;
                         producerScope2 = producerScope;
                         channelIterator = it;
-                        obj2 = obj5;
+                        obj2 = obj4;
                         if (((Boolean) obj).booleanValue()) {
-                            Object next2 = channelIterator.next();
+                            E next2 = channelIterator.next();
                             Function2 function2 = channelsKt__Channels_commonKt$dropWhile$12.$predicate;
                             channelsKt__Channels_commonKt$dropWhile$12.L$0 = producerScope2;
                             channelsKt__Channels_commonKt$dropWhile$12.L$1 = next2;
@@ -185,7 +188,7 @@ public final class ChannelsKt__Channels_commonKt$dropWhile$1 extends SuspendLamb
                             if (invoke == obj2) {
                                 return obj2;
                             }
-                            obj4 = next2;
+                            e = next2;
                             obj = invoke;
                             if (((Boolean) obj).booleanValue()) {
                             }

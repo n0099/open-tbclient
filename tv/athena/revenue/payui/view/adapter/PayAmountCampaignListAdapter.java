@@ -99,7 +99,7 @@ public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
             }
             this.a = (TextView) view2.findViewById(R.id.tv_name);
             this.b = (TextView) view2.findViewById(R.id.tv_num);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f46);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f52);
             this.d = (TextView) view2.findViewById(R.id.tv_type);
         }
     }

@@ -1,36 +1,41 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
-import com.baidu.tieba.v50;
+import com.baidu.tieba.a60;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+import java.lang.reflect.Method;
+/* loaded from: classes7.dex */
 public class y50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, v50.a aVar) {
-        String str;
+    public static String a(Context context, a60.a aVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, context, aVar) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, aVar)) == null) {
             if (context == null) {
                 aVar.a(false, null);
-                return;
+                return null;
             }
             try {
-                Cursor query = context.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
-                if (query != null) {
-                    str = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
-                    query.close();
-                } else {
-                    str = null;
+                Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
+                if (cls != null) {
+                    Object newInstance = cls.newInstance();
+                    Method method = cls.getMethod("getOAID", Context.class);
+                    method.setAccessible(true);
+                    if (newInstance != null && method != null) {
+                        String str = (String) method.invoke(newInstance, context);
+                        aVar.a(true, str);
+                        return str;
+                    }
                 }
-                aVar.a(true, str);
             } catch (Throwable unused) {
                 aVar.a(false, null);
             }
+            return null;
         }
+        return (String) invokeLL.objValue;
     }
 }

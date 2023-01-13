@@ -20,6 +20,7 @@ import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
 import com.baidu.android.imsdk.chatuser.ChatUser;
 import com.baidu.android.imsdk.chatuser.db.ChatUserDBManager;
 import com.baidu.android.imsdk.db.CursorParse;
+import com.baidu.android.imsdk.db.CursorWrapper;
 import com.baidu.android.imsdk.db.DBBase;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.group.db.GroupMessageDAOImpl;
@@ -282,6 +283,26 @@ public class MediaMessageDBManager extends DBBase implements IMessageDBOperation
             }
         }
         setContext(context.getApplicationContext());
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public ChatMsg parseDraftMsg(Cursor cursor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65563, this, cursor)) == null) {
+            if (cursor == null) {
+                return null;
+            }
+            int i = CursorWrapper.getInt(cursor, "category");
+            long j = CursorWrapper.getLong(cursor, "category");
+            int i2 = CursorWrapper.getInt(cursor, "type");
+            String string = CursorWrapper.getString(cursor, "content");
+            ChatMsg newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.mContext, i, i2, -1);
+            newChatMsg.setContacter(j);
+            newChatMsg.setMsgContent(string);
+            return newChatMsg;
+        }
+        return (ChatMsg) invokeL.objValue;
     }
 
     public long getChatRecordUnReadNum(ChatObject chatObject) {
@@ -726,6 +747,65 @@ public class MediaMessageDBManager extends DBBase implements IMessageDBOperation
         return (ContentValues) invokeL.objValue;
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public ChatMsg parseMediaChatMsg(Cursor cursor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65564, this, cursor)) == null) {
+            if (cursor == null) {
+                return null;
+            }
+            int i = CursorWrapper.getInt(cursor, "_id");
+            long j = CursorWrapper.getLong(cursor, "msgid");
+            long j2 = CursorWrapper.getLong(cursor, "from_user");
+            int i2 = CursorWrapper.getInt(cursor, "category");
+            long j3 = CursorWrapper.getLong(cursor, "contacter");
+            int i3 = CursorWrapper.getInt(cursor, "type");
+            String string = CursorWrapper.getString(cursor, "content");
+            long j4 = CursorWrapper.getLong(cursor, "time");
+            int i4 = CursorWrapper.getInt(cursor, "is_read");
+            int i5 = CursorWrapper.getInt(cursor, "status");
+            String string2 = CursorWrapper.getString(cursor, "local_url");
+            boolean z = true;
+            if (CursorWrapper.getInt(cursor, "isclicked") != 1) {
+                z = false;
+            }
+            String string3 = CursorWrapper.getString(cursor, "msg_key");
+            String string4 = CursorWrapper.getString(cursor, "sendid");
+            String string5 = CursorWrapper.getString(cursor, "buid");
+            int i6 = CursorWrapper.getInt(cursor, "tips_code");
+            String string6 = CursorWrapper.getString(cursor, "tips");
+            String string7 = CursorWrapper.getString(cursor, "origin_pa");
+            int i7 = CursorWrapper.getInt(cursor, "template_type");
+            boolean z2 = z;
+            ChatMsg newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.mContext, i2, i3, -1);
+            if (newChatMsg == null) {
+                return null;
+            }
+            newChatMsg.setCategory(i2);
+            newChatMsg.setContacter(j3);
+            newChatMsg.setFromUser(j2);
+            newChatMsg.setMsgContent(string);
+            newChatMsg.setRowId(i);
+            newChatMsg.setMsgId(j);
+            newChatMsg.setMsgTime(j4);
+            newChatMsg.setMsgReaded(i4);
+            newChatMsg.setStatus(i5);
+            newChatMsg.setLocalUrl(string2);
+            newChatMsg.setIsClicked(z2);
+            newChatMsg.setMsgType(i3);
+            newChatMsg.setSendMsgId(string4);
+            newChatMsg.setSenderUid(string5);
+            newChatMsg.setMsgKey(string3);
+            newChatMsg.setTipsCode(i6);
+            newChatMsg.setTips(string6);
+            newChatMsg.setOriginPa(string7);
+            newChatMsg.setTemplateType(i7);
+            return newChatMsg;
+        }
+        return (ChatMsg) invokeL.objValue;
+    }
+
     @Override // com.baidu.android.imsdk.media.db.IMessageDBOperation
     public long insertMsg(ChatMsg chatMsg) {
         int i;
@@ -928,26 +1008,6 @@ public class MediaMessageDBManager extends DBBase implements IMessageDBOperation
         return invokeL.intValue;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public ChatMsg parseDraftMsg(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65563, this, cursor)) == null) {
-            if (cursor == null) {
-                return null;
-            }
-            int i = cursor.getInt(cursor.getColumnIndex("category"));
-            long j = cursor.getLong(cursor.getColumnIndex("category"));
-            int i2 = cursor.getInt(cursor.getColumnIndex("type"));
-            String string = cursor.getString(cursor.getColumnIndex("content"));
-            ChatMsg newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.mContext, i, i2, -1);
-            newChatMsg.setContacter(j);
-            newChatMsg.setMsgContent(string);
-            return newChatMsg;
-        }
-        return (ChatMsg) invokeL.objValue;
-    }
-
     public static MediaMessageDBManager getInstance(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -1096,65 +1156,6 @@ public class MediaMessageDBManager extends DBBase implements IMessageDBOperation
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ChatMsg parseMediaChatMsg(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65564, this, cursor)) == null) {
-            if (cursor == null) {
-                return null;
-            }
-            int i = cursor.getInt(cursor.getColumnIndex("_id"));
-            long j = cursor.getLong(cursor.getColumnIndex("msgid"));
-            long j2 = cursor.getLong(cursor.getColumnIndex("from_user"));
-            int i2 = cursor.getInt(cursor.getColumnIndex("category"));
-            long j3 = cursor.getLong(cursor.getColumnIndex("contacter"));
-            int i3 = cursor.getInt(cursor.getColumnIndex("type"));
-            String string = cursor.getString(cursor.getColumnIndex("content"));
-            long j4 = cursor.getLong(cursor.getColumnIndex("time"));
-            int i4 = cursor.getInt(cursor.getColumnIndex("is_read"));
-            int i5 = cursor.getInt(cursor.getColumnIndex("status"));
-            String string2 = cursor.getString(cursor.getColumnIndex("local_url"));
-            boolean z = true;
-            if (cursor.getInt(cursor.getColumnIndex("isclicked")) != 1) {
-                z = false;
-            }
-            String string3 = cursor.getString(cursor.getColumnIndex("msg_key"));
-            String string4 = cursor.getString(cursor.getColumnIndex("sendid"));
-            String string5 = cursor.getString(cursor.getColumnIndex("buid"));
-            int i6 = cursor.getInt(cursor.getColumnIndex("tips_code"));
-            String string6 = cursor.getString(cursor.getColumnIndex("tips"));
-            String string7 = cursor.getString(cursor.getColumnIndex("origin_pa"));
-            int i7 = cursor.getInt(cursor.getColumnIndex("template_type"));
-            boolean z2 = z;
-            ChatMsg newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.mContext, i2, i3, -1);
-            if (newChatMsg == null) {
-                return null;
-            }
-            newChatMsg.setCategory(i2);
-            newChatMsg.setContacter(j3);
-            newChatMsg.setFromUser(j2);
-            newChatMsg.setMsgContent(string);
-            newChatMsg.setRowId(i);
-            newChatMsg.setMsgId(j);
-            newChatMsg.setMsgTime(j4);
-            newChatMsg.setMsgReaded(i4);
-            newChatMsg.setStatus(i5);
-            newChatMsg.setLocalUrl(string2);
-            newChatMsg.setIsClicked(z2);
-            newChatMsg.setMsgType(i3);
-            newChatMsg.setSendMsgId(string4);
-            newChatMsg.setSenderUid(string5);
-            newChatMsg.setMsgKey(string3);
-            newChatMsg.setTipsCode(i6);
-            newChatMsg.setTips(string6);
-            newChatMsg.setOriginPa(string7);
-            newChatMsg.setTemplateType(i7);
-            return newChatMsg;
-        }
-        return (ChatMsg) invokeL.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     public ChatSession parseMediaSession(Cursor cursor) {
         InterceptResult invokeL;
         long j;
@@ -1165,48 +1166,48 @@ public class MediaMessageDBManager extends DBBase implements IMessageDBOperation
             if (cursor == null) {
                 return null;
             }
-            int i = cursor.getInt(cursor.getColumnIndex("category"));
-            long j3 = cursor.getLong(cursor.getColumnIndex("contacter"));
-            long j4 = cursor.getLong(cursor.getColumnIndex("contacter_bduid"));
-            String string = cursor.getString(cursor.getColumnIndex("name"));
-            String string2 = cursor.getString(cursor.getColumnIndex("last_msg"));
-            long j5 = cursor.getLong(cursor.getColumnIndex("last_msg_time"));
-            long j6 = cursor.getLong(cursor.getColumnIndex("new_msg_sum"));
-            int i2 = cursor.getInt(cursor.getColumnIndex("chat_type"));
-            String string3 = cursor.getString(cursor.getColumnIndex("icon_url"));
-            int i3 = cursor.getInt(cursor.getColumnIndex("msg_state"));
-            long j7 = cursor.getLong(cursor.getColumnIndex("paid"));
-            int i4 = cursor.getInt(cursor.getColumnIndex("isclicked"));
-            int i5 = cursor.getInt(cursor.getColumnIndex("classtype"));
-            int i6 = cursor.getInt(cursor.getColumnIndex("classshow"));
-            String string4 = cursor.getString(cursor.getColumnIndex("classtitle"));
-            String string5 = cursor.getString(cursor.getColumnIndex("classavatar"));
-            long j8 = cursor.getLong(cursor.getColumnIndex("marktoptime"));
-            int i7 = cursor.getInt(cursor.getColumnIndex("marktop"));
-            String string6 = cursor.getString(cursor.getColumnIndex("nickname"));
-            String string7 = cursor.getString(cursor.getColumnIndex("v_portrait"));
-            String string8 = cursor.getString(cursor.getColumnIndex("certification"));
-            int i8 = cursor.getInt(cursor.getColumnIndex("shield"));
-            long j9 = cursor.getLong(cursor.getColumnIndex("shield_time"));
-            String string9 = cursor.getString(cursor.getColumnIndex("vip_id"));
-            long j10 = cursor.getLong(cursor.getColumnIndex("last_msg_bduid"));
-            String string10 = cursor.getString(cursor.getColumnIndex("last_msg_name"));
-            long j11 = cursor.getLong(cursor.getColumnIndex(TableDefine.MediaSessionColumns.COLUMN_SORT_UPDATE_TIME));
-            int i9 = cursor.getInt(cursor.getColumnIndex("is_stranger"));
-            int i10 = cursor.getInt(cursor.getColumnIndex("disturb"));
-            long j12 = cursor.getLong(cursor.getColumnIndex(TableDefine.MediaSessionColumns.COLUMN_LAST_MSGID));
-            int i11 = cursor.getInt(cursor.getColumnIndex("business"));
-            int i12 = cursor.getInt(cursor.getColumnIndex(TableDefine.MediaSessionColumns.COLUMN_SESSION_MODE));
-            long j13 = cursor.getLong(cursor.getColumnIndex(TableDefine.MediaSessionColumns.COLUMN_CONTACTER_IMUK));
-            int i13 = cursor.getInt(cursor.getColumnIndex("remind_type"));
-            long j14 = cursor.getLong(cursor.getColumnIndex("remind_msgid"));
-            long j15 = cursor.getLong(cursor.getColumnIndex("remind_uid"));
-            String string11 = cursor.getString(cursor.getColumnIndex("remind_role_display_name"));
-            String string12 = cursor.getString(cursor.getColumnIndex("extra"));
-            String string13 = cursor.getString(cursor.getColumnIndex("highlight_desc"));
-            int i14 = cursor.getInt(cursor.getColumnIndex("highlight_priority"));
-            long j16 = cursor.getLong(cursor.getColumnIndex("last_msgid_from_me"));
-            int i15 = cursor.getInt(cursor.getColumnIndex("highlight_data_id"));
+            int i = CursorWrapper.getInt(cursor, "category");
+            long j3 = CursorWrapper.getLong(cursor, "contacter");
+            long j4 = CursorWrapper.getLong(cursor, "contacter_bduid");
+            String string = CursorWrapper.getString(cursor, "name");
+            String string2 = CursorWrapper.getString(cursor, "last_msg");
+            long j5 = CursorWrapper.getLong(cursor, "last_msg_time");
+            long j6 = CursorWrapper.getLong(cursor, "new_msg_sum");
+            int i2 = CursorWrapper.getInt(cursor, "chat_type");
+            String string3 = CursorWrapper.getString(cursor, "icon_url");
+            int i3 = CursorWrapper.getInt(cursor, "msg_state");
+            long j7 = CursorWrapper.getLong(cursor, "paid");
+            int i4 = CursorWrapper.getInt(cursor, "isclicked");
+            int i5 = CursorWrapper.getInt(cursor, "classtype");
+            int i6 = CursorWrapper.getInt(cursor, "classshow");
+            String string4 = CursorWrapper.getString(cursor, "classtitle");
+            String string5 = CursorWrapper.getString(cursor, "classavatar");
+            long j8 = CursorWrapper.getLong(cursor, "marktoptime");
+            int i7 = CursorWrapper.getInt(cursor, "marktop");
+            String string6 = CursorWrapper.getString(cursor, "nickname");
+            String string7 = CursorWrapper.getString(cursor, "v_portrait");
+            String string8 = CursorWrapper.getString(cursor, "certification");
+            int i8 = CursorWrapper.getInt(cursor, "shield");
+            long j9 = CursorWrapper.getLong(cursor, "shield_time");
+            String string9 = CursorWrapper.getString(cursor, "vip_id");
+            long j10 = CursorWrapper.getLong(cursor, "last_msg_bduid");
+            String string10 = CursorWrapper.getString(cursor, "last_msg_name");
+            long j11 = CursorWrapper.getLong(cursor, TableDefine.MediaSessionColumns.COLUMN_SORT_UPDATE_TIME);
+            int i9 = CursorWrapper.getInt(cursor, "is_stranger");
+            int i10 = CursorWrapper.getInt(cursor, "disturb");
+            long j12 = CursorWrapper.getLong(cursor, TableDefine.MediaSessionColumns.COLUMN_LAST_MSGID);
+            int i11 = CursorWrapper.getInt(cursor, "business");
+            int i12 = CursorWrapper.getInt(cursor, TableDefine.MediaSessionColumns.COLUMN_SESSION_MODE);
+            long j13 = CursorWrapper.getLong(cursor, TableDefine.MediaSessionColumns.COLUMN_CONTACTER_IMUK);
+            int i13 = CursorWrapper.getInt(cursor, "remind_type");
+            long j14 = CursorWrapper.getLong(cursor, "remind_msgid");
+            long j15 = CursorWrapper.getLong(cursor, "remind_uid");
+            String string11 = CursorWrapper.getString(cursor, "remind_role_display_name");
+            String string12 = CursorWrapper.getString(cursor, "extra");
+            String string13 = CursorWrapper.getString(cursor, "highlight_desc");
+            int i14 = CursorWrapper.getInt(cursor, "highlight_priority");
+            long j16 = CursorWrapper.getLong(cursor, "last_msgid_from_me");
+            int i15 = CursorWrapper.getInt(cursor, "highlight_data_id");
             if (j4 > 0 && i2 == 0 && i == 0) {
                 j = j4;
             } else {
@@ -1405,11 +1406,11 @@ public class MediaMessageDBManager extends DBBase implements IMessageDBOperation
         return (ChatMsg) invokeCommon.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:114:0x00d5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00ed A[Catch: all -> 0x019b, Exception -> 0x01a0, TryCatch #7 {Exception -> 0x01a0, all -> 0x019b, blocks: (B:41:0x00d5, B:43:0x00e3, B:46:0x00ed, B:48:0x0101, B:50:0x0106, B:52:0x010d, B:38:0x00c8), top: B:114:0x00d5 }] */
-    /* JADX WARN: Removed duplicated region for block: B:84:0x01d6 A[Catch: all -> 0x0217, TryCatch #2 {, blocks: (B:11:0x0045, B:13:0x004b, B:82:0x01d0, B:84:0x01d6, B:86:0x01db, B:97:0x020d, B:99:0x0213, B:100:0x0216, B:71:0x01ad, B:73:0x01b3), top: B:110:0x0045 }] */
-    /* JADX WARN: Removed duplicated region for block: B:88:0x01de  */
-    /* JADX WARN: Removed duplicated region for block: B:99:0x0213 A[Catch: all -> 0x0217, TryCatch #2 {, blocks: (B:11:0x0045, B:13:0x004b, B:82:0x01d0, B:84:0x01d6, B:86:0x01db, B:97:0x020d, B:99:0x0213, B:100:0x0216, B:71:0x01ad, B:73:0x01b3), top: B:110:0x0045 }] */
+    /* JADX WARN: Removed duplicated region for block: B:116:0x00d6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00ee A[Catch: all -> 0x019c, Exception -> 0x01a1, TryCatch #6 {Exception -> 0x01a1, all -> 0x019c, blocks: (B:41:0x00d6, B:43:0x00e4, B:46:0x00ee, B:48:0x0102, B:50:0x0107, B:52:0x010e, B:38:0x00c9), top: B:116:0x00d6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:84:0x01d8 A[Catch: all -> 0x021a, TryCatch #2 {, blocks: (B:11:0x0046, B:13:0x004c, B:82:0x01d2, B:84:0x01d8, B:86:0x01dd, B:97:0x0210, B:99:0x0216, B:100:0x0219, B:71:0x01ae, B:73:0x01b4), top: B:112:0x0046 }] */
+    /* JADX WARN: Removed duplicated region for block: B:88:0x01e0  */
+    /* JADX WARN: Removed duplicated region for block: B:99:0x0216 A[Catch: all -> 0x021a, TryCatch #2 {, blocks: (B:11:0x0046, B:13:0x004c, B:82:0x01d2, B:84:0x01d8, B:86:0x01dd, B:97:0x0210, B:99:0x0216, B:100:0x0219, B:71:0x01ae, B:73:0x01b4), top: B:112:0x0046 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

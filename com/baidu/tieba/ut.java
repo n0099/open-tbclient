@@ -1,105 +1,87 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.ctrl.model.TaskEnvTag;
-import com.baidu.bdtask.ctrl.model.TaskProcess;
+import com.baidu.bdtask.TaskState;
 import com.baidu.bdtask.ctrl.model.TaskStatus;
-import com.baidu.bdtask.ctrl.model.TaskStatusRuntime;
+import com.baidu.bdtask.model.ITaskModelData;
+import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class ut extends tt<TaskStatus> {
+public final class ut extends vt<TaskState> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final xt a;
 
-    public String b() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TaskStatus.key : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TaskState.key : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ut(vt vtVar) {
-        super(vtVar);
+    public ut(xt xtVar) {
+        super(xtVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vtVar};
+            Object[] objArr = {xtVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((vt) newInitContext.callArgs[0]);
+                super((xt) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = xtVar;
+    }
+
+    public final <T extends ITaskModelData> T b(xt xtVar, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xtVar, str, str2)) == null) {
+            return xtVar.a(str).a(str2);
+        }
+        return (T) invokeLLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tt
-    /* renamed from: c */
-    public TaskStatus a(String str) {
+    @Override // com.baidu.tieba.vt
+    /* renamed from: d */
+    public TaskState a(String str) {
         InterceptResult invokeL;
-        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                int i = jSONObject.getInt(TaskStatus.keyCurStatus);
-                int i2 = jSONObject.getInt(TaskStatus.keyCurStatusCode);
-                String curStatusCodeMsg = jSONObject.getString(TaskStatus.keyCurStatusCodeMsg);
-                int i3 = jSONObject.getInt(TaskStatus.keyInterruptErrorNo);
-                long j2 = jSONObject.getLong(TaskStatus.keyCurActiveTime);
-                JSONObject jSONObject2 = jSONObject.getJSONObject("process");
-                int i4 = jSONObject2.getInt(TaskProcess.keyClickNumber);
-                long j3 = jSONObject2.getLong(TaskProcess.keyStayDurTimeMs);
-                long j4 = jSONObject2.getLong(TaskProcess.keyMaxStayTime);
-                int i5 = jSONObject2.getInt(TaskProcess.keyMaxRepeatTimes);
-                int i6 = jSONObject2.getInt(TaskProcess.keyMaxNoClickTimes);
-                int i7 = jSONObject2.getInt(TaskProcess.keyCurNoClickTimes);
-                JSONArray optJSONArray = jSONObject2.optJSONArray(TaskProcess.keyDuplicateIds);
-                HashSet hashSet = new HashSet();
-                if (optJSONArray != null) {
-                    int length = optJSONArray.length();
-                    j = j2;
-                    for (int i8 = 0; i8 < length; i8++) {
-                        hashSet.add(optJSONArray.optString(i8));
-                    }
-                } else {
-                    j = j2;
-                }
-                JSONArray optJSONArray2 = jSONObject2.optJSONArray("tags");
-                HashSet hashSet2 = new HashSet();
-                if (optJSONArray2 != null) {
-                    int length2 = optJSONArray2.length();
-                    int i9 = 0;
-                    while (i9 < length2) {
-                        int i10 = length2;
-                        TaskEnvTag b = TaskEnvTag.Companion.b(optJSONArray2.optString(i9));
-                        if (b != null) {
-                            hashSet2.add(b);
-                        }
-                        i9++;
-                        length2 = i10;
+                xt xtVar = this.a;
+                String optString = jSONObject.optString("info");
+                Intrinsics.checkExpressionValueIsNotNull(optString, "jsonObject.optString(TaskInfo.key)");
+                TaskInfo taskInfo = (TaskInfo) b(xtVar, "info", optString);
+                if (taskInfo != null) {
+                    xt xtVar2 = this.a;
+                    String optString2 = jSONObject.optString(TaskStatus.key);
+                    Intrinsics.checkExpressionValueIsNotNull(optString2, "jsonObject.optString(TaskStatus.key)");
+                    TaskStatus taskStatus = (TaskStatus) b(xtVar2, TaskStatus.key, optString2);
+                    if (taskStatus != null) {
+                        return new TaskState(taskInfo, taskStatus);
                     }
                 }
-                Intrinsics.checkExpressionValueIsNotNull(curStatusCodeMsg, "curStatusCodeMsg");
-                return new TaskStatus(i, i2, curStatusCodeMsg, i3, j, TaskStatusRuntime.Companion.a(), new TaskProcess(i4, j3, i7, j4, i5, i6, hashSet2, hashSet));
+                return null;
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
             }
         }
-        return (TaskStatus) invokeL.objValue;
+        return (TaskState) invokeL.objValue;
     }
 }

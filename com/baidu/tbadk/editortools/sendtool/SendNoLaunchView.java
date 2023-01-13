@@ -15,14 +15,14 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h75;
-import com.baidu.tieba.m65;
-import com.baidu.tieba.pz4;
-import com.baidu.tieba.ry4;
+import com.baidu.tieba.a05;
+import com.baidu.tieba.cz4;
+import com.baidu.tieba.l75;
+import com.baidu.tieba.u75;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.xi;
-import com.baidu.tieba.y65;
 import com.baidu.tieba.yi;
+import com.baidu.tieba.z65;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,15 +31,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class SendNoLaunchView extends FrameLayout implements y65 {
+public class SendNoLaunchView extends FrameLayout implements l75 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int n;
     public static final int o;
     public static final int p;
     public static final int q;
     public static final int r;
-    public static int s;
+    public static final int s;
     public static int t;
+    public static int u;
     public transient /* synthetic */ FieldHolder $fh;
     public EditorTools a;
     public int b;
@@ -54,6 +54,7 @@ public class SendNoLaunchView extends FrameLayout implements y65 {
     public boolean k;
     public String l;
     public boolean m;
+    public boolean n;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -83,13 +84,13 @@ public class SendNoLaunchView extends FrameLayout implements y65 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (!this.a.j && this.a.m && !xi.isEmpty(this.a.l)) {
+                if (!this.a.j && this.a.m && !yi.isEmpty(this.a.l)) {
                     BdTopToast bdTopToast = new BdTopToast(this.a.h);
                     bdTopToast.h(false);
                     bdTopToast.g(this.a.l);
                     bdTopToast.i((ViewGroup) this.a.getRootView());
                 }
-                this.a.J(new m65(8, -1, null));
+                this.a.J(new z65(8, -1, null));
             }
         }
     }
@@ -124,16 +125,16 @@ public class SendNoLaunchView extends FrameLayout implements y65 {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.j && this.a.k) {
                     if (this.a.i) {
-                        this.a.J(new m65(1, 3, null));
+                        this.a.J(new z65(1, 3, null));
                         SendNoLaunchView sendNoLaunchView = this.a;
-                        sendNoLaunchView.J(new m65(14, 0, Integer.valueOf(sendNoLaunchView.getToolId())));
+                        sendNoLaunchView.J(new z65(14, 0, Integer.valueOf(sendNoLaunchView.getToolId())));
                         return;
                     }
                     BdTopToast bdTopToast = new BdTopToast(this.a.h);
                     bdTopToast.h(false);
                     bdTopToast.g(this.a.getResources().getString(R.string.add_friend_cannot_send));
                     bdTopToast.i((ViewGroup) this.a.getRootView());
-                } else if (!ry4.l().i("key_group_chat_chatroom_picture_switch", true)) {
+                } else if (!cz4.l().i("key_group_chat_chatroom_picture_switch", true)) {
                     BdTopToast bdTopToast2 = new BdTopToast(this.a.h);
                     bdTopToast2.h(false);
                     bdTopToast2.g(this.a.l);
@@ -156,23 +157,23 @@ public class SendNoLaunchView extends FrameLayout implements y65 {
                 return;
             }
         }
-        n = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds39);
-        o = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
-        p = yi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
-        q = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds46);
-        r = yi.g(TbadkCoreApplication.getInst(), R.dimen.tbds68);
-        s = 1;
-        t = 0;
+        o = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds39);
+        p = zi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
+        q = zi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
+        r = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds46);
+        s = zi.g(TbadkCoreApplication.getInst(), R.dimen.tbds68);
+        t = 1;
+        u = 0;
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.f = new TBSpecificationBtn(getContext());
-            this.f.setLayoutParams(new FrameLayout.LayoutParams(yi.g(getContext(), R.dimen.tbds151) + n, yi.g(getContext(), R.dimen.tbds75) + (o * 2)));
+            this.f.setLayoutParams(new FrameLayout.LayoutParams(zi.g(getContext(), R.dimen.tbds151) + o, zi.g(getContext(), R.dimen.tbds75) + (p * 2)));
             TBSpecificationBtn tBSpecificationBtn = this.f;
-            int i = n;
-            int i2 = o;
+            int i = o;
+            int i2 = p;
             tBSpecificationBtn.setPadding(i, i2, 0, i2);
             this.f.setEnabled(false);
             this.f.setTextSize(R.dimen.T_X08);
@@ -203,15 +204,15 @@ public class SendNoLaunchView extends FrameLayout implements y65 {
         }
     }
 
-    @Override // com.baidu.tieba.y65
+    @Override // com.baidu.tieba.l75
     public void onChangeSkinType(int i) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             if (this.f != null) {
-                pz4 pz4Var = new pz4();
-                pz4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
-                this.f.setConfig(pz4Var);
+                a05 a05Var = new a05();
+                a05Var.r(R.color.CAM_X0302, R.color.CAM_X0101);
+                this.f.setConfig(a05Var);
             }
             if (this.j && this.k) {
                 z = true;
@@ -219,6 +220,35 @@ public class SendNoLaunchView extends FrameLayout implements y65 {
                 z = false;
             }
             setPicIconResource(z);
+        }
+    }
+
+    public void setSendVisibility(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            TBSpecificationBtn tBSpecificationBtn = this.f;
+            int i2 = 8;
+            if (tBSpecificationBtn != null) {
+                tBSpecificationBtn.setEnabled(z);
+                if (this.n) {
+                    z = true;
+                }
+                TBSpecificationBtn tBSpecificationBtn2 = this.f;
+                if (z) {
+                    i = 0;
+                } else {
+                    i = 8;
+                }
+                tBSpecificationBtn2.setVisibility(i);
+            }
+            ImageView imageView = this.g;
+            if (imageView != null) {
+                if (!z) {
+                    i2 = 0;
+                }
+                imageView.setVisibility(i2);
+            }
         }
     }
 
@@ -264,9 +294,10 @@ public class SendNoLaunchView extends FrameLayout implements y65 {
         }
         this.c = new boolean[]{false, false, false, false, false};
         this.d = new int[]{0, 0};
-        this.e = t;
+        this.e = u;
         this.j = true;
         this.k = true;
+        this.n = false;
         this.h = context;
         init();
     }
@@ -282,42 +313,16 @@ public class SendNoLaunchView extends FrameLayout implements y65 {
         }
     }
 
-    private void setSendVisibility(boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65548, this, z) == null) {
-            TBSpecificationBtn tBSpecificationBtn = this.f;
-            int i2 = 0;
-            if (tBSpecificationBtn != null) {
-                tBSpecificationBtn.setEnabled(z);
-                TBSpecificationBtn tBSpecificationBtn2 = this.f;
-                if (z) {
-                    i = 0;
-                } else {
-                    i = 8;
-                }
-                tBSpecificationBtn2.setVisibility(i);
-            }
-            ImageView imageView = this.g;
-            if (imageView != null) {
-                if (z) {
-                    i2 = 8;
-                }
-                imageView.setVisibility(i2);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.y65
-    public void J(m65 m65Var) {
+    @Override // com.baidu.tieba.l75
+    public void J(z65 z65Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m65Var) == null) && (editorTools = this.a) != null) {
-            editorTools.B(m65Var);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z65Var) == null) && (editorTools = this.a) != null) {
+            editorTools.C(z65Var);
         }
     }
 
-    @Override // com.baidu.tieba.y65
+    @Override // com.baidu.tieba.l75
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, editorTools) == null) {
@@ -341,18 +346,25 @@ public class SendNoLaunchView extends FrameLayout implements y65 {
         }
     }
 
-    public void setPicIconEnable(boolean z) {
+    public void setIsSendIcon(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.n = z;
+        }
+    }
+
+    public void setPicIconEnable(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
             this.k = z;
             setPicIconResource(z);
         }
     }
 
-    @Override // com.baidu.tieba.y65
+    @Override // com.baidu.tieba.l75
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
             this.b = i;
         }
     }
@@ -360,14 +372,14 @@ public class SendNoLaunchView extends FrameLayout implements y65 {
     private void setSendBtnUseable(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65547, this, i) == null) {
-            if (i == t) {
+            if (i == u) {
                 boolean[] zArr = this.c;
                 if (!zArr[0] && !zArr[1] && !zArr[2] && !zArr[3] && !zArr[4]) {
                     setSendVisibility(false);
                 } else {
                     setSendVisibility(true);
                 }
-            } else if (i == s) {
+            } else if (i == t) {
                 if (this.c[1]) {
                     setSendVisibility(true);
                 } else {
@@ -377,13 +389,13 @@ public class SendNoLaunchView extends FrameLayout implements y65 {
         }
     }
 
-    @Override // com.baidu.tieba.n65
-    public void A(m65 m65Var) {
+    @Override // com.baidu.tieba.a75
+    public void A(z65 z65Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, m65Var) != null) || m65Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, z65Var) != null) || z65Var == null) {
             return;
         }
-        int i = m65Var.a;
+        int i = z65Var.a;
         if (i != 4) {
             if (i != 39 && i != 28) {
                 if (i != 29) {
@@ -406,15 +418,15 @@ public class SendNoLaunchView extends FrameLayout implements y65 {
                             this.c[2] = false;
                             break;
                         case 12:
-                            Object obj = m65Var.c;
-                            if (!(obj instanceof h75)) {
+                            Object obj = z65Var.c;
+                            if (!(obj instanceof u75)) {
                                 return;
                             }
-                            h75 h75Var = (h75) obj;
-                            WriteImagesInfo writeImagesInfo = h75Var.a;
+                            u75 u75Var = (u75) obj;
+                            WriteImagesInfo writeImagesInfo = u75Var.a;
                             if (writeImagesInfo != null) {
                                 if (writeImagesInfo.getChosedFiles() != null) {
-                                    this.d[0] = h75Var.a.getChosedFiles().size();
+                                    this.d[0] = u75Var.a.getChosedFiles().size();
                                 } else {
                                     this.d[0] = 0;
                                 }
@@ -444,7 +456,7 @@ public class SendNoLaunchView extends FrameLayout implements y65 {
                 this.c[3] = true;
             }
         } else {
-            Object obj2 = m65Var.c;
+            Object obj2 = z65Var.c;
             if (obj2 != null && (!(obj2 instanceof String) || !StringUtils.isNull((String) obj2))) {
                 this.c[0] = true;
             } else {
@@ -454,7 +466,7 @@ public class SendNoLaunchView extends FrameLayout implements y65 {
         setSendBtnUseable(this.e);
     }
 
-    @Override // com.baidu.tieba.y65
+    @Override // com.baidu.tieba.l75
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -470,7 +482,7 @@ public class SendNoLaunchView extends FrameLayout implements y65 {
         }
     }
 
-    @Override // com.baidu.tieba.y65
+    @Override // com.baidu.tieba.l75
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -480,7 +492,7 @@ public class SendNoLaunchView extends FrameLayout implements y65 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.y65
+    @Override // com.baidu.tieba.l75
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -488,7 +500,7 @@ public class SendNoLaunchView extends FrameLayout implements y65 {
         }
     }
 
-    @Override // com.baidu.tieba.y65
+    @Override // com.baidu.tieba.l75
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -502,11 +514,11 @@ public class SendNoLaunchView extends FrameLayout implements y65 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.g = new ImageView(getContext());
-            int i = r;
-            this.g.setLayoutParams(new FrameLayout.LayoutParams(p + i, i + (q * 2)));
+            int i = s;
+            this.g.setLayoutParams(new FrameLayout.LayoutParams(q + i, i + (r * 2)));
             ImageView imageView = this.g;
-            int i2 = p;
-            int i3 = q;
+            int i2 = q;
+            int i3 = r;
             imageView.setPadding(i2, i3, 0, i3);
             addView(this.g);
             this.g.setVisibility(0);
@@ -515,7 +527,7 @@ public class SendNoLaunchView extends FrameLayout implements y65 {
 
     public void setSendInterceptToastText(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048590, this, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048591, this, str, z) == null) {
             this.m = !z;
             this.l = str;
         }

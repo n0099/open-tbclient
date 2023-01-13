@@ -303,6 +303,26 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
             }
         }
 
+        public static /* synthetic */ File access$000() {
+            return getContentFlag();
+        }
+
+        public static /* synthetic */ File access$100() {
+            return getAttachFlag();
+        }
+
+        public static /* synthetic */ File access$1000() {
+            return getContentDir();
+        }
+
+        public static /* synthetic */ File access$1100() {
+            return getAttachDir();
+        }
+
+        public static /* synthetic */ File access$200() {
+            return getInvalidZipDir();
+        }
+
         public static File getAttachDir() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -481,7 +501,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            if (!StoreUtil.getContentFlag().exists() && !StoreUtil.getAttachFlag().exists()) {
+            if (!StoreUtil.access$000().exists() && !StoreUtil.access$100().exists()) {
                 return false;
             }
             return true;
@@ -590,13 +610,13 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65549, this, logObject, list, str)) == null) {
-            File contentDir = StoreUtil.getContentDir();
-            if (!contentDir.exists()) {
-                contentDir.mkdirs();
+            File access$1000 = StoreUtil.access$1000();
+            if (!access$1000.exists()) {
+                access$1000.mkdirs();
             }
             FileName fileName = FileName.getFileName(str, logObject.getProcessName(), logObject.mLogType);
             if (fileName != null) {
-                File obtainFilePath = StoreUtil.obtainFilePath(contentDir, fileName);
+                File obtainFilePath = StoreUtil.obtainFilePath(access$1000, fileName);
                 File file = new File(obtainFilePath.getAbsolutePath() + ".tmp");
                 File file2 = new File(obtainFilePath.getAbsolutePath() + StoreUtil.BASE_GZIP_TMP);
                 Utility.createNewEmptyFile(file);
@@ -685,9 +705,9 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
             reUpload(Type.ATTACHMENT, 5);
             if (!this.mInvalidDirDeleted) {
                 this.mInvalidDirDeleted = true;
-                File invalidZipDir = StoreUtil.getInvalidZipDir();
-                if (invalidZipDir.exists()) {
-                    invalidZipDir.delete();
+                File access$200 = StoreUtil.access$200();
+                if (access$200.exists()) {
+                    access$200.delete();
                 }
             }
         }
@@ -705,11 +725,11 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
                     listFiles = null;
                     i = 0;
                 } else {
-                    listFiles = StoreUtil.getAttachDir().listFiles();
+                    listFiles = StoreUtil.access$1100().listFiles();
                     i = 100;
                 }
             } else {
-                listFiles = StoreUtil.getContentDir().listFiles();
+                listFiles = StoreUtil.access$1000().listFiles();
                 i = 500;
             }
             if (listFiles != null && listFiles.length != 0) {
@@ -776,58 +796,58 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         FileName fileName;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65548, this, logObject, list, set, list2, str)) == null) {
-            if (logObject.getLogBasicDataFile() != null && logObject.getLogBasicDataFile().exists() && (fileName = FileName.getFileName(str, logObject.getProcessName(), logObject.mLogType)) != null) {
-                File attachDir = StoreUtil.getAttachDir();
-                if (!attachDir.exists()) {
-                    attachDir.mkdirs();
-                }
-                File obtainFilePath = StoreUtil.obtainFilePath(attachDir, fileName);
-                try {
-                    if (obtainFilePath.exists()) {
-                        obtainFilePath.delete();
-                    }
-                    obtainFilePath.createNewFile();
-                } catch (IOException e) {
-                    if (LLog.sDebug) {
-                        Log.d("LSStrategy", e.getMessage());
-                    }
-                }
-                if (obtainFilePath.exists()) {
-                    LinkedList linkedList = new LinkedList();
-                    if (set != null && set.size() > 0) {
-                        linkedList.addAll(set);
-                    }
-                    if (list != null && list.size() > 0) {
-                        linkedList.addAll(list);
-                    }
-                    if (list2 != null && list2.size() > 0) {
-                        int i = 0;
-                        for (LogFile logFile : list2) {
-                            if (logFile != null && (logFile.mFile.getName().startsWith(CrashUtil.CrashpadConstant.FULL_BDMP_PERFIX) || logFile.mFile.getName().startsWith(CrashUtil.CrashpadConstant.TXT_EXTRA))) {
-                                linkedList.add(logFile);
-                                i++;
-                            }
-                        }
-                    }
-                    try {
-                        LinkedList linkedList2 = new LinkedList();
-                        linkedList2.add(new ZipUtils.ZipSrc(logObject.getLogBasicDataFile(), SnapshotConstant.ProcessConstants.PROCESS_LOG_BASIC_DATA));
-                        Iterator it = linkedList.iterator();
-                        while (it.hasNext()) {
-                            LogFile logFile2 = (LogFile) it.next();
-                            if (logFile2 != null && logFile2.mFile.exists()) {
-                                linkedList2.add(new ZipUtils.ZipSrc(logFile2.mFile));
-                            }
-                        }
-                        ZipUtils.zip(obtainFilePath, linkedList2);
-                        return obtainFilePath;
-                    } catch (IOException e2) {
-                        if (LLog.sDebug) {
-                            Log.d("LSStrategy", e2.getMessage());
-                        }
-                    }
-                }
+            if (logObject.getLogBasicDataFile() == null || !logObject.getLogBasicDataFile().exists() || (fileName = FileName.getFileName(str, logObject.getProcessName(), logObject.mLogType)) == null) {
                 return null;
+            }
+            File access$1100 = StoreUtil.access$1100();
+            if (!access$1100.exists()) {
+                access$1100.mkdirs();
+            }
+            File obtainFilePath = StoreUtil.obtainFilePath(access$1100, fileName);
+            try {
+                if (obtainFilePath.exists()) {
+                    obtainFilePath.delete();
+                }
+                obtainFilePath.createNewFile();
+            } catch (IOException e) {
+                if (LLog.sDebug) {
+                    Log.d("LSStrategy", e.getMessage());
+                }
+            }
+            if (obtainFilePath.exists()) {
+                LinkedList linkedList = new LinkedList();
+                if (set != null && set.size() > 0) {
+                    linkedList.addAll(set);
+                }
+                if (list != null && list.size() > 0) {
+                    linkedList.addAll(list);
+                }
+                if (list2 != null && list2.size() > 0) {
+                    int i = 0;
+                    for (LogFile logFile : list2) {
+                        if (logFile != null && (logFile.mFile.getName().startsWith(CrashUtil.CrashpadConstant.FULL_BDMP_PERFIX) || logFile.mFile.getName().startsWith(CrashUtil.CrashpadConstant.TXT_EXTRA))) {
+                            linkedList.add(logFile);
+                            i++;
+                        }
+                    }
+                }
+                try {
+                    LinkedList linkedList2 = new LinkedList();
+                    linkedList2.add(new ZipUtils.ZipSrc(logObject.getLogBasicDataFile(), SnapshotConstant.ProcessConstants.PROCESS_LOG_BASIC_DATA));
+                    Iterator it = linkedList.iterator();
+                    while (it.hasNext()) {
+                        LogFile logFile2 = (LogFile) it.next();
+                        if (logFile2 != null && logFile2.mFile.exists()) {
+                            linkedList2.add(new ZipUtils.ZipSrc(logFile2.mFile));
+                        }
+                    }
+                    ZipUtils.zip(obtainFilePath, linkedList2);
+                    return obtainFilePath;
+                } catch (IOException e2) {
+                    if (LLog.sDebug) {
+                        Log.d("LSStrategy", e2.getMessage());
+                    }
+                }
             }
             return null;
         }
@@ -848,11 +868,11 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
                     listFiles = null;
                     i2 = 0;
                 } else {
-                    listFiles = StoreUtil.getAttachDir().listFiles();
+                    listFiles = StoreUtil.access$1100().listFiles();
                     i2 = 100;
                 }
             } else {
-                listFiles = StoreUtil.getContentDir().listFiles();
+                listFiles = StoreUtil.access$1000().listFiles();
                 i2 = 500;
             }
             if (listFiles == null || listFiles.length == 0) {
@@ -941,23 +961,25 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void updateFileFlag(Type type) {
-        File contentDir;
+        File access$1000;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65552, this, type) == null) {
             int i = AnonymousClass4.$SwitchMap$com$baidu$searchbox$logsystem$basic$upload$LogSystemUploaderStrategy$Type[type.ordinal()];
             boolean z = true;
             File file = null;
-            if (i == 1) {
-                file = StoreUtil.getContentFlag();
-                contentDir = StoreUtil.getContentDir();
-            } else if (i == 2) {
-                file = StoreUtil.getAttachFlag();
-                contentDir = StoreUtil.getAttachDir();
+            if (i != 1) {
+                if (i != 2) {
+                    access$1000 = null;
+                } else {
+                    file = StoreUtil.access$100();
+                    access$1000 = StoreUtil.access$1100();
+                }
             } else {
-                contentDir = null;
+                file = StoreUtil.access$000();
+                access$1000 = StoreUtil.access$1000();
             }
-            if (file != null && contentDir != null) {
-                String[] list = contentDir.list();
+            if (file != null && access$1000 != null) {
+                String[] list = access$1000.list();
                 z = (list == null || list.length <= 0) ? false : false;
                 boolean exists = file.exists();
                 if (z) {

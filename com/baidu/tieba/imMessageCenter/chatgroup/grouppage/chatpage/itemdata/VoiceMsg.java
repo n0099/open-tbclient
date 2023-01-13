@@ -10,10 +10,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ij5;
 import com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseChatMsg;
-import com.baidu.tieba.xg;
-import com.baidu.tieba.y05;
+import com.baidu.tieba.j15;
+import com.baidu.tieba.yg;
+import com.baidu.tieba.zj5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,8 +30,8 @@ public class VoiceMsg extends BaseChatMsg<AudioMsg> {
     public static final int MSG_TYPE = 3;
     public static final long serialVersionUID = -8477601556340635939L;
     public transient /* synthetic */ FieldHolder $fh;
-    @ij5(serialize = false)
     @SerializedName("during_time")
+    @zj5(serialize = false)
     public String during;
     public boolean isLocal;
     public String path;
@@ -40,8 +40,8 @@ public class VoiceMsg extends BaseChatMsg<AudioMsg> {
     public String vid;
     public VoiceData.VoiceModel voiceModel;
     public int voiceStatus;
-    @ij5(serialize = false)
     @SerializedName("voice_url")
+    @zj5(serialize = false)
     public String voiceUrl;
 
     @Override // com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseMsg
@@ -94,7 +94,7 @@ public class VoiceMsg extends BaseChatMsg<AudioMsg> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new AudioMsg(this.path, xg.e(this.during, 0), 2);
+            return new AudioMsg(this.path, yg.e(this.during, 0), 2);
         }
         return (AudioMsg) invokeV.objValue;
     }
@@ -128,7 +128,7 @@ public class VoiceMsg extends BaseChatMsg<AudioMsg> {
         return (CharSequence) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseChatMsg, com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.xn
+    @Override // com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseChatMsg, com.baidu.tieba.imMessageCenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.yn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -201,7 +201,7 @@ public class VoiceMsg extends BaseChatMsg<AudioMsg> {
             VoiceMsg voiceMsg = new VoiceMsg();
             voiceMsg.during = String.valueOf(i);
             voiceMsg.vid = str;
-            voiceMsg.path = y05.b(str);
+            voiceMsg.path = j15.b(str);
             voiceMsg.voiceStatus = 1;
             return voiceMsg;
         }
@@ -264,7 +264,7 @@ public class VoiceMsg extends BaseChatMsg<AudioMsg> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
             this.voiceUrl = str;
-            getSdkMsg().setContent(str, 2, xg.e(this.during, 0));
+            getSdkMsg().setContent(str, 2, yg.e(this.during, 0));
         }
     }
 }

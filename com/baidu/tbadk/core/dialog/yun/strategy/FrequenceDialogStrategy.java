@@ -2,13 +2,14 @@ package com.baidu.tbadk.core.dialog.yun.strategy;
 
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.kw4;
-import com.baidu.tieba.lw4;
-import com.baidu.tieba.vq4;
+import com.baidu.tieba.fr4;
+import com.baidu.tieba.vw4;
+import com.baidu.tieba.ww4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
-public class FrequenceDialogStrategy implements kw4 {
+public class FrequenceDialogStrategy implements vw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -63,7 +64,7 @@ public class FrequenceDialogStrategy implements kw4 {
         }
     }
 
-    @Override // com.baidu.tieba.kw4
+    @Override // com.baidu.tieba.vw4
     @NonNull
     public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
         InterceptResult invokeLLL;
@@ -76,27 +77,33 @@ public class FrequenceDialogStrategy implements kw4 {
         return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.kw4
+    @Override // com.baidu.tieba.vw4
     public boolean b(@NonNull Map<String, Object> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            boolean z = false;
             try {
                 Data data = (Data) DataExt.toEntity(map, Data.class);
                 long currentTimeMillis = System.currentTimeMillis() / 1000;
-                if (currentTimeMillis < data.startTimestamp || currentTimeMillis > data.endTimestamp) {
-                    return false;
+                if (currentTimeMillis >= data.startTimestamp && currentTimeMillis <= data.endTimestamp) {
+                    if (data.frequence == 0) {
+                        return true;
+                    }
+                    int m = ww4.b.m(ww4.a.a(data.dialogName), 0);
+                    if (m < data.frequence) {
+                        z = true;
+                    }
+                    if (!z) {
+                        BdLog.printExceptionLog("YunDialogManager", "FrequenceDialogStrategy:noFrequence:" + m + " " + data.frequence);
+                    }
+                    return z;
                 }
-                if (data.frequence == 0) {
-                    return true;
-                }
-                if (lw4.b.m(lw4.a.a(data.dialogName), 0) >= data.frequence) {
-                    return false;
-                }
-                return true;
+                BdLog.printExceptionLog("YunDialogManager", "FrequenceDialogStrategy:noTimestamp:" + currentTimeMillis + " " + data.startTimestamp + "" + data.endTimestamp);
+                return false;
             } catch (Exception e) {
-                if (!vq4.e() && !vq4.h() && !TbadkApplication.getInst().isDebugMode()) {
-                    e.printStackTrace();
+                if (!fr4.e() && !fr4.h() && !TbadkApplication.getInst().isDebugMode()) {
+                    BdLog.printExceptionLog("YunDialogManager", "FrequenceDialogStrategy:noTimestamp:error");
                     return false;
                 }
                 throw e;

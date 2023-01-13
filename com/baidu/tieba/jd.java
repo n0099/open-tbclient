@@ -8,21 +8,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Set;
+import java.util.Queue;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class jd implements cd {
+public class jd implements dd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Set<?> a;
+    public Queue<?> a;
 
-    public jd(Set<?> set) {
+    public jd(Queue<?> queue) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {set};
+            Object[] objArr = {queue};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,15 +32,15 @@ public class jd implements cd {
                 return;
             }
         }
-        this.a = set;
+        this.a = queue;
     }
 
-    @Override // com.baidu.tieba.cd
-    public Object a(le leVar) {
+    @Override // com.baidu.tieba.dd
+    public Object a(me meVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, leVar)) == null) {
-            Object f = f(leVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, meVar)) == null) {
+            Object f = f(meVar);
             if (f != null) {
                 if (f instanceof JSONObject) {
                     return f.toString();
@@ -55,52 +55,52 @@ public class jd implements cd {
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.cd
-    public Object b(le leVar) {
+    @Override // com.baidu.tieba.dd
+    public Object b(me meVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, leVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, meVar)) == null) {
             return this.a;
         }
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.cd
-    public Object c(le leVar) {
+    @Override // com.baidu.tieba.dd
+    public Object c(me meVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, leVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, meVar)) == null) {
             return this.a;
         }
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.cd
-    public Object e(le leVar) {
+    @Override // com.baidu.tieba.dd
+    public Object e(me meVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, leVar)) == null) {
-            return d(leVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, meVar)) == null) {
+            return d(meVar);
         }
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.cd
-    public Object d(le leVar) {
+    @Override // com.baidu.tieba.dd
+    public Object d(me meVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, leVar)) == null) {
-            Type[] b = leVar.b();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, meVar)) == null) {
+            Type[] b = meVar.b();
             ArrayList arrayList = new ArrayList();
             for (Object obj : this.a) {
                 if (obj != null) {
                     if (b != null && b.length >= 1) {
-                        Object f = oe.a(obj).f(new le(b[0]));
+                        Object f = pe.a(obj).f(new me(b[0]));
                         if (f != null) {
                             arrayList.add(f.toString());
                         }
                     } else {
-                        Object f2 = oe.a(obj).f(new le(leVar.a()));
+                        Object f2 = pe.a(obj).f(new me(meVar.a()));
                         if (f2 != null) {
                             arrayList.add(f2.toString());
                         }
@@ -112,22 +112,22 @@ public class jd implements cd {
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.cd
-    public Object f(le leVar) {
+    @Override // com.baidu.tieba.dd
+    public Object f(me meVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, leVar)) == null) {
-            Type[] b = leVar.b();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, meVar)) == null) {
+            Type[] b = meVar.b();
             JSONArray jSONArray = new JSONArray();
             for (Object obj : this.a) {
                 if (obj != null) {
                     if (b != null && b.length >= 1) {
-                        Object f = oe.a(obj).f(new le(b[0]));
+                        Object f = pe.a(obj).f(new me(b[0]));
                         if (f != null) {
                             jSONArray.put(f);
                         }
                     } else {
-                        Object f2 = oe.a(obj).f(new le(leVar.a()));
+                        Object f2 = pe.a(obj).f(new me(meVar.a()));
                         if (f2 != null) {
                             jSONArray.put(f2);
                         }

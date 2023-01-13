@@ -170,7 +170,7 @@ public final class NTLMEngineImpl {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 if (this.clientChallenge == null) {
-                    this.clientChallenge = NTLMEngineImpl.makeRandomChallenge();
+                    this.clientChallenge = NTLMEngineImpl.access$000();
                 }
                 return this.clientChallenge;
             }
@@ -182,7 +182,7 @@ public final class NTLMEngineImpl {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 if (this.clientChallenge2 == null) {
-                    this.clientChallenge2 = NTLMEngineImpl.makeRandomChallenge();
+                    this.clientChallenge2 = NTLMEngineImpl.access$000();
                 }
                 return this.clientChallenge2;
             }
@@ -374,7 +374,7 @@ public final class NTLMEngineImpl {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
                 if (this.secondaryKey == null) {
-                    this.secondaryKey = NTLMEngineImpl.makeSecondaryKey();
+                    this.secondaryKey = NTLMEngineImpl.access$100();
                 }
                 return this.secondaryKey;
             }
@@ -1376,6 +1376,14 @@ public final class NTLMEngineImpl {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public static /* synthetic */ byte[] access$000() throws NTLMEngineException {
+        return makeRandomChallenge();
+    }
+
+    public static /* synthetic */ byte[] access$100() throws NTLMEngineException {
+        return makeSecondaryKey();
     }
 
     public static byte[] makeRandomChallenge() throws NTLMEngineException {

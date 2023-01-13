@@ -1,13 +1,12 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
+import com.baidu.tbadk.mvc.message.ReadCacheMessage;
+import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
+import com.baidu.tieba.ee5;
+import com.baidu.tieba.ef;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,183 +15,160 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class re5 {
+public class re5<T extends ee5> extends pe5<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static re5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
-    public List<String> b;
 
-    public re5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public re5(int i, String str, Class<T> cls) {
+        super(i, str, cls);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, cls};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (Class) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i(ry4.l().r("key_need_add_source_stat_list", ""));
-        this.b = i("c12897,c12896,c12895,c12894,c12893,c12892,c12891,c12890,c13274,c12905,c12003,c13271,c12899,c11244,c11032,c12904,c13273,c13433,c10295,c12320,c12835,c10297,c13136,c12910,c10734,c10735,common_click,c10730,c10731,c11439,c10705,c13147,c13388,c13389,c10756,c10296,c10755,c13407,c13406,c12590,c10751,c12888,c12889,consume_33,c11824,c11823,consume_34,c12902,c12898,consume_24,c12887,c12909,c12908,c12942,c12901,c12900,c12903,c13008,c13146,common_exp,c12907,c12906,c10750,consume_3,c11887,c11438,c10704,c10484,c10709,c10708,c12386,c12384");
     }
 
-    public static void b(Context context, StatisticItem statisticItem, ye5 ye5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65537, null, context, statisticItem, ye5Var) == null) && ye5Var != null && statisticItem != null && !TextUtils.isEmpty(statisticItem.getKey())) {
-            pe5 k = ye5Var.k();
-            if (k == null || k.f()) {
-                k = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
-            }
-            if (k != null && !k.f()) {
-                c(statisticItem, k);
-            }
-            TbPageExtraHelper.printLog(statisticItem.toString());
-        }
-    }
-
-    public static void c(StatisticItem statisticItem, pe5 pe5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, statisticItem, pe5Var) == null) && statisticItem != null && pe5Var != null && !TextUtils.isEmpty(statisticItem.getKey())) {
-            String a = pe5Var.a();
-            if (!TextUtils.isEmpty(a) && !statisticItem.hasParam("page_key")) {
-                statisticItem.param("page_key", a);
-            }
-            String a2 = qe5.a(pe5Var.d(), a, 6);
-            if (!TextUtils.isEmpty(a2) && !statisticItem.hasParam("page_source")) {
-                statisticItem.param("page_source", a2);
-            }
-        }
-    }
-
-    public static re5 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
-                synchronized (re5.class) {
-                    if (c == null) {
-                        c = new re5();
-                    }
-                }
-            }
-            return c;
-        }
-        return (re5) invokeV.objValue;
-    }
-
-    public final void a(StatisticItem statisticItem) {
-        Activity currentActivity;
-        pe5 currentVisiblePageExtra;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, statisticItem) != null) || statisticItem == null || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(currentActivity)) == null) {
-            return;
-        }
-        String a = currentVisiblePageExtra.a();
-        if (!TextUtils.isEmpty(a) && !statisticItem.hasParam("page_key")) {
-            statisticItem.param("page_key", a);
-        }
-        String b = currentVisiblePageExtra.b();
-        if (!TextUtils.isEmpty(b) && !statisticItem.hasParam("page_tag")) {
-            statisticItem.param("page_tag", b);
-        }
-        ArrayList<String> d = currentVisiblePageExtra.d();
-        String a2 = qe5.a(d, a, 6);
-        if (statisticItem.getKey().equals("common_exp") && statisticItem.hasParam("common_exp_source_pb_comment") && d.size() == 0 && (currentActivity instanceof ve5)) {
-            List<String> currentPageSourceKeyList = ((ve5) currentActivity).getCurrentPageSourceKeyList();
-            if (currentPageSourceKeyList instanceof ArrayList) {
-                a2 = qe5.a((ArrayList) currentPageSourceKeyList, a, 6);
-                statisticItem.delete("common_exp_source_pb_comment");
-            }
-        }
-        if (!TextUtils.isEmpty(a2) && !statisticItem.hasParam("page_source")) {
-            statisticItem.param("page_source", a2);
-        }
-        TbPageExtraHelper.printLog(statisticItem.toString());
-    }
-
-    public final <T> List<T> d(T[] tArr) {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:102:0x0073 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:90:0x00d6 */
+    /* JADX DEBUG: Type inference failed for r1v3. Raw type applied. Possible types: T */
+    /* JADX DEBUG: Type inference failed for r2v12. Raw type applied. Possible types: T */
+    /* JADX DEBUG: Type inference failed for r2v9. Raw type applied. Possible types: T */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v10, types: [java.util.List, java.util.ArrayList] */
+    /* JADX WARN: Type inference failed for: r1v8, types: [java.util.List, java.util.ArrayList] */
+    /* JADX WARN: Type inference failed for: r1v9 */
+    /* JADX WARN: Type inference failed for: r7v10 */
+    /* JADX WARN: Type inference failed for: r7v12 */
+    /* JADX WARN: Type inference failed for: r7v17, types: [java.util.List, java.util.ArrayList] */
+    /* JADX WARN: Type inference failed for: r7v18 */
+    /* JADX WARN: Type inference failed for: r7v36 */
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<T> customMessage) {
         InterceptResult invokeL;
+        String str;
+        ?? arrayList;
+        String str2;
+        ee5 ee5Var;
+        byte[] bArr;
+        ee5 ee5Var2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tArr)) == null) {
-            if (tArr != null && tArr.length != 0) {
-                ArrayList arrayList = new ArrayList(tArr.length);
-                for (T t : tArr) {
-                    if (t != null && !TextUtils.isEmpty(t.toString())) {
-                        arrayList.add(t);
-                    }
-                }
-                return arrayList;
-            }
-            return null;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public boolean g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (!ListUtils.isEmpty(this.b) && !xi.isEmpty(str)) {
-                for (String str2 : this.b) {
-                    if (str.equals(str2)) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (!ListUtils.isEmpty(this.a) && !xi.isEmpty(str)) {
-                for (String str2 : this.a) {
-                    if (str.equals(str2)) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void e(StatisticItem statisticItem) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, statisticItem) == null) && statisticItem != null && !statisticItem.hasParam("page_source")) {
-            if (h(statisticItem.getKey()) || g(statisticItem.getKey())) {
-                a(statisticItem);
-            }
-        }
-    }
-
-    public final List<String> i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (xi.isEmpty(str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            ee5 ee5Var3 = null;
+            if (customMessage == null || !(customMessage instanceof ReadCacheMessage)) {
                 return null;
             }
-            return d(str.split(","));
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.a = i(str);
-            if (str == null) {
-                str = "";
+            ReadCacheMessage readCacheMessage = (ReadCacheMessage) customMessage;
+            ee5 ee5Var4 = (ee5) a();
+            try {
+                try {
+                    if (readCacheMessage.isNeedUid()) {
+                        str = TbadkCoreApplication.getCurrentAccount();
+                        if (str == null) {
+                            str = "";
+                        }
+                    } else {
+                        str = null;
+                    }
+                    if (ee5Var4 != null) {
+                        if (readCacheMessage.getRequestData() == null) {
+                            try {
+                                if (ee5Var4 instanceof de5) {
+                                    vv4.d();
+                                    List<ef.b<byte[]>> a = fj.a(vv4.c(this.b, str));
+                                    if (a != null) {
+                                        arrayList = new ArrayList(a.size());
+                                        for (ef.b<byte[]> bVar : a) {
+                                            if (bVar != null && (bArr = bVar.b) != null && (ee5Var2 = (ee5) a()) != null) {
+                                                ((de5) ee5Var2).initByByteArray(bArr);
+                                                arrayList.add(ee5Var2);
+                                            }
+                                        }
+                                        ee5Var3 = arrayList;
+                                    }
+                                } else if (ee5Var4 instanceof ge5) {
+                                    vv4.d();
+                                    List<ef.b<String>> b = fj.b(vv4.f(this.b, str));
+                                    if (b != null) {
+                                        arrayList = new ArrayList(b.size());
+                                        for (ef.b<String> bVar2 : b) {
+                                            if (bVar2 != null && (str2 = bVar2.b) != null && (ee5Var = (ee5) a()) != null) {
+                                                ((ge5) ee5Var).w(str2);
+                                                arrayList.add(ee5Var);
+                                            }
+                                        }
+                                        ee5Var3 = arrayList;
+                                    }
+                                }
+                            } catch (Exception e) {
+                                e = e;
+                                ee5Var3 = ee5Var4;
+                                e.printStackTrace();
+                                return new ReadCacheRespMsg(this.a, ee5Var3);
+                            } catch (Throwable th) {
+                                th = th;
+                                ee5Var3 = ee5Var4;
+                                new ReadCacheRespMsg(this.a, ee5Var3);
+                                throw th;
+                            }
+                        } else {
+                            String cacheKey = readCacheMessage.getRequestData().getCacheKey();
+                            String F = readCacheMessage.getRequestData().F();
+                            try {
+                                if (ee5Var4 instanceof de5) {
+                                    vv4.d();
+                                    byte[] bArr2 = vv4.c(F, str).get(cacheKey);
+                                    if (bArr2 != null) {
+                                        ((de5) ee5Var4).initByByteArray(bArr2);
+                                        ArrayList arrayList2 = new ArrayList();
+                                        arrayList2.add(ee5Var4);
+                                        F = arrayList2;
+                                        ee5Var3 = F;
+                                    }
+                                } else if (ee5Var4 instanceof ge5) {
+                                    vv4.d();
+                                    String str3 = vv4.f(F, str).get(cacheKey);
+                                    if (str3 != null) {
+                                        ((ge5) ee5Var4).w(str3);
+                                        ?? arrayList3 = new ArrayList();
+                                        arrayList3.add(ee5Var4);
+                                        F = arrayList3;
+                                        ee5Var3 = F;
+                                    }
+                                }
+                            } catch (Exception e2) {
+                                ee5Var3 = F;
+                                e = e2;
+                                e.printStackTrace();
+                                return new ReadCacheRespMsg(this.a, ee5Var3);
+                            } catch (Throwable th2) {
+                                ee5Var3 = F;
+                                th = th2;
+                                new ReadCacheRespMsg(this.a, ee5Var3);
+                                throw th;
+                            }
+                        }
+                    }
+                    return new ReadCacheRespMsg(this.a, ee5Var3);
+                } catch (Exception e3) {
+                    e = e3;
+                }
+            } catch (Throwable th3) {
+                th = th3;
             }
-            ry4.l().z("key_need_add_source_stat_list", str);
+        } else {
+            return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 }

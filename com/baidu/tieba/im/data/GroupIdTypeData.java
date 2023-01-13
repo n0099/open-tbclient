@@ -27,10 +27,8 @@ public class GroupIdTypeData implements Serializable {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.mCustomType = 1;
     }
 
     public int getCustomType() {

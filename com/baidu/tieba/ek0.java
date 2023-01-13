@@ -1,96 +1,183 @@
 package com.baidu.tieba;
 
+import android.content.pm.PackageInfo;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.connect.NetWorkUtils;
+import com.baidu.nadcore.download.basic.AdAppStateManager;
+import com.baidu.nadcore.download.consts.AdDownloadAction;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 /* loaded from: classes4.dex */
-public class ek0 {
+public class ek0 implements ml0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final qk0 a;
+    public int b;
 
-    public static x01 a(@NonNull lk0 lk0Var) {
-        InterceptResult invokeL;
+    public ek0(@NonNull qk0 qk0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, lk0Var)) == null) {
-            x01 x01Var = new x01();
-            x01Var.o(lk0Var.e());
-            x01Var.u(lk0Var.b);
-            x01Var.t(lk0Var.c.status);
-            x01Var.q(lk0Var.d);
-            x01Var.v(lk0Var.g);
-            File file = lk0Var.h;
-            if (file != null) {
-                x01Var.m(file.getAbsolutePath());
-            } else {
-                x01Var.m("");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {qk0Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            x01Var.r((int) (lk0Var.i * 1000.0f));
-            x01Var.w((int) (lk0Var.j * 1000.0f));
-            x01Var.s(lk0Var.l);
-            x01Var.n(lk0Var.m);
-            pk0 pk0Var = lk0Var.p;
-            if (pk0Var != null) {
-                x01Var.p(pk0.b(pk0Var));
-            } else {
-                x01Var.p("");
-            }
-            mk0 mk0Var = lk0Var.q;
-            if (mk0Var != null) {
-                x01Var.k(mk0.b(mk0Var));
-            } else {
-                x01Var.k("");
-            }
-            ok0 ok0Var = lk0Var.r;
-            if (ok0Var != null) {
-                x01Var.l(ok0.b(ok0Var));
-            } else {
-                x01Var.l("");
-            }
-            return x01Var;
         }
-        return (x01) invokeL.objValue;
+        this.b = 0;
+        this.a = qk0Var;
     }
 
-    public static lk0 b(@NonNull x01 x01Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ml0
+    public void a(int i, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, x01Var)) == null) {
-            lk0 lk0Var = new lk0();
-            lk0Var.h(x01Var.g());
-            lk0Var.b = x01Var.z();
-            lk0Var.c = AdDownloadStatus.NONE;
-            AdDownloadStatus[] values = AdDownloadStatus.values();
-            int length = values.length;
-            int i = 0;
-            while (true) {
-                if (i >= length) {
-                    break;
-                }
-                AdDownloadStatus adDownloadStatus = values[i];
-                if (adDownloadStatus.status == x01Var.y()) {
-                    lk0Var.c = adDownloadStatus;
-                    break;
-                }
-                i++;
-            }
-            lk0Var.d = x01Var.i();
-            lk0Var.g = x01Var.A();
-            if (!TextUtils.isEmpty(x01Var.e())) {
-                lk0Var.h = new File(x01Var.e());
-            }
-            lk0Var.i = x01Var.j() / 1000.0f;
-            lk0Var.j = x01Var.B() / 1000.0f;
-            lk0Var.l = x01Var.x();
-            lk0Var.m = x01Var.f();
-            lk0Var.p = pk0.a(x01Var.h());
-            lk0Var.q = mk0.a(x01Var.c());
-            lk0Var.r = ok0.a(x01Var.d());
-            return lk0Var;
+        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) != null) || j < 0 || j2 <= 0 || j > j2) {
+            return;
         }
-        return (lk0) invokeL.objValue;
+        this.a.i = (float) w01.a(j, j2);
+        this.a.c = AdDownloadStatus.DOWNLOADING;
+        dk0.b().f(AdDownloadAction.PROGRESS_UPDATE, this.a);
+    }
+
+    @Override // com.baidu.tieba.ml0
+    public void b(long j, File file) {
+        AdDownloadAction adDownloadAction;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, file) == null) {
+            if (this.a.c == AdDownloadStatus.PAUSE) {
+                adDownloadAction = AdDownloadAction.RESUME;
+            } else {
+                adDownloadAction = AdDownloadAction.START;
+            }
+            this.a.l = System.currentTimeMillis();
+            qk0 qk0Var = this.a;
+            qk0Var.c = AdDownloadStatus.DOWNLOADING;
+            qk0Var.h = file;
+            qk0Var.q.e = j;
+            dk0.b().f(adDownloadAction, this.a);
+            hk0.b().update(this.a);
+            hk0.b().e(this.a);
+        }
+    }
+
+    @Override // com.baidu.tieba.ml0
+    public void c(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            this.a.c = AdDownloadStatus.PAUSE;
+            dk0.b().f(AdDownloadAction.PAUSE, this.a);
+            zk0.f().i(this.a, "notify_type_pause");
+            hk0.b().e(this.a);
+        }
+    }
+
+    @Override // com.baidu.tieba.ml0
+    public void d(@Nullable yk0 yk0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, yk0Var) == null) {
+            if (e(yk0Var)) {
+                qk0 qk0Var = this.a;
+                if (qk0Var.c == AdDownloadStatus.PAUSE) {
+                    dk0.b().j(this.a);
+                } else {
+                    qk0Var.i = 0.0f;
+                    qk0Var.j = 0.0f;
+                    dk0.b().k(this.a);
+                }
+                this.b++;
+            } else {
+                qk0 qk0Var2 = this.a;
+                qk0Var2.c = AdDownloadStatus.FAILED;
+                qk0Var2.i = 0.0f;
+                qk0Var2.j = 0.0f;
+                dk0.b().g(AdDownloadAction.FAIL, this.a, yk0Var);
+                zk0.f().i(this.a, "notify_type_stop");
+            }
+            hk0.b().e(this.a);
+        }
+    }
+
+    public final boolean e(@Nullable yk0 yk0Var) {
+        InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, yk0Var)) == null) {
+            if (yk0Var == null || !yk0Var.c) {
+                return false;
+            }
+            if (vm0.b().a().a("nad_failed_retry_switch", 0) == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                return false;
+            }
+            if (this.b >= vm0.b().a().a("nad_failed_retry_count", 0)) {
+                return false;
+            }
+            if (vm0.b().a().a("nad_failed_retry_without_wifi", 0) == 1) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if (!z2 && !NetWorkUtils.c(ej0.b())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ml0
+    public void onSuccess(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.a.m = System.currentTimeMillis();
+            if (TextUtils.isEmpty(this.a.d)) {
+                qk0 qk0Var = this.a;
+                qk0Var.d = ul0.b(qk0Var.h);
+            }
+            if (ul0.f(this.a.h)) {
+                PackageInfo packageArchiveInfo = ej0.b().getPackageManager().getPackageArchiveInfo(this.a.h.getAbsolutePath(), 128);
+                if (packageArchiveInfo != null) {
+                    qk0 qk0Var2 = this.a;
+                    qk0Var2.o = packageArchiveInfo.versionName;
+                    qk0Var2.n = packageArchiveInfo.versionCode;
+                }
+                AdAppStateManager.instance().register(this.a);
+                qk0 qk0Var3 = this.a;
+                qk0Var3.c = AdDownloadStatus.COMPLETED;
+                qk0Var3.i = 1.0f;
+                qk0Var3.j = 1.0f;
+                dk0.b().f(AdDownloadAction.COMPLETE, this.a);
+                sl0.f().k(this.a);
+                zk0.f().k(this.a);
+                hk0.b().e(this.a);
+                qk0 qk0Var4 = this.a;
+                ul0.e(qk0Var4.h, qk0Var4.a());
+                return;
+            }
+            qk0 qk0Var5 = this.a;
+            qk0Var5.c = AdDownloadStatus.FAILED;
+            qk0Var5.i = 0.0f;
+            qk0Var5.j = 0.0f;
+            dk0.b().f(AdDownloadAction.FAIL, this.a);
+            hk0.b().e(this.a);
+        }
     }
 }

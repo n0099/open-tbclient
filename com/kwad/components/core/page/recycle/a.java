@@ -70,7 +70,7 @@ public abstract class a extends com.kwad.components.core.i.c {
     public static int nS() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? R.id.obfuscated_res_0x7f0911d2 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? R.id.obfuscated_res_0x7f0911dd : invokeV.intValue;
     }
 
     public abstract d a(RecyclerView recyclerView);

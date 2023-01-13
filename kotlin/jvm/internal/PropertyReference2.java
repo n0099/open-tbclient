@@ -30,7 +30,7 @@ public abstract class PropertyReference2 extends PropertyReference implements KP
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // kotlin.reflect.KProperty, kotlin.reflect.KProperty0
+    @Override // kotlin.reflect.KProperty
     public KProperty2.Getter getGetter() {
         return ((KProperty2) getReflected()).getGetter();
     }

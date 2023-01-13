@@ -87,6 +87,10 @@ public final class a {
                     g();
                 }
 
+                public static /* synthetic */ C0056a f() {
+                    return h();
+                }
+
                 private void g() {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(65538, this) == null) {
@@ -187,9 +191,9 @@ public final class a {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+                @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
                 /* renamed from: b */
-                public C0056a clone() {
+                public C0056a mo29clone() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
                     return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? h().mergeFrom(buildPartial()) : (C0056a) invokeV.objValue;
@@ -398,7 +402,7 @@ public final class a {
             public static C0056a e() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? C0056a.h() : (C0056a) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? C0056a.f() : (C0056a) invokeV.objValue;
             }
 
             private void h() {
@@ -549,6 +553,10 @@ public final class a {
                 this.f = "";
                 this.g = ByteString.EMPTY;
                 g();
+            }
+
+            public static /* synthetic */ c f() {
+                return h();
             }
 
             private void g() {
@@ -723,9 +731,9 @@ public final class a {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
             /* renamed from: b */
-            public c clone() {
+            public c mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? h().mergeFrom(buildPartial()) : (c) invokeV.objValue;
@@ -1015,7 +1023,7 @@ public final class a {
         public static c o() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? c.h() : (c) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? c.f() : (c) invokeV.objValue;
         }
 
         private void r() {
@@ -1278,6 +1286,10 @@ public final class a {
                 g();
             }
 
+            public static /* synthetic */ C0057a f() {
+                return h();
+            }
+
             private void g() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(65538, this) == null) {
@@ -1401,9 +1413,9 @@ public final class a {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
             /* renamed from: b */
-            public C0057a clone() {
+            public C0057a mo29clone() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? h().mergeFrom(buildPartial()) : (C0057a) invokeV.objValue;
@@ -1631,7 +1643,7 @@ public final class a {
         public static C0057a j() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? C0057a.h() : (C0057a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? C0057a.f() : (C0057a) invokeV.objValue;
         }
 
         private void m() {

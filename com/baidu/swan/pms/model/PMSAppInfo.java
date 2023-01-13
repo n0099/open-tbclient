@@ -5,8 +5,8 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dd4;
-import com.baidu.tieba.ed4;
+import com.baidu.tieba.id4;
+import com.baidu.tieba.jd4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -336,28 +336,28 @@ public class PMSAppInfo implements Parcelable {
         updateInstallSrc(pMSAppInfo.getInstallSrc());
     }
 
-    public void copyMainPkgInfo(dd4 dd4Var) {
+    public void copyMainPkgInfo(id4 id4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dd4Var) != null) || dd4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, id4Var) != null) || id4Var == null) {
             return;
         }
-        this.appId = dd4Var.g;
-        this.versionCode = dd4Var.i;
-        this.versionName = dd4Var.j;
-        this.type = dd4Var.o;
-        this.pkgSize = dd4Var.k;
+        this.appId = id4Var.g;
+        this.versionCode = id4Var.i;
+        this.versionName = id4Var.j;
+        this.type = id4Var.o;
+        this.pkgSize = id4Var.k;
     }
 
-    public void copySubPkgInfo(ed4 ed4Var) {
+    public void copySubPkgInfo(jd4 jd4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, ed4Var) != null) || ed4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, jd4Var) != null) || jd4Var == null) {
             return;
         }
-        this.appId = ed4Var.o;
-        this.versionCode = ed4Var.i;
-        this.versionName = ed4Var.j;
-        this.type = ed4Var.q;
-        this.pkgSize = ed4Var.k;
+        this.appId = jd4Var.o;
+        this.versionCode = jd4Var.i;
+        this.versionName = jd4Var.j;
+        this.type = jd4Var.q;
+        this.pkgSize = jd4Var.k;
     }
 
     public void countLaunch(long j) {

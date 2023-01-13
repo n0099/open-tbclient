@@ -24,7 +24,8 @@ public final class gw extends gl {
         }
     }
 
-    @Override // com.xiaomi.push.gl, com.xiaomi.push.gn
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.gn.b()Ljava/util/Collection; */
+    @Override // com.xiaomi.push.gl
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

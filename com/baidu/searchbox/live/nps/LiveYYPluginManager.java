@@ -36,9 +36,9 @@ import com.baidu.searchbox.live.interfaces.yy.plugin.YYPluginProgressInvokeServi
 import com.baidu.searchbox.live.nps.util.SchemeParamsParseUtils;
 import com.baidu.searchbox.live.nps.yy.YYLiveNPSPluginManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.r91;
-import com.baidu.tieba.t91;
-import com.baidu.tieba.u91;
+import com.baidu.tieba.w91;
+import com.baidu.tieba.y91;
+import com.baidu.tieba.z91;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -53,6 +53,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class LiveYYPluginManager {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final int ENTRANCE_PAY_RELEASE_SUPPORT_MIN_VER = 607500000;
     public static final String KET_HOST_EVENT_USER_CANCEL_LOAD_PROGRESS = "user_cancel_load_progress";
     public static final String[] NPS_PLUGIN_SUB_PKG_GROUP;
     public static final int PAYMENT_START_MIN_VERSION = 601500000;
@@ -291,16 +292,28 @@ public class LiveYYPluginManager {
         }
     }
 
+    public void releasePayment(Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048589, this, map) != null) || this.mYYLiveNPSPlugin == null) {
+            return;
+        }
+        logPluginVersionCode();
+        if (getPluginInstallVersion() < 607500000) {
+            return;
+        }
+        this.mYYLiveNPSPlugin.releasePayment(map);
+    }
+
     public void setLoadingCallback(LiveNpsLoadingCallback liveNpsLoadingCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, liveNpsLoadingCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, liveNpsLoadingCallback) == null) {
             this.loadingCallback = liveNpsLoadingCallback;
         }
     }
 
     public void updateStatInfo(YYStatInfo yYStatInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, yYStatInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048600, this, yYStatInfo) == null) {
             this.mStatInfo = yYStatInfo;
         }
     }
@@ -317,7 +330,7 @@ public class LiveYYPluginManager {
     public void reportUBCNotify(String str, JSONObject jSONObject) {
         IYYLiveNPSPlugin iYYLiveNPSPlugin;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048589, this, str, jSONObject) == null) && (iYYLiveNPSPlugin = this.mYYLiveNPSPlugin) != null) {
+        if ((interceptable == null || interceptable.invokeLL(1048590, this, str, jSONObject) == null) && (iYYLiveNPSPlugin = this.mYYLiveNPSPlugin) != null) {
             try {
                 iYYLiveNPSPlugin.reportNotify(str, jSONObject);
             } catch (Throwable th) {
@@ -389,19 +402,19 @@ public class LiveYYPluginManager {
     public void downloadUpdatePackage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65561, this) == null) {
-            NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.yylive.entrance", new r91(this) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.13
+            NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.yylive.entrance", new w91(this) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.13
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveYYPluginManager this$0;
 
-                @Override // com.baidu.tieba.r91
+                @Override // com.baidu.tieba.w91
                 public void onProgress(long j, long j2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
                     }
                 }
 
-                @Override // com.baidu.tieba.r91
+                @Override // com.baidu.tieba.w91
                 public void onResult(int i, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -425,7 +438,7 @@ public class LiveYYPluginManager {
                     }
                     this.this$0 = this;
                 }
-            }, new t91(this) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.14
+            }, new y91(this) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.14
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveYYPluginManager this$0;
@@ -448,11 +461,11 @@ public class LiveYYPluginManager {
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.t91
-                public void checkAuthorization(IBundleInfo iBundleInfo, int i, u91 u91Var) {
+                @Override // com.baidu.tieba.y91
+                public void checkAuthorization(IBundleInfo iBundleInfo, int i, z91 z91Var) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, u91Var) == null) && u91Var != null) {
-                        u91Var.onResult(1);
+                    if ((interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, z91Var) == null) && z91Var != null) {
+                        z91Var.onResult(1);
                     }
                 }
             }, 1);
@@ -1163,7 +1176,7 @@ public class LiveYYPluginManager {
 
     public void showLoadingBySubPlugin(Consumer<Boolean> consumer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, consumer) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, consumer) == null) {
             pluginYaLog("showLoadingBySubPlugin, " + this.loadingCallback);
             if (!this.mLoadingShowing) {
                 showLoading();
@@ -1175,7 +1188,7 @@ public class LiveYYPluginManager {
 
     public void startYYActivity(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, context) == null) {
             NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
             npsLoadChainLog.dLog("LiveYYPluginManager startYYLiveActivity " + this.mYYLiveNPSPlugin);
             IYYLiveNPSPlugin iYYLiveNPSPlugin = this.mYYLiveNPSPlugin;
@@ -1248,7 +1261,7 @@ public class LiveYYPluginManager {
 
     public void stopLoadingBySubPlugin() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             pluginYaLog("stopLoadingBySubPlugin, " + this.mSubDismissCallback);
             LiveNpsLoadingCallback liveNpsLoadingCallback = this.loadingCallback;
             if (liveNpsLoadingCallback != null) {
@@ -1583,7 +1596,7 @@ public class LiveYYPluginManager {
 
     public void startPayment(Context context, IPaymentStateCallback iPaymentStateCallback, IPaymentLogDelegate iPaymentLogDelegate, String str, Long l, Boolean bool, Map<String, String> map, Map<String, Object> map2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{context, iPaymentStateCallback, iPaymentLogDelegate, str, l, bool, map, map2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{context, iPaymentStateCallback, iPaymentLogDelegate, str, l, bool, map, map2}) == null) {
             dLog("startPayment--调起YY收银台，插件版本号 = " + getPluginInstallVersion());
             if (this.mYYLiveNPSPlugin == null) {
                 loadNPSPluginImpl(new PluginLoadCallback(this, context, iPaymentStateCallback, iPaymentLogDelegate, str, l, bool, map, map2) { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.16
@@ -1673,7 +1686,7 @@ public class LiveYYPluginManager {
 
     public void startYYCustomerServiceActivity(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048594, this, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048595, this, context, str) == null) {
             dLog("startYYCustomerServiceActivity--进入YY客服页面，初始化NpsLoadChainLog，设置Entry，插件版本号 = " + getPluginInstallVersion());
             NpsLoadChainLog.getInstance().initAndStart();
             NpsLoadChainLog.getInstance().setEntry("YY-CustomerService");
@@ -1738,7 +1751,7 @@ public class LiveYYPluginManager {
 
     public void startYYFeedbackActivity(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048595, this, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048596, this, context, str) == null) {
             dLog("startYYFeedbackActivity--进入YY反馈页面，初始化NpsLoadChainLog，设置Entry，插件版本号 = " + getPluginInstallVersion());
             NpsLoadChainLog.getInstance().initAndStart();
             NpsLoadChainLog.getInstance().setEntry("YY-Feedback");
@@ -1803,7 +1816,7 @@ public class LiveYYPluginManager {
 
     public void startYYLiveActivity(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048596, this, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048597, this, context, str) == null) {
             NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
             npsLoadChainLog.dLog("LiveYYPluginManager startYYLiveActivity " + str + GlideException.IndentedAppendable.INDENT + this.mYYLiveNPSPlugin);
             if (YYStaticConfig.conf == null) {
@@ -1885,7 +1898,7 @@ public class LiveYYPluginManager {
 
     public void updatePluginLoadProgress(String str, long j, long j2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)}) == null) && YYPluginProgressInvokeService.Companion.getSUB_PLUGIN_PROGRESS().equals(str) && this.loadingCallback != null) {
+        if ((interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)}) == null) && YYPluginProgressInvokeService.Companion.getSUB_PLUGIN_PROGRESS().equals(str) && this.loadingCallback != null) {
             dLog("updatePluginLoadProgress, current = " + j + ", total = " + j2);
             long j3 = (j2 / 2) + (j / 2);
             if ((j3 * 100) / j2 < 50) {

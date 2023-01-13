@@ -3,6 +3,7 @@ package com.meizu.cloud.pushsdk.c.e;
 import android.content.Context;
 import android.location.Location;
 import android.os.Build;
+import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.kuaishou.weapon.p0.u;
@@ -93,7 +94,7 @@ public class b {
             com.meizu.cloud.pushsdk.c.f.c.a(a, "Location information not available.", new Object[0]);
             return;
         }
-        a("la", Double.valueOf(c.getLatitude()));
+        a(MultiRatePlayUrlHelper.ABBR_FLV_AVC_LIST, Double.valueOf(c.getLatitude()));
         a(WebvttCueParser.ENTITY_LESS_THAN, Double.valueOf(c.getLongitude()));
         a("al", Double.valueOf(c.getAltitude()));
         a("lla", Float.valueOf(c.getAccuracy()));

@@ -36,10 +36,10 @@ import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rw4;
-import com.baidu.tieba.sn5;
+import com.baidu.tieba.cx4;
+import com.baidu.tieba.mo5;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,7 +48,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class OriginalThreadCardView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int s;
@@ -76,12 +76,12 @@ public class OriginalThreadCardView extends RelativeLayout {
     public boolean q;
     public int r;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(OriginalThreadInfo originalThreadInfo);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -142,11 +142,11 @@ public class OriginalThreadCardView extends RelativeLayout {
                 return;
             }
         }
-        s = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
-        t = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
-        u = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
-        v = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
-        w = yi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
+        s = zi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
+        t = zi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
+        u = zi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
+        v = zi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
+        w = zi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -266,11 +266,11 @@ public class OriginalThreadCardView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             View view2 = this.p;
             if (view2 != null) {
-                rw4.d(view2).f(i);
+                cx4.d(view2).f(i);
             }
             TextView textView = this.b;
             if (textView != null) {
-                rw4.d(textView).f(i);
+                cx4.d(textView).f(i);
             }
         }
     }
@@ -306,7 +306,7 @@ public class OriginalThreadCardView extends RelativeLayout {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, itemStarData)) == null) {
-            SpannableStringBuilder d = sn5.d(itemStarData);
+            SpannableStringBuilder d = mo5.d(itemStarData);
             d.append((CharSequence) str);
             return d;
         }
@@ -580,19 +580,19 @@ public class OriginalThreadCardView extends RelativeLayout {
         this.e = (ImageView) findViewById(R.id.thread_pic_mask);
         this.c.setLongIconSupport(false);
         this.c.setGifIconSupport(false);
-        this.c.setRadius(yi.g(context, R.dimen.tbds10));
+        this.c.setRadius(zi.g(context, R.dimen.tbds10));
         this.c.setConrers(15);
         this.c.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070733));
         this.c.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
         this.c.setBorderSurroundContent(true);
         this.c.setDrawBorder(true);
-        int l = (((yi.l(context) - (yi.g(context, R.dimen.tbds44) * 2)) - (yi.g(getContext(), R.dimen.tbds26) * 2)) - (yi.g(getContext(), R.dimen.tbds10) * 4)) / 5;
+        int l = (((zi.l(context) - (zi.g(context, R.dimen.tbds44) * 2)) - (zi.g(getContext(), R.dimen.tbds26) * 2)) - (zi.g(getContext(), R.dimen.tbds10) * 4)) / 5;
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
         layoutParams.width = l;
         layoutParams.height = l;
         this.c.setLayoutParams(layoutParams);
         this.e.setLayoutParams(layoutParams);
-        int g = yi.g(context, R.dimen.tbds52);
+        int g = zi.g(context, R.dimen.tbds52);
         RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.d.getLayoutParams();
         layoutParams2.leftMargin = (l - g) / 2;
         this.d.setLayoutParams(layoutParams2);
@@ -602,7 +602,7 @@ public class OriginalThreadCardView extends RelativeLayout {
         this.f = (LinearLayout) findViewById(R.id.add_item);
         TextView textView = (TextView) findViewById(R.id.item_title);
         this.g = textView;
-        textView.setMaxWidth(yi.s(context)[0] / 2);
+        textView.setMaxWidth(zi.s(context)[0] / 2);
         this.h = (RankStarView) findViewById(R.id.item_star);
         this.i = (TextView) findViewById(R.id.item_score);
         VoteView voteView = (VoteView) findViewById(R.id.vote_view);
@@ -673,8 +673,8 @@ public class OriginalThreadCardView extends RelativeLayout {
             if (i4 != 0) {
                 SkinManager.setImageResource(this.d, i4);
             }
-            setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(yi.g(this.a, R.dimen.tbds10), SkinManager.getColor(i)));
-            this.f.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(yi.g(this.a, R.dimen.tbds10), SkinManager.getColor(R.color.CAM_X0205)));
+            setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(zi.g(this.a, R.dimen.tbds10), SkinManager.getColor(i)));
+            this.f.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(zi.g(this.a, R.dimen.tbds10), SkinManager.getColor(R.color.CAM_X0205)));
             this.j.D(skinType);
             SkinManager.setViewTextColor(this.g, i2, 1);
             SkinManager.setViewTextColor(this.b, R.color.CAM_X0107, 1);

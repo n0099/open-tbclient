@@ -49,7 +49,7 @@ import com.google.android.material.math.MathUtils;
 import java.util.ArrayList;
 import java.util.List;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class FabTransformationBehavior extends ExpandableTransformationBehavior {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -62,7 +62,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
 
     public abstract FabTransformationSpec onCreateMotionSpec(Context context, boolean z);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class FabTransformationSpec {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,7 +134,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, view2)) == null) {
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091632);
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091642);
             if (findViewById != null) {
                 return toViewGroupOrNull(findViewById);
             }
