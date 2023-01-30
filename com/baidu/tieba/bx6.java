@@ -76,10 +76,10 @@ public class bx6 extends PriorityOrganizer.Task {
                 }
             }
             dq6 dq6Var = new dq6(this.n.getPageContext());
-            this.m.D4(dq6Var);
+            this.m.E4(dq6Var);
             boolean j = dq6Var.j(frsResponseData);
-            this.m.B4(j);
-            this.m.G4(j);
+            this.m.C4(j);
+            this.m.H4(j);
             return j;
         }
         return invokeV.booleanValue;

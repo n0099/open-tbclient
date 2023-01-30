@@ -269,7 +269,7 @@ public class jx6 extends PriorityOrganizer.Task {
             tBAlertBuilder.z();
             tw4.o("userGrowth");
             if (!this.p) {
-                this.o.G4(true);
+                this.o.H4(true);
             }
             PollingModel.z0(levePopData, true);
             return;

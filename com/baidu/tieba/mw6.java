@@ -385,11 +385,11 @@ public class mw6 extends vw6 {
                     return;
                 case 11011:
                     FrsFragment frsFragment = this.b;
-                    g07.g(frsFragment, frsFragment.N3(), FrsFragment.o2, this.b.W3());
+                    g07.g(frsFragment, frsFragment.O3(), FrsFragment.o2, this.b.X3());
                     return;
                 case 11012:
                     FrsFragment frsFragment2 = this.b;
-                    g07.h(frsFragment2, frsFragment2.N3(), FrsFragment.o2, this.b.W3());
+                    g07.h(frsFragment2, frsFragment2.O3(), FrsFragment.o2, this.b.X3());
                     return;
                 case 11014:
                     this.d.x0();
@@ -409,7 +409,7 @@ public class mw6 extends vw6 {
                     }
                     int intExtra = intent.getIntExtra("type", -1);
                     if (intExtra == 4) {
-                        this.b.n4(6);
+                        this.b.o4(6);
                         return;
                     }
                     String stringExtra = intent.getStringExtra("tid");
@@ -451,7 +451,7 @@ public class mw6 extends vw6 {
                         TiebaStatic.log(statisticItem);
                     }
                     if (intExtra6 == 1) {
-                        this.b.k4(intent.getStringExtra("tid"));
+                        this.b.l4(intent.getStringExtra("tid"));
                         return;
                     }
                     return;
@@ -464,7 +464,7 @@ public class mw6 extends vw6 {
                 case 25052:
                     String stringExtra2 = intent.getStringExtra("group_name");
                     boolean booleanExtra = intent.getBooleanExtra("from", true);
-                    this.b.f5(stringExtra2);
+                    this.b.g5(stringExtra2);
                     if (!booleanExtra && (q07Var = this.d) != null) {
                         q07Var.T();
                         return;
@@ -486,9 +486,9 @@ public class mw6 extends vw6 {
     public void m(int i) {
         FrsFragment frsFragment;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (frsFragment = this.b) != null && frsFragment.L3() != null) {
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (frsFragment = this.b) != null && frsFragment.M3() != null) {
             if (i > 0) {
-                FrsTabViewController.i I = this.b.L3().I(i);
+                FrsTabViewController.i I = this.b.M3().I(i);
                 if (I != null) {
                     Fragment fragment = I.b;
                     if ((fragment instanceof FrsCommonTabFragment) || (fragment instanceof FrsTabWebFragment)) {
@@ -499,8 +499,8 @@ public class mw6 extends vw6 {
                 }
                 return;
             }
-            int E = this.b.L3().E();
-            if (this.b.L3().I(E) != null) {
+            int E = this.b.M3().E();
+            if (this.b.M3().I(E) != null) {
                 this.c.b(E);
             }
         }

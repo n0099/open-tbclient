@@ -329,25 +329,24 @@ public class u97 {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:112:0x0226  */
-    /* JADX WARN: Removed duplicated region for block: B:129:0x026c  */
-    /* JADX WARN: Removed duplicated region for block: B:146:0x02ed  */
-    /* JADX WARN: Removed duplicated region for block: B:147:0x02f1  */
-    /* JADX WARN: Removed duplicated region for block: B:159:0x0332  */
-    /* JADX WARN: Removed duplicated region for block: B:160:0x0336  */
-    /* JADX WARN: Removed duplicated region for block: B:170:0x0368  */
-    /* JADX WARN: Removed duplicated region for block: B:177:0x0388  */
-    /* JADX WARN: Removed duplicated region for block: B:178:0x038c  */
-    /* JADX WARN: Removed duplicated region for block: B:188:0x03b3  */
-    /* JADX WARN: Removed duplicated region for block: B:191:0x03bc  */
-    /* JADX WARN: Removed duplicated region for block: B:200:0x03de  */
-    /* JADX WARN: Removed duplicated region for block: B:230:0x0450  */
-    /* JADX WARN: Removed duplicated region for block: B:251:0x04b1  */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x00b7  */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00c1  */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x00ce  */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x00eb  */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x010d  */
+    /* JADX WARN: Removed duplicated region for block: B:111:0x0224  */
+    /* JADX WARN: Removed duplicated region for block: B:128:0x026a  */
+    /* JADX WARN: Removed duplicated region for block: B:145:0x02eb  */
+    /* JADX WARN: Removed duplicated region for block: B:146:0x02ef  */
+    /* JADX WARN: Removed duplicated region for block: B:158:0x0330  */
+    /* JADX WARN: Removed duplicated region for block: B:159:0x0334  */
+    /* JADX WARN: Removed duplicated region for block: B:169:0x0366  */
+    /* JADX WARN: Removed duplicated region for block: B:176:0x0386  */
+    /* JADX WARN: Removed duplicated region for block: B:177:0x038a  */
+    /* JADX WARN: Removed duplicated region for block: B:187:0x03b1  */
+    /* JADX WARN: Removed duplicated region for block: B:190:0x03ba  */
+    /* JADX WARN: Removed duplicated region for block: B:199:0x03dc  */
+    /* JADX WARN: Removed duplicated region for block: B:225:0x0443  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00b5  */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x00bf  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x00cc  */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x00e9  */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x010b  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -357,7 +356,6 @@ public class u97 {
         int i4;
         List<yn> linkedList;
         q97 a2;
-        int i5;
         r97 r97Var;
         boolean z;
         g96 e;
@@ -369,7 +367,7 @@ public class u97 {
         o96 g5;
         int e2;
         x47 x47Var;
-        int i6;
+        int i5;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{list, list2, userFollowLive, Integer.valueOf(i), Integer.valueOf(i2), builder, Integer.valueOf(i3)})) == null) {
             if (list == null) {
@@ -400,14 +398,14 @@ public class u97 {
                 if (ListUtils.add(arrayList, y47Var.getPosition(), y47Var)) {
                     i4 = y47Var.getPosition();
                     y47Var.position = i4;
-                    if (i != 1 && builder != null && x47.m(builder.hot_recomforum, -1)) {
+                    if (builder != null && x47.m(builder.hot_recomforum, -1)) {
                         x47Var = new x47();
                         if (builder.hot_recomforum.floor.intValue() <= 0) {
-                            i6 = builder.hot_recomforum.floor.intValue() - 1;
+                            i5 = builder.hot_recomforum.floor.intValue() - 1;
                         } else {
-                            i6 = 0;
+                            i5 = 0;
                         }
-                        x47Var.floorPosition = i6;
+                        x47Var.floorPosition = i5;
                         if (x47Var.i(builder.hot_recomforum.tab_list)) {
                             j(x47Var, x47Var.floorPosition, arrayList);
                         }
@@ -425,13 +423,13 @@ public class u97 {
                         k(e2, f, arrayList);
                     }
                     linkedList = new LinkedList<>();
-                    int i7 = 0;
+                    int i6 = 0;
                     for (yn ynVar : arrayList) {
                         boolean z2 = ynVar instanceof ThreadData;
                         if (z2 && ((ThreadData) ynVar).isFunAdPlaceHolder()) {
                             if (v(builder)) {
                                 linkedList.add(ynVar);
-                                i7++;
+                                i6++;
                             }
                             c = 0;
                         } else if (z2) {
@@ -439,14 +437,14 @@ public class u97 {
                             if (!TextUtils.isEmpty(threadData2.getLegoCard())) {
                                 vt4 vt4Var = new vt4();
                                 vt4Var.g(threadData2.getLegoCard());
-                                vt4Var.position = i7;
+                                vt4Var.position = i6;
                                 linkedList.add(vt4Var);
                             } else if (qc7.N(threadData2)) {
                                 if (!StringUtils.isNull(threadData2.getTopicModule().topic_name)) {
                                     qc7 qc7Var = new qc7();
                                     qc7Var.P(threadData2.getTopicModule());
                                     qc7Var.Z = 1;
-                                    qc7Var.position = i7;
+                                    qc7Var.position = i6;
                                     qc7Var.Q(threadData2);
                                     qc7Var.setSupportType(BaseCardInfo.SupportType.FULL);
                                     linkedList.add(qc7Var);
@@ -454,13 +452,13 @@ public class u97 {
                             } else if (!o96.W(threadData2) && !p96.R(threadData2) && !q96.W(threadData2)) {
                                 if (j96.W(threadData2) && threadData2.isBJHArticleThreadType()) {
                                     j96 j96Var = new j96(threadData2);
-                                    j96Var.position = i7;
+                                    j96Var.position = i6;
                                     linkedList.add(j96Var);
                                 } else {
                                     g96 e3 = x97.e(threadData2);
                                     if (e3 != null) {
                                         e3.g = threadData2.getTid();
-                                        e3.position = i7;
+                                        e3.position = i6;
                                     }
                                     if (e3 != null && e3.isValid()) {
                                         linkedList.add(e3);
@@ -472,7 +470,7 @@ public class u97 {
                                     if (threadData2.showCardEnterFourm()) {
                                         if (g6.isValid()) {
                                             g6.g = threadData2.getTid();
-                                            g6.position = i7;
+                                            g6.position = i6;
                                             x97.t(g6);
                                             linkedList.add(g6);
                                         }
@@ -480,14 +478,14 @@ public class u97 {
                                         ThreadData threadData3 = g6.a;
                                         if (threadData3 != null && threadData3.getForumData() != null && !StringUtils.isNull(threadData3.getForumData().b)) {
                                             g6.g = threadData2.getTid();
-                                            g6.position = i7;
+                                            g6.position = i6;
                                             x97.r(g6);
                                             linkedList.add(g6);
                                             z = true;
                                             e = x97.e(threadData2);
                                             if (e != null) {
                                                 e.g = threadData2.getTid();
-                                                e.position = i7;
+                                                e.position = i6;
                                                 if (e instanceof o96) {
                                                     if (threadData2.isBJHNormalThreadType()) {
                                                         x97.u(e);
@@ -523,7 +521,7 @@ public class u97 {
                                             }
                                             if (threadData2.getItem() != null && (g5 = x97.g(threadData2)) != null) {
                                                 g5.g = threadData2.getTid();
-                                                g5.position = i7;
+                                                g5.position = i6;
                                                 x97.A(g5);
                                                 if (!o96.W(threadData2)) {
                                                     g5.L("1");
@@ -534,7 +532,7 @@ public class u97 {
                                             }
                                             if ((ListUtils.isEmpty(threadData2.getLinkDataList()) || !ListUtils.isEmpty(threadData2.getGoodsDataList())) && (g = x97.g(threadData2)) != null) {
                                                 g.g = threadData2.getTid();
-                                                g.position = i7;
+                                                g.position = i6;
                                                 if (ListUtils.getCount(threadData2.getLinkDataList()) + ListUtils.getCount(threadData2.getGoodsDataList()) != 1) {
                                                     x97.D(g);
                                                 } else {
@@ -545,7 +543,7 @@ public class u97 {
                                             threadRecommendInfoData = (ThreadRecommendInfoData) ListUtils.getItem(threadData2.getThreadRecommendInfoDataList(), 0);
                                             if (threadRecommendInfoData != null && !TextUtils.isEmpty(threadRecommendInfoData.recommendReason) && (g4 = x97.g(threadData2)) != null) {
                                                 g4.g = threadData2.getTid();
-                                                g4.position = i7;
+                                                g4.position = i6;
                                                 x97.C(g4);
                                                 if (g4.isValid()) {
                                                     linkedList.add(g4);
@@ -553,7 +551,7 @@ public class u97 {
                                             }
                                             if (threadData2.showCardEnterFourm() && (g3 = x97.g(threadData2)) != null) {
                                                 g3.g = threadData2.getTid();
-                                                g3.position = i7;
+                                                g3.position = i6;
                                                 x97.q(g3);
                                                 if (!o96.W(threadData2)) {
                                                     g3.L("1");
@@ -570,7 +568,7 @@ public class u97 {
                                                 o96 g7 = x97.g(threadData2);
                                                 if (g7 != null) {
                                                     g7.g = threadData2.getTid();
-                                                    g7.position = i7;
+                                                    g7.position = i6;
                                                     x97.s(g7);
                                                 }
                                                 if (g7 != null && g7.isValid()) {
@@ -580,7 +578,7 @@ public class u97 {
                                             g2 = x97.g(threadData2);
                                             if (g2 != null) {
                                                 g2.g = threadData2.getTid();
-                                                g2.position = i7;
+                                                g2.position = i6;
                                                 x97.p(g2);
                                             }
                                             if (g2 != null && g2.isValid()) {
@@ -588,7 +586,7 @@ public class u97 {
                                             }
                                         } else if (g6.isValid()) {
                                             g6.g = threadData2.getTid();
-                                            g6.position = i7;
+                                            g6.position = i6;
                                             x97.t(g6);
                                             linkedList.add(g6);
                                         }
@@ -615,7 +613,7 @@ public class u97 {
                                 }
                                 if (threadData2.getItem() != null) {
                                     g5.g = threadData2.getTid();
-                                    g5.position = i7;
+                                    g5.position = i6;
                                     x97.A(g5);
                                     if (!o96.W(threadData2)) {
                                     }
@@ -624,21 +622,21 @@ public class u97 {
                                 if (ListUtils.isEmpty(threadData2.getLinkDataList())) {
                                 }
                                 g.g = threadData2.getTid();
-                                g.position = i7;
+                                g.position = i6;
                                 if (ListUtils.getCount(threadData2.getLinkDataList()) + ListUtils.getCount(threadData2.getGoodsDataList()) != 1) {
                                 }
                                 linkedList.add(g);
                                 threadRecommendInfoData = (ThreadRecommendInfoData) ListUtils.getItem(threadData2.getThreadRecommendInfoDataList(), 0);
                                 if (threadRecommendInfoData != null) {
                                     g4.g = threadData2.getTid();
-                                    g4.position = i7;
+                                    g4.position = i6;
                                     x97.C(g4);
                                     if (g4.isValid()) {
                                     }
                                 }
                                 if (threadData2.showCardEnterFourm()) {
                                     g3.g = threadData2.getTid();
-                                    g3.position = i7;
+                                    g3.position = i6;
                                     x97.q(g3);
                                     if (!o96.W(threadData2)) {
                                     }
@@ -668,12 +666,12 @@ public class u97 {
                                     r97Var = b();
                                 }
                                 if (r97Var != null) {
-                                    i7++;
-                                    r97Var.R = i7;
+                                    i6++;
+                                    r97Var.R = i6;
                                     linkedList.add(r97Var);
                                 }
                             }
-                            i7++;
+                            i6++;
                             c = 0;
                         } else {
                             if (ynVar instanceof BaseCardInfo) {
@@ -681,28 +679,28 @@ public class u97 {
                             } else {
                                 linkedList.add(ynVar);
                             }
-                            i7++;
+                            i6++;
                             c = 0;
                         }
                     }
-                    if (i != 1 && !UbsABTestHelper.isPersonalizeFunAdABTest()) {
+                    if (!UbsABTestHelper.isPersonalizeFunAdABTest()) {
+                        int i7 = 0;
                         int i8 = 0;
-                        int i9 = 0;
-                        for (i5 = 0; i5 < ListUtils.getCount(list2); i5++) {
-                            u96 u96Var = (u96) ListUtils.getItem(list2, i5);
-                            if (u96Var != null && i8 < linkedList.size()) {
-                                int i10 = i8;
-                                while (i10 < linkedList.size() && (!(linkedList.get(i10) instanceof g96) || e(((g96) linkedList.get(i10)).position, i4) + i9 != u96Var.getPosition() - 1)) {
+                        for (int i9 = 0; i9 < ListUtils.getCount(list2); i9++) {
+                            u96 u96Var = (u96) ListUtils.getItem(list2, i9);
+                            if (u96Var != null && i7 < linkedList.size()) {
+                                int i10 = i7;
+                                while (i10 < linkedList.size() && (!(linkedList.get(i10) instanceof g96) || e(((g96) linkedList.get(i10)).position, i4) + i8 != u96Var.getPosition() - 1)) {
                                     i10++;
                                 }
                                 if (linkedList.size() > i10 && i10 > 0) {
                                     linkedList.add(i10, u96Var);
-                                    int i11 = i9 + 1;
+                                    int i11 = i8 + 1;
                                     g(u96Var, linkedList, i10, i11, i3);
-                                    i8 = i10;
-                                    i9 = i11;
+                                    i7 = i10;
+                                    i8 = i11;
                                 } else {
-                                    i8 = i10;
+                                    i7 = i10;
                                 }
                             }
                         }
@@ -736,11 +734,11 @@ public class u97 {
                 }
             }
             i4 = -1;
-            if (i != 1) {
+            if (builder != null) {
                 x47Var = new x47();
                 if (builder.hot_recomforum.floor.intValue() <= 0) {
                 }
-                x47Var.floorPosition = i6;
+                x47Var.floorPosition = i5;
                 if (x47Var.i(builder.hot_recomforum.tab_list)) {
                 }
             }
@@ -755,18 +753,10 @@ public class u97 {
                 k(e2, f2, arrayList);
             }
             linkedList = new LinkedList<>();
-            int i72 = 0;
+            int i62 = 0;
             while (r4.hasNext()) {
             }
-            if (i != 1) {
-                int i82 = 0;
-                int i92 = 0;
-                while (i5 < ListUtils.getCount(list2)) {
-                }
-                int i122 = 0;
-                int i132 = 0;
-                while (r0.hasNext()) {
-                }
+            if (!UbsABTestHelper.isPersonalizeFunAdABTest()) {
             }
             if (i2 == 0) {
                 if (i != 0) {

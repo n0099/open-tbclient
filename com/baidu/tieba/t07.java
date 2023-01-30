@@ -252,15 +252,15 @@ public class t07 {
         this.l = new c(this);
         this.m = new d(this);
         this.a = frsFragment;
-        View J3 = frsFragment.J3();
-        AdvancedAdSlideLoadingLayout advancedAdSlideLoadingLayout = (AdvancedAdSlideLoadingLayout) J3.findViewById(R.id.obfuscated_res_0x7f090b56);
+        View K3 = frsFragment.K3();
+        AdvancedAdSlideLoadingLayout advancedAdSlideLoadingLayout = (AdvancedAdSlideLoadingLayout) K3.findViewById(R.id.obfuscated_res_0x7f090b56);
         this.b = advancedAdSlideLoadingLayout;
         advancedAdSlideLoadingLayout.k(this.j);
         this.b.j(this.k);
         this.b.i(this.l);
         this.b.n();
-        this.c = (AppBarLayout) J3.findViewById(R.id.obfuscated_res_0x7f090b31);
-        this.d = (BdTypeRecyclerView) J3.findViewById(R.id.obfuscated_res_0x7f090bee);
+        this.c = (AppBarLayout) K3.findViewById(R.id.obfuscated_res_0x7f090b31);
+        this.d = (BdTypeRecyclerView) K3.findViewById(R.id.obfuscated_res_0x7f090bee);
     }
 
     public void f(is4 is4Var) {
@@ -348,7 +348,7 @@ public class t07 {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            View findViewById = this.a.J3().findViewById(R.id.obfuscated_res_0x7f090dc0);
+            View findViewById = this.a.K3().findViewById(R.id.obfuscated_res_0x7f090dc0);
             TbImageView tbImageView = (TbImageView) this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f090dbf);
             tbImageView.setPlaceHolder(2);
             TbVideoView tbVideoView = (TbVideoView) this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f092627);
@@ -420,7 +420,7 @@ public class t07 {
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.b.m(this.a.J3().findViewById(R.id.obfuscated_res_0x7f090b96), 0);
+            this.b.m(this.a.K3().findViewById(R.id.obfuscated_res_0x7f090b96), 0);
         }
     }
 

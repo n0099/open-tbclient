@@ -69,7 +69,7 @@ public class hx6 extends PriorityOrganizer.Task {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921476));
-            this.m.G4(true);
+            this.m.H4(true);
             t();
         }
     }

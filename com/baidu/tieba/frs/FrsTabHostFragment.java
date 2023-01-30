@@ -285,14 +285,14 @@ public class FrsTabHostFragment extends BaseFragment {
                 this.a.e.getCurrentFragment();
                 int Z1 = this.a.Z1(i);
                 if (Z1 != 1) {
-                    this.a.d.S3();
+                    this.a.d.T3();
                 } else {
-                    this.a.d.e5();
+                    this.a.d.f5();
                 }
                 if (Z1 != 1) {
                     if (Z1 != 4 && Z1 != 25) {
                         if (this.a.d != null) {
-                            this.a.d.I4(false);
+                            this.a.d.J4(false);
                         }
                         this.a.k.setVisibility(8);
                         this.a.g2();
@@ -300,13 +300,13 @@ public class FrsTabHostFragment extends BaseFragment {
                         this.a.k.setVisibility(0);
                     }
                     if (this.a.d != null) {
-                        this.a.d.w4(false);
+                        this.a.d.x4(false);
                         return;
                     }
                     return;
                 }
                 if (this.a.d != null) {
-                    this.a.d.I4(true);
+                    this.a.d.J4(true);
                 }
                 this.a.k.setVisibility(0);
             }
@@ -1119,11 +1119,11 @@ public class FrsTabHostFragment extends BaseFragment {
                 if (Z1 != 1) {
                     FrsFragment frsFragment = this.d;
                     if (frsFragment != null) {
-                        frsFragment.w4(false);
+                        frsFragment.x4(false);
                         if (Z1 != 4 && Z1 != 25) {
-                            this.d.I4(false);
+                            this.d.J4(false);
                             this.k.setVisibility(8);
-                            this.d.S3();
+                            this.d.T3();
                         }
                     }
                     if (this.g.getForum() != null) {
@@ -1182,8 +1182,8 @@ public class FrsTabHostFragment extends BaseFragment {
         if ((e49Var != null && e49Var.c()) || Q1()) {
             return;
         }
-        if (this.d.L3().J(502) != null) {
-            this.n.h(this.d.l(), this.d.L3().B().a);
+        if (this.d.M3().J(502) != null) {
+            this.n.h(this.d.l(), this.d.M3().B().a);
         } else {
             s2(-1);
         }

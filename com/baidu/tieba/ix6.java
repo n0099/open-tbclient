@@ -59,10 +59,13 @@ public class ix6 {
     }
 
     public void a(boolean z) {
-        fx6 fx6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (fx6Var = this.g) != null) {
-            fx6Var.F(z);
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            fx6 fx6Var = this.g;
+            if (fx6Var != null) {
+                fx6Var.F(z);
+            }
+            c();
         }
     }
 

@@ -202,7 +202,7 @@ public class o07 {
                     if (s0 != null) {
                         s0.W(0);
                     }
-                    this.a.a.j5(Boolean.TRUE);
+                    this.a.a.k5(Boolean.TRUE);
                     this.a.l(false, id);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2003004, id));
                     iw8 iw8Var = new iw8();
@@ -416,7 +416,7 @@ public class o07 {
             } else {
                 this.a.showToast(this.c.getErrorString());
             }
-            this.a.f4(Boolean.valueOf(z2));
+            this.a.g4(Boolean.valueOf(z2));
         }
     }
 

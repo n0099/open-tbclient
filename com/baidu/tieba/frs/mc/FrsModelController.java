@@ -1407,10 +1407,10 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
             if (xv8Var.getEntelechyTabInfo() != null && !ListUtils.isEmpty(xv8Var.getEntelechyTabInfo().a)) {
                 int intValue = xv8Var.getEntelechyTabInfo().a.get(0).tab_type.intValue();
                 AbsDataRecorder.Scene scene = AbsDataRecorder.Scene.FRS_HOT;
-                this.a.y4(13);
+                this.a.z4(13);
                 if (intValue == 14) {
                     scene = AbsDataRecorder.Scene.FRS_NEW;
-                    this.a.y4(14);
+                    this.a.z4(14);
                 }
                 if (js5.k().l(scene)) {
                     js5.k().g(scene).b();
@@ -1432,10 +1432,10 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
                 this.i = frsRequestData.getPn();
                 String K = this.d.K();
                 this.g = K;
-                this.a.A4(K);
+                this.a.B4(K);
                 this.a.setFrom(this.j);
-                this.a.N4(this.i);
-                this.a.z4(this.k);
+                this.a.O4(this.i);
+                this.a.A4(this.k);
             }
             if (this.b.getThreadList() != null) {
                 this.c.addAll(this.b.getThreadList());
@@ -1450,7 +1450,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
                 S0();
                 FrsFragment frsFragment = this.a;
                 if (frsFragment != null) {
-                    frsFragment.R3();
+                    frsFragment.S3();
                 }
             }
             if (!this.isNetFirstLoad && frsRequestData != null && frsRequestData.getUpdateType() == 4) {
@@ -1461,7 +1461,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
                 rn8.l().b().g(xv8Var.getForum().getName(), frsRequestData.L(), false);
             }
             if (this.a != null && !StringUtils.isNull(xv8Var.getUserData().getAppealThreadPopover())) {
-                this.a.W4(TbadkCoreApplication.getCurrentAccount(), xv8Var.getForum().getId(), xv8Var.getUserData().getAppealThreadPopover());
+                this.a.X4(TbadkCoreApplication.getCurrentAccount(), xv8Var.getForum().getId(), xv8Var.getUserData().getAppealThreadPopover());
             }
             U0(xv8Var);
             return true;
@@ -1594,10 +1594,10 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{frsRequestData, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             this.h = i;
-            this.a.u4(z);
+            this.a.v4(z);
             this.f.a(i);
             this.e.n0(frsRequestData);
-            if (this.a.Y3()) {
+            if (this.a.Z3()) {
                 str = "1";
             } else {
                 str = "2";
@@ -1683,7 +1683,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{frsRequestData, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             this.h = i;
-            this.a.u4(z);
+            this.a.v4(z);
             this.f.a(i);
             if (this.e.m0() && (this.e.getResponsedMessage() instanceof MvcHttpResponsedMessage)) {
                 y((MvcHttpResponsedMessage) this.e.getResponsedMessage(), (MvcHttpMessage) this.e.j0(), this.e.k0());

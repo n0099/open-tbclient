@@ -276,7 +276,7 @@ public class iw6 {
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (frsFragment = this.g) == null) {
             return;
         }
-        frsFragment.L3().b(49);
+        frsFragment.M3().b(49);
     }
 
     public final void m() {
@@ -428,7 +428,7 @@ public class iw6 {
             if (System.currentTimeMillis() - o() < FlushManager.ReportTimer.DEFAULT_INTERVAL) {
                 return;
             }
-            if (this.g.c4() && r()) {
+            if (this.g.d4() && r()) {
                 this.e = false;
                 return;
             }

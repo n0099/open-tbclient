@@ -1660,8 +1660,8 @@ public class xq6 extends c17 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
             FrsFragment frsFragment = this.b;
-            if (frsFragment != null && frsFragment.L3() != null) {
-                View D = this.b.L3().D();
+            if (frsFragment != null && frsFragment.M3() != null) {
+                View D = this.b.M3().D();
                 if (D instanceof LinearGradientView) {
                     return (LinearGradientView) D;
                 }
@@ -2038,7 +2038,7 @@ public class xq6 extends c17 {
             this.I0.setVisibility(this.i1.l(LogicField.TOP_DIVIDER));
         }
         FrsFragment frsFragment = this.b;
-        if (frsFragment != null && frsFragment.d4()) {
+        if (frsFragment != null && frsFragment.e4()) {
             this.B.setVisibility(0);
             this.B.setFragmentUniqueId(this.b.getUniqueId());
             FrsViewData frsViewData4 = this.z1;
@@ -2212,7 +2212,7 @@ public class xq6 extends c17 {
             if (vz6.f()) {
                 this.n1.setVisibility(8);
                 FrsFragment frsFragment = this.b;
-                if (frsFragment != null && !this.z1.isFromCache && (this.w1 || (!frsFragment.a4() && !this.b.Z3() && !this.b.E3()))) {
+                if (frsFragment != null && !this.z1.isFromCache && (this.w1 || (!frsFragment.b4() && !this.b.a4() && !this.b.E3()))) {
                     this.k1.start();
                 }
             } else {
@@ -2353,7 +2353,7 @@ public class xq6 extends c17 {
 
     public final void k1(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048620, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || this.b.L3() == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048620, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || this.b.M3() == null) {
             return;
         }
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.E0.getLayoutParams();
@@ -2367,7 +2367,7 @@ public class xq6 extends c17 {
             this.G0.setVisibility(this.i1.l(LogicField.SERVICE_AREA));
             layoutParams.topMargin = zi.g(this.a.getPageActivity(), R.dimen.tbds55);
         }
-        this.b.L3().t(z, z2);
+        this.b.M3().t(z, z2);
     }
 
     public final void R1(ht4 ht4Var, int i2) {

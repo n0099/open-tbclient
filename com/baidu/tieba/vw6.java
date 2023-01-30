@@ -37,7 +37,7 @@ public class vw6 {
             this.b = frsFragment;
             this.d = frsFragment.s0();
             this.a = this.b.u1();
-            this.c = this.b.L3();
+            this.c = this.b.M3();
             this.e = this.b.P0();
             this.f = this.b.G3();
             this.g = this.b.i1();

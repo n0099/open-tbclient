@@ -289,14 +289,14 @@ public class oz6 {
                     c(1, frsFragment.getString(R.string.obfuscated_res_0x7f0f06fa), String.valueOf((int) R.drawable.obfuscated_res_0x7f080fe6), "", frsFragment);
                     cz4.l().v("key_forum_tool_find_dialog_show", true);
                     if (frsFragment != null) {
-                        frsFragment.G4(true);
+                        frsFragment.H4(true);
                     }
                     return true;
                 } else if (!i && is_manager == 2) {
                     c(2, frsFragment.getString(R.string.obfuscated_res_0x7f0f06f9), String.valueOf((int) R.drawable.obfuscated_res_0x7f080fe6), "", frsFragment);
                     cz4.l().v("key_forum_tool_find_dialog_show", true);
                     if (frsFragment != null) {
-                        frsFragment.G4(true);
+                        frsFragment.H4(true);
                     }
                     return true;
                 } else {
@@ -304,7 +304,7 @@ public class oz6 {
                     if (addBawuPopInfo != null) {
                         c(3, addBawuPopInfo.content, addBawuPopInfo.img_url, addBawuPopInfo.jump_url, frsFragment);
                         if (frsFragment != null) {
-                            frsFragment.G4(true);
+                            frsFragment.H4(true);
                         }
                         return true;
                     }
@@ -393,7 +393,7 @@ public class oz6 {
             }
             TiebaStatic.log(statisticItem);
             if (frsFragment != null) {
-                frsFragment.G4(true);
+                frsFragment.H4(true);
             }
             tw4.o("frsShield");
             return true;

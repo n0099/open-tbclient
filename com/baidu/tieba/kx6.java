@@ -194,7 +194,7 @@ public class kx6 extends PriorityOrganizer.Task {
                 yu8Var.f(new b(this));
                 tw4.o("userIcon");
                 if (!this.o) {
-                    this.n.G4(true);
+                    this.n.H4(true);
                     return;
                 }
                 return;

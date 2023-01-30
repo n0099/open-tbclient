@@ -99,14 +99,14 @@ public class s07 extends vw6 {
                 if (this.a.a != null && this.a.a.o0() != null) {
                     this.a.a.o0().y();
                 }
-                this.a.b.L4(false);
+                this.a.b.M4(false);
                 bh.a().postDelayed(new a(this), 110L);
                 this.a.a.z1(1, true);
                 if (BdNetTypeUtil.isNetWorkAvailable()) {
                     this.a.b.refresh();
-                    this.a.b.L4(true);
+                    this.a.b.M4(true);
                 } else {
-                    this.a.b.Z4();
+                    this.a.b.a5();
                 }
                 TiebaStatic.log(new StatisticItem("c11749").param("fid", this.a.b.X()).param("obj_locate", "1"));
             }
@@ -116,19 +116,19 @@ public class s07 extends vw6 {
         public void h0() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.b != null && this.a.b.isAdded()) {
-                if (this.a.i && this.a.b.L3() != null) {
+                if (this.a.i && this.a.b.M3() != null) {
                     if (!this.a.k) {
-                        this.a.b.L3().i0();
+                        this.a.b.M3().i0();
                     }
                     this.a.i = false;
                 }
-                if (this.a.h != null && this.a.b.u1() != null && this.a.b.u1().c0() != null && !this.a.b.u1().c0().o() && this.a.b.L3() != null && !this.a.b.L3().Y()) {
+                if (this.a.h != null && this.a.b.u1() != null && this.a.b.u1().c0() != null && !this.a.b.u1().c0().o() && this.a.b.M3() != null && !this.a.b.M3().Y()) {
                     this.a.h.b();
                 }
                 if (this.a.a != null && this.a.f != null && this.a.d != null && this.a.h != null) {
                     this.a.a.o0().n(0, 0, true, true);
-                    this.a.b.t4();
-                    this.a.b.L4(true);
+                    this.a.b.u4();
+                    this.a.b.M4(true);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016524));
                     if (!TbadkCoreApplication.isLogin() || this.a.b.F3().getVisibility() != 0 || ListUtils.isEmpty(this.a.b.X0().getThreadList())) {
                     }
@@ -176,7 +176,7 @@ public class s07 extends vw6 {
                 return;
             }
             this.a.k = true;
-            this.a.b.L3().O();
+            this.a.b.M3().O();
         }
     }
 

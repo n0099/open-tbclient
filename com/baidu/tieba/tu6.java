@@ -847,7 +847,7 @@ public class tu6 implements qq5, VoiceManager.j, FrsCommonImageLayout.e {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
                 Integer num = (Integer) customResponsedMessage.getData();
-                if (this.a.b != null && this.a.H != null && this.a.b.L3() != null && this.a.b.L3().B() != null && (this.a.b.L3().B().b instanceof BaseFragment)) {
+                if (this.a.b != null && this.a.H != null && this.a.b.M3() != null && this.a.b.M3().B() != null && (this.a.b.M3().B().b instanceof BaseFragment)) {
                     if (num.intValue() == 2 && this.a.H.getState() == 2) {
                         this.a.H.c();
                     } else if (num.intValue() == 0 && this.a.H.getState() == 1) {
@@ -918,7 +918,7 @@ public class tu6 implements qq5, VoiceManager.j, FrsCommonImageLayout.e {
                         this.a.W();
                     }
                     if (this.a.B && this.a.I && this.a.a0() != null) {
-                        this.a.a0().x4(true);
+                        this.a.a0().y4(true);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2003025));
                         this.a.B = false;
                     }
@@ -1610,7 +1610,7 @@ public class tu6 implements qq5, VoiceManager.j, FrsCommonImageLayout.e {
                 if (d0 != -1 && this.a.n0() && this.a.c != null) {
                     this.a.c.n2(d0);
                     if (this.a.c0(d0) != 1) {
-                        this.a.b.w4(false);
+                        this.a.b.x4(false);
                     }
                 }
             }
@@ -1637,8 +1637,8 @@ public class tu6 implements qq5, VoiceManager.j, FrsCommonImageLayout.e {
     public final void H0() {
         FrsFragment frsFragment;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (frsFragment = this.b) != null && frsFragment.L3() != null) {
-            this.b.L3().f0(new q(this));
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (frsFragment = this.b) != null && frsFragment.M3() != null) {
+            this.b.M3().f0(new q(this));
         }
     }
 
@@ -1763,7 +1763,7 @@ public class tu6 implements qq5, VoiceManager.j, FrsCommonImageLayout.e {
         this.x = false;
         this.A = true;
         this.B = true;
-        this.C = false;
+        this.C = true;
         this.G = hc5.a();
         this.I = false;
         this.L = new k(this, CmdConfigHttp.FRS_HTTP_CMD, 301001);
@@ -1927,7 +1927,7 @@ public class tu6 implements qq5, VoiceManager.j, FrsCommonImageLayout.e {
         FrsFragment frsFragment;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048622, this, intent) == null) && (frsFragment = this.b) != null) {
-            frsFragment.j4(intent);
+            frsFragment.k4(intent);
         }
     }
 
@@ -1994,9 +1994,9 @@ public class tu6 implements qq5, VoiceManager.j, FrsCommonImageLayout.e {
             try {
                 FragmentTransaction beginTransaction = Z.beginTransaction();
                 FrsFragment p0 = p0(bundle);
-                p0.Q4(this.p);
-                p0.S4(this.q);
-                p0.R4(this.t);
+                p0.R4(this.p);
+                p0.T4(this.q);
+                p0.S4(this.t);
                 beginTransaction.add(R.id.obfuscated_res_0x7f090b63, p0);
                 beginTransaction.commitNowAllowingStateLoss();
             } catch (Exception e2) {
@@ -2064,7 +2064,7 @@ public class tu6 implements qq5, VoiceManager.j, FrsCommonImageLayout.e {
             if (this.l != this.j && n0()) {
                 this.c.n2(this.j);
                 if (c0(this.j) != 1) {
-                    this.b.w4(false);
+                    this.b.x4(false);
                 }
                 this.l = this.j;
                 I0(this.c.U1(), this.j);
@@ -2153,8 +2153,8 @@ public class tu6 implements qq5, VoiceManager.j, FrsCommonImageLayout.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             FrsFragment frsFragment = this.b;
-            if (frsFragment != null && frsFragment.L3() != null && this.b.L3().B() != null) {
-                return this.b.L3().B().a;
+            if (frsFragment != null && frsFragment.M3() != null && this.b.M3().B() != null) {
+                return this.b.M3().B().a;
             }
             return -1;
         }
@@ -2314,8 +2314,8 @@ public class tu6 implements qq5, VoiceManager.j, FrsCommonImageLayout.e {
                 cz4.l().v("frs_game_login_tip", false);
             }
             m0(list);
-            if (this.b.L3() != null) {
-                this.b.L3().V(true);
+            if (this.b.M3() != null) {
+                this.b.M3().V(true);
             }
             return true;
         }
@@ -2416,7 +2416,7 @@ public class tu6 implements qq5, VoiceManager.j, FrsCommonImageLayout.e {
         }
         k0(bundle);
         j0(this.h);
-        this.b.M4(this.H);
+        this.b.N4(this.H);
         this.D = new ix6(this.a, this.b);
         this.m = new ShareSuccessReplyToServerModel();
         this.E = new a07(this.a);

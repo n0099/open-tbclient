@@ -111,7 +111,7 @@ public class q07 extends q9<BaseFragmentActivity> {
             if (X0 != null && X0.getForum() != null && this.a.c != null && (view2 == this.a.c.f() || view2 == this.a.c.g() || view2 == this.a.c.j() || logicField == LogicField.INFO_AREA)) {
                 StatisticItem statisticItem = new StatisticItem("c12046");
                 if (this.a.a != null && X0.getForum() != null) {
-                    if (this.a.a.Y3()) {
+                    if (this.a.a.Z3()) {
                         i = 1;
                     } else {
                         i = 2;

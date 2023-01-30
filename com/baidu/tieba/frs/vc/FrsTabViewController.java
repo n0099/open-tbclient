@@ -384,11 +384,11 @@ public class FrsTabViewController implements w07, TbTabLayout.c {
                     }
                     int i2 = 0;
                     a(iVar.a, 0);
-                    OvalActionButton O3 = this.a.a.O3();
+                    OvalActionButton P3 = this.a.a.P3();
                     if (!this.a.a.h3(iVar.a)) {
                         i2 = 8;
                     }
-                    O3.setVisibility(i2);
+                    P3.setVisibility(i2);
                 }
                 if (this.a.a != null && (this.a.a.getActivity() instanceof FrsActivity)) {
                     ((FrsActivity) this.a.a.getActivity()).R0().a();
@@ -1425,7 +1425,7 @@ public class FrsTabViewController implements w07, TbTabLayout.c {
                 SkinManager.setBackgroundColor(this.b, R.color.CAM_X0207);
                 SkinManager.setBackgroundColor(this.d, R.color.CAM_X0207);
                 this.c.setVisibility(0);
-                this.a.S3();
+                this.a.T3();
             } else if (i2 == 1) {
                 SkinManager.setBackgroundColor(this.b, R.color.CAM_X0207);
                 SkinManager.setBackgroundColor(this.d, R.color.CAM_X0207);
@@ -1435,7 +1435,7 @@ public class FrsTabViewController implements w07, TbTabLayout.c {
                 this.c.setVisibility(8);
                 FrsFragment frsFragment = this.a;
                 if (frsFragment != null) {
-                    frsFragment.S3();
+                    frsFragment.T3();
                 }
             }
         }
@@ -1556,11 +1556,11 @@ public class FrsTabViewController implements w07, TbTabLayout.c {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001625, Integer.valueOf(xy6Var.b)));
                     }
                     if (xy6Var.b == 502) {
-                        if (this.a.O3() != null) {
-                            this.a.O3().setIconFade(R.drawable.btn_frs_professional_edit_n);
+                        if (this.a.P3() != null) {
+                            this.a.P3().setIconFade(R.drawable.btn_frs_professional_edit_n);
                         }
-                    } else if (this.a.O3() != null) {
-                        this.a.O3().setIconFade(0);
+                    } else if (this.a.P3() != null) {
+                        this.a.P3().setIconFade(0);
                     }
                     if (UbsABTestHelper.isFrsTabLocationTestC()) {
                         FrsTabTestHelper.storeUserLastAccessTab(xy6Var.a);

@@ -82,8 +82,8 @@ public class ax6 extends PriorityOrganizer.Task {
             }
             if (z) {
                 boolean j = vz6.j(frsResponseData.getBusinessPromot(), frsResponseData.getForum().getId());
-                this.m.C4(j);
-                this.m.G4(j);
+                this.m.D4(j);
+                this.m.H4(j);
                 return j;
             }
             return z;

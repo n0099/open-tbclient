@@ -86,7 +86,7 @@ public class pz6 {
                 FrsFragment frsFragment = this.c;
                 if (frsFragment != null && frsFragment.u1() != null) {
                     frsAllThreadFragment.E1(this.c.u1().Z());
-                    this.c.O4(a27.e(this.d, this.e.showAdsense.intValue()));
+                    this.c.P4(a27.e(this.d, this.e.showAdsense.intValue()));
                 }
                 Bundle bundle = new Bundle();
                 FrsFragment frsFragment2 = this.c;

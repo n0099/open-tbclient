@@ -259,7 +259,7 @@ public class ex6 extends PriorityOrganizer.Task {
             wv4Var.setOnDismissListener(new c(this));
             wv4Var.create(this.m.getPageContext()).show();
             py6.f(this.p, this.q, this.r, this.s, false);
-            this.m.G4(true);
+            this.m.H4(true);
             tw4.o("frsExam");
         }
     }

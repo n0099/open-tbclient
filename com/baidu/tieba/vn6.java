@@ -244,7 +244,7 @@ public class vn6 {
             if (interceptable == null || interceptable.invokeLIL(1048576, this, yv4Var, i, view2) == null) {
                 yv4Var.e();
                 if (i == 0) {
-                    this.a.a.i5();
+                    this.a.a.j5();
                 } else if (i == 1 && this.a.a.getPageContext() != null) {
                     SelectImageHelper.getAlbumImage(this.a.a.getPageContext().getPageActivity());
                 }
@@ -612,8 +612,8 @@ public class vn6 {
                 this.a.i0 = i;
                 CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921397, Integer.valueOf(i));
                 CustomMessage customMessage = new CustomMessage(2921397);
-                if (this.a.a != null && this.a.a.L3() != null && this.a.a.L3().B() != null && (this.a.a.L3().B().b instanceof BaseFragment)) {
-                    customMessage.setTag(((BaseFragment) this.a.a.L3().B().b).getUniqueId());
+                if (this.a.a != null && this.a.a.M3() != null && this.a.a.M3().B() != null && (this.a.a.M3().B().b instanceof BaseFragment)) {
+                    customMessage.setTag(((BaseFragment) this.a.a.M3().B().b).getUniqueId());
                     customResponsedMessage.setOrginalMessage(customMessage);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
@@ -821,9 +821,9 @@ public class vn6 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.a.Q3();
+                this.a.a.R3();
                 if (this.a.a != null && this.a.c0 != null) {
-                    this.a.a.v4();
+                    this.a.a.w4();
                     this.a.c0.setExpanded(true);
                     if (this.a.R != null) {
                         this.a.R.n(this.a.S, this.a.T, false, true);
@@ -1294,8 +1294,8 @@ public class vn6 {
                 return;
             }
             FrsFragment frsFragment = this.a;
-            if (frsFragment != null && frsFragment.L3() != null && this.a.L3().B() != null) {
-                z2 = this.a.L3().B().b instanceof FrsAllThreadFragment;
+            if (frsFragment != null && frsFragment.M3() != null && this.a.M3().B() != null) {
+                z2 = this.a.M3().B().b instanceof FrsAllThreadFragment;
             } else {
                 z2 = true;
             }
@@ -1702,7 +1702,7 @@ public class vn6 {
     public void f1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048656, this) == null) {
-            I0(this.Z, this.a.Y3());
+            I0(this.Z, this.a.Z3());
             gs6 gs6Var = this.v;
             if (gs6Var != null) {
                 gs6Var.e();
@@ -1966,9 +1966,9 @@ public class vn6 {
         if ((interceptable != null && interceptable.invokeV(1048590, this) != null) || this.O != null) {
             return;
         }
-        View J3 = this.a.J3();
-        this.O = (GifView) J3.findViewById(R.id.obfuscated_res_0x7f090cf3);
-        TbImageView tbImageView = (TbImageView) J3.findViewById(R.id.obfuscated_res_0x7f0921ec);
+        View K3 = this.a.K3();
+        this.O = (GifView) K3.findViewById(R.id.obfuscated_res_0x7f090cf3);
+        TbImageView tbImageView = (TbImageView) K3.findViewById(R.id.obfuscated_res_0x7f0921ec);
         this.P = tbImageView;
         tbImageView.setPageId(this.a.getUniqueId());
         this.O.setLayerType(1, null);
@@ -2084,51 +2084,51 @@ public class vn6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048592, this, is6Var, z) == null) {
             this.Z = is6Var;
-            View J3 = this.a.J3();
+            View K3 = this.a.K3();
             if (this.b == null) {
-                this.b = (NoPressedRelativeLayout) J3.findViewById(R.id.obfuscated_res_0x7f090b1e);
+                this.b = (NoPressedRelativeLayout) K3.findViewById(R.id.obfuscated_res_0x7f090b1e);
             }
             if (this.d == null) {
-                this.d = J3.findViewById(R.id.obfuscated_res_0x7f090b55);
+                this.d = K3.findViewById(R.id.obfuscated_res_0x7f090b55);
             }
             if (this.c == null) {
-                this.c = (CoordinatorLayout) J3.findViewById(R.id.obfuscated_res_0x7f090c0a);
+                this.c = (CoordinatorLayout) K3.findViewById(R.id.obfuscated_res_0x7f090c0a);
             }
             if (this.E == null) {
-                this.E = J3.findViewById(R.id.obfuscated_res_0x7f090be4);
+                this.E = K3.findViewById(R.id.obfuscated_res_0x7f090be4);
             }
             if (this.F == null) {
-                this.F = (FrameLayout) J3.findViewById(R.id.obfuscated_res_0x7f090c51);
+                this.F = (FrameLayout) K3.findViewById(R.id.obfuscated_res_0x7f090c51);
             }
             if (this.f0 == null) {
-                this.f0 = (CollapsingToolbarLayout) J3.findViewById(R.id.obfuscated_res_0x7f090b53);
+                this.f0 = (CollapsingToolbarLayout) K3.findViewById(R.id.obfuscated_res_0x7f090b53);
             }
             if (this.e0 == null) {
-                this.e0 = (FrsHeaderViewContainer) J3.findViewById(R.id.obfuscated_res_0x7f090de3);
+                this.e0 = (FrsHeaderViewContainer) K3.findViewById(R.id.obfuscated_res_0x7f090de3);
             }
             if (this.w == null) {
                 this.w = new t07(this.a);
             }
             if (this.W == null) {
-                ObservedChangeLinearLayout observedChangeLinearLayout = (ObservedChangeLinearLayout) J3.findViewById(R.id.obfuscated_res_0x7f09170d);
+                ObservedChangeLinearLayout observedChangeLinearLayout = (ObservedChangeLinearLayout) K3.findViewById(R.id.obfuscated_res_0x7f09170d);
                 this.W = observedChangeLinearLayout;
                 observedChangeLinearLayout.setOnSizeChangeListener(new j(this));
                 if (this.X == null) {
                     this.X = (FrsTopBarGroupEntranceGuideView) this.W.findViewById(R.id.obfuscated_res_0x7f0923a9);
                 }
             }
-            this.C.h(this.a, J3, this.y);
+            this.C.h(this.a, K3, this.y);
             if (this.B == null) {
                 this.B = this.C.e();
                 z2 = true;
             } else {
                 z2 = false;
             }
-            if (this.a.Y3()) {
+            if (this.a.Z3()) {
                 this.B.setVisibility(8);
             }
             if (this.D == null) {
-                this.D = J3.findViewById(R.id.obfuscated_res_0x7f090c09);
+                this.D = K3.findViewById(R.id.obfuscated_res_0x7f090c09);
                 js6 c2 = is6Var.c();
                 if (c2 != null) {
                     c2.b(this.D);
@@ -2172,7 +2172,7 @@ public class vn6 {
                 SkinManager.setBackgroundColor(this.B.getBottomLine(), R.color.CAM_X0204);
             }
             if (this.u == null) {
-                this.u = (BdTypeRecyclerView) J3.findViewById(R.id.obfuscated_res_0x7f090bee);
+                this.u = (BdTypeRecyclerView) K3.findViewById(R.id.obfuscated_res_0x7f090bee);
             }
             k kVar = new k(this);
             kVar.setSupportsChangeAnimations(false);
@@ -2231,17 +2231,17 @@ public class vn6 {
             if (this.L == null) {
                 m07 a2 = is6Var.a(this.a, this.b);
                 this.L = a2;
-                a2.x(this.a.O3());
+                a2.x(this.a.P3());
             }
             if (this.M == null) {
                 this.M = is6Var.d(this.a, this.b);
                 t1(true);
             }
             if (this.U == null) {
-                this.U = J3.findViewById(R.id.obfuscated_res_0x7f092073);
+                this.U = K3.findViewById(R.id.obfuscated_res_0x7f092073);
             }
             if (this.V == null) {
-                this.V = J3.findViewById(R.id.obfuscated_res_0x7f092074);
+                this.V = K3.findViewById(R.id.obfuscated_res_0x7f092074);
             }
             if (this.R == null) {
                 this.R = new gk8(this.a.getPageContext(), this.u);
@@ -2251,13 +2251,13 @@ public class vn6 {
             if (this.u0 == null) {
                 this.u0 = new bc9(this.a.getPageContext(), this.u);
             }
-            NavigationBarCoverTip navigationBarCoverTip = (NavigationBarCoverTip) J3.findViewById(R.id.obfuscated_res_0x7f09170f);
+            NavigationBarCoverTip navigationBarCoverTip = (NavigationBarCoverTip) K3.findViewById(R.id.obfuscated_res_0x7f09170f);
             this.n0 = navigationBarCoverTip;
             if (this.N == null) {
                 this.N = new v07(this.a, navigationBarCoverTip);
             }
             if (this.c0 == null) {
-                AppBarLayout appBarLayout = (AppBarLayout) J3.findViewById(R.id.obfuscated_res_0x7f090b31);
+                AppBarLayout appBarLayout = (AppBarLayout) K3.findViewById(R.id.obfuscated_res_0x7f090b31);
                 this.c0 = appBarLayout;
                 appBarLayout.addOnOffsetChangedListener(this.w0);
                 this.g0 = true;
@@ -2267,19 +2267,19 @@ public class vn6 {
                     this.d0 = (AppBarLayoutStickyBehavior) layoutParams.getBehavior();
                 }
             }
-            FrsMultiDelBottomMenuView frsMultiDelBottomMenuView = (FrsMultiDelBottomMenuView) J3.findViewById(R.id.obfuscated_res_0x7f090c02);
+            FrsMultiDelBottomMenuView frsMultiDelBottomMenuView = (FrsMultiDelBottomMenuView) K3.findViewById(R.id.obfuscated_res_0x7f090c02);
             this.l0 = frsMultiDelBottomMenuView;
             frsMultiDelBottomMenuView.setPageContext(this.a.getPageContext());
-            FrsMoveAreaBottomMenuView frsMoveAreaBottomMenuView = (FrsMoveAreaBottomMenuView) J3.findViewById(R.id.obfuscated_res_0x7f090bff);
+            FrsMoveAreaBottomMenuView frsMoveAreaBottomMenuView = (FrsMoveAreaBottomMenuView) K3.findViewById(R.id.obfuscated_res_0x7f090bff);
             this.m0 = frsMoveAreaBottomMenuView;
             frsMoveAreaBottomMenuView.setPageContext(this.a.getPageContext());
             if (this.p0 == null) {
                 this.p0 = (TextView) this.C.a(LogicField.FOLD_TITLE);
             }
-            ExposeTagViewCoordinatorLayout exposeTagViewCoordinatorLayout = (ExposeTagViewCoordinatorLayout) J3.findViewById(R.id.obfuscated_res_0x7f090c0a);
+            ExposeTagViewCoordinatorLayout exposeTagViewCoordinatorLayout = (ExposeTagViewCoordinatorLayout) K3.findViewById(R.id.obfuscated_res_0x7f090c0a);
             this.r = exposeTagViewCoordinatorLayout;
             exposeTagViewCoordinatorLayout.setListener(new o(this));
-            FrsTabViewPager frsTabViewPager = (FrsTabViewPager) J3.findViewById(R.id.obfuscated_res_0x7f090c66);
+            FrsTabViewPager frsTabViewPager = (FrsTabViewPager) K3.findViewById(R.id.obfuscated_res_0x7f090c66);
             this.s = frsTabViewPager;
             frsTabViewPager.addOnPageChangeListener(new p(this));
         }
@@ -2317,7 +2317,7 @@ public class vn6 {
         }
         FrsFragment frsFragment2 = this.a;
         if (frsFragment2 != null) {
-            frsFragment2.K4();
+            frsFragment2.L4();
         }
         FrsMultiDelBottomMenuView frsMultiDelBottomMenuView = this.l0;
         if (frsMultiDelBottomMenuView != null) {
@@ -2334,10 +2334,10 @@ public class vn6 {
         ViewGroup.MarginLayoutParams marginLayoutParams;
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048611, this, appBarLayout, i2) == null) && (frsFragment = this.a) != null && appBarLayout != null && frsFragment.L3() != null && this.a.getPageContext() != null) {
+        if ((interceptable == null || interceptable.invokeLI(1048611, this, appBarLayout, i2) == null) && (frsFragment = this.a) != null && appBarLayout != null && frsFragment.M3() != null && this.a.getPageContext() != null) {
             int d0 = d0() + l0() + n0();
             int totalScrollRange = (appBarLayout.getTotalScrollRange() - Math.abs(i2)) + this.C.g();
-            FrsTabViewController L3 = this.a.L3();
+            FrsTabViewController M3 = this.a.M3();
             ViewGroup.LayoutParams layoutParams = this.d.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
@@ -2345,26 +2345,26 @@ public class vn6 {
                 marginLayoutParams = new ViewGroup.MarginLayoutParams(layoutParams);
             }
             FrsFragment frsFragment2 = this.a;
-            if (frsFragment2 != null && frsFragment2.h4()) {
+            if (frsFragment2 != null && frsFragment2.i4()) {
                 z = true;
             } else {
                 z = false;
             }
             if (totalScrollRange <= 0) {
                 if (this.r0 != 2) {
-                    L3.f(2);
+                    M3.f(2);
                 }
                 this.r0 = 2;
                 marginLayoutParams.topMargin = 0;
             } else if (totalScrollRange > 0 && totalScrollRange < d0) {
                 if (this.r0 != 1) {
-                    L3.f(1);
+                    M3.f(1);
                 }
                 this.r0 = 1;
                 marginLayoutParams.topMargin = 0;
             } else {
                 if (this.r0 != 0) {
-                    L3.f(0);
+                    M3.f(0);
                 }
                 this.r0 = 0;
                 if (z) {
@@ -2539,13 +2539,13 @@ public class vn6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048616, this, sv4Var) == null) {
             if (this.n == null) {
-                View J3 = this.a.J3();
-                ViewStub viewStub = (ViewStub) J3.findViewById(R.id.obfuscated_res_0x7f0927db);
+                View K3 = this.a.K3();
+                ViewStub viewStub = (ViewStub) K3.findViewById(R.id.obfuscated_res_0x7f0927db);
                 this.n = viewStub;
                 viewStub.setVisibility(0);
-                this.o = (FrameLayout) J3.findViewById(R.id.obfuscated_res_0x7f090ca4);
-                this.p = (TbImageView) J3.findViewById(R.id.obfuscated_res_0x7f090ca3);
-                this.q = (TbImageView) J3.findViewById(R.id.obfuscated_res_0x7f090ca5);
+                this.o = (FrameLayout) K3.findViewById(R.id.obfuscated_res_0x7f090ca4);
+                this.p = (TbImageView) K3.findViewById(R.id.obfuscated_res_0x7f090ca3);
+                this.q = (TbImageView) K3.findViewById(R.id.obfuscated_res_0x7f090ca5);
                 this.p.setPageId(this.a.getUniqueId());
                 this.q.setPageId(this.a.getUniqueId());
                 this.p.setDefaultBgResource(R.color.common_color_10022);
@@ -2829,8 +2829,8 @@ public class vn6 {
                 imageView2.setAlpha(f3);
             }
             FrsFragment frsFragment = this.a;
-            if (frsFragment != null && frsFragment.L3() != null && this.q0 == 1) {
-                this.a.L3().g0(f3);
+            if (frsFragment != null && frsFragment.M3() != null && this.q0 == 1) {
+                this.a.M3().g0(f3);
             }
             MessageRedDotView messageRedDotView = this.h;
             if (messageRedDotView != null) {

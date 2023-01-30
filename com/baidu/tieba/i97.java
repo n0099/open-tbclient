@@ -871,31 +871,23 @@ public class i97 {
     }
 
     public void z(List<yn> list, int i) {
-        View view2;
-        int bottom;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048597, this, list, i) == null) {
             hw8.f(list, 2);
             ViewGroup listView = this.b.getListView();
             if (i > 0 && (listView instanceof BdRecyclerView)) {
                 BdRecyclerView bdRecyclerView = (BdRecyclerView) listView;
-                int lastVisiblePosition = bdRecyclerView.getLastVisiblePosition() - 1;
-                RecyclerView.ViewHolder findViewHolderForAdapterPosition = bdRecyclerView.findViewHolderForAdapterPosition(lastVisiblePosition);
-                if (findViewHolderForAdapterPosition == null) {
-                    view2 = null;
-                } else {
-                    view2 = findViewHolderForAdapterPosition.itemView;
-                }
-                if (view2 == null) {
-                    bottom = 0;
-                } else {
-                    bottom = view2.getBottom();
+                int firstVisiblePosition = bdRecyclerView.getFirstVisiblePosition();
+                int i2 = 0;
+                View childAt = bdRecyclerView.getChildAt(0);
+                if (childAt != null) {
+                    i2 = childAt.getTop();
                 }
                 RecyclerView.LayoutManager layoutManager = bdRecyclerView.getLayoutManager();
-                int i2 = lastVisiblePosition - (i + 1);
+                int i3 = firstVisiblePosition - i;
                 if (layoutManager instanceof LinearLayoutManager) {
                     bdRecyclerView.B();
-                    ((LinearLayoutManager) layoutManager).scrollToPositionWithOffset(i2, bottom);
+                    ((LinearLayoutManager) layoutManager).scrollToPositionWithOffset(i3, i2);
                     bdRecyclerView.C();
                 }
             }

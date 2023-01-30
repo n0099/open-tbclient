@@ -445,7 +445,7 @@ public class FrsActivity extends BaseFragmentActivity implements qq5, VoiceManag
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
             tu6 tu6Var = this.a;
-            if (tu6Var != null && tu6Var.a0() != null && this.a.a0().L3() != null && this.a.a0().L3().B() != null && this.a.a0().L3().B().d == 16) {
+            if (tu6Var != null && tu6Var.a0() != null && this.a.a0().M3() != null && this.a.a0().M3().B() != null && this.a.a0().M3().B().d == 16) {
                 return true;
             }
             return false;

@@ -97,13 +97,13 @@ public class pw6 extends vw6 {
                             BdTopToast bdTopToast = new BdTopToast(this.a.b.getContext());
                             bdTopToast.h(true);
                             bdTopToast.g(this.a.b.getContext().getString(R.string.shield_success));
-                            bdTopToast.i((ViewGroup) this.a.b.J3());
+                            bdTopToast.i((ViewGroup) this.a.b.K3());
                             return;
                         }
                         BdTopToast bdTopToast2 = new BdTopToast(this.a.b.getContext());
                         bdTopToast2.h(true);
                         bdTopToast2.g(this.a.b.getContext().getString(R.string.delete_success));
-                        bdTopToast2.i((ViewGroup) this.a.b.J3());
+                        bdTopToast2.i((ViewGroup) this.a.b.K3());
                     }
                 }
             }
@@ -558,7 +558,7 @@ public class pw6 extends vw6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048582, this, du4Var, i, jSONObject) == null) {
             if (i == 1) {
-                FrsTabViewController.i B = this.b.L3().B();
+                FrsTabViewController.i B = this.b.M3().B();
                 if (B != null) {
                     Fragment fragment = B.b;
                     if (fragment instanceof FrsCommonTabFragment) {
@@ -566,13 +566,13 @@ public class pw6 extends vw6 {
                     }
                 }
             } else if (i == 2) {
-                FrsTabViewController.i I = this.b.L3().I(301);
+                FrsTabViewController.i I = this.b.M3().I(301);
                 if (I != null && (I.b instanceof FrsGoodFragment)) {
                     this.c.b(301);
                     ((FrsGoodFragment) I.b).c2(du4Var);
                 }
             } else if (du4Var.getTabId() > 0) {
-                FrsTabViewController.i I2 = this.b.L3().I(du4Var.getTabId());
+                FrsTabViewController.i I2 = this.b.M3().I(du4Var.getTabId());
                 if (I2 != null) {
                     Fragment fragment2 = I2.b;
                     if (fragment2 instanceof FrsCommonTabFragment) {
@@ -585,7 +585,7 @@ public class pw6 extends vw6 {
                 if (!ListUtils.isEmpty(du4Var.getItemStar())) {
                     du4Var.insertItemToTitleOrAbstractText();
                 }
-                FrsTabViewController.i I3 = this.b.L3().I(this.b.L3().E());
+                FrsTabViewController.i I3 = this.b.M3().I(this.b.M3().E());
                 if (I3 != null) {
                     Fragment fragment3 = I3.b;
                     if (fragment3 instanceof FrsNewAreaFragment) {

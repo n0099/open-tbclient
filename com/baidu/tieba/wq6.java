@@ -43,7 +43,7 @@ public class wq6 implements is6 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, frsFragment, noPressedRelativeLayout)) == null) {
-            if (!frsFragment.Y3()) {
+            if (!frsFragment.Z3()) {
                 return new m07(frsFragment, noPressedRelativeLayout);
             }
             return null;

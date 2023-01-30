@@ -50,6 +50,10 @@ public class gx6 extends PriorityOrganizer.Task {
         ic5.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            FrsFragment frsFragment = this.m;
+            if (frsFragment != null) {
+                this.o = frsFragment.H3();
+            }
             if (cz4.l().i("key_chat_group_guide_show", false) || (bVar = this.o) == null || !bVar.k0()) {
                 return false;
             }
